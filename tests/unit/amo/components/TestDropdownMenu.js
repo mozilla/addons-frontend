@@ -1,5 +1,5 @@
 import * as React from 'react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import DropdownMenu from 'amo/components/DropdownMenu';
 import DropdownMenuItem from 'amo/components/DropdownMenuItem';
@@ -11,11 +11,6 @@ describe(__filename, () => {
   let _window = {
     matchMedia: jest.fn().mockReturnValue({ matches: false }),
   };
-  let userEvent;
-
-  beforeEach(() => {
-    userEvent = defaultUserEvent.setup();
-  });
 
   const getMenu = () => screen.getByClassName('DropdownMenu');
   const getMenuButton = (name = defaultMenuText) =>

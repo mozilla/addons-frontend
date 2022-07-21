@@ -1,5 +1,5 @@
 import * as React from 'react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 
 import Notice from 'amo/components/Notice';
@@ -15,11 +15,9 @@ describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
   const lang = 'en-US';
   let store;
-  let userEvent;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
-    userEvent = defaultUserEvent.setup();
   });
 
   const render = ({ children, ...props } = {}) => {

@@ -172,7 +172,7 @@ describe(__filename, () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
-      await userEvent.setup().click(getInput());
+      await userEvent.click(getInput());
 
       expect(dispatch).toHaveBeenCalledWith(
         setError({

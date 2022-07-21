@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import AddAddonToCollection, {
   extractId,
@@ -47,11 +47,9 @@ jest.mock('amo/api/collections', () => {
 
 describe(__filename, () => {
   let store;
-  let userEvent;
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
-    userEvent = defaultUserEvent.setup();
   });
 
   const getProps = (customProps = {}) => {

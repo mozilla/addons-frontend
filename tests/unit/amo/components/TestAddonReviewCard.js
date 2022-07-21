@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import defaultUserEvent, {
-  PointerEventsCheckLevel,
-} from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import {
   SAVED_RATING,
@@ -50,7 +48,6 @@ import {
 describe(__filename, () => {
   let i18n;
   let store;
-  let userEvent;
 
   // This is a review with only a rating, no text.
   const fakeRatingOnly = Object.freeze({
@@ -62,11 +59,6 @@ describe(__filename, () => {
   beforeEach(() => {
     i18n = fakeI18n();
     store = dispatchClientMetadata().store;
-    userEvent = defaultUserEvent.setup({
-      // This is needed for one test which was triggering a library error about
-      // pointer events not being available.
-      pointerEventsCheck: PointerEventsCheckLevel.Never,
-    });
   });
 
   const render = ({
@@ -1421,6 +1413,8 @@ describe(__filename, () => {
         screen.getByRole('button', {
           name: 'This is a bug report or support request',
         }),
+        undefined,
+        { skipPointerEventsCheck: true },
       );
 
       expect(

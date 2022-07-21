@@ -2,7 +2,7 @@
 import config from 'config';
 import * as React from 'react';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import { logOutFromServer } from 'amo/api';
@@ -102,7 +102,7 @@ describe(__filename, () => {
       renderOptions,
     );
     history = renderResults.history;
-    return { ...renderResults, userEvent: defaultUserEvent.setup() };
+    return renderResults;
   };
 
   const _dispatchSignInActions = (props = {}) => {
@@ -329,7 +329,7 @@ describe(__filename, () => {
       });
 
       it('sends a tracking event when the button is clicked', async () => {
-        const { userEvent } = render(props);
+        render(props);
 
         await userEvent.click(
           screen.getByRole('link', { name: 'download Firefox' }),
@@ -343,7 +343,7 @@ describe(__filename, () => {
       });
 
       it('sends a tracking event when the banner is dismissed', async () => {
-        const { userEvent } = render(props);
+        render(props);
 
         await userEvent.click(
           screen.getByRole('button', { name: 'Dismiss this notice' }),
@@ -476,7 +476,7 @@ describe(__filename, () => {
 
     it('allows a signed-in user to log out', async () => {
       _dispatchSignInActions();
-      const { userEvent } = render();
+      render();
 
       const apiStateBeforeLogout = store.getState().api;
       await userEvent.click(screen.getByText('Log out'));
@@ -876,7 +876,7 @@ describe(__filename, () => {
 
     it('changes the language in the URL on change', async () => {
       _dispatchClientMetadata({ lang: 'fr' });
-      const { userEvent } = render({ location: '/fr/firefox/' });
+      render({ location: '/fr/firefox/' });
       expect(window.location.pathname).toEqual('/fr/firefox/');
 
       await userEvent.selectOptions(
@@ -889,7 +889,7 @@ describe(__filename, () => {
 
     it('changes the language in the URL on change with a query', async () => {
       _dispatchClientMetadata({ lang: 'fr' });
-      const { userEvent } = render({
+      render({
         location: '/fr/firefox/?page=1&q=something',
       });
       expect(window.location.pathname).toEqual('/fr/firefox/');
@@ -904,7 +904,7 @@ describe(__filename, () => {
 
     it('only changes the locale section of the URL', async () => {
       _dispatchClientMetadata({ lang: 'en-US' });
-      const { userEvent } = render({
+      render({
         location: '/en-US/firefox/en-US-to-en-GB-guide/?foo=en-US',
       });
       expect(window.location.pathname).toEqual(
@@ -943,7 +943,7 @@ describe(__filename, () => {
         lang: 'en-GB',
       });
       const query = 'panda themes';
-      const { userEvent } = render();
+      render();
 
       const pushSpy = jest.spyOn(history, 'push');
 
@@ -967,42 +967,19 @@ describe(__filename, () => {
       'pushes a new route to %s when a suggestion is selected',
       async (url, expected) => {
         const fakeResult = createFakeAutocompleteResult({ url });
-        const { userEvent } = render();
+        render();
 
         const pushSpy = jest.spyOn(history, 'push');
 
-        console.log(
-          '----- store.autocomplete before typing: ',
-          store.getState().autocomplete,
-        );
         await userEvent.type(screen.getByRole('searchbox'), 'test');
-        screen.debug(screen.getByClassName('SearchForm'), Infinity);
-
-        console.log(
-          '----- store.autocomplete before dispatch results: ',
-          store.getState().autocomplete,
-        );
         await dispatchAutocompleteResults({ results: [fakeResult], store });
 
-        console.log(
-          '----- store.autocomplete after dispatch results: ',
-          store.getState().autocomplete,
-        );
-
-        console.log('--- about to click on the link...');
         await userEvent.click(
           screen.getByRole('option', {
             // This is the accessible name for the suggestion.
             name: 'suggestion-result suggestion-result Go to the add-on page',
           }),
         );
-        console.log('--- await from clicking on the link returned!');
-        console.log(
-          '----- store.autocomplete after clicking a result: ',
-          store.getState().autocomplete,
-        );
-
-        screen.debug(screen.getByClassName('SearchForm'), Infinity);
 
         expect(pushSpy).toHaveBeenCalledWith(expected);
       },
@@ -1010,7 +987,7 @@ describe(__filename, () => {
 
     it('does not push anything if the URL is empty', async () => {
       const fakeResult = createFakeAutocompleteResult({ url: '' });
-      const { userEvent } = render();
+      render();
 
       const pushSpy = jest.spyOn(history, 'push');
 
@@ -1068,7 +1045,7 @@ describe(__filename, () => {
     });
 
     it('renders a reload link', async () => {
-      const { userEvent } = render({ errorHandler: expiredAuthErrorHandler() });
+      render({ errorHandler: expiredAuthErrorHandler() });
 
       await userEvent.click(
         screen.getByRole('link', { name: 'Reload the page' }),

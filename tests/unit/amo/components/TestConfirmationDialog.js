@@ -1,16 +1,10 @@
 import * as React from 'react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import ConfirmationDialog from 'amo/components/ConfirmationDialog';
 import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  let userEvent;
-
-  beforeEach(() => {
-    userEvent = defaultUserEvent.setup();
-  });
-
   function render(props = {}) {
     return defaultRender(<ConfirmationDialog {...props} />);
   }

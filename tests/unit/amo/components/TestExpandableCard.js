@@ -1,5 +1,5 @@
 import * as React from 'react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import ExpandableCard, { extractId } from 'amo/components/ExpandableCard';
 import {
@@ -34,7 +34,6 @@ describe(__filename, () => {
 
   it('toggles when clicked', async () => {
     render();
-    const userEvent = defaultUserEvent.setup();
 
     // This toggles to make expanded true.
     await userEvent.click(screen.getByRole('switch'));

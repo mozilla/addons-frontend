@@ -1,5 +1,5 @@
 import * as React from 'react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import ScreenShots from 'amo/components/ScreenShots';
 import { render as defaultRender, screen } from 'tests/unit/helpers';
@@ -8,7 +8,6 @@ const HEIGHT = 400;
 const WIDTH = 200;
 
 describe(__filename, () => {
-  let userEvent;
   const testPreviews = [
     {
       title: 'A screenshot',
@@ -29,10 +28,6 @@ describe(__filename, () => {
       w: WIDTH,
     },
   ];
-
-  beforeEach(() => {
-    userEvent = defaultUserEvent.setup();
-  });
 
   const render = (previews = testPreviews) =>
     defaultRender(<ScreenShots previews={previews} />);

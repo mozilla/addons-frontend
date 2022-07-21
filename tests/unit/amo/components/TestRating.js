@@ -1,17 +1,11 @@
 import * as React from 'react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import { cleanup, createEvent, fireEvent } from '@testing-library/react';
 
 import Rating from 'amo/components/Rating';
 import { fakeI18n, render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  let userEvent;
-
-  beforeEach(() => {
-    userEvent = defaultUserEvent.setup();
-  });
-
   const render = (props = {}) => {
     return defaultRender(<Rating {...props} />);
   };

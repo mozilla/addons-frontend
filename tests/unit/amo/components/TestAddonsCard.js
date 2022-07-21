@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createEvent, fireEvent } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
 import AddonsCard from 'amo/components/AddonsCard';
@@ -27,11 +27,9 @@ import {
 describe(__filename, () => {
   let addons;
   let store;
-  let userEvent;
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
-    userEvent = defaultUserEvent.setup();
   });
 
   const render = ({ history, location, lang, ...customProps } = {}) => {

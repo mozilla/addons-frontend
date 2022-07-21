@@ -2,7 +2,7 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 import config from 'config';
 import serialize from 'serialize-javascript';
 import { cleanup, waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { createAddonReview, setLatestReview } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
@@ -144,7 +144,6 @@ describe(__filename, () => {
   let store;
   let addon;
   let history;
-  let userEvent;
 
   const getLocation = ({ page, slug = defaultSlug } = {}) => {
     return `/${lang}/${clientApp}/addon/${slug}/${
@@ -178,7 +177,6 @@ describe(__filename, () => {
     });
 
     store = dispatchClientMetadata({ clientApp, lang, regionCode: 'US' }).store;
-    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {

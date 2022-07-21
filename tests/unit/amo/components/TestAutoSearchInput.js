@@ -1,5 +1,5 @@
 import * as React from 'react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import AutoSearchInput, {
   SEARCH_TERM_MIN_LENGTH,
@@ -31,13 +31,11 @@ import {
 
 describe(__filename, () => {
   let store;
-  let userEvent;
   const defaultInputName = 'query';
   const errorHandlerId = `src/amo/components/AutoSearchInput/index.js-${defaultInputName}`;
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
-    userEvent = defaultUserEvent.setup();
   });
 
   const render = ({

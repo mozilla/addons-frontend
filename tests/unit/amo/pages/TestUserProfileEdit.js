@@ -1,6 +1,6 @@
 /* global window */
 import { createMemoryHistory } from 'history';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 
 import { clearError } from 'amo/actions/errors';
@@ -53,7 +53,6 @@ describe(__filename, () => {
   const defaultUserId = fakeAuthors[0].id;
   let history;
   let store;
-  let userEvent;
 
   const savedLocation = window.location;
 
@@ -64,7 +63,6 @@ describe(__filename, () => {
       assign: jest.fn(),
     });
     window.scroll = jest.fn();
-    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {

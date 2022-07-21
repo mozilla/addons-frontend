@@ -1,5 +1,5 @@
 import { waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import {
   fetchReview,
@@ -42,7 +42,6 @@ describe(__filename, () => {
   let store;
   let addon;
   let history;
-  let userEvent;
 
   const getLocation = ({ page, reviewId, score, slug = defaultSlug } = {}) => {
     let queryString = '?';
@@ -65,7 +64,6 @@ describe(__filename, () => {
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
     addon = { ...fakeAddon, slug: defaultSlug };
-    userEvent = defaultUserEvent.setup();
   });
 
   const render = ({

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { fireEvent, waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { extractId } from 'amo/components/Overlay';
 import OverlayCard from 'amo/components/OverlayCard';
@@ -14,11 +14,9 @@ import {
 describe(__filename, () => {
   const id = 'OverlayCard';
   let store;
-  let userEvent;
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
-    userEvent = defaultUserEvent.setup();
   });
 
   function render({ overlayChildren, ...props } = {}) {

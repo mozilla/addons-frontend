@@ -1,5 +1,5 @@
 import { cleanup, waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import { createApiError } from 'amo/api/index';
@@ -44,14 +44,12 @@ import {
 describe(__filename, () => {
   let history;
   let store;
-  let userEvent;
   const lang = 'en-US';
   const clientApp = CLIENT_APP_FIREFOX;
   const defaultLocation = `/${lang}/${clientApp}/search/`;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
-    userEvent = defaultUserEvent.setup();
   });
 
   const getLocation = ({ category, query, tag, type }) => {

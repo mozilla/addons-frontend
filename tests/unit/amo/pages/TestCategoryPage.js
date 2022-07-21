@@ -1,5 +1,5 @@
 import { waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import {
   ADDON_TYPE_EXTENSION,
@@ -31,7 +31,6 @@ import {
 describe(__filename, () => {
   let history;
   let store;
-  let userEvent;
   const lang = 'en-US';
   const clientApp = CLIENT_APP_FIREFOX;
   const defaultAddonType = ADDON_TYPE_EXTENSION;
@@ -41,7 +40,6 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
-    userEvent = defaultUserEvent.setup();
   });
 
   function render({

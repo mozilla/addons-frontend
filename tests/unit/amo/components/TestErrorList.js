@@ -68,9 +68,9 @@ describe(__filename, () => {
       // Make sure the Signature error message is replaced with a new message.
       expect(screen.getByText('Your session has expired')).toBeInTheDocument();
 
-      await userEvent
-        .setup()
-        .click(screen.getByRole('button', { name: 'Reload To Continue' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Reload To Continue' }),
+      );
 
       // The button should reload the location.
       expect(_window.location.reload).toHaveBeenCalled();

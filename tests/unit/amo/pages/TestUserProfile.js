@@ -1,6 +1,6 @@
 import config from 'config';
 import { waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import {
   fetchUserReviews,
@@ -76,12 +76,10 @@ describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
   let history;
   let store;
-  let userEvent;
   const defaultUserId = fakeAuthors[0].id;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
-    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {

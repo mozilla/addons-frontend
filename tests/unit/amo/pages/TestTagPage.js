@@ -49,12 +49,10 @@ describe(__filename, () => {
     render({ location: `${location}?tag=${tag}` });
     const pushSpy = jest.spyOn(history, 'push');
 
-    await userEvent
-      .setup()
-      .selectOptions(
-        screen.getByRole('combobox', { name: 'Sort by' }),
-        'Trending',
-      );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', { name: 'Sort by' }),
+      'Trending',
+    );
 
     expect(pushSpy).toHaveBeenCalledWith({
       pathname: location,

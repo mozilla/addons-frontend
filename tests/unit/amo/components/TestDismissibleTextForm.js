@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import DismissibleTextForm from 'amo/components/DismissibleTextForm';
 import {
@@ -14,7 +14,6 @@ import {
 
 describe(__filename, () => {
   let store;
-  let userEvent;
 
   const renderProps = (customProps = {}) => {
     return {
@@ -37,7 +36,6 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
-    userEvent = defaultUserEvent.setup();
   });
 
   it('can be configured with a custom class', () => {

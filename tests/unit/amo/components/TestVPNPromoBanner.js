@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route } from 'react-router-dom';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import VPNPromoBanner, {
   IMPRESSION_COUNT_KEY,
@@ -45,13 +45,11 @@ import {
 describe(__filename, () => {
   let history;
   let store;
-  let userEvent;
   const addonId = 123;
   const slug = 'some-slug';
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
-    userEvent = defaultUserEvent.setup();
   });
 
   const createCookies = () => {

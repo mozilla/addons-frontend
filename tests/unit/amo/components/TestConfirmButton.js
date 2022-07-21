@@ -1,16 +1,11 @@
 import * as React from 'react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import ConfirmButton, { extractId } from 'amo/components/ConfirmButton';
 import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const defaultChildText = 'the default text of this button';
-  let userEvent;
-
-  beforeEach(() => {
-    userEvent = defaultUserEvent.setup();
-  });
 
   const render = ({
     children = defaultChildText,

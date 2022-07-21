@@ -54,9 +54,9 @@ describe(__filename, () => {
     mockClientHeight(DEFAULT_MAX_HEIGHT + 1);
     render();
 
-    await userEvent
-      .setup()
-      .click(screen.getByRole('link', { name: 'Expand to read more' }));
+    await userEvent.click(
+      screen.getByRole('link', { name: 'Expand to read more' }),
+    );
 
     expect(
       screen.queryByRole('link', { name: 'Expand to read more' }),

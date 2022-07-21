@@ -22,7 +22,7 @@ describe(__filename, () => {
     expect(button).toHaveTextContent('My button!');
     expect(button).toHaveClass('Foo');
 
-    await userEvent.setup().click(button);
+    await userEvent.click(button);
     expect(onClick).toHaveBeenCalled();
   });
 

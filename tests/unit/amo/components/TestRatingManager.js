@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createEvent, fireEvent } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import {
   ADDON_TYPE_DICT,
@@ -59,7 +59,6 @@ jest.mock('amo/constants', () => ({
 
 describe(__filename, () => {
   let store;
-  let userEvent;
   const defaultAddonName = 'My Add-On';
   const defaultAddonId = 123;
   const defaultUserId = 456;
@@ -67,7 +66,6 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
-    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {

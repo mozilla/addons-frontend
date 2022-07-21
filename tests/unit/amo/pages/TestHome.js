@@ -1,6 +1,6 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
 import { waitFor } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import {
@@ -84,7 +84,6 @@ describe(__filename, () => {
   const errorHandlerId = 'Home';
   let store;
   let history;
-  let userEvent;
 
   const getLocation = ({
     clientApp = defaultClientApp,
@@ -96,7 +95,6 @@ describe(__filename, () => {
       clientApp: defaultClientApp,
       lang: defaultLang,
     }).store;
-    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {

@@ -1,7 +1,7 @@
 /* global window */
 import * as React from 'react';
 import { createEvent, fireEvent } from '@testing-library/react';
-import defaultUserEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { logOutUser } from 'amo/reducers/users';
 import * as api from 'amo/api';
@@ -19,7 +19,6 @@ import {
 
 describe(__filename, () => {
   let store;
-  let userEvent;
 
   const savedLocation = window.location;
 
@@ -29,7 +28,6 @@ describe(__filename, () => {
     window.location = Object.assign(new URL('https://example.org'), {
       assign: jest.fn(),
     });
-    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {

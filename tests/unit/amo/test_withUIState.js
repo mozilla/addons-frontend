@@ -63,9 +63,7 @@ describe(__filename, () => {
       render();
 
       // Test that closing the overlay is hooked up to uiState.
-      await userEvent
-        .setup()
-        .click(screen.getByRole('button', { name: buttonText }));
+      await userEvent.click(screen.getByRole('button', { name: buttonText }));
 
       expect(
         screen.queryByRole('button', { name: buttonText }),
