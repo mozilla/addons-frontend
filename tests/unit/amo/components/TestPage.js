@@ -67,7 +67,6 @@ jest.mock('amo/api', () => ({
 describe(__filename, () => {
   let history;
   let store;
-  let userEvent;
 
   const savedLocation = window.location;
 
@@ -79,7 +78,6 @@ describe(__filename, () => {
   beforeEach(() => {
     store = dispatchClientMetadata().store;
     delete window.location;
-    userEvent = defaultUserEvent.setup();
   });
 
   // We need to mock window.matchMedia or the code for the dropdown menu
@@ -104,7 +102,7 @@ describe(__filename, () => {
       renderOptions,
     );
     history = renderResults.history;
-    return renderResults;
+    return { ...renderResults, userEvent: defaultUserEvent.setup() };
   };
 
   const _dispatchSignInActions = (props = {}) => {
@@ -331,7 +329,7 @@ describe(__filename, () => {
       });
 
       it('sends a tracking event when the button is clicked', async () => {
-        render(props);
+        const { userEvent } = render(props);
 
         await userEvent.click(
           screen.getByRole('link', { name: 'download Firefox' }),
@@ -345,7 +343,7 @@ describe(__filename, () => {
       });
 
       it('sends a tracking event when the banner is dismissed', async () => {
-        render(props);
+        const { userEvent } = render(props);
 
         await userEvent.click(
           screen.getByRole('button', { name: 'Dismiss this notice' }),
@@ -478,7 +476,7 @@ describe(__filename, () => {
 
     it('allows a signed-in user to log out', async () => {
       _dispatchSignInActions();
-      render();
+      const { userEvent } = render();
 
       const apiStateBeforeLogout = store.getState().api;
       await userEvent.click(screen.getByText('Log out'));
@@ -868,7 +866,7 @@ describe(__filename, () => {
     });
 
     it('selects the current locale', () => {
-      store = dispatchClientMetadata({ lang: 'fr' }).store;
+      _dispatchClientMetadata({ lang: 'fr' });
       render({ location: '/fr/firefox/' });
 
       expect(
@@ -877,8 +875,8 @@ describe(__filename, () => {
     });
 
     it('changes the language in the URL on change', async () => {
-      store = dispatchClientMetadata({ lang: 'fr' }).store;
-      render({ location: '/fr/firefox/' });
+      _dispatchClientMetadata({ lang: 'fr' });
+      const { userEvent } = render({ location: '/fr/firefox/' });
       expect(window.location.pathname).toEqual('/fr/firefox/');
 
       await userEvent.selectOptions(
@@ -890,8 +888,10 @@ describe(__filename, () => {
     });
 
     it('changes the language in the URL on change with a query', async () => {
-      store = dispatchClientMetadata({ lang: 'fr' }).store;
-      render({ location: '/fr/firefox/?page=1&q=something' });
+      _dispatchClientMetadata({ lang: 'fr' });
+      const { userEvent } = render({
+        location: '/fr/firefox/?page=1&q=something',
+      });
       expect(window.location.pathname).toEqual('/fr/firefox/');
 
       await userEvent.selectOptions(
@@ -903,8 +903,10 @@ describe(__filename, () => {
     });
 
     it('only changes the locale section of the URL', async () => {
-      store = dispatchClientMetadata({ lang: 'en-US' }).store;
-      render({ location: '/en-US/firefox/en-US-to-en-GB-guide/?foo=en-US' });
+      _dispatchClientMetadata({ lang: 'en-US' });
+      const { userEvent } = render({
+        location: '/en-US/firefox/en-US-to-en-GB-guide/?foo=en-US',
+      });
       expect(window.location.pathname).toEqual(
         '/en-US/firefox/en-US-to-en-GB-guide/',
       );
@@ -922,10 +924,9 @@ describe(__filename, () => {
 
   describe('Tests for SearchForm', () => {
     it('sets the form action URL', () => {
-      dispatchClientMetadata({
+      _dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
         lang: 'en-GB',
-        store,
       });
       render();
 
@@ -937,13 +938,12 @@ describe(__filename, () => {
     });
 
     it('changes the URL on search', async () => {
-      dispatchClientMetadata({
+      _dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
         lang: 'en-GB',
-        store,
       });
       const query = 'panda themes';
-      render();
+      const { userEvent } = render();
 
       const pushSpy = jest.spyOn(history, 'push');
 
@@ -967,7 +967,7 @@ describe(__filename, () => {
       'pushes a new route to %s when a suggestion is selected',
       async (url, expected) => {
         const fakeResult = createFakeAutocompleteResult({ url });
-        render();
+        const { userEvent } = render();
 
         const pushSpy = jest.spyOn(history, 'push');
 
@@ -1010,7 +1010,7 @@ describe(__filename, () => {
 
     it('does not push anything if the URL is empty', async () => {
       const fakeResult = createFakeAutocompleteResult({ url: '' });
-      render();
+      const { userEvent } = render();
 
       const pushSpy = jest.spyOn(history, 'push');
 
@@ -1030,7 +1030,7 @@ describe(__filename, () => {
       [CLIENT_APP_FIREFOX, 'Firefox Add-ons'],
     ])('renders an opensearch link for %s', async (clientApp, title) => {
       const lang = 'en-CA';
-      dispatchClientMetadata({ clientApp, lang, store });
+      _dispatchClientMetadata({ clientApp, lang });
       render();
 
       // Without the waitFor, the link tags have not rendered into the head yet.
@@ -1068,7 +1068,7 @@ describe(__filename, () => {
     });
 
     it('renders a reload link', async () => {
-      render({ errorHandler: expiredAuthErrorHandler() });
+      const { userEvent } = render({ errorHandler: expiredAuthErrorHandler() });
 
       await userEvent.click(
         screen.getByRole('link', { name: 'Reload the page' }),
