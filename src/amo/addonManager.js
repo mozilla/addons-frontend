@@ -42,9 +42,9 @@ type PrivilegedNavigatorType = {|
   mozAddonManager: MozAddonManagerType,
 |};
 
-type OptionalParams = {|
+type OptionalParams = {
   _mozAddonManager?: MozAddonManagerType,
-|};
+};
 
 type GetAddonStatusParams = {|
   addon: FirefoxAddon,
@@ -123,12 +123,12 @@ export function reportAbuse(
   return Promise.reject(new Error('Cannot report abuse via Firefox'));
 }
 
-type OptionalInstallParams = {|
+type OptionalInstallParams = {
   ...OptionalParams,
   _log?: typeof log,
   hash?: string | null,
   onIgnoredRejection?: () => void,
-|};
+};
 
 export function install(
   _url: string,
@@ -191,7 +191,7 @@ export function addChangeListeners(
     canUninstall: boolean,
   |}) => Promise<void>,
   mozAddonManager: MozAddonManagerType,
-  { _log = log }: {| _log: typeof log |} = {},
+  { _log = log }: { _log: typeof log } = {},
 ): HandleChangeEventFunction {
   function handleChangeEvent(e: AddonChangeEvent) {
     const { id: guid, type, needsRestart } = e;

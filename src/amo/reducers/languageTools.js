@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import { SET_LANG } from 'amo/reducers/api';
 import { selectLocalizedContent } from 'amo/reducers/utils';
 import type { AppState } from 'amo/store';
@@ -34,10 +36,8 @@ export type FetchLanguageToolsAction = {|
 
 export const fetchLanguageTools = ({
   errorHandlerId,
-}: FetchLanguageToolsParams = {}): FetchLanguageToolsAction => {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
+}: FetchLanguageToolsParams): FetchLanguageToolsAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
 
   return {
     type: FETCH_LANGUAGE_TOOLS,
@@ -56,10 +56,8 @@ type LoadLanguageToolsAction = {|
 
 export const loadLanguageTools = ({
   languageTools,
-}: LoadLanguageToolsParams = {}): LoadLanguageToolsAction => {
-  if (!languageTools) {
-    throw new Error('languageTools are required');
-  }
+}: LoadLanguageToolsParams): LoadLanguageToolsAction => {
+  invariant(languageTools, 'languageTools are required');
 
   return {
     type: LOAD_LANGUAGE_TOOLS,

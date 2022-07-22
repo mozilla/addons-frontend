@@ -330,7 +330,7 @@ type GetNextResponseType = (
   nextURL?: string,
 ) => Promise<PaginatedApiResponse<any>>;
 
-type AllPagesOptions = {| pageLimit: number |};
+type AllPagesOptions = { pageLimit: number };
 
 export const allPages = async (
   getNextResponse: GetNextResponseType,

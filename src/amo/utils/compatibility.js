@@ -46,7 +46,7 @@ export function getCompatibleVersions({
   addon,
   clientApp,
   currentVersion,
-}: GetCompatibleVersionsParams = {}): CompatibleVersionsType {
+}: GetCompatibleVersionsParams): CompatibleVersionsType {
   let maxVersion = null;
   let minVersion = null;
   // Assume the add-on is incompatible until we see explicit support.
@@ -149,7 +149,7 @@ export function isCompatibleWithUserAgent({
   maxVersion,
   minVersion,
   userAgentInfo,
-}: IsCompatibleWithUserAgentParams = {}): UserAgentCompatibilityType {
+}: IsCompatibleWithUserAgentParams): UserAgentCompatibilityType {
   // If the userAgent is false there was likely a programming error.
   invariant(userAgentInfo, 'userAgentInfo is required');
 
@@ -245,7 +245,7 @@ export function getClientCompatibility({
   currentVersion,
   userAgentInfo,
   _window = typeof window !== 'undefined' ? window : {},
-}: GetClientCompatibilityParams = {}): ClientCompatibilityType {
+}: GetClientCompatibilityParams): ClientCompatibilityType {
   // Check compatibility with client app.
   const { supportsClientApp, maxVersion, minVersion } = getCompatibleVersions({
     addon,

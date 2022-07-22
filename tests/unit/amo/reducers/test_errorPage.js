@@ -37,12 +37,6 @@ describe(__filename, () => {
   });
 
   describe('loadErrorPage', () => {
-    it('requires an error', () => {
-      expect(() => {
-        loadErrorPage();
-      }).toThrow('error is required');
-    });
-
     it('sets an error on load fail; is cleared after the next request', () => {
       store.dispatch({ type: 'unrelated', payload: {} });
       let state = getErrorPageState(store);

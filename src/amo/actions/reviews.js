@@ -124,7 +124,7 @@ export type SetReviewReplyAction = {|
 export const setReviewReply = ({
   originalReviewId,
   reply,
-}: SetReviewReplyParams = {}): SetReviewReplyAction => {
+}: SetReviewReplyParams): SetReviewReplyAction => {
   if (!originalReviewId) {
     throw new Error('The originalReviewId parameter is required');
   }
@@ -448,7 +448,7 @@ export const sendReplyToReview = ({
   originalReviewId,
   body,
   title,
-}: SendReplyToReviewParams = {}): SendReplyToReviewAction => {
+}: SendReplyToReviewParams): SendReplyToReviewAction => {
   if (!errorHandlerId) {
     throw new Error('The errorHandlerId parameter is required');
   }
@@ -472,7 +472,7 @@ type ReviewIdActionParams = {|
 export const reviewIdAction = ({
   reviewId,
   type,
-}: ReviewIdActionParams = {}): any => {
+}: ReviewIdActionParams): any => {
   if (!reviewId) {
     throw new Error('The reviewId parameter is required');
   }
@@ -490,7 +490,7 @@ export type ShowEditReviewFormAction = {|
 
 export const showEditReviewForm = ({
   reviewId,
-}: ShowEditReviewFormParams = {}): ShowEditReviewFormAction => {
+}: ShowEditReviewFormParams): ShowEditReviewFormAction => {
   return reviewIdAction({ type: SHOW_EDIT_REVIEW_FORM, reviewId });
 };
 
@@ -505,7 +505,7 @@ export type ShowReplyToReviewFormAction = {|
 
 export const showReplyToReviewForm = ({
   reviewId,
-}: ShowReplyToReviewParams = {}): ShowReplyToReviewFormAction => {
+}: ShowReplyToReviewParams): ShowReplyToReviewFormAction => {
   return reviewIdAction({ type: SHOW_REPLY_TO_REVIEW_FORM, reviewId });
 };
 
@@ -520,7 +520,7 @@ export type HideEditReviewFormAction = {|
 
 export const hideEditReviewForm = ({
   reviewId,
-}: HideEditReviewFormParams = {}): HideEditReviewFormAction => {
+}: HideEditReviewFormParams): HideEditReviewFormAction => {
   return reviewIdAction({ type: HIDE_EDIT_REVIEW_FORM, reviewId });
 };
 
@@ -535,7 +535,7 @@ export type HideReplyToReviewFormAction = {|
 
 export const hideReplyToReviewForm = ({
   reviewId,
-}: HideReplyToReviewFormParams = {}): HideReplyToReviewFormAction => {
+}: HideReplyToReviewFormParams): HideReplyToReviewFormAction => {
   return reviewIdAction({ type: HIDE_REPLY_TO_REVIEW_FORM, reviewId });
 };
 
@@ -556,7 +556,7 @@ export const flagReview = ({
   note,
   reason,
   reviewId,
-}: FlagReviewParams = {}): FlagReviewAction => {
+}: FlagReviewParams): FlagReviewAction => {
   if (!errorHandlerId) {
     throw new Error('The errorHandlerId parameter is required');
   }
@@ -585,7 +585,7 @@ export type ReviewWasFlaggedAction = {|
 export const setReviewWasFlagged = ({
   reason,
   reviewId,
-}: ReviewWasFlaggedParams = {}): ReviewWasFlaggedAction => {
+}: ReviewWasFlaggedParams): ReviewWasFlaggedAction => {
   if (!reason) {
     throw new Error('The reason parameter is required');
   }

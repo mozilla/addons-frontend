@@ -188,7 +188,7 @@ export function getClientApp(userAgentString: string): string {
 
 export function isValidClientApp(
   value: string,
-  { _config = config }: {| _config: typeof config |} = {},
+  { _config = config }: { _config: typeof config } = {},
 ): boolean {
   return _config.get('validClientApplications').includes(value);
 }

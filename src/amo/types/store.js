@@ -9,7 +9,7 @@ export type CreateReducerType = <AnyState>(
 ) => (AnyState, action: Object) => AnyState;
 /* eslint-enable no-undef */
 
-export type CreateStoreParams = {|
+export type CreateStoreParams = {
   history: ReactRouterHistoryType,
   initialState: Object,
-|};
+};

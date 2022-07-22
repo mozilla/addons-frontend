@@ -113,9 +113,9 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     { addonType }: {| addonType: string |},
     {
       validAddonTypes = defaultValidAddonTypes,
-    }: {|
+    }: {
       validAddonTypes: typeof defaultValidAddonTypes,
-    |} = {},
+    } = {},
   ): string {
     const { i18n } = this.props;
     switch (addonType) {

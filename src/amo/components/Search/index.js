@@ -106,7 +106,7 @@ export class SearchBase extends React.Component<InternalProps> {
   }: {|
     newFilters: SearchFiltersType | null,
     oldFilters: SearchFiltersType | null,
-  |} = {}) {
+  |}) {
     const { context, dispatch, errorHandler } = this.props;
     const fixedNewFilters = newFilters || {};
     const { addonType } = fixedNewFilters;

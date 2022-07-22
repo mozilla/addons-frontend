@@ -77,9 +77,9 @@ export function normalizeLocale(locale: string): void | string {
   return langToLocale(localeToLang(locale));
 }
 
-type IsSupportedLangOptions = {|
+type IsSupportedLangOptions = {
   _supportedLangs?: typeof supportedLangs,
-|};
+};
 
 export function isSupportedLang(
   lang?: string,
@@ -88,9 +88,9 @@ export function isSupportedLang(
   return _supportedLangs.includes(lang);
 }
 
-type IsValidLangOptions = {|
+type IsValidLangOptions = {
   _langs: typeof langs,
-|};
+};
 
 export function isValidLang(
   lang?: string,
@@ -162,9 +162,9 @@ export function parseAcceptLanguage(
   return langList;
 }
 
-type GetLangFromHeaderOptions = {|
+type GetLangFromHeaderOptions = {
   _supportedLangs?: Object,
-|};
+};
 
 /*
  * Given an accept-language header and a list of currently
@@ -198,10 +198,10 @@ export function getLangFromHeader(
   return normalizeLang(userLang);
 }
 
-type GetLanguageParams = {|
-  lang: string,
-  acceptLanguage: string,
-|};
+type GetLanguageParams = {
+  lang?: string,
+  acceptLanguage?: string,
+};
 
 /*
  * Check validity of language:
@@ -312,9 +312,9 @@ type I18nConfig = {|
   _momentDefineLocale?: Function,
 |};
 
-type makeI18nOptions = {|
+type makeI18nOptions = {
   _Intl?: typeof Intl,
-|};
+};
 
 // Create an i18n object with a translated moment object available we can
 // use for translated dates across the app.

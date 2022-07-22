@@ -26,7 +26,7 @@ type AbortUserAbuseReportAction = {|
 
 export function abortUserAbuseReport({
   userId,
-}: AbortUserAbuseReportParams = {}): AbortUserAbuseReportAction {
+}: AbortUserAbuseReportParams): AbortUserAbuseReportAction {
   invariant(userId, 'userId is required');
 
   return {
@@ -46,7 +46,7 @@ type HideUserAbuseReportUIAction = {|
 
 export function hideUserAbuseReportUI({
   userId,
-}: HideUserAbuseReportUIParams = {}): HideUserAbuseReportUIAction {
+}: HideUserAbuseReportUIParams): HideUserAbuseReportUIAction {
   invariant(userId, 'userId is required');
 
   return {
@@ -74,7 +74,7 @@ export function loadUserAbuseReport({
   message,
   reporter,
   userId,
-}: LoadUserAbuseReportParams = {}): LoadUserAbuseReportAction {
+}: LoadUserAbuseReportParams): LoadUserAbuseReportAction {
   invariant(message, 'message is required');
   invariant(reporter !== undefined, 'reporter cannot be undefined');
   invariant(userId, 'userId is required');
@@ -102,7 +102,7 @@ export function sendUserAbuseReport({
   errorHandlerId,
   message,
   userId,
-}: SendUserAbuseReportParams = {}): SendUserAbuseReportAction {
+}: SendUserAbuseReportParams): SendUserAbuseReportAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(message, 'message is required');
   invariant(userId, 'userId is required');
@@ -124,7 +124,7 @@ type ShowUserAbuseReportUIActions = {|
 
 export function showUserAbuseReportUI({
   userId,
-}: ShowUserAbuseReportUIParams = {}): ShowUserAbuseReportUIActions {
+}: ShowUserAbuseReportUIParams): ShowUserAbuseReportUIActions {
   invariant(userId, 'userId is required');
 
   return {
