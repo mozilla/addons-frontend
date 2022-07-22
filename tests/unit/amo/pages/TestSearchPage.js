@@ -413,7 +413,7 @@ describe(__filename, () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       await renderWithResults({ page, query });
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),
         'Relevance',
       );
@@ -431,16 +431,14 @@ describe(__filename, () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       await renderWithResults({ page, query });
 
-      userEvent.type(screen.getByRole('searchbox'), '{selectall}{del}');
-      userEvent.click(screen.getByRole('button', { name: 'Search' }));
+      await userEvent.clear(screen.getByRole('searchbox'));
+      await userEvent.click(screen.getByRole('button', { name: 'Search' }));
 
-      await waitFor(() =>
-        expect(dispatch).toHaveBeenCalledWith(
-          searchStart({
-            errorHandlerId: getSearchErrorHandlerId(),
-            filters: {},
-          }),
-        ),
+      expect(dispatch).toHaveBeenCalledWith(
+        searchStart({
+          errorHandlerId: getSearchErrorHandlerId(),
+          filters: {},
+        }),
       );
     });
 
@@ -458,11 +456,11 @@ describe(__filename, () => {
     it('renders a robots meta tag when there are no results', async () => {
       render();
 
-      await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-      expect(getElement('meta[name="robots"]')).toHaveAttribute(
-        'content',
-        'noindex, follow',
+      await waitFor(() =>
+        expect(getElement('meta[name="robots"]')).toHaveAttribute(
+          'content',
+          'noindex, follow',
+        ),
       );
     });
 
@@ -642,7 +640,7 @@ describe(__filename, () => {
       await renderWithResults({ query });
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
         'Extension',
       );
@@ -663,7 +661,7 @@ describe(__filename, () => {
       await renderWithResults({ query });
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),
         'Trending',
       );
@@ -684,7 +682,7 @@ describe(__filename, () => {
       await renderWithResults({ query });
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Badging' }),
         'Recommended',
       );
@@ -756,7 +754,7 @@ describe(__filename, () => {
       await renderWithResults({ filterProps: { type }, query });
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
         'All',
       );
@@ -777,7 +775,7 @@ describe(__filename, () => {
       await renderWithResults({ filterProps: { type }, query });
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
         'Extension',
       );
@@ -792,7 +790,7 @@ describe(__filename, () => {
       await renderWithResults({ filterProps: { promoted, sort } });
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Badging' }),
         'Any',
       );
@@ -810,7 +808,7 @@ describe(__filename, () => {
       await renderWithResults({ page, query });
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
         'Extension',
       );

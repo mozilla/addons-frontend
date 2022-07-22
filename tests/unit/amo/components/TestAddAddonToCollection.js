@@ -249,7 +249,7 @@ describe(__filename, () => {
       expect(screen.queryByRole('group')).not.toBeInTheDocument();
     });
 
-    it('dispatches the expected action when a user selects a collection', () => {
+    it('dispatches the expected action when a user selects a collection', async () => {
       const addon = createInternalAddonWithLang({ ...fakeAddon, id: 234 });
       const secondName = 'second';
       const userId = 10;
@@ -266,7 +266,7 @@ describe(__filename, () => {
 
       render({ addon });
 
-      userEvent.selectOptions(screen.getByRole('combobox'), secondName);
+      await userEvent.selectOptions(screen.getByRole('combobox'), secondName);
 
       expect(dispatch).toHaveBeenCalledWith(
         addAddonToCollection({
@@ -328,7 +328,7 @@ describe(__filename, () => {
       );
     });
 
-    it('shows a notice that you added to a collection', () => {
+    it('shows a notice that you added to a collection', async () => {
       const addon = createInternalAddonWithLang(fakeAddon);
       const firstName = 'a collection';
       const userId = 10;
@@ -346,14 +346,14 @@ describe(__filename, () => {
 
       render({ addon });
 
-      userEvent.selectOptions(screen.getByRole('combobox'), firstName);
+      await userEvent.selectOptions(screen.getByRole('combobox'), firstName);
 
       expect(screen.getByClassName('Notice-success')).toHaveTextContent(
         `Added to ${firstName}`,
       );
     });
 
-    it('shows notices for each target collection', () => {
+    it('shows notices for each target collection', async () => {
       const addon = createInternalAddonWithLang(fakeAddon);
       const firstName = 'a collection';
       const secondName = 'b collection';
@@ -374,14 +374,14 @@ describe(__filename, () => {
 
       render({ addon });
 
-      userEvent.selectOptions(screen.getByRole('combobox'), firstName);
-      userEvent.selectOptions(screen.getByRole('combobox'), secondName);
+      await userEvent.selectOptions(screen.getByRole('combobox'), firstName);
+      await userEvent.selectOptions(screen.getByRole('combobox'), secondName);
 
       expect(screen.getByText(`Added to ${firstName}`)).toBeInTheDocument();
       expect(screen.getByText(`Added to ${secondName}`)).toBeInTheDocument();
     });
 
-    it('uses expected name in the notice when the collection name is missing', () => {
+    it('uses expected name in the notice when the collection name is missing', async () => {
       const addon = createInternalAddonWithLang(fakeAddon);
       const userId = 10;
 
@@ -399,19 +399,19 @@ describe(__filename, () => {
 
       render({ addon });
 
-      userEvent.selectOptions(screen.getByRole('combobox'), '(no name)');
+      await userEvent.selectOptions(screen.getByRole('combobox'), '(no name)');
 
       expect(screen.getByText('Added to (no name)')).toBeInTheDocument();
     });
 
-    it('does nothing when you select the prompt', () => {
+    it('does nothing when you select the prompt', async () => {
       signInAndDispatchCollections();
       const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
       dispatch.mockClear();
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox'),
         'Select a collection…',
       );
@@ -419,7 +419,7 @@ describe(__filename, () => {
       expect(dispatch).not.toBeCalled();
     });
 
-    it('lets you create a new collection by navigating to the collection page', () => {
+    it('lets you create a new collection by navigating to the collection page', async () => {
       const clientApp = CLIENT_APP_FIREFOX;
       const lang = DEFAULT_LANG_IN_TESTS;
       const id = 234;
@@ -435,7 +435,7 @@ describe(__filename, () => {
       const pushSpy = jest.spyOn(history, 'push');
       render({ addon, history });
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox'),
         'Create new collection',
       );

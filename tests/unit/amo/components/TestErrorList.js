@@ -57,7 +57,7 @@ describe(__filename, () => {
 
   it.each(API_ERRORS_SESSION_EXPIRY)(
     'renders a reload button for session expiry error: %s',
-    (code) => {
+    async (code) => {
       const _window = { location: { reload: jest.fn() } };
       render({
         _window,
@@ -68,7 +68,7 @@ describe(__filename, () => {
       // Make sure the Signature error message is replaced with a new message.
       expect(screen.getByText('Your session has expired')).toBeInTheDocument();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Reload To Continue' }),
       );
 

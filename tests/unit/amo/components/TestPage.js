@@ -34,7 +34,6 @@ import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   createCapturedErrorHandler,
   createFakeAutocompleteResult,
-  createHistory,
   dispatchAutocompleteResults,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -66,6 +65,7 @@ jest.mock('amo/api', () => ({
 }));
 
 describe(__filename, () => {
+  let history;
   let store;
 
   const savedLocation = window.location;
@@ -86,23 +86,23 @@ describe(__filename, () => {
     Object.defineProperty(window, 'matchMedia', mockMatchMedia);
   });
 
-  const render = ({ history, location = '/', children, ...props } = {}) => {
+  const render = ({ location = '/', children, ...props } = {}) => {
     const renderOptions = {
-      history:
-        history ||
-        createHistory({
-          initialEntries: [location],
-        }),
+      initialEntries: [location],
       store,
     };
     window.location = Object.assign(new URL(`https://example.org${location}`), {
+      assign: jest.fn(),
       reload: jest.fn(),
+      replace: jest.fn(),
     });
 
-    return defaultRender(
+    const renderResults = defaultRender(
       <Page {...props}>{children || <div>Some content</div>}</Page>,
       renderOptions,
     );
+    history = renderResults.history;
+    return renderResults;
   };
 
   const _dispatchSignInActions = (props = {}) => {
@@ -328,10 +328,12 @@ describe(__filename, () => {
         ).toHaveAttribute('href', expectedHref);
       });
 
-      it('sends a tracking event when the button is clicked', () => {
+      it('sends a tracking event when the button is clicked', async () => {
         render(props);
 
-        userEvent.click(screen.getByRole('link', { name: 'download Firefox' }));
+        await userEvent.click(
+          screen.getByRole('link', { name: 'download Firefox' }),
+        );
 
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(tracking.sendEvent).toHaveBeenCalledWith({
@@ -340,10 +342,10 @@ describe(__filename, () => {
         });
       });
 
-      it('sends a tracking event when the banner is dismissed', () => {
+      it('sends a tracking event when the banner is dismissed', async () => {
         render(props);
 
-        userEvent.click(
+        await userEvent.click(
           screen.getByRole('button', { name: 'Dismiss this notice' }),
         );
 
@@ -472,14 +474,15 @@ describe(__filename, () => {
       );
     });
 
-    it('allows a signed-in user to log out', () => {
+    it('allows a signed-in user to log out', async () => {
       _dispatchSignInActions();
       render();
 
-      userEvent.click(screen.getByText('Log out'));
+      const apiStateBeforeLogout = store.getState().api;
+      await userEvent.click(screen.getByText('Log out'));
 
       expect(logOutFromServer).toHaveBeenCalledWith({
-        api: store.getState().api,
+        api: apiStateBeforeLogout,
       });
     });
 
@@ -708,8 +711,7 @@ describe(__filename, () => {
       it('changes clientApp when different site link clicked', () => {
         _dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
         const dispatch = jest.spyOn(store, 'dispatch');
-        const history = createHistory();
-        render({ history });
+        render();
 
         const pushSpy = jest.spyOn(history, 'push');
         const link = screen.getByText('Add-ons for Android');
@@ -864,7 +866,7 @@ describe(__filename, () => {
     });
 
     it('selects the current locale', () => {
-      store = dispatchClientMetadata({ lang: 'fr' }).store;
+      _dispatchClientMetadata({ lang: 'fr' });
       render({ location: '/fr/firefox/' });
 
       expect(
@@ -872,12 +874,12 @@ describe(__filename, () => {
       ).toHaveValue('fr');
     });
 
-    it('changes the language in the URL on change', () => {
-      store = dispatchClientMetadata({ lang: 'fr' }).store;
+    it('changes the language in the URL on change', async () => {
+      _dispatchClientMetadata({ lang: 'fr' });
       render({ location: '/fr/firefox/' });
       expect(window.location.pathname).toEqual('/fr/firefox/');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
         screen.getByRole('option', { name: 'Español' }),
       );
@@ -885,12 +887,14 @@ describe(__filename, () => {
       expect(window.location).toEqual('/es/firefox/');
     });
 
-    it('changes the language in the URL on change with a query', () => {
-      store = dispatchClientMetadata({ lang: 'fr' }).store;
-      render({ location: '/fr/firefox/?page=1&q=something' });
+    it('changes the language in the URL on change with a query', async () => {
+      _dispatchClientMetadata({ lang: 'fr' });
+      render({
+        location: '/fr/firefox/?page=1&q=something',
+      });
       expect(window.location.pathname).toEqual('/fr/firefox/');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
         screen.getByRole('option', { name: 'Español' }),
       );
@@ -898,14 +902,16 @@ describe(__filename, () => {
       expect(window.location).toEqual('/es/firefox/?page=1&q=something');
     });
 
-    it('only changes the locale section of the URL', () => {
-      store = dispatchClientMetadata({ lang: 'en-US' }).store;
-      render({ location: '/en-US/firefox/en-US-to-en-GB-guide/?foo=en-US' });
+    it('only changes the locale section of the URL', async () => {
+      _dispatchClientMetadata({ lang: 'en-US' });
+      render({
+        location: '/en-US/firefox/en-US-to-en-GB-guide/?foo=en-US',
+      });
       expect(window.location.pathname).toEqual(
         '/en-US/firefox/en-US-to-en-GB-guide/',
       );
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
         screen.getByRole('option', { name: 'عربي' }),
       );
@@ -918,10 +924,9 @@ describe(__filename, () => {
 
   describe('Tests for SearchForm', () => {
     it('sets the form action URL', () => {
-      dispatchClientMetadata({
+      _dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
         lang: 'en-GB',
-        store,
       });
       render();
 
@@ -932,20 +937,18 @@ describe(__filename, () => {
       );
     });
 
-    it('changes the URL on search', () => {
-      dispatchClientMetadata({
+    it('changes the URL on search', async () => {
+      _dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
         lang: 'en-GB',
-        store,
       });
-      const history = createHistory();
       const query = 'panda themes';
-      render({ history });
+      render();
 
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.type(screen.getByRole('searchbox'), `{selectall}{del}${query}`);
-      userEvent.click(screen.getByRole('button', { name: 'Search' }));
+      await userEvent.type(screen.getByRole('searchbox'), query);
+      await userEvent.click(screen.getByRole('button', { name: 'Search' }));
 
       expect(pushSpy).toHaveBeenCalledWith({
         pathname: `/en-GB/${CLIENT_APP_FIREFOX}/search/`,
@@ -964,14 +967,14 @@ describe(__filename, () => {
       'pushes a new route to %s when a suggestion is selected',
       async (url, expected) => {
         const fakeResult = createFakeAutocompleteResult({ url });
-        const history = createHistory();
-        render({ history });
+        render();
 
         const pushSpy = jest.spyOn(history, 'push');
 
-        userEvent.type(screen.getByRole('searchbox'), 'test');
+        await userEvent.type(screen.getByRole('searchbox'), 'test');
         await dispatchAutocompleteResults({ results: [fakeResult], store });
-        userEvent.click(
+
+        await userEvent.click(
           screen.getByRole('option', {
             // This is the accessible name for the suggestion.
             name: 'suggestion-result suggestion-result Go to the add-on page',
@@ -984,14 +987,13 @@ describe(__filename, () => {
 
     it('does not push anything if the URL is empty', async () => {
       const fakeResult = createFakeAutocompleteResult({ url: '' });
-      const history = createHistory();
-      render({ history });
+      render();
 
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.type(screen.getByRole('searchbox'), 'test');
+      await userEvent.type(screen.getByRole('searchbox'), 'test');
       await dispatchAutocompleteResults({ results: [fakeResult], store });
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('option', {
           name: 'suggestion-result suggestion-result Go to the add-on page',
         }),
@@ -1005,7 +1007,7 @@ describe(__filename, () => {
       [CLIENT_APP_FIREFOX, 'Firefox Add-ons'],
     ])('renders an opensearch link for %s', async (clientApp, title) => {
       const lang = 'en-CA';
-      dispatchClientMetadata({ clientApp, lang, store });
+      _dispatchClientMetadata({ clientApp, lang });
       render();
 
       // Without the waitFor, the link tags have not rendered into the head yet.
@@ -1042,10 +1044,12 @@ describe(__filename, () => {
       expect(dispatch).toHaveBeenCalledWith(logOutUser());
     });
 
-    it('renders a reload link', () => {
+    it('renders a reload link', async () => {
       render({ errorHandler: expiredAuthErrorHandler() });
 
-      userEvent.click(screen.getByRole('link', { name: 'Reload the page' }));
+      await userEvent.click(
+        screen.getByRole('link', { name: 'Reload the page' }),
+      );
 
       expect(window.location.reload).toHaveBeenCalled();
     });

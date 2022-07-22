@@ -42,14 +42,14 @@ describe(__filename, () => {
     return renderResult;
   }
 
-  it('removes tag from the query params if tag is in filters', () => {
+  it('removes tag from the query params if tag is in filters', async () => {
     const tag = 'myTag';
     const location = `/${lang}/${clientApp}/tag/${tag}/`;
 
     render({ location: `${location}?tag=${tag}` });
     const pushSpy = jest.spyOn(history, 'push');
 
-    userEvent.selectOptions(
+    await userEvent.selectOptions(
       screen.getByRole('combobox', { name: 'Sort by' }),
       'Trending',
     );

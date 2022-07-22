@@ -10,7 +10,7 @@ describe(__filename, () => {
     return defaultRender(<Button {...props} />);
   }
 
-  it('renders a button', () => {
+  it('renders a button', async () => {
     const onClick = jest.fn();
     render({
       children: 'My button!',
@@ -22,7 +22,7 @@ describe(__filename, () => {
     expect(button).toHaveTextContent('My button!');
     expect(button).toHaveClass('Foo');
 
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(onClick).toHaveBeenCalled();
   });
 

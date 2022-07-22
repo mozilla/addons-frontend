@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import DropdownMenu from 'amo/components/DropdownMenu';
@@ -18,7 +17,7 @@ describe(__filename, () => {
     screen.getByRole('button', { name });
   const getItem = () => screen.getByRole('listitem');
 
-  const clickMenu = (name = defaultMenuText) =>
+  const clickMenu = async (name = defaultMenuText) =>
     userEvent.click(getMenuButton(name));
 
   const render = ({ children, text = defaultMenuText, ...props } = {}) => {
@@ -29,14 +28,14 @@ describe(__filename, () => {
     );
   };
 
-  it('renders a menu', () => {
+  it('renders a menu', async () => {
     render();
 
     expect(screen.getByClassName('DropdownMenu')).toBeInTheDocument();
     expect(getMenu()).toHaveTextContent(defaultMenuText);
     expect(screen.getByClassName('Icon-inverted-caret')).toBeInTheDocument();
 
-    clickMenu();
+    await clickMenu();
 
     expect(screen.queryByRole('list')).not.toBeInTheDocument();
     expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
@@ -45,9 +44,9 @@ describe(__filename, () => {
   it('renders items passed as children', async () => {
     render({ children: <DropdownMenuItem>A section</DropdownMenuItem> });
 
-    clickMenu();
+    await clickMenu();
 
-    expect(await screen.findByRole('list')).toBeInTheDocument();
+    expect(screen.getByRole('list')).toBeInTheDocument();
     expect(screen.getAllByRole('listitem')).toHaveLength(1);
   });
 
@@ -56,14 +55,12 @@ describe(__filename, () => {
     expect(getMenu()).not.toHaveClass('DropdownMenu--active');
 
     // User clicks the menu main button.
-    clickMenu();
-    await waitFor(() => expect(getMenu()).toHaveClass('DropdownMenu--active'));
+    await clickMenu();
+    expect(getMenu()).toHaveClass('DropdownMenu--active');
 
     // User clicks the menu main button, again.
-    clickMenu();
-    await waitFor(() =>
-      expect(getMenu()).not.toHaveClass('DropdownMenu--active'),
-    );
+    await clickMenu();
+    expect(getMenu()).not.toHaveClass('DropdownMenu--active');
   });
 
   it('resets the menu state on blur', async () => {
@@ -76,14 +73,12 @@ describe(__filename, () => {
     );
 
     // User clicks the menu main button.
-    clickMenu();
-    await waitFor(() => expect(getMenu()).toHaveClass('DropdownMenu--active'));
+    await clickMenu();
+    expect(getMenu()).toHaveClass('DropdownMenu--active');
 
     // User clicks somewhere else.
-    userEvent.click(screen.getByRole('heading'));
-    await waitFor(() =>
-      expect(getMenu()).not.toHaveClass('DropdownMenu--active'),
-    );
+    await userEvent.click(screen.getByRole('heading'));
+    expect(getMenu()).not.toHaveClass('DropdownMenu--active');
   });
 
   it('resets the menu state on click', async () => {
@@ -99,14 +94,12 @@ describe(__filename, () => {
     });
 
     // User clicks the menu main button to open it.
-    clickMenu();
-    await waitFor(() => expect(getMenu()).toHaveClass('DropdownMenu--active'));
+    await clickMenu();
+    expect(getMenu()).toHaveClass('DropdownMenu--active');
 
     // User clicks a link.
-    userEvent.click(screen.getByRole('link'));
-    await waitFor(() =>
-      expect(getMenu()).not.toHaveClass('DropdownMenu--active'),
-    );
+    await userEvent.click(screen.getByRole('link'));
+    expect(getMenu()).not.toHaveClass('DropdownMenu--active');
   });
 
   it('sets active on mouseEnter/clears on mouseLeave', async () => {
@@ -114,45 +107,43 @@ describe(__filename, () => {
     render();
 
     // User hovers on the menu.
-    userEvent.hover(getMenu());
-    await waitFor(() => expect(getMenu()).toHaveClass('DropdownMenu--active'));
+    await userEvent.hover(getMenu());
+    expect(getMenu()).toHaveClass('DropdownMenu--active');
     expect(_window.matchMedia).toHaveBeenCalledWith('(hover)');
 
     _window.matchMedia.mockClear();
 
     // User's mouse leaves the menu.
-    userEvent.unhover(getMenu());
-    await waitFor(() =>
-      expect(getMenu()).not.toHaveClass('DropdownMenu--active'),
-    );
+    await userEvent.unhover(getMenu());
+    expect(getMenu()).not.toHaveClass('DropdownMenu--active');
     expect(_window.matchMedia).toHaveBeenCalledWith('(hover)');
   });
 
-  it('does not touch active on mouseleave/enter if device doesnt support hover', () => {
+  it('does not touch active on mouseleave/enter if device doesnt support hover', async () => {
     _window.matchMedia = jest.fn().mockReturnValue({ matches: false });
     render();
 
     // User hovers on the menu.
-    userEvent.hover(getMenu());
+    await userEvent.hover(getMenu());
     expect(getMenu()).not.toHaveClass('DropdownMenu--active');
     expect(_window.matchMedia).toHaveBeenCalledWith('(hover)');
 
     // User's mouse leaves the menu (no changes).
-    userEvent.unhover(getMenu());
+    await userEvent.unhover(getMenu());
     expect(getMenu()).not.toHaveClass('DropdownMenu--active');
     expect(_window.matchMedia).toHaveBeenCalledWith('(hover)');
   });
 
-  it('does not touch active on mouseleave/enter if window is null', () => {
+  it('does not touch active on mouseleave/enter if window is null', async () => {
     _window = null;
     render();
 
     // User hovers on the menu.
-    userEvent.hover(getMenu());
+    await userEvent.hover(getMenu());
     expect(getMenu()).not.toHaveClass('DropdownMenu--active');
 
     // User's mouse leaves the menu (no changes).
-    userEvent.unhover(getMenu());
+    await userEvent.unhover(getMenu());
     expect(getMenu()).not.toHaveClass('DropdownMenu--active');
   });
 
@@ -166,8 +157,8 @@ describe(__filename, () => {
   describe('Tests for DropdownMenuItem', () => {
     const renderWithItems = async (children) => {
       render({ children });
-      clickMenu();
-      expect(await screen.findByRole('listitem')).toBeInTheDocument();
+      await clickMenu();
+      expect(screen.getByRole('listitem')).toBeInTheDocument();
     };
 
     it('renders a section when only `children` prop is supplied', async () => {
@@ -222,7 +213,7 @@ describe(__filename, () => {
       expect(item).toHaveClass('DropdownMenuItem');
       expect(item).toHaveClass('DropdownMenuItem-link');
 
-      userEvent.click(screen.getByRole('button', { name: buttonText }));
+      await userEvent.click(screen.getByRole('button', { name: buttonText }));
       expect(onClick).toHaveBeenCalled();
     });
 

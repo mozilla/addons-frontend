@@ -123,15 +123,15 @@ describe(__filename, () => {
       saveNote,
     });
 
-    userEvent.click(screen.getByRole('button', { name: 'Edit' }));
-    userEvent.type(await screen.findByRole('textbox'), 'Some new notes');
-    userEvent.click(screen.getByRole('button', { name: 'Save' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Edit' }));
+    await userEvent.type(screen.getByRole('textbox'), 'Some new notes');
+    await userEvent.click(screen.getByRole('button', { name: 'Save' }));
     expect(saveNote).toHaveBeenCalled();
 
-    userEvent.click(screen.getByRole('button', { name: 'Delete' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Delete' }));
     expect(deleteNote).toHaveBeenCalled();
 
-    userEvent.click(screen.getByRole('button', { name: 'Remove' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Remove' }));
     expect(removeAddon).toHaveBeenCalled();
   });
 
@@ -379,45 +379,39 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
-    it('links the li element to the detail page', () => {
+    it('links the li element to the detail page', async () => {
       const history = createHistory();
       renderWithResult({ props: { history } });
 
       const pushSpy = jest.spyOn(history, 'push');
-      const li = screen.getByRole('listitem');
-      const clickEvent = createEvent.click(li);
-
-      fireEvent(li, clickEvent);
+      await userEvent.click(screen.getByRole('listitem'));
 
       expect(pushSpy).toHaveBeenCalledWith(`/en-US/android/addon/${slug}/`);
     });
 
-    it('calls the custom onClick handler for the li element, passing the addon', () => {
+    it('calls the custom onClick handler for the li element, passing the addon', async () => {
       const onClick = jest.fn();
       renderWithResult({ props: { onAddonClick: onClick } });
 
-      const li = screen.getByRole('listitem');
-      userEvent.click(li);
+      await userEvent.click(screen.getByRole('listitem'));
 
       expect(onClick).toHaveBeenCalledWith(createAddon());
     });
 
-    it('does not call the custom onClick handler for the li element without an addon', () => {
+    it('does not call the custom onClick handler for the li element without an addon', async () => {
       const onClick = jest.fn();
       render({ loading: true, onAddonClick: onClick, placeholderCount: 1 });
 
-      const li = screen.getByRole('listitem');
-      userEvent.click(li);
+      await userEvent.click(screen.getByRole('listitem'));
 
       expect(onClick).not.toHaveBeenCalled();
     });
 
-    it('calls the custom onClick handler for the anchor element, passing the addon', () => {
+    it('calls the custom onClick handler for the anchor element, passing the addon', async () => {
       const onClick = jest.fn();
       renderWithResult({ props: { onAddonClick: onClick } });
 
-      const link = screen.getByRole('link', { name });
-      userEvent.click(link);
+      await userEvent.click(screen.getByRole('link', { name }));
 
       expect(onClick).toHaveBeenCalledWith(createAddon());
     });

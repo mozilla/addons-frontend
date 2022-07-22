@@ -197,13 +197,13 @@ describe(__filename, () => {
   );
 
   describe('Tests for Search', () => {
-    it('forces recommended add-ons to the top when a category is specified and a new sort filter is selected', () => {
+    it('forces recommended add-ons to the top when a category is specified and a new sort filter is selected', async () => {
       const sort = SEARCH_SORT_POPULAR;
 
       render({ location: `${defaultLocation}?sort=${sort}` });
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),
         'Trending',
       );
@@ -216,7 +216,7 @@ describe(__filename, () => {
       });
     });
 
-    it('removes category and addonType from the URL if category is in filters', () => {
+    it('removes category and addonType from the URL if category is in filters', async () => {
       const sort = SEARCH_SORT_POPULAR;
 
       render({
@@ -224,7 +224,7 @@ describe(__filename, () => {
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),
         'Trending',
       );
