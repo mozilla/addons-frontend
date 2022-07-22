@@ -2367,10 +2367,10 @@
   resolved "https://registry.yarnpkg.com/@webpack-cli/serve/-/serve-1.3.0.tgz#2730c770f5f1f132767c63dcaaa4ec28f8c56a6c"
   integrity sha512-k2p2VrONcYVX1wRRrf0f3X2VGltLWcv+JzXRBDmvCxGlCeESx4OXw91TsWeKOkp784uNoVQo313vxJFHXPPwfw==
 
-"@willdurand/isomorphic-formdata@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@willdurand/isomorphic-formdata/-/isomorphic-formdata-2.0.0.tgz#864a41168cecc448c76b38f8c25b2727931bcefa"
-  integrity sha512-CBE/mesdWQwvrkczJyE/ynwfn+rsytJQgMDB4bt095g8iDQ/p8aovLdooqnRYSHNAU7Fn4cQiLZOiaCzZkkWWA==
+"@willdurand/isomorphic-formdata@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@willdurand/isomorphic-formdata/-/isomorphic-formdata-2.1.0.tgz#0e779201c5fafd995c744a0bffed91d4af57d4e8"
+  integrity sha512-/ramSAx2Zxgj6vBYdFjppdZ4IzOkR//K6Ay/cspzTN9blXLkDho5ntZwUBt0kUoRcuX2wBtYEhmlrIWjnxjs1Q==
   dependencies:
     formdata-node "^4.3.2"
 
