@@ -1,5 +1,13 @@
+@import '~amo/css/styles';
+
 .AddonReviewManagerRating {
   align-items: center;
   display: flex;
   flex-flow: column wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+
+  @include respond-to(extraExtraLarge) {
+    flex-flow: row wrap;
+  }
 }

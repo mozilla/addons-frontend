@@ -23,6 +23,16 @@
       }
     }
   }
+
+  .Rating {
+    width: 100%;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    .Rating {
+      width: inherit;
+    }
+  }
 }
 
 .AddonReviewManager-savedRating {
