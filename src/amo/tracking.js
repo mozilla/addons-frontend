@@ -47,11 +47,11 @@ export type SendTrackingEventParams = {|
   ...MakeTrackingEventDataParams,
 |};
 
-type IsDoNoTrackEnabledParams = {|
+type IsDoNoTrackEnabledParams = {
   _log: typeof log,
   _navigator: ?typeof navigator,
   _window: ?typeof window,
-|};
+};
 
 export function isDoNotTrackEnabled({
   _log = log,
@@ -78,13 +78,13 @@ export function isDoNotTrackEnabled({
   return false;
 }
 
-type TrackingParams = {|
+type TrackingParams = {
   _config: typeof config,
   _isDoNotTrackEnabled: typeof isDoNotTrackEnabled,
   _getCLS: typeof getCLS,
   _getFID: typeof getFID,
   _getLCP: typeof getLCP,
-|};
+};
 
 const makeTrackingEventData = ({
   action,
@@ -253,7 +253,7 @@ export class Tracking {
     label,
     sendSecondEventWithOverrides,
     value,
-  }: SendTrackingEventParams = {}) {
+  }: SendTrackingEventParams) {
     if (!category) {
       throw new Error('sendEvent: category is required');
     }

@@ -91,7 +91,7 @@ export function middleware({
   _window = typeof window !== 'undefined' ? window : null,
   sagaMiddleware = null,
   routerMiddleware = null,
-}: {|
+}: {
   _applyMiddleware?: typeof applyMiddleware,
   _config?: typeof config,
   _createLogger?: typeof createLogger,
@@ -99,7 +99,7 @@ export function middleware({
   _window?: typeof window | null,
   sagaMiddleware?: Object | null,
   routerMiddleware?: Object | null,
-|} = {}): React.ComponentType<any> {
+} = {}): React.ComponentType<any> {
   const isDev = _config.get('isDevelopment');
 
   const callbacks = [];

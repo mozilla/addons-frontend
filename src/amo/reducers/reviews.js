@@ -273,7 +273,7 @@ export const changeViewState = ({
   state,
   reviewId,
   stateChange,
-}: ChangeViewStateParams = {}): ReviewsState => {
+}: ChangeViewStateParams): ReviewsState => {
   const change = { ...stateChange };
 
   const existingFlag = state.view[reviewId] ? state.view[reviewId].flag : {};
@@ -434,7 +434,7 @@ export default function reviewsReducer(
   action: ReviewActionType,
   {
     _addReviewToState = addReviewToState,
-  }: {| _addReviewToState: typeof addReviewToState |} = {},
+  }: { _addReviewToState: typeof addReviewToState } = {},
 ): ReviewsState {
   switch (action.type) {
     case BEGIN_DELETE_ADDON_REVIEW:

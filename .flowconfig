@@ -23,6 +23,5 @@ module.system=node
 # See: https://github.com/facebook/flow/blob/master/Changelog.md#01111
 module.system.node.allow_root_relative=true
 module.system.node.root_relative_dirname=./src
-log.file=./flow/logs/flow.log
 # suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 # suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore

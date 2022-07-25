@@ -53,9 +53,9 @@ type InternalProps = {|
 
 export const getDownloadCampaign = ({
   addonId,
-}: {|
+}: {
   addonId?: number,
-|} = {}): string => {
+} = {}): string => {
   let campaign = DOWNLOAD_FIREFOX_UTM_CAMPAIGN;
 
   if (addonId) {

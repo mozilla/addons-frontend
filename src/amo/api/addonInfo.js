@@ -18,7 +18,7 @@ export type ExternalAddonInfoType = {|
 export const getAddonInfo = ({
   api,
   slug,
-}: GetAddonInfoParams = {}): Promise<ExternalAddonInfoType> => {
+}: GetAddonInfoParams): Promise<ExternalAddonInfoType> => {
   invariant(slug, 'slug is required');
 
   return callApi({

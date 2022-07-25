@@ -1,5 +1,6 @@
 /* @flow */
 import { LOCATION_CHANGE } from 'connected-react-router';
+import invariant from 'invariant';
 
 const LOAD_ERROR_PAGE: 'LOAD_ERROR_PAGE' = 'LOAD_ERROR_PAGE';
 
@@ -35,10 +36,8 @@ type LoadErrorPageAction = {|
 
 export const loadErrorPage = ({
   error,
-}: LoadErrorPageParams = {}): LoadErrorPageAction => {
-  if (!error) {
-    throw new Error('error is required');
-  }
+}: LoadErrorPageParams): LoadErrorPageAction => {
+  invariant(error, 'error is required');
 
   return {
     type: LOAD_ERROR_PAGE,

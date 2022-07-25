@@ -1,7 +1,6 @@
 import { setLang } from 'amo/reducers/api';
 import reducer, {
   createInternalLanguageTool,
-  fetchLanguageTools,
   getAllLanguageTools,
   initialState,
   loadLanguageTools,
@@ -52,22 +51,6 @@ describe(__filename, () => {
     expect(reducer(firstState, { type: 'UNRELATED_ACTION' })).toEqual(
       firstState,
     );
-  });
-
-  describe('fetchLanguageTools', () => {
-    it('requires an errorHandlerId', () => {
-      expect(() => {
-        fetchLanguageTools();
-      }).toThrow('errorHandlerId is required');
-    });
-  });
-
-  describe('loadLanguageTools', () => {
-    it('requires language tools', () => {
-      expect(() => {
-        loadLanguageTools();
-      }).toThrow('languageTools are required');
-    });
   });
 
   describe('getAllLanguageTools', () => {

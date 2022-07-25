@@ -218,7 +218,7 @@ type LoadVersionsAction = {|
 export const loadVersions = ({
   slug,
   versions,
-}: LoadVersionsParams = {}): LoadVersionsAction => {
+}: LoadVersionsParams): LoadVersionsAction => {
   invariant(slug, 'slug is required');
   invariant(versions, 'versions is required');
 

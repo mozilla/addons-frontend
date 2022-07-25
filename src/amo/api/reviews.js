@@ -116,7 +116,7 @@ export const replyToReview = ({
   body,
   errorHandler,
   originalReviewId,
-}: ReplyToReviewParams = {}): Promise<ExternalReviewReplyType> => {
+}: ReplyToReviewParams): Promise<ExternalReviewReplyType> => {
   return new Promise((resolve) => {
     const endpoint = `ratings/rating/${originalReviewId}/reply/`;
 
@@ -159,11 +159,10 @@ export function getReviews({
   user,
   addon,
   ...params
-}: GetReviewsParams = {}): Promise<GetReviewsApiResponse> {
+}: GetReviewsParams): Promise<GetReviewsApiResponse> {
   return new Promise((resolve) => {
-    if (!user && !addon) {
-      throw new Error('Either user or addon must be specified');
-    }
+    invariant(user || addon, 'Either user or addon must be specified');
+
     resolve(
       callApi({
         auth: true,
@@ -188,7 +187,7 @@ export async function getLatestUserReview({
   apiState,
   user,
   addon,
-}: GetLatestUserReviewParams = {}): Promise<GetLatestUserReviewResponse> {
+}: GetLatestUserReviewParams): Promise<GetLatestUserReviewResponse> {
   invariant(user, 'The user parameter is required');
   invariant(addon, 'The addon parameter is required');
 
@@ -222,7 +221,7 @@ export const flagReview = ({
   note,
   reason,
   reviewId,
-}: FlagReviewParams = {}): Promise<void> => {
+}: FlagReviewParams): Promise<void> => {
   return new Promise((resolve) => {
     if (!reviewId) {
       throw new Error('The reviewId parameter is required');
@@ -261,7 +260,7 @@ export const deleteReview = ({
   apiState,
   errorHandler,
   reviewId,
-}: DeleteReviewParams = {}): Promise<void> => {
+}: DeleteReviewParams): Promise<void> => {
   invariant(reviewId, 'reviewId is required');
   return new Promise((resolve) => {
     resolve(
@@ -284,7 +283,7 @@ export type GetReviewParams = {|
 export const getReview = ({
   apiState,
   reviewId,
-}: GetReviewParams = {}): Promise<ExternalReviewType> => {
+}: GetReviewParams): Promise<ExternalReviewType> => {
   invariant(reviewId, 'reviewId is required');
   return new Promise((resolve) => {
     resolve(

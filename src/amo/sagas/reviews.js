@@ -75,9 +75,9 @@ import type { Saga } from 'amo/types/sagas';
 // Number of millesconds that a message should be flashed on screen.
 export const FLASH_SAVED_MESSAGE_DURATION = 2000;
 
-type Options = {|
+type Options = {
   _delay?: typeof delay,
-|};
+};
 
 function* fetchReviews({
   payload: { errorHandlerId, addonSlug, page, score },
@@ -246,6 +246,7 @@ function* manageAddonReview(
   }
 
   try {
+    // $FlowIgnore: Flow can't tell what redux-saga's `select` returns.
     const state: AppState = yield select(getState);
     const baseParams = {
       apiState: state.api,
@@ -278,6 +279,7 @@ function* manageAddonReview(
     );
 
     const submitParams: SubmitReviewParams = params;
+    // $FlowIgnore: Flow can't tell what redux-saga's `call` returns.
     const reviewFromResponse: SubmitReviewResponse = yield call(
       submitReview,
       submitParams,

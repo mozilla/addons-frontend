@@ -15,16 +15,16 @@ type ExpressHandler = (
   res: typeof $Response,
 ) => void | Promise<void>;
 
-type ViewFrontendVersionHandlerParams = {|
+type ViewFrontendVersionHandlerParams = {
   _config?: typeof config,
   _log?: typeof log,
   versionFilename?: string,
-|};
+};
 
-type ViewHeartbeatHandlerParams = {|
+type ViewHeartbeatHandlerParams = {
   _config?: typeof config,
   _fetch?: typeof fetch,
-|};
+};
 
 export const viewFrontendVersionHandler = ({
   _config = config,

@@ -37,9 +37,9 @@ import ReviewGuide from 'amo/pages/StaticPages/ReviewGuide';
 import TagPage from 'amo/pages/TagPage';
 import type { ConfigType } from 'amo/types/config';
 
-type Props = {|
+type Props = {
   _config?: ConfigType,
-|};
+};
 
 // If you add a new route here, check the nginx rules maintained by ops.
 const Routes = ({ _config = config }: Props = {}): React.Node => (

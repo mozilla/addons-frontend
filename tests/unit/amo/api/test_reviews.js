@@ -191,14 +191,6 @@ describe(__filename, () => {
       });
       mockApi.verify();
     });
-
-    it('requires a user or addon', async () => {
-      mockApi.expects('callApi').returns(Promise.resolve(getReviewsResponse()));
-
-      await getReviews().then(unexpectedSuccess, (error) => {
-        expect(error.message).toMatch(/user or addon must be specified/);
-      });
-    });
   });
 
   describe('getLatestUserReview', () => {

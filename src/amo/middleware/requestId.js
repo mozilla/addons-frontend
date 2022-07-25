@@ -15,7 +15,7 @@ const requestId = (
   req: typeof $Request,
   res: typeof $Response,
   next: typeof NextFunction,
-  { _httpContext = httpContext }: {| _httpContext: typeof httpContext |} = {},
+  { _httpContext = httpContext }: { _httpContext: typeof httpContext } = {},
 ): typeof Middleware => {
   const amoRequestId = req.headers[AMO_REQUEST_ID_HEADER] || uuidv4();
   // Make sure a request header is always set.

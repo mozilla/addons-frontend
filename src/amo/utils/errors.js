@@ -28,7 +28,7 @@ import type { ConfigType } from 'amo/types/config';
  */
 export function render404IfConfigKeyIsFalse(
   configKey: string,
-  { _config = config }: {| _config: ConfigType |} = {},
+  { _config = config }: { _config: ConfigType } = {},
 ): (Component: React.ComponentType<any>) => (props: mixed) => React.Node {
   if (!configKey) {
     throw new TypeError('configKey cannot be empty');

@@ -105,10 +105,7 @@ export type LoadAddonAction = {|
   type: typeof LOAD_ADDON,
 |};
 
-export function loadAddon({
-  addon,
-  slug,
-}: LoadAddonParams = {}): LoadAddonAction {
+export function loadAddon({ addon, slug }: LoadAddonParams): LoadAddonAction {
   invariant(addon, 'addon is required');
   invariant(slug, 'slug is required');
 
@@ -154,7 +151,7 @@ type LoadAddonInfoAction = {|
 export const loadAddonInfo = ({
   info,
   slug,
-}: LoadAddonInfoParams = {}): LoadAddonInfoAction => {
+}: LoadAddonInfoParams): LoadAddonInfoAction => {
   invariant(info, 'info is required');
   invariant(slug, 'slug is required');
 

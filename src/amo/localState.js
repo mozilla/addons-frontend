@@ -6,9 +6,9 @@ import { normalizeFileNameId } from 'amo/utils';
 
 export function configureLocalForage({
   localForage = defaultLocalForage,
-}: {|
+}: {
   localForage: typeof defaultLocalForage,
-|} = {}) {
+} = {}) {
   localForage.config({
     name: 'addons-frontend',
     version: '1.0',
@@ -16,9 +16,9 @@ export function configureLocalForage({
   });
 }
 
-type LocalStateOptions = {|
+type LocalStateOptions = {
   localForage: typeof defaultLocalForage,
-|};
+};
 
 export class LocalState {
   id: string;

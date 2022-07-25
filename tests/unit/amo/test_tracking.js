@@ -221,7 +221,9 @@ describe(__filename, () => {
       it('should throw if category not set', () => {
         const tracking = createTracking();
         expect(() => {
-          tracking.sendEvent();
+          tracking.sendEvent({
+            action: 'whatever',
+          });
         }).toThrowError(/category is required/);
       });
 

@@ -147,7 +147,7 @@ export const fetchCurrentCollection = ({
   filters,
   slug,
   userId,
-}: FetchCurrentCollectionParams = {}): FetchCurrentCollectionAction => {
+}: FetchCurrentCollectionParams): FetchCurrentCollectionAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(slug, 'slug is required');
   invariant(userId, 'userId is required');
@@ -171,7 +171,7 @@ export type FetchUserCollectionsAction = {|
 export const fetchUserCollections = ({
   errorHandlerId,
   userId,
-}: FetchUserCollectionsParams = {}): FetchUserCollectionsAction => {
+}: FetchUserCollectionsParams): FetchUserCollectionsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
 
@@ -192,7 +192,7 @@ type AbortFetchUserCollectionsAction = {|
 
 export const abortFetchUserCollections = ({
   userId,
-}: AbortFetchUserCollectionsParams = {}): AbortFetchUserCollectionsAction => {
+}: AbortFetchUserCollectionsParams): AbortFetchUserCollectionsAction => {
   invariant(userId, 'userId is required');
 
   return {
@@ -214,7 +214,7 @@ type AbortAddAddonToCollectionAction = {|
 export const abortAddAddonToCollection = ({
   addonId,
   userId,
-}: AbortAddAddonToCollectionParams = {}): AbortAddAddonToCollectionAction => {
+}: AbortAddAddonToCollectionParams): AbortAddAddonToCollectionAction => {
   invariant(userId, 'userId is required');
   invariant(addonId, 'addonId is required');
 
@@ -234,7 +234,7 @@ export const fetchCurrentCollectionPage = ({
   filters,
   slug,
   userId,
-}: FetchCurrentCollectionParams = {}): FetchCurrentCollectionPageAction => {
+}: FetchCurrentCollectionParams): FetchCurrentCollectionPageAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(slug, 'slug is required');
   invariant(userId, 'userId is required');
@@ -292,7 +292,7 @@ type LoadCurrentCollectionAction = {|
 export const loadCurrentCollection = ({
   addonsResponse,
   detail,
-}: LoadCurrentCollectionParams = {}): LoadCurrentCollectionAction => {
+}: LoadCurrentCollectionParams): LoadCurrentCollectionAction => {
   invariant(detail, 'detail is required');
 
   return {
@@ -312,7 +312,7 @@ type LoadCurrentCollectionPageAction = {|
 
 export const loadCurrentCollectionPage = ({
   addonsResponse,
-}: LoadCurrentCollectionPageParams = {}): LoadCurrentCollectionPageAction => {
+}: LoadCurrentCollectionPageParams): LoadCurrentCollectionPageAction => {
   invariant(addonsResponse, 'The addonsResponse parameter is required');
 
   return {
@@ -334,7 +334,7 @@ type LoadCollectionAddonsAction = {|
 export const loadCollectionAddons = ({
   addons,
   slug,
-}: LoadCollectionAddonsParams = {}): LoadCollectionAddonsAction => {
+}: LoadCollectionAddonsParams): LoadCollectionAddonsAction => {
   if (!addons) {
     throw new Error('The addons parameter is required');
   }
@@ -361,7 +361,7 @@ type LoadUserCollectionsAction = {|
 export const loadUserCollections = ({
   collections,
   userId,
-}: LoadUserCollectionsParams = {}): LoadUserCollectionsAction => {
+}: LoadUserCollectionsParams): LoadUserCollectionsAction => {
   invariant(userId, 'userId is required');
   invariant(collections, 'collections are required');
 
@@ -386,7 +386,7 @@ export const addonAddedToCollection = ({
   addonId,
   collectionId,
   userId,
-}: AddonAddedToCollectionParams = {}): AddonAddedToCollectionAction => {
+}: AddonAddedToCollectionParams): AddonAddedToCollectionAction => {
   invariant(addonId, 'addonId is required');
   invariant(userId, 'userId is required');
   invariant(collectionId, 'collectionId is required');
@@ -430,7 +430,7 @@ export const addAddonToCollection = ({
   notes,
   slug,
   userId,
-}: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
+}: AddAddonToCollectionParams): AddAddonToCollectionAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(collectionId, 'The collectionId parameter is required');
   invariant(slug, 'The slug parameter is required');
@@ -501,7 +501,7 @@ export const createCollection = ({
   name,
   slug,
   userId,
-}: CreateCollectionParams = {}): CreateCollectionAction => {
+}: CreateCollectionParams): CreateCollectionAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
   invariant(name, 'name is required when creating a collection');
@@ -530,7 +530,7 @@ export const updateCollection = ({
   name,
   slug,
   userId,
-}: UpdateCollectionParams = {}): UpdateCollectionAction => {
+}: UpdateCollectionParams): UpdateCollectionAction => {
   invariant(collectionSlug, 'collectionSlug is required when updating');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(filters, 'filters is required');
@@ -614,7 +614,7 @@ export const removeAddonFromCollection = ({
   filters,
   slug,
   userId,
-}: RemoveAddonFromCollectionParams = {}): RemoveAddonFromCollectionAction => {
+}: RemoveAddonFromCollectionParams): RemoveAddonFromCollectionAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
   invariant(filters, 'The filters parameter is required');
@@ -659,7 +659,7 @@ export const deleteCollection = ({
   errorHandlerId,
   slug,
   userId,
-}: DeleteCollectionParams = {}): DeleteCollectionAction => {
+}: DeleteCollectionParams): DeleteCollectionAction => {
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
   invariant(slug, 'The slug parameter is required');
   invariant(userId, 'The userId parameter is required');
@@ -695,7 +695,7 @@ export const updateCollectionAddon = ({
   filters,
   slug,
   userId,
-}: UpdateCollectionAddonParams = {}): UpdateCollectionAddonAction => {
+}: UpdateCollectionAddonParams): UpdateCollectionAddonAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
   invariant(
@@ -740,7 +740,7 @@ export const deleteCollectionAddonNotes = ({
   lang,
   slug,
   userId,
-}: DeleteCollectionAddonNotesParams = {}): DeleteCollectionAddonNotesAction => {
+}: DeleteCollectionAddonNotesParams): DeleteCollectionAddonNotesAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
   invariant(filters, 'The filters parameter is required');
@@ -909,7 +909,7 @@ export const changeAddonCollectionsLoadingFlag = ({
   loading,
   state,
   userId,
-}: ChangeAddonCollectionsLoadingFlagParams = {}): CollectionsState => {
+}: ChangeAddonCollectionsLoadingFlagParams): CollectionsState => {
   const userState = state.addonInCollections[userId];
   const addonState = userState && userState[addonId];
 
@@ -936,7 +936,7 @@ type UnloadUserCollectionsParams = {|
 const unloadUserCollections = ({
   state,
   userId,
-}: UnloadUserCollectionsParams = {}): CollectionsState => {
+}: UnloadUserCollectionsParams): CollectionsState => {
   return {
     ...state,
     userCollections: {

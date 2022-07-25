@@ -3,7 +3,7 @@ import { ErrorHandler } from 'amo/errorHandler';
 import defaultLog from 'amo/logger';
 import type { AppState } from 'amo/store';
 
-type CreateErrorHandlerType = {| log: typeof defaultLog |};
+type CreateErrorHandlerType = { log: typeof defaultLog };
 
 export function createErrorHandler(
   id: string,
