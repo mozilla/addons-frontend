@@ -4153,10 +4153,10 @@ deep-diff@^0.3.5:
   resolved "https://registry.yarnpkg.com/deep-diff/-/deep-diff-0.3.8.tgz#c01de63efb0eec9798801d40c7e0dae25b582c84"
   integrity sha1-wB3mPvsO7JeYgB1Ax+Da4ltYLIQ=
 
-deep-eql@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/deep-eql/-/deep-eql-4.0.1.tgz#2b65bc89491d193780c452edee2144a91bb0a445"
-  integrity sha512-D/Oxqobjr+kxaHsgiQBZq9b6iAWdEj5W/JdJm8deNduAPc9CwXQ3BJJCuEqlrPXcy45iOMkGPZ0T81Dnz7UDCA==
+deep-eql@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/deep-eql/-/deep-eql-4.1.0.tgz#67f2078a06d899d9d954762ef61358f2eef00507"
+  integrity sha512-4YM7QHOMBoVWqGPnp3OPPK7+WCIhUR2OTpahlNQFiyTH3QEeiu9MtBiTAJBkfny4PNhpFbV/jm3lv0iCfb40MA==
   dependencies:
     type-detect "^4.0.0"
 
