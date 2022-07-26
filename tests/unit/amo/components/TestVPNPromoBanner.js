@@ -37,7 +37,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeCookies,
-  onLocationChanged,
   render as defaultRender,
   screen,
 } from 'tests/unit/helpers';
@@ -373,50 +372,47 @@ describe(__filename, () => {
 
     it.each([VARIANT_HIDE, NOT_IN_EXPERIMENT, null])(
       'does not send a tracking event for the impression on update when the variant is %s',
-      (variant) => {
+      async (variant) => {
         const _tracking = createFakeTracking();
         render({ _tracking, variant });
 
-        store.dispatch(
-          onLocationChanged({
-            pathname: `/en-US/firefox/addon/${slug}-new/`,
-          }),
-        );
+        await changeLocation({
+          history,
+          pathname: `/en-US/firefox/addon/${slug}-new/`,
+        });
 
         expect(_tracking.sendEvent).not.toHaveBeenCalled();
       },
     );
 
-    it('does not send a tracking event for the impression on update when the region should not be included', () => {
+    it('does not send a tracking event for the impression on update when the region should not be included', async () => {
       const _tracking = createFakeTracking();
       render({ _tracking, regionCode: 'CN' });
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: `/en-US/firefox/addon/${slug}-new/`,
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: `/en-US/firefox/addon/${slug}-new/`,
+      });
 
       expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
 
-    it('does not send a tracking event for the impression on update on android', () => {
+    it('does not send a tracking event for the impression on update on android', async () => {
       const _tracking = createFakeTracking();
       render({
         _tracking,
         clientApp: CLIENT_APP_ANDROID,
       });
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: `/en-US/firefox/addon/${slug}-new/`,
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: `/en-US/firefox/addon/${slug}-new/`,
+      });
 
       expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
 
-    it('does not send a tracking event for the impression on update if location has not changed', () => {
+    it('does not send a tracking event for the impression on update if location has not changed', async () => {
       const _tracking = createFakeTracking();
       const location = `/en-US/firefox/addon/${slug}/`;
       render({ _tracking, location });
@@ -424,7 +420,10 @@ describe(__filename, () => {
       // Reset as the on mount impression would have been called.
       _tracking.sendEvent.mockClear();
 
-      store.dispatch(onLocationChanged({ pathname: location }));
+      await changeLocation({
+        history,
+        pathname: location,
+      });
 
       expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
