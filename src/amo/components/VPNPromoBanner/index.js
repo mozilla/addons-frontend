@@ -1,6 +1,5 @@
 /* @flow */
 /* global window */
-import deepEqual from 'deep-eql';
 import invariant from 'invariant';
 import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
@@ -161,7 +160,10 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
   }
 
   componentDidUpdate(prevProps: InternalProps) {
-    if (!deepEqual(this.props.location, prevProps.location)) {
+    if (
+      this.props.location.pathname !== prevProps.location.pathname ||
+      this.props.location.search !== prevProps.location.search
+    ) {
       this.onImpression();
     }
   }
