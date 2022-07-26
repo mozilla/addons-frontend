@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-19 19:19+0000\n"
+"POT-Creation-Date: 2022-07-26 17:21+0000\n"
 "PO-Revision-Date: 2022-06-14 18:46+0000\n"
 "Last-Translator: Francesco Lodolo [:flod] <flod+pontoon@mozilla.com>\n"
 "Language-Team: none\n"
@@ -2102,11 +2102,11 @@ msgstr "Seleziona un’immagine…"
 msgid "Developer response"
 msgstr "Replica dello sviluppatore"
 
-#: src/amo/components/VPNPromoBanner/index.js:176
+#: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
 msgstr "Risparmia il 50% con un abbonamento annuale"
 
-#: src/amo/components/VPNPromoBanner/index.js:177
+#: src/amo/components/VPNPromoBanner/index.js:179
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
@@ -2114,7 +2114,7 @@ msgstr ""
 "Proteggi i tuoi dati online e scegli un piano di abbonamento VPN adatto alle "
 "tue esigenze."
 
-#: src/amo/components/VPNPromoBanner/index.js:204
+#: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
 msgstr "Ottieni Mozilla VPN"
 

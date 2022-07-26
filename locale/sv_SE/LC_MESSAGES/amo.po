@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-19 19:19+0000\n"
+"POT-Creation-Date: 2022-07-26 17:21+0000\n"
 "PO-Revision-Date: 2022-06-15 03:27+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
@@ -2068,11 +2068,11 @@ msgstr "Välj bild…"
 msgid "Developer response"
 msgstr "Utvecklarens svar"
 
-#: src/amo/components/VPNPromoBanner/index.js:176
+#: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
 msgstr "Spara 50% på en helårsprenumeration"
 
-#: src/amo/components/VPNPromoBanner/index.js:177
+#: src/amo/components/VPNPromoBanner/index.js:179
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
@@ -2080,7 +2080,7 @@ msgstr ""
 "Skydda dina onlinedata—och välj en VPN-prenumerationsplan som fungerar för "
 "dig."
 
-#: src/amo/components/VPNPromoBanner/index.js:204
+#: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
 msgstr "Hämta Mozilla VPN"
 
