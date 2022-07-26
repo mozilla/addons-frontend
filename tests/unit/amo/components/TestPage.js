@@ -2,7 +2,7 @@
 import config from 'config';
 import * as React from 'react';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import { logOutFromServer } from 'amo/api';
@@ -67,6 +67,7 @@ jest.mock('amo/api', () => ({
 describe(__filename, () => {
   let history;
   let store;
+  let userEvent;
 
   const savedLocation = window.location;
 
@@ -78,6 +79,7 @@ describe(__filename, () => {
   beforeEach(() => {
     store = dispatchClientMetadata().store;
     delete window.location;
+    userEvent = defaultUserEvent.setup({ delay: null });
   });
 
   // We need to mock window.matchMedia or the code for the dropdown menu
