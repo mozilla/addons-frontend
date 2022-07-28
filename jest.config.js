@@ -33,7 +33,7 @@ module.exports = {
   // This will initialize the jsdom document with a URL which is necessary
   // for History push state to work.
   // See https://github.com/ReactTraining/react-router/issues/5030
-  testURL: 'http://localhost/',
+  testEnvironmentOptions: { url: 'http://localhost/' },
   transform: {
     '^.+\\.js$': 'babel-jest',
     // This transforms images to be a module that exports the filename.

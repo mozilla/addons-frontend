@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 /* eslint-disable react/no-multi-comp, max-classes-per-file */
 import { all, fork } from 'redux-saga/effects';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
@@ -29,7 +32,7 @@ import {
   getFakeConfig,
   getFakeLogger,
   userAuthSessionId,
-} from 'tests/unit/helpers';
+} from 'tests/unit/helpers_node';
 
 function createStoreAndSagas({
   history = createHistory({ req: { url: '' } }),

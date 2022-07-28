@@ -1,4 +1,5 @@
 import { setImmediate } from 'timers';
+import { TextEncoder } from 'util';
 
 import { configure } from '@testing-library/react';
 import sinon from 'sinon';
@@ -9,6 +10,8 @@ import * as matchers from 'jest-extended';
 import '@testing-library/jest-dom/extend-expect';
 
 import 'amo/polyfill';
+
+global.TextEncoder = TextEncoder;
 
 if (process.env.TEST_DEBUG !== 'FULL') {
   configure({
