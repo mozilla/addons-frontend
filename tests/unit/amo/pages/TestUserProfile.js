@@ -31,6 +31,7 @@ import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  API_ERROR_AUTHENTICATION_EXPIRED,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_POPULAR,
   USERS_EDIT,
@@ -39,6 +40,7 @@ import {
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   changeLocation,
+  createCapturedErrorHandler,
   createFailedErrorHandler,
   createFakeUserAbuseReport,
   createUserAccountResponse,
@@ -459,6 +461,23 @@ describe(__filename, () => {
     renderUserProfile();
 
     expect(screen.getAllByText(errorString)).toHaveLength(3);
+  });
+
+  it('shows the expired page if api has expired', async () => {
+    renderUserProfile();
+
+    createCapturedErrorHandler({
+      code: API_ERROR_AUTHENTICATION_EXPIRED,
+      detail: 'something',
+      status: 401,
+      store,
+    });
+
+    await waitFor(() => {
+      expect(
+        screen.getByText('Login authentication has expired.'),
+      ).toBeInTheDocument();
+    });
   });
 
   it('renders an edit link', () => {
