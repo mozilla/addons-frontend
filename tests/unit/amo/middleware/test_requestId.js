@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 import MockExpressRequest from 'mock-express-request';
 import MockExpressResponse from 'mock-express-response';
 

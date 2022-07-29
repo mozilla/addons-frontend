@@ -1,7 +1,10 @@
+/**
+ * @jest-environment node
+ */
 import EventEmitter from 'events';
 
 import { responseTime } from 'amo/middleware/responseTime';
-import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
+import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers_node';
 import { ServerTestHelper } from 'tests/unit/amo/server/test_base';
 
 describe(__filename, () => {
