@@ -40,7 +40,6 @@ import {
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   changeLocation,
-  createCapturedErrorHandler,
   createFailedErrorHandler,
   createFakeUserAbuseReport,
   createUserAccountResponse,
@@ -463,21 +462,21 @@ describe(__filename, () => {
     expect(screen.getAllByText(errorString)).toHaveLength(3);
   });
 
-  it('shows the expired page if api has expired', async () => {
-    renderUserProfile();
+  it('shows Login Expired if api returns 401 auth expired', async () => {
+    signInUserAndRenderUserProfile();
 
-    createCapturedErrorHandler({
-      code: API_ERROR_AUTHENTICATION_EXPIRED,
-      detail: 'something',
-      status: 401,
+    createFailedErrorHandler({
+      error: createApiError({
+        response: { status: 401 },
+        jsonResponse: {
+          code: API_ERROR_AUTHENTICATION_EXPIRED,
+        },
+      }),
+      id: createErrorHandlerId(),
       store,
     });
 
-    await waitFor(() => {
-      expect(
-        screen.getByText('Login authentication has expired.'),
-      ).toBeInTheDocument();
-    });
+    expect(await screen.findByText('Login Expired')).toBeInTheDocument();
   });
 
   it('renders an edit link', () => {
