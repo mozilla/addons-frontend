@@ -465,6 +465,11 @@ describe(__filename, () => {
   it('shows Login Expired if api returns 401 auth expired', async () => {
     signInUserAndRenderUserProfile();
 
+    expect(screen.getByRole('link', { name: 'Edit profile' })).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}/users/edit`,
+    );
+
     createFailedErrorHandler({
       error: createApiError({
         response: { status: 401 },
