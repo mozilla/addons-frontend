@@ -72,6 +72,13 @@
         // Allow our custom matcher.
         "matchingSagaAction",
       ],
+    }],
+    // This allows RTK's createSlice with the simple shorthand syntax.
+    "no-param-reassign": ["error", {
+      "props": true,
+      "ignorePropertyModificationsFor": [
+        "state"
+      ]
     }]
   },
   "settings": {

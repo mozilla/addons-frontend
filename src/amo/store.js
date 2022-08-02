@@ -2,19 +2,14 @@
 /* global window */
 import config from 'config';
 import { createMemoryHistory } from 'history';
-import * as React from 'react';
-import {
-  applyMiddleware,
-  compose,
-  createStore as defaultCreateStore,
-  combineReducers,
-} from 'redux';
+import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import {
   connectRouter,
   routerMiddleware as defaultRouterMiddleware,
 } from 'connected-react-router';
 import { createLogger } from 'redux-logger';
+import { configureStore } from '@reduxjs/toolkit';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
@@ -84,50 +79,40 @@ export const minimalReduxLogger =
  * and returns a new `createStore` function.
  */
 export function middleware({
-  _applyMiddleware = applyMiddleware,
   _config = config,
   _createLogger = createLogger,
   _minimalReduxLogger = minimalReduxLogger,
-  _window = typeof window !== 'undefined' ? window : null,
   sagaMiddleware = null,
   routerMiddleware = null,
 }: {
-  _applyMiddleware?: typeof applyMiddleware,
   _config?: typeof config,
   _createLogger?: typeof createLogger,
   _minimalReduxLogger?: typeof minimalReduxLogger,
   _window?: typeof window | null,
   sagaMiddleware?: Object | null,
   routerMiddleware?: Object | null,
-} = {}): React.ComponentType<any> {
+} = {}): any[] {
   const isDev = _config.get('isDevelopment');
 
-  const callbacks = [];
+  const middlewareToAdd = [];
   if (isDev) {
     // Log all Redux actions but only when in development.
     if (_config.get('server')) {
       // Use a minimal logger while on the server.
-      callbacks.push(_minimalReduxLogger);
+      middlewareToAdd.push(_minimalReduxLogger);
     } else {
       // Use the full logger while on the client.
-      callbacks.push(_createLogger());
+      middlewareToAdd.push(_createLogger());
     }
   }
   if (sagaMiddleware) {
-    callbacks.push(sagaMiddleware);
+    middlewareToAdd.push(sagaMiddleware);
   }
   if (routerMiddleware) {
-    callbacks.push(routerMiddleware);
+    middlewareToAdd.push(routerMiddleware);
   }
 
-  return compose(
-    _applyMiddleware(...callbacks),
-    _config.get('enableDevTools') &&
-      _window &&
-      _window.__REDUX_DEVTOOLS_EXTENSION__
-      ? _window.__REDUX_DEVTOOLS_EXTENSION__()
-      : (_createStore) => _createStore,
-  );
+  return middlewareToAdd;
 }
 
 type InternalAppState = {|
@@ -213,19 +198,28 @@ export const reducers: AppReducersType = {
   viewContext,
 };
 
+export const includeDevTools = ({
+  _config = config,
+}: { _config?: typeof config } = {}): boolean => _config.get('enableDevTools');
+
 export default function createStore({
   history = createMemoryHistory(),
   initialState = {},
 }: CreateStoreParams = {}): {| sagaMiddleware: Object, store: Object |} {
   const sagaMiddleware = createSagaMiddleware();
-  const store = defaultCreateStore(
-    createRootReducer({ history, reducers }),
-    initialState,
-    middleware({
-      routerMiddleware: defaultRouterMiddleware(history),
-      sagaMiddleware,
-    }),
-  );
+
+  const store = configureStore({
+    reducer: createRootReducer({ history, reducers }),
+    preloadedState: initialState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(
+        middleware({
+          routerMiddleware: defaultRouterMiddleware(history),
+          sagaMiddleware,
+        }),
+      ),
+    devTools: includeDevTools(),
+  });
 
   return { sagaMiddleware, store };
 }

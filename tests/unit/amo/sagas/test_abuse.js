@@ -2,7 +2,6 @@ import SagaTester from 'redux-saga-tester';
 
 import * as addonManager from 'amo/addonManager';
 import * as api from 'amo/api/abuse';
-import { CLEAR_ERROR, SET_ERROR } from 'amo/constants';
 import abuseReducer, {
   finishAddonAbuseReportViaFirefox,
   initiateAddonAbuseReportViaFirefox,
@@ -10,6 +9,7 @@ import abuseReducer, {
   sendAddonAbuseReport,
 } from 'amo/reducers/abuse';
 import apiReducer from 'amo/reducers/api';
+import { clearError, setError } from 'amo/reducers/errors';
 import abuseSaga from 'amo/sagas/abuse';
 import {
   createFakeAddonAbuseReport,
@@ -76,7 +76,7 @@ describe(__filename, () => {
     it('clears the error handler', async () => {
       _sendAddonAbuseReport();
 
-      await sagaTester.waitFor(CLEAR_ERROR);
+      await sagaTester.waitFor(clearError.type);
       expect(sagaTester.getCalledActions()[1]).toEqual(
         errorHandler.createClearingAction(),
       );
@@ -106,7 +106,7 @@ describe(__filename, () => {
         message: 'Duplicate!',
       });
 
-      await sagaTester.waitFor(SET_ERROR);
+      await sagaTester.waitFor(setError.type);
       expect(sagaTester.getCalledActions()[1]).toEqual(
         errorHandler.createClearingAction(),
       );

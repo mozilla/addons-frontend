@@ -1,7 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'amo/api/abuse';
-import { CLEAR_ERROR } from 'amo/constants';
+import { clearError } from 'amo/reducers/errors';
 import userAbuseReportsReducer, {
   abortUserAbuseReport,
   loadUserAbuseReport,
@@ -95,7 +95,7 @@ describe(__filename, () => {
   it('clears the error handler', async () => {
     _sendUserAbuseReport();
 
-    const calledAction = await sagaTester.waitFor(CLEAR_ERROR);
+    const calledAction = await sagaTester.waitFor(clearError.type);
     expect(calledAction).toEqual(errorHandler.createClearingAction());
   });
 

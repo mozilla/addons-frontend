@@ -1,8 +1,8 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'amo/api/search';
-import { CLEAR_ERROR } from 'amo/constants';
 import apiReducer from 'amo/reducers/api';
+import { clearError } from 'amo/reducers/errors';
 import searchReducer, {
   SEARCH_LOADED,
   abortSearch,
@@ -57,7 +57,7 @@ describe(__filename, () => {
   it('clears the error handler', async () => {
     _searchStart({ filters: { query: 'foo' } });
 
-    await sagaTester.waitFor(CLEAR_ERROR);
+    await sagaTester.waitFor(clearError.type);
     expect(sagaTester.getCalledActions()[1]).toEqual(
       errorHandler.createClearingAction(),
     );
