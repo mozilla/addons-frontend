@@ -64,10 +64,6 @@ describe(__filename, () => {
     const _config = getFakeConfig({ enableDevTools: true });
 
     expect(includeDevTools({ _config })).toEqual(true);
-
-    // TODO: This doesn't get called, and probably doesn't even need to be checked,
-    // because of RTK.
-    // expect(_window.__REDUX_DEVTOOLS_EXTENSION__).toHaveBeenCalled();
   });
 
   it('does not include devtools when config disables it', () => {
