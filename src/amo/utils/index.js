@@ -258,30 +258,36 @@ export function apiAddonTypeIsValid(addonType: string): boolean {
   // $FlowFixMe: Deal with method-unbinding error.
   return Object.prototype.hasOwnProperty.call(
     API_ADDON_TYPES_MAPPING,
-    addonType,
+    addonType.toLowerCase(),
   );
 }
 
 export function apiAddonType(addonType: string): string {
-  if (!apiAddonTypeIsValid(addonType)) {
-    throw new Error(`"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
+  const lcasedAddonType = addonType.toLowerCase();
+  if (!apiAddonTypeIsValid(lcasedAddonType)) {
+    throw new Error(
+      `"${lcasedAddonType}" not found in API_ADDON_TYPES_MAPPING`,
+    );
   }
-  return API_ADDON_TYPES_MAPPING[addonType];
+  return API_ADDON_TYPES_MAPPING[lcasedAddonType];
 }
 
 export function visibleAddonTypeIsValid(addonType: string): boolean {
   // $FlowFixMe: Deal with method-unbinding error.
   return Object.prototype.hasOwnProperty.call(
     VISIBLE_ADDON_TYPES_MAPPING,
-    addonType,
+    addonType.toLowerCase(),
   );
 }
 
 export function visibleAddonType(addonType: string): string {
-  if (!visibleAddonTypeIsValid(addonType)) {
-    throw new Error(`"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`);
+  const lcasedAddonType = addonType.toLowerCase();
+  if (!visibleAddonTypeIsValid(lcasedAddonType)) {
+    throw new Error(
+      `"${lcasedAddonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`,
+    );
   }
-  return VISIBLE_ADDON_TYPES_MAPPING[addonType];
+  return VISIBLE_ADDON_TYPES_MAPPING[lcasedAddonType];
 }
 
 export function removeProtocolFromURL(urlWithProtocol: string): string {

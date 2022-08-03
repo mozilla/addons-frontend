@@ -39,9 +39,9 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) => {
+  const render = ({ addonType = ADDON_TYPE_EXTENSION, location } = {}) => {
     const renderResults = defaultRender({
-      initialEntries: [getLocation(addonType)],
+      initialEntries: [location || getLocation(addonType)],
       store,
     });
     history = renderResults.history;
@@ -209,6 +209,18 @@ describe(__filename, () => {
 
   it('renders a LandingPage with no addons set', () => {
     render();
+
+    expect(
+      screen.getByText(
+        `Explore powerful tools and features to customize Firefox and make ` +
+          `the browser all your own.`,
+      ),
+    ).toBeInTheDocument();
+  });
+
+  // See https://github.com/mozilla/addons-frontend/issues/11788
+  it('can render a LandingPage with a mixed case visibleAddonType in the URL', () => {
+    render({ location: `/${lang}/${clientApp}/Extensions/` });
 
     expect(
       screen.getByText(
