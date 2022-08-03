@@ -7,12 +7,13 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { Route } from 'react-router-dom';
-import { createStore, combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
 import defaultConfig from 'config';
 import cheerio from 'cheerio';
+import { configureStore } from '@reduxjs/toolkit';
 
 import { REGION_CODE_HEADER, createApiError } from 'amo/api';
 import { AMO_REQUEST_ID_HEADER } from 'amo/constants';
@@ -43,15 +44,19 @@ function createStoreAndSagas({
   },
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
-  const store = createStore(
-    combineReducers({ ...reducers, router: connectRouter(history) }),
+  const store = configureStore({
+    reducer: combineReducers({ ...reducers, router: connectRouter(history) }),
     // Do not define an initial state.
-    undefined,
-    middleware({
-      routerMiddleware: routerMiddleware(history),
-      sagaMiddleware,
-    }),
-  );
+    preloadedState: undefined,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(
+        middleware({
+          routerMiddleware: routerMiddleware(history),
+          sagaMiddleware,
+        }),
+      ),
+    devTools: false,
+  });
 
   return { store, sagaMiddleware };
 }

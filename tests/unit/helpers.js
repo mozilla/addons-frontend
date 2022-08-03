@@ -42,7 +42,6 @@ import { createInternalCollection } from 'amo/reducers/collections';
 import { createInternalHomeShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
 import { addQueryParamsToHistory } from 'amo/utils';
-import { setError } from 'amo/actions/errors';
 import { createApiError } from 'amo/api/index';
 import {
   setClientApp,
@@ -63,6 +62,7 @@ import {
   autocompleteStart,
   createInternalSuggestion,
 } from 'amo/reducers/autocomplete';
+import { setError } from 'amo/reducers/errors';
 import { searchLoad, searchStart } from 'amo/reducers/search';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
 import { createInternalVersion } from 'amo/reducers/versions';

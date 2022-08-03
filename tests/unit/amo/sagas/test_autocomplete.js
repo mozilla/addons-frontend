@@ -5,9 +5,9 @@ import autocompleteReducer, {
   autocompleteStart,
   autocompleteLoad,
 } from 'amo/reducers/autocomplete';
-import { CLEAR_ERROR } from 'amo/constants';
 import * as api from 'amo/api';
 import apiReducer from 'amo/reducers/api';
+import { clearError } from 'amo/reducers/errors';
 import autocompleteSaga from 'amo/sagas/autocomplete';
 import {
   createFakeAutocompleteResult,
@@ -66,7 +66,7 @@ describe(__filename, () => {
   it('clears the error handler', async () => {
     _autocompleteStart({ filters: { query: 'foo' } });
 
-    await sagaTester.waitFor(CLEAR_ERROR);
+    await sagaTester.waitFor(clearError.type);
     expect(sagaTester.getCalledActions()[1]).toEqual(
       errorHandler.createClearingAction(),
     );

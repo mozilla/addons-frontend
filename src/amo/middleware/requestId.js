@@ -19,6 +19,7 @@ const requestId = (
 ): typeof Middleware => {
   const amoRequestId = req.headers[AMO_REQUEST_ID_HEADER] || uuidv4();
   // Make sure a request header is always set.
+  // eslint-disable-next-line no-param-reassign
   req.headers[AMO_REQUEST_ID_HEADER] = amoRequestId;
 
   _httpContext.set(AMO_REQUEST_ID_HEADER, amoRequestId);

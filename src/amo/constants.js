@@ -173,11 +173,8 @@ export const OS_LINUX = 'linux';
 export const OS_ANDROID = 'android';
 
 // Action types.
-export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const FEATURED_GET = 'FEATURED_GET';
 export const FEATURED_LOADED = 'FEATURED_LOADED';
-export const SET_ERROR = 'SET_ERROR';
-export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
 export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 
 export const INSTALL_EVENT_LIST = [

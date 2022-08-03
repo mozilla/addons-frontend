@@ -178,6 +178,7 @@
   "homepage": "https://github.com/mozilla/addons-frontend#readme",
   "dependencies": {
     "@mozilla-protocol/tokens": "5.0.5",
+    "@reduxjs/toolkit": "1.8.3",
     "@willdurand/isomorphic-formdata": "2.1.0",
     "addons-moz-compare": "1.2.0",
     "base62": "2.0.1",
@@ -234,7 +235,7 @@
     "react-super-responsive-table": "5.2.1",
     "react-textarea-autosize": "8.3.4",
     "react-transition-group": "4.4.5",
-    "redux": "4.1.2",
+    "redux": "4.2.0",
     "redux-logger": "3.0.6",
     "redux-saga": "0.16.2",
     "response-time": "2.3.2",
@@ -333,7 +334,7 @@
   "bundlewatch": [
     {
       "path": "./dist/static/amo-!(i18n-)*.js",
-      "maxSize": "350 kB"
+      "maxSize": "355 kB"
     },
     {
       "path": "./dist/static/amo-i18n-*.js",

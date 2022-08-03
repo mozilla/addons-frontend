@@ -1,4 +1,8 @@
-import createStore, { middleware, minimalReduxLogger } from 'amo/store';
+import createStore, {
+  includeDevTools,
+  middleware,
+  minimalReduxLogger,
+} from 'amo/store';
 import { getFakeConfig } from 'tests/unit/helpers';
 import { initialState } from 'amo/reducers/addons';
 
@@ -12,115 +16,74 @@ describe(__filename, () => {
   };
 
   it('includes logging middleware on the client while in development', () => {
-    const _createLogger = sinon.stub();
+    const logger = 'This is a logger';
+    const _createLogger = jest.fn().mockReturnValue(logger);
     expect(
-      typeof middleware({
+      middleware({
         _config: configForDev(true),
         _createLogger,
-      }),
-    ).toBe('function');
-    sinon.assert.called(_createLogger);
+      })[0],
+    ).toEqual(logger);
+    expect(_createLogger).toHaveBeenCalled();
   });
 
   it('includes logging middleware on the server while in development', () => {
-    const _applyMiddleware = sinon.stub();
-    const _minimalReduxLogger = sinon.stub();
+    const _minimalReduxLogger = 'This is a logger';
 
     expect(
-      typeof middleware({
-        _applyMiddleware,
+      middleware({
         _config: configForDev(true, { server: true }),
         _minimalReduxLogger,
-      }),
-    ).toBe('function');
-
-    sinon.assert.calledWith(
-      _applyMiddleware,
-      sinon.match((...args) => {
-        return args.includes(_minimalReduxLogger);
-      }),
-    );
+      })[0],
+    ).toEqual(_minimalReduxLogger);
   });
 
   it('does not apply middleware if not in development', () => {
-    const _createLogger = sinon.stub();
+    const _createLogger = jest.fn();
     expect(
-      typeof middleware({
+      middleware({
         _config: configForDev(false),
         _createLogger,
       }),
-    ).toBe('function');
-    sinon.assert.notCalled(_createLogger);
+    ).toHaveLength(0);
+    expect(_createLogger).not.toHaveBeenCalled();
   });
 
-  it('handles a falsey window while on the server', () => {
-    const _createLogger = sinon.stub();
-    const _window = null;
-    expect(
-      typeof middleware({
-        _config: configForDev(true),
-        _createLogger,
-        _window,
-      }),
-    ).toBe('function');
-    sinon.assert.called(_createLogger);
-  });
-
-  it('does not create a logger for the server', () => {
-    const _createLogger = sinon.stub();
+  it('does not create a logger via createLogger for the server', () => {
+    const _createLogger = jest.fn();
     expect(
       typeof middleware({
         _config: configForDev(true, { server: true }),
         _createLogger,
-      }),
+      })[0],
     ).toBe('function');
-    sinon.assert.notCalled(_createLogger);
+    expect(_createLogger).not.toHaveBeenCalled();
   });
 
-  it('uses a placeholder store enhancer when devtools is not available', () => {
-    const _window = {}; // __REDUX_DEVTOOLS_EXTENSION__() is undefined
+  it('includes devtools when config enables it', () => {
     const _config = getFakeConfig({ enableDevTools: true });
 
-    const enhancer = middleware({ _config, _window });
-
-    expect(typeof enhancer).toBe('function');
-
-    const fakeCreatestore = () => {};
-    expect(typeof enhancer(fakeCreatestore)).toBe('function');
+    expect(includeDevTools({ _config })).toEqual(true);
   });
 
-  it('adds the devtools store enhancer when config enables it', () => {
-    const _window = {
-      __REDUX_DEVTOOLS_EXTENSION__: sinon.spy(),
-    };
-    const _config = getFakeConfig({ enableDevTools: true });
-
-    expect(typeof middleware({ _config, _window })).toBe('function');
-    sinon.assert.called(_window.__REDUX_DEVTOOLS_EXTENSION__);
-  });
-
-  it('does not add the devtools store enhancer when config disables it', () => {
-    const _window = {
-      __REDUX_DEVTOOLS_EXTENSION__: sinon.spy(),
-    };
+  it('does not include devtools when config disables it', () => {
     const _config = getFakeConfig({ enableDevTools: false });
 
-    expect(typeof middleware({ _config, _window })).toBe('function');
-    sinon.assert.notCalled(_window.__REDUX_DEVTOOLS_EXTENSION__);
+    expect(includeDevTools({ _config })).toEqual(false);
   });
 
   describe('minimalReduxLogger', () => {
     it('process an action', () => {
-      const action = sinon.stub();
+      const action = jest.fn();
       const reducerResult = { someState: 'yes' };
-      const next = sinon.stub().returns(reducerResult);
-      const store = sinon.stub();
+      const next = jest.fn().mockReturnValue(reducerResult);
+      const store = jest.fn();
 
       const handleNext = minimalReduxLogger(store);
       const handleAction = handleNext(next);
       const result = handleAction(action);
 
-      sinon.assert.calledWith(next, action);
+      expect(next).toHaveBeenCalledWith(action);
       expect(result).toEqual(reducerResult);
     });
   });

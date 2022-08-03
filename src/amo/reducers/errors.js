@@ -1,10 +1,9 @@
+import { createSlice } from '@reduxjs/toolkit';
+
 import {
-  CLEAR_ERROR,
   ERROR_ADDON_DISABLED_BY_ADMIN,
   ERROR_ADDON_DISABLED_BY_DEV,
   ERROR_UNKNOWN,
-  SET_ERROR,
-  SET_ERROR_MESSAGE,
 } from 'amo/constants';
 import log from 'amo/logger';
 
@@ -87,38 +86,32 @@ function getMessagesFromError(error) {
 //
 export const initialState = {};
 
-export default function errors(state = initialState, action) {
-  switch (action.type) {
-    case CLEAR_ERROR:
-      return {
-        ...state,
-        [action.payload.id]: null,
-      };
-    case SET_ERROR: {
+const errorsSlice = createSlice({
+  name: 'errors',
+  initialState,
+  reducers: {
+    clearError(state, action) {
+      state[action.payload] = null;
+    },
+    setError(state, action) {
       const { code, messages } = getMessagesFromError(action.payload.error);
-      return {
-        ...state,
-        [action.payload.id]: {
-          code,
-          messages,
-          responseStatusCode: action.payload.error.response
-            ? action.payload.error.response.status
-            : null,
-        },
+      state[action.payload.id] = {
+        code,
+        messages,
+        responseStatusCode: action.payload.error.response
+          ? action.payload.error.response.status
+          : null,
       };
-    }
-    case SET_ERROR_MESSAGE: {
+    },
+    setErrorMessage(state, action) {
       const errorData = state[action.payload.id] || {
         messages: [],
       };
       errorData.messages.push(action.payload.message);
+      state[action.payload.id] = errorData;
+    },
+  },
+});
 
-      return {
-        ...state,
-        [action.payload.id]: errorData,
-      };
-    }
-    default:
-      return state;
-  }
-}
+export const { clearError, setError, setErrorMessage } = errorsSlice.actions;
+export default errorsSlice.reducer;

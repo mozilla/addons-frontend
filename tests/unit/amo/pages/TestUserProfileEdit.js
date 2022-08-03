@@ -3,7 +3,6 @@ import { createMemoryHistory } from 'history';
 import userEvent from '@testing-library/user-event';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 
-import { clearError } from 'amo/actions/errors';
 import { setViewContext } from 'amo/actions/viewContext';
 import { createApiError } from 'amo/api/index';
 import { extractId } from 'amo/pages/UserProfileEdit';
@@ -12,6 +11,7 @@ import {
   USERS_EDIT,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
+import { clearError } from 'amo/reducers/errors';
 import {
   FETCH_USER_ACCOUNT,
   FETCH_USER_NOTIFICATIONS,

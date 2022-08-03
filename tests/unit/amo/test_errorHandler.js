@@ -6,13 +6,13 @@ import userEvent from '@testing-library/user-event';
 import { createFakeApiError } from 'tests/unit/amo/reducers/test_errors';
 import { createApiError } from 'amo/api/index';
 import translate from 'amo/i18n/translate';
-import { clearError, setError, setErrorMessage } from 'amo/actions/errors';
 import {
   ErrorHandler,
   withErrorHandler,
   withFixedErrorHandler,
   withRenderedErrorHandler,
 } from 'amo/errorHandler';
+import { clearError, setError, setErrorMessage } from 'amo/reducers/errors';
 import {
   createCapturedErrorHandler,
   dispatchClientMetadata,
