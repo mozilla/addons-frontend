@@ -1,6 +1,6 @@
 import config from 'config';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import { createApiError } from 'amo/api';
 import {
@@ -79,6 +79,7 @@ jest.mock('amo/localState', () =>
 describe(__filename, () => {
   let history;
   let store;
+  let userEvent;
   const clientApp = CLIENT_APP_FIREFOX;
   const defaultCollectionDescription = 'Collection description';
   const defaultCollectionId = 987;
@@ -114,6 +115,7 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
+    userEvent = defaultUserEvent.setup({ delay: null });
   });
 
   afterEach(() => {
