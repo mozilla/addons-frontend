@@ -322,7 +322,13 @@ describe(__filename, () => {
     it('does not return a false positive on a method', () => {
       expect(() => {
         apiAddonType('hasOwnProperty');
-      }).toThrowError('"hasOwnProperty" not found in API_ADDON_TYPES_MAPPING');
+      }).toThrowError('"hasownproperty" not found in API_ADDON_TYPES_MAPPING');
+    });
+
+    // See https://github.com/mozilla/addons-frontend/issues/11788
+    it('works with mixed case arguments', () => {
+      expect(apiAddonType('Extensions')).toEqual(ADDON_TYPE_EXTENSION);
+      expect(apiAddonType('ThemeS')).toEqual(ADDON_TYPE_STATIC_THEME);
     });
   });
 
@@ -333,6 +339,11 @@ describe(__filename, () => {
 
     it('returns false for an invalid addonType', () => {
       expect(apiAddonTypeIsValid('xul')).toEqual(false);
+    });
+
+    // See https://github.com/mozilla/addons-frontend/issues/11788
+    it('works with a mixed case argument', () => {
+      expect(apiAddonTypeIsValid('Extensions')).toEqual(true);
     });
   });
 
@@ -607,8 +618,14 @@ describe(__filename, () => {
       expect(() => {
         visibleAddonType('hasOwnProperty');
       }).toThrowError(
-        '"hasOwnProperty" not found in VISIBLE_ADDON_TYPES_MAPPING',
+        '"hasownproperty" not found in VISIBLE_ADDON_TYPES_MAPPING',
       );
+    });
+
+    // See https://github.com/mozilla/addons-frontend/issues/11788
+    it('works with mixed case arguments', () => {
+      expect(visibleAddonType('Extension')).toEqual('extensions');
+      expect(visibleAddonType('StaticTheme')).toEqual('themes');
     });
   });
 
