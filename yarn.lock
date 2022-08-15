@@ -3589,10 +3589,10 @@ char-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/char-regex/-/char-regex-2.0.1.tgz#6dafdb25f9d3349914079f010ba8d0e6ff9cd01e"
   integrity sha512-oSvEeo6ZUD7NepqAat3RqoucZ5SeqLJgOvVIwkafu6IP3V0pO38s/ypdVUmDDK6qIIHNlYHJAKX9E7R7HoKElw==
 
-characterset@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/characterset/-/characterset-1.3.0.tgz#9640d47d285f3ec742a5a6144eb445e073494e1a"
-  integrity sha1-lkDUfShfPsdCpaYUTrRF4HNJTho=
+characterset@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/characterset/-/characterset-2.0.0.tgz#c65058e58eb3c59859179f6f1a9cf9f49e7a5025"
+  integrity sha512-+eMa/W+3FwFZh6dcaVrKkOFN4DlvOa2Z1zTZngs/ZvAVUb/sAFRo8hYuX9lzOAd8J5uc62WMACiYHW742P5erA==
 
 cheerio-select@^1.5.0:
   version "1.6.0"
