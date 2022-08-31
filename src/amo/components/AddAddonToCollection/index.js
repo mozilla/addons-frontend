@@ -246,7 +246,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     const { errorHandler, i18n, addonInCollections } = this.props;
     const { actionOptions, collectionOptions, disabled } = this.getSelectData();
 
-    let addedNotices = [];
+    let addedNotices: Array<React.Node> = [];
     if (addonInCollections) {
       addedNotices = addonInCollections.map((collection) => {
         const notice = i18n.sprintf(

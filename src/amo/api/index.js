@@ -348,7 +348,7 @@ export const allPages = async (
       count = response.count;
     }
     if (!pageSize) {
-      pageSize = response.page_size;
+      pageSize = parseInt(response.page_size, 10);
     }
     results = results.concat(response.results);
 
@@ -356,7 +356,7 @@ export const allPages = async (
       nextURL = response.next;
       log.debug(`Fetching next page "${nextURL}"`);
     } else {
-      return { count, page_size: pageSize, results };
+      return { count, page_size: String(pageSize), results };
     }
   }
 

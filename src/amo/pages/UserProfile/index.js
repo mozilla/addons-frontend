@@ -491,10 +491,10 @@ function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
 
   const { clientApp, lang } = state.api;
 
-  let canAdminUser = false;
-  let canEditProfile = false;
+  let canAdminUser: null | boolean = false;
+  let canEditProfile: null | boolean = false;
   let currentUser = null;
-  let isOwner = false;
+  let isOwner: null | boolean = false;
   let reviews = null;
   let shouldRedirect = false;
   let user = null;

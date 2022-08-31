@@ -89,7 +89,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       });
     }
 
-    let homepage = addon.homepage && addon.homepage.outgoing;
+    let homepage: null | React.Element<'li'> | string =
+      addon.homepage && addon.homepage.outgoing;
     if (homepage) {
       homepage = (
         <li>
@@ -104,7 +105,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
-    let supportUrl = addon.support_url && addon.support_url.outgoing;
+    let supportUrl: null | React.Element<'li'> | string =
+      addon.support_url && addon.support_url.outgoing;
     if (supportUrl) {
       supportUrl = (
         <li>
@@ -119,13 +121,13 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
-    let supportEmail = addon.support_email;
-    if (supportEmail && /.+@.+/.test(supportEmail)) {
+    let supportEmail: React.Element<'li'> | null;
+    if (addon.support_email && /.+@.+/.test(addon.support_email)) {
       supportEmail = (
         <li>
           <a
             className="AddonMoreInfo-support-email"
-            href={`mailto:${supportEmail}`}
+            href={`mailto:${addon.support_email}`}
           >
             {i18n.gettext('Support Email')}
           </a>

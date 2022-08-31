@@ -58,7 +58,10 @@ export class SearchPageBase extends React.Component<InternalProps> {
     if (
       newFilters.category &&
       newFilters.addonType &&
-      visibleAddonTypeIsValid(newFilters.addonType)
+      visibleAddonTypeIsValid(newFilters.addonType) &&
+      // We have to add this below the call to visibleAddonTypeIsValid or
+      // Flow gets angry.
+      newFilters.addonType
     ) {
       pathname = getCategoryResultsPathname({
         addonType: newFilters.addonType,

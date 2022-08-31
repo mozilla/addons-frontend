@@ -88,7 +88,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
     } = this.props;
     invariant(addonType, 'addonType is undefined');
 
-    let categories = [];
+    let categories: Array<mixed> = [];
     if (
       categoriesState &&
       categoriesState[clientApp] &&
