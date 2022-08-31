@@ -4,7 +4,6 @@ const fs = require('fs');
 
 const shell = require('shelljs');
 const { oneLine } = require('common-tags');
-const CharacterSet = require('characterset');
 const prettier = require('prettier');
 
 function getUnicodeRangeFromFile(file) {
@@ -13,28 +12,32 @@ function getUnicodeRangeFromFile(file) {
     .stdout.replace('\n', '');
 }
 
-const fonts = {
-  'src/fonts/woff2/Inter-roman.var.woff2': {
-    inputFile: 'src/fonts/woff2/Inter-roman-reduced-weights.var.woff2',
-    cssFile: 'inter.scss',
-    cssFontDisplay: 'swap',
-    htmlFile: 'Inter-roman.var.html',
-  },
-  'src/fonts/woff2/Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.woff2': {
-    inputFile: 'src/fonts/woff2/Inter-roman-reduced-weights.var.woff2',
-    cssFile: 'inter-subset.scss',
-    cssFontDisplay:
-      'block' /* we preload that font and want browser to always use it */,
-    htmlFile: 'Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.html',
-  },
-};
-const args = process.argv.slice(2);
-const outputFile = args[0];
-const outputCharacterSet = CharacterSet.parseUnicodeRange(
-  args[1] || getUnicodeRangeFromFile(outputFile),
-);
-
 function regenerateFonts() {
+  import('characterset').then((characterset) => {
+
+    const CharacterSet = characterset.default;
+
+    const fonts = {
+      'src/fonts/woff2/Inter-roman.var.woff2': {
+        inputFile: 'src/fonts/woff2/Inter-roman-reduced-weights.var.woff2',
+        cssFile: 'inter.scss',
+        cssFontDisplay: 'swap',
+        htmlFile: 'Inter-roman.var.html',
+      },
+      'src/fonts/woff2/Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.woff2': {
+        inputFile: 'src/fonts/woff2/Inter-roman-reduced-weights.var.woff2',
+        cssFile: 'inter-subset.scss',
+        cssFontDisplay:
+          'block' /* we preload that font and want browser to always use it */,
+        htmlFile: 'Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.html',
+      },
+    };
+    const args = process.argv.slice(2);
+    const outputFile = args[0];
+    const outputCharacterSet = CharacterSet.parseUnicodeRange(
+      args[1] || getUnicodeRangeFromFile(outputFile),
+    );
+
   // Make sure this is ran from the root of the repos.
   try {
     fs.accessSync('./bin/regenerate_font.js', fs.constants.R_OK);
@@ -114,6 +117,7 @@ function regenerateFonts() {
     .join('\n')}</div>
 `;
   fs.writeFileSync(`src/fonts/${htmlFile}`, htmlContents);
+});
 }
 
 regenerateFonts();
