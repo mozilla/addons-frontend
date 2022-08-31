@@ -245,7 +245,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
       return null;
     }
 
-    let header = <LoadingText />;
+    let header: React.Node | string = <LoadingText />;
     if (authorIds) {
       switch (addonType) {
         case ADDON_TYPE_DICT:

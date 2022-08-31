@@ -28,8 +28,8 @@ export class UserProfileHeadBase extends React.Component<InternalProps> {
     const { query, search } = this.props.location;
 
     // `page_e` and `page_t` are defined in the `UserProfile` component.
-    let page_e = Number(query.page_e);
-    let page_t = Number(query.page_t);
+    let page_e: null | number = Number(query.page_e);
+    let page_t: null | number = Number(query.page_t);
 
     // We don't want to return a query string when values are '1'.
     if (page_e === 1) {

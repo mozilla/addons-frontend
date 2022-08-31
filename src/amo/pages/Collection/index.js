@@ -116,7 +116,7 @@ export const computeNewCollectionPage = ({
 }: ComputeNewCollectionPageParams): string => {
   const { numberOfAddons, pageSize } = collection;
 
-  let page = '1';
+  let page: number | string = '1';
   if (pageSize && numberOfAddons) {
     const lastPage = Math.ceil((numberOfAddons - 1) / Number(pageSize));
 

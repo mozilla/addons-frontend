@@ -141,7 +141,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     const { addons, loading, outcome } = recommendations;
     const classnames = makeClassName('AddonRecommendations', className);
 
-    let header = <LoadingText width={100} />;
+    let header: React.Node | string = <LoadingText width={100} />;
     if (!loading) {
       header =
         outcome === OUTCOME_RECOMMENDED

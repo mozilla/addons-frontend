@@ -1214,7 +1214,7 @@ const reducer = (
     case ADDON_ADDED_TO_COLLECTION: {
       const { addonId, collectionId, userId } = action.payload;
       const { addonInCollections } = state;
-      let collections = [];
+      let collections: Array<CollectionId> = [];
       if (addonInCollections[userId] && addonInCollections[userId][addonId]) {
         const existingCollections =
           addonInCollections[userId][addonId].collections;

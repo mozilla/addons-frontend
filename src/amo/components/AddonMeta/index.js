@@ -42,7 +42,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     const averageDailyUsers = addon ? addon.average_daily_users : null;
     const roundedAverage = roundToOneDigit(averageRating || null);
 
-    let userCount = '';
+    let userCount: null | string = '';
     let userTitle;
     if (!addon) {
       userCount = null;
@@ -54,7 +54,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
       userTitle = i18n.gettext('No Users');
     }
 
-    let reviewCount = '';
+    let reviewCount: null | string = '';
     let reviewTitle;
     if (!addon) {
       reviewCount = null;

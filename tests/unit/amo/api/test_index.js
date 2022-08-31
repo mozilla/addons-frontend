@@ -892,7 +892,7 @@ describe(__filename, () => {
 
       expect(response).toEqual({
         count: proxiedResponse.count,
-        page_size: proxiedResponse.page_size,
+        page_size: String(proxiedResponse.page_size),
         results: [],
       });
     });
