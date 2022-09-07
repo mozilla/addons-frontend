@@ -26,10 +26,6 @@ import type { DispatchFunc } from 'amo/types/redux';
 import './styles.scss';
 
 export const TAAR_IMPRESSION_CATEGORY = 'AMO Addon / Recommendations Shown';
-export const TAAR_COHORT_DIMENSION = 'dimension4';
-export const TAAR_COHORT_INCLUDED = 'TAAR_COHORT_INCLUDED';
-export const TAAR_EXPERIMENT_PARTICIPANT = 'TAAR-LITE-AB';
-export const TAAR_EXPERIMENT_PARTICIPANT_DIMENSION = 'dimension5';
 
 type DefaultProps = {|
   tracking: typeof defaultTracking,
@@ -55,17 +51,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   };
 
   componentDidMount() {
-    const { addon, recommendations, tracking } = this.props;
-
-    tracking.setDimension({
-      dimension: TAAR_COHORT_DIMENSION,
-      value: TAAR_COHORT_INCLUDED,
-    });
-
-    tracking.setDimension({
-      dimension: TAAR_EXPERIMENT_PARTICIPANT_DIMENSION,
-      value: TAAR_EXPERIMENT_PARTICIPANT,
-    });
+    const { addon, recommendations } = this.props;
 
     if (addon && !recommendations) {
       this.dispatchFetchRecommendations(addon.guid);
