@@ -25,6 +25,7 @@ import {
   SEARCH_SORT_TRENDING,
 } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
+import { EXPERIMENT_CONFIG } from 'amo/experiments/20220908_amo_dimension_test';
 import {
   apiAddonType,
   apiAddonTypeIsValid,
@@ -32,6 +33,7 @@ import {
 } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import Button from 'amo/components/Button';
+import { withExperiment } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -337,4 +339,5 @@ export default compose(
   connect(mapStateToProps),
   translate(),
   withErrorHandler({ id: 'LandingPage' }),
+  withExperiment({ experimentConfig: EXPERIMENT_CONFIG }),
 )(LandingPageBase);

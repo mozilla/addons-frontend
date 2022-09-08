@@ -122,6 +122,7 @@ jest.mock('amo/addonManager', () => ({
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
+  setDimension: jest.fn(),
 }));
 
 jest.mock('config');
