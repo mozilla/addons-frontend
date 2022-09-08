@@ -7,13 +7,7 @@ import userEvent from '@testing-library/user-event';
 import { createAddonReview, setLatestReview } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import { getAddon } from 'amo/addonManager';
-import {
-  TAAR_IMPRESSION_CATEGORY,
-  TAAR_COHORT_DIMENSION,
-  TAAR_COHORT_INCLUDED,
-  TAAR_EXPERIMENT_PARTICIPANT,
-  TAAR_EXPERIMENT_PARTICIPANT_DIMENSION,
-} from 'amo/components/AddonRecommendations';
+import { TAAR_IMPRESSION_CATEGORY } from 'amo/components/AddonRecommendations';
 import {
   CONTRIBUTE_BUTTON_CLICK_ACTION,
   CONTRIBUTE_BUTTON_CLICK_CATEGORY,
@@ -128,7 +122,6 @@ jest.mock('amo/addonManager', () => ({
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
-  setDimension: jest.fn(),
 }));
 
 jest.mock('config');
@@ -2365,20 +2358,6 @@ describe(__filename, () => {
         action: `${outcome}-${fallbackReason}`,
         category: TAAR_IMPRESSION_CATEGORY,
         label: addon.guid,
-      });
-    });
-
-    it('should set GA custom dimensions', () => {
-      renderWithAddon();
-
-      expect(tracking.setDimension).toHaveBeenCalledTimes(2);
-      expect(tracking.setDimension).toHaveBeenCalledWith({
-        dimension: TAAR_COHORT_DIMENSION,
-        value: TAAR_COHORT_INCLUDED,
-      });
-      expect(tracking.setDimension).toHaveBeenCalledWith({
-        dimension: TAAR_EXPERIMENT_PARTICIPANT_DIMENSION,
-        value: TAAR_EXPERIMENT_PARTICIPANT,
       });
     });
 
