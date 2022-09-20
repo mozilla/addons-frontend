@@ -70,6 +70,9 @@ export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
 // in the experiment.
 export const NOT_IN_EXPERIMENT = 'notInExperiment';
 export const EXPERIMENT_ID_REGEXP: RegExp = /\d{8}_amo_.+/;
+// The GA custom dimensions used for experimentId and variation.
+export const EXPERIMENT_ID_GA_DIMENSION = 'dimension8';
+export const EXPERIMENT_VARIATION_GA_DIMENSION = 'dimension9';
 
 // https://github.com/reactivestack/cookies/tree/f9beead40a6bebac475d9bf17c1da55418d26751/packages/react-cookie#setcookiename-value-options
 type CookieConfig = {|
@@ -290,6 +293,18 @@ export const withExperiment =
             experimentsToStore,
             cookieConfig || defaultCookieConfig,
           );
+        }
+
+        // If the user is enrolled in a branch, set the GA custom dimensions.
+        if (variant && variant !== NOT_IN_EXPERIMENT) {
+          _tracking.setDimension({
+            dimension: EXPERIMENT_ID_GA_DIMENSION,
+            value: id,
+          });
+          _tracking.setDimension({
+            dimension: EXPERIMENT_VARIATION_GA_DIMENSION,
+            value: variant,
+          });
         }
       }
 

@@ -4,7 +4,9 @@ import { storeExperimentVariant } from 'amo/reducers/experiments';
 import {
   EXPERIMENT_COOKIE_NAME,
   EXPERIMENT_ENROLLMENT_CATEGORY,
+  EXPERIMENT_ID_GA_DIMENSION,
   EXPERIMENT_ID_REGEXP,
+  EXPERIMENT_VARIATION_GA_DIMENSION,
   NOT_IN_EXPERIMENT,
   defaultCookieConfig,
   getVariant,
@@ -683,6 +685,59 @@ describe(__filename, () => {
       expect(EXPERIMENT_ID_REGEXP.test(experimentId)).toEqual(true);
       expect(experimentId.length).toBeLessThan(50);
     }
+  });
+
+  it('sets the custom dimensions when the user is in the experiment', () => {
+    const id = makeExperimentId('test-id');
+    const variant = 'some-variant';
+    const cookies = fakeCookies({
+      get: jest
+        .fn()
+        .mockReturnValue(createExperimentData({ id, variantId: variant })),
+    });
+    const _tracking = createFakeTracking();
+
+    render({ _tracking, cookies, experimentProps: { id } });
+
+    expect(_tracking.setDimension).toHaveBeenCalledTimes(2);
+    expect(_tracking.setDimension).toHaveBeenCalledWith({
+      dimension: EXPERIMENT_ID_GA_DIMENSION,
+      value: id,
+    });
+    expect(_tracking.setDimension).toHaveBeenCalledWith({
+      dimension: EXPERIMENT_VARIATION_GA_DIMENSION,
+      value: variant,
+    });
+  });
+
+  it('does not set the custom dimensions when the user is not in the experiment', () => {
+    const id = makeExperimentId('test-id');
+    const cookies = fakeCookies({
+      get: jest
+        .fn()
+        .mockReturnValue(
+          createExperimentData({ id, variantId: NOT_IN_EXPERIMENT }),
+        ),
+    });
+    const _tracking = createFakeTracking();
+
+    render({ _tracking, cookies, experimentProps: { id } });
+
+    expect(_tracking.setDimension).not.toHaveBeenCalled();
+  });
+
+  it('does not set the custom dimensions when the experiment is disabled', () => {
+    const id = makeExperimentId('disabled_experiment');
+    const configOverrides = {
+      experiments: {
+        [id]: false,
+      },
+    };
+    const _tracking = createFakeTracking();
+
+    render({ _tracking, configOverrides, experimentProps: { id } });
+
+    expect(_tracking.setDimension).not.toHaveBeenCalled();
   });
 
   describe('getVariant', () => {
