@@ -543,7 +543,7 @@ describe(__filename, () => {
   it('calls setDimension for the configured experiment', async () => {
     render();
 
-    expect(tracking.setDimension).toHaveBeenCalledTimes(2);
+    await waitFor(() => expect(tracking.setDimension).toHaveBeenCalledTimes(2));
     expect(tracking.setDimension).toHaveBeenCalledWith({
       dimension: EXPERIMENT_ID_GA_DIMENSION,
       value: EXPERIMENT_CONFIG.id,
