@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { storeExperimentVariant } from 'amo/reducers/experiments';
 import {
+  DEFAULT_COOKIE_MAX_AGE,
   EXPERIMENT_COOKIE_NAME,
   EXPERIMENT_ENROLLMENT_CATEGORY,
   EXPERIMENT_ID_GA_DIMENSION,
@@ -443,7 +444,13 @@ describe(__filename, () => {
         ...createExperimentData({ id: experimentId, variantId }),
         ...createExperimentData({ id: anotherExperimentId, variantId }),
       },
-      defaultCookieConfig,
+      // Verify that the expected default config is used.
+      {
+        maxAge: DEFAULT_COOKIE_MAX_AGE,
+        path: '/',
+        sameSite: 'strict',
+        secure: true,
+      },
     );
   });
 
