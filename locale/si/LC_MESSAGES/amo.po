@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-21 16:53+0000\n"
+"PO-Revision-Date: 2022-09-21 16:55+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -174,7 +174,7 @@ msgstr[1] "සමාලෝචන"
 
 #: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
-msgstr ""
+msgstr "සමාලෝචන නැත"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Used by"
@@ -182,11 +182,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:101 src/amo/pages/UserProfile/index.js:356 src/amo/pages/UserProfile/index.js:358 src/amo/pages/UserProfileEdit/index.js:672
 msgid "Homepage"
-msgstr ""
+msgstr "මුල් පිටුව"
 
 #: src/amo/components/AddonMoreInfo/index.js:116
 msgid "Support site"
-msgstr ""
+msgstr "සහාය අඩවිය"
 
 #: src/amo/components/AddonMoreInfo/index.js:130
 msgid "Support Email"
@@ -223,15 +223,15 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:311
 msgid "Version"
-msgstr ""
+msgstr "අනුවාදය"
 
 #: src/amo/components/AddonMoreInfo/index.js:319
 msgid "Size"
-msgstr ""
+msgstr "ප්‍රමාණය"
 
 #: src/amo/components/AddonMoreInfo/index.js:327 src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
-msgstr ""
+msgstr "අවසාන යාවත්කාලය"
 
 #: src/amo/components/AddonMoreInfo/index.js:335
 msgid "Related Categories"
@@ -239,11 +239,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:345
 msgid "License"
-msgstr ""
+msgstr "බලපත්‍රය"
 
 #: src/amo/components/AddonMoreInfo/index.js:353
 msgid "Privacy Policy"
-msgstr ""
+msgstr "රහස්‍යතා ප්‍රතිපත්තිය"
 
 #: src/amo/components/AddonMoreInfo/index.js:361
 msgid "End-User License Agreement"
@@ -251,7 +251,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:369
 msgid "Version History"
-msgstr ""
+msgstr "අනුවාද ඉතිහාසය"
 
 #: src/amo/components/AddonMoreInfo/index.js:379
 msgid "Usage Statistics"
@@ -259,11 +259,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:387
 msgid "Tags"
-msgstr ""
+msgstr "අනන්‍යන"
 
 #: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
-msgstr ""
+msgstr "තව තොරතුරු"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -307,12 +307,12 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:248 src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
-msgstr ""
+msgstr "මකන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:266 src/amo/components/AddonReviewManager/index.js:146 src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61 src/amo/components/DismissibleTextForm/index.js:221 src/amo/pages/UserProfileEdit/index.js:895
 msgid "Cancel"
-msgstr ""
+msgstr "අවලංගු"
 
 #: src/amo/components/AddonReviewCard/index.js:270
 msgid "Keep reply"
