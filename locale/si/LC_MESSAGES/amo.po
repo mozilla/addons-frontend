@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 14:42+0000\n"
+"PO-Revision-Date: 2022-09-22 20:03+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2139,11 +2139,11 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:103
 msgid "Music"
-msgstr ""
+msgstr "සංගීතය"
 
 #: src/amo/pages/Home/index.js:108
 msgid "Seasonal"
-msgstr ""
+msgstr "ඍතුමය"
 
 #: src/amo/pages/Home/index.js:158
 msgid "Change the way Firefox looks with themes."
@@ -2155,7 +2155,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
-msgstr ""
+msgstr "තවත් නිර්දේශිත දිගු බලන්න"
 
 #: src/amo/pages/Home/index.js:83
 msgid "Abstract"
@@ -2163,11 +2163,11 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:88
 msgid "Nature"
-msgstr ""
+msgstr "සොබාදහම"
 
 #: src/amo/pages/Home/index.js:93
 msgid "Film & TV"
-msgstr ""
+msgstr "චිත්‍රපට හා රූපවාහිනී"
 
 #: src/amo/pages/Home/index.js:98
 msgid "Scenery"
@@ -2211,7 +2211,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
-msgstr ""
+msgstr "සියළුම ප්‍රවර්ග ගවේශනය"
 
 #: src/amo/pages/LanguageTools/index.js:118
 msgid "Available for your locale"
@@ -2219,7 +2219,7 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:145
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "ශබ්දකෝෂ සහ භාෂා ඇසුරුම්"
 
 #: src/amo/pages/LanguageTools/index.js:155
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
@@ -2243,11 +2243,11 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:188
 msgid "Language Packs"
-msgstr ""
+msgstr "භාෂා ඇසුරුම්"
 
 #: src/amo/pages/LanguageTools/index.js:191
 msgid "Dictionaries"
-msgstr ""
+msgstr "ශබ්දකෝෂ"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2299,7 +2299,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
-msgstr ""
+msgstr "සහාය ගන්න"
 
 #: src/amo/pages/StaticPages/About/index.js:237
 msgid ""
@@ -2333,7 +2333,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
-msgstr ""
+msgstr "සම්බන්ධ වන්න"
 
 #: src/amo/pages/StaticPages/About/index.js:67
 msgid ""
@@ -2399,7 +2399,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
-msgstr ""
+msgstr "සමාලෝචන මාර්ගෝපදේශය"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
@@ -2441,15 +2441,15 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
-msgstr ""
+msgstr "එය ප්‍රයෝජනවත්ද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "එය භාවිතයට පහසුද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "ඔබ මෙම එක්කහුව දිගටම භාවිතා කරනවාද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -2519,19 +2519,19 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:335 src/amo/pages/UserProfileEdit/index.js:549
 msgid "User Profile for %(user)s"
-msgstr ""
+msgstr "%(user)s සඳහා පරිශීලක පැතිකඩ"
 
 #: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
-msgstr ""
+msgstr "පරිශීලක පැතිකඩ"
 
 #: src/amo/pages/UserProfile/index.js:364 src/amo/pages/UserProfileEdit/index.js:689
 msgid "Location"
-msgstr ""
+msgstr "ස්ථානය"
 
 #: src/amo/pages/UserProfile/index.js:372 src/amo/pages/UserProfileEdit/index.js:704
 msgid "Occupation"
-msgstr ""
+msgstr "රැකියාව"
 
 #: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2539,7 +2539,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
-msgstr ""
+msgstr "එක්කහු ගණන"
 
 #: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
@@ -2551,12 +2551,12 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
-msgstr ""
+msgstr "පැතිකඩ සංස්කරණය"
 
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
-msgstr ""
+msgstr "පරිපාලක පරිශීලක"
 
 #: src/amo/pages/UserProfileEdit/index.js:209
 msgid "Picture successfully deleted"
@@ -2612,7 +2612,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:568
 msgid "Edit user's profile"
-msgstr ""
+msgstr "පරිශීලක පැතිකඩ සංස්කරණය"
 
 #: src/amo/pages/UserProfileEdit/index.js:586
 msgid "Account"
@@ -2644,7 +2644,7 @@ msgstr "පැතිකඩ"
 
 #: src/amo/pages/UserProfileEdit/index.js:647
 msgid "This field is required"
-msgstr ""
+msgstr "මෙම ක්‍ෂේත්‍රය අවශ්‍යයි"
 
 # the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:651
