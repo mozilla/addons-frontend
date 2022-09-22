@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 13:44+0000\n"
+"PO-Revision-Date: 2022-09-22 14:17+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -812,7 +812,7 @@ msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "අපොයි, එම පිටුව හමු නොවිණි"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -1383,11 +1383,11 @@ msgstr "ඔබ මෙය අනිසි එක්කහුවක් යැය�
 
 #: src/amo/components/ReportAbuseButton/index.js:117
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම එක්කහුව පිළිබඳව දන්වා සිටීමට තුති."
 
 #: src/amo/components/ReportAbuseButton/index.js:124 src/amo/components/ReportUserAbuse/index.js:172
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "අපට සියළු අනිසි වාර්තා සඳහා ප්‍රතිචාර දැක්වීමට නොහැකිය, නමුත් මෙම ගැටළුව ගැන සොයා බලන්නෙමු."
 
 #: src/amo/components/ReportAbuseButton/index.js:134
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
@@ -1395,7 +1395,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "එක්කහුව අනිසි යැයි වාර්තා කරන්න"
 
 #: src/amo/components/ReportAbuseButton/index.js:181
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1403,11 +1403,11 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:194 src/amo/components/ReportUserAbuse/index.js:152
 msgid "Send abuse report"
-msgstr ""
+msgstr "අනිසි වාර්තාව යවන්න"
 
 #: src/amo/components/ReportAbuseButton/index.js:195 src/amo/components/ReportUserAbuse/index.js:153
 msgid "Sending abuse report"
-msgstr ""
+msgstr "අනිසි වාර්තාව යැවෙමින්"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
@@ -1415,11 +1415,11 @@ msgstr "ඉවතලන්න"
 
 #: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "මෙම එක්කහුව අපගේ ප්‍රතිපත්ති කඩ කරන අයුරු පැහැදිලි කරන්න."
 
 #: src/amo/components/ReportUserAbuse/index.js:105 src/amo/components/ReportUserAbuse/index.js:112
 msgid "Report this user for abuse"
-msgstr ""
+msgstr "පරිශීලකයා අනිසි යැයි වාර්තා කරන්න"
 
 #: src/amo/components/ReportUserAbuse/index.js:119
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
@@ -1663,15 +1663,15 @@ msgstr[1] ""
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
-msgstr ""
+msgstr "සියල්ල"
 
 #: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
-msgstr ""
+msgstr "දිගුව"
 
 #: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
-msgstr ""
+msgstr "තේමාව"
 
 #: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
@@ -1679,7 +1679,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
-msgstr ""
+msgstr "මෑත දී යාවත්කාලීන"
 
 #: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
@@ -1695,11 +1695,11 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
-msgstr ""
+msgstr "ඕනෑම"
 
 #: src/amo/components/SearchFilters/index.js:190
 msgid "All Reviewed"
-msgstr ""
+msgstr "සමාලෝචිත සියල්ල"
 
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
@@ -1707,7 +1707,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:215
 msgid "Sort by"
-msgstr ""
+msgstr "වර්ගනය"
 
 #: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
