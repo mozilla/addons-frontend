@@ -138,7 +138,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   createFiltersFromQuery(query: string): Object {
     const { location } = this.props;
     // Preserve any existing search filters.
-    let filtersFromLocation = {};
+    let filtersFromLocation: { sort?: string } = {};
     if (location) {
       filtersFromLocation = convertQueryParamsToFilters(location.query);
       // Do not preserve page. New searches should always start on page 1.
