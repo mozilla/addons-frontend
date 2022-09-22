@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 09:43+0000\n"
+"PO-Revision-Date: 2022-09-22 09:50+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -766,7 +766,7 @@ msgstr "ඔබගේ වාරය කල් ඉකුත් වී ඇත"
 
 #: src/amo/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "අනපේක්‍ෂිත දෝෂයක් මතු විය"
 
 #: src/amo/components/ErrorList/index.js:59
 msgid "Reload To Continue"
@@ -774,7 +774,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "පිටුව හමු නොවිණි"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -782,7 +782,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "දෝෂ කේතය: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
@@ -790,7 +790,7 @@ msgstr ""
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
-msgstr ""
+msgstr "පිවිසුම ඉකුත් විය"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -836,7 +836,7 @@ msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
-msgstr ""
+msgstr "සේවාදායකයේ දෝෂයකි"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -906,7 +906,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "This is spam"
-msgstr ""
+msgstr "මෙය අයාචිතයකි"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
@@ -922,15 +922,15 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
-msgstr ""
+msgstr "සංවර්ධක ප්‍රතිපත්ති"
 
 #: src/amo/components/Footer/index.js:115
 msgid "Community Blog"
-msgstr ""
+msgstr "ප්‍රජා ලිපිපෙළ"
 
 #: src/amo/components/Footer/index.js:120
 msgid "Forum"
-msgstr ""
+msgstr "සංසදය"
 
 #: src/amo/components/Footer/index.js:128
 msgid "Report a bug"
@@ -942,23 +942,23 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:140
 msgid "Browsers"
-msgstr ""
+msgstr "අතිරික්සු"
 
 #: src/amo/components/Footer/index.js:185
 msgid "Products"
-msgstr ""
+msgstr "නිෂ්පාදන"
 
 #: src/amo/components/Footer/index.js:272
 msgid "Privacy"
-msgstr ""
+msgstr "රහස්‍යතාව"
 
 #: src/amo/components/Footer/index.js:280
 msgid "Cookies"
-msgstr ""
+msgstr "දත්තකඩ"
 
 #: src/amo/components/Footer/index.js:288
 msgid "Legal"
-msgstr ""
+msgstr "නීතිමය"
 
 #: src/amo/components/Footer/index.js:298
 msgid ""
@@ -968,11 +968,11 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "මොසිල්ලා මුල් පිටුවට යන්න"
 
 #: src/amo/components/Footer/index.js:63
 msgid "About"
-msgstr ""
+msgstr "පිළිබඳව"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
@@ -992,23 +992,23 @@ msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:121
 msgid "Download Firefox and get the theme"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් බාගත කර තේමාව ගන්න"
 
 #: src/amo/components/GetFirefoxButton/index.js:122
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් බාගත කර දිගුව ලබා ගන්න"
 
 #: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download the new Firefox and get the theme"
-msgstr ""
+msgstr "නව ෆයර්ෆොක්ස් බාගත කර තේමාව ලබා ගන්න"
 
 #: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download the new Firefox and get the extension"
-msgstr ""
+msgstr "නව ෆයර්ෆොක්ස් බාගත කර දිගුව ලබා ගන්න"
 
 #: src/amo/components/GetFirefoxButton/index.js:131
 msgid "Download Firefox"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් බාගන්න"
 
 #: src/amo/components/GetFirefoxButton/index.js:134
 msgid "You'll need Firefox to use this theme"
