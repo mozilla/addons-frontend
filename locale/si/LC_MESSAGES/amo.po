@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 09:13+0000\n"
+"PO-Revision-Date: 2022-09-22 09:17+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -598,15 +598,15 @@ msgstr "ප්‍රවර්ග"
 
 #: src/amo/components/Categories/index.js:117
 msgid "Loading categories."
-msgstr ""
+msgstr "ප්‍රවර්ග පූරණය වෙමින්."
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
-msgstr ""
+msgstr "එකතුවට එක් කෙරිණි"
 
 #: src/amo/components/CollectionAddAddon/index.js:170
 msgid "Removed from collection"
-msgstr ""
+msgstr "එකතුවෙන් ඉවත් කෙරිණි"
 
 #: src/amo/components/CollectionAddAddon/index.js:179
 msgid "Find an add-on to include in this collection"
@@ -614,47 +614,47 @@ msgstr ""
 
 #: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
-msgstr ""
+msgstr "මෙම එකතුව සංස්කරණය"
 
 #: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
-msgstr ""
+msgstr "එකතුවෙහි විස්තර සංස්කරණය"
 
 #: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
-msgstr ""
+msgstr "එකතුව වෙත ආපසු"
 
 #: src/amo/components/CollectionDetails/index.js:77 src/amo/components/Footer/index.js:58
 msgid "Add-ons"
-msgstr ""
+msgstr "එක්කහු"
 
 #: src/amo/components/CollectionDetails/index.js:81
 msgid "Creator"
-msgstr ""
+msgstr "නිර්මාතෘ"
 
 #: src/amo/components/CollectionManager/index.js:248
 msgid "Create collection"
-msgstr ""
+msgstr "එකතුවක් සාදන්න"
 
 #: src/amo/components/CollectionManager/index.js:249
 msgid "Save changes"
-msgstr ""
+msgstr "වෙනස්කම් සුරකින්න"
 
 #: src/amo/components/CollectionManager/index.js:258
 msgid "Collection name"
-msgstr ""
+msgstr "එකතුවෙහි නම"
 
 #: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
-msgstr ""
+msgstr "සවිස්තරය"
 
 #: src/amo/components/CollectionManager/index.js:284
 msgid "Custom URL"
-msgstr ""
+msgstr "අභිරුචි ඒ.ස.නි."
 
 #: src/amo/components/CollectionSort/index.js:108
 msgid "Sort add-ons by"
-msgstr ""
+msgstr "එක්කහු වර්ගනය"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Newest first"
@@ -666,7 +666,7 @@ msgstr ""
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Name"
-msgstr ""
+msgstr "නම"
 
 #: src/amo/components/CollectionSort/index.js:96
 msgid "Popularity"
@@ -674,7 +674,7 @@ msgstr ""
 
 #: src/amo/components/ConfirmationDialog/index.js:53
 msgid "Confirm"
-msgstr ""
+msgstr "තහවුරු"
 
 #: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
