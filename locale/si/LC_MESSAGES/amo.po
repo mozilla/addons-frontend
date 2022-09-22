@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 09:50+0000\n"
+"PO-Revision-Date: 2022-09-22 10:01+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -988,7 +988,7 @@ msgstr ""
 
 #: src/amo/components/GetFirefoxBanner/index.js:72
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "%(linkStart)sෆයර්ෆොක්ස් බාගැනීමෙන්%(linkEnd)s මෙවැනි එක්කහු භාවිතා කිරීමට හැකිය"
 
 #: src/amo/components/GetFirefoxButton/index.js:121
 msgid "Download Firefox and get the theme"
@@ -1000,7 +1000,7 @@ msgstr "ෆයර්ෆොක්ස් බාගත කර දිගුව ල�
 
 #: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download the new Firefox and get the theme"
-msgstr "නව ෆයර්ෆොක්ස් බාගත කර තේමාව ලබා ගන්න"
+msgstr "නව ෆයර්ෆොක්ස් බාගත කර තේමාව ගන්න"
 
 #: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download the new Firefox and get the extension"
