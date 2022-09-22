@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 11:56+0000\n"
+"PO-Revision-Date: 2022-09-22 12:22+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -56,7 +56,7 @@ msgstr "තේමාව සමාලෝචනය"
 # This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:114
 msgid "Review add-on code"
-msgstr ""
+msgstr "එක්කහු කේතය සමාලෝචනය"
 
 # This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:134
@@ -71,7 +71,7 @@ msgstr "එක්කහුව සංස්කරණය"
 # This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:90
 msgid "Admin add-on"
-msgstr ""
+msgstr "පරිපාලක එක්කහු"
 
 # This is a list of links to Developer functions.
 #: src/amo/components/AddonAuthorLinks/index.js:62
@@ -84,7 +84,7 @@ msgstr "පරීක්‍ෂාත්මක"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
-msgstr ""
+msgstr "ඇතැම් විශේෂාංග සඳහා ගෙවීමක් අවශ්‍යයි"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -92,7 +92,7 @@ msgstr "ඔබගේ ෆයර්ෆොක්ස් අනුවාදයට ම
 
 #: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "මෙම එක්කහුව ඔබගේ වේදිකාව සඳහා නැත."
 
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
@@ -409,31 +409,31 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "ඔබගේ තරු ඇගැයුම:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "%(author)s වෙතින් තවත් ශබ්දකෝෂ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:256
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "මෙම පරිවර්තකයින් වෙතින් තවත් ශබ්දකෝෂ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s වෙතින් තවත් දිගු"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:266
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "මෙම සංවර්ධකයින් වෙතින් තවත් දිගු"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:270
 msgid "Extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s වෙතින් දිගු"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:273
 msgid "Extensions by these developers"
-msgstr ""
+msgstr "මෙම සංවර්ධකයින් වෙතින් දිගු"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:279
 msgid "More language packs by %(author)s"
@@ -2147,7 +2147,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:158
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "තේමා සමඟ ෆයර්ෆොක්ස් පෙනුම සකසන්න."
 
 #: src/amo/pages/Home/index.js:167
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
