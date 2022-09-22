@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 08:12+0000\n"
+"PO-Revision-Date: 2022-09-22 09:09+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -88,7 +88,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "ඔබගේ ෆයර්ෆොක්ස් අනුවාදයට මෙම එක්කහුව නොගැළපේ."
 
 #: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
@@ -96,47 +96,47 @@ msgstr ""
 
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් (%(locale)s) සඳහා මෙම දිගුව ගන්න"
 
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් (%(locale)s) සඳහා මෙම භාෂා ඇසුරුම ගන්න"
 
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - 🦊 ෆයර්ෆොක්ස් (%(locale)s) සඳහා මෙම තේමාව ගන්න"
 
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් (%(locale)s) සඳහා මෙම එක්කහුව ගන්න"
 
 #: src/amo/components/AddonHead/index.js:131
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් සඳහා %(addonName)s බාගන්න. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා මෙම ශබ්දකෝෂය ගන්න"
 
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා මෙම දිගුව ගන්න"
 
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා මෙම භාෂා ඇසුරුම ගන්න"
 
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා මෙම තේමාව ගන්න"
 
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා මෙම එක්කහුව ගන්න"
 
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් (%(locale)s) සඳහා මෙම ශබ්දකෝෂය ගන්න"
 
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
@@ -481,7 +481,7 @@ msgstr[1] ""
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
@@ -514,55 +514,55 @@ msgstr ""
 
 #: src/amo/components/AMInstallButton/index.js:133
 msgid "Enable"
-msgstr ""
+msgstr "සබල"
 
 #: src/amo/components/AMInstallButton/index.js:136 src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
-msgstr ""
+msgstr "ඉවත් කරන්න"
 
 #: src/amo/components/AMInstallButton/index.js:138
 msgid "Enabling"
-msgstr ""
+msgstr "සබල වෙමින්"
 
 #: src/amo/components/AMInstallButton/index.js:140
 msgid "Disabling"
-msgstr ""
+msgstr "අබල වෙමින්"
 
 #: src/amo/components/AMInstallButton/index.js:142
 msgid "Downloading"
-msgstr ""
+msgstr "බාගැනෙමින්"
 
 #: src/amo/components/AMInstallButton/index.js:144
 msgid "Installing"
-msgstr ""
+msgstr "ස්ථාපනය වෙමින්"
 
 #: src/amo/components/AMInstallButton/index.js:146
 msgid "Uninstalling"
-msgstr ""
+msgstr "අස්ථාපනය වෙමින්"
 
 #: src/amo/components/AMInstallButton/index.js:154
 msgid "Install Theme"
-msgstr ""
+msgstr "තේමාව ස්ථාපනය"
 
 #: src/amo/components/AMInstallButton/index.js:155
 msgid "Add to Firefox"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් වෙත යොදන්න"
 
 #: src/amo/components/App/index.js:124 src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් (%(locale)s) සඳහා එක්කහු"
 
 #: src/amo/components/App/index.js:128 src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – ෆයර්ෆොක්ස් (%(locale)s) සඳහා එක්කහු"
 
 #: src/amo/components/App/index.js:136 src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා එක්කහු"
 
 #: src/amo/components/App/index.js:140 src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා එක්කහු"
 
 #: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:148
 msgid "Log out"
@@ -976,7 +976,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් එක්කහු ලිපිපෙළ"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
