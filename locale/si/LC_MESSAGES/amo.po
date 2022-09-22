@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 07:51+0000\n"
+"PO-Revision-Date: 2022-09-22 08:12+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -61,7 +61,7 @@ msgstr ""
 # This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:134
 msgid "Admin Links"
-msgstr ""
+msgstr "පරිපාලක සබැඳි"
 
 # This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76 src/amo/components/AddonAuthorLinks/index.js:51
@@ -76,11 +76,11 @@ msgstr ""
 # This is a list of links to Developer functions.
 #: src/amo/components/AddonAuthorLinks/index.js:62
 msgid "Author Links"
-msgstr ""
+msgstr "කතෘ සබැඳි"
 
 #: src/amo/components/AddonBadges/index.js:59
 msgid "Experimental"
-msgstr ""
+msgstr "පරීක්‍ෂාත්මක"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
@@ -207,19 +207,19 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "එක්කහුවට අදාළ රහස්‍යතා ප්‍රතිපත්තිය කියවන්න"
 
 #: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "එක්කහුවට අදාළ බලපත්‍ර ගිවිසුම කියවන්න"
 
 #: src/amo/components/AddonMoreInfo/index.js:252
 msgid "See all versions"
-msgstr ""
+msgstr "සියළුම අනුවාද බලන්න"
 
 #: src/amo/components/AddonMoreInfo/index.js:299
 msgid "Add-on Links"
-msgstr ""
+msgstr "එක්කහු සබැඳි"
 
 #: src/amo/components/AddonMoreInfo/index.js:311
 msgid "Version"
@@ -235,7 +235,7 @@ msgstr "අවසාන යාවත්කාලය"
 
 #: src/amo/components/AddonMoreInfo/index.js:335
 msgid "Related Categories"
-msgstr ""
+msgstr "ආශ්‍රිත ප්‍රවර්ග"
 
 #: src/amo/components/AddonMoreInfo/index.js:345
 msgid "License"
@@ -255,7 +255,7 @@ msgstr "අනුවාද ඉතිහාසය"
 
 #: src/amo/components/AddonMoreInfo/index.js:379
 msgid "Usage Statistics"
-msgstr ""
+msgstr "භාවිත සංඛ්‍යාලේඛන"
 
 #: src/amo/components/AddonMoreInfo/index.js:387
 msgid "Tags"
@@ -271,39 +271,39 @@ msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:149
 msgid "Other popular extensions"
-msgstr ""
+msgstr "වෙනත් ප්‍රචලිත දිගු"
 
 #: src/amo/components/AddonReviewCard/index.js:210
 msgid "Edit reply"
-msgstr ""
+msgstr "පිළිතුර සංශෝධනය"
 
 #: src/amo/components/AddonReviewCard/index.js:213
 msgid "Edit review"
-msgstr ""
+msgstr "සමාලෝචනය සංශෝධනය"
 
 #: src/amo/components/AddonReviewCard/index.js:220 src/amo/components/AddonReviewCard/index.js:252
 msgid "Delete reply"
-msgstr ""
+msgstr "පිළිතුර මකන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:224 src/amo/components/AddonReviewCard/index.js:256
 msgid "Delete rating"
-msgstr ""
+msgstr "ඇගැයුම මකන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:227 src/amo/components/AddonReviewCard/index.js:259
 msgid "Delete review"
-msgstr ""
+msgstr "සමාලෝචනය මකන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:234
 msgid "Do you really want to delete this reply?"
-msgstr ""
+msgstr "මෙම පිළිතුර මකා දැමීමට වුවමනා ද?"
 
 #: src/amo/components/AddonReviewCard/index.js:238
 msgid "Do you really want to delete this rating?"
-msgstr ""
+msgstr "මෙම ඇගැයුම මකා දැමීමට වුවමනා ද?"
 
 #: src/amo/components/AddonReviewCard/index.js:241
 msgid "Do you really want to delete this review?"
-msgstr ""
+msgstr "මෙම සමාලෝචනය මකා දැමීමට වුවමනා ද?"
 
 #: src/amo/components/AddonReviewCard/index.js:248 src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
@@ -316,35 +316,35 @@ msgstr "අවලංගු"
 
 #: src/amo/components/AddonReviewCard/index.js:270
 msgid "Keep reply"
-msgstr ""
+msgstr "පිළිතුර තබන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:274
 msgid "Keep rating"
-msgstr ""
+msgstr "ඇගැයුම තබන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:277
 msgid "Keep review"
-msgstr ""
+msgstr "සමාලෝචනය තබන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:313
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "සමාලෝචනයට පිළිතුරක් ලියන්න."
 
 #: src/amo/components/AddonReviewCard/index.js:316
 msgid "Update reply"
-msgstr ""
+msgstr "පිළිතුර යාවත්කාලය"
 
 #: src/amo/components/AddonReviewCard/index.js:317
 msgid "Publish reply"
-msgstr ""
+msgstr "පිළිතුර පළ කරන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:321
 msgid "Updating reply"
-msgstr ""
+msgstr "පිළිතුර යාවත්කාල වෙමින්"
 
 #: src/amo/components/AddonReviewCard/index.js:322
 msgid "Publishing reply"
-msgstr ""
+msgstr "පිළිතුර පළ වෙමින්"
 
 # Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:368
@@ -361,11 +361,11 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:489
 msgid "Deleting…"
-msgstr ""
+msgstr "මැකෙමින්…"
 
 #: src/amo/components/AddonReviewCard/index.js:520
 msgid "Reply to this review"
-msgstr ""
+msgstr "සමාලෝචනයට පිළිතුරු දෙන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:550
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
@@ -373,7 +373,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
-msgstr ""
+msgstr "සමාලෝචනයක් ලියන්න"
 
 #: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
@@ -381,27 +381,27 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
-msgstr ""
+msgstr "සමාලෝචනය යොමන්න"
 
 #: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
-msgstr ""
+msgstr "සමාලෝචනය යොමු වෙමින්"
 
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
-msgstr ""
+msgstr "සමාලෝචනය යාවත්කාලය"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
-msgstr ""
+msgstr "සමාලෝචනය යාවත්කාල වෙමින්"
 
 #: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
-msgstr ""
+msgstr "සුරැකෙමින්"
 
 #: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
-msgstr ""
+msgstr "සුරැකිණි"
 
 #: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
