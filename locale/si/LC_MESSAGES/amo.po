@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 11:17+0000\n"
+"PO-Revision-Date: 2022-09-22 11:43+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2616,15 +2616,15 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:586
 msgid "Account"
-msgstr ""
+msgstr "ගිණුම"
 
 #: src/amo/pages/UserProfileEdit/index.js:587
 msgid "Account for %(userName)s"
-msgstr ""
+msgstr "%(userName)s සඳහා ගිණුම"
 
 #: src/amo/pages/UserProfileEdit/index.js:594
 msgid "Email Address"
-msgstr ""
+msgstr "වි-තැපැල් ලිපිනය"
 
 #: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Email address cannot be changed here"
@@ -2640,7 +2640,7 @@ msgstr "ෆයර්ෆොක්ස් ගිණුම් කළමනාකර�
 
 #: src/amo/pages/UserProfileEdit/index.js:638
 msgid "Profile"
-msgstr ""
+msgstr "පැතිකඩ"
 
 #: src/amo/pages/UserProfileEdit/index.js:647
 msgid "This field is required"
@@ -2661,7 +2661,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:765
 msgid "Notifications"
-msgstr ""
+msgstr "දැනුම්දීම්"
 
 #: src/amo/pages/UserProfileEdit/index.js:769
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2677,11 +2677,11 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:815 src/amo/pages/UserProfileEdit/index.js:887
 msgid "Delete My Profile"
-msgstr ""
+msgstr "මාගේ පැතිකඩ මකන්න"
 
 #: src/amo/pages/UserProfileEdit/index.js:816 src/amo/pages/UserProfileEdit/index.js:888
 msgid "Delete Profile"
-msgstr ""
+msgstr "පැතිකඩ මකන්න"
 
 #: src/amo/pages/UserProfileEdit/index.js:828
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
@@ -2737,7 +2737,7 @@ msgstr ""
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
-msgstr ""
+msgstr "(නමක් නැත)"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:304
