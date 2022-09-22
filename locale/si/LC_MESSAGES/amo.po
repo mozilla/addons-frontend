@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 11:02+0000\n"
+"PO-Revision-Date: 2022-09-22 11:12+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1169,15 +1169,15 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "පොත්යොමු කියවීම හා සංශෝධනය"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "අතිරික්සුවේ සැකසුම් කියවීම හා සංශෝධනය"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "මෑත පිරික්සුම් ඉතිහාසය, දත්තකඩ හා ආශ්‍රිත දත්ත මැකීම"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
@@ -1201,7 +1201,7 @@ msgstr "ඔබගේ පරිගණකයට බාගත වූ ගොනු �
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
-msgstr "සියළුම විවෘත පටිතිවල පෙළ කියවන්න"
+msgstr "සියළුම විවෘත පටිතිවල පෙළ කියවීම"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Access your location"
@@ -1281,27 +1281,27 @@ msgstr ""
 
 #: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "මෙතෙක් ඇගැයුම් නැත"
 
 #: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "මෙම ශබ්දකෝෂය ඇගැයුමට පිවිසෙන්න"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "මෙම භාෂා ඇසුරුම ඇගැයුමට පිවිසෙන්න"
 
 #: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "මෙම තේමාව ඇගැයුමට පිවිසෙන්න"
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "මෙම දිගුව ඇගැයුමට පිවිසෙන්න"
 
 #: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "මෙම එක්කහුව ඇගැයුමට පිවිසෙන්න"
 
 #: src/amo/components/RatingManager/index.js:178
 msgid "Are you sure you want to delete your review of %(addonName)s?"
@@ -1411,7 +1411,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
-msgstr ""
+msgstr "ඉවතලන්න"
 
 #: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Explain how this add-on is violating our policies."
@@ -1443,19 +1443,19 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:138 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
-msgstr ""
+msgstr "සෙවුම් ප්‍රතිඵල"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213 src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
-msgstr ""
+msgstr "නිර්දේශිත දිගු"
 
 #: src/amo/components/Search/index.js:147 src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
-msgstr ""
+msgstr "නිර්දේශිත තේමා"
 
 #: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
-msgstr ""
+msgstr "නිර්දේශිත එක්කහු"
 
 #: src/amo/components/Search/index.js:155
 msgid "Extensions by Firefox"
@@ -1471,27 +1471,27 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:166
 msgid "Reviewed extensions"
-msgstr ""
+msgstr "සමාලෝචිත දිගු"
 
 #: src/amo/components/Search/index.js:169
 msgid "Reviewed themes"
-msgstr ""
+msgstr "සමාලෝචිත තේමා"
 
 #: src/amo/components/Search/index.js:172
 msgid "Reviewed add-ons"
-msgstr ""
+msgstr "සමාලෝචිත එක්කහු"
 
 #: src/amo/components/Search/index.js:177
 msgid "Verified extensions"
-msgstr ""
+msgstr "තහවුරු කළ දිගු"
 
 #: src/amo/components/Search/index.js:180
 msgid "Verified themes"
-msgstr ""
+msgstr "තහවුරු කළ තේමා"
 
 #: src/amo/components/Search/index.js:183
 msgid "Verified add-ons"
-msgstr ""
+msgstr "තහවුරු කළ එක්කහු"
 
 #: src/amo/components/Search/index.js:191 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
