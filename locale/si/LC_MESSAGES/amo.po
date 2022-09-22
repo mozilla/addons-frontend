@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 13:22+0000\n"
+"PO-Revision-Date: 2022-09-22 13:30+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1093,7 +1093,7 @@ msgstr "අනුග්‍රහය ලද"
 
 #: src/amo/components/HeroRecommendation/index.js:256
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr "අපගේ ආරක්‍ෂාව හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලන දිගු පමණක් ෆයර්ෆොක්ස් නිර්දේශ කරයි."
+msgstr "අපගේ ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලන දිගු පමණක් ෆයර්ෆොක්ස් නිර්දේශ කරයි."
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
@@ -1165,7 +1165,7 @@ msgstr "මෙම එක්කහුවේ අවශ්‍යතා:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "This add-on may also ask to:"
-msgstr ""
+msgstr "මෙම එක්කහුව මෙසේද ඇසීමට හැකිය:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
@@ -1257,7 +1257,7 @@ msgstr "යාත්‍රණය අතරතුර අතිරික්සු 
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr ""
+msgstr "මොසිල්ලා ෆයර්ෆොක්ස් සාදන ලද නිල එක්කහුවකි. ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලයි."
 
 #: src/amo/components/PromotedBadge/index.js:49
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
@@ -1317,21 +1317,21 @@ msgstr ""
 
 #: src/amo/components/RatingManager/index.js:231
 msgid "Saving star rating"
-msgstr ""
+msgstr "තරු ඇගැයුම සුරැකෙමින්"
 
 #: src/amo/components/RatingManager/index.js:232
 msgid "Star rating saved"
-msgstr ""
+msgstr "තරු ඇගැයුම සුරැකිණි"
 
 #: src/amo/components/RatingsByStar/index.js:103
 msgid "There are no three-star reviews"
-msgstr ""
+msgstr "තරු තුනක සමාලෝචන නැත"
 
 #: src/amo/components/RatingsByStar/index.js:108
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "තරු දෙකක සමාලෝචනය කියවන්න"
+msgstr[1] "තරු දෙකක සමාලෝචන %(total)s කියවන්න"
 
 #: src/amo/components/RatingsByStar/index.js:118
 msgid "There are no two-star reviews"
