@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 14:17+0000\n"
+"PO-Revision-Date: 2022-09-22 14:22+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1711,7 +1711,7 @@ msgstr "වර්ගනය"
 
 #: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
-msgstr ""
+msgstr "එක්කහු වර්ගය"
 
 #: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
@@ -1727,41 +1727,41 @@ msgstr "ෆයර්ෆොක්ස් එක්කහු"
 
 #: src/amo/components/SearchForm/index.js:89
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "එක්කහු පිටුවට යන්න"
 
 #: src/amo/components/SearchResult/index.js:195
 msgid "No theme preview available"
-msgstr ""
+msgstr "තේමාවේ පෙරදසුනක් නැත"
 
 #: src/amo/components/SearchResult/index.js:230
 msgid "Add-on note"
-msgstr ""
+msgstr "එක්කහුවේ සටහන"
 
 #: src/amo/components/SearchResult/index.js:248
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "පරිශීලකයින් %(total)s"
+msgstr[1] "පරිශීලකයින් %(total)s"
 
 #: src/amo/components/SearchResults/index.js:45
 msgid "Searching…"
-msgstr ""
+msgstr "සොයමින්…"
 
 #: src/amo/components/SearchResults/index.js:50
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "\"%(query)s\" සඳහා ප්‍රතිඵල හමු නොවිණි."
 
 #: src/amo/components/SearchResults/index.js:56
 msgid "No results were found."
-msgstr ""
+msgstr "ප්‍රතිඵල හමු නොවිණි."
 
 #: src/amo/components/SectionLinks/index.js:112 src/amo/pages/CategoryPage/index.js:60 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
-msgstr ""
+msgstr "තේමා"
 
 #: src/amo/components/SectionLinks/index.js:118
 msgid "More…"
-msgstr ""
+msgstr "තවත්…"
 
 #: src/amo/components/SectionLinks/index.js:122
 msgid "for Firefox"
@@ -1769,23 +1769,23 @@ msgstr "ෆයර්ෆොක්ස් සඳහා"
 
 #: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "ශබ්දකෝෂ සහ භාෂා ඇසුරුම්"
 
 #: src/amo/components/SectionLinks/index.js:136
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "වෙනත් අතිරික්සු අඩවි"
 
 #: src/amo/components/SectionLinks/index.js:146
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "ඇන්ඩ්‍රොයිඩ් සඳහා එක්කහු"
 
 #: src/amo/components/SectionLinks/index.js:96 src/amo/pages/CategoryPage/index.js:66 src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
-msgstr ""
+msgstr "දිගු"
 
 #: src/amo/components/ShowMoreCard/index.js:162
 msgid "Expand to read more"
-msgstr ""
+msgstr "තව කියවීමට විහිදන්න"
 
 #: src/amo/components/ShowMoreCard/index.js:167
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
@@ -1801,11 +1801,11 @@ msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
-msgstr ""
+msgstr "යෝජිත පිටු"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr ""
+msgstr "සියළු දිගු පිරික්සන්න"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
