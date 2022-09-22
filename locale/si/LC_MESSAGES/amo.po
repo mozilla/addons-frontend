@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 11:12+0000\n"
+"PO-Revision-Date: 2022-09-22 11:17+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1181,7 +1181,7 @@ msgstr "මෑත පිරික්සුම් ඉතිහාසය, දත�
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
-msgstr "පසුරු පුවරුවෙන් දත්ත ගන්න"
+msgstr "පසුරු පුවරුවෙන් දත්ත ගැනීම"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
@@ -1193,11 +1193,11 @@ msgstr "විවෘත පටිතිවල ඔබගේ දත්ත වෙ�
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
-msgstr "ගොනු බාගන්න සහ අතිරික්සුවේ බාගැනීම් ඉතිහාසය කියවන්න, වෙනස් කරන්න"
+msgstr "ගොනු බාගැනීම සහ අතිරික්සුවේ බාගැනීම් ඉතිහාසය කියවීම, වෙනස් කිරීම"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
-msgstr "ඔබගේ පරිගණකයට බාගත වූ ගොනු අරින්න"
+msgstr "ඔබගේ පරිගණකයට බාගත වූ ගොනු ඇරීම"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
@@ -1519,19 +1519,19 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:215
 msgid "Popular extensions"
-msgstr ""
+msgstr "ප්‍රචලිත දිගු"
 
 #: src/amo/components/Search/index.js:218
 msgid "Popular themes"
-msgstr ""
+msgstr "ප්‍රචලිත තේමා"
 
 #: src/amo/components/Search/index.js:221
 msgid "Popular add-ons"
-msgstr ""
+msgstr "ප්‍රචලිත එක්කහු"
 
 #: src/amo/components/Search/index.js:227
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "\"%(query)s\" සඳහා සෙවුම් ප්‍රතිඵල"
 
 #: src/amo/components/SearchContextCard/index.js:104
 msgid "%(count)s extension found for \"%(query)s\""
