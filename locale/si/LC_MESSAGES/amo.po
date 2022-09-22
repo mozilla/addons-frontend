@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 13:30+0000\n"
+"PO-Revision-Date: 2022-09-22 13:42+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1335,36 +1335,36 @@ msgstr[1] "තරු දෙකක සමාලෝචන %(total)s කියව�
 
 #: src/amo/components/RatingsByStar/index.js:118
 msgid "There are no two-star reviews"
-msgstr ""
+msgstr "තරු දෙකක සමාලෝචන නැත"
 
 #: src/amo/components/RatingsByStar/index.js:123
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "තරු එකක සමාලෝචනය කියවන්න"
+msgstr[1] "තරු එකක සමාලෝචන %(total)s කියවන්න"
 
 #: src/amo/components/RatingsByStar/index.js:133
 msgid "There are no one-star reviews"
-msgstr ""
+msgstr "තරු එකක සමාලෝචන නැත"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:373
 msgid "There are no reviews"
-msgstr ""
+msgstr "සමාලෝචන නැත"
 
 #: src/amo/components/RatingsByStar/index.js:63
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "තරු පහක සමාලෝචනය කියවන්න"
+msgstr[1] "තරු පහක සමාලෝචන %(total)s කියවන්න"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
-msgstr ""
+msgstr "තරු පහක සමාලෝචන නැත"
 
 #: src/amo/components/RatingsByStar/index.js:78
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] ""
+msgstr[0] "තරු හතරක සමාලෝචනය කියවන්න"
 msgstr[1] ""
 
 #: src/amo/components/RatingsByStar/index.js:88
