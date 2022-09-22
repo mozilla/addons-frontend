@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 12:33+0000\n"
+"PO-Revision-Date: 2022-09-22 13:22+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -862,15 +862,15 @@ msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Response by %(userName)s"
-msgstr ""
+msgstr "%(userName)s වෙතින් ප්‍රතිචාරය"
 
 #: src/amo/components/FeaturedAddonReview/index.js:79
 msgid "Review by %(userName)s"
-msgstr ""
+msgstr "%(userName)s වෙතින් සමාලෝචනය"
 
 #: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
-msgstr ""
+msgstr "සමාලෝචනය හමු නොවිණි."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
@@ -914,7 +914,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "මෙහි නුසුදුසු බසක් අඩංගු වේ"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
@@ -938,7 +938,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:133
 msgid "Review Guide"
-msgstr ""
+msgstr "සමාලෝචන මාර්ගෝපදේශය"
 
 #: src/amo/components/Footer/index.js:140
 msgid "Browsers"
@@ -984,7 +984,7 @@ msgstr "දිගු වැඩපොළ"
 
 #: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
 msgid "Developer Hub"
-msgstr ""
+msgstr "සංවර්ධක නැබ"
 
 #: src/amo/components/GetFirefoxBanner/index.js:72
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
@@ -1097,19 +1097,19 @@ msgstr "අපගේ ආරක්‍ෂාව හා කාර්ය සාධ�
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
-msgstr ""
+msgstr "තවත් %(categoryName)s බලන්න"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "සියළු අඩවි සඳහා ඔබගේ දත්ත වෙත ප්‍රවේශය"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "%(param)s වසමෙහි අඩවි සඳහා ඔබගේ දත්ත වෙත ප්‍රවේශය"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "%(param)s සඳහා ඔබගේ දත්ත වෙත ප්‍රවේශය"
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
@@ -1153,7 +1153,7 @@ msgstr "ඊළඟ"
 
 #: src/amo/components/Paginate/index.js:175
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "%(totalPages)s න් %(thisPage)s පිටුව"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
@@ -1161,7 +1161,7 @@ msgstr "අවසර"
 
 #: src/amo/components/PermissionsCard/index.js:84
 msgid "This add-on needs to:"
-msgstr ""
+msgstr "මෙම එක්කහුවේ අවශ්‍යතා:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "This add-on may also ask to:"
