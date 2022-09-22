@@ -223,6 +223,7 @@ module.exports = {
     'pt-PT',
     'ro',
     'ru',
+    'si',
     'sk',
     'sl',
     'sq',
