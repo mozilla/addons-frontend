@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 13:42+0000\n"
+"PO-Revision-Date: 2022-09-22 13:44+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1365,21 +1365,21 @@ msgstr "තරු පහක සමාලෝචන නැත"
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
 msgstr[0] "තරු හතරක සමාලෝචනය කියවන්න"
-msgstr[1] ""
+msgstr[1] "තරු හතරක සමාලෝචන %(total)s කියවන්න"
 
 #: src/amo/components/RatingsByStar/index.js:88
 msgid "There are no four-star reviews"
-msgstr ""
+msgstr "තරු හතරක සමාලෝචන නැත"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "තරු තුනක සමාලෝචනය කියවන්න"
+msgstr[1] "තරු තුනක සමාලෝචන %(total)s කියවන්න"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "ඔබ මෙය අනිසි එක්කහුවක් යැයි වාර්තා කර ඇත"
 
 #: src/amo/components/ReportAbuseButton/index.js:117
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
