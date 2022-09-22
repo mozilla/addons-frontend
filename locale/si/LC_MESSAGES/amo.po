@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 09:17+0000\n"
+"PO-Revision-Date: 2022-09-22 09:43+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -678,15 +678,15 @@ msgstr "තහවුරු"
 
 #: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
-msgstr ""
+msgstr "දායක වන්න"
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this developer"
-msgstr ""
+msgstr "සංවර්ධකයාට සහාය වන්න"
 
 #: src/amo/components/ContributeCard/index.js:47
 msgid "Support these developers"
-msgstr ""
+msgstr "මෙම සංවර්ධකයින්ට සහාය වන්න"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -734,11 +734,11 @@ msgstr ""
 
 #: src/amo/components/DismissibleTextForm/index.js:200
 msgid "Submit"
-msgstr ""
+msgstr "යොමන්න"
 
 #: src/amo/components/DismissibleTextForm/index.js:202
 msgid "Submitting"
-msgstr ""
+msgstr "යොමු වෙමින්"
 
 #: src/amo/components/EditableCollectionAddon/index.js:132 src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
@@ -754,15 +754,15 @@ msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
-msgstr ""
+msgstr "සුරකින්න"
 
 #: src/amo/components/EditableCollectionAddon/index.js:188
 msgid "Edit"
-msgstr ""
+msgstr "සංස්කරණය"
 
 #: src/amo/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "ඔබගේ වාරය කල් ඉකුත් වී ඇත"
 
 #: src/amo/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
