@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 10:01+0000\n"
+"PO-Revision-Date: 2022-09-22 10:17+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -980,7 +980,7 @@ msgstr "ෆයර්ෆොක්ස් එක්කහු ලිපිපෙළ"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
-msgstr ""
+msgstr "දිගු වැඩපොළ"
 
 #: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
 msgid "Developer Hub"
@@ -1028,60 +1028,60 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
-msgstr ""
+msgstr "මෙවලම්"
 
 #: src/amo/components/Header/index.js:107
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "නව එක්කහුවක් යොමන්න"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "නව තේමාවක් යොමන්න"
 
 #: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "යොමු කිරීම් කළමනාකරණය"
 
 #: src/amo/components/Header/index.js:131
 msgid "Reviewer Tools"
-msgstr ""
+msgstr "සමාලෝචක මෙවලම්"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:183
 msgid "Firefox Browser Add-ons"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් අතිරික්සු එක්කහු"
 
 #: src/amo/components/Header/index.js:211
 msgid "Learn how to create extensions and themes"
-msgstr ""
+msgstr "දිගු සහ තේමා සාදන ආකාරය දැන ගන්න"
 
 #: src/amo/components/Header/index.js:221
 msgid "Submit and manage extensions and themes"
-msgstr ""
+msgstr "දිගු හා තේමා යොමුකර කළමනාකරණය කරන්න"
 
 #: src/amo/components/Header/index.js:75
 msgid "My Account"
-msgstr ""
+msgstr "මාගේ ගිණුම"
 
 #: src/amo/components/Header/index.js:81
 msgid "View My Collections"
-msgstr ""
+msgstr "මාගේ එකතු බලන්න"
 
 #: src/amo/components/Header/index.js:89 src/amo/pages/UserProfileEdit/index.js:561
 msgid "View My Profile"
-msgstr ""
+msgstr "මාගේ පැතිකඩ බලන්න"
 
 #: src/amo/components/Header/index.js:97 src/amo/pages/UserProfileEdit/index.js:567
 msgid "Edit My Profile"
-msgstr ""
+msgstr "පැතිකඩ සංස්කරණය"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
-msgstr ""
+msgstr "දිගුව ගන්න"
 
 #: src/amo/components/HeroRecommendation/index.js:233
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "නිර්දේශිත"
 
 #: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
@@ -1089,7 +1089,7 @@ msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:239
 msgid "SPONSORED"
-msgstr ""
+msgstr "අනුග්‍රහය ලද"
 
 #: src/amo/components/HeroRecommendation/index.js:256
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
@@ -1117,7 +1117,7 @@ msgstr ""
 
 #: src/amo/components/IconPromotedBadge/index.js:47 src/amo/components/PromotedBadge/index.js:48 src/amo/components/SearchFilters/index.js:180
 msgid "Recommended"
-msgstr ""
+msgstr "නිර්දේශිත"
 
 #: src/amo/components/IconPromotedBadge/index.js:48 src/amo/components/PromotedBadge/index.js:56 src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
@@ -1129,7 +1129,7 @@ msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:104 src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
-msgstr ""
+msgstr "තව දැනගන්න"
 
 #: src/amo/components/InstallWarning/index.js:108
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
@@ -1145,11 +1145,11 @@ msgstr ""
 
 #: src/amo/components/Paginate/index.js:151
 msgid "Previous"
-msgstr ""
+msgstr "කලින්"
 
 #: src/amo/components/Paginate/index.js:170
 msgid "Next"
-msgstr ""
+msgstr "ඊළඟ"
 
 #: src/amo/components/Paginate/index.js:175
 msgid "Page %(thisPage)s of %(totalPages)s"
@@ -1157,7 +1157,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
-msgstr ""
+msgstr "අවසර"
 
 #: src/amo/components/PermissionsCard/index.js:84
 msgid "This add-on needs to:"
@@ -1719,11 +1719,11 @@ msgstr ""
 
 #: src/amo/components/SearchForm/index.js:65
 msgid "Firefox Add-ons for Android"
-msgstr ""
+msgstr "ඇන්ඩ්‍රොයිඩ් සඳහා ෆයර්ෆොක්ස් එක්කහු"
 
 #: src/amo/components/SearchForm/index.js:66
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් එක්කහු"
 
 #: src/amo/components/SearchForm/index.js:89
 msgid "Go to the add-on page"
@@ -1765,7 +1765,7 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:122
 msgid "for Firefox"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් සඳහා"
 
 #: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
@@ -2281,7 +2281,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් එක්කහු ගැන"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
@@ -2636,7 +2636,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:630
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් ගිණුම් කළමනාකරණය…"
 
 #: src/amo/pages/UserProfileEdit/index.js:638
 msgid "Profile"
