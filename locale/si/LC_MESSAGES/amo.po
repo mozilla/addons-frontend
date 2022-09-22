@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 12:22+0000\n"
+"PO-Revision-Date: 2022-09-22 12:32+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -417,7 +417,7 @@ msgstr "%(author)s වෙතින් තවත් ශබ්දකෝෂ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:256
 msgid "More dictionaries by these translators"
-msgstr "මෙම පරිවර්තකයින් වෙතින් තවත් ශබ්දකෝෂ"
+msgstr "මෙම පරිවර්තකයින්ගේ වෙනත් ශබ්දකෝෂ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More extensions by %(author)s"
@@ -425,7 +425,7 @@ msgstr "%(author)s වෙතින් තවත් දිගු"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:266
 msgid "More extensions by these developers"
-msgstr "මෙම සංවර්ධකයින් වෙතින් තවත් දිගු"
+msgstr "මෙම සංවර්ධකයින්ගේ වෙනත් දිගු"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:270
 msgid "Extensions by %(author)s"
@@ -433,39 +433,39 @@ msgstr "%(author)s වෙතින් දිගු"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:273
 msgid "Extensions by these developers"
-msgstr "මෙම සංවර්ධකයින් වෙතින් දිගු"
+msgstr "මෙම සංවර්ධකයින්ගේ දිගු"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:279
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "%(author)s වෙතින් තවත් භාෂා ඇසුරුම්"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "මෙම පරිවර්තකයින්ගේ වෙනත් භාෂා ඇසුරුම්"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "%(author)s වෙතින් තවත් තේමා"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:292
 msgid "More themes by these artists"
-msgstr ""
+msgstr "මෙම කලාකරුවන්ගේ වෙනත් තේමා"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:296
 msgid "Themes by %(author)s"
-msgstr ""
+msgstr "%(author)s වෙතින් තේමා"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:299
 msgid "Themes by these artists"
-msgstr ""
+msgstr "මෙම කලාකරුවන්ගේ තේමා"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:305
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "%(author)s වෙතින් තවත් එක්කහු"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "මෙම සංවර්ධකයින්ගේ වෙනත් එක්කහු"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -486,15 +486,15 @@ msgstr ","
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
-msgstr ""
+msgstr "වෙතින්"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr ""
+msgstr "ප්‍රභව කේතය %(linkStart)s%(licenseName)s%(linkEnd)s යටතේ නිකුත් කර ඇත"
 
 #: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr ""
+msgstr "ප්‍රභව කේතය %(linkStart)sඅභිරුචි බලපත්‍රයක්%(linkEnd)s යටතේ නිකුත් කර ඇත"
 
 #: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
