@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 20:03+0000\n"
+"PO-Revision-Date: 2022-09-22 20:09+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1620,8 +1620,8 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ප්‍රතිඵලයක් හමු විය"
+msgstr[1] "ප්‍රතිඵල %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
@@ -1797,7 +1797,7 @@ msgstr ""
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
-msgstr ""
+msgstr "ඔබ නික්ම ගොස් ඇත."
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -1859,7 +1859,7 @@ msgstr ""
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
-msgstr ""
+msgstr "මොසිල්ලා වීපීඑන් ගන්න"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
@@ -1896,8 +1896,8 @@ msgstr ""
 #: src/amo/pages/Addon/index.js:212
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "සමාලෝචන %(count)s කියවන්න"
+msgstr[1] "සමාලෝචන %(count)s කියවන්න"
 
 #: src/amo/pages/Addon/index.js:233
 msgid "No reviews yet"
@@ -2083,19 +2083,19 @@ msgstr "%(categoryName)s හි දිගු"
 
 #: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
-msgstr ""
+msgstr "මෙම එකතුව මකා දැමීමට වුවමනා ද?"
 
 #: src/amo/pages/Collection/index.js:403
 msgid "Delete this collection"
-msgstr ""
+msgstr "මෙම එකතුව මකන්න"
 
 #: src/amo/pages/Collection/index.js:421
 msgid "Log in to create a collection"
-msgstr ""
+msgstr "එකතුවක් සෑදීමට පිවිසෙන්න"
 
 #: src/amo/pages/Collection/index.js:422
 msgid "Log in to edit this collection"
-msgstr ""
+msgstr "මෙම එකතුව සංස්කරණයට පිවිසෙන්න"
 
 #: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -2115,11 +2115,11 @@ msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
-msgstr ""
+msgstr "මාගේ එකතු"
 
 #: src/amo/pages/CollectionList/index.js:123
 msgid "Collections"
-msgstr ""
+msgstr "එකතු"
 
 #: src/amo/pages/CollectionList/index.js:128
 msgid "Log in to view your collections"
@@ -2131,11 +2131,11 @@ msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:143
 msgid "Create a collection"
-msgstr ""
+msgstr "එකතුවක් සාදන්න"
 
 #: src/amo/pages/CollectionList/index.js:70
 msgid "You do not have any collections."
-msgstr ""
+msgstr "ඔබ සතුව එකතු කිසිවක් නැත."
 
 #: src/amo/pages/Home/index.js:103
 msgid "Music"
