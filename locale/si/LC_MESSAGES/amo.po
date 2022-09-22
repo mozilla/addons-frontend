@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 12:32+0000\n"
+"PO-Revision-Date: 2022-09-22 12:33+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -498,7 +498,7 @@ msgstr "ප්‍රභව කේතය %(linkStart)sඅභිරුචි බ�
 
 #: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
-msgstr ""
+msgstr "%(licenseName)s යටතේ ප්‍රභව කේතය නිකුත් කර ඇත"
 
 #: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
