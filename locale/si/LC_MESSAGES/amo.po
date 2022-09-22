@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 10:17+0000\n"
+"PO-Revision-Date: 2022-09-22 11:02+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1121,11 +1121,11 @@ msgstr "නිර්දේශිත"
 
 #: src/amo/components/IconPromotedBadge/index.js:48 src/amo/components/PromotedBadge/index.js:56 src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
-msgstr ""
+msgstr "තහවුරුයි"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
-msgstr ""
+msgstr "ගොනුව බාගන්න"
 
 #: src/amo/components/InstallWarning/index.js:104 src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
@@ -1137,11 +1137,11 @@ msgstr ""
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
-msgstr ""
+msgstr "භාෂාව සංශෝධනය"
 
 #: src/amo/components/Notice/index.js:154
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "දැන්වීම ඉවත දමන්න"
 
 #: src/amo/components/Paginate/index.js:151
 msgid "Previous"
@@ -1181,47 +1181,47 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "පසුරු පුවරුවෙන් දත්ත ගන්න"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "පසුරු පුවරුවට දත්ත ආදානය"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "විවෘත පටිතිවල ඔබගේ දත්ත වෙත ප්‍රවේශයට සංවර්ධක මෙවලම් විස්තීරණය"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "ගොනු බාගන්න සහ අතිරික්සුවේ බාගැනීම් ඉතිහාසය කියවන්න, වෙනස් කරන්න"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "ඔබගේ පරිගණකයට බාගත වූ ගොනු අරින්න"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "සියළුම විවෘත පටිතිවල පෙළ කියවන්න"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Access your location"
-msgstr ""
+msgstr "ඔබගේ ස්ථානයට ප්‍රවේශය"
 
 #: src/amo/components/PermissionsCard/permissions.js:42 src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
-msgstr ""
+msgstr "පිරික්සුම් ඉතිහාසයට ප්‍රවේශය"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "දිගු භාවිතය නිරීක්‍ෂණය හා තේමා කළමනාකරණය"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් මෙන්ම අන් වැඩසටහන් සමඟ ද පණිවිඩ හුවමාරුව"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
-msgstr ""
+msgstr "ඔබට දැනුම්දීම් පෙන්වීම"
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
@@ -1229,31 +1229,31 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "අතිරික්සුවේ ප්‍රතියුක්ත සැකසුම් පාලනය"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "රහස්‍යතා සැකසුම් කියවීම හා සංශෝධනය"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "මෑත දී වසා දැමූ පටිති වෙත ප්‍රවේශය"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Access browser tabs"
-msgstr ""
+msgstr "අතිරික්සුවේ පටිති වෙත ප්‍රවේශය"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "අතිරික්සුවේ පටිති සැඟවීම හා පෙන්වීම"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "අනුග්‍රාහක-පාර්ශ්ව දත්ත අසීමිතව ගබඩා කිරීම"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "යාත්‍රණය අතරතුර අතිරික්සු ක්‍රියාකාරකම් වෙත ප්‍රවේශය"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
