@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-21 16:55+0000\n"
+"PO-Revision-Date: 2022-09-22 07:51+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -20,19 +20,19 @@ msgstr "පූරණය වෙමින්…"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 msgid "Adding…"
-msgstr ""
+msgstr "එක් වෙමින්…"
 
 #: src/amo/components/AddAddonToCollection/index.js:205
 msgid "Select a collection…"
-msgstr ""
+msgstr "එකතුවක් තෝරන්න…"
 
 #: src/amo/components/AddAddonToCollection/index.js:212
 msgid "Create new collection"
-msgstr ""
+msgstr "නව එකතුවක් සාදන්න"
 
 #: src/amo/components/AddAddonToCollection/index.js:253
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "%(collectionName)s වෙත එක් කෙරිණි"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
@@ -141,12 +141,12 @@ msgstr ""
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "තරු %(total)s"
+msgstr[1] "තරු %(total)s"
 
 #: src/amo/components/AddonMeta/index.js:128
 msgid "Not rated yet"
-msgstr ""
+msgstr "ඇගැයුම් නැත"
 
 #: src/amo/components/AddonMeta/index.js:49
 msgid "Users"
@@ -160,7 +160,7 @@ msgstr[1] "පරිශීලකයින්"
 
 #: src/amo/components/AddonMeta/index.js:54
 msgid "No Users"
-msgstr ""
+msgstr "පරිශීලකයින් නැත"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
@@ -190,20 +190,20 @@ msgstr "සහාය අඩවිය"
 
 #: src/amo/components/AddonMoreInfo/index.js:130
 msgid "Support Email"
-msgstr ""
+msgstr "සහාය වි-තැපෑල"
 
 #: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "සංඛ්‍යාලේඛන පුවරුව බලන්න"
 
 #: src/amo/components/AddonMoreInfo/index.js:167
 msgid "Custom License"
-msgstr ""
+msgstr "අභිරුචි බලපත්‍රය"
 
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:212
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Read the privacy policy for this add-on"
