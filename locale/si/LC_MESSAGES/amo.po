@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 09:09+0000\n"
+"PO-Revision-Date: 2022-09-22 09:13+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -37,11 +37,11 @@ msgstr "%(collectionName)s වෙත එක් කෙරිණි"
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
 msgid "Add to…"
-msgstr ""
+msgstr "මෙයට යොදන්න…"
 
 #: src/amo/components/AddAddonToCollection/index.js:274 src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
-msgstr ""
+msgstr "එකතුවට යොදන්න"
 
 # This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:104
@@ -51,7 +51,7 @@ msgstr ""
 # This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:112
 msgid "Review theme"
-msgstr ""
+msgstr "තේමාව සමාලෝචනය"
 
 # This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:114
@@ -66,7 +66,7 @@ msgstr "පරිපාලක සබැඳි"
 # This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76 src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
-msgstr ""
+msgstr "එක්කහුව සංස්කරණය"
 
 # This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:90
@@ -469,7 +469,7 @@ msgstr ""
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
-msgstr ""
+msgstr "එක්කහු නිරූපකය"
 
 # roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:78
@@ -502,11 +502,11 @@ msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
-msgstr ""
+msgstr "අනුවාදයක් හමු නොවිණි"
 
 #: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "අනුවාදය %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
@@ -566,11 +566,11 @@ msgstr "%(title)s – ෆයර්ෆොක්ස් ඇන්ඩ්‍රොය
 
 #: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:148
 msgid "Log out"
-msgstr ""
+msgstr "නික්මෙන්න"
 
 #: src/amo/components/AuthenticateButton/index.js:93
 msgid "Log in"
-msgstr ""
+msgstr "පිවිසෙන්න"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:143
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -578,23 +578,23 @@ msgstr ""
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
-msgstr ""
+msgstr "පූරණය වෙමින්"
 
 #: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
-msgstr ""
+msgstr "එක්කහු සොයන්න"
 
 #: src/amo/components/AutoSearchInput/index.js:323 src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
-msgstr ""
+msgstr "සොයන්න"
 
 #: src/amo/components/Categories/index.js:105
 msgid "No categories found."
-msgstr ""
+msgstr "ප්‍රවර්ග හමු නොවිණි."
 
 #: src/amo/components/Categories/index.js:112
 msgid "Categories"
-msgstr ""
+msgstr "ප්‍රවර්ග"
 
 #: src/amo/components/Categories/index.js:117
 msgid "Loading categories."
