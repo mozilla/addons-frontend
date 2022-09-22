@@ -78,6 +78,7 @@ export const EXPERIMENT_VARIATION_GA_DIMENSION = 'dimension9';
 type CookieConfig = {|
   maxAge?: number,
   path?: string,
+  sameSite?: string,
   secure?: boolean,
 |};
 
@@ -164,6 +165,8 @@ type WithExperimentInternalProps = {|
 export const defaultCookieConfig: CookieConfig = {
   maxAge: DEFAULT_COOKIE_MAX_AGE,
   path: '/',
+  // See https://github.com/mozilla/addons-frontend/issues/11836
+  sameSite: 'strict',
   // See https://github.com/mozilla/addons-frontend/issues/8957
   secure: true,
 };
