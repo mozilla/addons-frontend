@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 11:43+0000\n"
+"PO-Revision-Date: 2022-09-22 11:50+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1012,19 +1012,19 @@ msgstr "ෆයර්ෆොක්ස් බාගන්න"
 
 #: src/amo/components/GetFirefoxButton/index.js:134
 msgid "You'll need Firefox to use this theme"
-msgstr ""
+msgstr "මෙම තේමාව භාවිතයට ෆයර්ෆොක්ස් අවශ්‍ය වේ"
 
 #: src/amo/components/GetFirefoxButton/index.js:135
 msgid "You'll need Firefox to use this extension"
-msgstr ""
+msgstr "මෙම දිගුව භාවිතයට ෆයර්ෆොක්ස් අවශ්‍ය වේ"
 
 #: src/amo/components/GetFirefoxButton/index.js:139
 msgid "You need an updated version of Firefox for this theme"
-msgstr ""
+msgstr "මෙම තේමාවට යාවත්කාලීන වූ ෆයර්ෆොක්ස් අනුවාදයක් අවශ්‍ය වේ"
 
 #: src/amo/components/GetFirefoxButton/index.js:140
 msgid "You need an updated version of Firefox for this extension"
-msgstr ""
+msgstr "මෙම දිගුවට යාවත්කාලීන වූ ෆයර්ෆොක්ස් අනුවාදයක් අවශ්‍ය වේ"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
@@ -1085,7 +1085,7 @@ msgstr "නිර්දේශිත"
 
 #: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් වෙතින්"
 
 #: src/amo/components/HeroRecommendation/index.js:239
 msgid "SPONSORED"
@@ -1113,7 +1113,7 @@ msgstr ""
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් වෙතින්"
 
 #: src/amo/components/IconPromotedBadge/index.js:47 src/amo/components/PromotedBadge/index.js:48 src/amo/components/SearchFilters/index.js:180
 msgid "Recommended"
@@ -1459,15 +1459,15 @@ msgstr "නිර්දේශිත එක්කහු"
 
 #: src/amo/components/Search/index.js:155
 msgid "Extensions by Firefox"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් වෙතින් දිගු"
 
 #: src/amo/components/Search/index.js:158
 msgid "Themes by Firefox"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් වෙතින් තේමා"
 
 #: src/amo/components/Search/index.js:161
 msgid "Add-ons by Firefox"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් වෙතින් එක්කහු"
 
 #: src/amo/components/Search/index.js:166
 msgid "Reviewed extensions"
