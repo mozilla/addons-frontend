@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 11:50+0000\n"
+"PO-Revision-Date: 2022-09-22 11:56+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1093,7 +1093,7 @@ msgstr "අනුග්‍රහය ලද"
 
 #: src/amo/components/HeroRecommendation/index.js:256
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "අපගේ ආරක්‍ෂාව හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලන දිගු පමණක් ෆයර්ෆොක්ස් නිර්දේශ කරයි."
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
@@ -2685,11 +2685,11 @@ msgstr "පැතිකඩ මකන්න"
 
 #: src/amo/pages/UserProfileEdit/index.js:828
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "වැදගත්: ඔබගේ ෆයර්ෆොක්ස් එක්කහු පැතිකඩ මකා දැමීම අප්‍රතිවර්ත්‍යයි."
 
 #: src/amo/pages/UserProfileEdit/index.js:831
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "වැදගත්: මෙම ෆයර්ෆොක්ස් එක්කහු පැතිකඩ මකා දැමීම අප්‍රතිවර්ත්‍යයි."
 
 #: src/amo/pages/UserProfileEdit/index.js:840
 msgid ""
@@ -2788,7 +2788,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "නව එක්කහු හෝ ෆයර්ෆොක්ස් විශේෂාංග තිබේ"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
