@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 13:12+0000\n"
+"PO-Revision-Date: 2022-09-23 13:23+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1263,7 +1263,7 @@ msgstr "යාත්‍රණය අතරතුර අතිරික්සු 
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr "මොසිල්ලා ෆයර්ෆොක්ස් සාදන ලද නිල එක්කහුවකි. ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලයි."
+msgstr "මොසිල්ලා ෆයර්ෆොක්ස් තනන ලද නිල එක්කහුවකි. ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලයි."
 
 #: src/amo/components/PromotedBadge/index.js:49
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
@@ -1641,31 +1641,31 @@ msgstr "එක්කහු සඳහා සොයමින්"
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgstr[0] "\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
-msgstr[1] ""
+msgstr[1] "\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" සඳහා %(categoryName)s හි දිගු %(count)s ක් හමු විය"
+msgstr[1] "\"%(query)s\" සඳහා %(categoryName)s හි දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(categoryName)s හි %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
+msgstr[1] "%(categoryName)s හි %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(categoryName)s හි දිගු %(count)s ක් හමු විය"
+msgstr[1] "%(categoryName)s හි දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:95
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" සඳහා %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
+msgstr[1] "\"%(query)s\" සඳහා %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
@@ -1681,7 +1681,7 @@ msgstr "තේමාව"
 
 #: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
-msgstr ""
+msgstr "අදාළතාව"
 
 #: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
@@ -1689,15 +1689,15 @@ msgstr "මෑත දී යාවත්කාලීන"
 
 #: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
-msgstr ""
+msgstr "බොහෝ අය"
 
 #: src/amo/components/SearchFilters/index.js:170
 msgid "Top Rated"
-msgstr ""
+msgstr "ඉහළ ඇගැයුම"
 
 #: src/amo/components/SearchFilters/index.js:171
 msgid "Trending"
-msgstr ""
+msgstr "නැඹුරුව"
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
@@ -1721,7 +1721,7 @@ msgstr "එක්කහු වර්ගය"
 
 #: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
-msgstr ""
+msgstr "චිහ්නගත"
 
 #: src/amo/components/SearchForm/index.js:65
 msgid "Firefox Add-ons for Android"
