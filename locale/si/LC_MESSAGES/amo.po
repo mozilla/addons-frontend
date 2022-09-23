@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 14:28+0000\n"
+"PO-Revision-Date: 2022-09-23 16:41+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1502,27 +1502,27 @@ msgstr "තහවුරු කළ එක්කහු"
 
 #: src/amo/components/Search/index.js:191 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
-msgstr ""
+msgstr "නැගී එන දිගු"
 
 #: src/amo/components/Search/index.js:194 src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
-msgstr ""
+msgstr "නැගී එන තේමා"
 
 #: src/amo/components/Search/index.js:197
 msgid "Trending add-ons"
-msgstr ""
+msgstr "නැගී එන එක්කහු"
 
 #: src/amo/components/Search/index.js:203 src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
-msgstr ""
+msgstr "ඉහළ ඇගැයුම් දිගු"
 
 #: src/amo/components/Search/index.js:206 src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
-msgstr ""
+msgstr "ඉහළ ඇගැයුම් තේමා"
 
 #: src/amo/components/Search/index.js:209
 msgid "Top rated add-ons"
-msgstr ""
+msgstr "ඉහළ ඇගැයුම් එක්කහු"
 
 #: src/amo/components/Search/index.js:215
 msgid "Popular extensions"
