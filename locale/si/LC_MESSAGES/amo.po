@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 03:39+0000\n"
+"PO-Revision-Date: 2022-09-23 03:50+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2367,11 +2367,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "සමාලෝචන ගැන නිතර අසන ප්‍රශ්න"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "ගැටළු සහගත සමාලෝචනයක් වාර්තා කරන්නේ කෙසේද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
@@ -2487,11 +2487,11 @@ msgstr ""
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "%(tag)s සමඟ අනන්‍යගත එක්කහු"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
-msgstr ""
+msgstr "මාගේ සමාලෝචන"
 
 #: src/amo/pages/UserProfile/index.js:270
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
@@ -2507,15 +2507,15 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:308
 msgid "User Avatar"
-msgstr ""
+msgstr "පරිශීලක ප්‍රතිරූපය"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
-msgstr ""
+msgstr "එක්කහු සංවර්ධක"
 
 #: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
-msgstr ""
+msgstr "තේමාවේ කලාකරු"
 
 #: src/amo/pages/UserProfile/index.js:335 src/amo/pages/UserProfileEdit/index.js:549
 msgid "User Profile for %(user)s"
@@ -2531,11 +2531,11 @@ msgstr "ස්ථානය"
 
 #: src/amo/pages/UserProfile/index.js:372 src/amo/pages/UserProfileEdit/index.js:704
 msgid "Occupation"
-msgstr "රැකියාව"
+msgstr "වෘත්තිය"
 
 #: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
-msgstr ""
+msgstr "සාමාජිකත්‍වය"
 
 #: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
@@ -2543,7 +2543,7 @@ msgstr "එක්කහු ගණන"
 
 #: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "සංවර්ධකයාගේ එක්කහුවල ඇගැයුම සාමාන්‍ය"
 
 #: src/amo/pages/UserProfile/index.js:410 src/amo/pages/UserProfileEdit/index.js:726
 msgid "Biography"
