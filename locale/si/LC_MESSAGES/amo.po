@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-22 20:09+0000\n"
+"PO-Revision-Date: 2022-09-23 02:33+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -730,7 +730,7 @@ msgstr ""
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
-msgstr ""
+msgstr "පෙළ යොදන්න."
 
 #: src/amo/components/DismissibleTextForm/index.js:200
 msgid "Submit"
@@ -742,7 +742,7 @@ msgstr "යොමු වෙමින්"
 
 #: src/amo/components/EditableCollectionAddon/index.js:132 src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
-msgstr ""
+msgstr "සටහනක් තබන්න"
 
 #: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
@@ -750,7 +750,7 @@ msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
-msgstr ""
+msgstr "මෙම එක්කහුව ගැන අදහසක් ලියන්න."
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
@@ -770,7 +770,7 @@ msgstr "අනපේක්‍ෂිත දෝෂයක් මතු විය"
 
 #: src/amo/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "පූරණය කර ඉදිරියට"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -778,7 +778,7 @@ msgstr "පිටුව හමු නොවිණි"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "කණගාටුයි, ඔබ ඇතුල් කළ ඒ.ස.නි. හි කිසිවක් හමු නොවිණි."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
@@ -1596,26 +1596,26 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "තේමාවක් හමු විය"
+msgstr[1] "තේමා %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:209
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "අනන්‍යන %(tag)s ක් සමඟ \"%(query)s\" සඳහා ප්‍රතිඵල %(count)s ක් හමු විය"
+msgstr[1] "අනන්‍යන %(tag)s ක් සමඟ \"%(query)s\" සඳහා ප්‍රතිඵල %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" සඳහා ප්‍රතිඵල %(count)s ක් හමු විය"
+msgstr[1] "\"%(query)s\" සඳහා ප්‍රතිඵල %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:227
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "අනන්‍යන %(tag)s ක් සමඟ ප්‍රතිඵල %(count)s ක් හමු විය"
+msgstr[1] "අනන්‍යන %(tag)s ක් සමඟ ප්‍රතිඵල %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
@@ -1625,11 +1625,11 @@ msgstr[1] "ප්‍රතිඵල %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "\"%(query)s\" සඳහා සොයමින්"
 
 #: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
-msgstr ""
+msgstr "එක්කහු සඳහා සොයමින්"
 
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
