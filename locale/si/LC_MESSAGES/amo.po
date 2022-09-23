@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 10:57+0000\n"
+"PO-Revision-Date: 2022-09-23 13:04+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1267,7 +1267,7 @@ msgstr "මොසිල්ලා ෆයර්ෆොක්ස් සාදන ල
 
 #: src/amo/components/PromotedBadge/index.js:49
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr ""
+msgstr "අපගේ ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලන එක්කහු පමණක් ෆයර්ෆොක්ස් නිර්දේශ කරයි."
 
 #: src/amo/components/PromotedBadge/index.js:57
 msgid "This add-on has been reviewed to meet our standards for security and performance."
@@ -1311,11 +1311,11 @@ msgstr "මෙම එක්කහුව ඇගැයුමට පිවිසෙ
 
 #: src/amo/components/RatingManager/index.js:178
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr ""
+msgstr "%(addonName)s පිළිබඳව ඔබගේ සමාලෝචනය මකා දැමීමට වුවමනා ද?"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr ""
+msgstr "%(addonName)s පිළිබඳව ඔබගේ ඇගැයුම මකා දැමීමට වුවමනා ද?"
 
 #: src/amo/components/RatingManager/index.js:188
 msgid "How are you enjoying %(addonName)s?"
@@ -1437,7 +1437,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:149
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "මෙම පරිශීලකයා අපගේ ප්‍රතිපත්ති කඩ කරන අයුරු පැහැදිලි කරන්න."
 
 #: src/amo/components/ReportUserAbuse/index.js:161
 msgid "You reported this user for abuse"
@@ -1542,14 +1542,14 @@ msgstr "\"%(query)s\" සඳහා සෙවුම් ප්‍රතිඵල"
 #: src/amo/components/SearchContextCard/index.js:104
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" සඳහා දිගු %(count)s ක් හමු විය"
+msgstr[1] "\"%(query)s\" සඳහා දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:113
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
+msgstr[1] "%(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
