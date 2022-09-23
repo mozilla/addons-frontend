@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 04:02+0000\n"
+"PO-Revision-Date: 2022-09-23 04:21+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2277,7 +2277,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Report an issue"
-msgstr ""
+msgstr "ගැටළු වාර්තාව"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2547,7 +2547,7 @@ msgstr "සංවර්ධකයාගේ එක්කහුවල ඇගැය�
 
 #: src/amo/pages/UserProfile/index.js:410 src/amo/pages/UserProfileEdit/index.js:726
 msgid "Biography"
-msgstr ""
+msgstr "චරිතාපදානය"
 
 #: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
@@ -2572,11 +2572,11 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:476
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "ඔබ කැමති නම් ප්‍රජාවට ඔබව හඳුන්වා දෙන්න"
 
 #: src/amo/pages/UserProfileEdit/index.js:477
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "ප්‍රජාවට %(userName)s හඳුන්වා දෙන්න"
 
 #: src/amo/pages/UserProfileEdit/index.js:503
 msgid "Log in to edit the profile"
@@ -2776,11 +2776,11 @@ msgstr ""
 
 #: src/amo/utils/addons.js:51
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "අනපේක්‍ෂිත දෝෂයක් මතු විය."
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "එක්කහු සංවර්ධකයින්ට අදාළ පුවත් සහ සිදුවීම් සමඟ යාවත්කාලීනව සිටින්න (about:addons පුවත් පත්‍රිකාව ඇතුළුව)"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
