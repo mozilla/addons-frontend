@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 03:50+0000\n"
+"PO-Revision-Date: 2022-09-23 04:02+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2167,7 +2167,7 @@ msgstr "සොබාදහම"
 
 #: src/amo/pages/Home/index.js:93
 msgid "Film & TV"
-msgstr "චිත්‍රපට හා රූපවාහිනී"
+msgstr "චිත්‍රපට හා රූ.වා."
 
 #: src/amo/pages/Home/index.js:98
 msgid "Scenery"
@@ -2560,7 +2560,7 @@ msgstr "පරිපාලක පරිශීලක"
 
 #: src/amo/pages/UserProfileEdit/index.js:209
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "රූපය සාර්ථකව මකා දැමිණි"
 
 #: src/amo/pages/UserProfileEdit/index.js:457
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
@@ -2580,35 +2580,35 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:503
 msgid "Log in to edit the profile"
-msgstr ""
+msgstr "පැතිකඩ සංස්කරණයට පිවිසෙන්න"
 
 #: src/amo/pages/UserProfileEdit/index.js:525
 msgid "Creating your profile…"
-msgstr ""
+msgstr "ඔබගේ පැතිකඩ සෑදෙමින්…"
 
 #: src/amo/pages/UserProfileEdit/index.js:526
 msgid "Create My Profile"
-msgstr ""
+msgstr "මාගේ පැතිකඩ සාදන්න"
 
 #: src/amo/pages/UserProfileEdit/index.js:530
 msgid "Updating your profile…"
-msgstr ""
+msgstr "පැතිකඩ යාවත්කාල වෙමින්…"
 
 #: src/amo/pages/UserProfileEdit/index.js:531
 msgid "Update My Profile"
-msgstr ""
+msgstr "පැතිකඩ යාවත්කාලය"
 
 #: src/amo/pages/UserProfileEdit/index.js:534
 msgid "Updating profile…"
-msgstr ""
+msgstr "පැතිකඩ යාවත්කාල වෙමින්…"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Update Profile"
-msgstr ""
+msgstr "පැතිකඩ යාවත්කාලය"
 
 #: src/amo/pages/UserProfileEdit/index.js:562
 msgid "View user's profile"
-msgstr ""
+msgstr "පරිශීලක පැතිකඩ බලන්න"
 
 #: src/amo/pages/UserProfileEdit/index.js:568
 msgid "Edit user's profile"
@@ -2628,11 +2628,11 @@ msgstr "වි-තැපැල් ලිපිනය"
 
 #: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "වි-තැපෑල මෙහි වෙනස් කළ නොහැකිය"
 
 #: src/amo/pages/UserProfileEdit/index.js:613
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් ගිණුම හරහා ඔබගේ වි-තැපැල් ලිපිනය වෙනස් කිරීමට හැකිය. %(startLink)sඋදව් වුවමනා ද?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:630
 msgid "Manage Firefox Accounts…"
@@ -2649,15 +2649,15 @@ msgstr "මෙම ක්‍ෂේත්‍රය අවශ්‍යයි"
 # the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "Display Name *"
-msgstr ""
+msgstr "ප්‍රදර්ශන නාමය *"
 
 #: src/amo/pages/UserProfileEdit/index.js:684
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "සංවර්ධකයින් වන පරිශීලකයින් සඳහා පමණක් මෙම ඒ.ස.නි. දිස්වනු ඇත."
 
 #: src/amo/pages/UserProfileEdit/index.js:741
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "ඇතැම් HTML සහාය දක්වයි: %(htmlTags)s. සබැඳි තහනම්."
 
 #: src/amo/pages/UserProfileEdit/index.js:765
 msgid "Notifications"
@@ -2742,17 +2742,17 @@ msgstr "(නමක් නැත)"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:304
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s සහ නව"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:308
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s සිට %(maxVersion)s දක්වා"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:328
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "%(listOfApplicatonsAndVersions)s සමඟ ක්‍රියා කරයි"
 
 #: src/amo/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
@@ -2760,15 +2760,15 @@ msgstr ""
 
 #: src/amo/utils/addons.js:40
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "ස්ථාපනයට අසමත් විය. යළි උත්සාහ කරන්න."
 
 #: src/amo/utils/addons.js:42
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "බාගැනීමට අසමත් විය. සම්බන්ධතාවය පරීක්‍ෂා කරන්න."
 
 #: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "ස්ථාපනය අතරතුර අනපේක්‍ෂිත දෝෂයක් සිදු විය."
 
 #: src/amo/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
