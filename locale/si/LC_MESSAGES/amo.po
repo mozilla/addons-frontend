@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 05:28+0000\n"
+"PO-Revision-Date: 2022-09-23 05:40+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -710,23 +710,23 @@ msgstr "සුළු දායකත්‍වයක් ලබා දීමෙන
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම තේමාවේ කලාකරුවන් ඔබගෙන් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
-msgstr ""
+msgstr "මෙම කතුවරයාට සහාය වන්න"
 
 #: src/amo/components/ContributeCard/index.js:75
 msgid "Support these authors"
-msgstr ""
+msgstr "මෙම කතුවරුන්ට සහාය වන්න"
 
 #: src/amo/components/ContributeCard/index.js:79
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "මෙම එක්කහුවෙහි කතුවරයා එහි අඛණ්ඩ සංවර්ධනය වෙනුවෙන් ඔබගෙන් ස්වල්ප දායකත්‍වයක් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:81
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "මෙම එක්කහුවෙහි කතුවරුන් එහි අඛණ්ඩ සංවර්ධනය වෙනුවෙන් ඔබගෙන් ස්වල්ප දායකත්‍වයක් ඉල්ලා සිටියි."
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -746,7 +746,7 @@ msgstr "සටහනක් තබන්න"
 
 #: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
-msgstr ""
+msgstr "සංචකගේ සටහන"
 
 #: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
