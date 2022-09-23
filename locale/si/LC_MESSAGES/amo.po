@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 13:23+0000\n"
+"PO-Revision-Date: 2022-09-23 13:52+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2443,7 +2443,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "ඔබ කැමති හෝ අකැමති විශේෂාංග මොනවාද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
@@ -2459,7 +2459,7 @@ msgstr "ඔබ මෙම එක්කහුව දිගටම භාවිත�
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "යොමු කිරීමට පෙර ඔබගේ සමාලෝචනයෙහි ව්‍යාකරණ දෝෂ ඇත්දැයි මොහොතක් බලන්න."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
@@ -2467,7 +2467,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "\"නියමයි!\", \"පුදුමාකාරයි\" හෝ \"නරකයි\" වැනි තනි වචනයක සමාලෝචන යොමු කරන්න."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
