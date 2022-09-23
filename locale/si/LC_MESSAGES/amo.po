@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 03:31+0000\n"
+"PO-Revision-Date: 2022-09-23 03:39+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1703,7 +1703,7 @@ msgstr "සමාලෝචිත සියල්ල"
 
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
-msgstr ""
+msgstr "පෙරහන් ප්‍රතිඵල"
 
 #: src/amo/components/SearchFilters/index.js:215
 msgid "Sort by"
@@ -1789,7 +1789,7 @@ msgstr "තව කියවීමට විහිදන්න"
 
 #: src/amo/components/ShowMoreCard/index.js:167
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "තව කියවීමට <span class=\"visually-hidden\">විහිදන්න</span>"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -1905,7 +1905,7 @@ msgstr "මෙතෙක් සමාලෝචන නැත"
 
 #: src/amo/pages/Addon/index.js:243
 msgid "Rate your experience"
-msgstr ""
+msgstr "ඔබගේ අත්දැකීම අගයන්න"
 
 #: src/amo/pages/Addon/index.js:262
 msgid "About this dictionary"
@@ -2021,7 +2021,7 @@ msgstr "පරණ අනුවාද"
 
 #: src/amo/pages/Block/index.js:102
 msgid "View block request"
-msgstr ""
+msgstr "අවහිර ඉල්ලීම බලන්න"
 
 #: src/amo/pages/Block/index.js:119
 msgid "Versions blocked: all versions."
@@ -2029,19 +2029,19 @@ msgstr "අවහිර කළ අනුවාද: සියළුම අනු�
 
 #: src/amo/pages/Block/index.js:122
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "අනුවාද අවහිරයි: %(min)s සිට %(max)s දක්වා."
 
 #: src/amo/pages/Block/index.js:144
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "ඔබගේ රැකවරණය සඳහා %(addonName)s අවහිර කර ඇත."
 
 #: src/amo/pages/Block/index.js:149
 msgid "This add-on has been blocked for your protection."
-msgstr ""
+msgstr "ඔබගේ රැකවරණය සඳහා මෙම එක්කහුව අවහිර කර ඇත."
 
 #: src/amo/pages/Block/index.js:160
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "එය අවහිර කළේ ඇයි?"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
@@ -2049,7 +2049,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:177
 msgid "What does this mean?"
-msgstr ""
+msgstr "මෙහි තේරුම කුමක්ද?"
 
 #: src/amo/pages/Block/index.js:179
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
@@ -2063,7 +2063,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:93
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "%(date)s දී අවහිර කර ඇත."
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
