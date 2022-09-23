@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 05:22+0000\n"
+"PO-Revision-Date: 2022-09-23 05:28+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -690,11 +690,11 @@ msgstr "මෙම සංවර්ධකයින්ට සහාය වන්න
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "සුළු දායකත්වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම දිගුවේ සංවර්ධකයා ඔබගෙන් ඉල්ලා සිටියි."
+msgstr "සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම දිගුවේ සංවර්ධකයා ඔබගෙන් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "සුළු දායකත්වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම දිගුවේ සංවර්ධකයින් ඔබගෙන් ඉල්ලා සිටියි."
+msgstr "සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම දිගුවේ සංවර්ධකයින් ඔබගෙන් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
@@ -706,7 +706,7 @@ msgstr "මෙම කලාකරුවන්ට සහයෝගය දෙන්
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr "සුළු දායකත්වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම තේමාවේ කලාකරු ඔබගෙන් ඉල්ලා සිටියි."
+msgstr "සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම තේමාවේ කලාකරු ඔබගෙන් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
@@ -1851,7 +1851,7 @@ msgstr "සංවර්ධකගේ ප්‍රතිචාරය"
 
 #: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
-msgstr "වසරක දායකත්වයකින් 50% ක් ඉතිරි කර ගන්න"
+msgstr "වසරක දායකත්‍වයකින් 50% ක් ඉතිරි කර ගන්න"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
