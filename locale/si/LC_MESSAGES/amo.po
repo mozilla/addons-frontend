@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 13:52+0000\n"
+"PO-Revision-Date: 2022-09-23 14:02+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2129,7 +2129,7 @@ msgstr "එකතු"
 
 #: src/amo/pages/CollectionList/index.js:128
 msgid "Log in to view your collections"
-msgstr ""
+msgstr "ඔබගේ එකතුව බැලීමට පිවිසෙන්න"
 
 #: src/amo/pages/CollectionList/index.js:133
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
@@ -2359,7 +2359,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "ඔබගේ හෝ අන් අයෙකුගේ වි-තැපෑල, දු.ක. අංකය හෝ වෙනත් පෞද්ගලික තොරතුරු ඇතුළත් කරන්න."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
@@ -2419,7 +2419,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "හරවත් සමාලෝචනයක් ලිවීමට ඉඟි"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
@@ -2427,19 +2427,19 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "එක්කහුව ගැන ඔබගේ අත්දැකීම යහළුවෙකුට පවසන ආකාරයට ලියන්න."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "සමාලෝචන සංක්‍ෂිප්තව හා නිවැරදි සිංහලෙන් තබන්න."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "ප්‍රයෝජනවත් විස්තර දෙන්න. නිදසුනක් වශයෙන්:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "ඔබ අපේක්‍ෂිත පරිදි එක්කහුව වැඩ කළා ද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
