@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 08:55+0000\n"
+"PO-Revision-Date: 2022-09-23 09:05+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2323,7 +2323,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
-msgstr ""
+msgstr "මැවුම්කරුවන්ගේ ප්‍රජාවකි"
 
 #: src/amo/pages/StaticPages/About/index.js:56
 msgid ""
@@ -2694,13 +2694,13 @@ msgstr "වැදගත්: මෙම ෆයර්ෆොක්ස් එක්�
 #: src/amo/pages/UserProfileEdit/index.js:840
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr ""
+msgstr "පැතිකඩ විස්තර (ඡායාරූපය, පරිශීලක නාමය, සංදර්ශන නම, ස්ථානය, මුල් පිටුව, චරිතාපදානය, වෘත්තිය), දැනුම්දීම් අභිප්‍රේත, සමාලෝචන, සහ එකතු ඇතුළුව ඔබගේ දත්ත සදහටම ඉවත් කරනු ලැබේ."
 
 #: src/amo/pages/UserProfileEdit/index.js:846
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
-msgstr ""
+msgstr "පැතිකඩ විස්තර (ඡායාරූපය, පරිශීලක නාමය, සංදර්ශන නම, ස්ථානය, මුල් පිටුව, චරිතාපදානය, වෘත්තිය), දැනුම්දීම් අභිප්‍රේත, සමාලෝචන, සහ එකතු ඇතුළුව පරිශීලකයාගේ දත්ත සදහටම ඉවත් කරනු ලැබේ."
 
 #: src/amo/pages/UserProfileEdit/index.js:855
 msgid ""
@@ -2716,7 +2716,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:871
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr ""
+msgstr "addons.mozilla.org වෙත නැවත පිවිසීමට ඔබ මෙම වි-තැපැල් ලිපිනය භාවිතා කරන විට, ෆයර්ෆොක්ස් එක්කහුවල ඔබගේ පැතිකඩට එහි කලින් කිසිදු අන්තර්ගතයකට ප්‍රවේශය නොලැබෙනු ඇත."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:103
 msgid "Unsubscribe"
