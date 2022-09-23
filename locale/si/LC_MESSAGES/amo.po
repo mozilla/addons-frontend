@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 02:45+0000\n"
+"PO-Revision-Date: 2022-09-23 03:31+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -850,11 +850,11 @@ msgstr ""
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
-msgstr ""
+msgstr "එම පිටුව ඔබගේ කලාපය සඳහා නැත"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
 msgid "The page you tried to access is not available in your region."
-msgstr ""
+msgstr "ඔබ පිවිසීමට උත්සාහ කරන පිටුව ඔබගේ කලාපයට නැත."
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
