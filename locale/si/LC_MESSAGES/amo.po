@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 13:04+0000\n"
+"PO-Revision-Date: 2022-09-23 13:12+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1554,50 +1554,50 @@ msgstr[1] "%(tag)s අනන්‍යනය සහිත දිගු %(count)s 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "දිගු %(count)s ක් හමු විය"
+msgstr[1] "දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:134
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
+msgstr[1] "\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" සඳහා %(categoryName)s හි තේමා %(count)s ක් හමු විය"
+msgstr[1] "\"%(query)s\" සඳහා %(categoryName)s හි තේමා %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:152
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(categoryName)s හි %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
+msgstr[1] "%(categoryName)s හි %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(categoryName)s හි තේමා %(count)s ක් හමු විය"
+msgstr[1] "%(categoryName)s හි තේමා %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" සඳහා %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
+msgstr[1] "\"%(query)s\" සඳහා %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" සඳහා තේමා %(count)s ක් හමු විය"
+msgstr[1] "\"%(query)s\" සඳහා තේමා %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:188
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
+msgstr[1] "%(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
@@ -1640,7 +1640,7 @@ msgstr "එක්කහු සඳහා සොයමින්"
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
+msgstr[0] "\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
 msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:68
