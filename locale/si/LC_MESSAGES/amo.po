@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 05:40+0000\n"
+"PO-Revision-Date: 2022-09-23 08:55+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2733,7 +2733,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "%(linkStart)sඔබගේ පැතිකඩ සංස්කරණය%(linkStart)s මගින් ඔබගේ දැනුම්දීම් සැකසුම් සංශෝධනය කළ හැකිය."
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
@@ -2756,7 +2756,7 @@ msgstr "%(listOfApplicatonsAndVersions)s සමඟ ක්‍රියා කර�
 
 #: src/amo/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "එක්කහුවට හානි වී ඇතැයි පෙනෙන නිසා ස්ථාපනය නතර විය."
 
 #: src/amo/utils/addons.js:40
 msgid "Installation failed. Please try again."
@@ -2772,7 +2772,7 @@ msgstr "ස්ථාපනය අතරතුර අනපේක්‍ෂිත 
 
 #: src/amo/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "අස්ථාපනය අතරතුර අනපේක්‍ෂිත දෝෂයක් සිදු විය."
 
 #: src/amo/utils/addons.js:51
 msgid "An unexpected error occurred."
