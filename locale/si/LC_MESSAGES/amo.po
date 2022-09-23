@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 14:12+0000\n"
+"PO-Revision-Date: 2022-09-23 14:24+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1139,7 +1139,7 @@ msgstr "තව දැනගන්න"
 
 #: src/amo/components/InstallWarning/index.js:108
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr ""
+msgstr "මොසිල්ලා මගින් මෙම එක්කහුව ආරක්‍ෂාව සඳහා සක්‍රියව නිරීක්‍ෂණය නොකෙරේ. ස්ථාපනයට පෙර ඔබ එය විශ්වාස කරන බවට වග බලා ගන්න."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1271,19 +1271,19 @@ msgstr "අපගේ ආරක්‍ෂණ හා කාර්ය සාධන �
 
 #: src/amo/components/PromotedBadge/index.js:57
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr ""
+msgstr "මෙම එක්කහුව අපගේ ආරක්‍ෂණ සහ කාර්ය සාධන ප්‍රමිතීන් සපුරාලන්නේ දැයි සමාලෝචනය කර ඇත."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "5 න් %(rating)s කට ඇගයිණි"
 
 #: src/amo/components/Rating/index.js:109
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "ඔබගේ ඇගැයුම 5 න් %(starRating)s ට සකසන්න"
 
 #: src/amo/components/Rating/index.js:115
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "මෙම එක්කහුව 5 න් %(starRating)s ට අගයන්න"
+msgstr "මෙම එක්කහුව 5 න් %(starRating)s කට අගයන්න"
 
 #: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
@@ -1319,7 +1319,7 @@ msgstr "%(addonName)s පිළිබඳව ඔබගේ ඇගැයුම ම�
 
 #: src/amo/components/RatingManager/index.js:188
 msgid "How are you enjoying %(addonName)s?"
-msgstr ""
+msgstr "ඔබ %(addonName)s භුක්ති විඳින්නේ කෙසේද?"
 
 #: src/amo/components/RatingManager/index.js:231
 msgid "Saving star rating"
