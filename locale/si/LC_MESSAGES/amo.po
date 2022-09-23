@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 02:33+0000\n"
+"PO-Revision-Date: 2022-09-23 02:45+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -658,11 +658,11 @@ msgstr "එක්කහු වර්ගනය"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Newest first"
-msgstr ""
+msgstr "මුලින්ම අළුත්"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Oldest first"
-msgstr ""
+msgstr "පළමුව පරණ"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Name"
@@ -670,7 +670,7 @@ msgstr "නම"
 
 #: src/amo/components/CollectionSort/index.js:96
 msgid "Popularity"
-msgstr ""
+msgstr "ප්‍රචලිත"
 
 #: src/amo/components/ConfirmationDialog/index.js:53
 msgid "Confirm"
