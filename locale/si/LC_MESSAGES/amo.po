@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 04:21+0000\n"
+"PO-Revision-Date: 2022-09-23 04:29+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2159,7 +2159,7 @@ msgstr "තවත් නිර්දේශිත දිගු බලන්න"
 
 #: src/amo/pages/Home/index.js:83
 msgid "Abstract"
-msgstr ""
+msgstr "විචිත්‍ර"
 
 #: src/amo/pages/Home/index.js:88
 msgid "Nature"
@@ -2171,7 +2171,7 @@ msgstr "චිත්‍රපට හා රූ.වා."
 
 #: src/amo/pages/Home/index.js:98
 msgid "Scenery"
-msgstr ""
+msgstr "දර්ශන"
 
 #: src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2179,11 +2179,11 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
-msgstr ""
+msgstr "තවත් ඉහළ ඇගැයුමක් සහිත දිගු"
 
 #: src/amo/pages/LandingPage/index.js:163
 msgid "See more recommended themes"
-msgstr ""
+msgstr "තවත් නිර්දේශිත තේමා බලන්න"
 
 #: src/amo/pages/LandingPage/index.js:172
 msgid "See more trending themes"
@@ -2191,7 +2191,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
-msgstr ""
+msgstr "තවත් ඉහළ ඇගැයුමක් සහිත තේමා"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2215,7 +2215,7 @@ msgstr "සියළුම ප්‍රවර්ග ගවේශනය"
 
 #: src/amo/pages/LanguageTools/index.js:118
 msgid "Available for your locale"
-msgstr ""
+msgstr "ඔබගේ භාෂාව සඳහා තිබේ"
 
 #: src/amo/pages/LanguageTools/index.js:145
 msgid "Dictionaries and Language Packs"
@@ -2235,11 +2235,11 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "All Locales"
-msgstr ""
+msgstr "සියළු භාෂා"
 
 #: src/amo/pages/LanguageTools/index.js:185
 msgid "Locale Name"
-msgstr ""
+msgstr "භාෂාවේ නම"
 
 #: src/amo/pages/LanguageTools/index.js:188
 msgid "Language Packs"
@@ -2261,7 +2261,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "අපගේ %(startLink)sසංසදයට%(endLink)s සහභාගී වන්න."
 
 #: src/amo/pages/StaticPages/About/index.js:162
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
