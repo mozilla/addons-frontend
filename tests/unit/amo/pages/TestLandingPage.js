@@ -1,4 +1,5 @@
 import { waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import { EXPERIMENT_CONFIG } from 'amo/experiments/20220908_amo_dimension_test';
@@ -542,6 +543,12 @@ describe(__filename, () => {
   // This is an integration test between LandingPage and withExperiment.
   it('calls setDimension for the configured experiment', async () => {
     render();
+
+    // Sometimes the test checks for `setDimension` before it's been called.
+    // Let's navigate to a different page before checking for the call.
+    await userEvent.click(
+      await screen.findByRole('link', { name: 'Explore all categories' }),
+    );
 
     await waitFor(() => expect(tracking.setDimension).toHaveBeenCalledTimes(2));
     expect(tracking.setDimension).toHaveBeenCalledWith({
