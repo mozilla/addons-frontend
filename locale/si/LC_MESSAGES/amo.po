@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 04:32+0000\n"
+"PO-Revision-Date: 2022-09-23 05:12+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -369,7 +369,7 @@ msgstr "සමාලෝචනයට පිළිතුරු දෙන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:550
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "මෙම ඇගැයුම හෝ සමාලෝචනය මකා දමා ඇත. ඉහළ අවසර තිබෙන නිසා ඔබ පමණක් දකියි."
 
 #: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
@@ -377,7 +377,7 @@ msgstr "සමාලෝචනයක් ලියන්න"
 
 #: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
-msgstr ""
+msgstr "මෙම එක්කහුව ගැන ඔබගේ අත්දැකීම් ලියන්න."
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
@@ -405,7 +405,7 @@ msgstr "සුරැකිණි"
 
 #: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "අපගේ %(linkStart)sසමාලෝචන මාර්ගෝපදේශය%(linkEnd)s අනුගමනය කරන්න."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -475,8 +475,8 @@ msgstr "එක්කහු නිරූපකය"
 #: src/amo/components/AddonSummaryCard/index.js:78
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "තරු 5 න් %(rating)s යි"
+msgstr[1] "තරු 5 න් %(rating)s යි"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
