@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 16:51+0000\n"
+"PO-Revision-Date: 2022-09-23 16:58+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1874,7 +1874,7 @@ msgstr "ඇන්ඩ්‍රොයිඩ් සඳහා ෆයර්ෆොක�
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr ""
+msgstr "අයිඕඑස් සඳහා ෆයර්ෆොක්ස් සමඟ එක්කහු නොගැළපෙයි. ඒවා වැඩතලය සඳහා ෆයර්ෆොක්ස් හි ස්ථාපනය කරන්න."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -1898,7 +1898,7 @@ msgstr "ටෙ.බ. %(localizedSize)s"
 
 #: src/amo/pages/Addon/index.js:201
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "අනුවාද කිසිවක් ප්‍රකාශයට පත් කර නැති නිසා මෙම එක්කහුව ඇගැයුමට නොහැකිය."
 
 #: src/amo/pages/Addon/index.js:212
 msgid "Read %(count)s review"
