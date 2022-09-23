@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 05:12+0000\n"
+"PO-Revision-Date: 2022-09-23 05:22+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -510,7 +510,7 @@ msgstr "අනුවාදය %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "%(dateReleased)s දී නිකුත් කෙරිණි - %(fileSize)s"
 
 #: src/amo/components/AMInstallButton/index.js:133
 msgid "Enable"
@@ -574,7 +574,7 @@ msgstr "පිවිසෙන්න"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:143
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "මෙම ක්‍රියාමාර්ගය දැනට නොතිබේ. මොහොතකින් පිටුව යළි පූරණය කරන්න."
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
@@ -610,7 +610,7 @@ msgstr "එකතුවෙන් ඉවත් කෙරිණි"
 
 #: src/amo/components/CollectionAddAddon/index.js:179
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "මෙම එකතුවට යෙදීමට එක්කහුවක් සොයන්න"
 
 #: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
@@ -690,23 +690,23 @@ msgstr "මෙම සංවර්ධකයින්ට සහාය වන්න
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "සුළු දායකත්වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම දිගුවේ සංවර්ධකයා ඔබගෙන් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "සුළු දායකත්වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම දිගුවේ සංවර්ධකයින් ඔබගෙන් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
-msgstr ""
+msgstr "මෙම කලාකරුවාට සහයෝගය දෙන්න"
 
 #: src/amo/components/ContributeCard/index.js:61
 msgid "Support these artists"
-msgstr ""
+msgstr "මෙම කලාකරුවන්ට සහයෝගය දෙන්න"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "සුළු දායකත්වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහය වන ලෙස මෙම තේමාවේ කලාකරු ඔබගෙන් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
