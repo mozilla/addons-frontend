@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 10:09+0000\n"
+"PO-Revision-Date: 2022-09-23 10:11+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -786,7 +786,7 @@ msgstr "දෝෂ කේතය: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr ""
+msgstr "පිවිසුම් සත්‍යාපනය කල් ඉකුත් වී ඇත. සත්‍යාපනයකින් තොරව ඉදිරියට යාමට %(startLink)sපිටුව යළි පූරණය%(endLink)s කරන්න, හෝ පිටුවේ ඉහළ තිබෙන පිවිසුම් සබැඳිය භාවිතයෙන් නැවත පිවිසෙන්න."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
