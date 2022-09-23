@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 10:11+0000\n"
+"PO-Revision-Date: 2022-09-23 10:25+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -786,7 +786,7 @@ msgstr "දෝෂ කේතය: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "පිවිසුම් සත්‍යාපනය කල් ඉකුත් වී ඇත. සත්‍යාපනයකින් තොරව ඉදිරියට යාමට %(startLink)sපිටුව යළි පූරණය%(endLink)s කරන්න, හෝ පිටුවේ ඉහළ තිබෙන පිවිසුම් සබැඳිය භාවිතයෙන් නැවත පිවිසෙන්න."
+msgstr "පිවිසුම් සත්‍යාපනය කල් ඉකුත් වී ඇත. සත්‍යාපනයකින් තොරව ඉදිරියට යාමට %(startLink)sපිටුව යළි පූරණය%(endLink)s කරන්න, හෝ පිටුව මුදුනෙහි තිබෙන පිවිසුම් සබැඳිය භාවිතයෙන් නැවත පිවිසෙන්න."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
@@ -795,6 +795,8 @@ msgstr "පිවිසුම ඉකුත් විය"
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"ඔබ පිවිස ඇත්නම් හා මෙම පණිවිඩය දෝෂයක් යැයි සිතන්නේ නම්, කරුණාකර <a href=\"%(url)s\">ගැටළුවක් ගොනු කරන්න</a>. ඔබ පැමිණියේ කොහෙන්ද සහ ඔබ ප්‍රවේශ වීමට උත්සාහ කරන්නේ කොතැනට දැයි අපට කියන්න, අපි ගැටළුව "
+"විසඳන්නෙමු."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
@@ -802,7 +804,7 @@ msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:36
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "කණගාටුයි, ඔබට මෙම පිටුවට ප්‍රවේශ වීමට බලය නැත. ඔබ පිවිස නැති නම්, පිටුව මුදුනෙහි තිබෙන සබැඳිය භාවිතයෙන් පිවිසීමට උත්සාහ කරන්න."
 
 #: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
