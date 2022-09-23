@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 10:42+0000\n"
+"PO-Revision-Date: 2022-09-23 10:57+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2229,15 +2229,15 @@ msgstr "ශබ්දකෝෂ සහ භාෂා ඇසුරුම්"
 
 #: src/amo/pages/LanguageTools/index.js:155
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් ශබ්දකෝෂ හා භාෂා ඇසුරුම් දිගු බාගන්න. ඔබගේ අතිරික්සුවෙහි අකුරු වින්‍යාස පරීක්‍ෂාවට නව භාෂා විකල්පයක් එක් කරන්න, හෝ අතිරික්සුවෙහි අතුරු මුහුණත භාෂාව වෙනස් කරන්න."
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "ශබ්දකෝෂ එක්කහුවක් ස්ථාපනය කිරීමෙන් ඔබගේ අකුරු වින්‍යාස පරීක්‍ෂාවට නව භාෂා විකල්පයක් එක් කරයි, එය ඔබ ෆයර්ෆොක්ස් හි ලියන විට ඔබගේ දෝෂ සොයා බලයි."
 
 #: src/amo/pages/LanguageTools/index.js:171
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "භාෂා ඇසුරුම් මගින් වට්ටෝරු විකල්ප සහ සැකසුම් ඇතුළුව, ඔබගේ අතිරික්සුවෙහි අතුරු මුහුණත භාෂාව වෙනස් කරයි."
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "All Locales"
@@ -2395,7 +2395,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "මම එක්කහු කතුවරයෙක්, මට අහිතකර සමාලෝචන හෝ ඇගැයුම් මකා දැමීමට හැකිද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
