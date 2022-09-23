@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-23 14:24+0000\n"
+"PO-Revision-Date: 2022-09-23 14:28+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -846,13 +846,14 @@ msgstr "සේවාදායකයේ දෝෂයකි"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "කණගාටුයි, අපගේ සේවාදායකයේ දෝෂයක් තිබෙන අතර ඔබගේ ඉල්ලීම සම්පූර්ණ කිරීමට නොහැකි විය. මෙම දෝෂය සටහන් වූ බැවින් එය විමර්ශනය කෙරෙනු ඇත."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"ඔබ සොයන දෑ පවතින %(extensionStart)sදිගු%(extensionEnd)s හෝ %(themeStart)sතේමා%(themeEnd)s අතරින් සොයා ගැනීමට හැකිවනු ඇත හෝ අපගේ %(communityStart)sප්‍රජා සංසදය%(communityEnd)s ප්‍රයෝජනවත් දැයි බලන්න."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
