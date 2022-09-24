@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-24 04:43+0000\n"
+"PO-Revision-Date: 2022-09-24 04:45+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2502,11 +2502,11 @@ msgstr "මාගේ සමාලෝචන"
 
 #: src/amo/pages/UserProfile/index.js:270
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් තේමා හා දිගු කතෘ, %(user)s ගේ පැතිකඩ. දළ ඇගැයුම්, දරන කාලය සහ ගැටළු වාර්තා කිරීමේ විකල්පය ඇතුළුව %(user)s ගේ වෙනත් යෙදුම් බලන්න."
 
 #: src/amo/pages/UserProfile/index.js:274
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් දිගු කතෘ, %(user)s ගේ පැතිකඩ. දළ ඇගැයුම්, දරන කාලය සහ ගැටළු වාර්තා කිරීමේ විකල්පය ඇතුළුව %(user)s ගේ වෙනත් දිගු බලන්න."
 
 #: src/amo/pages/UserProfile/index.js:278
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
