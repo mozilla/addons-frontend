@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-24 04:45+0000\n"
+"PO-Revision-Date: 2022-09-24 05:22+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1398,7 +1398,7 @@ msgstr "අපට සියළු අනිසි වාර්තා සඳහ�
 
 #: src/amo/components/ReportAbuseButton/index.js:134
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-msgstr ""
+msgstr "මෙම එක්කහුව %(linkTagStart)sමොසිල්ලා එක්කහු ප්‍රතිපත්ති%(linkTagEnd)s කඩ කරයි නම් හෝ ආරක්‍ෂාව හෝ පෞද්ගලිකත්‍වය අදාළ ගැටළු තිබේ නම්, මෙම ආකෘති පත්‍රය භාවිතයෙන් වාර්තා කරන්න."
 
 #: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
@@ -1430,7 +1430,7 @@ msgstr "පරිශීලකයා අනිසි යැයි වාර්ත
 
 #: src/amo/components/ReportUserAbuse/index.js:119
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "මෙම පරිශීලකයා %(linkTagStart)sමොසිල්ලා එක්කහු ප්‍රතිපත්ති%(linkTagEnd)s කඩ කරයි නම්, මෙම පරිශීලකයා පිළිබඳව මොසිල්ලා වෙත වාර්තා කරන්න."
 
 #: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
@@ -1442,11 +1442,11 @@ msgstr "මෙම පරිශීලකයා අපගේ ප්‍රතිප
 
 #: src/amo/components/ReportUserAbuse/index.js:161
 msgid "You reported this user for abuse"
-msgstr ""
+msgstr "පරිශීලකයා අනිසි යැයි වාර්තා කෙරිණි"
 
 #: src/amo/components/ReportUserAbuse/index.js:165
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම පරිශීලකයා පිළිබඳව දන්වා සිටීමට තුති."
 
 #: src/amo/components/Search/index.js:138 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
@@ -1944,7 +1944,7 @@ msgstr "%(addonVersion)s සඳහා නිකුතු සටහන්"
 
 #: src/amo/pages/Addon/index.js:461
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "මෙය ප්‍රසිද්ධ ලේඛනගත කිරීමක් නොවේ. ඉහළ අවසර තිබෙන නිසා ඔබ පමණක් දකියි."
 
 #: src/amo/pages/Addon/index.js:485
 msgid "Extension Metadata"
@@ -1968,7 +1968,7 @@ msgstr "%(addonName)s සඳහා රහස්‍යතා ප්‍රති�
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "%(addonName)s සඳහා සමාලෝචන සහ ඇගැයුම්. %(addonName)s ගැන වෙනත් පරිශීලකයින් සිතන්නේ කුමක්දැයි සොයා බලා ඔබගේ ෆයර්ෆොක්ස් අතිරික්සුවට එක් කරන්න."
 
 #: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show all reviews"
@@ -2052,7 +2052,7 @@ msgstr "එය අවහිර කළේ ඇයි?"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "මෙම එක්කහුව %(startLink)sමොසිල්ලා එක්කහු ප්‍රතිපත්ති%(endLink)s කඩ කරයි."
 
 #: src/amo/pages/Block/index.js:177
 msgid "What does this mean?"
