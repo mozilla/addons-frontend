@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-24 06:01+0000\n"
+"PO-Revision-Date: 2022-09-24 06:11+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2217,7 +2217,7 @@ msgstr "අතිරික්සුවෙහි පෙනුම වෙනස් 
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් වෙනස් කර එය ඔබගේම අතිරික්සුවක් බවට පත්කර ගැනීමට තිබෙන ප්‍රබල මෙවලම් සහ විශේෂාංග සොයා බලන්න."
 
 #: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
@@ -2279,7 +2279,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:167
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් යනු සැමගේ පෞද්ගලිකත්‍වය රැක දෙන වේගවත්, ආරක්‍ෂිත අතිරික්සුවක් බව ඔබගේ යහළුවන්ට සහ පවුලේ ඥාතීන්ට පවසන්න, එක්කහු භාවිතයෙන් එය ඔවුන්ගේම කර ගැනීමට හැකිය!"
 
 #: src/amo/pages/StaticPages/About/index.js:175
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
