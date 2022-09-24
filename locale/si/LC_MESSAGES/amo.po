@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-24 05:22+0000\n"
+"PO-Revision-Date: 2022-09-24 05:35+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2067,6 +2067,8 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"ෆයර්ෆොක්ස් ආරක්‍ෂාව, ස්ථායිතාව හෝ කාර්ය සාධනය බරපතල ලෙස හෙළා දමන සහ %(criteriaStartLink)sනිශ්චිත නිර්ණායක%(criteriaEndLink)s හමුවන එක්කහු, පේනු හෝ වෙනත් තෙවන පාර්ශ්ව මෘදුකාංග පිළිබඳව මොසිල්ලා "
+"දැනුවත් වූ විට, ඒවා සාමාන්‍ය භාවිතයට අවහිර කරනු ඇත. වැඩි විස්තර සඳහා කරුණාකර %(supportStartLink)sමෙම සහාය ලිපිය%(supportEndLink)s කියවන්න."
 
 #: src/amo/pages/Block/index.js:93
 msgid "Blocked on %(date)s."
@@ -2114,11 +2116,11 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:517
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "ප්‍රියතම දිගු සහ තේමා පිළිබඳව අවධානයෙන් සිටීමට බාගත කර ෆයර්ෆොක්ස් එකතු සාදන්න. %(collectionName)s—%(collectionDescription)s ගවේශනය කරන්න."
 
 #: src/amo/pages/Collection/index.js:520
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "ප්‍රියතම දිගු සහ තේමා පිළිබඳව අවධානයෙන් සිටීමට බාගත කර ෆයර්ෆොක්ස් එකතු සාදන්න. %(collectionName)s ගවේශනය කරන්න."
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
