@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-24 07:06+0000\n"
+"PO-Revision-Date: 2022-09-24 07:21+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2187,7 +2187,7 @@ msgstr "දර්ශන"
 
 #: src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
-msgstr ""
+msgstr "තවත් නැගී එන දිගු බලන්න"
 
 #: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
@@ -2199,7 +2199,7 @@ msgstr "තවත් නිර්දේශිත තේමා බලන්න"
 
 #: src/amo/pages/LandingPage/index.js:172
 msgid "See more trending themes"
-msgstr ""
+msgstr "තවත් නැගී එන තේමා බලන්න"
 
 #: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
@@ -2266,10 +2266,12 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"addons.mozilla.org (AMO) සමඟ ක්‍රමලේඛිතව අන්තර් ක්‍රියා කිරීමට වුවමනා ද? AMO සහ %(startAddonsManager)sඑක්කහු කළමනාකරු%(endAddonsManager)s මගින් භාවිතා කරන යෙ.ක්‍ර.මු. පිළිබඳව විස්තර සඳහා "
+"%(startAddonsServerDocumentation)sඑක්කහු සේවාදායක ප්‍රලේඛනය%(endAddonsServerDocumentation)s බලන්න."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "දායක වීමට වුවමනා නමුත් තාක්‍ෂණික දැනුමක් නැති නම්, උදව් කිරීමට තවත් බොහෝ ක්‍රම තිබේ:"
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -2335,7 +2337,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
+msgstr "තන්ඩර්බර්ඩ් හෝ සීමන්කි සඳහා එක්කහු සොයන්නේ නම්, කරුණාකර %(startTBLink)ssaddons.thunderbird.net%(endTBLink)s හෝ %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s වෙත ගොඩවදින්න."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
