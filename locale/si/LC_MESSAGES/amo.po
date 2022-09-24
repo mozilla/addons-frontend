@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-24 07:24+0000\n"
+"PO-Revision-Date: 2022-09-24 07:56+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2062,7 +2062,7 @@ msgstr "මෙහි තේරුම කුමක්ද?"
 
 #: src/amo/pages/Block/index.js:179
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "ගැටළු සහගත එක්කහු හෝ පේනු ස්වයංක්‍රීයව අබල කෙරෙන අතර තවදුරටත් භාවිතා කිරීමට නොහැකිය."
 
 #: src/amo/pages/Block/index.js:186
 msgid ""
@@ -2110,11 +2110,11 @@ msgstr "මෙම එකතුව සංස්කරණයට පිවිසෙ
 
 #: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "පළමුව, ඔබගේ එකතුව සාදන්න. ඉන්පසු ඔබට දිගු සහ තේමා එක් කළ හැකිය."
 
 #: src/amo/pages/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "ඔබගේ එකතුවට එක් කිරීමට දිගු සහ තේමා සොයන්න."
 
 #: src/amo/pages/Collection/index.js:517
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2138,7 +2138,7 @@ msgstr "ඔබගේ එකතුව බැලීමට පිවිසෙන්
 
 #: src/amo/pages/CollectionList/index.js:133
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "එකතු මගින් ප්‍රියතම එක්කහු නිරීක්‍ෂණයට සහ හොඳින් අභිරුචිකරණය කළ ඔබගේ අතිරික්සුව අන් අය සමඟ බෙදා ගැනීමට පහසු කරයි."
 
 #: src/amo/pages/CollectionList/index.js:143
 msgid "Create a collection"
