@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-24 06:48+0000\n"
+"PO-Revision-Date: 2022-09-24 07:04+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -839,6 +839,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"අපට උපකාර වන අතිරේක තොරතුරු තිබේ නම් ඔබට <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">ගැටළුවක් ගොනු කළ හැකිය</a>. දෝෂයට තුඩු දෙන තෙක් ඔබ ගත් පියවර මොනවාදැයි අපට කියන්න, අපි එය "
+"ඉක්මනින් නිරාකරණයට උත්සාහ කරන්නෙමු."
 
 #: src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
@@ -2321,7 +2323,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sමොසිල්ලා එක්කහු කණ්ඩායම සම්බන්ධ කර ගැනීමේ තොරතුරු මෙතැන හමු වනු ඇත%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
@@ -2419,7 +2421,7 @@ msgstr "සමාලෝචන මාර්ගෝපදේශය"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් වෙත ඔබ බාගත කරන ලද හා භාවිතා කර තිබෙන දිගු සහ තේමා සඳහා හරවත් සමාලෝචනයක් තැබීමට මාර්ගෝපදේශ, ඉඟි, සහ නිතර අසන ප්‍රශ්න."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
