@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-24 04:30+0000\n"
+"PO-Revision-Date: 2022-09-24 04:43+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2510,7 +2510,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:278
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "ෆයර්ෆොක්ස් තේමා කතෘ, %(user)s ගේ පැතිකඩ. දළ ඇගැයුම්, දරන කාලය සහ ගැටළු වාර්තා කිරීමේ විකල්පය ඇතුළුව %(user)s ගේ වෙනත් තේමා බලන්න."
 
 #: src/amo/pages/UserProfile/index.js:308
 msgid "User Avatar"
@@ -2571,11 +2571,11 @@ msgstr "රූපය සාර්ථකව මකා දැමිණි"
 
 #: src/amo/pages/UserProfileEdit/index.js:457
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "ඔබ ගැන තවත් තොරතුරු කිහිපයක් පරිශීලකයින්ට කියන්න. බොහෝ ක්‍ෂේත්‍ර විකල්ප වේ, නමුත් ඒවා අන් අයට ඔබ ගැන වඩා හොඳින් දැන ගැනීමට උපකාරී වේ."
 
 #: src/amo/pages/UserProfileEdit/index.js:461
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "මෙම පරිශීලකයා ගැන තවත් තොරතුරු කිහිපයක් පරිශීලකයින්ට කියන්න. බොහෝ ක්‍ෂේත්‍ර විකල්ප වේ, නමුත් ඒවා අන් අයට %(userName)s ගැන වඩා හොඳින් දැන ගැනීමට උපකාරී වේ."
 
 #: src/amo/pages/UserProfileEdit/index.js:476
 msgid "Introduce yourself to the community if you like"
@@ -2672,11 +2672,11 @@ msgstr "දැනුම්දීම්"
 
 #: src/amo/pages/UserProfileEdit/index.js:769
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "කලින් කලට, මොසිල්ලා වෙතින් ඉදිරි නිකුතු සහ එක්කහු සිදුවීම් පිළිබඳව වි-තැපැල් ලැබෙනු ඇත. කරුණාකර ඔබ උනන්දු වන මාතෘකා තෝරන්න."
 
 #: src/amo/pages/UserProfileEdit/index.js:774
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "කලින් කලට, මොසිල්ලා වෙතින් ඉදිරි නිකුතු සහ එක්කහු සිදුවීම් පිළිබඳව වි-තැපැල් ලැබෙනු ඇත. කරුණාකර මෙම පරිශීලකයා උනන්දු වන මාතෘකා තෝරන්න."
 
 #: src/amo/pages/UserProfileEdit/index.js:789
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
