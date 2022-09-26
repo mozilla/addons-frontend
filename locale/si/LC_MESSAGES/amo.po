@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-26 20:48+0000\n"
+"PO-Revision-Date: 2022-09-26 21:02+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -353,7 +353,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:371
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s වෙතින්"
+msgstr "%(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s වෙතින්, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -2016,7 +2016,7 @@ msgstr[1] "%(addonName)s අනුවාද ඉතිහාසය - අනුව
 
 #: src/amo/pages/AddonVersions/index.js:165
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr "පරණ අනුවාද සමඟ ප්‍රවේශම් වන්න! මෙම අනුවාද අත්හදා බැලීමට සහ විමර්ශන අරමුණු සඳහා ප්‍රදර්ශනය කෙරේ."
+msgstr "පරණ අනුවාද සමඟ ප්‍රවේශම් වන්න! මෙම අනුවාද අත්හදා බැලීමට සහ විමර්ශන අරමුණු සඳහා තිබේ."
 
 #: src/amo/pages/AddonVersions/index.js:170
 msgid "You should always use the latest version of an add-on."
