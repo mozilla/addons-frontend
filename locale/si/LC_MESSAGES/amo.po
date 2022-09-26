@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-26 21:11+0000\n"
+"PO-Revision-Date: 2022-09-26 21:59+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1410,7 +1410,7 @@ msgstr "එක්කහුව අනිසි යැයි වාර්තා �
 
 #: src/amo/components/ReportAbuseButton/index.js:181
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "දෝෂ වාර්තා කිරීමට හෝ එක්කහු විශේෂාංග ඉල්ලීමට මෙම ආකෘති පත්‍රය භාවිතා නොකරන්න; මෙම වාර්තාව යවනු ලබන්නේ මොසිල්ලා වෙත මිස එක්කහු සංවර්ධකයාට නොවේ."
 
 #: src/amo/components/ReportAbuseButton/index.js:194 src/amo/components/ReportUserAbuse/index.js:152
 msgid "Send abuse report"
@@ -2567,7 +2567,7 @@ msgstr "එක්කහු ගණන"
 
 #: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
-msgstr "සංවර්ධකයාගේ එක්කහුවල ඇගැයුම සාමාන්‍ය"
+msgstr "සංවර්ධකයාගේ එක්කහුවල දළ ඇගැයුම"
 
 #: src/amo/pages/UserProfile/index.js:410 src/amo/pages/UserProfileEdit/index.js:726
 msgid "Biography"
