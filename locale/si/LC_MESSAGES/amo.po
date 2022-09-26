@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-26 16:20+0000\n"
+"PO-Revision-Date: 2022-09-26 16:24+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -985,7 +985,7 @@ msgstr "පිළිබඳව"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
-msgstr "ෆයර්ෆොක්ස් එක්කහු ලිපිපෙළ"
+msgstr "එක්කහු ලිපිපෙළ"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
@@ -2299,7 +2299,7 @@ msgstr "ෆයර්ෆොක්ස් එක්කහු ගැන"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr ""
+msgstr "ඔබට වියමන අඩවියෙහි ගැටළු හමු වුවහොත්, අපට ඒවා දන්වන්න. කරුණාකර %(startIssueLink)sගැටළුවක්%(endIssueLink)s ගොනු කර හැකිතාක් විස්තර ඇතුළත් කරන්න."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
