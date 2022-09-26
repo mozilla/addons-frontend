@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-26 21:02+0000\n"
+"PO-Revision-Date: 2022-09-26 21:11+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -84,7 +84,7 @@ msgstr "පරීක්‍ෂාත්මක"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
-msgstr "ඇතැම් විශේෂාංග සඳහා ගෙවීමක් අවශ්‍යයි"
+msgstr "ගෙවන විශේෂාංග අඩංගුය"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -357,7 +357,7 @@ msgstr "%(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s වෙත�
 
 #: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s වෙතින්"
+msgstr "%(authorName)s වෙතින්, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:489
 msgid "Deleting…"
@@ -1940,7 +1940,7 @@ msgstr "මෙම එක්කහුව ගැන"
 
 #: src/amo/pages/Addon/index.js:318
 msgid "Developer comments"
-msgstr "සංවර්ධක අදහස්"
+msgstr "සංවර්ධකයාගේ අදහස්"
 
 #: src/amo/pages/Addon/index.js:341
 msgid "Release notes for %(addonVersion)s"
@@ -1976,7 +1976,7 @@ msgstr "%(addonName)s සඳහා සමාලෝචන සහ ඇගැයු�
 
 #: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show all reviews"
-msgstr "සියළු සමාලෝචන පෙන්වන්න"
+msgstr "සියළුම සමාලෝචන පෙන්වන්න"
 
 #: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only five-star reviews"
