@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-26 21:59+0000\n"
+"PO-Revision-Date: 2022-09-26 22:04+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1438,7 +1438,7 @@ msgstr "මෙම පරිශීලකයා %(linkTagStart)sමොසිල්
 
 #: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "දෝෂ වාර්තා කිරීමට හෝ මෙම පරිශීලකයා සම්බන්ධ කර ගැනීමට මෙම ආකෘති පත්‍රය භාවිතා නොකරන්න; ඔබගේ වාර්තාව යවනු ලබන්නේ මොසිල්ලා වෙත මිස මෙම පරිශීලකයාට නොවේ."
 
 #: src/amo/components/ReportUserAbuse/index.js:149
 msgid "Explain how this user is violating our policies."
