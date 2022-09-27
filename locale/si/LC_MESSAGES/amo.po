@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-27 10:08+0000\n"
+"PO-Revision-Date: 2022-09-27 10:21+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2388,6 +2388,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"එක්කහුවක් සෘජුව සිදු කිරීමට අදහස් කරන දෙයක් පිළිබඳව විවේචනය කිරීම. නිදසුනක් ලෙස, ක්‍රියාත්මක වීමට දත්ත රැස් කිරීම, දැන්වීම් ප්‍රදර්ශනය සඳහා දත්ත රැස් කිරීම යනාදිය එක්කහුවෙහි අපේක්‍ෂිත අරමුණ වීම නිසා"
+" සෘණාත්මක සමාලෝචනයක් තැබීම."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
@@ -2405,7 +2407,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "මම එක්කහු කතුවරයෙක්, මට සමාලෝචන සඳහා පිළිතුරු දීමට හැකිද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
