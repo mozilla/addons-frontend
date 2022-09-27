@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-27 05:36+0000\n"
+"PO-Revision-Date: 2022-09-27 05:47+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2441,7 +2441,7 @@ msgstr "හරවත් සමාලෝචනයක් ලිවීමට ඉඟ
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
-msgstr ""
+msgstr "කරන්න:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -2481,7 +2481,7 @@ msgstr "යොමු කිරීමට පෙර ඔබගේ සමාලෝ�
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
-msgstr ""
+msgstr "එපා:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
