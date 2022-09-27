@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-26 17:21+0000\n"
-"PO-Revision-Date: 2022-09-27 06:31+0000\n"
+"PO-Revision-Date: 2022-09-27 10:08+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2381,7 +2381,7 @@ msgstr "ඔබගේ හෝ අන් අයෙකුගේ වි-තැපෑ�
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "ඔබ හෝ ඔබගේ සංවිධානය ලියන ලද හෝ නියෝජනය වන එක්කහුවක් සඳහා සමාලෝචන පළ කිරීම."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
@@ -2493,23 +2493,23 @@ msgstr "\"නියමයි!\", \"පුදුමාකාරයි\" හෝ \"
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
-msgstr ""
+msgstr "තාක්‍ෂණික ගැටළු, සහාය ඉල්ලීම් හෝ විශේෂාංග යෝජනා පළ කිරීම. අදාළ එක්කහුව සඳහා පවතින සහාය විකල්ප භාවිතා කරන්න. තිබේ නම්, ඔබට ඒවා එක්කහු විස්තර පිටුවේ පැති තීරුවේ \"තව තොරතුරු\" කොටසෙහි හමු වනු ඇත."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "ඔබ පෞද්ගලිකව භාවිතා නොකළ එක්කහු සඳහා සමාලෝචන ලිවීම."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "ද්වේෂ සහගත බව, ලිංගික භාෂාව, හෝ අපහාසාත්මක අසභ්‍ය වචන භාවිතා කිරීම."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "HTML, සබැඳි, මූලාශ්‍ර කේත හෝ කේත කොටස් ඇතුළත් කිරීම. සමාලෝචනයක පෙළ පමණක් අඩංගු විය යුතුය."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "අසත්‍ය දෑ ප්‍රකාශ කිරීම, එක්කහු කතුවරුන් අවමානයට ලක් කිරීම හෝ ඔවුන්ට පෞද්ගලිකව අපහාස කිරීම."
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
