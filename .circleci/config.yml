@@ -147,7 +147,7 @@ jobs:
           name: publish package
           command: cd dist && npm publish
 
-  release-tag: # build for the master branch and tags
+  release-tag: # build for the tags
     <<: *defaults-release
     steps:
       - checkout
@@ -180,7 +180,10 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker build --pull -t addons-frontend .
       - run: docker images
-      - run: docker run --rm addons-frontend node --version
+      - run:
+          name: Build the app and check bundlesize from container
+          command: |
+            docker run --rm addons-frontend yarn build-ci
       - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
@@ -210,7 +213,7 @@ jobs:
             ./tests/smoke/setup_docker.sh
             tox -e smoke-tests
 
-  release-master: # build for the master branch and tags
+  release-master: # build for the master branch
     <<: *defaults-release
     steps:
       - checkout
@@ -243,7 +246,10 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker build --pull -t addons-frontend .
       - run: docker images
-      - run: docker run --rm addons-frontend node --version
+      - run:
+          name: Build the app and check bundlesize from container
+          command: |
+            docker run --rm addons-frontend yarn build-ci
       - run:
           name: Write the sha256 sum to an artifact for verification
           command: |

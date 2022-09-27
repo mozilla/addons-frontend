@@ -14,7 +14,7 @@
     "build:blog-utils-prod": "NODE_ENV=production npm run build:blog-utils",
     "build:qrcodes": "npm run clean && bin/fenix-qr-codes.js",
     "build-check": "bin/build-checks.js",
-    "build-ci": "npm run build && npm run bundlewatch",
+    "build-ci": "node --version && npm run build && npm run bundlewatch",
     "build-locales": "bin/build-locales",
     "bundlewatch": "bundlewatch",
     "extract-locales": "better-npm-run extract-locales",
