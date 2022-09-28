@@ -2,12 +2,13 @@
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { compose } from 'redux';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import Page from 'amo/components/Page';
-import { withFixedErrorHandler } from 'amo/errorHandler';
+import { useFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import {
@@ -26,13 +27,6 @@ import {
 import { sanitizeUserHTML } from 'amo/utils';
 import Card from 'amo/components/Card';
 import LoadingText from 'amo/components/LoadingText';
-import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'amo/types/errorHandler';
-import type { AddonInfoType } from 'amo/reducers/addons';
-import type { AddonVersionType } from 'amo/reducers/versions';
-import type { AddonType } from 'amo/types/addons';
-import type { DispatchFunc } from 'amo/types/redux';
-import type { ReactRouterMatchType } from 'amo/types/router';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -47,70 +41,55 @@ export type AddonInfoTypeType =
   | typeof ADDON_INFO_TYPE_PRIVACY_POLICY;
 
 type Props = {|
-  match: {|
-    ...ReactRouterMatchType,
-    params: {
-      slug: string,
-    },
-  |},
   infoType: AddonInfoTypeType,
-|};
-
-type PropsFromState = {|
-  addon: AddonType | null,
-  addonInfo: AddonInfoType | null,
-  addonInfoIsLoading: boolean,
-  addonIsLoading: boolean,
-  addonVersion: AddonVersionType | null,
-  addonVersionIsLoading: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
-  ...PropsFromState,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
   i18n: I18nType,
 |};
 
-export class AddonInfoBase extends React.Component<InternalProps> {
-  constructor(props: InternalProps) {
-    super(props);
+export const AddonInfoBase = ({
+  i18n,
+  infoType,
+}: InternalProps): React.Node => {
+  const { slug } = useParams();
+  const dispatch = useDispatch();
+  const errorHandler = useFixedErrorHandler({
+    fileName: __filename,
+    id: `${slug}-${infoType}`,
+  });
 
-    this.loadDataIfNeeded();
-  }
+  const addon = useSelector((state) => getAddonByIdInURL(state.addons, slug));
+  const addonVersion = useSelector((state) => {
+    if (addon && addon.currentVersionId) {
+      return getVersionById({
+        id: addon.currentVersionId,
+        state: state.versions,
+      });
+    }
+    return null;
+  });
+  const addonIsLoading = useSelector((state) => isAddonLoading(state, slug));
+  const addonInfo = useSelector((state) =>
+    getAddonInfoBySlug({ slug, state: state.addons }),
+  );
+  const addonInfoIsLoading = useSelector((state) =>
+    isAddonInfoLoading({ slug, state: state.addons }),
+  );
+  const addonVersionIsLoading = useSelector((state) =>
+    getLoadingBySlug({ slug, state: state.versions }),
+  );
 
-  componentDidUpdate(prevProps: InternalProps) {
-    this.loadDataIfNeeded(prevProps);
-  }
-
-  loadDataIfNeeded(prevProps?: InternalProps) {
-    const {
-      addon,
-      addonInfo,
-      addonInfoIsLoading,
-      addonIsLoading,
-      addonVersion,
-      addonVersionIsLoading,
-      dispatch,
-      errorHandler,
-      infoType,
-      match: {
-        params: { slug },
-      },
-    } = this.props;
-
-    const oldAddon = prevProps && prevProps.addon;
-
+  React.useEffect(() => {
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error');
       return;
     }
 
-    // Fetch data when the add-on changes.
-    const addonHasChanged = oldAddon && oldAddon.slug !== slug;
-
-    if ((!addon || addonHasChanged) && !addonIsLoading) {
+    // If the slug changes, then `addon` should get updated to undefined
+    // because of the `useSelector` above, so we can just check for !addon.
+    if (!addon && !addonIsLoading) {
       dispatch(fetchAddon({ showGroupedRatings: true, slug, errorHandler }));
     }
 
@@ -123,7 +102,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
         addon &&
         addon.currentVersionId &&
         !addonVersionIsLoading &&
-        (!addonVersion || needsLicenceText || addonHasChanged)
+        (!addonVersion || needsLicenceText)
       ) {
         dispatch(
           fetchVersion({
@@ -133,128 +112,84 @@ export class AddonInfoBase extends React.Component<InternalProps> {
           }),
         );
       }
-    } else if ((!addonInfo || addonHasChanged) && !addonInfoIsLoading) {
+    } else if ((!addonInfo || !addon) && !addonInfoIsLoading) {
       dispatch(fetchAddonInfo({ slug, errorHandlerId: errorHandler.id }));
     }
+  }, [slug]);
+
+  let header = '';
+  let infoContent;
+  let infoHtml;
+  let title;
+
+  switch (infoType) {
+    case ADDON_INFO_TYPE_CUSTOM_LICENSE:
+      title = i18n.gettext('Custom License for %(addonName)s');
+      if (addonVersion && addonVersion.license) {
+        // If license.text is null, as opposed to undefined, it means we have
+        // already retrieved the licence, but that it's null on the server.
+        if (addonVersion.license.text === null) {
+          infoContent = '';
+        } else infoContent = addonVersion.license.text;
+      } else {
+        infoContent = null;
+      }
+      break;
+    case ADDON_INFO_TYPE_EULA:
+      title = i18n.gettext('End-User License Agreement for %(addonName)s');
+      infoContent = addonInfo ? addonInfo.eula : null;
+      break;
+    case ADDON_INFO_TYPE_PRIVACY_POLICY:
+      title = i18n.gettext('Privacy policy for %(addonName)s');
+      infoContent = addonInfo ? addonInfo.privacyPolicy : null;
+      break;
+    default:
+      title = '';
   }
 
-  render(): React.Node {
-    const { addon, addonInfo, addonVersion, errorHandler, i18n, infoType } =
-      this.props;
+  if (addon) {
+    header = i18n.sprintf(title, { addonName: addon.name });
+  }
 
-    let header = '';
-    let infoContent;
-    let infoHtml;
-    let title;
+  if (
+    infoContent ||
+    (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE && infoContent)
+  ) {
+    infoHtml = sanitizeUserHTML(infoContent);
+  }
 
-    switch (infoType) {
-      case ADDON_INFO_TYPE_CUSTOM_LICENSE:
-        title = i18n.gettext('Custom License for %(addonName)s');
-        if (addonVersion && addonVersion.license) {
-          // If license.text is null, as opposed to undefined, it means we have
-          // already retrieved the licence, but that it's null on the server.
-          if (addonVersion.license.text === null) {
-            infoContent = '';
-          } else infoContent = addonVersion.license.text;
-        } else {
-          infoContent = null;
-        }
-        break;
-      case ADDON_INFO_TYPE_EULA:
-        title = i18n.gettext('End-User License Agreement for %(addonName)s');
-        infoContent = addonInfo ? addonInfo.eula : null;
-        break;
-      case ADDON_INFO_TYPE_PRIVACY_POLICY:
-        title = i18n.gettext('Privacy policy for %(addonName)s');
-        infoContent = addonInfo ? addonInfo.privacyPolicy : null;
-        break;
-      default:
-        title = '';
-    }
+  return (
+    <Page errorHandler={errorHandler}>
+      <div className={makeClassName('AddonInfo', `AddonInfo--${infoType}`)}>
+        {addon && (
+          <Helmet>
+            <title>{header}</title>
+            <meta name="robots" content="noindex, follow" />
+          </Helmet>
+        )}
 
-    if (addon) {
-      header = i18n.sprintf(title, { addonName: addon.name });
-    }
+        {errorHandler.renderErrorIfPresent()}
 
-    if (
-      infoContent ||
-      (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE && infoContent)
-    ) {
-      infoHtml = sanitizeUserHTML(infoContent);
-    }
+        <AddonSummaryCard addon={addon} headerText={header} />
 
-    return (
-      <Page errorHandler={errorHandler}>
-        <div className={makeClassName('AddonInfo', `AddonInfo--${infoType}`)}>
-          {addon && (
-            <Helmet>
-              <title>{header}</title>
-              <meta name="robots" content="noindex, follow" />
-            </Helmet>
+        <Card className="AddonInfo-info" header={header}>
+          {infoHtml ? (
+            <p
+              className="AddonInfo-info-html"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={infoHtml}
+            />
+          ) : (
+            <LoadingText />
           )}
-
-          {errorHandler.renderErrorIfPresent()}
-
-          <AddonSummaryCard addon={addon} headerText={header} />
-
-          <Card className="AddonInfo-info" header={header}>
-            {infoHtml ? (
-              <p
-                className="AddonInfo-info-html"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={infoHtml}
-              />
-            ) : (
-              <LoadingText />
-            )}
-          </Card>
-        </div>
-      </Page>
-    );
-  }
-}
-
-function mapStateToProps(
-  state: AppState,
-  ownProps: InternalProps,
-): PropsFromState {
-  const { slug } = ownProps.match.params;
-  const addon = getAddonByIdInURL(state.addons, slug);
-
-  let addonVersion = null;
-
-  if (addon && addon.currentVersionId) {
-    addonVersion = getVersionById({
-      id: addon.currentVersionId,
-      state: state.versions,
-    });
-  }
-
-  return {
-    addon,
-    addonIsLoading: isAddonLoading(state, slug),
-    addonInfo: getAddonInfoBySlug({ slug, state: state.addons }),
-    addonInfoIsLoading: isAddonInfoLoading({ slug, state: state.addons }),
-    addonVersion,
-    addonVersionIsLoading: getLoadingBySlug({ slug, state: state.versions }),
-  };
-}
-
-export const extractId = (ownProps: Props): string => {
-  const {
-    infoType,
-    match: {
-      params: { slug },
-    },
-  } = ownProps;
-
-  return `${slug}-${infoType}`;
+        </Card>
+      </div>
+    </Page>
+  );
 };
 
-const AddonInfo: React.ComponentType<Props> = compose(
-  connect(mapStateToProps),
-  translate(),
-  withFixedErrorHandler({ fileName: __filename, extractId }),
-)(AddonInfoBase);
+const AddonInfo: React.ComponentType<Props> = compose(translate())(
+  AddonInfoBase,
+);
 
 export default AddonInfo;

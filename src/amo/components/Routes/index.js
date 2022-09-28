@@ -80,26 +80,20 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
     <Route
       exact
       path="/:lang/:application(firefox|android)/addon/:slug/privacy/"
-      component={(props) => (
-        <AddonInfo {...props} infoType={ADDON_INFO_TYPE_PRIVACY_POLICY} />
-      )}
-    />
+    >
+      <AddonInfo infoType={ADDON_INFO_TYPE_PRIVACY_POLICY} />
+    </Route>
 
-    <Route
-      exact
-      path="/:lang/:application(firefox|android)/addon/:slug/eula/"
-      component={(props) => (
-        <AddonInfo {...props} infoType={ADDON_INFO_TYPE_EULA} />
-      )}
-    />
+    <Route exact path="/:lang/:application(firefox|android)/addon/:slug/eula/">
+      <AddonInfo infoType={ADDON_INFO_TYPE_EULA} />
+    </Route>
 
     <Route
       exact
       path="/:lang/:application(firefox|android)/addon/:slug/license/"
-      component={(props) => (
-        <AddonInfo {...props} infoType={ADDON_INFO_TYPE_CUSTOM_LICENSE} />
-      )}
-    />
+    >
+      <AddonInfo infoType={ADDON_INFO_TYPE_CUSTOM_LICENSE} />
+    </Route>
 
     <Route
       exact

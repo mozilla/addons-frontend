@@ -7,7 +7,6 @@ import {
   ADDON_INFO_TYPE_CUSTOM_LICENSE,
   ADDON_INFO_TYPE_EULA,
   ADDON_INFO_TYPE_PRIVACY_POLICY,
-  extractId,
 } from 'amo/pages/AddonInfo';
 import {
   FETCH_ADDON,
@@ -149,6 +148,7 @@ describe(__filename, () => {
   it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
     `does not fetch addonInfo for %s if it is already loaded`,
     (infoType) => {
+      _loadAddon();
       _loadAddonInfo();
       const dispatch = jest.spyOn(store, 'dispatch');
       render({ infoType });
@@ -565,15 +565,5 @@ describe(__filename, () => {
     expect(screen.getByClassName('AddonInfo-info-html')).toHaveTextContent(
       'lots of bug fixes',
     );
-  });
-
-  describe('extractId', () => {
-    it('returns a unique id based on the addon slug and infoType', () => {
-      const slug = 'some-slug';
-      const infoType = ADDON_INFO_TYPE_EULA;
-      const ownProps = { match: { params: { slug } }, infoType };
-
-      expect(extractId(ownProps)).toEqual(`${slug}-${infoType}`);
-    });
   });
 });

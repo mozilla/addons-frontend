@@ -8,6 +8,8 @@ import { createApiError } from 'amo/api/index';
 import translate from 'amo/i18n/translate';
 import {
   ErrorHandler,
+  useErrorHandler,
+  useFixedErrorHandler,
   withErrorHandler,
   withFixedErrorHandler,
   withRenderedErrorHandler,
@@ -46,6 +48,43 @@ class SomeComponentBase extends React.Component {
   }
 }
 
+const SomeFunctionalComponentBase = ({
+  color,
+  errorHandler,
+  fileName,
+  hook,
+  id,
+}) => {
+  const thisErrorHandler = hook({
+    errorHandler,
+    fileName,
+    id,
+    name: 'SomeFunctionalComponent',
+  });
+  const handleError = () => {
+    thisErrorHandler.handle(new Error());
+  };
+
+  return (
+    <div className="SomeComponent">
+      <input
+        name="inputName"
+        onClick={handleError}
+        readOnly
+        value={thisErrorHandler.id}
+      />
+      <div>color: {color}</div>
+    </div>
+  );
+};
+SomeFunctionalComponentBase.propTypes = {
+  color: PropTypes.string,
+  errorHandler: PropTypes.object,
+  fileName: PropTypes.string,
+  hook: PropTypes.func,
+  id: PropTypes.string,
+};
+
 describe(__filename, () => {
   let store;
 
@@ -71,6 +110,29 @@ describe(__filename, () => {
     return defaultRender(<ComponentWithErrorHandling {...customProps} />, {
       store,
     });
+  };
+
+  const renderWithHook = ({
+    fileName,
+    hook = useErrorHandler,
+    id,
+    customProps = {},
+  } = {}) => {
+    const ComponentWithErrorHandling = compose(translate())(
+      SomeFunctionalComponentBase,
+    );
+
+    return defaultRender(
+      <ComponentWithErrorHandling
+        fileName={fileName}
+        hook={hook}
+        id={id}
+        {...customProps}
+      />,
+      {
+        store,
+      },
+    );
   };
 
   const getInput = () => screen.getByRole('textbox');
@@ -185,6 +247,71 @@ describe(__filename, () => {
     it('passes through wrapped component properties', () => {
       const color = 'red';
       render({ customProps: { color } });
+
+      expect(screen.getByText(`color: ${color}`)).toBeInTheDocument();
+    });
+  });
+
+  describe('useErrorHandler', () => {
+    it('provides a unique errorHandler property', () => {
+      const id = 'Some-unique-id';
+      renderWithHook({ id });
+
+      // The id assigned to the errorHandler is the value of the input.
+      expect(getInput()).toHaveValue(id);
+    });
+
+    it('creates a unique handler ID per component instance', () => {
+      renderWithHook();
+      renderWithHook();
+
+      const inputs = screen.getAllByRole('textbox');
+      expect(inputs[0].value).not.toEqual(inputs[1].value);
+    });
+
+    it('allows you to set a custom error handler', () => {
+      const id = 'my-custom-id';
+      const errorHandler = new ErrorHandler({ id });
+      renderWithHook({ customProps: { errorHandler } });
+
+      expect(getInput()).toHaveValue(id);
+    });
+
+    it('adjusts the dispatch property of a custom error handler', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const errorHandler = new ErrorHandler({
+        id: 'my-custom-id',
+      });
+
+      // This should configure the errorHandler's dispatch function.
+      renderWithHook({
+        customProps: { errorHandler },
+      });
+
+      const error = new Error('some error');
+      errorHandler.handle(error);
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
+    });
+
+    it('configures an error handler for action dispatching', async () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithHook();
+
+      await userEvent.click(getInput());
+
+      expect(dispatch).toHaveBeenCalledWith(
+        setError({
+          id: expect.stringContaining('SomeFunctionalComponent-'),
+          error: new Error(),
+        }),
+      );
+    });
+
+    it('passes through wrapped component properties', () => {
+      const color = 'red';
+      renderWithHook({ customProps: { color } });
 
       expect(screen.getByText(`color: ${color}`)).toBeInTheDocument();
     });
@@ -458,6 +585,20 @@ describe(__filename, () => {
       renderWithFixedErrorHandler({
         fileName: '/path/to/src/SomeComponent/index.js',
         extractId: () => 'unique-id-based-on-props',
+      });
+
+      expect(getInput()).toHaveValue(
+        'src/SomeComponent/index.js-unique-id-based-on-props',
+      );
+    });
+  });
+
+  describe('useFixedErrorHandler', () => {
+    it('creates an error handler with a fixed ID', () => {
+      renderWithHook({
+        hook: useFixedErrorHandler,
+        fileName: '/path/to/src/SomeComponent/index.js',
+        id: 'unique-id-based-on-props',
       });
 
       expect(getInput()).toHaveValue(

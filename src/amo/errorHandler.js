@@ -1,7 +1,8 @@
-import * as React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
+import * as React from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { compose } from 'redux';
 
 import log from 'amo/logger';
 import { normalizeFileNameId } from 'amo/utils';
@@ -77,6 +78,56 @@ export class ErrorHandler {
     this.dispatch(action);
   }
 }
+
+/*
+ * This is a custom hook that gives a component the ability to handle errors.
+ *
+ * The hook will return an ErrorHandler instance to the caller.
+ *
+ */
+export const useErrorHandler = ({ errorHandler, id, name }) => {
+  invariant(
+    errorHandler || id || name,
+    'You must pass in an errorHandler, an id, or a name.',
+  );
+
+  let handlerId;
+
+  // Default the id to that of a passed-in errorHandler, if one exists.
+  if (errorHandler) {
+    handlerId = errorHandler.id;
+  } else {
+    handlerId = id || generateHandlerId({ name });
+  }
+
+  const error = useSelector((state) => state.errors[handlerId]);
+  const thisErrorHandler = errorHandler || new ErrorHandler({ id: handlerId });
+  thisErrorHandler.setDispatch(useDispatch());
+  if (error) {
+    thisErrorHandler.captureError(error);
+  }
+
+  return thisErrorHandler;
+};
+
+/*
+ * This custom hook works like the `useErrorHandler()` hook but aims at
+ * synchronizing both the server and client sides by using a fixed error
+ * handler ID.
+ *
+ * The `fileName` parameter must be set to `__filename` in the component code.
+ *
+ * The `id` is a unique value set by the functional component instance.
+ */
+export const useFixedErrorHandler = ({ errorHandler, fileName, id }) => {
+  invariant(fileName, '`fileName` parameter is required.');
+  invariant(id, '`id` parameter is required.');
+
+  return useErrorHandler({
+    errorHandler,
+    id: `${normalizeFileNameId(fileName)}-${id}`,
+  });
+};
 
 /*
  * This is a decorator that gives a component the ability to handle errors.
