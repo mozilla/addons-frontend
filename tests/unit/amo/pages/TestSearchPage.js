@@ -155,10 +155,9 @@ describe(__filename, () => {
       }),
     );
     // Once for the LOCATION_CHANGE before render.
-    // Once for the initial LOCATION_CHANGE.
     // Once for the re-direct.
     // Once for SEARCH_STARTED, after the re-redirect.
-    expect(fakeDispatch).toHaveBeenCalledTimes(4);
+    expect(fakeDispatch).toHaveBeenCalledTimes(3);
   });
 
   it('uses the clientApp from the API and not the location', () => {

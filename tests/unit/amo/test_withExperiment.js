@@ -471,8 +471,6 @@ describe(__filename, () => {
       store,
     });
 
-    // @@router/LOCATION_CHANGE is always called when a component is rendered.
-    expect(fakeDispatch).toHaveBeenCalledTimes(2);
     expect(fakeDispatch).toHaveBeenCalledWith(
       storeExperimentVariant({ id, variant: variantId }),
     );

@@ -6,6 +6,7 @@ import { render } from '@testing-library/react';
 
 import Root from 'amo/components/Root';
 import translate from 'amo/i18n/translate';
+import createStore from 'amo/store';
 import {
   createHistory,
   dispatchClientMetadata,
@@ -19,13 +20,25 @@ describe(__filename, () => {
 
   const mountApp = ({
     Child = App,
+    connectedHistory,
     history = createHistory(),
     i18n = fakeI18n(),
-    store = dispatchClientMetadata().store,
+    store,
     ...props
   } = {}) => {
+    let thingsFromCreateStore;
+
+    if (!store || !connectedHistory) {
+      thingsFromCreateStore = createStore({ history });
+    }
+
     return render(
-      <Root i18n={i18n} history={history} store={store} {...props}>
+      <Root
+        i18n={i18n}
+        history={connectedHistory || thingsFromCreateStore.connectedHistory}
+        store={store || thingsFromCreateStore.store}
+        {...props}
+      >
         <Child />
       </Root>,
     );

@@ -280,7 +280,9 @@ function baseServer(
         throw error;
       }
 
-      const { sagaMiddleware, store } = createStore({ history });
+      const { connectedHistory, sagaMiddleware, store } = createStore({
+        history,
+      });
 
       let pageProps;
       let runningSagas;
@@ -351,7 +353,7 @@ function baseServer(
         component: (
           <Root
             cookies={req.universalCookies}
-            history={history}
+            history={connectedHistory}
             i18n={i18n}
             store={store}
           >

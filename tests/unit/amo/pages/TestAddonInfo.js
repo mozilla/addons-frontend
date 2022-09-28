@@ -1,4 +1,4 @@
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'redux-first-history';
 import { waitFor } from '@testing-library/react';
 
 import { createApiError } from 'amo/api/index';
@@ -344,15 +344,9 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render();
 
-    // Expect only the LOCATION_CHANGE action which happens twice, once for
-    // the actual render, and a second time after render in the test helper.
-    expect(dispatch).toHaveBeenCalledTimes(2);
-    expect(dispatch).toHaveBeenNthCalledWith(
-      1,
-      expect.objectContaining({ type: LOCATION_CHANGE }),
-    );
-    expect(dispatch).toHaveBeenNthCalledWith(
-      2,
+    // Expect only the LOCATION_CHANGE action which happens in the test helper.
+    expect(dispatch).toHaveBeenCalledTimes(1);
+    expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: LOCATION_CHANGE }),
     );
   });

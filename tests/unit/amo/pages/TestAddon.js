@@ -1,4 +1,4 @@
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'redux-first-history';
 import config from 'config';
 import serialize from 'serialize-javascript';
 import { cleanup, waitFor } from '@testing-library/react';
@@ -576,22 +576,16 @@ describe(__filename, () => {
     // 1. Initial LOAD_ADDON
     // 2. @@router/LOCATION_CHANGE, which happens before rendering in the
     // test helper.
-    // 3. @@router/LOCATION_CHANGE, which happens on every page load
-    // 4. SEND_SERVER_REDIRECT
-    // 5. FETCH_CATEGORIES (initiated by AddonMoreInfo)
-    // 6. FETCH_ADDONS_BY_AUTHORS (initiated by AddonsByAuthorsCard)
-    // 7. FETCH_RECOMMENDATIONS (initiated by AddonRecommendations)
+    // 3. SEND_SERVER_REDIRECT
+    // 4. FETCH_CATEGORIES (initiated by AddonMoreInfo)
+    // 5. FETCH_ADDONS_BY_AUTHORS (initiated by AddonsByAuthorsCard)
+    // 6. FETCH_RECOMMENDATIONS (initiated by AddonRecommendations)
 
-    expect(dispatch).toHaveBeenCalledTimes(7);
+    expect(dispatch).toHaveBeenCalledTimes(6);
     expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: LOAD_ADDON }),
     );
-    expect(dispatch).toHaveBeenNthCalledWith(
-      2,
-      expect.objectContaining({ type: LOCATION_CHANGE }),
-    );
-    expect(dispatch).toHaveBeenNthCalledWith(
-      3,
+    expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: LOCATION_CHANGE }),
     );
     expect(dispatch).toHaveBeenCalledWith(

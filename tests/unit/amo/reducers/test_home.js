@@ -1,4 +1,4 @@
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'redux-first-history';
 
 import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {

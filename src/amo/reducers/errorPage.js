@@ -1,5 +1,5 @@
 /* @flow */
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'redux-first-history';
 import invariant from 'invariant';
 
 const LOAD_ERROR_PAGE: 'LOAD_ERROR_PAGE' = 'LOAD_ERROR_PAGE';

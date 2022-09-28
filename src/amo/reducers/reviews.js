@@ -1,7 +1,7 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 import invariant from 'invariant';
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'redux-first-history';
 
 import {
   BEGIN_DELETE_ADDON_REVIEW,

@@ -1,9 +1,8 @@
 /* eslint-disable react/no-multi-comp, max-classes-per-file */
 import React from 'react';
-import { ConnectedRouter } from 'connected-react-router';
 import { createMemoryHistory } from 'history';
 import { Provider } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import SagaTester from 'redux-saga-tester';
 import { put, takeLatest } from 'redux-saga/effects';
 import { render } from '@testing-library/react';
@@ -170,22 +169,22 @@ describe(__filename, () => {
   });
 
   describe('onLocationChanged', () => {
-    // If this test case fails, it means `connected-react-router` has changed
+    // If this test case fails, it means `redux-first-history` has changed
     // its `onLocationChanged` redux action.
     // See: https://github.com/mozilla/addons-frontend/issues/6560
-    it('returns the same payload as the connected-react-router action', () => {
+    it('returns the same payload as the redux-first-history action', () => {
       const history = addQueryParamsToHistory({
         history: createMemoryHistory(),
       });
 
-      const { store } = createStore({ history });
+      const { connectedHistory, store } = createStore({ history });
       const dispatch = jest.spyOn(store, 'dispatch');
 
       render(
         <Provider store={store}>
-          <ConnectedRouter history={history}>
+          <Router history={connectedHistory}>
             <Route path="/" render={() => <div>Welcome</div>} />
-          </ConnectedRouter>
+          </Router>
         </Provider>,
       );
 

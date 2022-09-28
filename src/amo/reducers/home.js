@@ -1,6 +1,6 @@
 /* @flow */
 import config from 'config';
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'redux-first-history';
 import invariant from 'invariant';
 
 import {

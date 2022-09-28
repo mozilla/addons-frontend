@@ -1,10 +1,6 @@
 /* global Headers, window */
 import urllib from 'url';
 
-import {
-  ConnectedRouter,
-  onLocationChanged as defaultOnLocationChanged,
-} from 'connected-react-router';
 import PropTypes from 'prop-types';
 import invariant from 'invariant';
 import Jed from 'jed';
@@ -14,6 +10,8 @@ import { createMemoryHistory } from 'history';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
+import { LOCATION_CHANGE } from 'redux-first-history';
 import { all, fork } from 'redux-saga/effects';
 import {
   getDefaultNormalizer,
@@ -440,7 +438,10 @@ export const createHistory = ({ initialEntries } = {}) => {
 export const onLocationChanged = ({ pathname, search = '' }) => {
   const history = createHistory({ initialEntries: [`${pathname}${search}`] });
 
-  return defaultOnLocationChanged(history.location, 'PUSH', false);
+  return {
+    type: LOCATION_CHANGE,
+    payload: { location: history.location, action: 'PUSH' },
+  };
 };
 
 export const changeLocation = async ({
@@ -467,7 +468,7 @@ export function dispatchClientMetadata({
   store.dispatch(setRegionCode(regionCode));
   store.dispatch(setUserAgent(userAgent));
 
-  // Simulate the behavior of `connected-react-router`.
+  // Simulate the behavior of `redux-first-history`.
   store.dispatch(onLocationChanged({ pathname, search }));
 
   return {
@@ -1503,7 +1504,7 @@ export const render = (ui, options = {}) => {
     return (
       <I18nProvider i18n={i18n}>
         <Provider store={store}>
-          <ConnectedRouter history={history}>{children}</ConnectedRouter>
+          <Router history={history}>{children}</Router>
         </Provider>
       </I18nProvider>
     );

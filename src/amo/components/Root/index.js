@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
-import { ConnectedRouter } from 'connected-react-router';
 import { CookiesProvider, Cookies } from 'react-cookie';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 import config from 'config';
 
 import I18nProvider from 'amo/i18n/Provider';
@@ -26,21 +26,23 @@ const Root = ({
   i18n,
   store,
   cookies = null,
-}: Props): React.Node => (
-  <I18nProvider i18n={i18n}>
-    <Provider store={store} key="provider">
-      <ConnectedRouter history={history}>
-        <CookiesProvider cookies={cookies}>
-          {/* $FlowFixMe: https://github.com/facebook/react/issues/12553 */}
-          {_config.get('enableStrictMode') ? (
-            <React.StrictMode>{children}</React.StrictMode>
-          ) : (
-            children
-          )}
-        </CookiesProvider>
-      </ConnectedRouter>
-    </Provider>
-  </I18nProvider>
-);
+}: Props): React.Node => {
+  return (
+    <I18nProvider i18n={i18n}>
+      <Provider store={store} key="provider">
+        <Router history={history}>
+          <CookiesProvider cookies={cookies}>
+            {/* $FlowFixMe: https://github.com/facebook/react/issues/12553 */}
+            {_config.get('enableStrictMode') ? (
+              <React.StrictMode>{children}</React.StrictMode>
+            ) : (
+              children
+            )}
+          </CookiesProvider>
+        </Router>
+      </Provider>
+    </I18nProvider>
+  );
+};
 
 export default Root;

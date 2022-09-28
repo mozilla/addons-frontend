@@ -7,7 +7,7 @@ import App from './components/App';
 import sagas from './sagas';
 import createStore, { createRootReducer } from './store';
 
-createClient(createStore, { sagas }).then(({ history, renderApp, store }) => {
+createClient(createStore, { sagas }).then(({ renderApp, store }) => {
   renderApp(App);
 
   if (module.hot) {
@@ -17,7 +17,7 @@ createClient(createStore, { sagas }).then(({ history, renderApp, store }) => {
     module.hot.accept(['./sagas', './store'], () => {
       // eslint-disable-next-line global-require
       const { reducers } = require('./store');
-      store.replaceReducer(createRootReducer({ history, reducers }));
+      store.replaceReducer(createRootReducer({ reducers }));
     });
 
     module.hot.accept(['./components/App'], () => {

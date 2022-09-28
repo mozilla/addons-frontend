@@ -1,7 +1,7 @@
 /* @flow */
 import config from 'config';
 import invariant from 'invariant';
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'redux-first-history';
 
 import {
   ADDONS_CONTENT_REVIEW,
