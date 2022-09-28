@@ -1,9 +1,10 @@
 /* @flow */
+import config from 'config';
 import * as React from 'react';
 import { CookiesProvider, Cookies } from 'react-cookie';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
-import config from 'config';
+import { CompatRouter } from 'react-router-dom-v5-compat';
 
 import I18nProvider from 'amo/i18n/Provider';
 import type { I18nType } from 'amo/types/i18n';
@@ -31,14 +32,16 @@ const Root = ({
     <I18nProvider i18n={i18n}>
       <Provider store={store} key="provider">
         <Router history={history}>
-          <CookiesProvider cookies={cookies}>
-            {/* $FlowFixMe: https://github.com/facebook/react/issues/12553 */}
-            {_config.get('enableStrictMode') ? (
-              <React.StrictMode>{children}</React.StrictMode>
-            ) : (
-              children
-            )}
-          </CookiesProvider>
+          <CompatRouter>
+            <CookiesProvider cookies={cookies}>
+              {/* $FlowFixMe: https://github.com/facebook/react/issues/12553 */}
+              {_config.get('enableStrictMode') ? (
+                <React.StrictMode>{children}</React.StrictMode>
+              ) : (
+                children
+              )}
+            </CookiesProvider>
+          </CompatRouter>
         </Router>
       </Provider>
     </I18nProvider>
