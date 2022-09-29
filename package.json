@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": ">=16.17"
+    "node": ">=14.20"
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
