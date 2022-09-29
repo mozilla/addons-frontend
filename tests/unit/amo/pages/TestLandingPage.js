@@ -550,6 +550,12 @@ describe(__filename, () => {
       await screen.findByRole('link', { name: 'Explore all categories' }),
     );
 
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        'All extension categories – Add-ons for Firefox (en-US)',
+      ),
+    );
+
     await waitFor(() => expect(tracking.setDimension).toHaveBeenCalledTimes(2));
     expect(tracking.setDimension).toHaveBeenCalledWith({
       dimension: EXPERIMENT_ID_GA_DIMENSION,
