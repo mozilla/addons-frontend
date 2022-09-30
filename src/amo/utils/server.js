@@ -1,5 +1,4 @@
 /* @flow */
-/* global fetch */
 import path from 'path';
 
 import fs from 'fs-extra';
