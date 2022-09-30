@@ -76,6 +76,10 @@ jest.mock('amo/localState', () =>
   }),
 );
 
+afterEach(() => {
+  jest.useRealTimers();
+});
+
 describe(__filename, () => {
   let history;
   let store;
@@ -1190,7 +1194,7 @@ describe(__filename, () => {
     });
 
     it('displays a notification for 5 seconds after an add-on has been added', async () => {
-      jest.useFakeTimers();
+      jest.useFakeTimers({ legacyFakeTimers: true });
       renderWithCollectionForSignedInUser({ editing: true });
 
       expect(screen.queryByText('Added to collection')).not.toBeInTheDocument();
@@ -1215,7 +1219,7 @@ describe(__filename, () => {
     });
 
     it('displays a notification for 5 seconds after an add-on has been removed', async () => {
-      jest.useFakeTimers();
+      jest.useFakeTimers({ legacyFakeTimers: true });
       renderWithCollectionForSignedInUser({ editing: true });
 
       expect(
