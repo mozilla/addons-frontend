@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-26 17:21+0000\n"
+"POT-Creation-Date: 2022-10-04 18:12+0000\n"
 "PO-Revision-Date: 2022-07-12 14:15+0000\n"
 "Last-Translator: dahliayu <jdahliayu@gmail.com>\n"
 "Language-Team: none\n"
@@ -178,99 +178,99 @@ msgstr "리뷰 없음"
 msgid "Used by"
 msgstr "사용됨"
 
-#: src/amo/components/AddonMoreInfo/index.js:101
+#: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:672
 msgid "Homepage"
 msgstr "홈 페이지"
 
-#: src/amo/components/AddonMoreInfo/index.js:116
+#: src/amo/components/AddonMoreInfo/index.js:118
 msgid "Support site"
 msgstr "지원 사이트"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Support Email"
 msgstr "지원 이메일"
 
-#: src/amo/components/AddonMoreInfo/index.js:148
+#: src/amo/components/AddonMoreInfo/index.js:150
 msgid "Visit stats dashboard"
 msgstr "통계 대시보드 방문"
 
-#: src/amo/components/AddonMoreInfo/index.js:167
+#: src/amo/components/AddonMoreInfo/index.js:169
 msgid "Custom License"
 msgstr "사용자 지정 라이선스"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:214
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:230
 msgid "Read the privacy policy for this add-on"
 msgstr "이 부가 기능에 대한 개인정보처리방침 읽기"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Read the license agreement for this add-on"
 msgstr "이 부가 기능에 대한 사용권 계약 읽기"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "See all versions"
 msgstr "모든 버전 보기"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:301
 msgid "Add-on Links"
 msgstr "부가 기능 링크"
 
-#: src/amo/components/AddonMoreInfo/index.js:311
+#: src/amo/components/AddonMoreInfo/index.js:313
 msgid "Version"
 msgstr "버전"
 
-#: src/amo/components/AddonMoreInfo/index.js:319
+#: src/amo/components/AddonMoreInfo/index.js:321
 msgid "Size"
 msgstr "크기"
 
-#: src/amo/components/AddonMoreInfo/index.js:327
+#: src/amo/components/AddonMoreInfo/index.js:329
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "마지막 업데이트"
 
-#: src/amo/components/AddonMoreInfo/index.js:335
+#: src/amo/components/AddonMoreInfo/index.js:337
 msgid "Related Categories"
 msgstr "관련 카테고리"
 
-#: src/amo/components/AddonMoreInfo/index.js:345
+#: src/amo/components/AddonMoreInfo/index.js:347
 msgid "License"
 msgstr "라이선스"
 
-#: src/amo/components/AddonMoreInfo/index.js:353
+#: src/amo/components/AddonMoreInfo/index.js:355
 msgid "Privacy Policy"
 msgstr "개인정보처리방침"
 
-#: src/amo/components/AddonMoreInfo/index.js:361
+#: src/amo/components/AddonMoreInfo/index.js:363
 msgid "End-User License Agreement"
 msgstr "사용자 라이선스 동의서"
 
-#: src/amo/components/AddonMoreInfo/index.js:369
+#: src/amo/components/AddonMoreInfo/index.js:371
 msgid "Version History"
 msgstr "버전 목록"
 
-#: src/amo/components/AddonMoreInfo/index.js:379
+#: src/amo/components/AddonMoreInfo/index.js:381
 msgid "Usage Statistics"
 msgstr "사용 통계"
 
-#: src/amo/components/AddonMoreInfo/index.js:387
+#: src/amo/components/AddonMoreInfo/index.js:389
 msgid "Tags"
 msgstr "태그"
 
-#: src/amo/components/AddonMoreInfo/index.js:403
+#: src/amo/components/AddonMoreInfo/index.js:405
 msgid "More information"
 msgstr "추가 정보"
 
-#: src/amo/components/AddonRecommendations/index.js:148
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr "이 확장 기능 사용자가 설치한 다른 확장 기능"
 
-#: src/amo/components/AddonRecommendations/index.js:149
+#: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
 msgstr "인기 확장 기능"
 
@@ -1607,12 +1607,12 @@ msgid "Search results"
 msgstr "검색 결과"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:122
+#: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "추천 확장 기능"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "추천 테마"
 
@@ -1657,12 +1657,12 @@ msgid "Verified add-ons"
 msgstr "확인된 부가 기능"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "인기 확장 기능"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "인기 테마"
 
@@ -1671,12 +1671,12 @@ msgid "Trending add-ons"
 msgstr "인기 부가 기능"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "가장 평점이 높은 확장 기능"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:173
+#: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "가장 평점이 높은 테마"
 
@@ -1928,7 +1928,7 @@ msgstr "검색 결과가 없습니다."
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:228
+#: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "테마"
 
@@ -1954,7 +1954,7 @@ msgstr "Android 부가 기능"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "확장 기능"
 
@@ -2380,7 +2380,7 @@ msgstr ""
 "광고를 차단하고, 비밀번호를 보호하며, 브라우저 외양 변경과 더 많은 것들을 할 "
 "수 있습니다."
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "추천 확장 기능 더보기"
 
@@ -2400,27 +2400,27 @@ msgstr "영화와 TV"
 msgid "Scenery"
 msgstr "풍경"
 
-#: src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "인기 확장 기능 더보기"
 
-#: src/amo/pages/LandingPage/index.js:151
+#: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "가장 평점이 높은 확장 기능 더보기"
 
-#: src/amo/pages/LandingPage/index.js:163
+#: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "추천 테마 더보기"
 
-#: src/amo/pages/LandingPage/index.js:172
+#: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
 msgstr "인기 테마 더보기"
 
-#: src/amo/pages/LandingPage/index.js:181
+#: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
 msgstr "가장 평점이 높은 테마 더보기"
 
-#: src/amo/pages/LandingPage/index.js:205
+#: src/amo/pages/LandingPage/index.js:207
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2430,7 +2430,7 @@ msgstr ""
 "할 수 있습니다. 귀여운 동물, 사악한 로봇, 아름다운 경관과 같은 — 수천개의 옵"
 "션이 있습니다."
 
-#: src/amo/pages/LandingPage/index.js:210
+#: src/amo/pages/LandingPage/index.js:212
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2440,7 +2440,7 @@ msgstr ""
 "로 비밀번호를 보호하고, 핫딜을 찾으며, 때로는 동영상 재생 기능을 강화하거나, "
 "성가신 광고를 차단할 수 있습니다."
 
-#: src/amo/pages/LandingPage/index.js:232
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2448,7 +2448,7 @@ msgstr ""
 "브라우저의 모습을 바꿔보세요. 수천개의 테마로 Firefox를 원하는대로 가꿀 수 있"
 "습니다."
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:236
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2456,7 +2456,7 @@ msgstr ""
 "Firefox를 나만의 맞춤형 브라우저를 만들 수 있는 강력한 도구와 기능을 살펴보세"
 "요."
 
-#: src/amo/pages/LandingPage/index.js:274
+#: src/amo/pages/LandingPage/index.js:276
 msgid "Explore all categories"
 msgstr "모든 카테고리 탐색"
 

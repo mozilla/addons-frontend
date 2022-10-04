@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-26 17:21+0000\n"
+"POT-Creation-Date: 2022-10-04 18:12+0000\n"
 "PO-Revision-Date: 2022-06-22 15:22+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
@@ -185,99 +185,99 @@ msgstr "Žádné recenze"
 msgid "Used by"
 msgstr "Používá"
 
-#: src/amo/components/AddonMoreInfo/index.js:101
+#: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:672
 msgid "Homepage"
 msgstr "Domovská stránka"
 
-#: src/amo/components/AddonMoreInfo/index.js:116
+#: src/amo/components/AddonMoreInfo/index.js:118
 msgid "Support site"
 msgstr "Stránky podpory"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Support Email"
 msgstr "E-mail podpory"
 
-#: src/amo/components/AddonMoreInfo/index.js:148
+#: src/amo/components/AddonMoreInfo/index.js:150
 msgid "Visit stats dashboard"
 msgstr "Přejít na hlavní panel statistik"
 
-#: src/amo/components/AddonMoreInfo/index.js:167
+#: src/amo/components/AddonMoreInfo/index.js:169
 msgid "Custom License"
 msgstr "Vlastní licence"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:214
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:230
 msgid "Read the privacy policy for this add-on"
 msgstr "Přečtěte si zásady ochrany osobních údajů pro tento doplněk"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Read the license agreement for this add-on"
 msgstr "Přečtěte si licenční smlouvu pro tento doplněk"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "See all versions"
 msgstr "Zobrazit všechny verze"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:301
 msgid "Add-on Links"
 msgstr "Odkazy doplňku"
 
-#: src/amo/components/AddonMoreInfo/index.js:311
+#: src/amo/components/AddonMoreInfo/index.js:313
 msgid "Version"
 msgstr "Verze"
 
-#: src/amo/components/AddonMoreInfo/index.js:319
+#: src/amo/components/AddonMoreInfo/index.js:321
 msgid "Size"
 msgstr "Velikost"
 
-#: src/amo/components/AddonMoreInfo/index.js:327
+#: src/amo/components/AddonMoreInfo/index.js:329
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Poslední aktualizace"
 
-#: src/amo/components/AddonMoreInfo/index.js:335
+#: src/amo/components/AddonMoreInfo/index.js:337
 msgid "Related Categories"
 msgstr "Příbuzné kategorie"
 
-#: src/amo/components/AddonMoreInfo/index.js:345
+#: src/amo/components/AddonMoreInfo/index.js:347
 msgid "License"
 msgstr "Licence"
 
-#: src/amo/components/AddonMoreInfo/index.js:353
+#: src/amo/components/AddonMoreInfo/index.js:355
 msgid "Privacy Policy"
 msgstr "Zásady ochrany osobních údajů"
 
-#: src/amo/components/AddonMoreInfo/index.js:361
+#: src/amo/components/AddonMoreInfo/index.js:363
 msgid "End-User License Agreement"
 msgstr "Licenční smlouva s koncovým uživatelem"
 
-#: src/amo/components/AddonMoreInfo/index.js:369
+#: src/amo/components/AddonMoreInfo/index.js:371
 msgid "Version History"
 msgstr "Historie změn"
 
-#: src/amo/components/AddonMoreInfo/index.js:379
+#: src/amo/components/AddonMoreInfo/index.js:381
 msgid "Usage Statistics"
 msgstr "Statistiky používání"
 
-#: src/amo/components/AddonMoreInfo/index.js:387
+#: src/amo/components/AddonMoreInfo/index.js:389
 msgid "Tags"
 msgstr "Štítky"
 
-#: src/amo/components/AddonMoreInfo/index.js:403
+#: src/amo/components/AddonMoreInfo/index.js:405
 msgid "More information"
 msgstr "Další informace"
 
-#: src/amo/components/AddonRecommendations/index.js:148
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr "Ostatní uživatelé tohoto doplňku si také nainstalovali"
 
-#: src/amo/components/AddonRecommendations/index.js:149
+#: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
 msgstr "Další oblíbená rozšíření"
 
@@ -1642,12 +1642,12 @@ msgid "Search results"
 msgstr "Výsledky vyhledávání"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:122
+#: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Doporučená rozšíření"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Doporučené motivy vzhledu"
 
@@ -1692,12 +1692,12 @@ msgid "Verified add-ons"
 msgstr "Ověřené doplňky"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Právě populární rozšíření"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "Právě populární motivy vzhledu"
 
@@ -1706,12 +1706,12 @@ msgid "Trending add-ons"
 msgstr "Právě populární doplňky"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "Nejlépe hodnocená rozšíření"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:173
+#: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "Nejlépe hodnocené motivy vzhledu"
 
@@ -2025,7 +2025,7 @@ msgstr "Nenalezeny žádné výsledky."
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:228
+#: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Motivy vzhledu"
 
@@ -2051,7 +2051,7 @@ msgstr "Doplňky pro Android"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Rozšíření"
 
@@ -2493,7 +2493,7 @@ msgstr ""
 "pro váš prohlížeč. Umí blokovat otravné reklamy, chránit hesla, měnit vzhled "
 "prohlížeče a mnoho dalších věcí."
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Další doporučená rozšíření"
 
@@ -2513,27 +2513,27 @@ msgstr "Filmy a TV"
 msgid "Scenery"
 msgstr "Krajinky"
 
-#: src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Další právě populární rozšíření"
 
-#: src/amo/pages/LandingPage/index.js:151
+#: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "Další nejlépe hodnocená rozšíření"
 
-#: src/amo/pages/LandingPage/index.js:163
+#: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Další doporučené vzhledy"
 
-#: src/amo/pages/LandingPage/index.js:172
+#: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
 msgstr "Další právě populární vzhledy"
 
-#: src/amo/pages/LandingPage/index.js:181
+#: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
 msgstr "Další nejlépe hodnocené vzhledy"
 
-#: src/amo/pages/LandingPage/index.js:205
+#: src/amo/pages/LandingPage/index.js:207
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2543,7 +2543,7 @@ msgstr ""
 "podobu podle svého gusta. Roztomilé bytůstky, zlí roboti, krásné krajiny – "
 "tisíce možností."
 
-#: src/amo/pages/LandingPage/index.js:210
+#: src/amo/pages/LandingPage/index.js:212
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2553,7 +2553,7 @@ msgstr ""
 "přijdou vhod. Chraňte hesla, vyhledávejte nabídky, vylepšujte video a "
 "blokujte obtěžující reklamy pomocí aplikací pro prohlížeč."
 
-#: src/amo/pages/LandingPage/index.js:232
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2561,7 +2561,7 @@ msgstr ""
 "Změňte vzhled svého prohlížeče. Vyberte si z tisíců motivů vzhledu a "
 "přizpůsobte si Firefox podle svého vkusu."
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:236
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2569,7 +2569,7 @@ msgstr ""
 "Prozkoumejte možnosti přizpůsobení a funkce, díky kterým bude váš prohlížeč "
 "skutečně váš."
 
-#: src/amo/pages/LandingPage/index.js:274
+#: src/amo/pages/LandingPage/index.js:276
 msgid "Explore all categories"
 msgstr "Procházet všechny kategorie"
 

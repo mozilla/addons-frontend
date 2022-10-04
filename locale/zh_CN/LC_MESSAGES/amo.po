@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-26 17:21+0000\n"
+"POT-Creation-Date: 2022-10-04 18:12+0000\n"
 "PO-Revision-Date: 2022-06-16 09:34+0000\n"
 "Last-Translator: wxie <xiewensheng@hotmail.com>\n"
 "Language-Team: none\n"
@@ -183,99 +183,99 @@ msgstr "尚无评价"
 msgid "Used by"
 msgstr "用户："
 
-#: src/amo/components/AddonMoreInfo/index.js:101
+#: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:672
 msgid "Homepage"
 msgstr "主页"
 
-#: src/amo/components/AddonMoreInfo/index.js:116
+#: src/amo/components/AddonMoreInfo/index.js:118
 msgid "Support site"
 msgstr "用户支持网站"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Support Email"
 msgstr "支持邮箱"
 
-#: src/amo/components/AddonMoreInfo/index.js:148
+#: src/amo/components/AddonMoreInfo/index.js:150
 msgid "Visit stats dashboard"
 msgstr "前往统计面板"
 
-#: src/amo/components/AddonMoreInfo/index.js:167
+#: src/amo/components/AddonMoreInfo/index.js:169
 msgid "Custom License"
 msgstr "自定义许可证"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:214
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:230
 msgid "Read the privacy policy for this add-on"
 msgstr "阅读此附加组件的隐私政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Read the license agreement for this add-on"
 msgstr "阅读此附加组件的许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "See all versions"
 msgstr "查看所有版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:301
 msgid "Add-on Links"
 msgstr "附加组件链接"
 
-#: src/amo/components/AddonMoreInfo/index.js:311
+#: src/amo/components/AddonMoreInfo/index.js:313
 msgid "Version"
 msgstr "版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:319
+#: src/amo/components/AddonMoreInfo/index.js:321
 msgid "Size"
 msgstr "大小"
 
-#: src/amo/components/AddonMoreInfo/index.js:327
+#: src/amo/components/AddonMoreInfo/index.js:329
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "上次更新"
 
-#: src/amo/components/AddonMoreInfo/index.js:335
+#: src/amo/components/AddonMoreInfo/index.js:337
 msgid "Related Categories"
 msgstr "相关分类"
 
-#: src/amo/components/AddonMoreInfo/index.js:345
+#: src/amo/components/AddonMoreInfo/index.js:347
 msgid "License"
 msgstr "许可证"
 
-#: src/amo/components/AddonMoreInfo/index.js:353
+#: src/amo/components/AddonMoreInfo/index.js:355
 msgid "Privacy Policy"
 msgstr "隐私政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:361
+#: src/amo/components/AddonMoreInfo/index.js:363
 msgid "End-User License Agreement"
 msgstr "最终用户许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:369
+#: src/amo/components/AddonMoreInfo/index.js:371
 msgid "Version History"
 msgstr "版本历史"
 
-#: src/amo/components/AddonMoreInfo/index.js:379
+#: src/amo/components/AddonMoreInfo/index.js:381
 msgid "Usage Statistics"
 msgstr "使用统计"
 
-#: src/amo/components/AddonMoreInfo/index.js:387
+#: src/amo/components/AddonMoreInfo/index.js:389
 msgid "Tags"
 msgstr "标签"
 
-#: src/amo/components/AddonMoreInfo/index.js:403
+#: src/amo/components/AddonMoreInfo/index.js:405
 msgid "More information"
 msgstr "更多信息"
 
-#: src/amo/components/AddonRecommendations/index.js:148
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr "此扩展的其他用户也安装了"
 
-#: src/amo/components/AddonRecommendations/index.js:149
+#: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
 msgstr "其他流行扩展"
 
@@ -1581,12 +1581,12 @@ msgid "Search results"
 msgstr "搜索结果"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:122
+#: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "推荐扩展"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "推荐主题"
 
@@ -1631,12 +1631,12 @@ msgid "Verified add-ons"
 msgstr "已验证的附加组件"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "热门扩展"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "热门主题"
 
@@ -1645,12 +1645,12 @@ msgid "Trending add-ons"
 msgstr "热门附加组件"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "好评扩展"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:173
+#: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "最受好评的主题"
 
@@ -1885,7 +1885,7 @@ msgstr "没有找到结果。"
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:228
+#: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "主题"
 
@@ -1911,7 +1911,7 @@ msgstr "适用于 Android 的附加组件"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "扩展"
 
@@ -2325,7 +2325,7 @@ msgstr ""
 "下载 Firefox 扩展与主题，它们就像是您浏览器上的应用程序，可以屏蔽讨人厌的广"
 "告、保护密码、更改浏览器外观，还有更多功能。"
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "更多推荐扩展"
 
@@ -2345,27 +2345,27 @@ msgstr "影视"
 msgid "Scenery"
 msgstr "风景"
 
-#: src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "更多热门扩展"
 
-#: src/amo/pages/LandingPage/index.js:151
+#: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "更多好评扩展"
 
-#: src/amo/pages/LandingPage/index.js:163
+#: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "更多推荐主题"
 
-#: src/amo/pages/LandingPage/index.js:172
+#: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
 msgstr "更多热门主题"
 
-#: src/amo/pages/LandingPage/index.js:181
+#: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
 msgstr "更多好评主题"
 
-#: src/amo/pages/LandingPage/index.js:205
+#: src/amo/pages/LandingPage/index.js:207
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2374,7 +2374,7 @@ msgstr ""
 "下载主题来更改 Firefox 的外观。可根据自己的风格来定制您的体验，不论是可爱小动"
 "物、邪恶机器人，或是美丽风景——这里有数以千计的选择 。"
 
-#: src/amo/pages/LandingPage/index.js:210
+#: src/amo/pages/LandingPage/index.js:212
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2383,20 +2383,20 @@ msgstr ""
 "下载 Firefox 扩展，添加功能来定制您的上网体验。通过浏览器的“应用程序”来保护密"
 "码、寻找购物折扣、增强看片体验、屏蔽讨人厌的广告。"
 
-#: src/amo/pages/LandingPage/index.js:232
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
 "为浏览器换身装扮。您可以挑选成千上万的主题，使 Firefox 变成您想要的样子。"
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:236
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
 msgstr "探索功能强大的工具与特性，让 Firefox 有你的风格。"
 
-#: src/amo/pages/LandingPage/index.js:274
+#: src/amo/pages/LandingPage/index.js:276
 msgid "Explore all categories"
 msgstr "浏览所有分类"
 
