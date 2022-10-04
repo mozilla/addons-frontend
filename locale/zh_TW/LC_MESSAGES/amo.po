@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-26 17:21+0000\n"
+"POT-Creation-Date: 2022-10-04 18:12+0000\n"
 "PO-Revision-Date: 2022-06-15 02:58+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -183,99 +183,99 @@ msgstr "沒有評論"
 msgid "Used by"
 msgstr "可用於"
 
-#: src/amo/components/AddonMoreInfo/index.js:101
+#: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:672
 msgid "Homepage"
 msgstr "首頁"
 
-#: src/amo/components/AddonMoreInfo/index.js:116
+#: src/amo/components/AddonMoreInfo/index.js:118
 msgid "Support site"
 msgstr "技術支援網站"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Support Email"
 msgstr "技術支援信箱"
 
-#: src/amo/components/AddonMoreInfo/index.js:148
+#: src/amo/components/AddonMoreInfo/index.js:150
 msgid "Visit stats dashboard"
 msgstr "造訪統計儀錶板"
 
-#: src/amo/components/AddonMoreInfo/index.js:167
+#: src/amo/components/AddonMoreInfo/index.js:169
 msgid "Custom License"
 msgstr "自訂授權"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:214
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:230
 msgid "Read the privacy policy for this add-on"
 msgstr "閱讀此附加元件的隱私權保護政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Read the license agreement for this add-on"
 msgstr "閱讀此附加元件的授權協議"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "See all versions"
 msgstr "瀏覽所有版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:301
 msgid "Add-on Links"
 msgstr "附加元件網址"
 
-#: src/amo/components/AddonMoreInfo/index.js:311
+#: src/amo/components/AddonMoreInfo/index.js:313
 msgid "Version"
 msgstr "版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:319
+#: src/amo/components/AddonMoreInfo/index.js:321
 msgid "Size"
 msgstr "大小"
 
-#: src/amo/components/AddonMoreInfo/index.js:327
+#: src/amo/components/AddonMoreInfo/index.js:329
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "最近更新"
 
-#: src/amo/components/AddonMoreInfo/index.js:335
+#: src/amo/components/AddonMoreInfo/index.js:337
 msgid "Related Categories"
 msgstr "相關分類"
 
-#: src/amo/components/AddonMoreInfo/index.js:345
+#: src/amo/components/AddonMoreInfo/index.js:347
 msgid "License"
 msgstr "授權條款"
 
-#: src/amo/components/AddonMoreInfo/index.js:353
+#: src/amo/components/AddonMoreInfo/index.js:355
 msgid "Privacy Policy"
 msgstr "隱私權保護政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:361
+#: src/amo/components/AddonMoreInfo/index.js:363
 msgid "End-User License Agreement"
 msgstr "終端使用者授權協議"
 
-#: src/amo/components/AddonMoreInfo/index.js:369
+#: src/amo/components/AddonMoreInfo/index.js:371
 msgid "Version History"
 msgstr "版本紀錄"
 
-#: src/amo/components/AddonMoreInfo/index.js:379
+#: src/amo/components/AddonMoreInfo/index.js:381
 msgid "Usage Statistics"
 msgstr "使用統計"
 
-#: src/amo/components/AddonMoreInfo/index.js:387
+#: src/amo/components/AddonMoreInfo/index.js:389
 msgid "Tags"
 msgstr "標籤"
 
-#: src/amo/components/AddonMoreInfo/index.js:403
+#: src/amo/components/AddonMoreInfo/index.js:405
 msgid "More information"
 msgstr "更多資訊"
 
-#: src/amo/components/AddonRecommendations/index.js:148
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr "其他安裝了這套擴充套件的使用者，也安裝的套件"
 
-#: src/amo/components/AddonRecommendations/index.js:149
+#: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
 msgstr "其他知名擴充套件"
 
@@ -1581,12 +1581,12 @@ msgid "Search results"
 msgstr "搜尋結果"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:122
+#: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "推薦的擴充套件"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "推薦的佈景主題"
 
@@ -1631,12 +1631,12 @@ msgid "Verified add-ons"
 msgstr "驗證過的附加元件"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "熱門擴充套件"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "熱門佈景主題"
 
@@ -1645,12 +1645,12 @@ msgid "Trending add-ons"
 msgstr "嶄露頭角的附加元件"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "分數最高的擴充套件"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:173
+#: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "分數最高的佈景主題"
 
@@ -1889,7 +1889,7 @@ msgstr "沒有找到結果。"
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:228
+#: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "佈景主題"
 
@@ -1915,7 +1915,7 @@ msgstr "Android 版的附加元件"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "擴充套件"
 
@@ -2328,7 +2328,7 @@ msgstr ""
 "下載 Firefox 擴充套件與佈景主題，它們就像是在瀏覽器中安裝外掛，可以封鎖討人厭"
 "的廣告、保護密碼、更改瀏覽器外觀，還有更多功能。"
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "看更多推薦擴充套件"
 
@@ -2348,27 +2348,27 @@ msgstr "電影與電視"
 msgid "Scenery"
 msgstr "風景"
 
-#: src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "看更多熱門擴充套件"
 
-#: src/amo/pages/LandingPage/index.js:151
+#: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "看更多高分擴充套件"
 
-#: src/amo/pages/LandingPage/index.js:163
+#: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "看更多推薦佈景主題"
 
-#: src/amo/pages/LandingPage/index.js:172
+#: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
 msgstr "看更多熱門佈景主題"
 
-#: src/amo/pages/LandingPage/index.js:181
+#: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
 msgstr "看更多高分的佈景主題"
 
-#: src/amo/pages/LandingPage/index.js:205
+#: src/amo/pages/LandingPage/index.js:207
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2377,7 +2377,7 @@ msgstr ""
 "下載佈景主題來變更 Firefox 的外觀。可根據自己的風格來調整您的體驗，不論是可愛"
 "小動物、邪惡機器人，或是美麗風景，有數以千計選項供您下載。"
 
-#: src/amo/pages/LandingPage/index.js:210
+#: src/amo/pages/LandingPage/index.js:212
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2386,20 +2386,20 @@ msgstr ""
 "下載 Firefox 擴充套件，讓您加入功能來客製化上網體驗。可透過瀏覽器外掛來保護密"
 "碼、尋找購物折扣、加強看片體驗、封鎖廣告。"
 
-#: src/amo/pages/LandingPage/index.js:232
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
 "從數以千計的佈景主題中挑選一套，調整瀏覽器外觀，讓 Firefox 有您想要的樣子。"
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:236
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
 msgstr "瀏覽可用來自訂 Firefox 的強大工具與功能，讓瀏覽器有您的風格。"
 
-#: src/amo/pages/LandingPage/index.js:274
+#: src/amo/pages/LandingPage/index.js:276
 msgid "Explore all categories"
 msgstr "瀏覽所有分類。"
 
