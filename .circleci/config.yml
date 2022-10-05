@@ -14,13 +14,13 @@ references:
     working_directory: ~/addons-frontend
     docker:
       # This is the NodeJS version we run in production.
-      - image: cimg/node:14.20
+      - image: cimg/node:16.17
 
   defaults-next: &defaults-next
     working_directory: ~/addons-frontend
     docker:
       # This is the next NodeJS version we will support.
-      - image: cimg/node:16.17
+      - image: cimg/node:18.10
 
   defaults-release: &defaults-release
     machine:
@@ -31,7 +31,7 @@ references:
     restore_cache:
       name: restore yarn package cache
       keys:
-        - yarn-packages-{{ checksum "yarn.lock" }}
+        - yarn-packages-v16-{{ checksum "yarn.lock" }}
 
   run_yarn_install: &run_yarn_install
     run:
@@ -42,7 +42,7 @@ references:
   save_build_cache: &save_build_cache
     save_cache:
       name: save yarn package cache
-      key: yarn-packages-{{ checksum "yarn.lock" }}
+      key: yarn-packages-v16-{{ checksum "yarn.lock" }}
       paths:
         - ~/.cache/yarn
 
@@ -50,12 +50,12 @@ references:
     restore_cache:
       name: restore yarn package cache
       keys:
-        - next-yarn-packages-{{ checksum "yarn.lock" }}
+        - next-yarn-packages-v18-{{ checksum "yarn.lock" }}
 
   save_next_build_cache: &save_next_build_cache
     save_cache:
       name: save yarn package cache
-      key: next-yarn-packages-{{ checksum "yarn.lock" }}
+      key: next-yarn-packages-v18-{{ checksum "yarn.lock" }}
       paths:
         - ~/.cache/yarn
 

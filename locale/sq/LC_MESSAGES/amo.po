@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-26 17:21+0000\n"
+"POT-Creation-Date: 2022-10-04 18:12+0000\n"
 "PO-Revision-Date: 2022-02-20 01:18+0000\n"
 "Last-Translator: xhelilajk <xhelilajk@gmail.com>\n"
 "Language-Team: none\n"
@@ -194,99 +194,99 @@ msgstr "S’ka Shqyrtime"
 msgid "Used by"
 msgstr "Përdorur nga"
 
-#: src/amo/components/AddonMoreInfo/index.js:101
+#: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:672
 msgid "Homepage"
 msgstr "Faqe hyrëse"
 
-#: src/amo/components/AddonMoreInfo/index.js:116
+#: src/amo/components/AddonMoreInfo/index.js:118
 msgid "Support site"
 msgstr "Sajt asistence"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Support Email"
 msgstr "Email Asistence"
 
-#: src/amo/components/AddonMoreInfo/index.js:148
+#: src/amo/components/AddonMoreInfo/index.js:150
 msgid "Visit stats dashboard"
 msgstr "Vizitoni pult statistikash"
 
-#: src/amo/components/AddonMoreInfo/index.js:167
+#: src/amo/components/AddonMoreInfo/index.js:169
 msgid "Custom License"
 msgstr "Licencë e Përshtatur"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:214
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:230
 msgid "Read the privacy policy for this add-on"
 msgstr "Lexoni rregullat e privatësisë për këtë shtesë"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Read the license agreement for this add-on"
 msgstr "Lexoni marrëveshjen e licencës për këtë shtesë"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "See all versions"
 msgstr "Shihini krejt versionet"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:301
 msgid "Add-on Links"
 msgstr "Lidhje shtese"
 
-#: src/amo/components/AddonMoreInfo/index.js:311
+#: src/amo/components/AddonMoreInfo/index.js:313
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:319
+#: src/amo/components/AddonMoreInfo/index.js:321
 msgid "Size"
 msgstr "Madhësi"
 
-#: src/amo/components/AddonMoreInfo/index.js:327
+#: src/amo/components/AddonMoreInfo/index.js:329
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Përditësuar së fundi më"
 
-#: src/amo/components/AddonMoreInfo/index.js:335
+#: src/amo/components/AddonMoreInfo/index.js:337
 msgid "Related Categories"
 msgstr "Kategori të Afërta"
 
-#: src/amo/components/AddonMoreInfo/index.js:345
+#: src/amo/components/AddonMoreInfo/index.js:347
 msgid "License"
 msgstr "Licencë"
 
-#: src/amo/components/AddonMoreInfo/index.js:353
+#: src/amo/components/AddonMoreInfo/index.js:355
 msgid "Privacy Policy"
 msgstr "Rregulla Privatësie"
 
-#: src/amo/components/AddonMoreInfo/index.js:361
+#: src/amo/components/AddonMoreInfo/index.js:363
 msgid "End-User License Agreement"
 msgstr "Marrëveshje Licence Përdoruesi të Thjeshtë (EULA)"
 
-#: src/amo/components/AddonMoreInfo/index.js:369
+#: src/amo/components/AddonMoreInfo/index.js:371
 msgid "Version History"
 msgstr "Historik Versionesh"
 
-#: src/amo/components/AddonMoreInfo/index.js:379
+#: src/amo/components/AddonMoreInfo/index.js:381
 msgid "Usage Statistics"
 msgstr "Statistika Përdorimi"
 
-#: src/amo/components/AddonMoreInfo/index.js:387
+#: src/amo/components/AddonMoreInfo/index.js:389
 msgid "Tags"
 msgstr "Etiketa"
 
-#: src/amo/components/AddonMoreInfo/index.js:403
+#: src/amo/components/AddonMoreInfo/index.js:405
 msgid "More information"
 msgstr "Më tepër të dhëna"
 
-#: src/amo/components/AddonRecommendations/index.js:148
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr "Përdorues të tjerë me këtë zgjerim kanë instaluar edhe"
 
-#: src/amo/components/AddonRecommendations/index.js:149
+#: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
 msgstr "Zgjerime të tjera popullore"
 
@@ -1653,12 +1653,12 @@ msgid "Search results"
 msgstr "Përfundime kërkimi"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:122
+#: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Zgjerime të rekomanduara"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Tema të rekomanduara"
 
@@ -1703,12 +1703,12 @@ msgid "Verified add-ons"
 msgstr "Shtesa të verifikuara"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Zgjerime në modë"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "Tema në modë"
 
@@ -1717,12 +1717,12 @@ msgid "Trending add-ons"
 msgstr "Shtesa në modë"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "Zgjerimet më të vlerësuara"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:173
+#: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "Temat më të vlerësuara"
 
@@ -1983,7 +1983,7 @@ msgstr "S’u gjetën përfundime."
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:228
+#: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Tema"
 
@@ -2009,7 +2009,7 @@ msgstr "Shtesa për Android"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Zgjerime"
 
@@ -2446,7 +2446,7 @@ msgstr ""
 "shfletuesin tuaj. Për bllokim reklamash të bezdisura, për mbrojtje "
 "fjalëkalimesh, për ndryshim të pamjes së shfletuesit, etj."
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Shihni më tepër zgjerime të rekomanduara"
 
@@ -2466,27 +2466,27 @@ msgstr "Filma dhe TV"
 msgid "Scenery"
 msgstr "Peizazhe"
 
-#: src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Shihni më tepër zgjerime në modë"
 
-#: src/amo/pages/LandingPage/index.js:151
+#: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "Shihni më tepër nga zgjerimet më të vlerësuara"
 
-#: src/amo/pages/LandingPage/index.js:163
+#: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Shihni më tepër tema të rekomanduara"
 
-#: src/amo/pages/LandingPage/index.js:172
+#: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
 msgstr "Shihni më tepër tema në modë"
 
-#: src/amo/pages/LandingPage/index.js:181
+#: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
 msgstr "Shihni më tepër nga temat më të vlerësuara"
 
-#: src/amo/pages/LandingPage/index.js:205
+#: src/amo/pages/LandingPage/index.js:207
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2496,7 +2496,7 @@ msgstr ""
 "shijeve tuaja. Krijesa të ëmbla, robotë të liq, peizazhe të mrekullueshëm — "
 "mijëra mundësi."
 
-#: src/amo/pages/LandingPage/index.js:210
+#: src/amo/pages/LandingPage/index.js:212
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2507,7 +2507,7 @@ msgstr ""
 "thelloni përdorimin e videove, dhe bllokoni reklama bezdisëse, gjithçka "
 "përmes aplikacionesh shfletuesi."
 
-#: src/amo/pages/LandingPage/index.js:232
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2515,7 +2515,7 @@ msgstr ""
 "Ndryshoni pamjen e shfletuesit tuaj. Zgjidhni prej mijëra temash, për t’i "
 "dhënë Firefox-it pamjen që doni."
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:236
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2523,7 +2523,7 @@ msgstr ""
 "Eksploroni mjete dhe veçori të fuqishme për përshtatje të Firefox-it dhe për "
 "ta bërë shfletuesin krejt si e doni."
 
-#: src/amo/pages/LandingPage/index.js:274
+#: src/amo/pages/LandingPage/index.js:276
 msgid "Explore all categories"
 msgstr "Eksploroni krejt kategoritë"
 

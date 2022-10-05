@@ -21,6 +21,7 @@ const makeConfig = ({ target, externals = {} }) => ({
       type: 'umd',
     },
     globalObject: 'this',
+    publicPath: '',
   },
   target,
   externals,

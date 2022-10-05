@@ -1,11 +1,11 @@
 {
   "name": "mozilla-addons-frontend",
-  "version": "0.33.0",
+  "version": "0.35.0",
   "description": "Universal front-end projects to complement addons-server.",
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": ">=14.20"
+    "node": ">=16.17"
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
@@ -148,7 +148,7 @@
       }
     },
     "test-ci-next": {
-      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --maxWorkers=2 --color=false --coverage",
+      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --color=false --coverage -i",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
@@ -188,7 +188,7 @@
     "common-tags": "1.8.2",
     "compression": "1.7.4",
     "config": "3.3.8",
-    "core-js": "3.25.4",
+    "core-js": "3.25.5",
     "deep-eql": "4.1.1",
     "deepcopy": "2.1.0",
     "dompurify": "2.4.0",
