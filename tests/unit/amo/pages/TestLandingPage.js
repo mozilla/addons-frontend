@@ -1,8 +1,6 @@
 import { waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { EXPERIMENT_CONFIG } from 'amo/experiments/20220908_amo_dimension_test';
 import { GET_LANDING, getLanding, loadLanding } from 'amo/reducers/landing';
 import {
   ADDON_TYPE_EXTENSION,
@@ -15,12 +13,7 @@ import {
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'amo/constants';
-import tracking from 'amo/tracking';
 import { getCanonicalURL, visibleAddonType } from 'amo/utils';
-import {
-  EXPERIMENT_ID_GA_DIMENSION,
-  EXPERIMENT_VARIATION_GA_DIMENSION,
-} from 'amo/withExperiment';
 import {
   changeLocation,
   createAddonsApiResult,
@@ -33,12 +26,6 @@ import {
   screen,
 } from 'tests/unit/helpers';
 
-jest.mock('amo/tracking', () => ({
-  ...jest.requireActual('amo/tracking'),
-  sendEvent: jest.fn(),
-  setDimension: jest.fn(),
-}));
-
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
   const lang = 'en-US';
@@ -50,10 +37,6 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks().resetModules();
   });
 
   const render = ({ addonType = ADDON_TYPE_EXTENSION, location } = {}) => {
@@ -537,34 +520,6 @@ describe(__filename, () => {
         'href',
         getCanonicalURL({ locationPathname: getLocation() }),
       ),
-    );
-  });
-
-  // This is an integration test between LandingPage and withExperiment.
-  it('calls setDimension for the configured experiment', async () => {
-    render();
-
-    // Sometimes the test checks for `setDimension` before it's been called.
-    // Let's navigate to a different page before checking for the call.
-    await userEvent.click(
-      await screen.findByRole('link', { name: 'Explore all categories' }),
-    );
-
-    await waitFor(() =>
-      expect(getElement('title')).toHaveTextContent(
-        'All extension categories – Add-ons for Firefox (en-US)',
-      ),
-    );
-
-    await waitFor(() => expect(tracking.setDimension).toHaveBeenCalledTimes(2));
-    expect(tracking.setDimension).toHaveBeenCalledWith({
-      dimension: EXPERIMENT_ID_GA_DIMENSION,
-      value: EXPERIMENT_CONFIG.id,
-    });
-    expect(tracking.setDimension).toHaveBeenCalledWith(
-      expect.objectContaining({
-        dimension: EXPERIMENT_VARIATION_GA_DIMENSION,
-      }),
     );
   });
 });
