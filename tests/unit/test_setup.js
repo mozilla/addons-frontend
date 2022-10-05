@@ -1,4 +1,4 @@
-/* global fetch, Request */
+/* global Request */
 
 describe(__filename, () => {
   describe('fetch()', () => {

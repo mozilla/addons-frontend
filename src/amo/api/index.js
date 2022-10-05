@@ -1,5 +1,5 @@
 /* @flow */
-/* global fetch, window */
+/* global window */
 import url from 'url';
 
 import FormData from '@willdurand/isomorphic-formdata';

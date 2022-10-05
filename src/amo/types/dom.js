@@ -1,5 +1,4 @@
 /* @flow */
-/* global Event */
 
 // This represents an HTML element event that you can
 // expect will have a target property of a known type.
