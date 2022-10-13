@@ -59,6 +59,11 @@
     "amo/only-log-strings": ["error", {
       "methods": ["fatal", "info", "error", "warn"]
     }],
+    // We use `.tsx` instead of `.jsx` for files with JSX inside.
+    "react/jsx-filename-extension": ["error", {
+        "extensions": [".tsx"]
+      }
+    ],
     "react/default-props-match-prop-types": "off",
     // This rule is disabled because it outputs a lot of false positives, see:
     // https://github.com/benmosher/eslint-plugin-import/issues/1343
@@ -103,7 +108,8 @@
     "import/resolver": {
       "node": {
         // This adds ./src for relative imports.
-        "moduleDirectory": ["node_modules", "src"]
+        "moduleDirectory": ["node_modules", "src"],
+        "extensions": [".js", ".ts", ".tsx"]
       }
     }
   }

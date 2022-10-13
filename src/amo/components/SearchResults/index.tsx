@@ -1,0 +1,70 @@
+import * as React from 'react';
+import { compose } from 'redux';
+
+import AddonsCard from 'amo/components/AddonsCard';
+import { INSTALL_SOURCE_FEATURED, INSTALL_SOURCE_SEARCH } from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import type { SearchFilters } from 'amo/api/search';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
+
+type DefaultProps = {
+  count: number;
+  filters: SearchFilters | Record<string, any>;
+  results: Array<AddonType | CollectionAddonType>;
+};
+type Props = DefaultProps & {
+  loading: boolean;
+  paginator?: React.ReactNode | null;
+};
+type InternalProps = Props & {
+  i18n: I18nType;
+};
+export class SearchResultsBase extends React.Component<InternalProps> {
+  static defaultProps: DefaultProps = {
+    count: 0,
+    filters: {},
+    results: [],
+  };
+
+  render(): React.ReactNode {
+    const {
+      count,
+      filters,
+      i18n,
+      loading,
+      paginator,
+      results,
+    } = this.props;
+    const {
+      query,
+    } = filters;
+    let loadingMessage;
+    let messageText;
+
+    if (loading) {
+      loadingMessage = <div className="visually-hidden">{i18n.gettext('Searching…')}</div>;
+    } else if (count === 0) {
+      if (query) {
+        messageText = i18n.sprintf(i18n.gettext('No results were found for "%(query)s".'), {
+          query,
+        });
+      } else {
+        // TODO: Add the extension type, if available, so it says
+        // "no extensions" found that match your search or something.
+        messageText = i18n.gettext('No results were found.');
+      }
+    }
+
+    const addonInstallSource = filters.promoted ? INSTALL_SOURCE_FEATURED : INSTALL_SOURCE_SEARCH;
+    return <div className="SearchResults">
+        {loadingMessage}
+        <AddonsCard addonInstallSource={addonInstallSource} addons={results} footer={paginator} header={i18n.gettext('Search results')} loading={loading} showFullSizePreview>
+          {messageText ? <p className="SearchResults-message">{messageText}</p> : null}
+        </AddonsCard>
+      </div>;
+  }
+
+}
+const SearchResults: React.ComponentType<Props> = compose(translate())(SearchResultsBase);
+export default SearchResults;

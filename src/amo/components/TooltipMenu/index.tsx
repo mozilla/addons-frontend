@@ -1,0 +1,53 @@
+import makeClassName from 'classnames';
+import * as React from 'react';
+import RCTooltip from 'rc-tooltip';
+import './styles.scss';
+
+type Props = {
+  className?: string;
+  idPrefix?: string;
+  items: Array<null | React.ReactNode>;
+  openerClass?: string;
+  openerText: string;
+  openerTitle?: string;
+};
+export default class TooltipMenu extends React.Component<Props> {
+  container: React.ElementRef<'div'> | null;
+
+  render(): React.ReactNode {
+    const {
+      className,
+      idPrefix,
+      items,
+      openerClass,
+      openerText,
+      openerTitle,
+    } = this.props;
+    // This will tell a screen reader to read the menu when focusing
+    // on the opener.
+    const describedBy = `${idPrefix || ''}TooltipMenu`;
+    return <div
+      ref={(ref) => {
+      this.container = ref;
+    }}
+    >
+        <RCTooltip
+          align={{
+        offset: [0, 6],
+      }}
+          getTooltipContainer={() => this.container}
+          destroyTooltipOnHide
+          id={describedBy}
+          overlay={<ul className="TooltipMenu-list">{items}</ul>}
+          placement="bottom"
+          prefixCls="TooltipMenu"
+          trigger={['click']}
+        >
+          <button aria-describedby={describedBy} className={makeClassName('TooltipMenu-opener', openerClass, className)} title={openerTitle} type="button">
+            {openerText}
+          </button>
+        </RCTooltip>
+      </div>;
+  }
+
+}
