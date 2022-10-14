@@ -7,7 +7,6 @@
 
 --ignore-dir=.tox
 --ignore-dir=coverage
---ignore-dir=flow/logs
 --ignore-dir=dist
 --ignore-dir=locale
 --ignore-dir=node_modules

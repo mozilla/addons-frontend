@@ -20,14 +20,13 @@ module.exports = {
   reporters: [
     '<rootDir>/tests/jest-reporters/fingers-crossed.js',
     '<rootDir>/tests/jest-reporters/summary.js',
-    '<rootDir>/tests/jest-reporters/flow-check.js',
     '<rootDir>/tests/jest-reporters/eslint-check.js',
   ],
   setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
-    '<rootDir>/(assets|bin|config|coverage|dist|docs|flow|locale|src)/',
+    '<rootDir>/(assets|bin|config|coverage|dist|docs|locale|src)/',
   ],
   testMatch: ['**/[Tt]est(*).js?(x)', '**/__tests__/**/*.js?(x)'],
   // This will initialize the jsdom document with a URL which is necessary

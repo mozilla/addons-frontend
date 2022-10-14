@@ -16,7 +16,6 @@ module.exports = {
         'bugfixes': true,
       },
     ],
-    '@babel/preset-flow',
     // https://babeljs.io/docs/en/babel-preset-react/
     [
       '@babel/preset-react',
