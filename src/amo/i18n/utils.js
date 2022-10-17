@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import config from 'config';
-import filesize from 'filesize';
+import { filesize } from 'filesize';
 import Jed from 'jed';
 import moment from 'moment';
 
