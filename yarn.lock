@@ -8525,10 +8525,10 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
-redux-first-history@5.0.12:
-  version "5.0.12"
-  resolved "https://registry.yarnpkg.com/redux-first-history/-/redux-first-history-5.0.12.tgz#ce68cce5c32278622cb514486b702eff88f26c64"
-  integrity sha512-shKaOxYWIQhly/+2bjjhNYQIocs1DZeFPYBhLXLPvHBrc7jXK9jAKrCjjrenIs97699qDO6/jptw+P9IU3PLAw==
+redux-first-history@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/redux-first-history/-/redux-first-history-5.1.1.tgz#6aec4a3eaa52dbaaf2683776324d9219b182fab4"
+  integrity sha512-ujVHv+y9wC2rqavS5tLiSu6zkw+VYrEea+/ggwVTRuutadEtwxSRlaK19ry/PTLSQtFuUF1Xu+plL5erD4roVw==
 
 redux-logger@3.0.6:
   version "3.0.6"
