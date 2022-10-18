@@ -46,7 +46,7 @@ describe(__filename, () => {
 
       expect(screen.getByAltText('Add-on icon')).toHaveAttribute(
         'src',
-        addon.icon_url,
+        addon.icons[64],
       );
     });
 

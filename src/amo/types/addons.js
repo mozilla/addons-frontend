@@ -36,6 +36,12 @@ export type AddonAuthorType = {|
   picture_url: string,
 |};
 
+export type AddonIconsType = {
+  '32'?: string,
+  '64'?: string,
+  '128'?: string,
+};
+
 export type ExternalLanguageToolType = {|
   current_version: ExternalAddonVersionType,
   default_locale: string,
@@ -115,6 +121,7 @@ export type ExternalAddonType = {|
   has_privacy_policy?: boolean,
   homepage: LocalizedUrlWithOutgoing | null,
   icon_url?: string,
+  icons?: AddonIconsType,
   id: number,
   is_disabled?: boolean,
   is_experimental?: boolean,

@@ -163,6 +163,11 @@ export const fakeAddon = Object.freeze({
   },
   id: 1234,
   icon_url: 'https://addons.mozilla.org/user-media/webdev-64.png',
+  icons: {
+    32: 'https://addons.mozilla.org/user-media/webdev-32.png',
+    64: 'https://addons.mozilla.org/user-media/webdev-64.png',
+    128: 'https://addons.mozilla.org/user-media/webdev-128.png',
+  },
   is_disabled: false,
   is_experimental: false,
   is_source_public: true,
