@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-10-04 18:12+0000\n"
-"PO-Revision-Date: 2022-10-20 13:24+0000\n"
+"PO-Revision-Date: 2022-10-20 13:42+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1358,7 +1358,7 @@ msgstr "Nema recenzija s dvije zvjezdice"
 #: src/amo/components/RatingsByStar/index.js:123
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] ""
+msgstr[0] "Pročitaj recenziju s jednom zvjezdicom"
 msgstr[1] "Pročitaj sve %(total)s recenzije s jednom zvjezdicom"
 msgstr[2] "Pročitaj svih %(total)s recenzija s jednom zvjezdicom"
 
@@ -2305,6 +2305,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Želiš kao programer komunicirati s addons.mozilla.org (AMO)? Pregledaj %(startAddonsServerDocumentation)sdokumentaciju poslužitelja dodataka%(endAddonsServerDocumentation)s za detalje o API-ima koje"
+" koristi AMO te %(startAddonsManager)supravljač dodacima%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2548,7 +2550,7 @@ msgstr "Davati lažne izjave, omalovažavati autore dodataka ili ih osobno vrije
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Dodaci označeni s oznakom %(tag)s"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
@@ -2568,7 +2570,7 @@ msgstr "Profil od %(user)s, autor Firefox tema. Pronađi daljnje teme od %(user)
 
 #: src/amo/pages/UserProfile/index.js:308
 msgid "User Avatar"
-msgstr ""
+msgstr "Avatar korisnika"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
