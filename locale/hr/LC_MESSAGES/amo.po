@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-10-04 18:12+0000\n"
-"PO-Revision-Date: 2022-10-20 13:09+0000\n"
+"PO-Revision-Date: 2022-10-20 13:22+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1118,15 +1118,15 @@ msgstr "Više iz kategorije %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr "Pristupi tvojim podacima za sve web-stranice"
+msgstr "Pristupiti tvojim podacima za sve web-stranice"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Pristupi tvojim podacima za web-stranice na %(param)s domeni"
+msgstr "Pristupiti tvojim podacima za web-stranice na %(param)s domeni"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
-msgstr "Pristupi tvojim podacima za %(param)s"
+msgstr "Pristupiti tvojim podacima za %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
@@ -1897,15 +1897,15 @@ msgstr "Odgovor programera"
 
 #: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "Uštedi 50 % s cijelogodišnjom pretplatom"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "Zaštiti svoje online podatke i odaberi plan pretplate na VPN koji ti odgovara."
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
-msgstr ""
+msgstr "Preuzmi Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
@@ -2109,6 +2109,8 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Kad Mozilla sazna za dodatke, priključke ili drugi softver treće strane koji ozbiljno ugrožavaju Firefoxovu sigurnost, stabilnost ili performanse i koji zadovoljavaju %(criteriaStartLink)sodređene "
+"kriterije%(criteriaEndLink)s, softver može biti blokiran za opću upotrebu. Za više informacija pročitaj %(supportStartLink)sovaj članak podrške%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:93
 msgid "Blocked on %(date)s."
