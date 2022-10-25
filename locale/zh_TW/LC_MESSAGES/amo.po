@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-04 18:12+0000\n"
+"POT-Creation-Date: 2022-10-25 16:49+0000\n"
 "PO-Revision-Date: 2022-06-15 02:58+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -1581,12 +1581,12 @@ msgid "Search results"
 msgstr "搜尋結果"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:124
+#: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "推薦的擴充套件"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:156
+#: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "推薦的佈景主題"
 
@@ -1631,12 +1631,12 @@ msgid "Verified add-ons"
 msgstr "驗證過的附加元件"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:134
+#: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "熱門擴充套件"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:166
+#: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "熱門佈景主題"
 
@@ -1645,12 +1645,12 @@ msgid "Trending add-ons"
 msgstr "嶄露頭角的附加元件"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:144
+#: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "分數最高的擴充套件"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:175
+#: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "分數最高的佈景主題"
 
@@ -1889,7 +1889,7 @@ msgstr "沒有找到結果。"
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:230
+#: src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "佈景主題"
 
@@ -1915,7 +1915,7 @@ msgstr "Android 版的附加元件"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
+#: src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "擴充套件"
 
@@ -2328,7 +2328,7 @@ msgstr ""
 "下載 Firefox 擴充套件與佈景主題，它們就像是在瀏覽器中安裝外掛，可以封鎖討人厭"
 "的廣告、保護密碼、更改瀏覽器外觀，還有更多功能。"
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
 msgstr "看更多推薦擴充套件"
 
@@ -2348,27 +2348,27 @@ msgstr "電影與電視"
 msgid "Scenery"
 msgstr "風景"
 
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
 msgstr "看更多熱門擴充套件"
 
-#: src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
 msgstr "看更多高分擴充套件"
 
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/LandingPage/index.js:163
 msgid "See more recommended themes"
 msgstr "看更多推薦佈景主題"
 
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/pages/LandingPage/index.js:172
 msgid "See more trending themes"
 msgstr "看更多熱門佈景主題"
 
-#: src/amo/pages/LandingPage/index.js:183
+#: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
 msgstr "看更多高分的佈景主題"
 
-#: src/amo/pages/LandingPage/index.js:207
+#: src/amo/pages/LandingPage/index.js:205
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2377,7 +2377,7 @@ msgstr ""
 "下載佈景主題來變更 Firefox 的外觀。可根據自己的風格來調整您的體驗，不論是可愛"
 "小動物、邪惡機器人，或是美麗風景，有數以千計選項供您下載。"
 
-#: src/amo/pages/LandingPage/index.js:212
+#: src/amo/pages/LandingPage/index.js:210
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2386,20 +2386,20 @@ msgstr ""
 "下載 Firefox 擴充套件，讓您加入功能來客製化上網體驗。可透過瀏覽器外掛來保護密"
 "碼、尋找購物折扣、加強看片體驗、封鎖廣告。"
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:232
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
 "從數以千計的佈景主題中挑選一套，調整瀏覽器外觀，讓 Firefox 有您想要的樣子。"
 
-#: src/amo/pages/LandingPage/index.js:236
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
 msgstr "瀏覽可用來自訂 Firefox 的強大工具與功能，讓瀏覽器有您的風格。"
 
-#: src/amo/pages/LandingPage/index.js:276
+#: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
 msgstr "瀏覽所有分類。"
 
