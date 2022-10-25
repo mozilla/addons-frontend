@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-04 18:12+0000\n"
+"POT-Creation-Date: 2022-10-25 16:49+0000\n"
 "PO-Revision-Date: 2022-06-15 08:54+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
@@ -1652,12 +1652,12 @@ msgid "Search results"
 msgstr "Találatok"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:124
+#: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Ajánlott kiegészítők"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:156
+#: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "Ajánlott témák"
 
@@ -1702,12 +1702,12 @@ msgid "Verified add-ons"
 msgstr "Ellenőrzött kiegészítők"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:134
+#: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Felkapott kiegészítők"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:166
+#: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "Felkapott témák"
 
@@ -1716,12 +1716,12 @@ msgid "Trending add-ons"
 msgstr "Felkapott kiegészítők"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:144
+#: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Legjobbra értékelt kiegészítők"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:175
+#: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Legjobbra értékelt témák"
 
@@ -2005,7 +2005,7 @@ msgstr "Nincs találat."
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:230
+#: src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "Témák"
 
@@ -2031,7 +2031,7 @@ msgstr "Kiegészítők Androidra"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
+#: src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "Kiegészítők"
 
@@ -2473,7 +2473,7 @@ msgstr ""
 "böngészője számára. Blokkolhatják a bosszantó hirdetéseket, megvédhetik a "
 "jelszavait, módosíthatják a böngésző megjelenését, és így tovább."
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
 msgstr "További ajánlott kiegészítők megtekintése"
 
@@ -2493,27 +2493,27 @@ msgstr "Film és TV"
 msgid "Scenery"
 msgstr "Tájkép"
 
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
 msgstr "További felkapott kiegészítők megtekintése"
 
-#: src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
 msgstr "További legjobbra értékelt kiegészítők megtekintése"
 
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/LandingPage/index.js:163
 msgid "See more recommended themes"
 msgstr "További ajánlott témák megtekintése"
 
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/pages/LandingPage/index.js:172
 msgid "See more trending themes"
 msgstr "További népszerű témák megtekintése"
 
-#: src/amo/pages/LandingPage/index.js:183
+#: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
 msgstr "További legjobbra értékelt témák megtekintése"
 
-#: src/amo/pages/LandingPage/index.js:207
+#: src/amo/pages/LandingPage/index.js:205
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2523,7 +2523,7 @@ msgstr ""
 "testre az élményét az Ön ízlésének megfelelően. Aranyos kisállatok, gonosz "
 "robotok, gyönyörű tájak – ezernyi lehetőség."
 
-#: src/amo/pages/LandingPage/index.js:212
+#: src/amo/pages/LandingPage/index.js:210
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2534,7 +2534,7 @@ msgstr ""
 "jobbá a videókat és blokkolja a bosszantó hirdetéseket a "
 "böngészőalkalmazásokkal."
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:232
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2542,7 +2542,7 @@ msgstr ""
 "Módosítsa a böngésző kinézetét. Válasszon a témák ezreiből, hogy olyan "
 "kinézetet adjon a Firefoxnak, amilyet csak szeretne."
 
-#: src/amo/pages/LandingPage/index.js:236
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2550,7 +2550,7 @@ msgstr ""
 "Fedezze fel a hatékony eszközöket és funkciókat, amelyekkel testreszabhatja "
 "a Firefoxot, és teljesen a sajátjává teheti a böngészőt."
 
-#: src/amo/pages/LandingPage/index.js:276
+#: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
 msgstr "Összes kategória felfedezése"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-04 18:12+0000\n"
+"POT-Creation-Date: 2022-10-25 16:49+0000\n"
 "PO-Revision-Date: 2022-07-29 20:14+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
@@ -1655,12 +1655,12 @@ msgid "Search results"
 msgstr "Результати пошуку"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:124
+#: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Рекомендовані розширення"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:156
+#: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "Рекомендовані теми"
 
@@ -1705,12 +1705,12 @@ msgid "Verified add-ons"
 msgstr "Перевірені додатки"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:134
+#: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Популярні розширення"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:166
+#: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "Популярні теми"
 
@@ -1719,12 +1719,12 @@ msgid "Trending add-ons"
 msgstr "Популярні додатки"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:144
+#: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Найвище оцінені розширення"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:175
+#: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Найвище оцінені теми"
 
@@ -2032,7 +2032,7 @@ msgstr "Результатів не знайдено."
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:230
+#: src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "Теми"
 
@@ -2058,7 +2058,7 @@ msgstr "Додатки для Android"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
+#: src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "Розширення"
 
@@ -2497,7 +2497,7 @@ msgstr ""
 "Вони можуть блокувати надокучливу рекламу, зберігати паролі, змінювати "
 "зовнішній вигляд браузера та інше."
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
 msgstr "Більше рекомендованих розширень"
 
@@ -2517,27 +2517,27 @@ msgstr "Фільми і ТБ"
 msgid "Scenery"
 msgstr "Пейзажі"
 
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
 msgstr "Більше популярних розширень"
 
-#: src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
 msgstr "Більше найвище оцінених розширень"
 
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/LandingPage/index.js:163
 msgid "See more recommended themes"
 msgstr "Більше рекомендованих тем"
 
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/pages/LandingPage/index.js:172
 msgid "See more trending themes"
 msgstr "Більше популярних тем"
 
-#: src/amo/pages/LandingPage/index.js:183
+#: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
 msgstr "Найвище оцінені теми"
 
-#: src/amo/pages/LandingPage/index.js:207
+#: src/amo/pages/LandingPage/index.js:205
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2547,7 +2547,7 @@ msgstr ""
 "для своїх потреб. Гарні звірі, злі роботи, прекрасні пейзажі — тисячі "
 "варіантів."
 
-#: src/amo/pages/LandingPage/index.js:212
+#: src/amo/pages/LandingPage/index.js:210
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2557,7 +2557,7 @@ msgstr ""
 "Зберігайте паролі, знаходьте пропозиції, вдосконалюйте відео, а також "
 "блокуйте надокучливу рекламу."
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:232
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2565,7 +2565,7 @@ msgstr ""
 "Налаштуйте вигляд вашого браузера. Обирайте з тисяч тем, щоб Firefox "
 "виглядав так, як ви хочете."
 
-#: src/amo/pages/LandingPage/index.js:236
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2573,7 +2573,7 @@ msgstr ""
 "Перегляньте потужні інструменти і можливості, щоб налаштувати Firefox і "
 "зробити його своїм."
 
-#: src/amo/pages/LandingPage/index.js:276
+#: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
 msgstr "Переглянути всі категорії"
 

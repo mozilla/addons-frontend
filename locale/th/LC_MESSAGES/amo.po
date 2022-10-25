@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-04 18:12+0000\n"
+"POT-Creation-Date: 2022-10-25 16:49+0000\n"
 "PO-Revision-Date: 2022-08-08 16:41+0000\n"
 "Last-Translator: Wannaphong Phatthiyaphaibun <wannaphong@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1574,12 +1574,12 @@ msgid "Search results"
 msgstr "ผลการค้นหา"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:124
+#: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "ส่วนขยายที่แนะนำ"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:156
+#: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "ชุดตกแต่งที่แนะนำ"
 
@@ -1624,12 +1624,12 @@ msgid "Verified add-ons"
 msgstr "ส่วนเสริมที่ตรวจสอบแล้ว"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:134
+#: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "ส่วนขยายที่กำลังนิยม"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:166
+#: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "ชุดตกแต่งที่กำลังนิยม"
 
@@ -1638,12 +1638,12 @@ msgid "Trending add-ons"
 msgstr "ส่วนเสริมที่กำลังนิยม"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:144
+#: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "ส่วนขยายที่ได้รับการจัดอันดับสูงสุด"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:175
+#: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "ชุดตกแต่งที่ได้รับการจัดอันดับสูงสุด"
 
@@ -1887,7 +1887,7 @@ msgstr "ไม่พบผลลัพธ์"
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:230
+#: src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "ชุดตกแต่ง"
 
@@ -1913,7 +1913,7 @@ msgstr "ส่วนเสริมสำหรับ Android"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
+#: src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "ส่วนขยาย"
 
@@ -2327,7 +2327,7 @@ msgstr ""
 "ซึ่งเปรียบเสมือนแอปสำหรับเบราว์เซอร์ของคุณที่สามารถปิดกั้นโฆษณาที่น่ารำคาญ ปกป้องรหัสผ่าน "
 "เปลี่ยนลักษณะที่ปรากฏของเบราว์เซอร์ และอื่น ๆ ได้"
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
 msgstr "ดูส่วนขยายที่แนะนำเพิ่มเติม"
 
@@ -2347,27 +2347,27 @@ msgstr "ภาพยนตร์และโทรทัศน์"
 msgid "Scenery"
 msgstr "ทิวทัศน์"
 
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
 msgstr "ดูส่วนขยายที่กำลังนิยมเพิ่มเติม"
 
-#: src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
 msgstr "ดูส่วนขยายที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
 
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/LandingPage/index.js:163
 msgid "See more recommended themes"
 msgstr "ดูชุดตกแต่งที่แนะนำเพิ่มเติม"
 
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/pages/LandingPage/index.js:172
 msgid "See more trending themes"
 msgstr "ดูชุดตกแต่งที่กำลังนิยมเพิ่มเติม"
 
-#: src/amo/pages/LandingPage/index.js:183
+#: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
 msgstr "ดูชุดตกแต่งที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
 
-#: src/amo/pages/LandingPage/index.js:207
+#: src/amo/pages/LandingPage/index.js:205
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2377,7 +2377,7 @@ msgstr ""
 "ปรับแต่งประสบการณ์ของคุณให้เข้ากับรสนิยมของคุณด้วยตัวเลือกต่าง ๆ มากมาย เช่น สัตว์ร้ายแสนน่ารัก "
 "หุ่นยนต์วายร้าย ภาพทิวทัศน์อันงดงาม"
 
-#: src/amo/pages/LandingPage/index.js:212
+#: src/amo/pages/LandingPage/index.js:210
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2386,7 +2386,7 @@ msgstr ""
 "ดาวน์โหลดส่วนขยาย Firefox เพื่อเพิ่มคุณลักษณะที่ปรับแต่งการท่องเว็บ ปกป้องรหัสผ่าน ค้นหาข้อเสนอ "
 "ปรับปรุงวิดีโอ และปิดกั้นโฆษณาที่น่ารำคาญด้วยแอปบนเบราว์เซอร์"
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:232
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2394,7 +2394,7 @@ msgstr ""
 "เปลี่ยนลักษณะที่ปรากฏของเบราว์เซอร์ของคุณ เลือกจากชุดตกแต่งนับพันเพื่อให้ Firefox "
 "มีรูปลักษณ์ตามที่คุณต้องการ"
 
-#: src/amo/pages/LandingPage/index.js:236
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2402,7 +2402,7 @@ msgstr ""
 "สำรวจเครื่องมือและคุณลักษณะที่ทรงพลังที่จะปรับแต่ง Firefox "
 "และทำให้เบราว์เซอร์เป็นของคุณเองทั้งหมด"
 
-#: src/amo/pages/LandingPage/index.js:276
+#: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
 msgstr "สำรวจหมวดหมู่ทั้งหมด"
 
