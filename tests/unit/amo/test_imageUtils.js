@@ -10,17 +10,17 @@ const iconsUrlsExample = {
 
 describe(__filename, () => {
   describe('getAddonIconUrl', () => {
-    it('return default icon size if requested size is invalid', () => {
+    it('return requested icon size url', () => {
       const addonIconUrl = getAddonIconUrl(
-        { icons: { 64: iconsUrlsExample.regular } },
+        { icons: { 32: iconsUrlsExample.regular } },
 
-        25,
+        32,
       );
 
       expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
     });
 
-    it('return icon urls from icons object', () => {
+    it('return default icon size url if no size is requested', () => {
       const addonIcon = getAddonIconUrl({
         icons: { 64: iconsUrlsExample.regular },
       });
@@ -28,74 +28,30 @@ describe(__filename, () => {
       expect(addonIcon).toEqual(iconsUrlsExample.regular);
     });
 
-    it('return small(32px) url icon', () => {
-      const smallIconUrl = iconsUrlsExample.small;
-
-      const addonIconUrl = getAddonIconUrl(
+    it('return default icon size url if requested size url is undefined', () => {
+      const addonIcon = getAddonIconUrl(
         {
-          icons: { 32: smallIconUrl },
+          icons: { 64: iconsUrlsExample.regular },
         },
 
         32,
       );
 
-      expect(addonIconUrl).toEqual(smallIconUrl);
+      expect(addonIcon).toEqual(iconsUrlsExample.regular);
     });
 
-    it('return regular(64px) icon url', () => {
-      const regularIconUrl = iconsUrlsExample.regular;
-
-      const addonIcon = getAddonIconUrl({
-        icons: { 64: regularIconUrl },
+    it('return icon_url if default icon size url is undefined', () => {
+      const addonIconUrl = getAddonIconUrl({
+        icon_url: iconsUrlsExample.regular,
       });
 
-      expect(addonIcon).toEqual(regularIconUrl);
-    });
-
-    it('return large(128px) icon url', () => {
-      const largeIconUrl = iconsUrlsExample.large;
-
-      const addonIconUrl = getAddonIconUrl(
-        {
-          icons: { 64: largeIconUrl },
-        },
-
-        64,
-      );
-
-      expect(addonIconUrl).toEqual(largeIconUrl);
-    });
-
-    it('return icon_url if icons is undefined', () => {
-      const addonIconUrl = getAddonIconUrl(
-        {
-          icon_url: iconsUrlsExample.regular,
-        },
-
-        64,
-      );
-
       expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
     });
 
-    it('return default icon size if requested icon size(large, small) is undefined', () => {
-      const addonIconUrl = getAddonIconUrl(
-        {
-          icons: { 64: iconsUrlsExample.regular },
-        },
-
-        64,
-      );
-
-      expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
-    });
-
-    it('return fallback icon if requested icon size is undefined', () => {
-      const addonIconUrl = getAddonIconUrl(
-        { icons: { 32: iconsUrlsExample.small } },
-
-        64,
-      );
+    it('return fallback icon url if icon_url is undefined', () => {
+      const addonIconUrl = getAddonIconUrl({
+        icons: { 32: iconsUrlsExample.small },
+      });
 
       expect(addonIconUrl).toEqual(fallbackIcon);
     });
