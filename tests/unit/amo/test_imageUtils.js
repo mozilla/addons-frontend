@@ -10,12 +10,14 @@ const iconsUrlsExample = {
 
 describe(__filename, () => {
   describe('getAddonIconUrl', () => {
-    it('throw error if requested icon size is invalid', () => {
-      const getIconWithInvalidSize = () => getAddonIconUrl({}, 25);
+    it('return default icon size if requested size is invalid', () => {
+      const addonIconUrl = getAddonIconUrl(
+        { icons: { 64: iconsUrlsExample.regular } },
 
-      expect(getIconWithInvalidSize).toThrowErrorMatchingInlineSnapshot(
-        `"size must be one of: 32,64,128"`,
+        25,
       );
+
+      expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
     });
 
     it('return icon urls from icons object', () => {

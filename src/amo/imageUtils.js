@@ -8,14 +8,7 @@ import fallbackIcon from 'amo/img/icons/default.svg';
 //
 // iconSize values are 32 | 64 | 128
 export function getAddonIconUrl(addon, size) {
-  const iconSizes = [32, 64, 128];
-  const iconSizeIsNotValid = size && !iconSizes.includes(size);
-
-  if (iconSizeIsNotValid) {
-    throw new Error(`size must be one of: ${iconSizes.toString()}`);
-  }
-
-  const defaultIconSize = iconSizes[1];
+  const defaultIconSize = 64;
 
   const iconFromIcons = addon?.icons?.[size] || addon?.icons?.[defaultIconSize];
 
