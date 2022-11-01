@@ -10,6 +10,14 @@ const iconsUrlsExample = {
 
 describe(__filename, () => {
   describe('getAddonIconUrl', () => {
+    it('throw error if requested icon size is invalid', () => {
+      const getIconWithInvalidSize = () => getAddonIconUrl({}, 25);
+
+      expect(getIconWithInvalidSize).toThrowErrorMatchingInlineSnapshot(
+        `"size must be one of: 32,64,128"`,
+      );
+    });
+
     it('return icon urls from icons object', () => {
       const addonIcon = getAddonIconUrl({
         icons: { 64: iconsUrlsExample.regular },
@@ -25,6 +33,7 @@ describe(__filename, () => {
         {
           icons: { 32: smallIconUrl },
         },
+
         32,
       );
 
@@ -40,6 +49,7 @@ describe(__filename, () => {
 
       expect(addonIcon).toEqual(regularIconUrl);
     });
+
     it('return large(128px) icon url', () => {
       const largeIconUrl = iconsUrlsExample.large;
 
@@ -47,21 +57,45 @@ describe(__filename, () => {
         {
           icons: { 64: largeIconUrl },
         },
+
         64,
       );
 
       expect(addonIconUrl).toEqual(largeIconUrl);
     });
 
-    it('return icon_url if icons object does not exist', () => {
+    it('return icon_url if icons is undefined', () => {
       const addonIconUrl = getAddonIconUrl(
         {
           icon_url: iconsUrlsExample.regular,
         },
+
         64,
       );
 
       expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
+    });
+
+    it('return default icon size if requested icon size(large, small) is undefined', () => {
+      const addonIconUrl = getAddonIconUrl(
+        {
+          icons: { 64: iconsUrlsExample.regular },
+        },
+
+        64,
+      );
+
+      expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
+    });
+
+    it('return fallback icon if requested icon size is undefined', () => {
+      const addonIconUrl = getAddonIconUrl(
+        { icons: { 32: iconsUrlsExample.small } },
+
+        64,
+      );
+
+      expect(addonIconUrl).toEqual(fallbackIcon);
     });
 
     it('return fallback icon in case of null addon value', () => {
