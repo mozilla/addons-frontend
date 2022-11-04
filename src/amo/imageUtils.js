@@ -1,7 +1,18 @@
 import fallbackIcon from 'amo/img/icons/default.svg';
 
-export function getAddonIconUrl(addon) {
-  return addon ? addon.icon_url : fallbackIcon;
+//
+// returns icon url from icons objects,
+// or returns icon_url value if icons does not exists
+//
+// fallback icon will be returned if the addon has no icon.
+//
+// iconSize values are 32 | 64 | 128
+export function getAddonIconUrl(addon, size) {
+  const defaultIconSize = 64;
+
+  const iconFromIcons = addon?.icons?.[size] || addon?.icons?.[defaultIconSize];
+
+  return iconFromIcons || addon?.icon_url || fallbackIcon;
 }
 
 export const getPreviewImage = (addon, { full = true } = {}) => {

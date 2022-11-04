@@ -937,12 +937,12 @@ describe(__filename, () => {
   it('renders an amo icon image', () => {
     const addonName = 'some-addon-name';
     addon.name = createLocalizedString(addonName);
-    addon.icon_url = 'https://addons.mozilla.org/foo.jpg';
+    addon.icons[64] = 'https://addons.mozilla.org/foo.jpg';
     renderWithAddon();
 
     expect(screen.getByAltText(`Preview of ${addonName}`)).toHaveAttribute(
       'src',
-      addon.icon_url,
+      addon.icons[64],
     );
   });
 

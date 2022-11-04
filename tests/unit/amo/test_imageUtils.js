@@ -1,19 +1,57 @@
 import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
-import {
-  createInternalAddonWithLang,
-  fakeAddon,
-  fakePreview,
-} from 'tests/unit/helpers';
+import { createInternalAddonWithLang, fakePreview } from 'tests/unit/helpers';
 import fallbackIcon from 'amo/img/icons/default.svg';
 
-describe(__filename, () => {
-  const allowedIcon = 'https://addons.mozilla.org/webdev-64.png';
+const iconsUrlsExample = {
+  small: 'https://addons.mozilla.org/get-icon-exampele-sml-32.png',
+  regular: 'https://addons.mozilla.org/get-icon-example-reg-64.png',
+  large: 'https://addons.mozilla.org/get-icon-example-lrg-128.png',
+};
 
+describe(__filename, () => {
   describe('getAddonIconUrl', () => {
-    it('return icon url as in fake addon', () => {
-      expect(getAddonIconUrl({ ...fakeAddon, icon_url: allowedIcon })).toEqual(
-        allowedIcon,
+    it('return requested icon size url', () => {
+      const addonIconUrl = getAddonIconUrl(
+        { icons: { 32: iconsUrlsExample.regular } },
+        32,
       );
+
+      expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
+    });
+
+    it('return default icon size url if no size is requested', () => {
+      const addonIconUrl = getAddonIconUrl({
+        icons: { 64: iconsUrlsExample.regular },
+      });
+
+      expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
+    });
+
+    it('return default icon size url if requested size url is undefined', () => {
+      const addonIconUrl = getAddonIconUrl(
+        {
+          icons: { 64: iconsUrlsExample.regular },
+        },
+        32,
+      );
+
+      expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
+    });
+
+    it('return icon_url if default icon size url is undefined', () => {
+      const addonIconUrl = getAddonIconUrl({
+        icon_url: iconsUrlsExample.regular,
+      });
+
+      expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
+    });
+
+    it('return fallback icon url if icon_url is undefined', () => {
+      const addonIconUrl = getAddonIconUrl({
+        icons: { 32: iconsUrlsExample.small },
+      });
+
+      expect(addonIconUrl).toEqual(fallbackIcon);
     });
 
     it('return fallback icon in case of null addon value', () => {
