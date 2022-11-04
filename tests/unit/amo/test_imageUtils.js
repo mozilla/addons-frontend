@@ -13,7 +13,6 @@ describe(__filename, () => {
     it('return requested icon size url', () => {
       const addonIconUrl = getAddonIconUrl(
         { icons: { 32: iconsUrlsExample.regular } },
-
         32,
       );
 
@@ -21,23 +20,22 @@ describe(__filename, () => {
     });
 
     it('return default icon size url if no size is requested', () => {
-      const addonIcon = getAddonIconUrl({
+      const addonIconUrl = getAddonIconUrl({
         icons: { 64: iconsUrlsExample.regular },
       });
 
-      expect(addonIcon).toEqual(iconsUrlsExample.regular);
+      expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
     });
 
     it('return default icon size url if requested size url is undefined', () => {
-      const addonIcon = getAddonIconUrl(
+      const addonIconUrl = getAddonIconUrl(
         {
           icons: { 64: iconsUrlsExample.regular },
         },
-
         32,
       );
 
-      expect(addonIcon).toEqual(iconsUrlsExample.regular);
+      expect(addonIconUrl).toEqual(iconsUrlsExample.regular);
     });
 
     it('return icon_url if default icon size url is undefined', () => {
