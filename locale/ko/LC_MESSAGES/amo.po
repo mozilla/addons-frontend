@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-10-25 16:49+0000\n"
-"PO-Revision-Date: 2022-11-12 03:52+0000\n"
+"PO-Revision-Date: 2022-11-12 04:09+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2334,11 +2334,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr "본인 또는 다른 사람의 이메일, 전화번호 또는 기타 개인 정보를 포함합니다."
+msgstr "본인 또는 다른 사람의 이메일, 전화번호 또는 기타 개인 정보를 포함."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr "귀하 또는 귀하의 조직이 작성하거나 대표할 수 있는 추가 기능에 대한 리뷰를 게시하세요."
+msgstr "귀하 또는 귀하의 조직이 작성하거나 대표할 수 있는 부가 기능에 대한 리뷰."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
@@ -2448,23 +2448,23 @@ msgstr "\"대단해요!\" , \"훌륭해요,\" 또는 \"나빠요\" 와 같은 �
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
-msgstr ""
+msgstr "기술 문제, 지원 요청 또는 기능 제안을 게시. 가능한 경우 각 부가 기능에 대해 사용 가능한 지원 옵션을 사용하세요. 이들은 부가 기능 정보 페이지의 왼쪽에 있는 \"추가 정보\" 섹션에서 찾을 수 있습니다."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr "사용하고 있지도 않은 부가 기능에 대한 검토는 올리지 마세요."
+msgstr "사용하고 있지도 않은 부가 기능에 대한 리뷰 작성."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr "신성 모독, 외설적이거나 혐오감을 줄 수 있는 단어를 적지 마세요."
+msgstr "욕설, 성적이거나 혐오감을 줄 수 있는 단어."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr "HTML, 링크, 소스 코드 또는 코드 스니펫을 포함합니다. 리뷰는 텍스트로만 제공됩니다."
+msgstr "HTML, 링크, 소스 코드 또는 코드 스니펫을 포함. 리뷰는 텍스트로만 작성하세요."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr "부가 기능 제작자를 깎아내리거나 개인적인 모욕을 주려는 의도로 날조된 글을 올리지 마세요."
+msgstr "부가 기능 제작자를 폄하하거나 개인적으로 모욕을 주려는 의도로 날조된 글."
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
