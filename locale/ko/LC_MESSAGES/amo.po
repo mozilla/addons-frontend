@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-10-25 16:49+0000\n"
-"PO-Revision-Date: 2022-11-12 03:30+0000\n"
+"PO-Revision-Date: 2022-11-12 03:38+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2771,7 +2771,7 @@ msgstr "새 부가 기능 또는 Firefox 기능을 사용할 수 있음"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
-msgstr "누군가 부가 기능에 검토 의견을 작성했습니다"
+msgstr "누군가 내 부가 기능에 리뷰를 작성함"
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
