@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-10-25 16:49+0000\n"
-"PO-Revision-Date: 2022-11-12 03:38+0000\n"
+"PO-Revision-Date: 2022-11-12 03:52+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2390,11 +2390,11 @@ msgstr ""
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
-msgstr ""
+msgstr "부가 기능 리뷰는 자신이 설치하고 사용한 부가 기능에 대한 의견을 공유하는 방법입니다. 당사의 리뷰 중재 팀은 이러한 가이드라인을 준수하지 않는 리뷰를 거부하거나 삭제할 권리가 있습니다."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
-msgstr "훌륭한 리뷰를 쓰기 위한 몇 가지 팁"
+msgstr "훌륭한 리뷰 작성을 위한 팁"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
@@ -2402,15 +2402,15 @@ msgstr "하세요:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "친구에게 부가 기능 사용 경험을 이야기하는 식으로 작성해 주세요."
+msgstr "친구에게 부가 기능 사용 경험을 이야기하는 식."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr "검토는 간결하고 읽기 쉽게 작성하세요."
+msgstr "간결하고 읽기 쉽게 작성."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
-msgstr "구체적이고 유용한 정보를 제공해 주세요. 예를 들면:"
+msgstr "구체적이고 유용한 정보. 예:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
@@ -2430,11 +2430,11 @@ msgstr "사용하기 쉬웠는지?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
-msgstr "이 부가 기능을 계속 사용하시겠습니까?"
+msgstr "이 부가 기능을 계속 사용할 것인지?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr "오타를 최소화하기 위해 리뷰를 제출하기 전에 잠시 시간을 내서 읽어보세요."
+msgstr "오타를 최소화하기 위해 리뷰를 제출하기 전에 잠시 시간을 내서 읽어보기."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
@@ -2442,7 +2442,7 @@ msgstr "하지 마세요:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr "\"대단해요!\" , \"훌륭해요,\" 또는 \"나빠요\" 와 같은 한 단어 리뷰를 제출해주세요."
+msgstr "\"대단해요!\" , \"훌륭해요,\" 또는 \"나빠요\" 와 같은 한 단어 리뷰."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
