@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-10-25 16:49+0000\n"
-"PO-Revision-Date: 2022-11-12 04:41+0000\n"
+"PO-Revision-Date: 2022-11-12 04:43+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2376,7 +2376,7 @@ msgstr "부가 기능 제작자인데 맘에 들지 않는 리뷰나 별점을 �
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
-msgstr "일반적으로 아닙니다. 그러나 리뷰가 위에 설명된 리뷰 가이드라인을 충족하지 않는 경우 \"이 리뷰 신고\"를 눌러 제거를 요청할 수 있습니다. 부가 기능의 새 버전 출시로 인해 더 이상 유효하지 않은 불만 사항이 리뷰에 포함된 경우 리뷰 삭제를 고려할 수 있습니다."
+msgstr "일반적으로 아닙니다. 그러나 리뷰가 위에 설명된 리뷰 가이드라인을 충족하지 않는 경우 \"이 리뷰 신고\"를 눌러 중재 받을 수 있습니다. 부가 기능의 새 버전 출시로 인해 더 이상 유효하지 않은 불만 사항이 리뷰에 포함된 경우 저희가 리뷰 삭제를 고려할 수 있습니다."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
