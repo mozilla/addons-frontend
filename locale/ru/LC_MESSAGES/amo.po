@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-10-25 16:49+0000\n"
-"PO-Revision-Date: 2022-11-08 17:08+0000\n"
+"PO-Revision-Date: 2022-11-08 17:30+0000\n"
 "Last-Translator: Темак <artemkotlubai@yandex.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -73,11 +73,11 @@ msgstr "Ссылки автора"
 
 #: src/amo/components/AddonBadges/index.js:59
 msgid "Experimental"
-msgstr "Экспериментальное"
+msgstr "Пробное"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
-msgstr "Некоторые функции могут потребовать оплаты"
+msgstr "Некоторые возможности могут потребовать оплаты"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -192,7 +192,7 @@ msgstr "Домашняя страница"
 
 #: src/amo/components/AddonMoreInfo/index.js:118
 msgid "Support site"
-msgstr "Сайт поддержки"
+msgstr "Страница поддержки"
 
 #: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Support Email"
@@ -268,7 +268,7 @@ msgstr "Метки"
 
 #: src/amo/components/AddonMoreInfo/index.js:405
 msgid "More information"
-msgstr "Больше информации"
+msgstr "Больше сведений"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
@@ -284,7 +284,7 @@ msgstr "Изменить ответ"
 
 #: src/amo/components/AddonReviewCard/index.js:213
 msgid "Edit review"
-msgstr "Редактировать отзыв"
+msgstr "Править отзыв"
 
 #: src/amo/components/AddonReviewCard/index.js:220 src/amo/components/AddonReviewCard/index.js:252
 msgid "Delete reply"
@@ -341,7 +341,7 @@ msgstr "Обновить ответ"
 
 #: src/amo/components/AddonReviewCard/index.js:317
 msgid "Publish reply"
-msgstr "Опубликовать ответ"
+msgstr "Разместить ответ"
 
 #: src/amo/components/AddonReviewCard/index.js:321
 msgid "Updating reply"
@@ -349,11 +349,11 @@ msgstr "Обновление ответа"
 
 #: src/amo/components/AddonReviewCard/index.js:322
 msgid "Publishing reply"
-msgstr "Публикация ответа"
+msgstr "Размещение ответа"
 
 #: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "опубликовано %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "размещено %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:371
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -373,7 +373,7 @@ msgstr "Ответить на отзыв"
 
 #: src/amo/components/AddonReviewCard/index.js:550
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr "Этот рейтинг или отзыв был удалён. Вы видите его только из-за повышенных привилегий."
+msgstr "Эту оценку или отзыв кто-то удалил. Вы видите только из-за повышенных разрешений."
 
 #: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
@@ -413,7 +413,7 @@ msgstr "Пожалуйста, следуйте нашим %(linkStart)sтреб�
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr "Ваш рейтинг в звёдочках:"
+msgstr "Ваша оценка в звёдочках:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "More dictionaries by %(author)s"
@@ -441,11 +441,11 @@ msgstr "Расширения от этих разработчиков"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:279
 msgid "More language packs by %(author)s"
-msgstr "Другие локализации от %(author)s"
+msgstr "Больше языковых пакетов от %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by these translators"
-msgstr "Другие локализации от этих переводчиков"
+msgstr "Другие языковые пакеты от этих переводчиков"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More themes by %(author)s"
@@ -622,7 +622,7 @@ msgstr "Изменить эту подборку"
 
 #: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
-msgstr "Редактировать сведения о подборке"
+msgstr "Править сведения о подборке"
 
 #: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
@@ -654,11 +654,11 @@ msgstr "Описание"
 
 #: src/amo/components/CollectionManager/index.js:284
 msgid "Custom URL"
-msgstr "Пользовательский URL"
+msgstr "Пользовательский сетевой адрес"
 
 #: src/amo/components/CollectionSort/index.js:108
 msgid "Sort add-ons by"
-msgstr "Сортировать дополнения по"
+msgstr "Упорядочивать дополнения по"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Newest first"
