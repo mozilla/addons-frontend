@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-10-25 16:49+0000\n"
-"PO-Revision-Date: 2022-11-14 02:10+0000\n"
+"PO-Revision-Date: 2022-11-14 02:16+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -126,7 +126,7 @@ msgstr "%(addonName)s – გაფართოების გადმოწ�
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – ენის ნაკრების გადმოწერა 🦊 Firefox Android-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – ენის კრებულის გადმოწერა 🦊 Firefox Android-ისთვის (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
@@ -1308,7 +1308,7 @@ msgstr "შედით ანგარიშზე ლექსიკონი�
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
-msgstr "შედით ანგარიშზე, ენის ნაკრების შესაფასებლად"
+msgstr "შედით ანგარიშზე ენის კრებულის შესაფასებლად"
 
 #: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this theme"
@@ -1794,7 +1794,7 @@ msgstr "Firefox-ისთვის"
 
 #: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
-msgstr "ლექსიკონები და ენის ნაკრებები"
+msgstr "ლექსიკონები და ენის კრებულები"
 
 #: src/amo/components/SectionLinks/index.js:136
 msgid "Other Browser Sites"
@@ -1942,7 +1942,7 @@ msgstr "გაფართოების შესახებ"
 
 #: src/amo/pages/Addon/index.js:268
 msgid "About this language pack"
-msgstr "ენის ნაკრების შესახებ"
+msgstr "ენის კრებულის შესახებ"
 
 #: src/amo/pages/Addon/index.js:271
 msgid "About this theme"
@@ -2250,11 +2250,11 @@ msgstr "თქვენს ენაზე ხელმისაწვდომ�
 
 #: src/amo/pages/LanguageTools/index.js:145
 msgid "Dictionaries and Language Packs"
-msgstr "ლექსიკონები და ენის ნაკრებები"
+msgstr "ლექსიკონები და ენის კრებულები"
 
 #: src/amo/pages/LanguageTools/index.js:155
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr "ჩამოტვირთეთ Firefox-ის ლექსიკონები და ენის ნაკრების გაფართოებები. დაამატეთ ახალი არჩევანი თქვენს ბრაუზერს მართლწერის შესამოწმებლად ან შეცვალეთ ბრაუზერის სამომხმარებლო გარემოს ენა."
+msgstr "ჩამოტვირთეთ Firefox-ის ლექსიკონებისა და ენის კრებულის გაფართოებები. დაამატეთ ბრაუზერს კიდევ ერთი ასარჩევი ენა მართლწერის შესამოწმებლად ან სამომხმარებლო გარსის შესაცვლელად."
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
