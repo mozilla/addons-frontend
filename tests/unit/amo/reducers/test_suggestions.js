@@ -2,7 +2,7 @@ import { createInternalAddons } from 'amo/reducers/collections';
 import reducer, {
   abortFetchSuggestions,
   fetchSuggestions,
-  getSuggestionsByCategory,
+  getSuggestionsByCollection,
   initialState,
   loadSuggestions,
 } from 'amo/reducers/suggestions';
@@ -25,17 +25,17 @@ describe(__filename, () => {
   });
 
   it('sets the loading flag when fetching suggestions', () => {
-    const slug = 'some-slug';
+    const collection = 'some-collection';
     const state = reducer(
       undefined,
       fetchSuggestions({
         errorHandlerId: createStubErrorHandler().id,
-        slug,
+        collection,
       }),
     );
 
     expect(state.loading).toEqual(true);
-    expect(state.byCategory[slug]).toEqual(null);
+    expect(state.forCollection[collection]).toEqual(null);
   });
 
   it('loads suggestions', () => {
@@ -44,17 +44,17 @@ describe(__filename, () => {
       count: addons.length,
       addons,
     });
-    const slug = 'some-slug';
+    const collection = 'some-collection';
     const stateWithLang = reducer(undefined, setLang('en-US'));
     const state = reducer(
       stateWithLang,
       loadSuggestions({
         addons: response.results,
-        slug,
+        collection,
       }),
     );
 
-    const loadedSuggestions = getSuggestionsByCategory({ slug, state });
+    const loadedSuggestions = getSuggestionsByCollection({ collection, state });
 
     expect(loadedSuggestions).toEqual(
       createInternalAddons(response.results, state.lang),
@@ -62,27 +62,27 @@ describe(__filename, () => {
   });
 
   it('resets the loading flag when fetching is aborted', () => {
-    const slug = 'some-slug';
+    const collection = 'some-collection';
     const state = reducer(
       undefined,
       fetchSuggestions({
         errorHandlerId: createStubErrorHandler().id,
-        slug,
+        collection,
       }),
     );
 
     expect(state.loading).toEqual(true);
 
-    const newState = reducer(state, abortFetchSuggestions({ slug }));
+    const newState = reducer(state, abortFetchSuggestions({ collection }));
     expect(newState.loading).toEqual(false);
   });
 
-  describe('getSuggestionsByCategory', () => {
+  describe('getSuggestionsByCollection', () => {
     it('returns null if no suggestions exist for the guid', () => {
       const state = reducer(undefined, {});
-      const slug = 'a-non-existent-slug';
+      const collection = 'a-non-existent-collection';
 
-      expect(getSuggestionsByCategory({ slug, state })).toEqual(null);
+      expect(getSuggestionsByCollection({ collection, state })).toEqual(null);
     });
   });
 });

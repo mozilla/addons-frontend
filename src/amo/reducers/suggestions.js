@@ -14,15 +14,15 @@ export const LOAD_SUGGESTIONS: 'LOAD_SUGGESTIONS' = 'LOAD_SUGGESTIONS';
 export type Suggestions = Array<CollectionAddonType> | null;
 
 export type SuggestionsState = {|
-  byCategory: {
-    [slug: string]: Suggestions,
+  forCollection: {
+    [collection: string]: Suggestions,
   },
   lang: string,
   loading: boolean,
 |};
 
 export const initialState: SuggestionsState = {
-  byCategory: {},
+  forCollection: {},
   // We default lang to '' to avoid having to add a lot of invariants to our
   // code, and protect against a lang of '' in selectLocalizedContent.
   lang: '',
@@ -30,7 +30,7 @@ export const initialState: SuggestionsState = {
 };
 
 export type AbortFetchSuggestionsParams = {|
-  slug: string,
+  collection: string,
 |};
 
 type AbortFetchSuggestionsAction = {|
@@ -39,18 +39,18 @@ type AbortFetchSuggestionsAction = {|
 |};
 
 export const abortFetchSuggestions = ({
-  slug,
+  collection,
 }: AbortFetchSuggestionsParams): AbortFetchSuggestionsAction => {
-  invariant(slug, 'slug is required');
+  invariant(collection, 'collection is required');
   return {
     type: ABORT_FETCH_SUGGESTIONS,
-    payload: { slug },
+    payload: { collection },
   };
 };
 
 type FetchSuggestionsParams = {|
   errorHandlerId: string,
-  slug: string,
+  collection: string,
 |};
 
 export type FetchSuggestionsAction = {|
@@ -60,20 +60,20 @@ export type FetchSuggestionsAction = {|
 
 export const fetchSuggestions = ({
   errorHandlerId,
-  slug,
+  collection,
 }: FetchSuggestionsParams): FetchSuggestionsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(slug, 'slug is required');
+  invariant(collection, 'collection is required');
 
   return {
     type: FETCH_SUGGESTIONS,
-    payload: { errorHandlerId, slug },
+    payload: { errorHandlerId, collection },
   };
 };
 
 export type LoadSuggestionsParams = {|
   addons: ExternalCollectionAddons,
-  slug: string,
+  collection: string,
 |};
 
 type LoadSuggestionsAction = {|
@@ -83,30 +83,30 @@ type LoadSuggestionsAction = {|
 
 export const loadSuggestions = ({
   addons,
-  slug,
+  collection,
 }: LoadSuggestionsParams): LoadSuggestionsAction => {
   invariant(addons, 'addons is required');
-  invariant(slug, 'slug is required');
+  invariant(collection, 'collection is required');
 
   return {
     type: LOAD_SUGGESTIONS,
-    payload: { addons, slug },
+    payload: { addons, collection },
   };
 };
 
-type GetSuggestionsByCategoryParams = {|
-  slug: string,
+type GetSuggestionsByCollectionParams = {|
+  collection: string,
   state: SuggestionsState,
 |};
 
-export const getSuggestionsByCategory = ({
-  slug,
+export const getSuggestionsByCollection = ({
+  collection,
   state,
-}: GetSuggestionsByCategoryParams): Suggestions | null => {
-  invariant(slug, 'slug is required');
+}: GetSuggestionsByCollectionParams): Suggestions | null => {
+  invariant(collection, 'collection is required');
   invariant(state, 'state is required');
 
-  return state.byCategory[slug] || null;
+  return state.forCollection[collection] || null;
 };
 
 type Action =
@@ -128,9 +128,9 @@ const reducer = (
     case ABORT_FETCH_SUGGESTIONS:
       return {
         ...state,
-        byCategory: {
-          ...state.byCategory,
-          [action.payload.slug]: null,
+        forCollection: {
+          ...state.forCollection,
+          [action.payload.collection]: null,
         },
         loading: false,
       };
@@ -138,20 +138,20 @@ const reducer = (
     case FETCH_SUGGESTIONS:
       return {
         ...state,
-        byCategory: {
-          ...state.byCategory,
-          [action.payload.slug]: null,
+        forCollection: {
+          ...state.forCollection,
+          [action.payload.collection]: null,
         },
         loading: true,
       };
 
     case LOAD_SUGGESTIONS: {
-      const { addons, slug } = action.payload;
+      const { addons, collection } = action.payload;
       return {
         ...state,
-        byCategory: {
-          ...state.byCategory,
-          [slug]: createInternalAddons(addons, state.lang),
+        forCollection: {
+          ...state.forCollection,
+          [collection]: createInternalAddons(addons, state.lang),
         },
         loading: false,
       };

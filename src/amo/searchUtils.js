@@ -20,6 +20,7 @@ export function generateThresholdParams(param) {
 }
 
 export const paramsToFilter = {
+  addonInstallSource: 'addonInstallSource',
   app: 'clientApp',
   appversion: 'compatibleWithVersion',
   author: 'author',
