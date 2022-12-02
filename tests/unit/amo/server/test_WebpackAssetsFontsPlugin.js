@@ -117,7 +117,7 @@ describe(__filename, () => {
   });
 
   it('requires a webpackAssetsFileName parameter', () => {
-    expect(() => new WebpackAssetsFontsPlugin()).toThrowError(
+    expect(() => new WebpackAssetsFontsPlugin()).toThrow(
       /options misses the property 'webpackAssetsFileName'/,
     );
   });

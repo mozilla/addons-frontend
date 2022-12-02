@@ -133,7 +133,7 @@ describe(__filename, () => {
       const tracking = createTracking();
       expect(() => {
         tracking.setPage();
-      }).toThrowError(/page is required/);
+      }).toThrow(/page is required/);
     });
 
     it('should call ga with setPage', () => {
@@ -224,7 +224,7 @@ describe(__filename, () => {
           tracking.sendEvent({
             action: 'whatever',
           });
-        }).toThrowError(/category is required/);
+        }).toThrow(/category is required/);
       });
 
       it('should throw if action not set', () => {
@@ -233,7 +233,7 @@ describe(__filename, () => {
           tracking.sendEvent({
             category: 'whatever',
           });
-        }).toThrowError(/action is required/);
+        }).toThrow(/action is required/);
       });
 
       // This is a way to check how many times window.ga was called with the

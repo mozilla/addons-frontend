@@ -20,7 +20,7 @@ describe(__filename, () => {
     };
 
     it('requires a config key', () => {
-      expect(() => render404IfConfigKeyIsFalse()).toThrowError(
+      expect(() => render404IfConfigKeyIsFalse()).toThrow(
         /configKey cannot be empty/,
       );
     });

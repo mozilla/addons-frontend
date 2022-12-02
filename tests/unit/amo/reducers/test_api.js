@@ -150,7 +150,7 @@ describe(__filename, () => {
     });
 
     it('requires a clientApp value', () => {
-      expect(() => actions.setClientApp('')).toThrowError(/cannot be falsey/);
+      expect(() => actions.setClientApp('')).toThrow(/cannot be falsey/);
     });
   });
 
@@ -167,9 +167,7 @@ describe(__filename, () => {
 
   describe('setAuthToken', () => {
     it('requires a token', () => {
-      expect(() => actions.setAuthToken()).toThrowError(
-        /token cannot be falsey/,
-      );
+      expect(() => actions.setAuthToken()).toThrow(/token cannot be falsey/);
     });
   });
 });

@@ -24,15 +24,13 @@ describe(__filename, () => {
     it('requires a truthy add-on slug', () => {
       const params = { ...defaultParams };
       delete params.addonSlug;
-      expect(() => fetchReviews(params)).toThrowError(
-        /addonSlug cannot be empty/,
-      );
+      expect(() => fetchReviews(params)).toThrow(/addonSlug cannot be empty/);
     });
 
     it('requires a truthy error handler ID', () => {
       const params = { ...defaultParams };
       delete params.errorHandlerId;
-      expect(() => fetchReviews(params)).toThrowError(
+      expect(() => fetchReviews(params)).toThrow(
         /errorHandlerId cannot be empty/,
       );
     });
@@ -73,7 +71,7 @@ describe(__filename, () => {
 
   describe('setInternalReview', () => {
     it('requires a truthy review', () => {
-      expect(() => setInternalReview()).toThrowError(/review cannot be empty/);
+      expect(() => setInternalReview()).toThrow(/review cannot be empty/);
     });
 
     it('creates an action with the exact review object', () => {
