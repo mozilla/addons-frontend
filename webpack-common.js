@@ -129,10 +129,7 @@ export function getPlugins({ withBrowserWindow = true } = {}) {
       failOnError: true,
     }),
     // This allow us to exclude locales for other apps being built.
-    new webpack.ContextReplacementPlugin(
-      /locale$/,
-      new RegExp(`^\\.\\/.*?\\/amo\\.js$`),
-    ),
+    new webpack.ContextReplacementPlugin(/locale$/, /`^\.\/.*?\/amo\.js$/),
   ];
 
   if (withBrowserWindow) {
