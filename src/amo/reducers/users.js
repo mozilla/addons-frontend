@@ -649,7 +649,8 @@ type Action =
 
 const reducer = (
   state: UsersState = initialState,
-  action: Action,
+  // $FlowIgnore
+  action: Action = {},
   _config: typeof config = config,
 ): UsersState => {
   switch (action.type) {

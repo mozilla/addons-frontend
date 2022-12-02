@@ -137,7 +137,8 @@ type Action =
 
 const reducer = (
   state: RecommendationsState = initialState,
-  action: Action,
+  // $FlowIgnore
+  action: Action = {},
 ): RecommendationsState => {
   switch (action.type) {
     case SET_LANG:

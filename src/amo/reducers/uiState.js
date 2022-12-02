@@ -43,7 +43,8 @@ type UIStateActions = SetUIStateAction;
 
 export default function uiStateReducer(
   state: UIStateState = initialState,
-  action: UIStateActions,
+  // $FlowIgnore
+  action: UIStateActions = {},
 ): UIStateState {
   switch (action.type) {
     case SET_UI_STATE: {

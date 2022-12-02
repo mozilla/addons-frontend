@@ -72,7 +72,8 @@ type Action =
 
 export default function siteReducer(
   state: SiteState = initialState,
-  action: Action,
+  // $FlowIgnore
+  action: Action = {},
 ): SiteState {
   switch (action.type) {
     case LOAD_SITE_STATUS:
