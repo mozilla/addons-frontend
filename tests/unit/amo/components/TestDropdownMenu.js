@@ -259,13 +259,14 @@ describe(__filename, () => {
     it('renders a button with a title', async () => {
       const onClick = jest.fn();
       const title = 'some title';
+      const buttonText = 'A button with title';
       await renderWithItems(
         <DropdownMenuItem onClick={onClick} title={title}>
-          A button with title
+          {buttonText}
         </DropdownMenuItem>,
       );
 
-      expect(screen.getByRole('button', { name: title })).toHaveAttribute(
+      expect(screen.getByRole('button', { name: buttonText })).toHaveAttribute(
         'title',
         title,
       );
