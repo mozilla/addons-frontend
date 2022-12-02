@@ -64,8 +64,6 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
     }
   }
 
-  i18n: I18nType;
-
   // Generates Permission components for a list of host permissions. If we have 4 or
   // fewer, display them all, otherwise display the first 3 followed by an item
   // that says "...plus N others".

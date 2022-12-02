@@ -153,14 +153,13 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
           'Rating-selected-star': isSelected,
           'Rating-half-star': halfStar,
         }),
-        key: `rating-${thisRating}`,
         onClick: undefined,
         onMouseEnter: () => this.onHoverStar(thisRating),
         title,
       };
 
       if (readOnly) {
-        return <div {...props} />;
+        return <div key={`rating-${thisRating}`} {...props} />;
       }
 
       if (!this.isLoading()) {
