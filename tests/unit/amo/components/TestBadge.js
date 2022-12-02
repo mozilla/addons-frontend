@@ -48,6 +48,6 @@ describe(__filename, () => {
   it('throws an error if invalid type is supplied', () => {
     expect(() => {
       render(<Badge type="invalid" label="foo" />);
-    }).toThrowError(/Invalid badge type given: "invalid"/);
+    }).toThrow(/Invalid badge type given: "invalid"/);
   });
 });

@@ -304,6 +304,6 @@ describe(__filename, () => {
           },
         },
       ),
-    ).toThrowError(/no add-on with guid my-addon@me.com found/);
+    ).toThrow(/no add-on with guid my-addon@me.com found/);
   });
 });

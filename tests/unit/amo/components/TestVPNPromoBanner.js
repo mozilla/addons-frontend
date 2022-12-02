@@ -255,7 +255,7 @@ describe(__filename, () => {
 
     expect(() => {
       render({ _localStorage });
-    }).toThrowError(/A non-number was stored in VPNPromoImpressionCount/);
+    }).toThrow(/A non-number was stored in VPNPromoImpressionCount/);
   });
 
   describe('tracking', () => {

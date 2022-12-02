@@ -66,7 +66,7 @@ describe(__filename, () => {
   });
 
   it('throws an error for invalid styleSize', () => {
-    expect(() => render({ styleSize: 'x-large' })).toThrowError(
+    expect(() => render({ styleSize: 'x-large' })).toThrow(
       /styleSize=x-large is not a valid value; possible values: small,/,
     );
   });

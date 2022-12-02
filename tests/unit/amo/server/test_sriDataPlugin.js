@@ -57,6 +57,7 @@ describe(__filename, () => {
     });
 
     return new Promise((resolve, reject) =>
+      // eslint-disable-next-line no-promise-executor-return
       compiler.run((error, stats) => {
         if (error) {
           return reject(error);
@@ -124,7 +125,7 @@ describe(__filename, () => {
   });
 
   it('requires a saveAs parameter', () => {
-    expect(() => new SriDataPlugin()).toThrowError(
+    expect(() => new SriDataPlugin()).toThrow(
       /saveAs parameter cannot be empty/,
     );
   });

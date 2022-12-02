@@ -1217,6 +1217,7 @@ export async function matchingSagaAction(
     }
 
     // Yield a tick to the saga.
+    // eslint-disable-next-line no-promise-executor-return
     await new Promise((resolve) => globalSetTimeout(resolve, 1));
   }
 

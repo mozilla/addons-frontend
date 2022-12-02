@@ -91,6 +91,7 @@ describe(__filename, () => {
       // allowing the `autocompleteCancel()` to be handled. The delay does not
       // really matter since cancellation is expected as soon as
       // AUTOCOMPLETE_CANCELLED is fired.
+      // eslint-disable-next-line no-promise-executor-return
       .returns(new Promise((resolve) => setTimeout(resolve, 500)));
 
     _autocompleteStart({ filters: {} });
@@ -118,6 +119,7 @@ describe(__filename, () => {
       // allowing the `autocompleteCancel()` to be handled. The delay does not
       // really matter since cancellation is expected as soon as
       // AUTOCOMPLETE_CANCELLED is fired.
+      // eslint-disable-next-line no-promise-executor-return
       .returns(new Promise((resolve) => setTimeout(resolve, 500)));
 
     // This configures the API for the second autocomplete start.

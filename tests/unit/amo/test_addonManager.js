@@ -359,7 +359,7 @@ describe(__filename, () => {
 
       expect(() => {
         handleChangeEvent({ type: 'whatevs' });
-      }).toThrowError(/Unknown global event/);
+      }).toThrow(/Unknown global event/);
     });
 
     it('listens to onOperationCancelled', () => {

@@ -170,13 +170,13 @@ describe(__filename, () => {
   it('throws for unknown static type', () => {
     expect(() => {
       getStatic({ filePath: 'amo-foo', type: 'whatever', includeSri: false });
-    }).toThrowError('Unknown static type');
+    }).toThrow('Unknown static type');
   });
 
   it.each(['css', 'js'])('throws for missing SRI data', (type) => {
     expect(() => {
       getStatic({ filePath: 'amo-blah', type, includeSri: true, sriData: {} });
-    }).toThrowError(/SRI Data is missing/);
+    }).toThrow(/SRI Data is missing/);
   });
 
   it('does not render empty noscript styles', () => {
