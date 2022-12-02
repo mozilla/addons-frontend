@@ -60,9 +60,15 @@
       "methods": ["fatal", "info", "error", "warn"]
     }],
     "react/default-props-match-prop-types": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-no-useless-fragment" : ["error", { allowExpressions: true }],
+    "react/no-unstable-nested-components": ["error", { allowAsProps: true }],
     // This rule is disabled because it outputs a lot of false positives, see:
     // https://github.com/benmosher/eslint-plugin-import/issues/1343
     "import/no-cycle": "off",
+    // This rule is disabled because it outputs a lot of false positives, see:
+    // https://github.com/import-js/eslint-plugin-import/issues/2181
+    "import/no-import-module-exports": "off",
     "jest/expect-expect": ["warn", {
       "assertFunctionNames": [
         "expect",

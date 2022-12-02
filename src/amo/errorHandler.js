@@ -222,9 +222,9 @@ export const withFixedErrorHandler = ({ fileName, extractId }) => {
  * )(SomeComponent);
  */
 export function withRenderedErrorHandler({ name, id } = {}) {
-  type ErrorBannerProps = {
+  type ErrorBannerProps = {|
     errorHandler: ErrorHandlerType,
-  };
+  |};
 
   return (WrappedComponent) => {
     function ErrorBanner(props: ErrorBannerProps) {

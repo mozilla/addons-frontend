@@ -141,7 +141,7 @@ export default class ServerHtml extends Component {
     // Preload variable font(s) with `subset` in their name.
     // Note the .* after '.var': this is for the contenthash that is added in
     // production builds.
-    const subsetFontPattern = new RegExp(`-subset-.*\\.var.*\\.woff2$`, 'i');
+    const subsetFontPattern = /-subset-.*\.var.*\.woff2$/i;
 
     return Object.keys(assets.assets)
       .filter((asset) => subsetFontPattern.test(asset))
