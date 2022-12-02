@@ -310,11 +310,9 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
               </h2>
               {loading ? (
                 <div className="HeroRecommendation-body">
-                  <>
-                    <LoadingText width={100} />
-                    <br />
-                    <LoadingText width={80} />
-                  </>
+                  <LoadingText width={100} />
+                  <br />
+                  <LoadingText width={80} />
                 </div>
               ) : (
                 <div

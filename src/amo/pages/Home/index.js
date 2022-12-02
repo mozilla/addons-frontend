@@ -226,20 +226,18 @@ export class HomeBase extends React.Component {
             )}
 
             {isDesktopSite ? (
-              <>
-                <Card
-                  className="Home-SubjectShelf Home-CuratedThemes"
-                  header={themesHeader}
-                >
-                  <div className="Home-SubjectShelf-text-wrapper">
-                    <h2 className="Home-SubjectShelf-subheading">
-                      {themesHeader}
-                    </h2>
-                  </div>
+              <Card
+                className="Home-SubjectShelf Home-CuratedThemes"
+                header={themesHeader}
+              >
+                <div className="Home-SubjectShelf-text-wrapper">
+                  <h2 className="Home-SubjectShelf-subheading">
+                    {themesHeader}
+                  </h2>
+                </div>
 
-                  {this.renderCuratedThemes()}
-                </Card>
-              </>
+                {this.renderCuratedThemes()}
+              </Card>
             ) : null}
           </div>
         </div>
