@@ -68,7 +68,7 @@ export default {
   plugins: [
     // Don't generate modules for locale files.
     new webpack.IgnorePlugin({
-      resourceRegExp: new RegExp(`locale\\/.*\\/amo\\.js$`),
+      resourceRegExp: /locale\/.*\/amo\.js$/,
     }),
     ...webpackConfig.plugins,
   ],
