@@ -163,39 +163,37 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
   return (
     <li className="AddonVersionCard">
       <div className="AddonVersionCard-content">
-        <>
-          {headerText && (
-            <h1 className="AddonVersionCard-header">{headerText}</h1>
-          )}
+        {headerText && (
+          <h1 className="AddonVersionCard-header">{headerText}</h1>
+        )}
 
-          {isCurrentVersion && (
-            <>
-              <AddonInstallError error={installError} />
-              <AddonCompatibilityError addon={addon} />
-            </>
-          )}
+        {isCurrentVersion && (
+          <>
+            <AddonInstallError error={installError} />
+            <AddonCompatibilityError addon={addon} />
+          </>
+        )}
 
-          <h2 className="AddonVersionCard-version">{versionNumber}</h2>
-          {getFileInfoText()}
+        <h2 className="AddonVersionCard-version">{versionNumber}</h2>
+        {getFileInfoText()}
 
-          {versionInfo && (
-            <div className="AddonVersionCard-compatibility">
-              {versionInfo.compatibilityString}
-            </div>
-          )}
+        {versionInfo && (
+          <div className="AddonVersionCard-compatibility">
+            {versionInfo.compatibilityString}
+          </div>
+        )}
 
-          {version ? (
-            <div
-              className="AddonVersionCard-releaseNotes"
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={sanitizeUserHTML(version.releaseNotes)}
-            />
-          ) : (
-            <LoadingText />
-          )}
+        {version ? (
+          <div
+            className="AddonVersionCard-releaseNotes"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={sanitizeUserHTML(version.releaseNotes)}
+          />
+        ) : (
+          <LoadingText />
+        )}
 
-          {licenseSection}
-        </>
+        {licenseSection}
       </div>
 
       {addon && <InstallWarning addon={addon} />}

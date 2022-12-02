@@ -170,18 +170,16 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
 
       return (
         // eslint-disable-next-line react/jsx-key
-        <>
-          <button
-            aria-describedby={id}
-            type="button"
-            value={thisRating}
-            {...props}
-          >
-            <span id={id} className="visually-hidden">
-              {title}
-            </span>
-          </button>
-        </>
+        <button
+          aria-describedby={id}
+          type="button"
+          value={thisRating}
+          {...props}
+        >
+          <span id={id} className="visually-hidden">
+            {title}
+          </span>
+        </button>
       );
     });
   }
