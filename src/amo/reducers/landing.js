@@ -105,7 +105,8 @@ type Action = GetLandingAction | LoadLandingAction;
 
 export default function reducer(
   state: LandingState = initialState,
-  action: Action,
+  // $FlowIgnore
+  action: Action = {},
 ): LandingState {
   switch (action.type) {
     case SET_LANG:

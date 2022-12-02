@@ -343,7 +343,8 @@ type Action = FetchVersionAction | FetchVersionsAction | LoadVersionsAction;
 
 const reducer = (
   state: VersionsState = initialState,
-  action: Action,
+  // $FlowIgnore
+  action: Action = {},
 ): VersionsState => {
   switch (action.type) {
     case SET_LANG:
