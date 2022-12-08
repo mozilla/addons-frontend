@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-22 17:23+0000\n"
-"PO-Revision-Date: 2022-12-08 09:41+0000\n"
+"PO-Revision-Date: 2022-12-08 10:00+0000\n"
 "Last-Translator: Théo Chevalier <theochevalier@pm.me>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -885,11 +885,11 @@ msgstr "L’avis n’a pas été trouvé."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr "Ce message est un rapport de bogue ou une demande d’assistance"
+msgstr "Ce message est un rapport de bug ou une demande d’assistance"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr "Signalé comme un rapport de bogue ou une demande d’assistance"
+msgstr "Signalé comme un rapport de bug ou une demande d’assistance"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
