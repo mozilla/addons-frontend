@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-22 17:23+0000\n"
-"PO-Revision-Date: 2022-12-08 10:00+0000\n"
+"PO-Revision-Date: 2022-12-08 10:27+0000\n"
 "Last-Translator: Théo Chevalier <theochevalier@pm.me>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -2683,15 +2683,15 @@ msgstr "Compte de %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:594
 msgid "Email Address"
-msgstr "Adresse électronique"
+msgstr "Adresse e-mail"
 
 #: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Email address cannot be changed here"
-msgstr "L’adresse électronique ne peut pas être changée depuis cet endroit"
+msgstr "L’adresse e-mail ne peut pas être changée depuis cet endroit"
 
 #: src/amo/pages/UserProfileEdit/index.js:613
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "Vous pouvez modifier votre adresse électronique depuis votre compte Firefox. %(startLink)sBesoin d’aide ?%(endLink)s"
+msgstr "Vous pouvez modifier votre adresse e-mail depuis votre compte Firefox. %(startLink)sBesoin d’aide ?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:630
 msgid "Manage Firefox Accounts…"
@@ -2785,8 +2785,7 @@ msgstr ""
 #: src/amo/pages/UserProfileEdit/index.js:871
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
 msgstr ""
-"Quand vous utiliserez à nouveau cette adresse électronique pour vous identifier sur le site addons.mozilla.org, votre profil pour les modules de Firefox n’aura accès à aucun de ses contenus "
-"précédents."
+"Quand vous utiliserez à nouveau cette adresse e-mail pour vous identifier sur le site addons.mozilla.org, votre profil pour les modules de Firefox n’aura accès à aucun de ses contenus précédents."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:103
 msgid "Unsubscribe"
@@ -2799,7 +2798,7 @@ msgstr "Désinscription réussie !"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr "L’adresse électronique %(strongStart)s%(email)s%(strongEnd)s ne recevra plus de messages lorsque :"
+msgstr "L’adresse e-mail %(strongStart)s%(email)s%(strongEnd)s ne recevra plus de messages lorsque :"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
