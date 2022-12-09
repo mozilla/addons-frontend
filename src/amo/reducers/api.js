@@ -142,6 +142,7 @@ type Action =
   | LogOutUserAction;
 
 export default function api(
+  // eslint-disable-next-line default-param-last
   state: Exact<ApiState> = initialApiState,
   action: Action,
 ): Exact<ApiState> {

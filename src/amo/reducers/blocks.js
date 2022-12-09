@@ -110,6 +110,7 @@ export const createInternalBlock = (
 type Action = FetchBlockAction | AbortFetchBlockAction | LoadBlockAction;
 
 const reducer = (
+  // eslint-disable-next-line default-param-last
   state: BlocksState = initialState,
   action: Action,
 ): BlocksState => {

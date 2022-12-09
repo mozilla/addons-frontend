@@ -136,6 +136,7 @@ type Action =
   | LoadRecommendationsAction;
 
 const reducer = (
+  // eslint-disable-next-line default-param-last
   state: RecommendationsState = initialState,
   action: Action,
 ): RecommendationsState => {

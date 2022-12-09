@@ -1042,6 +1042,7 @@ type Action =
   | UpdateCollectionAction;
 
 const reducer = (
+  // eslint-disable-next-line default-param-last
   state: CollectionsState = initialState,
   action: Action,
 ): CollectionsState => {

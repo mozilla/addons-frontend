@@ -29,6 +29,7 @@ export const storeExperimentVariant = ({
 type Action = StoreExperimentVariantAction;
 
 export default function experimentsReducer(
+  // eslint-disable-next-line default-param-last
   state: ExperimentsState = initialState,
   action: Action,
 ): ExperimentsState {

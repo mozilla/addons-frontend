@@ -348,6 +348,7 @@ type Action =
   | UpdateRatingCountsAction;
 
 export default function addonsReducer(
+  // eslint-disable-next-line default-param-last
   state: AddonsState = initialState,
   action: Action,
 ): AddonsState {

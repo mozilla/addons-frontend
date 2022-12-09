@@ -71,6 +71,7 @@ type Action =
   | LoadedPageIsAnonymousAction;
 
 export default function siteReducer(
+  // eslint-disable-next-line default-param-last
   state: SiteState = initialState,
   action: Action,
 ): SiteState {

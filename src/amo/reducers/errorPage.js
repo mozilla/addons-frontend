@@ -48,6 +48,7 @@ export const loadErrorPage = ({
 type Action = LoadErrorPageAction;
 
 export default function errorPage(
+  // eslint-disable-next-line default-param-last
   state: ErrorPageState = initialState,
   action: Action,
 ): ErrorPageState {

@@ -155,6 +155,7 @@ type Action =
   | ShowAddonAbuseReportUIAction;
 
 export default function abuseReducer(
+  // eslint-disable-next-line default-param-last
   state: AbuseState = initialState,
   action: Action,
 ): AbuseState {

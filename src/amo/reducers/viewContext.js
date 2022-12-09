@@ -25,6 +25,7 @@ export type ViewContextActionType = {|
 export const initialState = { context: VIEW_CONTEXT_HOME };
 
 export default function viewContext(
+  // eslint-disable-next-line default-param-last
   state: ViewContextState = initialState,
   action: ViewContextActionType,
 ): ViewContextState {

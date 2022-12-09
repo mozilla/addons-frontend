@@ -42,6 +42,7 @@ export const setUIState = ({
 type UIStateActions = SetUIStateAction;
 
 export default function uiStateReducer(
+  // eslint-disable-next-line default-param-last
   state: UIStateState = initialState,
   action: UIStateActions,
 ): UIStateState {

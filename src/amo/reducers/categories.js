@@ -97,6 +97,7 @@ export function createEmptyCategoryList(): EmptyCategoryListType {
 type Action = FetchCategoriesAction | LoadCategoriesAction;
 
 export default function reducer(
+  // eslint-disable-next-line default-param-last
   state: CategoriesState = initialState,
   action: Action,
 ): CategoriesState {

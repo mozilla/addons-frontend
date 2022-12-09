@@ -104,6 +104,7 @@ export function loadLanding({
 type Action = GetLandingAction | LoadLandingAction;
 
 export default function reducer(
+  // eslint-disable-next-line default-param-last
   state: LandingState = initialState,
   action: Action,
 ): LandingState {
