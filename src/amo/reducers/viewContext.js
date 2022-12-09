@@ -26,8 +26,7 @@ export const initialState = { context: VIEW_CONTEXT_HOME };
 
 export default function viewContext(
   state: ViewContextState = initialState,
-  // $FlowIgnore
-  action: ViewContextActionType = {},
+  action: ViewContextActionType,
 ): ViewContextState {
   switch (action.type) {
     case SET_VIEW_CONTEXT:

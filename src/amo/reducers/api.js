@@ -143,8 +143,7 @@ type Action =
 
 export default function api(
   state: Exact<ApiState> = initialApiState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): Exact<ApiState> {
   switch (action.type) {
     case SET_AUTH_TOKEN:

@@ -218,8 +218,7 @@ type Action = FetchAddonsByAuthorsAction | LoadAddonsByAuthorsAction;
 
 const reducer = (
   state: AddonsByAuthorsState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): AddonsByAuthorsState => {
   switch (action.type) {
     case SET_LANG:

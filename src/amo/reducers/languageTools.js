@@ -88,8 +88,7 @@ type Action = FetchLanguageToolsAction | LoadLanguageToolsAction;
 
 export default function languageToolsReducer(
   state: LanguageToolsState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): LanguageToolsState {
   switch (action.type) {
     case LOAD_LANGUAGE_TOOLS: {

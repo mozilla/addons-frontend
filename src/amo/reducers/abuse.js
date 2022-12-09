@@ -156,8 +156,7 @@ type Action =
 
 export default function abuseReducer(
   state: AbuseState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): AbuseState {
   switch (action.type) {
     case HIDE_ADDON_ABUSE_REPORT_UI: {

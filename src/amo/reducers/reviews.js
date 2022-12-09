@@ -431,8 +431,7 @@ type ReviewActionType =
 
 export default function reviewsReducer(
   state: ReviewsState = initialState,
-  // $FlowIgnore
-  action: ReviewActionType = {},
+  action: ReviewActionType,
   {
     _addReviewToState = addReviewToState,
   }: { _addReviewToState: typeof addReviewToState } = {},

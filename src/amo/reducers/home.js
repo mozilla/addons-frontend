@@ -390,8 +390,7 @@ export const createInternalHomeShelves = (
 
 const reducer = (
   state: HomeState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
   _config: typeof config = config,
 ): HomeState => {
   switch (action.type) {

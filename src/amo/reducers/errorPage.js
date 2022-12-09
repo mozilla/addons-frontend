@@ -49,8 +49,7 @@ type Action = LoadErrorPageAction;
 
 export default function errorPage(
   state: ErrorPageState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): ErrorPageState {
   const { payload } = action;
 

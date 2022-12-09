@@ -30,8 +30,7 @@ type Action = StoreExperimentVariantAction;
 
 export default function experimentsReducer(
   state: ExperimentsState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): ExperimentsState {
   switch (action.type) {
     case STORE_EXPERIMENT_VARIANT: {

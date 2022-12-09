@@ -160,8 +160,7 @@ export const initialState: UserAbuseReportsState = {
 
 export default function userAbuseReportReducer(
   state: UserAbuseReportsState = initialState,
-  // $FlowIgnore
-  action: UserAbuseReportActionType = {},
+  action: UserAbuseReportActionType,
 ): UserAbuseReportsState {
   switch (action.type) {
     case ABORT_USER_ABUSE_REPORT: {

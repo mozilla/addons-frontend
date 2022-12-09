@@ -85,8 +85,7 @@ export const setInstallError = ({
 
 export default function installations(
   state: InstallationsState = {},
-  // $FlowIgnore
-  { type, payload }: InstallationAction = {},
+  { type, payload }: InstallationAction,
 ): InstallationsState {
   function updateAddon(newProps: Object): InstalledAddon {
     const { guid } = payload;

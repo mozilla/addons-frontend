@@ -94,8 +94,7 @@ type Action = AbortSearchAction | SearchStartAction | SearchLoadAction;
 
 export default function search(
   state: SearchState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): SearchState {
   switch (action.type) {
     case SET_LANG:

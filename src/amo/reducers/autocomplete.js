@@ -121,8 +121,7 @@ type Action =
 
 export default function reducer(
   state: AutocompleteState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): AutocompleteState {
   switch (action.type) {
     case AUTOCOMPLETE_CANCELLED:

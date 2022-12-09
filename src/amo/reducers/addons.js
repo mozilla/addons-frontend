@@ -349,8 +349,7 @@ type Action =
 
 export default function addonsReducer(
   state: AddonsState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): AddonsState {
   switch (action.type) {
     case SET_LANG:

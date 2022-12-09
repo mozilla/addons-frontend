@@ -1043,8 +1043,7 @@ type Action =
 
 const reducer = (
   state: CollectionsState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): CollectionsState => {
   switch (action.type) {
     case FETCH_CURRENT_COLLECTION:

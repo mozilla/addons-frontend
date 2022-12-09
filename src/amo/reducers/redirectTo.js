@@ -57,8 +57,7 @@ type Action = SendServerRedirectAction;
 
 const reducer = (
   state: RedirectToState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): RedirectToState => {
   switch (action.type) {
     case SEND_SERVER_REDIRECT: {

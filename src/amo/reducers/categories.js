@@ -98,8 +98,7 @@ type Action = FetchCategoriesAction | LoadCategoriesAction;
 
 export default function reducer(
   state: CategoriesState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): CategoriesState {
   switch (action.type) {
     case FETCH_CATEGORIES:

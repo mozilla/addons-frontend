@@ -111,8 +111,7 @@ type Action = FetchBlockAction | AbortFetchBlockAction | LoadBlockAction;
 
 const reducer = (
   state: BlocksState = initialState,
-  // $FlowIgnore
-  action: Action = {},
+  action: Action,
 ): BlocksState => {
   switch (action.type) {
     case ABORT_FETCH_BLOCK:
