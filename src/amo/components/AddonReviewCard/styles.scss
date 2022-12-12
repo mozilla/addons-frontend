@@ -206,8 +206,12 @@
     width: 100%;
   }
 
+  /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
+
   // stylelint-disable selector-combinator-space-before
-  &.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly):not(.AddonReviewCard-isReply)
+  &.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly):not(
+      .AddonReviewCard-isReply
+    )
     > .AddonReviewCard-container {
     background-color: transparentize($blue-50, 0.95);
     border-radius: $border-radius-default;
@@ -223,7 +227,9 @@
   }
 }
 
-.AddonReviewCard:not(.AddonReviewCard-slim).AddonReviewCard-confirmDeleteDialog {
+.AddonReviewCard:not(
+    .AddonReviewCard-slim
+  ).AddonReviewCard-confirmDeleteDialog {
   flex-flow: column wrap;
 
   .Button.ConfirmationDialog-cancel-button {
