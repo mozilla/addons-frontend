@@ -66,6 +66,7 @@ type PropsFromState = {|
   loading: boolean,
   pageSize: string | null,
   results: Array<AddonType | CollectionAddonType>,
+  receivedPageCount: number,
 |};
 
 type InternalProps = {|
@@ -246,6 +247,7 @@ export class SearchBase extends React.Component<InternalProps> {
       filters,
       loading,
       pageSize,
+      receivedPageCount,
       paginationQueryParams,
       pathname,
       results,
@@ -284,6 +286,7 @@ export class SearchBase extends React.Component<InternalProps> {
           pathname={pathname}
           perPage={Number(pageSize)}
           queryParams={queryParams}
+          receivedPageCount={receivedPageCount}
         />
       ) : null;
 
@@ -314,6 +317,7 @@ const mapStateToProps = (state: AppState): PropsFromState => {
     filtersUsedForResults: state.search.filters,
     loading: state.search.loading,
     pageSize: state.search.pageSize,
+    receivedPageCount: state.search.pageCount,
     results: state.search.results,
   };
 };

@@ -22,6 +22,7 @@ type Props = {|
   pathname?: string,
   perPage: number,
   queryParams?: Object,
+  receivedPageCount?: number,
 |};
 
 type InternalProps = {|
@@ -117,9 +118,12 @@ export class PaginateBase extends React.Component<InternalProps> {
       perPage,
       queryParams,
       showPages,
+      receivedPageCount,
     } = this.props;
 
-    const pageCount = getPageCount({ count, perPage });
+    const pageCount: number =
+      receivedPageCount || getPageCount({ count, perPage });
+
     const thisPage = getCurrentPage(currentPage);
 
     invariant(count !== undefined, 'The count property cannot be undefined');
@@ -174,7 +178,7 @@ export class PaginateBase extends React.Component<InternalProps> {
         <div className="Paginate-page-number">
           {i18n.sprintf(i18n.gettext('Page %(thisPage)s of %(totalPages)s'), {
             thisPage,
-            totalPages: getPageCount({ count, perPage }),
+            totalPages: receivedPageCount || getPageCount({ count, perPage }),
           })}
         </div>
       </div>
