@@ -631,8 +631,7 @@ describe(__filename, () => {
 
       await _fetchAddon({ slug: 'foo' }).then(unexpectedSuccess, (error) => {
         expect(error.message).toMatch(
-          // eslint-disable-next-line prefer-regex-literals
-          new RegExp(`Error calling: /api/${apiVersion}/addons/addon/foo/`),
+          `Error calling: /api/${apiVersion}/addons/addon/foo/`,
         );
       });
     });
@@ -663,8 +662,7 @@ describe(__filename, () => {
         apiURL: `${apiHost}/api/${apiVersion}/addons/addon/123/`,
       });
       expect(error.message).toMatch(
-        // eslint-disable-next-line prefer-regex-literals
-        new RegExp(`Error calling: /api/${apiVersion}/addons/addon/123/`),
+        `Error calling: /api/${apiVersion}/addons/addon/123/`,
       );
     });
 
@@ -674,8 +672,7 @@ describe(__filename, () => {
       });
       // Add a space at the end of the URL to make sure the query string
       // isn't there.
-      // eslint-disable-next-line prefer-regex-literals
-      expect(error.message).toMatch(new RegExp('/api/resource/ '));
+      expect(error.message).toMatch('/api/resource/ ');
     });
 
     it('copes with a missing API URL', () => {
