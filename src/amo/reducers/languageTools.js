@@ -87,6 +87,7 @@ export const createInternalLanguageTool = (
 type Action = FetchLanguageToolsAction | LoadLanguageToolsAction;
 
 export default function languageToolsReducer(
+  // eslint-disable-next-line default-param-last
   state: LanguageToolsState = initialState,
   action: Action,
 ): LanguageToolsState {

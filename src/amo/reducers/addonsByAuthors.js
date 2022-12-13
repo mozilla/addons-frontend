@@ -217,6 +217,7 @@ export const getAddonsForAuthorIds = (
 type Action = FetchAddonsByAuthorsAction | LoadAddonsByAuthorsAction;
 
 const reducer = (
+  // eslint-disable-next-line default-param-last
   state: AddonsByAuthorsState = initialState,
   action: Action,
 ): AddonsByAuthorsState => {

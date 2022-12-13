@@ -32,6 +32,7 @@ describe(__filename, () => {
       if (!skipDevDeps.includes(key)) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(packageJson.devDependencies[key]).toEqual(
+          // eslint-disable-next-line jest/no-conditional-expect
           expect.stringMatching(/^(\^|git)/),
         );
       }

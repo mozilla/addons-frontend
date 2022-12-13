@@ -102,7 +102,7 @@ describe(__filename, () => {
         footerLink: <a href="/some-link">Some link</a>,
         footerText: 'something else',
       });
-    }).toThrowError(/can only specify exactly one of these props/);
+    }).toThrow(/can only specify exactly one of these props/);
   });
 
   it('throws an error if both footerLink and footer props are passed', () => {
@@ -111,7 +111,7 @@ describe(__filename, () => {
         footerLink: <a href="/some-link">Some link</a>,
         footer: 'something else',
       });
-    }).toThrowError(/can only specify exactly one of these props/);
+    }).toThrow(/can only specify exactly one of these props/);
   });
 
   it('throws an error if both footer and footerText props are passed', () => {
@@ -120,7 +120,7 @@ describe(__filename, () => {
         footer: <a href="/some-link">Some link</a>,
         footerText: 'something else',
       });
-    }).toThrowError(/can only specify exactly one of these props/);
+    }).toThrow(/can only specify exactly one of these props/);
   });
 
   it('renders children', () => {

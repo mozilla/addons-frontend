@@ -93,6 +93,7 @@ export function searchLoad({
 type Action = AbortSearchAction | SearchStartAction | SearchLoadAction;
 
 export default function search(
+  // eslint-disable-next-line default-param-last
   state: SearchState = initialState,
   action: Action,
 ): SearchState {

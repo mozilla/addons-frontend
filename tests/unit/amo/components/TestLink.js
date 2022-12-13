@@ -174,7 +174,7 @@ describe(__filename, () => {
   it('throws an error if both `href` and `to` are supplied', () => {
     expect(() => {
       render({ href: '/test', to: '/test' });
-    }).toThrowError(
+    }).toThrow(
       'Cannot use "href" prop and "to" prop in the same Link component',
     );
   });

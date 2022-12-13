@@ -430,6 +430,7 @@ type ReviewActionType =
   | UpdateRatingCountsAction;
 
 export default function reviewsReducer(
+  // eslint-disable-next-line default-param-last
   state: ReviewsState = initialState,
   action: ReviewActionType,
   {

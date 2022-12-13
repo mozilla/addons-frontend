@@ -153,14 +153,13 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
           'Rating-selected-star': isSelected,
           'Rating-half-star': halfStar,
         }),
-        key: `rating-${thisRating}`,
         onClick: undefined,
         onMouseEnter: () => this.onHoverStar(thisRating),
         title,
       };
 
       if (readOnly) {
-        return <div {...props} />;
+        return <div key={`rating-${thisRating}`} {...props} />;
       }
 
       if (!this.isLoading()) {
@@ -171,18 +170,16 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
 
       return (
         // eslint-disable-next-line react/jsx-key
-        <>
-          <button
-            aria-describedby={id}
-            type="button"
-            value={thisRating}
-            {...props}
-          >
-            <span id={id} className="visually-hidden">
-              {title}
-            </span>
-          </button>
-        </>
+        <button
+          aria-describedby={id}
+          type="button"
+          value={thisRating}
+          {...props}
+        >
+          <span id={id} className="visually-hidden">
+            {title}
+          </span>
+        </button>
       );
     });
   }

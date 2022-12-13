@@ -159,6 +159,7 @@ export const initialState: UserAbuseReportsState = {
 };
 
 export default function userAbuseReportReducer(
+  // eslint-disable-next-line default-param-last
   state: UserAbuseReportsState = initialState,
   action: UserAbuseReportActionType,
 ): UserAbuseReportsState {

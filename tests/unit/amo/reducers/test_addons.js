@@ -185,15 +185,13 @@ describe(__filename, () => {
     it('requires an error handler', () => {
       const params = { ...defaultParams };
       delete params.errorHandler;
-      expect(() => fetchAddon(params)).toThrowError(
-        /errorHandler cannot be empty/,
-      );
+      expect(() => fetchAddon(params)).toThrow(/errorHandler cannot be empty/);
     });
 
     it('requires a slug', () => {
       const params = { ...defaultParams };
       delete params.slug;
-      expect(() => fetchAddon(params)).toThrowError(/slug cannot be empty/);
+      expect(() => fetchAddon(params)).toThrow(/slug cannot be empty/);
     });
 
     it('stores a loading state for an add-on', () => {

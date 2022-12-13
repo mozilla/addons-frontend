@@ -401,6 +401,7 @@ describe(__filename, () => {
   describe('makeI18n', () => {
     class FakeJed {
       constructor(i18nData) {
+        // eslint-disable-next-line no-constructor-return
         return i18nData;
       }
     }

@@ -342,6 +342,7 @@ export const getVersionInfo = ({
 type Action = FetchVersionAction | FetchVersionsAction | LoadVersionsAction;
 
 const reducer = (
+  // eslint-disable-next-line default-param-last
   state: VersionsState = initialState,
   action: Action,
 ): VersionsState => {

@@ -9,7 +9,7 @@ describe(__filename, () => {
     jest.useFakeTimers({ legacyFakeTimers: true });
     renderPage({ initialEntries: ['/en-US/firefox/simulate-async-error/'] });
 
-    expect(() => jest.advanceTimersByTime(51)).toThrowError(
+    expect(() => jest.advanceTimersByTime(51)).toThrow(
       /simulated asynchronous error/,
     );
   });

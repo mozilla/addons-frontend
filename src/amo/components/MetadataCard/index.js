@@ -17,7 +17,7 @@ const MetadataCard = ({ className, metadata }: Props): React.Node => {
 
   return (
     <div className={makeClassName('MetadataCard', className)}>
-      {metadata.map(({ content, title } = {}, index) => {
+      {metadata.map(({ content, title } = {}, index = 0) => {
         if (content === undefined) {
           throw new Error('content is required');
         }

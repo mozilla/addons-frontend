@@ -416,7 +416,7 @@ describe(__filename, () => {
         'Select a collection…',
       );
 
-      expect(dispatch).not.toBeCalled();
+      expect(dispatch).not.toHaveBeenCalled();
     });
 
     it('lets you create a new collection by navigating to the collection page', async () => {

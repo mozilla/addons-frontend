@@ -648,6 +648,7 @@ type Action =
   | UpdateUserAccountAction;
 
 const reducer = (
+  // eslint-disable-next-line default-param-last
   state: UsersState = initialState,
   action: Action,
   _config: typeof config = config,

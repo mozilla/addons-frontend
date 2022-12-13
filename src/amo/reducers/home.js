@@ -389,6 +389,7 @@ export const createInternalHomeShelves = (
 };
 
 const reducer = (
+  // eslint-disable-next-line default-param-last
   state: HomeState = initialState,
   action: Action,
   _config: typeof config = config,

@@ -56,6 +56,7 @@ export const sendServerRedirect = ({
 type Action = SendServerRedirectAction;
 
 const reducer = (
+  // eslint-disable-next-line default-param-last
   state: RedirectToState = initialState,
   action: Action,
 ): RedirectToState => {

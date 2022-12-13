@@ -260,7 +260,9 @@ describe(__filename, () => {
   const openFlagMenu = async ({ isReply = false } = {}) =>
     userEvent.click(
       screen.getByRole('button', {
-        name: isReply ? 'Flag this developer response' : 'Flag this review',
+        description: isReply
+          ? 'Flag this developer response'
+          : 'Flag this review',
       }),
     );
 
@@ -309,7 +311,7 @@ describe(__filename, () => {
     });
 
     expect(
-      screen.queryByRole('button', { name: 'Flag this review' }),
+      screen.queryByRole('button', { description: 'Flag this review' }),
     ).not.toBeInTheDocument();
   });
 
@@ -624,7 +626,7 @@ describe(__filename, () => {
     render({ review: _setReview() });
 
     expect(
-      screen.getByRole('button', { name: 'Flag this review' }),
+      screen.getByRole('button', { description: 'Flag this review' }),
     ).toBeInTheDocument();
   });
 
@@ -632,7 +634,7 @@ describe(__filename, () => {
     render({ flaggable: false, review: _setReview() });
 
     expect(
-      screen.queryByRole('button', { name: 'Flag this review' }),
+      screen.queryByRole('button', { description: 'Flag this review' }),
     ).not.toBeInTheDocument();
   });
 
@@ -640,7 +642,7 @@ describe(__filename, () => {
     render({ review: _setReview(fakeRatingOnly) });
 
     expect(
-      screen.queryByRole('button', { name: 'Flag this review' }),
+      screen.queryByRole('button', { description: 'Flag this review' }),
     ).not.toBeInTheDocument();
   });
 
@@ -648,7 +650,9 @@ describe(__filename, () => {
     renderNestedReply();
 
     expect(
-      screen.getByRole('button', { name: 'Flag this developer response' }),
+      screen.getByRole('button', {
+        description: 'Flag this developer response',
+      }),
     ).toBeInTheDocument();
   });
 
@@ -656,10 +660,12 @@ describe(__filename, () => {
     render({ review: null });
 
     expect(
-      screen.queryByRole('button', { name: 'Flag this review' }),
+      screen.queryByRole('button', { description: 'Flag this review' }),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('button', { name: 'Flag this developer response' }),
+      screen.queryByRole('button', {
+        description: 'Flag this developer response',
+      }),
     ).not.toBeInTheDocument();
   });
 
@@ -672,7 +678,7 @@ describe(__filename, () => {
     render({ review });
 
     expect(
-      screen.queryByRole('button', { name: 'Flag this review' }),
+      screen.queryByRole('button', { description: 'Flag this review' }),
     ).not.toBeInTheDocument();
   });
 
@@ -1407,8 +1413,8 @@ describe(__filename, () => {
       expect(await screen.findByText(postText)).toBeInTheDocument();
 
       expect(
-        screen.getByRole('button', { name: 'Flag this review' }),
-      ).toHaveTextContent('Flagged');
+        screen.getByRole('button', { name: 'Flagged' }),
+      ).toBeInTheDocument();
     });
 
     it('renders loading text while in progress', async () => {
@@ -1459,7 +1465,7 @@ describe(__filename, () => {
         // AddonReviewCard passes 'AddonReviewCard-control' as the openerClass to
         // FlagReviewMenu.
         const flagButton = screen.getByRole('button', {
-          name: 'Flag this review',
+          description: 'Flag this review',
         });
         expect(flagButton).toHaveClass('AddonReviewCard-control');
 
@@ -1516,7 +1522,7 @@ describe(__filename, () => {
         render({ review });
 
         expect(
-          screen.getByRole('button', { name: 'Flag this review' }),
+          screen.getByRole('button', { description: 'Flag this review' }),
         ).toHaveTextContent('Flag');
       });
     });

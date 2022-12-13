@@ -63,6 +63,7 @@ export class DropdownMenuBase extends React.Component<InternalProps, State> {
     }
   };
 
+  // eslint-disable-next-line react/no-unused-class-component-methods
   handleClickOutside: () => void = () => {
     this.setState({ buttonIsActive: false });
   };

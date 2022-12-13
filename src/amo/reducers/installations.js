@@ -84,6 +84,7 @@ export const setInstallError = ({
 };
 
 export default function installations(
+  // eslint-disable-next-line default-param-last
   state: InstallationsState = {},
   { type, payload }: InstallationAction,
 ): InstallationsState {

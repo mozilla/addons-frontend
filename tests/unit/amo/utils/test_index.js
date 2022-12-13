@@ -314,7 +314,7 @@ describe(__filename, () => {
         // "theme" is not a valid pluralAddonType mapping; it should
         // be "themes".
         apiAddonType('theme');
-      }).toThrowError('"theme" not found in API_ADDON_TYPES_MAPPING');
+      }).toThrow('"theme" not found in API_ADDON_TYPES_MAPPING');
     });
 
     // See:
@@ -322,7 +322,7 @@ describe(__filename, () => {
     it('does not return a false positive on a method', () => {
       expect(() => {
         apiAddonType('hasOwnProperty');
-      }).toThrowError('"hasownproperty" not found in API_ADDON_TYPES_MAPPING');
+      }).toThrow('"hasownproperty" not found in API_ADDON_TYPES_MAPPING');
     });
 
     // See https://github.com/mozilla/addons-frontend/issues/11788
@@ -609,7 +609,7 @@ describe(__filename, () => {
       expect(() => {
         // "theme" is not a valid visible addonType; it should be "themes".
         visibleAddonType('theme');
-      }).toThrowError('"theme" not found in VISIBLE_ADDON_TYPES_MAPPING');
+      }).toThrow('"theme" not found in VISIBLE_ADDON_TYPES_MAPPING');
     });
 
     // See:
@@ -617,9 +617,7 @@ describe(__filename, () => {
     it('does not return a false positive on a method', () => {
       expect(() => {
         visibleAddonType('hasOwnProperty');
-      }).toThrowError(
-        '"hasownproperty" not found in VISIBLE_ADDON_TYPES_MAPPING',
-      );
+      }).toThrow('"hasownproperty" not found in VISIBLE_ADDON_TYPES_MAPPING');
     });
 
     // See https://github.com/mozilla/addons-frontend/issues/11788

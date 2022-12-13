@@ -28,7 +28,7 @@ describe(__filename, () => {
     it('throws if key is missing', () => {
       expect(() => {
         config.get('missing-key');
-      }).toThrowError(/Key "missing-key" was not found in clientConfig/);
+      }).toThrow(/Key "missing-key" was not found in clientConfig/);
     });
   });
 

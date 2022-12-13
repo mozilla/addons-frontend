@@ -66,8 +66,6 @@ type Props = {|
 |};
 
 export class AppBase extends React.Component<Props> {
-  scheduledLogout: TimeoutID;
-
   static defaultProps: DefaultProps = {
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
