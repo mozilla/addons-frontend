@@ -41,6 +41,7 @@ describe(__filename, () => {
       expect(newState.loading).toBe(false);
       expect(newState.results).toEqual([]);
       expect(newState.count).toEqual(0);
+      expect(newState.pageCount).toEqual(0);
     });
   });
 
@@ -57,6 +58,7 @@ describe(__filename, () => {
       expect(state.loading).toBe(true);
       expect(state.results).toEqual([]);
       expect(state.count).toEqual(0);
+      expect(state.pageCount).toEqual(0);
     });
   });
 
