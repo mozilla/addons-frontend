@@ -55,7 +55,7 @@ describe(__filename, () => {
       sagaTester.dispatch(fetchSiteStatus());
       sagaTester.dispatch(END); // stop the saga.
 
-      return rootTask.done.then(() => {
+      return rootTask.toPromise().then(() => {
         mockApi.verify();
       });
     });

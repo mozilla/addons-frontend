@@ -1,7 +1,6 @@
 /* @flow */
 import invariant from 'invariant';
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { delay } from 'redux-saga/lib/internal/utils';
+import { call, delay, put, select, takeLatest } from 'redux-saga/effects';
 
 import {
   deleteReview,

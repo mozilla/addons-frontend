@@ -1,9 +1,8 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
-import { takeEvery } from 'redux-saga';
 import SagaTester from 'redux-saga-tester';
-import { put, select } from 'redux-saga/effects';
+import { put, select, takeEvery } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import apiReducer from 'amo/reducers/api';
