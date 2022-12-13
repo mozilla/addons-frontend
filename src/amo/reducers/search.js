@@ -116,6 +116,7 @@ export default function search(
         filters: payload.filters,
         loading: true,
         results: [],
+        pageCount: 0,
       };
     }
     case SEARCH_LOADED: {
@@ -138,6 +139,7 @@ export default function search(
         count: 0,
         loading: false,
         results: [],
+        pageCount: 0,
       };
     default:
       return state;

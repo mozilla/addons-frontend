@@ -178,7 +178,7 @@ export class PaginateBase extends React.Component<InternalProps> {
         <div className="Paginate-page-number">
           {i18n.sprintf(i18n.gettext('Page %(thisPage)s of %(totalPages)s'), {
             thisPage,
-            totalPages: receivedPageCount || getPageCount({ count, perPage }),
+            totalPages: pageCount,
           })}
         </div>
       </div>
