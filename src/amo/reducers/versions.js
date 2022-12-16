@@ -407,6 +407,12 @@ const reducer = (
     case SEARCH_LOADED: {
       const { addons, addonsResponse, results } = action.payload;
 
+      // We might have no add-ons at all, e.g., after a collection has been
+      // created.
+      if (!addons && !addonsResponse && !results) {
+        return { ...state };
+      }
+
       let items;
       if (results) {
         items = results;
