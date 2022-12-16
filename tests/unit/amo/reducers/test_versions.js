@@ -484,6 +484,18 @@ describe(__filename, () => {
           }),
         ).toEqual(createInternalVersionWithLang(version));
       });
+
+      it('works when there are no add-ons in the collection', () => {
+        const state = versionsReducer(
+          stateWithLang,
+          loadCurrentCollection({
+            addonsResponse: undefined,
+            detail: createFakeCollectionDetail(),
+          }),
+        );
+
+        expect(getVersionById({ state, id: versionId })).toEqual(null);
+      });
     });
 
     describe('LOAD_CURRENT_COLLECTION_PAGE', () => {
