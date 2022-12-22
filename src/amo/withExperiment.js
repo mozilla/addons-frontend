@@ -212,7 +212,7 @@ export const withExperiment =
       }
 
       readVariantFromCookie() {
-        if (this.cookieIncludesExperiment()) {
+        if (this.isEnabled() && this.cookieIncludesExperiment()) {
           return this.getExperimentsFromCookie()[id];
         }
 
