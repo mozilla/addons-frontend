@@ -1,4 +1,5 @@
 import * as React from 'react';
+import userEvent from '@testing-library/user-event';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import {
@@ -97,6 +98,16 @@ describe(__filename, () => {
     expect(screen.getByClassName('Card-shelf-footer')).toBeInTheDocument();
   });
 
+  it('passes onAddonClick to AddonsCard', async () => {
+    const addons = [createInternalAddonWithLang(fakeAddon)];
+    const onAddonClick = jest.fn();
+    render({ addons, onAddonClick });
+
+    await userEvent.click(screen.getByRole('listitem'));
+
+    expect(onAddonClick).toHaveBeenCalledWith(addons[0]);
+  });
+
   it('overrides the default placeholder value when passed in', () => {
     render({
       addons: [],
@@ -145,6 +156,21 @@ describe(__filename, () => {
     expect(
       screen.queryByRole('link', { name: 'Footer text' }),
     ).not.toBeInTheDocument();
+  });
+
+  it('shows the footer link when there are less add-ons than placeholderCount but alwaysDisplayFooter is true', () => {
+    const addons = [createInternalAddonWithLang(fakeAddon)];
+    render({
+      addons,
+      alwaysDisplayFooter: true,
+      footerLink: '/some-path/',
+      footerText: 'Footer text',
+      placeholderCount: 2,
+    });
+
+    expect(
+      screen.getByRole('link', { name: 'Footer text' }),
+    ).toBeInTheDocument();
   });
 
   it('hides the footer link when there are less add-ons than LANDING_PAGE_THEME_COUNT', () => {
