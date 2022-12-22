@@ -11,6 +11,7 @@ import tracking, {
   getAddonEventCategory,
 } from 'amo/tracking';
 import {
+  ADDON_TYPE_EXTENSION,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
   ENABLE_ACTION,
@@ -26,6 +27,7 @@ import {
   INSTALL_DOWNLOAD_FAILED_ACTION,
   INSTALL_FAILED,
   INSTALL_STARTED_ACTION,
+  INSTALL_TRUSTED_EXTENSION_CATEGORY,
   SET_ENABLE_NOT_AVAILABLE,
   START_DOWNLOAD,
   UNINSTALLED,
@@ -35,7 +37,7 @@ import {
 import * as addonManager from 'amo/addonManager';
 import { getVersionById } from 'amo/reducers/versions';
 import { getDisplayName } from 'amo/utils';
-import { getFileHash } from 'amo/utils/addons';
+import { getFileHash, getPromotedCategory } from 'amo/utils/addons';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AddonType } from 'amo/types/addons';
@@ -120,11 +122,13 @@ type WithInstallHelpersProps = {|
 
 type WithInstallHelpersPropsFromState = {|
   WrappedComponent: React.ComponentType<any>,
+  clientApp: string,
   currentVersion: AddonVersionType | null,
 |};
 
 type WithInstallHelpersDefaultProps = {|
   _addonManager: typeof addonManager,
+  _getPromotedCategory: typeof getPromotedCategory,
   _log: typeof log,
   _tracking: typeof tracking,
 |};
@@ -154,6 +158,7 @@ export type WithInstallHelpersInjectedProps = {|
 export class WithInstallHelpers extends React.Component<WithInstallHelpersInternalProps> {
   static defaultProps: WithInstallHelpersDefaultProps = {
     _addonManager: addonManager,
+    _getPromotedCategory: getPromotedCategory,
     _log: log,
     _tracking: tracking,
   };
@@ -272,8 +277,16 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 
   install(): Promise<void> {
-    const { _addonManager, _log, _tracking, addon, currentVersion, dispatch } =
-      this.props;
+    const {
+      _addonManager,
+      _getPromotedCategory,
+      _log,
+      _tracking,
+      addon,
+      clientApp,
+      currentVersion,
+      dispatch,
+    } = this.props;
 
     invariant(addon, 'need an addon to call install()');
     invariant(currentVersion, 'need a currentVersion to call install()');
@@ -323,6 +336,17 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
           category: getAddonEventCategory(type, INSTALL_ACTION),
           label: guid,
         });
+
+        // If the add-on is trusted, send an additional event for trusted
+        // add-on install.
+        const promotedCategory = _getPromotedCategory({ addon, clientApp });
+        if (addon.type === ADDON_TYPE_EXTENSION && promotedCategory) {
+          _tracking.sendEvent({
+            action: promotedCategory,
+            category: INSTALL_TRUSTED_EXTENSION_CATEGORY,
+            label: guid,
+          });
+        }
       })
       .catch((error) => {
         _log.error(`Install error: ${error}`);
@@ -399,6 +423,7 @@ export const withInstallHelpers = (
 
     return {
       WrappedComponent,
+      clientApp: state.api.clientApp,
       currentVersion,
     };
   };

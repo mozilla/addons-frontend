@@ -215,6 +215,7 @@ export const ENABLE_THEME_CATEGORY = 'AMO Theme Activation';
 
 export const INSTALL_EXTENSION_CATEGORY = 'AMO Addon Installs';
 export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
+export const INSTALL_TRUSTED_EXTENSION_CATEGORY = 'AMO Trusted Addon Installs';
 
 export const INSTALL_CANCELLED_EXTENSION_CATEGORY =
   'AMO Addon Installs Cancelled';
