@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-22 17:23+0000\n"
-"PO-Revision-Date: 2022-12-26 17:26+0000\n"
+"PO-Revision-Date: 2022-12-26 18:52+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1044,11 +1044,11 @@ msgstr "Nástroje"
 
 #: src/amo/components/Header/index.js:107
 msgid "Submit a New Add-on"
-msgstr "Pridanie nového doplnku"
+msgstr "Pridať nový doplnok"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
-msgstr "Pridanie novej témy vzhľadu"
+msgstr "Pridať novú tému vzhľadu"
 
 #: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
@@ -1814,7 +1814,7 @@ msgstr "Slovníky a jazykové balíky"
 
 #: src/amo/components/SectionLinks/index.js:136
 msgid "Other Browser Sites"
-msgstr "Ostatné stránky prehliadača"
+msgstr "Stránky ostatných prehliadačov"
 
 #: src/amo/components/SectionLinks/index.js:146
 msgid "Add-ons for Android"
