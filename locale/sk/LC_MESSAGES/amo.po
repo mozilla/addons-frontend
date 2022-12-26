@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-22 17:23+0000\n"
-"PO-Revision-Date: 2022-12-26 17:21+0000\n"
+"PO-Revision-Date: 2022-12-26 17:26+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -2706,7 +2706,7 @@ msgstr "Svoju e-mailovú adresu môžete zmeniť vo svojom účte Firefox. %(sta
 
 #: src/amo/pages/UserProfileEdit/index.js:630
 msgid "Manage Firefox Accounts…"
-msgstr "Správa účtu Firefox…"
+msgstr "Spravovať účet Firefox…"
 
 #: src/amo/pages/UserProfileEdit/index.js:638
 msgid "Profile"
