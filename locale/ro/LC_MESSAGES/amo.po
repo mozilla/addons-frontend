@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-22 17:23+0000\n"
+"POT-Creation-Date: 2023-01-03 18:28+0000\n"
 "PO-Revision-Date: 2022-06-25 13:19+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -200,7 +200,7 @@ msgstr "Folosit de"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:672
+#: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Homepage"
 msgstr "Pagină de start"
 
@@ -338,7 +338,7 @@ msgstr "Șterge"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:895
+#: src/amo/pages/UserProfileEdit/index.js:897
 msgid "Cancel"
 msgstr "Renunță"
 
@@ -586,22 +586,22 @@ msgstr "Instalează tema"
 msgid "Add to Firefox"
 msgstr "Adaugă în Firefox"
 
-#: src/amo/components/App/index.js:124
+#: src/amo/components/App/index.js:122
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Suplimente pentru Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:128
+#: src/amo/components/App/index.js:126
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Suplimente pentru Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:136
+#: src/amo/components/App/index.js:134
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Suplimente pentru Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:140
+#: src/amo/components/App/index.js:138
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Suplimente pentru Firefox Android (%(locale)s)"
@@ -3096,12 +3096,12 @@ msgid "User Profile"
 msgstr "Profilul utilizatorului"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:689
+#: src/amo/pages/UserProfileEdit/index.js:691
 msgid "Location"
 msgstr "Locație"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:704
+#: src/amo/pages/UserProfileEdit/index.js:706
 msgid "Occupation"
 msgstr "Ocupație"
 
@@ -3118,7 +3118,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Evaluarea medie a suplimentelor dezvoltatorului"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:728
 msgid "Biography"
 msgstr "Biografie"
 
@@ -3220,37 +3220,37 @@ msgstr ""
 "Îți poți modifica adresa de e-mail pe Conturi Firefox. %(startLink)sAi "
 "nevoie de ajutor?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:630
+#: src/amo/pages/UserProfileEdit/index.js:632
 msgid "Manage Firefox Accounts…"
 msgstr "Gestionează Conturi Firefox…"
 
-#: src/amo/pages/UserProfileEdit/index.js:638
+#: src/amo/pages/UserProfileEdit/index.js:640
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:647
+#: src/amo/pages/UserProfileEdit/index.js:649
 msgid "This field is required"
 msgstr "Acest câmp este obligatoriu"
 
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:653
 msgid "Display Name *"
 msgstr "Nume afișat *"
 
-#: src/amo/pages/UserProfileEdit/index.js:684
+#: src/amo/pages/UserProfileEdit/index.js:686
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 "Acest URL va fi vizibil numai pentru utilizatorii care sunt dezvoltatori."
 
-#: src/amo/pages/UserProfileEdit/index.js:741
+#: src/amo/pages/UserProfileEdit/index.js:743
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 "Unele etichete HTML sunt suportate: %(htmlTags)s. Linkurile sunt interzise."
 
-#: src/amo/pages/UserProfileEdit/index.js:765
+#: src/amo/pages/UserProfileEdit/index.js:767
 msgid "Notifications"
 msgstr "Notificări"
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3259,7 +3259,7 @@ msgstr ""
 "viitoare și evenimente privind dezvoltarea de suplimente. Te rugăm să "
 "selectezi subiectele care te interesează."
 
-#: src/amo/pages/UserProfileEdit/index.js:774
+#: src/amo/pages/UserProfileEdit/index.js:776
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3268,7 +3268,7 @@ msgstr ""
 "evenimente viitoare și evenimente privind dezvoltarea de suplimente. Te "
 "rugăm să selectezi subiectele de care acest utilizator ar putea fi interesat."
 
-#: src/amo/pages/UserProfileEdit/index.js:789
+#: src/amo/pages/UserProfileEdit/index.js:791
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3276,27 +3276,27 @@ msgstr ""
 "Mozilla își rezervă dreptul de a te contacta individual despre probleme "
 "specifice legate de suplimentele găzduite de tine."
 
-#: src/amo/pages/UserProfileEdit/index.js:815
-#: src/amo/pages/UserProfileEdit/index.js:887
+#: src/amo/pages/UserProfileEdit/index.js:817
+#: src/amo/pages/UserProfileEdit/index.js:889
 msgid "Delete My Profile"
 msgstr "Șterge-mi profilul"
 
-#: src/amo/pages/UserProfileEdit/index.js:816
-#: src/amo/pages/UserProfileEdit/index.js:888
+#: src/amo/pages/UserProfileEdit/index.js:818
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete Profile"
 msgstr "Șterge profilul"
 
-#: src/amo/pages/UserProfileEdit/index.js:828
+#: src/amo/pages/UserProfileEdit/index.js:830
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "IMPORTANT: Ștergerea profilului de suplimente Firefox este ireversibilă."
 
-#: src/amo/pages/UserProfileEdit/index.js:831
+#: src/amo/pages/UserProfileEdit/index.js:833
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "IMPORTANT: Ștergerea acestui profil de suplimente Firefox este ireversibilă."
 
-#: src/amo/pages/UserProfileEdit/index.js:840
+#: src/amo/pages/UserProfileEdit/index.js:842
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3306,7 +3306,7 @@ msgstr ""
 "(fotografie, nume de utilizator, nume afișat, localitate, pagină de start, "
 "biografie, ocupație) și preferințele de notificări, recenziile și colecțiile."
 
-#: src/amo/pages/UserProfileEdit/index.js:846
+#: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3316,7 +3316,7 @@ msgstr ""
 "(fotografie, nume de utilizator, nume afișat, localitate, pagină de start, "
 "biografie, ocupație), preferințele de notificări, recenziile și colecțiile."
 
-#: src/amo/pages/UserProfileEdit/index.js:855
+#: src/amo/pages/UserProfileEdit/index.js:857
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3327,7 +3327,7 @@ msgstr ""
 "autor, iar ceilalți autori își vor păstra drepturile de autor asupra "
 "suplimentelor."
 
-#: src/amo/pages/UserProfileEdit/index.js:861
+#: src/amo/pages/UserProfileEdit/index.js:863
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3338,7 +3338,7 @@ msgstr ""
 "utilizatorul va fi șters ca autor, iar ceilalți autori își vor păstra "
 "drepturile de autor asupra suplimentelor."
 
-#: src/amo/pages/UserProfileEdit/index.js:871
+#: src/amo/pages/UserProfileEdit/index.js:873
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "

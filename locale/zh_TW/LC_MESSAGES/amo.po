@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-22 17:23+0000\n"
+"POT-Creation-Date: 2023-01-03 18:28+0000\n"
 "PO-Revision-Date: 2022-06-15 02:58+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -186,7 +186,7 @@ msgstr "可用於"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:672
+#: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Homepage"
 msgstr "首頁"
 
@@ -324,7 +324,7 @@ msgstr "刪除"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:895
+#: src/amo/pages/UserProfileEdit/index.js:897
 msgid "Cancel"
 msgstr "取消"
 
@@ -567,22 +567,22 @@ msgstr "安裝佈景主題"
 msgid "Add to Firefox"
 msgstr "新增至 Firefox"
 
-#: src/amo/components/App/index.js:124
+#: src/amo/components/App/index.js:122
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox 附加元件站（%(locale)s）"
 
-#: src/amo/components/App/index.js:128
+#: src/amo/components/App/index.js:126
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Firefox 附加元件站（%(locale)s）"
 
-#: src/amo/components/App/index.js:136
+#: src/amo/components/App/index.js:134
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Firefox Android 附加元件站（%(locale)s）"
 
-#: src/amo/components/App/index.js:140
+#: src/amo/components/App/index.js:138
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Firefox Android 附加元件站（%(locale)s）"
@@ -2859,12 +2859,12 @@ msgid "User Profile"
 msgstr "使用者資料"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:689
+#: src/amo/pages/UserProfileEdit/index.js:691
 msgid "Location"
 msgstr "地點"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:704
+#: src/amo/pages/UserProfileEdit/index.js:706
 msgid "Occupation"
 msgstr "職業"
 
@@ -2881,7 +2881,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "此開發者的附加元件平均分數"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:728
 msgid "Biography"
 msgstr "自我介紹"
 
@@ -2979,35 +2979,35 @@ msgid ""
 "help?%(endLink)s"
 msgstr "您可到 Firefox 帳號網站修改信箱。%(startLink)s需要幫助嗎？%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:630
+#: src/amo/pages/UserProfileEdit/index.js:632
 msgid "Manage Firefox Accounts…"
 msgstr "管理 Firefox 帳號…"
 
-#: src/amo/pages/UserProfileEdit/index.js:638
+#: src/amo/pages/UserProfileEdit/index.js:640
 msgid "Profile"
 msgstr "個人資料"
 
-#: src/amo/pages/UserProfileEdit/index.js:647
+#: src/amo/pages/UserProfileEdit/index.js:649
 msgid "This field is required"
 msgstr "此欄位必填"
 
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:653
 msgid "Display Name *"
 msgstr "顯示名稱 *"
 
-#: src/amo/pages/UserProfileEdit/index.js:684
+#: src/amo/pages/UserProfileEdit/index.js:686
 msgid "This URL will only be visible for users who are developers."
 msgstr "此網址只會顯示給其他開發者看到。"
 
-#: src/amo/pages/UserProfileEdit/index.js:741
+#: src/amo/pages/UserProfileEdit/index.js:743
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "支援部分 HTML: %(htmlTags)s。不允許使用鏈結。"
 
-#: src/amo/pages/UserProfileEdit/index.js:765
+#: src/amo/pages/UserProfileEdit/index.js:767
 msgid "Notifications"
 msgstr "通知"
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3015,7 +3015,7 @@ msgstr ""
 "有時候 Mozilla 可能會寄給您即將釋出的版本和附加元件活動。請選擇您感興趣的主"
 "題。"
 
-#: src/amo/pages/UserProfileEdit/index.js:774
+#: src/amo/pages/UserProfileEdit/index.js:776
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3023,32 +3023,32 @@ msgstr ""
 "有時候 Mozilla 可能會寄送即將釋出的版本和附加元件活動相關資訊給此使用者。請選"
 "擇這位使用者感興趣的主題。"
 
-#: src/amo/pages/UserProfileEdit/index.js:789
+#: src/amo/pages/UserProfileEdit/index.js:791
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 "Mozilla 保留使用此資訊與您聯絡，詢問關於您放上網的附加元件相關問題的權利。"
 
-#: src/amo/pages/UserProfileEdit/index.js:815
-#: src/amo/pages/UserProfileEdit/index.js:887
+#: src/amo/pages/UserProfileEdit/index.js:817
+#: src/amo/pages/UserProfileEdit/index.js:889
 msgid "Delete My Profile"
 msgstr "刪除我的帳號"
 
-#: src/amo/pages/UserProfileEdit/index.js:816
-#: src/amo/pages/UserProfileEdit/index.js:888
+#: src/amo/pages/UserProfileEdit/index.js:818
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete Profile"
 msgstr "刪除帳號"
 
-#: src/amo/pages/UserProfileEdit/index.js:828
+#: src/amo/pages/UserProfileEdit/index.js:830
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "重要: 刪除您的 Firefox 附加元件站帳號後無法恢復。"
 
-#: src/amo/pages/UserProfileEdit/index.js:831
+#: src/amo/pages/UserProfileEdit/index.js:833
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "重要: 刪除此 Firefox 附加元件站帳號後無法恢復。"
 
-#: src/amo/pages/UserProfileEdit/index.js:840
+#: src/amo/pages/UserProfileEdit/index.js:842
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3057,7 +3057,7 @@ msgstr ""
 "將永久刪除您的資料，包含個人詳細資料（大頭照、使用者名稱、顯示名稱、所在地"
 "點、首頁、自傳、工作）、通知偏好設定、評論與收藏集資訊。"
 
-#: src/amo/pages/UserProfileEdit/index.js:846
+#: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3066,7 +3066,7 @@ msgstr ""
 "將永久刪除該使用者的資料，包含個人詳細資料（大頭照、使用者名稱、顯示名稱、所"
 "在地點、首頁、自傳、工作）、通知偏好設定、評論與收藏集資訊。"
 
-#: src/amo/pages/UserProfileEdit/index.js:855
+#: src/amo/pages/UserProfileEdit/index.js:857
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3075,7 +3075,7 @@ msgstr ""
 "若您是任何附加元件的唯一作者，這些附加元件也將被刪除。若您與其他作者共享附加"
 "元件的所有權，則將從該元件的作者名單中移除，其餘的作者將繼續擁有該附加元件。"
 
-#: src/amo/pages/UserProfileEdit/index.js:861
+#: src/amo/pages/UserProfileEdit/index.js:863
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3085,7 +3085,7 @@ msgstr ""
 "者共享附加元件的所有權，則將從該元件的作者名單中移除，其餘的作者將繼續擁有該"
 "附加元件。"
 
-#: src/amo/pages/UserProfileEdit/index.js:871
+#: src/amo/pages/UserProfileEdit/index.js:873
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "

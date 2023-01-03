@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-22 17:23+0000\n"
+"POT-Creation-Date: 2023-01-03 18:28+0000\n"
 "PO-Revision-Date: 2022-05-22 21:28+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -197,7 +197,7 @@ msgstr "Utilitzat per"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:672
+#: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Homepage"
 msgstr "Pàgina d'inici"
 
@@ -336,7 +336,7 @@ msgstr "Suprimeix"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:895
+#: src/amo/pages/UserProfileEdit/index.js:897
 msgid "Cancel"
 msgstr "Cancel·la"
 
@@ -591,22 +591,22 @@ msgstr "Instal·la el tema"
 msgid "Add to Firefox"
 msgstr "Afegeix al Firefox"
 
-#: src/amo/components/App/index.js:124
+#: src/amo/components/App/index.js:122
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Complements per al Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:128
+#: src/amo/components/App/index.js:126
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Complements per al Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:136
+#: src/amo/components/App/index.js:134
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Complements per al Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:140
+#: src/amo/components/App/index.js:138
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Complements per al Firefox Android (%(locale)s)"
@@ -3056,12 +3056,12 @@ msgid "User Profile"
 msgstr "Perfil d’usuari"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:689
+#: src/amo/pages/UserProfileEdit/index.js:691
 msgid "Location"
 msgstr "Ubicació"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:704
+#: src/amo/pages/UserProfileEdit/index.js:706
 msgid "Occupation"
 msgstr "Ocupació"
 
@@ -3078,7 +3078,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Valoració mitjana dels complements del desenvolupador"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:728
 msgid "Biography"
 msgstr "Biografia"
 
@@ -3180,38 +3180,38 @@ msgstr ""
 "Podeu canviar l'adreça electrònica a comptes del Firefox. "
 "%(startLink)sNecessiteu ajuda?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:630
+#: src/amo/pages/UserProfileEdit/index.js:632
 msgid "Manage Firefox Accounts…"
 msgstr "Gestiona els comptes del Firefox…"
 
-#: src/amo/pages/UserProfileEdit/index.js:638
+#: src/amo/pages/UserProfileEdit/index.js:640
 msgid "Profile"
 msgstr "Perfil"
 
-#: src/amo/pages/UserProfileEdit/index.js:647
+#: src/amo/pages/UserProfileEdit/index.js:649
 msgid "This field is required"
 msgstr "Camp obligatori"
 
 # the star is used to indicate a required field
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:653
 msgid "Display Name *"
 msgstr "Nom a mostrar *"
 
-#: src/amo/pages/UserProfileEdit/index.js:684
+#: src/amo/pages/UserProfileEdit/index.js:686
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 "Aquest URL només serà visible per als usuaris que siguin desenvolupadors."
 
-#: src/amo/pages/UserProfileEdit/index.js:741
+#: src/amo/pages/UserProfileEdit/index.js:743
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 "És compatible amb algun HTML: %(htmlTags)s. Els enllaços estan prohibits."
 
-#: src/amo/pages/UserProfileEdit/index.js:765
+#: src/amo/pages/UserProfileEdit/index.js:767
 msgid "Notifications"
 msgstr "Notificacions"
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3220,7 +3220,7 @@ msgstr ""
 "esdeveniments sobre complements. Seleccioneu els temes en què esteu "
 "interessat."
 
-#: src/amo/pages/UserProfileEdit/index.js:774
+#: src/amo/pages/UserProfileEdit/index.js:776
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3229,7 +3229,7 @@ msgstr ""
 "versions i esdeveniments sobre complements. Seleccioneu els temes en què "
 "aquest usuari pot estar interessat."
 
-#: src/amo/pages/UserProfileEdit/index.js:789
+#: src/amo/pages/UserProfileEdit/index.js:791
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3237,28 +3237,28 @@ msgstr ""
 "Mozilla es reserva el dret de contactar-vos individualment per tractar de "
 "temes específics dels vostres complements allotjats."
 
-#: src/amo/pages/UserProfileEdit/index.js:815
-#: src/amo/pages/UserProfileEdit/index.js:887
+#: src/amo/pages/UserProfileEdit/index.js:817
+#: src/amo/pages/UserProfileEdit/index.js:889
 msgid "Delete My Profile"
 msgstr "Suprimeix el meu perfil"
 
-#: src/amo/pages/UserProfileEdit/index.js:816
-#: src/amo/pages/UserProfileEdit/index.js:888
+#: src/amo/pages/UserProfileEdit/index.js:818
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete Profile"
 msgstr "Suprimeix el perfil"
 
-#: src/amo/pages/UserProfileEdit/index.js:828
+#: src/amo/pages/UserProfileEdit/index.js:830
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "IMPORTANT: suprimir el vostre perfil de complements de Firefox és "
 "irreversible."
 
-#: src/amo/pages/UserProfileEdit/index.js:831
+#: src/amo/pages/UserProfileEdit/index.js:833
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "IMPORTANT: suprimir el perfil de complements de Firefox és irreversible."
 
-#: src/amo/pages/UserProfileEdit/index.js:840
+#: src/amo/pages/UserProfileEdit/index.js:842
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3268,7 +3268,7 @@ msgstr ""
 "(imatge, nom d'usuari, nom a mostrar, ubicació, pàgina d'inici, biografia, "
 "ocupació), les preferències de notificació, les ressenyes i les col·leccions."
 
-#: src/amo/pages/UserProfileEdit/index.js:846
+#: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3279,7 +3279,7 @@ msgstr ""
 "biografia, ocupació), les preferències de notificació, les ressenyes i les "
 "col·leccions."
 
-#: src/amo/pages/UserProfileEdit/index.js:855
+#: src/amo/pages/UserProfileEdit/index.js:857
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3289,7 +3289,7 @@ msgstr ""
 "propietat amb altres autors. En aquest cas, se us eliminarà com a autor i "
 "els restants conservaran la propietat del complement."
 
-#: src/amo/pages/UserProfileEdit/index.js:861
+#: src/amo/pages/UserProfileEdit/index.js:863
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3300,7 +3300,7 @@ msgstr ""
 "s'eliminarà com a autor i els restants conservaran la propietat del "
 "complement."
 
-#: src/amo/pages/UserProfileEdit/index.js:871
+#: src/amo/pages/UserProfileEdit/index.js:873
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "

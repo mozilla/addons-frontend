@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-22 17:23+0000\n"
+"POT-Creation-Date: 2023-01-03 18:28+0000\n"
 "PO-Revision-Date: 2022-06-22 12:56+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
@@ -184,7 +184,7 @@ msgstr "Käyttäjiä"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:672
+#: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Homepage"
 msgstr "Kotisivu"
 
@@ -322,7 +322,7 @@ msgstr "Poista"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:895
+#: src/amo/pages/UserProfileEdit/index.js:897
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -569,22 +569,22 @@ msgstr "Asenna teema"
 msgid "Add to Firefox"
 msgstr "Lisää Firefoxiin"
 
-#: src/amo/components/App/index.js:124
+#: src/amo/components/App/index.js:122
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Lisäosia Firefoxille (%(locale)s)"
 
-#: src/amo/components/App/index.js:128
+#: src/amo/components/App/index.js:126
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Lisäosia Firefoxille (%(locale)s)"
 
-#: src/amo/components/App/index.js:136
+#: src/amo/components/App/index.js:134
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Lisäosia Firefox Androidille (%(locale)s)"
 
-#: src/amo/components/App/index.js:140
+#: src/amo/components/App/index.js:138
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Lisäosia Firefox Androidille (%(locale)s)"
@@ -3018,12 +3018,12 @@ msgid "User Profile"
 msgstr "Käyttäjäprofiili"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:689
+#: src/amo/pages/UserProfileEdit/index.js:691
 msgid "Location"
 msgstr "Sijainti"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:704
+#: src/amo/pages/UserProfileEdit/index.js:706
 msgid "Occupation"
 msgstr "Ammatti"
 
@@ -3040,7 +3040,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Keskiarvoinen arvio kehittäjän lisäosista"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:728
 msgid "Biography"
 msgstr "Biografia"
 
@@ -3141,35 +3141,35 @@ msgstr ""
 "Voit vaihtaa sähköpostiosoitteesi Firefox-tilin kautta. "
 "%(startLink)sTarvitsetko apua?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:630
+#: src/amo/pages/UserProfileEdit/index.js:632
 msgid "Manage Firefox Accounts…"
 msgstr "Hallitse Firefox-tilejä…"
 
-#: src/amo/pages/UserProfileEdit/index.js:638
+#: src/amo/pages/UserProfileEdit/index.js:640
 msgid "Profile"
 msgstr "Profiili"
 
-#: src/amo/pages/UserProfileEdit/index.js:647
+#: src/amo/pages/UserProfileEdit/index.js:649
 msgid "This field is required"
 msgstr "Tämä kenttä on pakollinen"
 
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:653
 msgid "Display Name *"
 msgstr "Näyttönimi *"
 
-#: src/amo/pages/UserProfileEdit/index.js:684
+#: src/amo/pages/UserProfileEdit/index.js:686
 msgid "This URL will only be visible for users who are developers."
 msgstr "Tämä osoite on näkyvissä vain käyttäjille, jotka ovat kehittäjiä."
 
-#: src/amo/pages/UserProfileEdit/index.js:741
+#: src/amo/pages/UserProfileEdit/index.js:743
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "HTML on osittain tuettu: %(htmlTags)s. Linkit ovat kiellettyjä."
 
-#: src/amo/pages/UserProfileEdit/index.js:765
+#: src/amo/pages/UserProfileEdit/index.js:767
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3177,7 +3177,7 @@ msgstr ""
 "Mozilla saattaa lähettää toisinaan sähköpostia tulevista julkaisuista ja "
 "lisäosiin liittyvistä tapahtumista. Valitse sinua kiinnostavat aihealueet."
 
-#: src/amo/pages/UserProfileEdit/index.js:774
+#: src/amo/pages/UserProfileEdit/index.js:776
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3186,32 +3186,32 @@ msgstr ""
 "julkaisuista ja lisäosiin liittyvistä tapahtumista. Valitse kyseistä "
 "käyttäjää mahdollisesti kiinnostavat aihealueet."
 
-#: src/amo/pages/UserProfileEdit/index.js:789
+#: src/amo/pages/UserProfileEdit/index.js:791
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 "Mozilla varaa oikeuden ottaa sinuun yhteyttä liittyen jakamiisi lisäosiin."
 
-#: src/amo/pages/UserProfileEdit/index.js:815
-#: src/amo/pages/UserProfileEdit/index.js:887
+#: src/amo/pages/UserProfileEdit/index.js:817
+#: src/amo/pages/UserProfileEdit/index.js:889
 msgid "Delete My Profile"
 msgstr "Poista profiilini"
 
-#: src/amo/pages/UserProfileEdit/index.js:816
-#: src/amo/pages/UserProfileEdit/index.js:888
+#: src/amo/pages/UserProfileEdit/index.js:818
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete Profile"
 msgstr "Poista profiili"
 
-#: src/amo/pages/UserProfileEdit/index.js:828
+#: src/amo/pages/UserProfileEdit/index.js:830
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "TÄRKEÄÄ: Firefox-lisäosien profiilin poistamista ei voi perua."
 
-#: src/amo/pages/UserProfileEdit/index.js:831
+#: src/amo/pages/UserProfileEdit/index.js:833
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "TÄRKEÄÄ: Tämän Firefox-lisäosien profiilin poistamista ei voi perua."
 
-#: src/amo/pages/UserProfileEdit/index.js:840
+#: src/amo/pages/UserProfileEdit/index.js:842
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3221,7 +3221,7 @@ msgstr ""
 "käyttäjätunnus, näyttönimi, sijainti, kotisivu, biografia, ammatti), "
 "ilmoitusasetukset, arvostelut ja kokoelmat."
 
-#: src/amo/pages/UserProfileEdit/index.js:846
+#: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3231,7 +3231,7 @@ msgstr ""
 "käyttäjätunnus, näyttönimi, sijainti, kotisivu, biografia, ammatti), "
 "ilmoitusasetukset, arvostelut ja kokoelmat."
 
-#: src/amo/pages/UserProfileEdit/index.js:855
+#: src/amo/pages/UserProfileEdit/index.js:857
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3242,7 +3242,7 @@ msgstr ""
 "tekijänä poistetaan ja jäljelle jäävät tekijät säilyttävät lisäosan "
 "omistajuuden."
 
-#: src/amo/pages/UserProfileEdit/index.js:861
+#: src/amo/pages/UserProfileEdit/index.js:863
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3253,7 +3253,7 @@ msgstr ""
 "lisäosan tekijänä poistetaan ja jäljelle jäävät tekijät säilyttävät lisäosan "
 "omistajuuden."
 
-#: src/amo/pages/UserProfileEdit/index.js:871
+#: src/amo/pages/UserProfileEdit/index.js:873
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
