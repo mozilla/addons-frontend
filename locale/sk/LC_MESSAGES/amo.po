@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-22 17:23+0000\n"
-"PO-Revision-Date: 2023-01-03 10:31+0000\n"
+"PO-Revision-Date: 2023-01-03 10:38+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -975,8 +975,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
-"Ak nie je %(startNotedLink)suvedené%(endNotedLink)s inak, je obsah tejto stránky dostupný v rámci licencie %(startLicenseLink)s Creative Commons Attribution Share-Alike License "
-"v3.0%(endLicenseLink)s alebo jej akejkoľvek neskoršej verzie."
+"Ak nie je %(startNotedLink)suvedené%(endNotedLink)s inak, obsah tejto stránky je dostupný pod licenciou %(startLicenseLink)s Creative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s "
+"alebo jej akejkoľvek vyššej verzie."
 
 #: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
@@ -988,7 +988,7 @@ msgstr "O nás"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
-msgstr "Blog doplnkov pre Firefox"
+msgstr "Blog o doplnkoch pre Firefox"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
