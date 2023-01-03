@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-22 17:23+0000\n"
-"PO-Revision-Date: 2023-01-03 10:38+0000\n"
+"PO-Revision-Date: 2023-01-03 11:02+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -2322,11 +2322,11 @@ msgstr "Povedzte svojim priateľom a rodine, že Firefox je rýchly a bezpečný
 
 #: src/amo/pages/StaticPages/About/index.js:175
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Ak vás zaujímajú ďalšie možnosti, ako sa zapojiť, navštívte, prosím, našu %(startLink)swiki%(endLink)s"
+msgstr "Ak vás zaujímajú ďalšie možnosti, ako môžete prispieť do komunity doplnkov, navštívte naše stránky %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Report an issue"
-msgstr "Nahlásiť chybu"
+msgstr "Nahláste problém"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2334,7 +2334,7 @@ msgstr "O Doplnkoch pre Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr "Ak nájdete problém so stránkou, radi by sme ju odstránili. Nahláste, prosím, %(startIssueLink)schybu%(endIssueLink)s a uveďte čo najviac podrobností."
+msgstr "Ak nájdete problém na stránke, radi ho vyriešime. Vyplňte %(startIssueLink)správu o chybe%(endIssueLink)s a uveďte čo najviac podrobností."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
