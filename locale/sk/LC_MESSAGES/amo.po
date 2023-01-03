@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-22 17:23+0000\n"
-"PO-Revision-Date: 2023-01-03 10:21+0000\n"
+"PO-Revision-Date: 2023-01-03 10:31+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -609,7 +609,7 @@ msgstr "Odstránené z kolekcie"
 
 #: src/amo/components/CollectionAddAddon/index.js:179
 msgid "Find an add-on to include in this collection"
-msgstr "Nájdite doplnok, ktorý pridáte do tejto kolekcie"
+msgstr "Vyhľadajte doplnok, ktorý pridáte do tejto kolekcie"
 
 #: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
@@ -2150,7 +2150,7 @@ msgstr "Najskôr svoju kolekciu vytvorte. Potom do nej môžete pridávať rozš
 
 #: src/amo/pages/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
-msgstr "Nájdite rozšírenia a témy vzhľadu, ktoré si pridáte do svojej kolekcie."
+msgstr "Vyhľadajte rozšírenia a témy vzhľadu, ktoré si pridáte do svojej kolekcie."
 
 #: src/amo/pages/Collection/index.js:517
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2549,7 +2549,7 @@ msgstr "Nepoužívajte nevhodný či urážlivý jazyk. Vyvarujte sa taktiež se
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr "Nevkladajte HTML, odkazy, zdrojový kód alebo jeho časti. Recenzie sú určené len pre text."
+msgstr "Nevkladajte HTML, odkazy, zdrojový kód alebo jeho časti. Recenzie sú len textové."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
