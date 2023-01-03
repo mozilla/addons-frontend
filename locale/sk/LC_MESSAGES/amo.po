@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-22 17:23+0000\n"
-"PO-Revision-Date: 2023-01-03 12:00+0000\n"
+"PO-Revision-Date: 2023-01-03 15:35+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -2334,7 +2334,7 @@ msgstr "O Doplnkoch pre Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr "Ak nájdete problém na stránke, radi ho vyriešime. Vyplňte %(startIssueLink)správu o chybe%(endIssueLink)s a uveďte čo najviac podrobností."
+msgstr "Ak nájdete problém na stránke, radi ho vyriešime. Vyplňte %(startIssueLink)ssprávu o chybe%(endIssueLink)s a uveďte čo najviac podrobností."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -2357,8 +2357,8 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Ak sa chcete dozvedieť viac o správe doplnkov vo Firefoxe alebo potrebujete poradiť, navšítvte %(startSUMOLink)sPodporu%(endSUMOLink)s Mozilly. Ak odpoveď na svoju otázku nenájdete tam, môžete "
-"%(startForumLink)svyskúšať naše fórum%(endForumLink)s."
+"Ak sa chcete dozvedieť viac o tom, ako spravovať doplnky vo Firefoxe, alebo potrebujete nájsť všeobecnú podporu pre Firefox, navštívte stránky %(startSUMOLink)sPodpory Mozilly%(endSUMOLink)s. Ak tam"
+" nenájdete odpoveď, môžete sa %(startForumLink)sopýtať na našom komunitnom fóre%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
