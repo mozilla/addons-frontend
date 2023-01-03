@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-22 17:23+0000\n"
+"POT-Creation-Date: 2023-01-03 18:28+0000\n"
 "PO-Revision-Date: 2022-08-04 19:07+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -185,7 +185,7 @@ msgstr "ਵਲੋਂ ਵਰਤਿਆ"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:672
+#: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Homepage"
 msgstr "ਮੁੱਖ ਸਫ਼ਾ"
 
@@ -324,7 +324,7 @@ msgstr "ਹਟਾਓ"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:895
+#: src/amo/pages/UserProfileEdit/index.js:897
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
@@ -573,22 +573,22 @@ msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 msgid "Add to Firefox"
 msgstr "ਫ਼ਾਇਰਫ਼ਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
-#: src/amo/components/App/index.js:124
+#: src/amo/components/App/index.js:122
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/App/index.js:128
+#: src/amo/components/App/index.js:126
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/App/index.js:136
+#: src/amo/components/App/index.js:134
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਈਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/App/index.js:140
+#: src/amo/components/App/index.js:138
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਇਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
@@ -2983,12 +2983,12 @@ msgid "User Profile"
 msgstr "ਵਰਤੋਂਕਾਰ ਦਾ ਬਿਉਰਾ"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:689
+#: src/amo/pages/UserProfileEdit/index.js:691
 msgid "Location"
 msgstr "ਟਿਕਾਣਾ"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:704
+#: src/amo/pages/UserProfileEdit/index.js:706
 msgid "Occupation"
 msgstr "ਕਿੱਤਾ"
 
@@ -3005,7 +3005,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "ਡਿਵੈਲਪਰ ਦੇ ਐਡ-ਆਨ ਦੀ ਔਸਤ ਰੇਟਿੰਗ"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:728
 msgid "Biography"
 msgstr "ਮੇਰੇ ਬਾਰੇ"
 
@@ -3106,36 +3106,36 @@ msgstr ""
 "ਤੁਸੀਂ ਫਾਇਰਫਾਕਸ ਅਕਾਊਂਟ ਤੇ ਆਪਣਾ ਈਮੇਲ ਪਤਾ ਬਦਲ ਸਕਦੇ ਹੋ। %(startLink)s ਮਦਦ ਦੀ ਲੋੜ ਹੈ?"
 "%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:630
+#: src/amo/pages/UserProfileEdit/index.js:632
 msgid "Manage Firefox Accounts…"
 msgstr "ਫਾਇਰਫਾਕਸ ਖਾਤੇ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰੋ…"
 
-#: src/amo/pages/UserProfileEdit/index.js:638
+#: src/amo/pages/UserProfileEdit/index.js:640
 msgid "Profile"
 msgstr "ਪਰੋਫਾਇਲ"
 
-#: src/amo/pages/UserProfileEdit/index.js:647
+#: src/amo/pages/UserProfileEdit/index.js:649
 msgid "This field is required"
 msgstr "ਇਸ ਫੀਲਡ ਦੀ ਲੋੜ ਹੈ"
 
 # the star is used to indicate a required field
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:653
 msgid "Display Name *"
 msgstr "ਨਾਂ ਵਿਖਾਓ *"
 
-#: src/amo/pages/UserProfileEdit/index.js:684
+#: src/amo/pages/UserProfileEdit/index.js:686
 msgid "This URL will only be visible for users who are developers."
 msgstr "ਇਹ URL ਸਿਰਫ ਉਨ੍ਹਾਂ ਵਰਤੋਂਕਾਰਾਂ ਲਈ ਦਿਖਾਈ ਦੇਵੇਗੀ ਜੋ ਡਿਵੈਲਪਰ ਹਨ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:741
+#: src/amo/pages/UserProfileEdit/index.js:743
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "ਕੁਝ HTML ਸਹਿਯੋਗੀ: %(htmlTags)s। ਲਿੰਕਾਂ ਦੀ ਮਨਾਹੀ ਹੈ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:765
+#: src/amo/pages/UserProfileEdit/index.js:767
 msgid "Notifications"
 msgstr "ਸੂਚਨਾਵਾਂ"
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3143,7 +3143,7 @@ msgstr ""
 "ਸਮੇਂ-ਸਮੇ ਤੇ, ਮੌਜੀਲਾ ਆਉਣ ਵਾਲੀਆਂ ਰੀਲੀਜ਼ਾਂ ਅਤੇ ਐਡ-ਆਨ ਸਮਾਗਮਾਂ ਬਾਰੇ ਈਮੇਲ ਭੇਜਦਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ "
 "ਵਿਸ਼ਾ ਚੁਣੋ ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਦਿਲਚਸਪੀ ਹੋਵੇ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:774
+#: src/amo/pages/UserProfileEdit/index.js:776
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3151,7 +3151,7 @@ msgstr ""
 "ਸਮੇਂ ਸਮੇਂ ਤੇ, ਮੋਜ਼ੀਲਾ ਆਉਣ ਵਾਲੇ ਰੀਲੀਜ਼ਾਂ ਅਤੇ ਐਡ-ਆਨ ਪ੍ਰੋਗਰਾਮਾਂ ਬਾਰੇ ਇਸ ਉਪਭੋਗਤਾ ਨੂੰ ਈਮੇਲ ਭੇਜ ਸਕਦੀ "
 "ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਉਹ ਵਿਸ਼ੇ ਚੁਣੋ ਜੋ ਇਸ ਉਪਭੋਗਤਾ ਵਿੱਚ ਦਿਲਚਸਪੀ ਲੈ ਸਕਦੇ ਹਨ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:789
+#: src/amo/pages/UserProfileEdit/index.js:791
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3159,25 +3159,25 @@ msgstr ""
 "ਮੌਜੀਲਾ ਕੋਲ ਤੁਹਾਡੇ ਵੱਲੋਂ ਮੇਜ਼ਬਾਨ ਐਡ-ਆਨ ਬਾਰੇ ਖਾਸ਼ ਤਸ਼ਵੀਸ਼ ਲਈ ਤੁਹਾਨੂੰ ਵਿਅਕਤੀਗਤ ਰੂਪ ਵਿੱਚ ਸੰਪਰਕ ਕਰਨ "
 "ਦਾ ਅਧਿਕਾਰ ਰਾਖਵਾਂ ਹੈ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:815
-#: src/amo/pages/UserProfileEdit/index.js:887
+#: src/amo/pages/UserProfileEdit/index.js:817
+#: src/amo/pages/UserProfileEdit/index.js:889
 msgid "Delete My Profile"
 msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਹਟਾਓ"
 
-#: src/amo/pages/UserProfileEdit/index.js:816
-#: src/amo/pages/UserProfileEdit/index.js:888
+#: src/amo/pages/UserProfileEdit/index.js:818
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete Profile"
 msgstr "ਪਰੋਫਾਈਲ ਨੂੰ ਹਟਾਓ"
 
-#: src/amo/pages/UserProfileEdit/index.js:828
+#: src/amo/pages/UserProfileEdit/index.js:830
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANT: ਤੁਹਾਡੇ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਹਟਾਉਣਾ ਵਾਪਸੀਯੋਗ ਨਹੀਂ ਹੈ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:831
+#: src/amo/pages/UserProfileEdit/index.js:833
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANT: ਇਸ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਹਟਾਉਣਾ ਵਾਪਸੀਯੋਗ ਨਹੀਂ ਹੈ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:840
+#: src/amo/pages/UserProfileEdit/index.js:842
 #, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
@@ -3188,7 +3188,7 @@ msgstr ""
 "ਪ੍ਰਦਰਸ਼ਨੀ ਦਾ ਨਾਮ, ਸਥਾਨ, ਮੁੱਖ ਪੰਨਾ, ਜੀਵਨੀ, ਪੇਸ਼ਾ) ਅਤੇ ਨੋਟੀਫਿਕੇਸ਼ਨ ਪਸੰਦਾਂ ਸਮੇਤ। ਤੁਹਾਡੀਆਂ "
 "ਸਮੀਖਿਆਵਾਂ ਅਤੇ ਰੇਟਿੰਗ ਗੁਮਨਾਮ ਹੋਣਗੀਆਂ ਅਤੇ ਹੁਣ ਸੰਪਾਦਨ ਯੋਗ ਨਹੀਂ ਹੋਣਗੇ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:846
+#: src/amo/pages/UserProfileEdit/index.js:848
 #, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details "
@@ -3199,21 +3199,21 @@ msgstr ""
 "ਪ੍ਰਦਰਸ਼ਨੀ ਦਾ ਨਾਮ, ਸਥਾਨ, ਹੋਮ ਪੇਜ, ਜੀਵਨੀ, ਪੇਸ਼ਾ) ਅਤੇ ਸੂਚਨਾ ਤਰਜੀਹਾਂ ਸਮੇਤ। ਸਮੀਖਿਆਵਾਂ ਅਤੇ "
 "ਦਰਜਾ ਅਗਿਆਤ ਹੋਣਗੇ ਅਤੇ ਹੁਣ ਸੰਪਾਦਨ ਯੋਗ ਨਹੀਂ ਹੋਣਗੇ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:855
+#: src/amo/pages/UserProfileEdit/index.js:857
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
 "and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:861
+#: src/amo/pages/UserProfileEdit/index.js:863
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
 "author and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:871
+#: src/amo/pages/UserProfileEdit/index.js:873
 #, fuzzy
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
