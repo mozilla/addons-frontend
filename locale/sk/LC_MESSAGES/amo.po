@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-22 17:23+0000\n"
-"PO-Revision-Date: 2023-01-03 15:35+0000\n"
+"PO-Revision-Date: 2023-01-03 15:50+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -2722,7 +2722,7 @@ msgstr "Zobrazované meno *"
 
 #: src/amo/pages/UserProfileEdit/index.js:684
 msgid "This URL will only be visible for users who are developers."
-msgstr "Táto URL adresa bude viditeľná len pre používateľov, ktorí sú vývojári."
+msgstr "Táto adresa URL bude viditeľná iba pre používateľov, ktorí sú vývojármi."
 
 #: src/amo/pages/UserProfileEdit/index.js:741
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
