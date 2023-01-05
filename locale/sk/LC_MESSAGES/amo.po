@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-03 18:28+0000\n"
-"PO-Revision-Date: 2023-01-04 12:47+0000\n"
+"PO-Revision-Date: 2023-01-05 09:06+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1410,7 +1410,7 @@ msgstr "Nemôžeme reagovať na každé hlásenie, ale problému sa budeme venov
 #: src/amo/components/ReportAbuseButton/index.js:134
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
-"Ak si myslíte, že doplnok porušuje %(linkTagStart)s pravidlá Mozilly pre doplnky %(linkTagEnd)s, má problémy s bezpečnosťou alebo ochranou osobných údajov, nahláste tento problém Mozille "
+"Ak si myslíte, že doplnok porušuje %(linkTagStart)spravidlá Mozilly pre doplnky%(linkTagEnd)s, má problémy s bezpečnosťou alebo ochranou osobných údajov, nahláste tento problém Mozille "
 "prostredníctvom tohto formulára."
 
 #: src/amo/components/ReportAbuseButton/index.js:150
