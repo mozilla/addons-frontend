@@ -11,8 +11,11 @@ import {
 } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  ALL_PROMOTED_CATEGORIES,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DISABLED,
   DOWNLOAD_FAILED,
@@ -42,6 +45,8 @@ import {
   INSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_STARTED_ACTION,
+  INSTALL_TRUSTED_EXTENSION_CATEGORY,
+  RECOMMENDED,
   SET_ENABLE_NOT_AVAILABLE,
   START_DOWNLOAD,
   TRACKING_TYPE_INVALID,
@@ -1327,7 +1332,24 @@ describe(__filename, () => {
         });
       });
 
-      it('tracks an addon install', async () => {
+      it.each([
+        // An unpromoted add-on.
+        { ...fakeAddon, promoted: null },
+        // An add-on which is promoted, but not for the current app.
+        {
+          ...fakeAddon,
+          promoted: { apps: [CLIENT_APP_ANDROID], category: RECOMMENDED },
+        },
+        // A non-extension which is promoted.
+        {
+          ...fakeAddon,
+          promoted: { apps: [CLIENT_APP_FIREFOX], category: RECOMMENDED },
+          type: ADDON_TYPE_DICT,
+        },
+      ])('tracks an untrusted addon install', async (addonOverride) => {
+        addon = addonOverride;
+        _dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+
         const fakeTracking = createFakeTracking();
 
         const addonManagerOverrides = {
@@ -1363,6 +1385,58 @@ describe(__filename, () => {
         });
       });
 
+      it.each(ALL_PROMOTED_CATEGORIES)(
+        'tracks a trusted addon install',
+        async (category) => {
+          const clientApp = CLIENT_APP_FIREFOX;
+          _dispatchClientMetadata({ clientApp });
+
+          addon.promoted = { apps: [clientApp], category };
+
+          const fakeTracking = createFakeTracking();
+
+          const addonManagerOverrides = {
+            getAddon: Promise.reject(),
+          };
+          renderWithCurrentVersion({
+            addonManagerOverrides,
+            _tracking: fakeTracking,
+          });
+          const button = screen.getByRole('link', { name: 'Add to Firefox' });
+
+          await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+
+          await userEvent.click(button);
+
+          expect(_addonManager.install).toHaveBeenCalled();
+
+          await waitFor(() =>
+            expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(3),
+          );
+          expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+            action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+            category: getAddonEventCategory(
+              ADDON_TYPE_EXTENSION,
+              INSTALL_STARTED_ACTION,
+            ),
+            label: addon.guid,
+          });
+          expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+            action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+            category: getAddonEventCategory(
+              ADDON_TYPE_EXTENSION,
+              INSTALL_ACTION,
+            ),
+            label: addon.guid,
+          });
+          expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+            action: category,
+            category: INSTALL_TRUSTED_EXTENSION_CATEGORY,
+            label: addon.guid,
+          });
+        },
+      );
+
       it('tracks the start of a static theme install', async () => {
         const fakeTracking = createFakeTracking();
         addon.type = ADDON_TYPE_STATIC_THEME;
@@ -1396,7 +1470,18 @@ describe(__filename, () => {
         });
       });
 
-      it('tracks a static theme install', async () => {
+      it.each([
+        // An unpromoted theme.
+        { ...fakeAddon, promoted: null },
+        // A promoted theme.
+        {
+          ...fakeAddon,
+          promoted: { apps: [CLIENT_APP_FIREFOX], category: RECOMMENDED },
+        },
+      ])('tracks a static theme install', async (addonOverride) => {
+        addon = addonOverride;
+        _dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+
         const fakeTracking = createFakeTracking();
         addon.type = ADDON_TYPE_STATIC_THEME;
 
