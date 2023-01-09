@@ -215,6 +215,10 @@ export const unfilteredLanguages = {
     English: 'French',
     native: 'Fran\u00e7ais',
   },
+  'fur': {
+    English: 'Friulian',
+    native: 'Furlan',
+  },
   'fur-IT': {
     English: 'Friulian',
     native: 'Furlan',
@@ -496,6 +500,10 @@ export const unfilteredLanguages = {
   sah: {
     English: 'Sakha',
     native: '\u0421\u0430\u0445\u0430\u043b\u044b\u044b',
+  },
+  sc: {
+    English: 'Sardinian',
+    native: 'Sardu',
   },
   sco: {
     English: 'Scots',
