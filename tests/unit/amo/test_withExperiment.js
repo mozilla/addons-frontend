@@ -159,6 +159,31 @@ describe(__filename, () => {
     expect(screen.getByText(`variant: ${cookieVariant}`)).toBeInTheDocument();
   });
 
+  // Does not inject a variant from a cookie if the experiment is disabled.
+  it('does not inject a variant from a cookie if the experiment is disabled', () => {
+    const id = makeExperimentId('test-id');
+    const variant = 'stored-variant';
+    const cookies = fakeCookies({
+      get: jest
+        .fn()
+        .mockReturnValue(createExperimentData({ id, variantId: variant })),
+    });
+    const configOverrides = {
+      experiments: {
+        [id]: false,
+      },
+    };
+
+    render({
+      configOverrides,
+      cookies,
+      experimentProps: { id },
+    });
+
+    expect(screen.getByText('variant:')).toBeInTheDocument();
+    expect(screen.queryByText(`variant: ${variant}`)).not.toBeInTheDocument();
+  });
+
   it('uses an updated cookie value on re-render', () => {
     const id = makeExperimentId('test-id');
     const originalCookieVariant = 'cookie-variant';
