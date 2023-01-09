@@ -6815,12 +6815,7 @@ minimist-options@4.1.0:
     is-plain-obj "^1.1.0"
     kind-of "^6.0.3"
 
-minimist@1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
-  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
-
-minimist@^1.2.0, minimist@^1.2.6:
+minimist@1.2.7, minimist@^1.2.0, minimist@^1.2.6:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
   integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
@@ -7576,15 +7571,15 @@ pino-devtools@^2.1.0:
   optionalDependencies:
     fsevents "2.3.2"
 
-pino-mozlog@2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-2.11.0.tgz#5464651e2247a1f62bdedc54819fd598b9217ad6"
-  integrity sha512-PEloO9Or2MQVx7ez3nWtUNAi3spKZKJv2tlMah1tVo6BDqU7SVCX2z3cjxCWuL7zbAn8UQaMLtTa864hmZwCDQ==
+pino-mozlog@2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-2.12.0.tgz#31676a422de4e57ef3ca8c84cd0c33099be5e1e0"
+  integrity sha512-IaNEHAhcvAIWdGemcNWnGqSdphIg1v/Otqj5wlMvNAHqnXelTopQInm0qU61b40WRY0h8JiQR1kI1hlJXXr9ew==
   dependencies:
-    minimist "1.2.6"
+    minimist "1.2.7"
     pino-syslog "2.0.0"
     pump "3.0.0"
-    readable-stream "4.2.0"
+    readable-stream "4.3.0"
     split2 "4.1.0"
 
 pino-pretty@^9.0.0:
@@ -8440,10 +8435,10 @@ readable-stream@3, readable-stream@^3.0.0, readable-stream@^3.1.1, readable-stre
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
 
-readable-stream@4.2.0, readable-stream@^4.0.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-4.2.0.tgz#a7ef523d3b39e4962b0db1a1af22777b10eeca46"
-  integrity sha512-gJrBHsaI3lgBoGMW/jHZsQ/o/TIWiu5ENCJG1BB7fuCKzpFM8GaS2UoBVt9NO+oI+3FcrBNbUkl3ilDe09aY4A==
+readable-stream@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-4.3.0.tgz#0914d0c72db03b316c9733bb3461d64a3cc50cba"
+  integrity sha512-MuEnA0lbSi7JS8XM+WNJlWZkHAAdm7gETHdFK//Q/mChGyj2akEFtdLZh32jSdkWGbRwCW9pn6g3LWDdDeZnBQ==
   dependencies:
     abort-controller "^3.0.0"
     buffer "^6.0.3"
@@ -8462,6 +8457,16 @@ readable-stream@^2.0.1, readable-stream@^2.2.2:
     safe-buffer "~5.1.1"
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
+
+readable-stream@^4.0.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-4.2.0.tgz#a7ef523d3b39e4962b0db1a1af22777b10eeca46"
+  integrity sha512-gJrBHsaI3lgBoGMW/jHZsQ/o/TIWiu5ENCJG1BB7fuCKzpFM8GaS2UoBVt9NO+oI+3FcrBNbUkl3ilDe09aY4A==
+  dependencies:
+    abort-controller "^3.0.0"
+    buffer "^6.0.3"
+    events "^3.3.0"
+    process "^0.11.10"
 
 readdirp@~3.6.0:
   version "3.6.0"
