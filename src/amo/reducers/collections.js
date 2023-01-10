@@ -250,7 +250,7 @@ export type ExternalCollectionAddon = {|
   notes: LocalizedString | null,
 |};
 
-type ExternalCollectionAddons = Array<ExternalCollectionAddon>;
+export type ExternalCollectionAddons = Array<ExternalCollectionAddon>;
 
 export type ExternalCollectionDetail = {|
   addon_count: number,

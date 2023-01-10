@@ -34,6 +34,7 @@ import site from 'amo/reducers/site';
 import uiState from 'amo/reducers/uiState';
 import versions from 'amo/reducers/versions';
 import log from 'amo/logger';
+import suggestions from 'amo/reducers/suggestions';
 import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
 import type { BlocksState } from 'amo/reducers/blocks';
 import type { CollectionsState } from 'amo/reducers/collections';
@@ -58,6 +59,7 @@ import type { SearchState } from 'amo/reducers/search';
 import type { SiteState } from 'amo/reducers/site';
 import type { UIStateState } from 'amo/reducers/uiState';
 import type { VersionsState } from 'amo/reducers/versions';
+import type { SuggestionsState } from 'amo/reducers/suggestions';
 import type { LocationType } from 'amo/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'amo/types/store';
 
@@ -133,6 +135,7 @@ type InternalAppState = {|
   reviews: ReviewsState,
   search: SearchState,
   site: SiteState,
+  suggestions: SuggestionsState,
   uiState: UIStateState,
   userAbuseReports: UserAbuseReportsState,
   users: UsersState,
@@ -188,6 +191,7 @@ export const reducers: AppReducersType = {
   reviews,
   search,
   site,
+  suggestions,
   uiState,
   userAbuseReports,
   users,

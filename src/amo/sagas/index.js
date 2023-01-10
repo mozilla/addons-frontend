@@ -18,6 +18,7 @@ import languageTools from 'amo/sagas/languageTools';
 import userAbuseReports from 'amo/sagas/userAbuseReports';
 import users from 'amo/sagas/users';
 import versions from 'amo/sagas/versions';
+import suggestions from 'amo/sagas/suggestions';
 import type { Saga } from 'amo/types/sagas';
 
 // Export all sagas for this app so runSaga can consume them.
@@ -40,5 +41,6 @@ export default function* rootSaga(): Saga {
     fork(userAbuseReports),
     fork(users),
     fork(versions),
+    fork(suggestions),
   ]);
 }
