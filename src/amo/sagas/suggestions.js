@@ -14,6 +14,8 @@ import type { FetchSuggestionsAction } from 'amo/reducers/suggestions';
 import type { GetCollectionAddonsParams } from 'amo/api/collections';
 import type { Saga } from 'amo/types/sagas';
 
+// This feature depends on collections existing with slugs that look like
+// `${category}-suggestions`.
 export const getCollectionSlugForCategory = (category: string): string =>
   `${category}-suggestions`;
 
