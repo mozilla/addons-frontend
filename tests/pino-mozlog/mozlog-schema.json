@@ -1,0 +1,103 @@
+{
+    "definitions": {
+        "field_array": {
+            "minItems": 1,
+            "oneOf": [
+                {
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                {
+                    "items": {
+                        "type": "boolean"
+                    }
+                }
+            ],
+            "type": "array"
+        },
+        "field_object": {
+            "properties": {
+                "representation": {
+                    "type": "string"
+                },
+                "value": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/field_value"
+                        },
+                        {
+                            "$ref": "#/definitions/field_array"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        },
+        "field_value": {
+            "type": [
+                "string",
+                "number",
+                "boolean"
+            ]
+        }
+    },
+    "properties": {
+        "EnvVersion": {
+            "pattern": "^\\d+(?:\\.\\d+){0,2}$",
+            "type": "string"
+        },
+        "Fields": {
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "$ref": "#/definitions/field_value"
+                    },
+                    {
+                        "$ref": "#/definitions/field_array"
+                    },
+                    {
+                        "$ref": "#/definitions/field_object"
+                    }
+                ]
+            },
+            "minProperties": 1,
+            "type": "object"
+        },
+        "Hostname": {
+            "format": "hostname",
+            "type": "string"
+        },
+        "Logger": {
+            "type": "string"
+        },
+        "Pid": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "Severity": {
+            "maximum": 7,
+            "minimum": 0,
+            "type": "integer"
+        },
+        "Timestamp": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "Type": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "Timestamp"
+    ],
+    "type": "object"
+}
