@@ -5,11 +5,11 @@ import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { getCanonicalURL } from 'amo/utils';
 import { CLIENT_APP_ANDROID } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
+import { getCanonicalURL, sanitizeHTML } from 'amo/utils';
 
 import defaultImage from './img/default-og-image.png';
 
@@ -47,6 +47,12 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     appendDefaultTitle: true,
     withTwitterMeta: false,
   };
+
+  getDescription(): string {
+    const { description } = this.props;
+
+    return sanitizeHTML(description).__html;
+  }
 
   getImage(): string {
     const { image } = this.props;
@@ -91,8 +97,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   }
 
   renderOpenGraph(): Array<React.Node> {
-    const { _config, description, lang, locationPathname, queryString } =
-      this.props;
+    const { _config, lang, locationPathname, queryString } = this.props;
 
     const url = `${getCanonicalURL({
       _config,
@@ -106,6 +111,8 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
       <meta key="og:locale" property="og:locale" content={lang} />,
       <meta key="og:image" property="og:image" content={this.getImage()} />,
     ];
+
+    const description = this.getDescription();
 
     if (description) {
       tags.push(
@@ -138,7 +145,8 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   }
 
   render(): React.Node {
-    const { date, description, lastModified } = this.props;
+    const { date, lastModified } = this.props;
+    const description = this.getDescription();
 
     return (
       <Helmet>

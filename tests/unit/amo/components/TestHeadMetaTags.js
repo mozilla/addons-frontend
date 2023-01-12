@@ -42,6 +42,23 @@ describe(__filename, () => {
     );
   });
 
+  it('strips HTML from description meta tag', async () => {
+    const description = 'page desc <b>here</b>';
+    const expectedDescription = 'page desc here';
+
+    render({ description });
+
+    // Without the waitFor, the meta tags have not rendered into the head yet.
+    await waitFor(() =>
+      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement('meta[name="description"]')).toHaveAttribute(
+      'content',
+      expectedDescription,
+    );
+  });
+
   it('does not render a "description" meta tag when description is not defined', async () => {
     render({ description: undefined });
 
