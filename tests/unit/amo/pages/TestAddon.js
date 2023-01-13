@@ -34,6 +34,7 @@ import {
   EXPERIMENT_CONFIG,
   VARIANT_SHOW,
 } from 'amo/experiments/20210714_amo_vpn_promo';
+import { EXPERIMENT_CONFIG as suggestionsExperimentConfig } from 'amo/experiments/20221130_amo_detail_category';
 import { ADDONS_BY_AUTHORS_COUNT, extractId } from 'amo/pages/Addon';
 import {
   FETCH_ADDON,
@@ -78,7 +79,7 @@ import {
   createFakeClientCompatibility,
   createFakeErrorHandler,
   createLocalizedString,
-  createVPNExperimentCookie,
+  createExperimentCookie,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
   fakeAddon,
@@ -165,7 +166,11 @@ describe(__filename, () => {
       slug: defaultSlug,
     };
 
-    const fakeConfig = getMockConfig();
+    // Disable the AddonSuggestions experiment for the tests in this file.
+    const fakeConfig = getMockConfig({
+      experiments: { [suggestionsExperimentConfig.id]: false },
+    });
+
     config.get.mockImplementation((key) => {
       return fakeConfig[key];
     });
@@ -524,7 +529,10 @@ describe(__filename, () => {
       });
 
       // Write a cookie that will allow the Banner to appear.
-      createVPNExperimentCookie(VARIANT_SHOW);
+      createExperimentCookie({
+        experimentId: EXPERIMENT_CONFIG.id,
+        variant: VARIANT_SHOW,
+      });
     });
 
     it('passes showVPNPromo as `true` to Page if the add-on is an extension', () => {

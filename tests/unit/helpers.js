@@ -52,7 +52,6 @@ import * as coreApi from 'amo/api';
 import { getAddonStatus } from 'amo/addonManager';
 import App from 'amo/components/App';
 import { ErrorHandler } from 'amo/errorHandler';
-import { EXPERIMENT_CONFIG } from 'amo/experiments/20210714_amo_vpn_promo';
 import { makeI18n } from 'amo/i18n/utils';
 import { createGroupedRatings, createInternalAddon } from 'amo/reducers/addons';
 import {
@@ -1592,12 +1591,11 @@ export const loadAddonsByAuthors = ({
   );
 };
 
-// Write a cookie that will be read by withExperiment to allow the banner to
-// appear on the page.
-export const createVPNExperimentCookie = (variant) => {
+// Write a cookie that will be read by withExperiment to enable an experiment.
+export const createExperimentCookie = ({ experimentId, variant }) => {
   const cookieContent = JSON.stringify(
     createExperimentData({
-      id: EXPERIMENT_CONFIG.id,
+      id: experimentId,
       variantId: variant,
     }),
   );

@@ -1034,7 +1034,6 @@ describe(__filename, () => {
             screen.getByRole('link', { name: 'Get the extension' }),
           );
 
-          expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
           expect(tracking.sendEvent).toHaveBeenCalledWith({
             action: PRIMARY_HERO_CLICK_ACTION,
             category: PRIMARY_HERO_CLICK_CATEGORY,

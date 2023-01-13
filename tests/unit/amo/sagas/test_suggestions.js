@@ -7,9 +7,7 @@ import suggestionsReducer, {
   fetchSuggestions,
   loadSuggestions,
 } from 'amo/reducers/suggestions';
-import suggestionsSaga, {
-  getCollectionSlugForCategory,
-} from 'amo/sagas/suggestions';
+import suggestionsSaga from 'amo/sagas/suggestions';
 import apiReducer from 'amo/reducers/api';
 import {
   createFakeCollectionAddon,
@@ -37,13 +35,13 @@ describe(__filename, () => {
     sagaTester.start(suggestionsSaga);
   });
 
-  const slug = 'some-slug';
+  const collection = 'some-collection';
 
   function _fetchSuggestions() {
     sagaTester.dispatch(
       fetchSuggestions({
         errorHandlerId: errorHandler.id,
-        slug,
+        collection,
       }),
     );
   }
@@ -61,7 +59,7 @@ describe(__filename, () => {
       .expects('getCollectionAddons')
       .withArgs({
         api: state.api,
-        slug: getCollectionSlugForCategory(slug),
+        slug: collection,
         userId: config.get('mozillaUserId'),
       })
       .once()
@@ -71,7 +69,7 @@ describe(__filename, () => {
 
     const expectedLoadAction = loadSuggestions({
       addons: response.results,
-      slug,
+      collection,
     });
 
     const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
@@ -102,7 +100,7 @@ describe(__filename, () => {
     const action = await sagaTester.waitFor(expectedAction.type);
     expect(expectedAction).toEqual(action);
     expect(sagaTester.getCalledActions()[3]).toEqual(
-      abortFetchSuggestions({ slug }),
+      abortFetchSuggestions({ collection }),
     );
   });
 });

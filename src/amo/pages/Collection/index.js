@@ -414,6 +414,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       i18n,
       isLoggedIn,
       loading,
+      location,
     } = this.props;
 
     if ((creating || editing) && !isLoggedIn) {
@@ -487,7 +488,9 @@ export class CollectionBase extends React.Component<InternalProps> {
           )}
           {!creating && (
             <AddonsCard
-              addonInstallSource={INSTALL_SOURCE_COLLECTION}
+              addonInstallSource={
+                location.query.addonInstallSource || INSTALL_SOURCE_COLLECTION
+              }
               addons={addons}
               deleteNote={this.deleteNote}
               editing={editing}

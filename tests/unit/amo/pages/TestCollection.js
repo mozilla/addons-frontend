@@ -16,6 +16,7 @@ import {
   COLLECTION_SORT_NAME,
   FEATURED_THEMES_COLLECTION_EDIT,
   FEATURED_THEMES_COLLECTION_SLUG,
+  INSTALL_SOURCE_SUGGESTIONS,
   MOZILLA_COLLECTIONS_EDIT,
 } from 'amo/constants';
 import {
@@ -590,13 +591,45 @@ describe(__filename, () => {
       ],
     });
 
+    const expectedQuerystring = [
+      'utm_source=addons.mozilla.org',
+      'utm_medium=referral',
+      'utm_content=collection',
+    ].join('&');
+
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
-      `/${lang}/${clientApp}/addon/${fakeAddon.slug}/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=collection`,
+      `/${lang}/${clientApp}/addon/${fakeAddon.slug}/?${expectedQuerystring}`,
     );
     expect(screen.getByAltText(addonName)).toHaveAttribute(
       'src',
       fakePreview.image_url,
+    );
+  });
+
+  it('uses an addonInstallSource when passed on the URL', () => {
+    const addonName = 'My add-on';
+    renderWithCollection({
+      addons: [
+        createFakeCollectionAddon({
+          addon: {
+            ...fakeAddon,
+            name: createLocalizedString(addonName),
+          },
+        }),
+      ],
+      location: `${getLocation()}?addonInstallSource=${INSTALL_SOURCE_SUGGESTIONS}`,
+    });
+
+    const expectedQuerystring = [
+      'utm_source=addons.mozilla.org',
+      'utm_medium=referral',
+      `utm_content=${INSTALL_SOURCE_SUGGESTIONS}`,
+    ].join('&');
+
+    expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}/addon/${fakeAddon.slug}/?${expectedQuerystring}`,
     );
   });
 

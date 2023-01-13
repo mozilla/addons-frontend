@@ -25,6 +25,12 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
+import {
+  EXPERIMENT_CONFIG,
+  VARIANT_SHOW_MIDDLE,
+  VARIANT_SHOW_TOP,
+  shouldExcludeUser,
+} from 'amo/experiments/20221130_amo_detail_category';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getAddonURL, nl2br, sanitizeHTML, sanitizeUserHTML } from 'amo/utils';
@@ -49,6 +55,8 @@ import LoadingText from 'amo/components/LoadingText';
 import ShowMoreCard from 'amo/components/ShowMoreCard';
 import ThemeImage from 'amo/components/ThemeImage';
 import Notice from 'amo/components/Notice';
+import AddonSuggestions from 'amo/components/AddonSuggestions';
+import { withExperiment } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -73,6 +81,7 @@ export class AddonBase extends React.Component {
       params: PropTypes.object.isRequired,
     }).isRequired,
     addonsByAuthors: PropTypes.array,
+    variant: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -392,6 +401,16 @@ export class AddonBase extends React.Component {
     );
   }
 
+  renderCategorySuggestions(requiredVariant) {
+    const { addon, clientApp, variant } = this.props;
+
+    if (variant !== requiredVariant || shouldExcludeUser({ clientApp })) {
+      return null;
+    }
+
+    return <AddonSuggestions addon={addon} />;
+  }
+
   render() {
     const { addon, addonsByAuthors, currentVersion, errorHandler, i18n } =
       this.props;
@@ -449,6 +468,8 @@ export class AddonBase extends React.Component {
 
           {errorBanner}
 
+          {this.renderCategorySuggestions(VARIANT_SHOW_TOP)}
+
           <div className="Addon-header-wrapper">
             <Card className="Addon-header-info-card" photonStyle>
               <AddonInstallError error={this.props.installError} />
@@ -497,6 +518,8 @@ export class AddonBase extends React.Component {
               <AddonMeta addon={addon} />
             </Card>
           </div>
+
+          {this.renderCategorySuggestions(VARIANT_SHOW_MIDDLE)}
 
           <div className="Addon-details">
             <div className="Addon-main-content">
@@ -580,4 +603,5 @@ export default compose(
   translate(),
   connect(mapStateToProps),
   withFixedErrorHandler({ fileName: __filename, extractId }),
+  withExperiment({ experimentConfig: EXPERIMENT_CONFIG }),
 )(AddonBase);

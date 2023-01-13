@@ -1,0 +1,60 @@
+@import '~amo/css/styles';
+
+.AddonSuggestions {
+  min-height: 170px; // Added to avoid shift when suggestions load.
+  // stylelint-disable max-nesting-depth
+
+  margin-top: 0;
+
+  &.AddonsCard--horizontal {
+    ul.AddonsCard-list {
+      .SearchResult {
+        .SearchResult-note {
+          display: none;
+        }
+
+        @include respond-to(large) {
+          padding: 12px 24px;
+
+          &:hover {
+            background-color: $grey-10;
+            border-radius: $border-radius-default;
+            cursor: pointer;
+
+            .SearchResult-name {
+              color: $link-color;
+            }
+
+            .SearchResult-users {
+              display: none;
+            }
+
+            .SearchResult-metadata {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .SearchResult-wrapper {
+        @include respond-to(large) {
+          display: block;
+          padding: 0;
+
+          &:hover,
+          &:focus {
+            background-color: transparent;
+          }
+        }
+      }
+
+      .SearchResult-users,
+      .SearchResult-metadata {
+        @include respond-to(large) {
+          height: auto;
+          min-height: 24px;
+        }
+      }
+    }
+  }
+}

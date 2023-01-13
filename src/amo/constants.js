@@ -138,6 +138,7 @@ export const INSTALL_SOURCE_SEARCH = 'search';
 export const INSTALL_SOURCE_TOP_RATED = 'rating';
 export const INSTALL_SOURCE_TRENDING = 'hotness';
 export const INSTALL_SOURCE_TAG_SHELF_PREFIX = 'tag-shelf-';
+export const INSTALL_SOURCE_SUGGESTIONS = 'suggestions';
 
 // View Contexts that aren't an addonType
 export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';
@@ -233,6 +234,8 @@ export const UNINSTALL_EXTENSION_CATEGORY = 'AMO Addon Uninstalls';
 export const UNINSTALL_THEME_CATEGORY = 'AMO Theme Uninstalls';
 
 export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
+
+export const SUGGESTIONS_CLICK_CATEGORY = 'AMO Suggested Addon Clicks';
 
 // Error used to know that the setEnable method on addon is
 // not available.

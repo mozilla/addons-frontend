@@ -9,7 +9,7 @@ import {
 } from 'amo/experiments/20210714_amo_vpn_promo';
 import {
   DEFAULT_LANG_IN_TESTS,
-  createVPNExperimentCookie,
+  createExperimentCookie,
   dispatchClientMetadata,
   getMockConfig,
   render as defaultRender,
@@ -57,7 +57,7 @@ describe(__filename, () => {
       return fakeConfig[key];
     });
     dispatchClientMetadata({ store, clientApp, lang, regionCode });
-    createVPNExperimentCookie(variant);
+    createExperimentCookie({ experimentId: EXPERIMENT_CONFIG.id, variant });
 
     return defaultRender(<Page {...props} />, { store });
   };
