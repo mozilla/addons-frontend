@@ -2194,6 +2194,16 @@ ajv@^8.0.0, ajv@^8.0.1, ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+ajv@^8.8.2:
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.12.0.tgz#d1a0527323e22f53562c567c00991577dfbe19d1"
+  integrity sha512-sRu1kpcO9yLtYxBKvqfTeh9KzZEwO3STyX1HT+4CaDzC6HpTGYhIhPIzj9XuKU7KYDwnaeh5hcOwjy1QuJzBPA==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
+    uri-js "^4.2.2"
+
 align-text@^0.1.1, align-text@^0.1.3:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/align-text/-/align-text-0.1.4.tgz#0cd90a561093f35d0a99256c22b7069433fad117"
@@ -3673,6 +3683,11 @@ dezalgo@^1.0.4:
   dependencies:
     asap "^2.0.0"
     wrappy "1"
+
+diff-sequences@^27.5.1:
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-27.5.1.tgz#eaecc0d327fd68c8d9672a1e64ab8dccb2ef5327"
+  integrity sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==
 
 diff-sequences@^29.3.1:
   version "29.3.1"
@@ -5851,6 +5866,16 @@ jest-config@^29.3.1:
     slash "^3.0.0"
     strip-json-comments "^3.1.1"
 
+jest-diff@^27.5.1:
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/jest-diff/-/jest-diff-27.5.1.tgz#a07f5011ac9e6643cf8a95a462b7b1ecf6680def"
+  integrity sha512-m0NvkX55LDt9T4mctTEgnZk3fmEg3NRYutvMPWM/0iPnkFj2wIeF45O1718cMSOFO1vINkqmxqD8vE37uTEbqw==
+  dependencies:
+    chalk "^4.0.0"
+    diff-sequences "^27.5.1"
+    jest-get-type "^27.5.1"
+    pretty-format "^27.5.1"
+
 jest-diff@^29.0.0, jest-diff@^29.3.1:
   version "29.3.1"
   resolved "https://registry.yarnpkg.com/jest-diff/-/jest-diff-29.3.1.tgz#d8215b72fed8f1e647aed2cae6c752a89e757527"
@@ -5913,6 +5938,11 @@ jest-extended@^3.0.0:
     jest-diff "^29.0.0"
     jest-get-type "^29.0.0"
 
+jest-get-type@^27.5.1:
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/jest-get-type/-/jest-get-type-27.5.1.tgz#3cd613c507b0f7ace013df407a1c1cd578bcb4f1"
+  integrity sha512-2KY95ksYSaK7DMBWQn6dQz3kqAf3BB64y2udeG+hv4KfSOb9qwcYQstTJc1KCbsix+wLZWZYN8t7nwX3GOBLRw==
+
 jest-get-type@^29.0.0, jest-get-type@^29.2.0:
   version "29.2.0"
   resolved "https://registry.yarnpkg.com/jest-get-type/-/jest-get-type-29.2.0.tgz#726646f927ef61d583a3b3adb1ab13f3a5036408"
@@ -5937,6 +5967,16 @@ jest-haste-map@^29.3.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+jest-json-schema@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/jest-json-schema/-/jest-json-schema-6.1.0.tgz#68ccc23424a7b20550d59ab9186530f81113e6af"
+  integrity sha512-LMHuLmKjr/4X+H8v1xF5TEwfYEkzwGeWJ0epYQVQhlVTDDR5FWCdSO8vmsecb5cLf9NeWAqMKn3qhJvP9um0AA==
+  dependencies:
+    ajv "^8.8.2"
+    ajv-formats "^2.1.1"
+    chalk "^4.1.2"
+    jest-matcher-utils "^27.3.1"
+
 jest-leak-detector@^29.3.1:
   version "29.3.1"
   resolved "https://registry.yarnpkg.com/jest-leak-detector/-/jest-leak-detector-29.3.1.tgz#95336d020170671db0ee166b75cd8ef647265518"
@@ -5944,6 +5984,16 @@ jest-leak-detector@^29.3.1:
   dependencies:
     jest-get-type "^29.2.0"
     pretty-format "^29.3.1"
+
+jest-matcher-utils@^27.3.1:
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-27.5.1.tgz#9c0cdbda8245bc22d2331729d1091308b40cf8ab"
+  integrity sha512-z2uTx/T6LBaCoNWNFWwChLBKYxTMcGBRjAt+2SbP929/Fflb9aa5LGma654Rz8z9HLxsrUaYzxE9T/EFIL/PAw==
+  dependencies:
+    chalk "^4.0.0"
+    jest-diff "^27.5.1"
+    jest-get-type "^27.5.1"
+    pretty-format "^27.5.1"
 
 jest-matcher-utils@^29.3.1:
   version "29.3.1"
@@ -7603,17 +7653,6 @@ pino-devtools@^2.1.0:
   optionalDependencies:
     fsevents "2.3.2"
 
-pino-mozlog@2.12.0:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-2.12.0.tgz#31676a422de4e57ef3ca8c84cd0c33099be5e1e0"
-  integrity sha512-IaNEHAhcvAIWdGemcNWnGqSdphIg1v/Otqj5wlMvNAHqnXelTopQInm0qU61b40WRY0h8JiQR1kI1hlJXXr9ew==
-  dependencies:
-    minimist "1.2.7"
-    pino-syslog "2.0.0"
-    pump "3.0.0"
-    readable-stream "4.3.0"
-    split2 "4.1.0"
-
 pino-pretty@^9.0.0:
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-9.1.1.tgz#e7d64c1db98266ca428ab56567b844ba780cd0e1"
@@ -7697,7 +7736,6 @@ pngjs@^5.0.0:
 
 po2json@mikeedwards/po2json#51e2310485bbe35e9e57f2eee238185459ca0eab:
   version "1.0.0-beta-3"
-  uid "51e2310485bbe35e9e57f2eee238185459ca0eab"
   resolved "https://codeload.github.com/mikeedwards/po2json/tar.gz/51e2310485bbe35e9e57f2eee238185459ca0eab"
   dependencies:
     commander "^6.0.0"
@@ -8010,7 +8048,7 @@ pretty-error@^4.0.0:
     lodash "^4.17.20"
     renderkid "^3.0.0"
 
-pretty-format@^27.0.2:
+pretty-format@^27.0.2, pretty-format@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-27.5.1.tgz#2181879fdea51a7a5851fb39d920faa63f01d88e"
   integrity sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==

@@ -1,0 +1,4 @@
+{"level":40,"time":1612950421902130927,"pid":85547,"hostname":"big","name":"amo","msg":"Sentry reporting is disabled; Set config.sentryDsn to enable it."}
+{"level":30,"time":1612950421911287147,"pid":85547,"hostname":"big","name":"amo","msg":"🔥 Addons-frontend server is running [ENV:development] [isDevelopment:true] [isDeployed:false] [apiHost:http://localhost:3000] [apiPath:/api/] [apiVersion:v5]"}
+{"level":20,"time":1612950421911469125,"pid":85547,"hostname":"big","name":"amo","msg":"🚦 Proxy detected, frontend running at http://127.0.0.1:3333."}
+{"level":20,"time":1612950421911600770,"pid":85547,"hostname":"big","name":"amo","msg":"👁  Open your browser at http://127.0.0.1:3000 to view it."}

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`functional tests converts pino logs to mozlog 1`] = `
+"{"EnvVersion":"2.0","Fields":{"msg":"Sentry reporting is disabled; Set config.sentryDsn to enable it."},"Hostname":"big","Logger":"amo","Pid":85547,"Severity":4,"Timestamp":1612950421902131000,"Type":"app.log","severity":400}
+{"EnvVersion":"2.0","Fields":{"msg":"🔥 Addons-frontend server is running [ENV:development] [isDevelopment:true] [isDeployed:false] [apiHost:http://localhost:3000] [apiPath:/api/] [apiVersion:v5]"},"Hostname":"big","Logger":"amo","Pid":85547,"Severity":6,"Timestamp":1612950421911287000,"Type":"app.log","severity":200}
+{"EnvVersion":"2.0","Fields":{"msg":"🚦 Proxy detected, frontend running at http://127.0.0.1:3333."},"Hostname":"big","Logger":"amo","Pid":85547,"Severity":7,"Timestamp":1612950421911469000,"Type":"app.log","severity":100}
+{"EnvVersion":"2.0","Fields":{"msg":"👁  Open your browser at http://127.0.0.1:3000 to view it."},"Hostname":"big","Logger":"amo","Pid":85547,"Severity":7,"Timestamp":1612950421911601000,"Type":"app.log","severity":100}
+"
+`;
