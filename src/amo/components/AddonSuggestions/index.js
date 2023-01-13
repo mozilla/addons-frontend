@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import {
+  ADDON_TYPE_EXTENSION,
   INSTALL_SOURCE_SUGGESTIONS,
   SUGGESTIONS_CLICK_CATEGORY,
 } from 'amo/constants';
@@ -220,9 +221,14 @@ export class AddonSuggestionsBase extends React.Component<Props> {
   }
 
   render(): null | React.Node {
-    const { addon, i18n, loading, suggestions, errorHandler } = this.props;
+    const { addon, errorHandler, i18n, loading, suggestions } = this.props;
 
     const category = getCategory(addon, i18n);
+
+    if (addon && addon.type !== ADDON_TYPE_EXTENSION) {
+      log.debug('Not an extension, hiding the AddonSuggestions component.');
+      return null;
+    }
 
     if (suggestions && !suggestions.length) {
       log.debug('No suggestions, hiding the AddonSuggestions component.');

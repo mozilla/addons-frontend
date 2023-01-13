@@ -4,6 +4,8 @@
   min-height: 170px; // Added to avoid shift when suggestions load.
   // stylelint-disable max-nesting-depth
 
+  margin-top: 0;
+
   &.AddonsCard--horizontal {
     ul.AddonsCard-list {
       .SearchResult {

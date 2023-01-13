@@ -3,6 +3,9 @@ import { act } from 'react-dom/test-utils';
 import userEvent from '@testing-library/user-event';
 
 import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DEFAULT_UTM_SOURCE,
@@ -13,7 +16,8 @@ import {
 import {
   EXPERIMENT_CONFIG,
   VARIANT_HIDE,
-  VARIANT_SHOW,
+  VARIANT_SHOW_MIDDLE,
+  VARIANT_SHOW_TOP,
 } from 'amo/experiments/20221130_amo_detail_category';
 import { loadAddon } from 'amo/reducers/addons';
 import {
@@ -90,7 +94,7 @@ describe(__filename, () => {
 
   const render = ({
     clientApp = defaultClientApp,
-    variant = VARIANT_SHOW,
+    variant = VARIANT_SHOW_TOP,
   } = {}) => {
     config.get.mockImplementation((key) => {
       return fakeConfig[key];
@@ -111,7 +115,7 @@ describe(__filename, () => {
   const renderWithAddon = ({
     addonToLoad = addon,
     clientApp = defaultClientApp,
-    variant = VARIANT_SHOW,
+    variant = VARIANT_SHOW_TOP,
   } = {}) => {
     _loadAddon(addonToLoad);
     return render({ clientApp, variant });
@@ -137,14 +141,24 @@ describe(__filename, () => {
     );
   };
 
-  it('renders AddonSuggestions if the variant is VARIANT_SHOW and the experiment is enabled', () => {
+  it('renders AddonSuggestions if the variant is VARIANT_SHOW_TOP and the experiment is enabled', () => {
     doLoadSuggestions();
 
-    renderWithAddon({ variant: VARIANT_SHOW });
+    renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
     expect(
-      screen.getByRole('link', { name: 'See Firefox Staff Picks' }),
-    ).toBeInTheDocument();
+      screen.getAllByRole('link', { name: 'See Firefox Staff Picks' }),
+    ).toHaveLength(1);
+  });
+
+  it('renders AddonSuggestions if the variant is VARIANT_SHOW_MIDDLE and the experiment is enabled', () => {
+    doLoadSuggestions();
+
+    renderWithAddon({ variant: VARIANT_SHOW_MIDDLE });
+
+    expect(
+      screen.getAllByRole('link', { name: 'See Firefox Staff Picks' }),
+    ).toHaveLength(1);
   });
 
   it('does not render AddonSuggestions if the experiment is disabled', () => {
@@ -154,7 +168,7 @@ describe(__filename, () => {
     };
     doLoadSuggestions();
 
-    renderWithAddon({ variant: VARIANT_SHOW });
+    renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
     expect(
       screen.queryByRole('link', { name: 'See Firefox Staff Picks' }),
@@ -164,7 +178,10 @@ describe(__filename, () => {
   it('does not render AddonSuggestions on Android', () => {
     doLoadSuggestions();
 
-    renderWithAddon({ clientApp: CLIENT_APP_ANDROID, variant: VARIANT_SHOW });
+    renderWithAddon({
+      clientApp: CLIENT_APP_ANDROID,
+      variant: VARIANT_SHOW_TOP,
+    });
 
     expect(
       screen.queryByRole('link', { name: 'See Firefox Staff Picks' }),
@@ -181,6 +198,22 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
+  it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG, ADDON_TYPE_STATIC_THEME])(
+    'does not render AddonSuggestions if the add-on is not an extension',
+    (type) => {
+      doLoadSuggestions();
+
+      renderWithAddon({
+        addonToLoad: { ...addon, type },
+        variant: VARIANT_SHOW_TOP,
+      });
+
+      expect(
+        screen.queryByRole('link', { name: 'See Firefox Staff Picks' }),
+      ).not.toBeInTheDocument();
+    },
+  );
+
   describe('Tests for AddonSuggestions', () => {
     it('does not render AddonSuggestions if an error occurs', () => {
       createFailedErrorHandler({
@@ -195,7 +228,7 @@ describe(__filename, () => {
     });
 
     it('renders AddonSuggestions in a loading state', () => {
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       // Expect a loading indicator for the header, plus 4 x 4 for the loading
       // add-ons.
@@ -207,7 +240,7 @@ describe(__filename, () => {
     it('dispatches fetchSuggestions if they do not already exist', () => {
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchSuggestions({
@@ -223,7 +256,7 @@ describe(__filename, () => {
       );
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: FETCH_SUGGESTIONS }),
@@ -234,7 +267,7 @@ describe(__filename, () => {
       doLoadSuggestions();
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: FETCH_SUGGESTIONS }),
@@ -244,7 +277,7 @@ describe(__filename, () => {
     it('does not dispatch fetchSuggestions without an addon', () => {
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      render({ variant: VARIANT_SHOW });
+      render({ variant: VARIANT_SHOW_TOP });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: FETCH_SUGGESTIONS }),
@@ -256,7 +289,7 @@ describe(__filename, () => {
 
       renderWithAddon({
         addonToLoad: { ...addon, categories: { firefox: [] } },
-        variant: VARIANT_SHOW,
+        variant: VARIANT_SHOW_TOP,
       });
 
       expect(dispatch).not.toHaveBeenCalledWith(
@@ -282,7 +315,7 @@ describe(__filename, () => {
 
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       dispatch.mockClear();
 
@@ -325,7 +358,7 @@ describe(__filename, () => {
 
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       dispatch.mockClear();
 
@@ -359,7 +392,7 @@ describe(__filename, () => {
 
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       dispatch.mockClear();
 
@@ -381,7 +414,7 @@ describe(__filename, () => {
 
     it('sends a tracking event when a suggestion is clicked', async () => {
       doLoadSuggestions();
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
       tracking.sendEvent.mockClear();
 
       await userEvent.click(
@@ -398,7 +431,7 @@ describe(__filename, () => {
 
     it('displays the expected shelf heading and footer for a category', () => {
       doLoadSuggestions();
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       expect(
         screen.getByText('More great extensions for feeds, news & media'),
@@ -428,7 +461,7 @@ describe(__filename, () => {
             ...addon,
             categories: { firefox: addonCategories },
           },
-          variant: VARIANT_SHOW,
+          variant: VARIANT_SHOW_TOP,
         });
 
         expect(
@@ -448,7 +481,7 @@ describe(__filename, () => {
           }),
         ),
       });
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       expect(
         screen.getAllByRole('link', { name: suggestedAddonName }),
@@ -457,7 +490,7 @@ describe(__filename, () => {
 
     it('passes the expected addonInstallSource to the LandingAddonsCard', () => {
       doLoadSuggestions();
-      renderWithAddon({ variant: VARIANT_SHOW });
+      renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       const expectedQuerystring = [
         `utm_source=${DEFAULT_UTM_SOURCE}`,
