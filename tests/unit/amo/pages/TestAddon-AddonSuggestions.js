@@ -59,7 +59,7 @@ describe(__filename, () => {
   let store;
   const addonCategory = 'feeds-news-blogging';
   // This is defined in AddonSuggestions for the above category.
-  const collectionForCategory = '4757633/9be99620f151420b91ac1fb30573d0';
+  const collectionForCategory = '9be99620f151420b91ac1fb30573d0';
   const defaultClientApp = CLIENT_APP_FIREFOX;
   const defaultSlug = 'some-addon-slug';
   const errorHandlerId = 'AddonSuggestions';
