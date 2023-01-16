@@ -95,9 +95,18 @@ export default class ServerHtml extends Component {
   };
 
   getAnalytics() {
+    const { _config } = this.props;
     if (this.props.trackingEnabled) {
       return (
-        <script async src="https://www.google-analytics.com/analytics.js" />
+        <>
+          <script async src="https://www.google-analytics.com/analytics.js" />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${_config.get(
+              'ga4PropertyId',
+            )}`}
+          />
+        </>
       );
     }
     return null;

@@ -42,11 +42,14 @@ import {
 } from 'tests/unit/helpers';
 
 const trackingId = 'sample-tracking-id';
+const ga4PropertyId = 'sample-GA4-property-id';
 
 function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
   return new Tracking({
     _isDoNotTrackEnabled: () => false,
     _config: getFakeConfig({
+      ga4DebugMode: true,
+      ga4PropertyId,
       server: false,
       trackingEnabled: true,
       trackingId,
@@ -60,6 +63,7 @@ describe(__filename, () => {
   describe('Tracking', () => {
     beforeEach(() => {
       window.ga = jest.fn();
+      window.dataLayer = { push: jest.fn() };
     });
 
     it('should not enable GA when configured off', () => {
@@ -67,16 +71,18 @@ describe(__filename, () => {
         configOverrides: { trackingEnabled: false },
       });
       expect(window.ga).not.toHaveBeenCalled();
+      expect(window.dataLayer.push).not.toHaveBeenCalled();
     });
 
     it('should disable GA due to missing id', () => {
       createTracking({
-        configOverrides: { trackingId: null },
+        configOverrides: { ga4PropertyId: null, trackingId: null },
         paramOverrides: {
           _isDoNotTrackEnabled: () => false,
         },
       });
       expect(window.ga).not.toHaveBeenCalled();
+      expect(window.dataLayer.push).not.toHaveBeenCalled();
     });
 
     it('should disable GA due to Do Not Track', () => {
@@ -86,6 +92,7 @@ describe(__filename, () => {
         },
       });
       expect(window.ga).not.toHaveBeenCalled();
+      expect(window.dataLayer.push).not.toHaveBeenCalled();
     });
 
     it('should send initial page view when enabled', () => {
@@ -95,6 +102,19 @@ describe(__filename, () => {
         },
       });
       expect(window.ga).toHaveBeenCalledWith('send', 'pageview');
+    });
+
+    it('should initialize GA4 when enabled', () => {
+      createTracking();
+      expect(window.dataLayer.push).toHaveBeenCalledWith(
+        'js',
+        expect.any(Date),
+      );
+      expect(window.dataLayer.push).toHaveBeenCalledWith(
+        'config',
+        ga4PropertyId,
+        { debug_mode: true },
+      );
     });
 
     it('should set the transport mechanism to beacon', () => {
@@ -313,13 +333,15 @@ describe(__filename, () => {
   });
 
   describe('sendWebVitalStats', () => {
+    const fakeCLS = {
+      name: 'CLS',
+      id: 'some-id',
+      delta: 123,
+      value: 987,
+    };
+
     it('sends web vitals data to GA', () => {
       const tracking = createTracking();
-      const fakeCLS = {
-        name: 'CLS',
-        id: 'some-id',
-        delta: 123,
-      };
 
       tracking.sendWebVitalStats(fakeCLS);
 
@@ -331,6 +353,23 @@ describe(__filename, () => {
         nonInteraction: true,
         transport: 'beacon',
       });
+    });
+
+    it('sends web vitals data to GA4', () => {
+      const tracking = createTracking();
+
+      tracking.sendWebVitalStats(fakeCLS);
+
+      expect(window.dataLayer.push).toHaveBeenCalledWith(
+        'event',
+        fakeCLS.name,
+        {
+          value: Math.round(fakeCLS.delta * 1000),
+          metric_id: fakeCLS.id,
+          metric_value: fakeCLS.value,
+          metric_delta: Math.round(fakeCLS.delta * 1000),
+        },
+      );
     });
   });
 

@@ -1,5 +1,5 @@
 // Config specific to local development
-import { baseUrlDev, analyticsHost, apiDevHost } from './lib/shared';
+import { baseUrlDev, analyticsHost, apiDevHost, ga4ConnectHost, ga4Host } from './lib/shared';
 
 const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
 const webpackServerPort = process.env.WEBPACK_SERVER_PORT || 3001;
@@ -49,6 +49,7 @@ module.exports = {
         "'self'",
         baseUrlDev,
         analyticsHost,
+        ga4ConnectHost,
         apiDevHost,
         webpackDevServer,
         // This is needed for pino-devtools.
@@ -70,6 +71,7 @@ module.exports = {
         baseUrlDev,
         webpackDevServer,
         `${analyticsHost}/analytics.js`,
+        `${ga4Host}/gtag/js`,
       ],
       styleSrc: [
         "'self'",
@@ -79,6 +81,8 @@ module.exports = {
     },
     reportOnly: true,
   },
+
+  ga4DebugMode: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 

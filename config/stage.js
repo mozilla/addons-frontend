@@ -1,5 +1,5 @@
 // Config for the stage server.
-import { analyticsHost, apiStageHost, baseUrlStage, mediaPath, serverStaticPath, stageDomain, staticPath } from './lib/shared';
+import { analyticsHost, apiStageHost, baseUrlStage, ga4ConnectHost, ga4Host, mediaPath, serverStaticPath, stageDomain, staticPath } from './lib/shared';
 
 module.exports = {
   baseURL: baseUrlStage,
@@ -13,6 +13,7 @@ module.exports = {
     directives: {
       connectSrc: [
         analyticsHost,
+        ga4ConnectHost,
         apiStageHost,
       ],
       fontSrc: [
@@ -28,6 +29,7 @@ module.exports = {
       scriptSrc: [
         `${baseUrlStage}${staticPath}`,
         `${analyticsHost}/analytics.js`,
+        `${ga4Host}/gtag/js`,
       ],
       styleSrc: [
         `${baseUrlStage}${staticPath}`,
@@ -36,6 +38,7 @@ module.exports = {
   },
 
   allowErrorSimulation: true,
+  ga4DebugMode: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
 };

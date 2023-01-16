@@ -110,8 +110,10 @@ export class Tracking {
 
   sendWebVitals: boolean;
 
-  // Tracking ID
+  // Tracking IDs for UA and GA4
   id: string;
+
+  ga4Id: string;
 
   constructor({
     _config = config,
@@ -127,12 +129,13 @@ export class Tracking {
     this._log = log;
     this.logPrefix = '[GA]'; // this gets updated below
     this.id = _config.get('trackingId');
+    this.ga4Id = _config.get('ga4PropertyId');
 
     if (!convertBoolean(_config.get('trackingEnabled'))) {
       this.log('GA disabled because trackingEnabled was false');
       this.trackingEnabled = false;
-    } else if (!this.id) {
-      this.log('GA Disabled because trackingId was empty');
+    } else if (!this.id && !this.ga4Id) {
+      this.log('GA Disabled because UA and GA4 trackingIds are empty');
       this.trackingEnabled = false;
     } else if (_isDoNotTrackEnabled()) {
       this.log(oneLine`Do Not Track Enabled; Google Analytics not
@@ -180,19 +183,32 @@ export class Tracking {
         _getFID(sendWebVitalStats);
         _getLCP(sendWebVitalStats);
       }
+
+      // GA4 setup
+      this._ga4('js', new Date());
+      this._ga4('config', this.ga4Id, {
+        debug_mode: _config.get('ga4DebugMode'),
+      });
     }
   }
 
   sendWebVitalStats({
-    name,
     delta,
     id,
+    name,
+    value,
   }: {|
-    name: string,
     delta: number,
     id: number,
+    name: string,
+    value: number,
   |}) {
-    this.log('sendWebVitalStats', { name, delta, id });
+    this.log('sendWebVitalStats', { delta, id, name, value });
+
+    // Google Analytics metrics must be integers, so the value is rounded.
+    // For CLS the value is first multiplied by 1000 for greater precision
+    // (note: increase the multiplier for greater precision if needed).
+    const adjustedDelta = Math.round(name === 'CLS' ? delta * 1000 : delta);
 
     this._ga('send', 'event', {
       eventCategory: 'Web Vitals',
@@ -202,14 +218,20 @@ export class Tracking {
       // can compute a total by grouping on this ID (note: requires
       // `eventLabel` to be a dimension in your report).
       eventLabel: id,
-      // Google Analytics metrics must be integers, so the value is rounded.
-      // For CLS the value is first multiplied by 1000 for greater precision
-      // (note: increase the multiplier for greater precision if needed).
-      eventValue: Math.round(name === 'CLS' ? delta * 1000 : delta),
+      eventValue: adjustedDelta,
       // Use a non-interaction event to avoid affecting bounce rate.
       nonInteraction: true,
       // Use `sendBeacon()` if the browser supports it.
       transport: 'beacon',
+    });
+
+    // Also send to GA4.
+    // See https://github.com/GoogleChrome/web-vitals#using-gtagjs-google-analytics-4
+    this._ga4('event', name, {
+      value: adjustedDelta,
+      metric_id: id,
+      metric_value: value,
+      metric_delta: adjustedDelta,
     });
   }
 
@@ -224,6 +246,16 @@ export class Tracking {
   _ga(...args: Array<mixed>) {
     if (this.trackingEnabled) {
       window.ga(...args);
+    }
+  }
+
+  _ga4(...args: Array<mixed>) {
+    if (this.trackingEnabled) {
+      window.dataLayer = window.dataLayer || [];
+      /* eslint-disable */
+      // $FlowIgnore
+      dataLayer.push(...args);
+      /* eslint-enable */
     }
   }
 

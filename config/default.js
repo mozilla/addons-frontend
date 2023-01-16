@@ -4,7 +4,7 @@
 
 import path from 'path';
 
-import { analyticsHost, prodDomain, apiProdHost, baseUrlProd, mediaPath, serverStaticPath, staticPath } from './lib/shared';
+import { analyticsHost, ga4ConnectHost, ga4Host, prodDomain, apiProdHost, baseUrlProd, mediaPath, serverStaticPath, staticPath } from './lib/shared';
 
 const basePath = path.resolve(__dirname, '../');
 
@@ -98,6 +98,8 @@ module.exports = {
     'experiments',
     'extensionWorkshopUrl',
     'fxaConfig',
+    'ga4DebugMode',
+    'ga4PropertyId',
     'hrefLangsMap',
     'isDeployed',
     'isDevelopment',
@@ -130,7 +132,7 @@ module.exports = {
       defaultSrc: ["'none'"],
       baseUri: ["'self'"],
       childSrc: ["'none'"],
-      connectSrc: [analyticsHost, apiProdHost],
+      connectSrc: [analyticsHost, ga4ConnectHost, apiProdHost],
       fontSrc: [
         `${baseUrlProd}${staticPath}`,
       ],
@@ -153,6 +155,7 @@ module.exports = {
       scriptSrc: [
         `${baseUrlProd}${staticPath}`,
         `${analyticsHost}/analytics.js`,
+        `${ga4Host}/gtag/js`,
       ],
       styleSrc: [
         `${baseUrlProd}${staticPath}`,
@@ -289,6 +292,10 @@ module.exports = {
   trackingSendInitPageView: true,
   // send web vitals stats to GA
   trackingSendWebVitals: true,
+
+  // For GA4
+  ga4DebugMode: false,
+  ga4PropertyId: 'G-B9CY1C9VBC',
 
   enablePostCssLoader: true,
 
