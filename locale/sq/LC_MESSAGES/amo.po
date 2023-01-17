@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-03 18:28+0000\n"
+"POT-Creation-Date: 2023-01-17 17:58+0000\n"
 "PO-Revision-Date: 2022-11-27 17:39+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -500,6 +500,63 @@ msgstr "Më tepër shtesa nga %(author)s"
 msgid "More add-ons by these developers"
 msgstr "Më tepër shtesa nga këta zhvillues"
 
+#: src/amo/components/AddonSuggestions/index.js:100
+msgid "More powerful tools for translations, writing & grammar support"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:107
+msgid "More amazing extensions to change the way Firefox looks"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:114
+msgid "More incredible social media extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:119
+msgid "More excellent search extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:124
+msgid "More great extensions for feeds, news & media"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:129
+msgid "More great notification extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:138
+msgid "More great tools for web developers"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:268
+msgid "See Firefox Staff Picks"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:57
+msgid "Explore our 'Starter Pack' to get started with extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:69
+msgid "More powerful privacy & security extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:74
+msgid "More incredible download managers"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:80
+#: src/amo/components/AddonSuggestions/index.js:85
+msgid "More fantastic tab & bookmark extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:90
+msgid "More great extensions for games & entertainment"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:95
+msgid "More amazing image, photo & media extensions"
+msgstr ""
+
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
 msgstr "Ikonë shtese"
@@ -586,22 +643,22 @@ msgid "Add to Firefox"
 msgstr "Shtoje te Firefox-i"
 
 #: src/amo/components/App/index.js:122
-#: src/amo/components/HeadMetaTags/index.js:87
+#: src/amo/components/HeadMetaTags/index.js:93
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Shtesa për Firefox-in (%(locale)s)"
 
 #: src/amo/components/App/index.js:126
-#: src/amo/components/HeadMetaTags/index.js:81
+#: src/amo/components/HeadMetaTags/index.js:87
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Shtesa për Firefox-in (%(locale)s)"
 
 #: src/amo/components/App/index.js:134
-#: src/amo/components/HeadMetaTags/index.js:86
+#: src/amo/components/HeadMetaTags/index.js:92
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Shtesa për Firefox-in për Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:138
-#: src/amo/components/HeadMetaTags/index.js:80
+#: src/amo/components/HeadMetaTags/index.js:86
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Shtesa për Firefox-in për Android (%(locale)s)"
 
@@ -2049,7 +2106,7 @@ msgstr "Shfletoni krejt temat"
 msgid "Add-ons Home Page"
 msgstr "Faqe Hyrëse e Shtesës"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:181
 msgid "Preview of %(title)s"
 msgstr "Paraparje e %(title)s"
 
@@ -2135,65 +2192,65 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:201
+#: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Kjo shtojcë nuk mund të vlerësohet, ngaqë s’ka versione të saj të publikuar."
 
-#: src/amo/pages/Addon/index.js:212
+#: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lexoni %(count)s shqyrtim"
 msgstr[1] "Lexoni krejt %(count)s shqyrtimet"
 
-#: src/amo/pages/Addon/index.js:233
+#: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
 msgstr "Ende pa shqyrtime"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:252
 msgid "Rate your experience"
 msgstr "Vlerësoni rastin tuaj"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:271
 msgid "About this dictionary"
 msgstr "Rreth këtij fjalori"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:274
 msgid "About this extension"
 msgstr "Rreth këtij zgjerimi"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:277
 msgid "About this language pack"
 msgstr "Rreth kësaj pakete gjuhësore"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:280
 msgid "About this theme"
 msgstr "Rreth kësaj teme"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:283
 msgid "About this add-on"
 msgstr "Rreth kësaj shtese"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:327
 msgid "Developer comments"
 msgstr "Komente nga zhvillues"
 
-#: src/amo/pages/Addon/index.js:341
+#: src/amo/pages/Addon/index.js:350
 msgid "Release notes for %(addonVersion)s"
 msgstr "Shënime hedhjeje në qarkullim për %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:461
+#: src/amo/pages/Addon/index.js:482
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Kjo s’është listë publike. Po e shihni vetëm ngaqë keni leje të fuqishme."
 
-#: src/amo/pages/Addon/index.js:485
+#: src/amo/pages/Addon/index.js:506
 msgid "Extension Metadata"
 msgstr "Tejtëdhëna Zgjerimi"
 
-#: src/amo/pages/Addon/index.js:508
+#: src/amo/pages/Addon/index.js:531
 msgid "Screenshots"
 msgstr "Foto ekrani"
 
@@ -2362,24 +2419,24 @@ msgstr "Doni vërtet të fshihet ky koleksion?"
 msgid "Delete this collection"
 msgstr "Fshije këtë koleksion"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:422
 msgid "Log in to create a collection"
 msgstr "Që të krijoni një koleksion, bëni hyrjen"
 
-#: src/amo/pages/Collection/index.js:422
+#: src/amo/pages/Collection/index.js:423
 msgid "Log in to edit this collection"
 msgstr "Që të përpunoni këtë koleksion, bëni hyrjen"
 
-#: src/amo/pages/Collection/index.js:456
+#: src/amo/pages/Collection/index.js:457
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Së pari, krijoni koleksionin tuaj. Mandej mund të shtoni zgjerime dhe tema."
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:460
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Kërkoni për zgjerime dhe tema për t’i shtuar te koleksioni juaj."
 
-#: src/amo/pages/Collection/index.js:517
+#: src/amo/pages/Collection/index.js:520
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2388,7 +2445,7 @@ msgstr ""
 "temat tuaja të parapëlqyera. Eksploroni %(collectionName)s—"
 "%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:520
+#: src/amo/pages/Collection/index.js:523
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
