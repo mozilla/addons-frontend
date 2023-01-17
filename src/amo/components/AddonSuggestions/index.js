@@ -86,12 +86,12 @@ const getCategory = (
     },
     {
       slug: 'games-entertainment',
-      collection: '4757633/22469a386e654ca487b14d789e7250',
+      collection: '22469a386e654ca487b14d789e7250',
       heading: i18n.gettext('More great extensions for games & entertainment'),
     },
     {
       slug: 'photos-music-videos',
-      collection: '4757633/345d4c73b3e647a78522f385ce8ea7',
+      collection: '345d4c73b3e647a78522f385ce8ea7',
       heading: i18n.gettext('More amazing image, photo & media extensions'),
     },
     {
@@ -120,7 +120,7 @@ const getCategory = (
     },
     {
       slug: 'feeds-news-blogging',
-      collection: '4757633/9be99620f151420b91ac1fb30573d0',
+      collection: '9be99620f151420b91ac1fb30573d0',
       heading: i18n.gettext('More great extensions for feeds, news & media'),
     },
     {
