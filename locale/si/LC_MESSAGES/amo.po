@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-03 18:28+0000\n"
+"POT-Creation-Date: 2023-01-17 17:58+0000\n"
 "PO-Revision-Date: 2022-10-10 08:47+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -488,6 +488,63 @@ msgstr "%(author)s වෙතින් තවත් එක්කහු"
 msgid "More add-ons by these developers"
 msgstr "මෙම සංවර්ධකයින්ගේ වෙනත් එක්කහු"
 
+#: src/amo/components/AddonSuggestions/index.js:100
+msgid "More powerful tools for translations, writing & grammar support"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:107
+msgid "More amazing extensions to change the way Firefox looks"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:114
+msgid "More incredible social media extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:119
+msgid "More excellent search extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:124
+msgid "More great extensions for feeds, news & media"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:129
+msgid "More great notification extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:138
+msgid "More great tools for web developers"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:268
+msgid "See Firefox Staff Picks"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:57
+msgid "Explore our 'Starter Pack' to get started with extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:69
+msgid "More powerful privacy & security extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:74
+msgid "More incredible download managers"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:80
+#: src/amo/components/AddonSuggestions/index.js:85
+msgid "More fantastic tab & bookmark extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:90
+msgid "More great extensions for games & entertainment"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:95
+msgid "More amazing image, photo & media extensions"
+msgstr ""
+
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
 msgstr "එක්කහු නිරූපකය"
@@ -572,22 +629,22 @@ msgid "Add to Firefox"
 msgstr "ෆයර්ෆොක්ස් වෙත යොදන්න"
 
 #: src/amo/components/App/index.js:122
-#: src/amo/components/HeadMetaTags/index.js:87
+#: src/amo/components/HeadMetaTags/index.js:93
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "ෆයර්ෆොක්ස් (%(locale)s) සඳහා එක්කහු"
 
 #: src/amo/components/App/index.js:126
-#: src/amo/components/HeadMetaTags/index.js:81
+#: src/amo/components/HeadMetaTags/index.js:87
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – ෆයර්ෆොක්ස් (%(locale)s) සඳහා එක්කහු"
 
 #: src/amo/components/App/index.js:134
-#: src/amo/components/HeadMetaTags/index.js:86
+#: src/amo/components/HeadMetaTags/index.js:92
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා එක්කහු"
 
 #: src/amo/components/App/index.js:138
-#: src/amo/components/HeadMetaTags/index.js:80
+#: src/amo/components/HeadMetaTags/index.js:86
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා එක්කහු"
 
@@ -1996,7 +2053,7 @@ msgstr "සියළු තේමා පිරික්සන්න"
 msgid "Add-ons Home Page"
 msgstr "එක්කහු මුල් පිටුව"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:181
 msgid "Preview of %(title)s"
 msgstr "%(title)s හි පෙරදසුන"
 
@@ -2079,63 +2136,63 @@ msgstr "ගි.බ. %(localizedSize)s"
 msgid "%(localizedSize)s TB"
 msgstr "ටෙ.බ. %(localizedSize)s"
 
-#: src/amo/pages/Addon/index.js:201
+#: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "අනුවාද කිසිවක් ප්‍රකාශයට පත් කර නැති නිසා මෙම එක්කහුව ඇගැයුමට නොහැකිය."
 
-#: src/amo/pages/Addon/index.js:212
+#: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "සමාලෝචන %(count)s කියවන්න"
 msgstr[1] "සමාලෝචන %(count)s කියවන්න"
 
-#: src/amo/pages/Addon/index.js:233
+#: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
 msgstr "මෙතෙක් සමාලෝචන නැත"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:252
 msgid "Rate your experience"
 msgstr "ඔබගේ අත්දැකීම අගයන්න"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:271
 msgid "About this dictionary"
 msgstr "මෙම ශබ්දකෝෂය ගැන"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:274
 msgid "About this extension"
 msgstr "මෙම දිගුව ගැන"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:277
 msgid "About this language pack"
 msgstr "මෙම භාෂා ඇසුරුම ගැන"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:280
 msgid "About this theme"
 msgstr "මෙම තේමාව ගැන"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:283
 msgid "About this add-on"
 msgstr "මෙම එක්කහුව ගැන"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:327
 msgid "Developer comments"
 msgstr "සංවර්ධකයාගේ අදහස්"
 
-#: src/amo/pages/Addon/index.js:341
+#: src/amo/pages/Addon/index.js:350
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s සඳහා නිකුතු සටහන්"
 
-#: src/amo/pages/Addon/index.js:461
+#: src/amo/pages/Addon/index.js:482
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "මෙය ප්‍රසිද්ධ ලේඛනගත කිරීමක් නොවේ. ඉහළ අවසර තිබෙන නිසා ඔබ පමණක් දකියි."
 
-#: src/amo/pages/Addon/index.js:485
+#: src/amo/pages/Addon/index.js:506
 msgid "Extension Metadata"
 msgstr "දිගුවේ පාරදත්ත"
 
-#: src/amo/pages/Addon/index.js:508
+#: src/amo/pages/Addon/index.js:531
 msgid "Screenshots"
 msgstr "තිර සේයා"
 
@@ -2299,23 +2356,23 @@ msgstr "මෙම එකතුව මකා දැමීමට වුවමන�
 msgid "Delete this collection"
 msgstr "මෙම එකතුව මකන්න"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:422
 msgid "Log in to create a collection"
 msgstr "එකතුවක් සෑදීමට පිවිසෙන්න"
 
-#: src/amo/pages/Collection/index.js:422
+#: src/amo/pages/Collection/index.js:423
 msgid "Log in to edit this collection"
 msgstr "මෙම එකතුව සංස්කරණයට පිවිසෙන්න"
 
-#: src/amo/pages/Collection/index.js:456
+#: src/amo/pages/Collection/index.js:457
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "පළමුව, ඔබගේ එකතුව සාදන්න. ඉන්පසු ඔබට දිගු සහ තේමා එක් කළ හැකිය."
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:460
 msgid "Search for extensions and themes to add to your collection."
 msgstr "ඔබගේ එකතුවට එක් කිරීමට දිගු සහ තේමා සොයන්න."
 
-#: src/amo/pages/Collection/index.js:517
+#: src/amo/pages/Collection/index.js:520
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2323,7 +2380,7 @@ msgstr ""
 "ප්‍රියතම දිගු සහ තේමා පිළිබඳව අවධානයෙන් සිටීමට බාගත කර ෆයර්ෆොක්ස් එකතු සාදන්න. "
 "%(collectionName)s—%(collectionDescription)s ගවේශනය කරන්න."
 
-#: src/amo/pages/Collection/index.js:520
+#: src/amo/pages/Collection/index.js:523
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."

@@ -5947,7 +5947,7 @@ jest-haste-map@^29.3.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-jest-json-schema@6.1.0:
+jest-json-schema@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/jest-json-schema/-/jest-json-schema-6.1.0.tgz#68ccc23424a7b20550d59ab9186530f81113e6af"
   integrity sha512-LMHuLmKjr/4X+H8v1xF5TEwfYEkzwGeWJ0epYQVQhlVTDDR5FWCdSO8vmsecb5cLf9NeWAqMKn3qhJvP9um0AA==

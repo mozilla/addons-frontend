@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-03 18:28+0000\n"
+"POT-Creation-Date: 2023-01-17 17:58+0000\n"
 "PO-Revision-Date: 2018-06-01 14:56+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -531,6 +531,63 @@ msgstr "افزونه‌های بیشتر توسط %(author)s"
 msgid "More add-ons by these developers"
 msgstr "افزونه‌های بیشتر توسط این توسعه‌دهندگان"
 
+#: src/amo/components/AddonSuggestions/index.js:100
+msgid "More powerful tools for translations, writing & grammar support"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:107
+msgid "More amazing extensions to change the way Firefox looks"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:114
+msgid "More incredible social media extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:119
+msgid "More excellent search extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:124
+msgid "More great extensions for feeds, news & media"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:129
+msgid "More great notification extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:138
+msgid "More great tools for web developers"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:268
+msgid "See Firefox Staff Picks"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:57
+msgid "Explore our 'Starter Pack' to get started with extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:69
+msgid "More powerful privacy & security extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:74
+msgid "More incredible download managers"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:80
+#: src/amo/components/AddonSuggestions/index.js:85
+msgid "More fantastic tab & bookmark extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:90
+msgid "More great extensions for games & entertainment"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:95
+msgid "More amazing image, photo & media extensions"
+msgstr ""
+
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
 msgstr "آیکن افزونه‌"
@@ -623,25 +680,25 @@ msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
 
 #: src/amo/components/App/index.js:122
-#: src/amo/components/HeadMetaTags/index.js:87
+#: src/amo/components/HeadMetaTags/index.js:93
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "افزونه‌های فایرفاکس"
 
 #: src/amo/components/App/index.js:126
-#: src/amo/components/HeadMetaTags/index.js:81
+#: src/amo/components/HeadMetaTags/index.js:87
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%s – افزونه‌های فایرفاکس"
 
 #: src/amo/components/App/index.js:134
-#: src/amo/components/HeadMetaTags/index.js:86
+#: src/amo/components/HeadMetaTags/index.js:92
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "افزونه‌های فایرفاکس"
 
 #: src/amo/components/App/index.js:138
-#: src/amo/components/HeadMetaTags/index.js:80
+#: src/amo/components/HeadMetaTags/index.js:86
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%s – افزونه‌های فایرفاکس"
@@ -2141,7 +2198,7 @@ msgstr "مرور تمام تم‌ها"
 msgid "Add-ons Home Page"
 msgstr "صفحه خانگی افزودنه‌ها"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:181
 msgid "Preview of %(title)s"
 msgstr ""
 
@@ -2227,64 +2284,64 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:201
+#: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:212
+#: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "همه‌ی %(count)s بازخورد‌ها را بخوانید"
 msgstr[1] "همه‌ی %(count)s بازخورد‌ها را بخوانید"
 
-#: src/amo/pages/Addon/index.js:233
+#: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
 msgstr "تاکنون بدون بازخوردی ندارد"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:252
 msgid "Rate your experience"
 msgstr "به تجربه خود امتیاز بدهید"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:271
 msgid "About this dictionary"
 msgstr "درباره این لغت‌نامه"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:274
 msgid "About this extension"
 msgstr "دربارهٔ این افزونه"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:277
 msgid "About this language pack"
 msgstr "دربارهٔ این بسته زبانی"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:280
 msgid "About this theme"
 msgstr "دربارهٔ این تم"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:283
 msgid "About this add-on"
 msgstr "دربارهٔ این افزونه"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:327
 #, fuzzy
 msgid "Developer comments"
 msgstr "پاسخ توسعه‌دهنده"
 
-#: src/amo/pages/Addon/index.js:341
+#: src/amo/pages/Addon/index.js:350
 msgid "Release notes for %(addonVersion)s"
 msgstr "یادداشت‌های انتشار برای %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:461
+#: src/amo/pages/Addon/index.js:482
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:485
+#: src/amo/pages/Addon/index.js:506
 msgid "Extension Metadata"
 msgstr "فرادادهٔ ضمیمه"
 
-#: src/amo/pages/Addon/index.js:508
+#: src/amo/pages/Addon/index.js:531
 msgid "Screenshots"
 msgstr "تصاویر صفحه"
 
@@ -2460,31 +2517,31 @@ msgstr "ویرایش این مجموعه"
 msgid "Delete this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:422
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:422
+#: src/amo/pages/Collection/index.js:423
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:456
+#: src/amo/pages/Collection/index.js:457
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:460
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:517
+#: src/amo/pages/Collection/index.js:520
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:520
+#: src/amo/pages/Collection/index.js:523
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
