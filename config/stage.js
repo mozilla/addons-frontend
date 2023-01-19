@@ -38,4 +38,8 @@ module.exports = {
   allowErrorSimulation: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
+
+  experiments: {
+    '20221130_amo_detail_category': true,
+  },
 };
