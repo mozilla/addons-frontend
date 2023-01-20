@@ -1,12 +1,26 @@
 @import '~amo/css/styles';
 
 .AddonSuggestions {
+  background: $white;
+  border-bottom-left-radius: $border-radius-default;
+  border-bottom-right-radius: $border-radius-default;
+  margin-top: 0;
   min-height: 170px; // Added to avoid shift when suggestions load.
   // stylelint-disable max-nesting-depth
 
-  margin-top: 0;
-
   &.AddonsCard--horizontal {
+    .Card-header-text {
+      max-width: 100%;
+
+      @include respond-to(large) {
+        max-width: 450px;
+      }
+
+      @include respond-to(extraLarge) {
+        max-width: 100%;
+      }
+    }
+
     ul.AddonsCard-list {
       .SearchResult {
         .SearchResult-note {
