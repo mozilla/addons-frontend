@@ -587,6 +587,7 @@ export const dispatchSearchResults = async ({
   filters = { query: 'test' },
   pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
   store = dispatchClientMetadata().store,
+  pageCount,
 } = {}) => {
   await act(async () =>
     store.dispatch(
@@ -603,6 +604,7 @@ export const dispatchSearchResults = async ({
         count: count || Object.keys(addons).length,
         results: addons,
         pageSize,
+        pageCount,
       }),
     ),
   );

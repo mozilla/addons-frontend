@@ -41,6 +41,7 @@ describe(__filename, () => {
       expect(newState.loading).toBe(false);
       expect(newState.results).toEqual([]);
       expect(newState.count).toEqual(0);
+      expect(newState.pageCount).toEqual(0);
     });
   });
 
@@ -57,6 +58,7 @@ describe(__filename, () => {
       expect(state.loading).toBe(true);
       expect(state.results).toEqual([]);
       expect(state.count).toEqual(0);
+      expect(state.pageCount).toEqual(0);
     });
   });
 
@@ -64,6 +66,7 @@ describe(__filename, () => {
     const stateWithLang = search(undefined, setLang('en-US'));
     const response = {
       count: 3,
+      pageCount: 1,
       results: [
         { ...fakeAddon, slug: 'bar' },
         { ...fakeAddon, slug: 'foo' },
@@ -91,6 +94,12 @@ describe(__filename, () => {
       expect(state.results).toEqual(
         response.results.map((addon) => createInternalAddonWithLang(addon)),
       );
+    });
+
+    it('sets the pageCount', () => {
+      const state = search(stateWithLang, searchLoad(response));
+
+      expect(state.pageCount).toEqual(response.pageCount);
     });
   });
 });

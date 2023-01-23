@@ -22,6 +22,7 @@ export type SearchState = {|
   loading: boolean,
   pageSize: string | null,
   results: Array<AddonType | CollectionAddonType>,
+  pageCount: number,
 |};
 
 export const initialState: SearchState = {
@@ -33,6 +34,7 @@ export const initialState: SearchState = {
   loading: false,
   pageSize: null,
   results: [],
+  pageCount: 0,
 };
 
 type AbortSearchAction = {|
@@ -70,6 +72,7 @@ type SearchLoadParams = {|
   count: number,
   pageSize: string,
   results: Array<ExternalAddonType>,
+  pageCount: number,
 |};
 
 type SearchLoadAction = {|
@@ -81,12 +84,13 @@ export function searchLoad({
   count,
   pageSize,
   results,
+  pageCount,
 }: SearchLoadParams): SearchLoadAction {
   invariant(results, 'results are required');
 
   return {
     type: SEARCH_LOADED,
-    payload: { count, pageSize, results },
+    payload: { count, pageSize, results, pageCount },
   };
 }
 
@@ -113,6 +117,7 @@ export default function search(
         filters: payload.filters,
         loading: true,
         results: [],
+        pageCount: 0,
       };
     }
     case SEARCH_LOADED: {
@@ -126,6 +131,7 @@ export default function search(
         results: payload.results.map((addon) =>
           createInternalAddon(addon, state.lang),
         ),
+        pageCount: payload.pageCount,
       };
     }
     case SEARCH_ABORTED:
@@ -134,6 +140,7 @@ export default function search(
         count: 0,
         loading: false,
         results: [],
+        pageCount: 0,
       };
     default:
       return state;

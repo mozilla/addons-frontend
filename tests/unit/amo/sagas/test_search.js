@@ -7,6 +7,7 @@ import searchReducer, {
   SEARCH_LOADED,
   abortSearch,
   searchStart,
+  searchLoad,
 } from 'amo/reducers/search';
 import searchSaga from 'amo/sagas/search';
 import {
@@ -45,13 +46,23 @@ describe(__filename, () => {
     mockApi
       .expects('search')
       .once()
-      .returns(Promise.resolve({ results: [], count: 0 }));
+      .returns(Promise.resolve({ results: [], count: 0, page_count: 0 }));
 
     _searchStart({ filters });
 
     // The saga should respond by dispatching the search loaded action.
     await sagaTester.waitFor(SEARCH_LOADED);
     mockApi.verify();
+
+    // The searchLoad action should contain the pageCount attribute taken from the API response
+    const expectedLoadAction = searchLoad({
+      results: [],
+      count: 0,
+      pageCount: 0,
+    });
+
+    const loadAction = sagaTester.getCalledActions()[2];
+    expect(loadAction).toEqual(expectedLoadAction);
   });
 
   it('clears the error handler', async () => {

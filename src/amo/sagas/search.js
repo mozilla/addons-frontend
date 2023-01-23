@@ -26,9 +26,14 @@ export function* fetchSearchResults({ payload }: SearchStartAction): Saga {
       filters,
     };
     const response = yield call(searchApi, params);
-    const { count, page_size: pageSize, results } = response;
+    const {
+      count,
+      page_size: pageSize,
+      page_count: pageCount,
+      results,
+    } = response;
 
-    yield put(searchLoad({ count, pageSize, results }));
+    yield put(searchLoad({ count, pageSize, results, pageCount }));
   } catch (error) {
     log.warn(`Search results failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));

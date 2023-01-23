@@ -186,6 +186,30 @@ describe(__filename, () => {
     );
   });
 
+  it('uses receivedPageCount for paginator links when passed', () => {
+    const currentPage = 9;
+    const queryParams = { color: 'red' };
+    const pathname = '/some/path';
+    const receivedPageCount = 10;
+
+    render({
+      count: 3,
+      currentPage,
+      pathname,
+      perPage: 1,
+      receivedPageCount,
+      queryParams,
+    });
+
+    // If receivedPageCount was not passed, the last page would
+    // have been 3. (count is 3 and there is 1 per page)
+    expect(screen.getByText('Page 9 of 10')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+      'href',
+      `/en-US/android${pathname}?color=red&page=10`,
+    );
+  });
+
   it('defaults currentPage to 1', () => {
     render({ currentPage: undefined, count: 30 });
 

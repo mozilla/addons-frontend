@@ -114,13 +114,20 @@ describe(__filename, () => {
     page = '1',
     pageSize = 2,
     query,
+    pageCount = 4,
   } = {}) => {
     const addons = Array(pageSize).fill(fakeAddon);
     const filters = { page, ...filterProps };
     if (query) {
       filters.query = query;
     }
-    await _dispatchSearchResults({ addons, count, filters, pageSize });
+    await _dispatchSearchResults({
+      addons,
+      count,
+      filters,
+      pageSize,
+      pageCount,
+    });
     let location = `${defaultLocation}?page=${page}`;
     if (query) {
       location = `${location}&q=${query}`;
@@ -371,9 +378,12 @@ describe(__filename, () => {
     it('passes a Paginate component to the SearchResults component', async () => {
       const page = '2';
       const query = 'foo';
-      await renderWithResults({ page, query });
+      const pageCount = 4;
 
-      expect(screen.getByText('Page 2 of 3')).toBeInTheDocument();
+      await renderWithResults({ page, query, pageCount });
+
+      // Check that we use the "pageCount" item from store to compute the number of pages, NOT the "count" item.
+      expect(screen.getByText('Page 2 of 4')).toBeInTheDocument();
       expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
         'href',
         `${defaultLocation}?page=1&q=${query}`,
