@@ -1,5 +1,5 @@
 // Config for the -dev server.
-import { analyticsHost, apiDevHost, baseUrlDev, devDomain, mediaPath, serverStaticPath, staticPath } from './lib/shared';
+import { analyticsHost, apiDevHost, baseUrlDev, devDomain, ga4ConnectHost, ga4Host, mediaPath, serverStaticPath, staticPath } from './lib/shared';
 
 module.exports = {
   baseURL: baseUrlDev,
@@ -14,6 +14,7 @@ module.exports = {
     directives: {
       connectSrc: [
         analyticsHost,
+        ga4ConnectHost,
         apiDevHost,
       ],
       fontSrc: [
@@ -29,6 +30,7 @@ module.exports = {
       scriptSrc: [
         `${baseUrlDev}${staticPath}`,
         `${analyticsHost}/analytics.js`,
+        `${ga4Host}/gtag/js`,
       ],
       styleSrc: [
         `${baseUrlDev}${staticPath}`,
