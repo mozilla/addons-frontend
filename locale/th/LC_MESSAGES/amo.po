@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-17 17:58+0000\n"
+"POT-Creation-Date: 2023-01-24 19:16+0000\n"
 "PO-Revision-Date: 2022-08-08 16:41+0000\n"
 "Last-Translator: Wannaphong Phatthiyaphaibun <wannaphong@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1297,15 +1297,15 @@ msgstr "เปลี่ยนภาษา"
 msgid "Dismiss this notice"
 msgstr "เพิกเฉยประกาศนี้"
 
-#: src/amo/components/Paginate/index.js:151
+#: src/amo/components/Paginate/index.js:155
 msgid "Previous"
 msgstr "ก่อนหน้า"
 
-#: src/amo/components/Paginate/index.js:170
+#: src/amo/components/Paginate/index.js:174
 msgid "Next"
 msgstr "ถัดไป"
 
-#: src/amo/components/Paginate/index.js:175
+#: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
 msgstr ""
 
@@ -1625,102 +1625,102 @@ msgid ""
 "with this user."
 msgstr "เราได้รับรายงานของคุณแล้ว ขอบคุณที่ทำให้เรารู้เกี่ยวกับความกังวลของคุณเกี่ยวกับผู้ใช้นี้"
 
-#: src/amo/components/Search/index.js:138
+#: src/amo/components/Search/index.js:139
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "ผลการค้นหา"
 
-#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:213
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "ส่วนขยายที่แนะนำ"
 
-#: src/amo/components/Search/index.js:147
+#: src/amo/components/Search/index.js:148
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "ชุดตกแต่งที่แนะนำ"
 
-#: src/amo/components/Search/index.js:150
+#: src/amo/components/Search/index.js:151
 msgid "Recommended add-ons"
 msgstr "ส่วนเสริมที่แนะนำ"
 
-#: src/amo/components/Search/index.js:155
+#: src/amo/components/Search/index.js:156
 msgid "Extensions by Firefox"
 msgstr "ส่วนขยายโดย Firefox"
 
-#: src/amo/components/Search/index.js:158
+#: src/amo/components/Search/index.js:159
 msgid "Themes by Firefox"
 msgstr "ชุดตกแต่งโดย Firefox"
 
-#: src/amo/components/Search/index.js:161
+#: src/amo/components/Search/index.js:162
 msgid "Add-ons by Firefox"
 msgstr "ส่วนเสริมโดย Firefox"
 
-#: src/amo/components/Search/index.js:166
+#: src/amo/components/Search/index.js:167
 msgid "Reviewed extensions"
 msgstr "ส่วนขยายที่ตรวจทานแล้ว"
 
-#: src/amo/components/Search/index.js:169
+#: src/amo/components/Search/index.js:170
 msgid "Reviewed themes"
 msgstr "ชุดตกแต่งที่ตรวจทานแล้ว"
 
-#: src/amo/components/Search/index.js:172
+#: src/amo/components/Search/index.js:173
 msgid "Reviewed add-ons"
 msgstr "ส่วนเสริมที่ตรวจทานแล้ว"
 
-#: src/amo/components/Search/index.js:177
+#: src/amo/components/Search/index.js:178
 msgid "Verified extensions"
 msgstr "ส่วนขยายที่ตรวจสอบแล้ว"
 
-#: src/amo/components/Search/index.js:180
+#: src/amo/components/Search/index.js:181
 msgid "Verified themes"
 msgstr "ชุดตกแต่งที่ตรวจสอบแล้ว"
 
-#: src/amo/components/Search/index.js:183
+#: src/amo/components/Search/index.js:184
 msgid "Verified add-ons"
 msgstr "ส่วนเสริมที่ตรวจสอบแล้ว"
 
-#: src/amo/components/Search/index.js:191
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "ส่วนขยายที่กำลังนิยม"
 
-#: src/amo/components/Search/index.js:194
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "ชุดตกแต่งที่กำลังนิยม"
 
-#: src/amo/components/Search/index.js:197
+#: src/amo/components/Search/index.js:198
 msgid "Trending add-ons"
 msgstr "ส่วนเสริมที่กำลังนิยม"
 
-#: src/amo/components/Search/index.js:203
+#: src/amo/components/Search/index.js:204
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "ส่วนขยายที่ได้รับการจัดอันดับสูงสุด"
 
-#: src/amo/components/Search/index.js:206
+#: src/amo/components/Search/index.js:207
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "ชุดตกแต่งที่ได้รับการจัดอันดับสูงสุด"
 
-#: src/amo/components/Search/index.js:209
+#: src/amo/components/Search/index.js:210
 msgid "Top rated add-ons"
 msgstr "ส่วนเสริมที่ได้รับการจัดอันดับสูงสุด"
 
-#: src/amo/components/Search/index.js:215
+#: src/amo/components/Search/index.js:216
 msgid "Popular extensions"
 msgstr "ส่วนขยายยอดนิยม"
 
-#: src/amo/components/Search/index.js:218
+#: src/amo/components/Search/index.js:219
 msgid "Popular themes"
 msgstr "ชุดตกแต่งยอดนิยม"
 
-#: src/amo/components/Search/index.js:221
+#: src/amo/components/Search/index.js:222
 msgid "Popular add-ons"
 msgstr "ส่วนเสริมยอดนิยม"
 
-#: src/amo/components/Search/index.js:227
+#: src/amo/components/Search/index.js:228
 msgid "Search results for \"%(query)s\""
 msgstr "ผลการค้นหา \"%(query)s\""
 

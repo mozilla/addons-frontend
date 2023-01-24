@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-17 17:58+0000\n"
+"POT-Creation-Date: 2023-01-24 19:16+0000\n"
 "PO-Revision-Date: 2022-09-12 13:33+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1298,15 +1298,15 @@ msgstr "భాషను మార్చుకోండి"
 msgid "Dismiss this notice"
 msgstr "ఈ గమనికను తీసేయి"
 
-#: src/amo/components/Paginate/index.js:151
+#: src/amo/components/Paginate/index.js:155
 msgid "Previous"
 msgstr "మునుపటి"
 
-#: src/amo/components/Paginate/index.js:170
+#: src/amo/components/Paginate/index.js:174
 msgid "Next"
 msgstr "తదుపరి"
 
-#: src/amo/components/Paginate/index.js:175
+#: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
 msgstr ""
 
@@ -1636,105 +1636,105 @@ msgid ""
 msgstr ""
 "మేము మీ నివేదికను అందుకున్నాము. ఈ వాడుకరితో మీ ఆందోళనల గురించి మాకు తెలియజేసినందుకు ధన్యవాదాలు."
 
-#: src/amo/components/Search/index.js:138
+#: src/amo/components/Search/index.js:139
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "వెతుకుడు ఫలితాలు"
 
-#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:213
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "సిఫార్సు చేసిన పొడగింతలు"
 
-#: src/amo/components/Search/index.js:147
+#: src/amo/components/Search/index.js:148
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "సిఫార్సు చేసిన అలంకారాలు"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Search/index.js:150
+#: src/amo/components/Search/index.js:151
 msgid "Recommended add-ons"
 msgstr ""
 
-#: src/amo/components/Search/index.js:155
+#: src/amo/components/Search/index.js:156
 msgid "Extensions by Firefox"
 msgstr "Firefox వారిచే పొడగింతలు"
 
-#: src/amo/components/Search/index.js:158
+#: src/amo/components/Search/index.js:159
 msgid "Themes by Firefox"
 msgstr "Firefox వారిచే అలంకారాలు"
 
-#: src/amo/components/Search/index.js:161
+#: src/amo/components/Search/index.js:162
 msgid "Add-ons by Firefox"
 msgstr "Firefox వారి పొడగింతలు"
 
-#: src/amo/components/Search/index.js:166
+#: src/amo/components/Search/index.js:167
 msgid "Reviewed extensions"
 msgstr "సమీక్షించిన పొడగింతలు"
 
-#: src/amo/components/Search/index.js:169
+#: src/amo/components/Search/index.js:170
 msgid "Reviewed themes"
 msgstr "సమీక్షించిన అలంకారాలు"
 
-#: src/amo/components/Search/index.js:172
+#: src/amo/components/Search/index.js:173
 msgid "Reviewed add-ons"
 msgstr "సమీక్షించిన పొడగింతలు"
 
-#: src/amo/components/Search/index.js:177
+#: src/amo/components/Search/index.js:178
 msgid "Verified extensions"
 msgstr "తనిఖీయైన పొడగింతలు"
 
-#: src/amo/components/Search/index.js:180
+#: src/amo/components/Search/index.js:181
 msgid "Verified themes"
 msgstr "తనిఖీయైన అలంకారాలు"
 
-#: src/amo/components/Search/index.js:183
+#: src/amo/components/Search/index.js:184
 msgid "Verified add-ons"
 msgstr "తనిఖీయైన పొడగింతలు"
 
-#: src/amo/components/Search/index.js:191
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "ట్రెండవుతూన్న పొడగింతలు"
 
-#: src/amo/components/Search/index.js:194
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "ట్రెండవుతూన్న అలంకారాలు"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Search/index.js:197
+#: src/amo/components/Search/index.js:198
 msgid "Trending add-ons"
 msgstr "ట్రెండవుతూన్న యాడ్-ఆన్లు"
 
-#: src/amo/components/Search/index.js:203
+#: src/amo/components/Search/index.js:204
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr ""
 
-#: src/amo/components/Search/index.js:206
+#: src/amo/components/Search/index.js:207
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "ఉత్తమంగా రేటైన అలంకారాలు"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Search/index.js:209
+#: src/amo/components/Search/index.js:210
 msgid "Top rated add-ons"
 msgstr "మేటి పొడిగింతలు"
 
-#: src/amo/components/Search/index.js:215
+#: src/amo/components/Search/index.js:216
 msgid "Popular extensions"
 msgstr "ప్రాచుర్య పొడిగింతలు"
 
-#: src/amo/components/Search/index.js:218
+#: src/amo/components/Search/index.js:219
 msgid "Popular themes"
 msgstr "ప్రాచుర్య అలంకారాలు"
 
-#: src/amo/components/Search/index.js:221
+#: src/amo/components/Search/index.js:222
 msgid "Popular add-ons"
 msgstr "ప్రాచుర్య పొడగింతలు"
 
-#: src/amo/components/Search/index.js:227
+#: src/amo/components/Search/index.js:228
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\"కి వెతుకుడు ఫలితాలు"
 
