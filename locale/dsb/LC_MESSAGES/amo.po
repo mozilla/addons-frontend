@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-17 17:58+0000\n"
+"POT-Creation-Date: 2023-01-24 19:16+0000\n"
 "PO-Revision-Date: 2022-06-14 19:14+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -1360,15 +1360,15 @@ msgstr "Rěc změniś"
 msgid "Dismiss this notice"
 msgstr "Toś ten pokaz zachyśiś"
 
-#: src/amo/components/Paginate/index.js:151
+#: src/amo/components/Paginate/index.js:155
 msgid "Previous"
 msgstr "Pjerwjejšne"
 
-#: src/amo/components/Paginate/index.js:170
+#: src/amo/components/Paginate/index.js:174
 msgid "Next"
 msgstr "Pśiduce"
 
-#: src/amo/components/Paginate/index.js:175
+#: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
 msgstr "Bok %(thisPage)s z %(totalPages)s"
 
@@ -1724,102 +1724,102 @@ msgstr ""
 "Smy wašu rozpšawu dóstali. Źěkujomy se, až sćo nam swóje wobmyslenja "
 "nastupajucy toś togo wužywarja k wěsći dał."
 
-#: src/amo/components/Search/index.js:138
+#: src/amo/components/Search/index.js:139
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "Pytańske wuslědki"
 
-#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:213
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Dopórucone rozšyrjenja"
 
-#: src/amo/components/Search/index.js:147
+#: src/amo/components/Search/index.js:148
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "Dopórucone drastwy"
 
-#: src/amo/components/Search/index.js:150
+#: src/amo/components/Search/index.js:151
 msgid "Recommended add-ons"
 msgstr "Dopórucone dodanki"
 
-#: src/amo/components/Search/index.js:155
+#: src/amo/components/Search/index.js:156
 msgid "Extensions by Firefox"
 msgstr "Rozšyrjenja Firefox"
 
-#: src/amo/components/Search/index.js:158
+#: src/amo/components/Search/index.js:159
 msgid "Themes by Firefox"
 msgstr "Drastwy Firefox"
 
-#: src/amo/components/Search/index.js:161
+#: src/amo/components/Search/index.js:162
 msgid "Add-ons by Firefox"
 msgstr "Dodanki Firefox"
 
-#: src/amo/components/Search/index.js:166
+#: src/amo/components/Search/index.js:167
 msgid "Reviewed extensions"
 msgstr "Pśeglědane rozšyrjenja"
 
-#: src/amo/components/Search/index.js:169
+#: src/amo/components/Search/index.js:170
 msgid "Reviewed themes"
 msgstr "Pśeglědane drastwy"
 
-#: src/amo/components/Search/index.js:172
+#: src/amo/components/Search/index.js:173
 msgid "Reviewed add-ons"
 msgstr "Pśeglědane dodanki"
 
-#: src/amo/components/Search/index.js:177
+#: src/amo/components/Search/index.js:178
 msgid "Verified extensions"
 msgstr "Wobkšuśone rozšyrjenja"
 
-#: src/amo/components/Search/index.js:180
+#: src/amo/components/Search/index.js:181
 msgid "Verified themes"
 msgstr "Wobkšuśone drastwy"
 
-#: src/amo/components/Search/index.js:183
+#: src/amo/components/Search/index.js:184
 msgid "Verified add-ons"
 msgstr "Wobkšuśone dodanki"
 
-#: src/amo/components/Search/index.js:191
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Woblubowane rozšyrjenja"
 
-#: src/amo/components/Search/index.js:194
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "Woblubowane drastwy"
 
-#: src/amo/components/Search/index.js:197
+#: src/amo/components/Search/index.js:198
 msgid "Trending add-ons"
 msgstr "Woblubowane dodanki"
 
-#: src/amo/components/Search/index.js:203
+#: src/amo/components/Search/index.js:204
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Nejwušej pógódnośone rozšyrjenja"
 
-#: src/amo/components/Search/index.js:206
+#: src/amo/components/Search/index.js:207
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Wusoko pógódnośone drastwy"
 
-#: src/amo/components/Search/index.js:209
+#: src/amo/components/Search/index.js:210
 msgid "Top rated add-ons"
 msgstr "Nejwušej pógódnośone dodanki"
 
-#: src/amo/components/Search/index.js:215
+#: src/amo/components/Search/index.js:216
 msgid "Popular extensions"
 msgstr "Woblubowane rozšyrjenja"
 
-#: src/amo/components/Search/index.js:218
+#: src/amo/components/Search/index.js:219
 msgid "Popular themes"
 msgstr "Woblubowane drastwy"
 
-#: src/amo/components/Search/index.js:221
+#: src/amo/components/Search/index.js:222
 msgid "Popular add-ons"
 msgstr "Woblubowane dodanki"
 
-#: src/amo/components/Search/index.js:227
+#: src/amo/components/Search/index.js:228
 msgid "Search results for \"%(query)s\""
 msgstr "Pytańske wuslědki za \"%(query)s\""
 

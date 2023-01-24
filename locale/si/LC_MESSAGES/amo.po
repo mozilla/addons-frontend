@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-17 17:58+0000\n"
+"POT-Creation-Date: 2023-01-24 19:16+0000\n"
 "PO-Revision-Date: 2022-10-10 08:47+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1320,15 +1320,15 @@ msgstr "භාෂාව සංශෝධනය"
 msgid "Dismiss this notice"
 msgstr "දැන්වීම ඉවත දමන්න"
 
-#: src/amo/components/Paginate/index.js:151
+#: src/amo/components/Paginate/index.js:155
 msgid "Previous"
 msgstr "කලින්"
 
-#: src/amo/components/Paginate/index.js:170
+#: src/amo/components/Paginate/index.js:174
 msgid "Next"
 msgstr "ඊළඟ"
 
-#: src/amo/components/Paginate/index.js:175
+#: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
 msgstr "%(totalPages)s න් %(thisPage)s පිටුව"
 
@@ -1652,102 +1652,102 @@ msgid ""
 "with this user."
 msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම පරිශීලකයා පිළිබඳව දන්වා සිටීමට තුති."
 
-#: src/amo/components/Search/index.js:138
+#: src/amo/components/Search/index.js:139
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "සෙවුම් ප්‍රතිඵල"
 
-#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:213
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "නිර්දේශිත දිගු"
 
-#: src/amo/components/Search/index.js:147
+#: src/amo/components/Search/index.js:148
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "නිර්දේශිත තේමා"
 
-#: src/amo/components/Search/index.js:150
+#: src/amo/components/Search/index.js:151
 msgid "Recommended add-ons"
 msgstr "නිර්දේශිත එක්කහු"
 
-#: src/amo/components/Search/index.js:155
+#: src/amo/components/Search/index.js:156
 msgid "Extensions by Firefox"
 msgstr "ෆයර්ෆොක්ස් වෙතින් දිගු"
 
-#: src/amo/components/Search/index.js:158
+#: src/amo/components/Search/index.js:159
 msgid "Themes by Firefox"
 msgstr "ෆයර්ෆොක්ස් වෙතින් තේමා"
 
-#: src/amo/components/Search/index.js:161
+#: src/amo/components/Search/index.js:162
 msgid "Add-ons by Firefox"
 msgstr "ෆයර්ෆොක්ස් වෙතින් එක්කහු"
 
-#: src/amo/components/Search/index.js:166
+#: src/amo/components/Search/index.js:167
 msgid "Reviewed extensions"
 msgstr "සමාලෝචිත දිගු"
 
-#: src/amo/components/Search/index.js:169
+#: src/amo/components/Search/index.js:170
 msgid "Reviewed themes"
 msgstr "සමාලෝචිත තේමා"
 
-#: src/amo/components/Search/index.js:172
+#: src/amo/components/Search/index.js:173
 msgid "Reviewed add-ons"
 msgstr "සමාලෝචිත එක්කහු"
 
-#: src/amo/components/Search/index.js:177
+#: src/amo/components/Search/index.js:178
 msgid "Verified extensions"
 msgstr "තහවුරු කළ දිගු"
 
-#: src/amo/components/Search/index.js:180
+#: src/amo/components/Search/index.js:181
 msgid "Verified themes"
 msgstr "තහවුරු කළ තේමා"
 
-#: src/amo/components/Search/index.js:183
+#: src/amo/components/Search/index.js:184
 msgid "Verified add-ons"
 msgstr "තහවුරු කළ එක්කහු"
 
-#: src/amo/components/Search/index.js:191
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "නැගී එන දිගු"
 
-#: src/amo/components/Search/index.js:194
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "නැගී එන තේමා"
 
-#: src/amo/components/Search/index.js:197
+#: src/amo/components/Search/index.js:198
 msgid "Trending add-ons"
 msgstr "නැගී එන එක්කහු"
 
-#: src/amo/components/Search/index.js:203
+#: src/amo/components/Search/index.js:204
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "ඉහළ ඇගැයුම් දිගු"
 
-#: src/amo/components/Search/index.js:206
+#: src/amo/components/Search/index.js:207
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "ඉහළ ඇගැයුම් තේමා"
 
-#: src/amo/components/Search/index.js:209
+#: src/amo/components/Search/index.js:210
 msgid "Top rated add-ons"
 msgstr "ඉහළ ඇගැයුම් එක්කහු"
 
-#: src/amo/components/Search/index.js:215
+#: src/amo/components/Search/index.js:216
 msgid "Popular extensions"
 msgstr "ප්‍රචලිත දිගු"
 
-#: src/amo/components/Search/index.js:218
+#: src/amo/components/Search/index.js:219
 msgid "Popular themes"
 msgstr "ප්‍රචලිත තේමා"
 
-#: src/amo/components/Search/index.js:221
+#: src/amo/components/Search/index.js:222
 msgid "Popular add-ons"
 msgstr "ප්‍රචලිත එක්කහු"
 
-#: src/amo/components/Search/index.js:227
+#: src/amo/components/Search/index.js:228
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\" සඳහා සෙවුම් ප්‍රතිඵල"
 

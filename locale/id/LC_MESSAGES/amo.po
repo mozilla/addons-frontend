@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-17 17:58+0000\n"
+"POT-Creation-Date: 2023-01-24 19:16+0000\n"
 "PO-Revision-Date: 2021-06-12 02:32+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
@@ -1348,15 +1348,15 @@ msgstr "Ubah bahasa"
 msgid "Dismiss this notice"
 msgstr "Abaikan pernyataan ini"
 
-#: src/amo/components/Paginate/index.js:151
+#: src/amo/components/Paginate/index.js:155
 msgid "Previous"
 msgstr "Sebelumnya"
 
-#: src/amo/components/Paginate/index.js:170
+#: src/amo/components/Paginate/index.js:174
 msgid "Next"
 msgstr "Selanjutnya"
 
-#: src/amo/components/Paginate/index.js:175
+#: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
 msgstr ""
 
@@ -1697,102 +1697,102 @@ msgstr ""
 "Kami telah menerima laporan Anda. Terima kasih telah memberitahu kami "
 "tentang keluhan Anda dengan pengguna ini."
 
-#: src/amo/components/Search/index.js:138
+#: src/amo/components/Search/index.js:139
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "Hasil pencarian"
 
-#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:213
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Ekstensi yang disarankan"
 
-#: src/amo/components/Search/index.js:147
+#: src/amo/components/Search/index.js:148
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "Tema yang disarankan"
 
-#: src/amo/components/Search/index.js:150
+#: src/amo/components/Search/index.js:151
 msgid "Recommended add-ons"
 msgstr "Pengaya yang disarankan"
 
-#: src/amo/components/Search/index.js:155
+#: src/amo/components/Search/index.js:156
 msgid "Extensions by Firefox"
 msgstr "Ekstensi oleh Firefox"
 
-#: src/amo/components/Search/index.js:158
+#: src/amo/components/Search/index.js:159
 msgid "Themes by Firefox"
 msgstr "Tema oleh Firefox"
 
-#: src/amo/components/Search/index.js:161
+#: src/amo/components/Search/index.js:162
 msgid "Add-ons by Firefox"
 msgstr "Pengaya oleh Firefox"
 
-#: src/amo/components/Search/index.js:166
+#: src/amo/components/Search/index.js:167
 msgid "Reviewed extensions"
 msgstr "Ekstensi yang sudah ditinjau"
 
-#: src/amo/components/Search/index.js:169
+#: src/amo/components/Search/index.js:170
 msgid "Reviewed themes"
 msgstr "Tema yang telah ditinjau"
 
-#: src/amo/components/Search/index.js:172
+#: src/amo/components/Search/index.js:173
 msgid "Reviewed add-ons"
 msgstr "Pengaya yang telah ditinjau"
 
-#: src/amo/components/Search/index.js:177
+#: src/amo/components/Search/index.js:178
 msgid "Verified extensions"
 msgstr "Ekstensi terverifikasi"
 
-#: src/amo/components/Search/index.js:180
+#: src/amo/components/Search/index.js:181
 msgid "Verified themes"
 msgstr "Tema terverifikasi"
 
-#: src/amo/components/Search/index.js:183
+#: src/amo/components/Search/index.js:184
 msgid "Verified add-ons"
 msgstr "Pengaya terverifikasi"
 
-#: src/amo/components/Search/index.js:191
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Ekstensi yang sedang populer"
 
-#: src/amo/components/Search/index.js:194
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "Tema yang sedang populer"
 
-#: src/amo/components/Search/index.js:197
+#: src/amo/components/Search/index.js:198
 msgid "Trending add-ons"
 msgstr "Pengaya yang sedang tren"
 
-#: src/amo/components/Search/index.js:203
+#: src/amo/components/Search/index.js:204
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Ekstensi peringkat teratas"
 
-#: src/amo/components/Search/index.js:206
+#: src/amo/components/Search/index.js:207
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Tema peringkat teratas"
 
-#: src/amo/components/Search/index.js:209
+#: src/amo/components/Search/index.js:210
 msgid "Top rated add-ons"
 msgstr "Pengaya peringkat teratas"
 
-#: src/amo/components/Search/index.js:215
+#: src/amo/components/Search/index.js:216
 msgid "Popular extensions"
 msgstr "Ekstensi populer"
 
-#: src/amo/components/Search/index.js:218
+#: src/amo/components/Search/index.js:219
 msgid "Popular themes"
 msgstr "Tema populer"
 
-#: src/amo/components/Search/index.js:221
+#: src/amo/components/Search/index.js:222
 msgid "Popular add-ons"
 msgstr "Pengaya populer"
 
-#: src/amo/components/Search/index.js:227
+#: src/amo/components/Search/index.js:228
 msgid "Search results for \"%(query)s\""
 msgstr "Hasil pencarian untuk \"%(query)s\""
 
