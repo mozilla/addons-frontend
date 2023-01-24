@@ -422,6 +422,6 @@ module.exports = {
     //
     // e.g., 20210531_amo_download_funnel_experiment: true,
     '20210714_amo_vpn_promo': false,
-    '20221130_amo_detail_category': false,
+    '20221130_amo_detail_category': true,
   },
 };

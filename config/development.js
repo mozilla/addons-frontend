@@ -81,8 +81,4 @@ module.exports = {
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
-
-  experiments: {
-    '20221130_amo_detail_category': true,
-  },
 };
