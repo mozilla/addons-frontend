@@ -106,15 +106,31 @@ describe(__filename, () => {
 
     it('should initialize GA4 when enabled', () => {
       createTracking();
-      expect(window.dataLayer.push).toHaveBeenCalledWith(
+
+      // We need to do this due to the way `arguments` works.
+      expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
         'js',
         expect.any(Date),
-      );
-      expect(window.dataLayer.push).toHaveBeenCalledWith(
+      ]);
+      expect(Array.from(window.dataLayer.push.mock.calls[1][0])).toEqual([
         'config',
         ga4PropertyId,
         { debug_mode: true },
-      );
+      ]);
+    });
+
+    it('should not configure debug_mode when ga4DebugMode is false', () => {
+      createTracking({
+        configOverrides: {
+          ga4DebugMode: false,
+        },
+      });
+
+      expect(Array.from(window.dataLayer.push.mock.calls[1][0])).toEqual([
+        'config',
+        ga4PropertyId,
+        {},
+      ]);
     });
 
     it('should set the transport mechanism to beacon', () => {
@@ -357,10 +373,11 @@ describe(__filename, () => {
 
     it('sends web vitals data to GA4', () => {
       const tracking = createTracking();
+      window.dataLayer.push.mockClear();
 
       tracking.sendWebVitalStats(fakeCLS);
 
-      expect(window.dataLayer.push).toHaveBeenCalledWith(
+      expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
         'event',
         fakeCLS.name,
         {
@@ -369,7 +386,7 @@ describe(__filename, () => {
           metric_value: fakeCLS.value,
           metric_delta: Math.round(fakeCLS.delta * 1000),
         },
-      );
+      ]);
     });
   });
 
