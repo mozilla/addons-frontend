@@ -115,6 +115,8 @@ export class Tracking {
 
   ga4Id: string;
 
+  _ga4: function;
+
   constructor({
     _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
@@ -185,10 +187,22 @@ export class Tracking {
       }
 
       // GA4 setup
-      this._ga4('js', new Date());
-      this._ga4('config', this.ga4Id, {
-        debug_mode: _config.get('ga4DebugMode'),
-      });
+      window.dataLayer = window.dataLayer || [];
+      /* eslint-disable */
+      function gtag() {
+        // $FlowIgnore
+        dataLayer.push(arguments);
+      }
+      this._ga4 = gtag.bind(this);
+
+      const extraConfig = _config.get('ga4DebugMode')
+        ? { debug_mode: true }
+        : {};
+      // $FlowIgnore
+      gtag('js', new Date());
+      // $FlowIgnore
+      gtag('config', this.ga4Id, extraConfig);
+      /* eslint-enable */
     }
   }
 
@@ -246,16 +260,6 @@ export class Tracking {
   _ga(...args: Array<mixed>) {
     if (this.trackingEnabled) {
       window.ga(...args);
-    }
-  }
-
-  _ga4(...args: Array<mixed>) {
-    if (this.trackingEnabled) {
-      window.dataLayer = window.dataLayer || [];
-      /* eslint-disable */
-      // $FlowIgnore
-      dataLayer.push(...args);
-      /* eslint-enable */
     }
   }
 
