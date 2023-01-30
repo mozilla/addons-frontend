@@ -1175,6 +1175,7 @@ export const createFakeTracking = (overrides = {}) => {
     sendEvent: jest.fn(),
     setDimension: jest.fn(),
     setPage: jest.fn(),
+    setUserProperties: jest.fn(),
     ...overrides,
   };
 };

@@ -717,7 +717,7 @@ describe(__filename, () => {
     }
   });
 
-  it('sets the custom dimensions when the user is in the experiment', () => {
+  it('sets the custom dimensions and user properties when the user is in the experiment', () => {
     const id = makeExperimentId('test-id');
     const variant = 'some-variant';
     const cookies = fakeCookies({
@@ -738,9 +738,13 @@ describe(__filename, () => {
       dimension: EXPERIMENT_VARIATION_GA_DIMENSION,
       value: variant,
     });
+    expect(_tracking.setUserProperties).toHaveBeenCalledWith({
+      experimentId: id,
+      experimentVariation: variant,
+    });
   });
 
-  it('does not set the custom dimensions when the user is not in the experiment', () => {
+  it('does not set the custom dimensions or user properties when the user is not in the experiment', () => {
     const id = makeExperimentId('test-id');
     const cookies = fakeCookies({
       get: jest
@@ -754,9 +758,10 @@ describe(__filename, () => {
     render({ _tracking, cookies, experimentProps: { id } });
 
     expect(_tracking.setDimension).not.toHaveBeenCalled();
+    expect(_tracking.setUserProperties).not.toHaveBeenCalled();
   });
 
-  it('does not set the custom dimensions when the experiment is disabled', () => {
+  it('does not set the custom dimensions or user properties when the experiment is disabled', () => {
     const id = makeExperimentId('disabled_experiment');
     const configOverrides = {
       experiments: {
@@ -768,6 +773,7 @@ describe(__filename, () => {
     render({ _tracking, configOverrides, experimentProps: { id } });
 
     expect(_tracking.setDimension).not.toHaveBeenCalled();
+    expect(_tracking.setUserProperties).not.toHaveBeenCalled();
   });
 
   describe('getVariant', () => {

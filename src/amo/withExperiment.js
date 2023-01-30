@@ -298,7 +298,8 @@ export const withExperiment =
           );
         }
 
-        // If the user is enrolled in a branch, set the GA custom dimensions.
+        // If the user is enrolled in a branch, set the GA custom dimensions
+        // and GA4 user properties.
         if (variant && variant !== NOT_IN_EXPERIMENT) {
           _tracking.setDimension({
             dimension: EXPERIMENT_ID_GA_DIMENSION,
@@ -307,6 +308,10 @@ export const withExperiment =
           _tracking.setDimension({
             dimension: EXPERIMENT_VARIATION_GA_DIMENSION,
             value: variant,
+          });
+          _tracking.setUserProperties({
+            experimentId: id,
+            experimentVariation: variant,
           });
         }
       }

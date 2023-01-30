@@ -4,5 +4,6 @@ export default {
   pageView() {},
   setPage() {},
   setDimension() {},
+  setUserProperties() {},
   sendWebVitalStats() {},
 };

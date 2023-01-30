@@ -6,6 +6,7 @@ describe(__filename, () => {
     expect(tracking.pageView()).toEqual(undefined);
     expect(tracking.setPage()).toEqual(undefined);
     expect(tracking.setDimension()).toEqual(undefined);
+    expect(tracking.setUserProperties()).toEqual(undefined);
     expect(tracking.sendWebVitalStats()).toEqual(undefined);
   });
 });

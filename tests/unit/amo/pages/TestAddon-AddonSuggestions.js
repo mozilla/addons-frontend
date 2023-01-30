@@ -50,6 +50,7 @@ jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
   setDimension: jest.fn(),
+  setUserProperties: jest.fn(),
 }));
 
 describe(__filename, () => {
