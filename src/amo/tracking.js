@@ -355,6 +355,16 @@ export class Tracking {
     this._ga('set', dimension, value);
     this.log('set', { dimension, value });
   }
+
+  /*
+   * Can be called to set user properties which will be sent with all subsequent
+   * calls to GA4.
+   */
+  setUserProperties(props: { [string]: string }) {
+    // $FlowIgnore
+    this._ga4('set', 'user_properties', props);
+    this.log('setUserProperties', props);
+  }
 }
 
 export function getAddonTypeForTracking(type: string): string {

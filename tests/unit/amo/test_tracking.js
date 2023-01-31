@@ -200,6 +200,19 @@ describe(__filename, () => {
       expect(window.ga).toHaveBeenCalledWith('set', dimension, value);
     });
 
+    it('should set user properties when requested', () => {
+      const tracking = createTracking();
+      const props = { prop1: 'value1', prop2: 'value2' };
+      window.dataLayer.push.mockClear();
+
+      tracking.setUserProperties(props);
+      expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
+        'set',
+        'user_properties',
+        props,
+      ]);
+    });
+
     it('should not send the web vitals when trackingSendWebVitals is false', () => {
       const _getCLS = jest.fn();
       const _getFID = jest.fn();
