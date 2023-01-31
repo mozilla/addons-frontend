@@ -2,10 +2,8 @@
 import {
   Tracking,
   isDoNotTrackEnabled,
-  formatDataForBeacon,
   getAddonEventCategory,
   getAddonTypeForTracking,
-  sendBeacon,
 } from 'amo/tracking';
 import {
   ADDON_TYPE_DICT,
@@ -252,6 +250,7 @@ describe(__filename, () => {
           action: 'some-action',
         });
         expect(window.ga).not.toHaveBeenCalled();
+        expect(window.dataLayer.push).not.toHaveBeenCalled();
       });
 
       it('should throw if category not set', () => {
@@ -303,6 +302,27 @@ describe(__filename, () => {
         expect(countSendEventCalls(window.ga)).toEqual(1);
       });
 
+      it('should send an event to GA4 with sendEvent on the client', () => {
+        const _config = getFakeConfig({ server: false });
+        const event = fakeTrackingEvent;
+        const tracking = createTracking();
+        window.dataLayer.push.mockClear();
+
+        tracking.sendEvent({ _config, ...event });
+        expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
+          'event',
+          event.category,
+          {
+            eventAction: event.action,
+            eventCategory: event.category,
+            eventLabel: event.label,
+            eventValue: event.value,
+            hitType: 'event',
+          },
+        ]);
+        expect(window.dataLayer.push).toHaveBeenCalledTimes(1);
+      });
+
       it('should call _ga twice when sendSecondEventWithOverrides is passed', () => {
         const _config = getFakeConfig({ server: false });
         const event = fakeTrackingEvent;
@@ -333,6 +353,44 @@ describe(__filename, () => {
           }),
         );
         expect(countSendEventCalls(window.ga)).toEqual(2);
+      });
+
+      it('should send an event to GA4 twice when sendSecondEventWithOverrides is passed', () => {
+        const _config = getFakeConfig({ server: false });
+        const event = fakeTrackingEvent;
+        const secondCategory = 'second-category';
+        const sendSecondEventWithOverrides = { category: secondCategory };
+        const tracking = createTracking();
+        window.dataLayer.push.mockClear();
+
+        tracking.sendEvent({
+          _config,
+          sendSecondEventWithOverrides,
+          ...event,
+        });
+        expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
+          'event',
+          event.category,
+          {
+            eventAction: event.action,
+            eventCategory: event.category,
+            eventLabel: event.label,
+            eventValue: event.value,
+            hitType: 'event',
+          },
+        ]);
+        expect(Array.from(window.dataLayer.push.mock.calls[1][0])).toEqual([
+          'event',
+          secondCategory,
+          {
+            eventAction: event.action,
+            eventCategory: secondCategory,
+            eventLabel: event.label,
+            eventValue: event.value,
+            hitType: 'event',
+          },
+        ]);
+        expect(window.dataLayer.push).toHaveBeenCalledTimes(2);
       });
 
       it('should throw an error if called on the server', () => {
@@ -621,103 +679,6 @@ describe(__filename, () => {
 
     it('should not change the tracking category constants for clicks', () => {
       expect(CLICK_CATEGORY).toEqual('AMO Addon / Theme Clicks');
-    });
-  });
-
-  describe('sendBeacon', () => {
-    it('should send a beacon if navigator.sendBeacon exists', () => {
-      const urlString = 'https://www.mozilla.org';
-      const _log = getFakeLogger();
-      const _navigator = { sendBeacon: jest.fn() };
-
-      sendBeacon({ _log, _navigator, urlString });
-      expect(_log.debug).toHaveBeenCalledWith(`Sending beacon to ${urlString}`);
-      expect(_navigator.sendBeacon).toHaveBeenCalledWith(urlString, undefined);
-    });
-
-    it('can include data in a beacon', () => {
-      const urlString = 'https://www.mozilla.org';
-      const data = 'some-data';
-      const _log = getFakeLogger();
-      const _navigator = { sendBeacon: jest.fn() };
-
-      sendBeacon({ _log, _navigator, urlString, data });
-      expect(_navigator.sendBeacon).toHaveBeenCalledWith(urlString, data);
-    });
-
-    it('does not send a beacon if DNT is enabled', () => {
-      const _isDoNotTrackEnabled = jest.fn().mockReturnValue(true);
-      const _log = getFakeLogger();
-      const _navigator = { sendBeacon: jest.fn() };
-
-      sendBeacon({
-        _isDoNotTrackEnabled,
-        _log,
-        _navigator,
-        urlString: 'https://www.mozilla.org',
-      });
-      expect(_log.debug).toHaveBeenCalledWith(
-        'Do Not Track Enabled; Not sending a beacon.',
-      );
-      expect(_isDoNotTrackEnabled).toHaveBeenCalled();
-      expect(_navigator.sendBeacon).not.toHaveBeenCalled();
-    });
-
-    it('sends a beacon if DNT is disabled', () => {
-      const _isDoNotTrackEnabled = jest.fn().mockReturnValue(false);
-      const _log = getFakeLogger();
-      const _navigator = { sendBeacon: jest.fn() };
-
-      sendBeacon({
-        _isDoNotTrackEnabled,
-        _log,
-        _navigator,
-        urlString: 'https://www.mozilla.org',
-      });
-      expect(_isDoNotTrackEnabled).toHaveBeenCalled();
-      expect(_navigator.sendBeacon).toHaveBeenCalled();
-    });
-
-    it('should not send a beacon if navigator does not exist', () => {
-      const urlString = 'https://www.mozilla.org';
-      const _log = getFakeLogger();
-
-      sendBeacon({ _log, _navigator: null, urlString });
-      expect(_log.warn).toHaveBeenCalledWith(
-        'navigator does not exist. Not sending a beacon.',
-      );
-    });
-
-    it('should not send a beacon if navigator.sendBeacon does not exist', () => {
-      const urlString = 'https://www.mozilla.org';
-      const _log = getFakeLogger();
-
-      sendBeacon({ _log, _navigator: { sendBeacon: null }, urlString });
-      expect(_log.warn).toHaveBeenCalledWith(
-        'navigator does not exist. Not sending a beacon.',
-      );
-    });
-  });
-
-  describe('formatDataForBeacon', () => {
-    it('can create a FormData object without a type', () => {
-      const data = 'some data';
-      const key = 'some key';
-      const expected = new FormData();
-      expected.append(key, data);
-
-      expect(formatDataForBeacon({ data, key })).toEqual(expected);
-    });
-
-    it('can create a FormData object with a type', () => {
-      const data = 'some data';
-      const key = 'some key';
-      const type = 'some type';
-      const expected = new FormData();
-      expected.append(key, data);
-      expected.append('type', type);
-
-      expect(formatDataForBeacon({ data, key, type })).toEqual(expected);
     });
   });
 });

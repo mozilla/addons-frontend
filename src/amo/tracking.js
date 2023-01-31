@@ -115,8 +115,6 @@ export class Tracking {
 
   ga4Id: string;
 
-  _ga4: function;
-
   constructor({
     _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
@@ -188,21 +186,13 @@ export class Tracking {
 
       // GA4 setup
       window.dataLayer = window.dataLayer || [];
-      /* eslint-disable */
-      function gtag() {
-        // $FlowIgnore
-        dataLayer.push(arguments);
-      }
-      this._ga4 = gtag.bind(this);
-
       const extraConfig = _config.get('ga4DebugMode')
         ? { debug_mode: true }
         : {};
       // $FlowIgnore
-      gtag('js', new Date());
+      this._ga4('js', new Date());
       // $FlowIgnore
-      gtag('config', this.ga4Id, extraConfig);
-      /* eslint-enable */
+      this._ga4('config', this.ga4Id, extraConfig);
     }
   }
 
@@ -241,6 +231,7 @@ export class Tracking {
 
     // Also send to GA4.
     // See https://github.com/GoogleChrome/web-vitals#using-gtagjs-google-analytics-4
+    // $FlowIgnore
     this._ga4('event', name, {
       value: adjustedDelta,
       metric_id: id,
@@ -260,6 +251,15 @@ export class Tracking {
   _ga(...args: Array<mixed>) {
     if (this.trackingEnabled) {
       window.ga(...args);
+    }
+  }
+
+  _ga4() {
+    if (this.trackingEnabled) {
+      /* eslint-disable */
+      // $FlowIgnore
+      dataLayer.push(arguments);
+      /* eslint-enable */
     }
   }
 
@@ -307,13 +307,20 @@ export class Tracking {
       const trackingData = { action, category, label, value };
       const data = makeTrackingEventData(trackingData);
       this._ga('send', data);
+      // Also send the event to GA4
+      // $FlowIgnore
+      this._ga4('event', data.eventCategory, data);
       this.log('sendEvent', data);
+
       if (typeof sendSecondEventWithOverrides === 'object') {
         const secondEventData = makeTrackingEventData({
           ...trackingData,
           ...sendSecondEventWithOverrides,
         });
         this._ga('send', secondEventData);
+        // Also send the event to GA4
+        // $FlowIgnore
+        this._ga4('event', secondEventData.eventCategory, secondEventData);
         this.log('sendEvent', secondEventData);
       }
     }
@@ -321,6 +328,7 @@ export class Tracking {
 
   /*
    * Should be called when a view changes or a routing update.
+   * This is not needed by GA4.
    */
   setPage(page: string) {
     if (!page) {
@@ -388,49 +396,6 @@ export const getAddonEventCategory = (
     default:
       return isThemeType ? INSTALL_THEME_CATEGORY : INSTALL_EXTENSION_CATEGORY;
   }
-};
-
-export const sendBeacon = ({
-  _isDoNotTrackEnabled = isDoNotTrackEnabled,
-  _log = log,
-  _navigator = typeof navigator !== 'undefined' ? navigator : null,
-  urlString,
-  data,
-}: {
-  _isDoNotTrackEnabled?: typeof isDoNotTrackEnabled,
-  _log?: typeof log,
-  _navigator?: typeof navigator | null,
-  urlString: string,
-  data?: BodyInit,
-}) => {
-  if (_isDoNotTrackEnabled()) {
-    _log.debug('Do Not Track Enabled; Not sending a beacon.');
-    return;
-  }
-
-  if (_navigator && _navigator.sendBeacon) {
-    _navigator.sendBeacon(urlString, data);
-    _log.debug(`Sending beacon to ${urlString}`);
-  } else {
-    _log.warn('navigator does not exist. Not sending a beacon.');
-  }
-};
-
-export const formatDataForBeacon = ({
-  data,
-  key,
-  type,
-}: {|
-  data: string,
-  key: string,
-  type?: string,
-|}): FormData => {
-  const formData = new FormData();
-  formData.append(key, data);
-  if (type) {
-    formData.append('type', type);
-  }
-  return formData;
 };
 
 export default (new Tracking(): Tracking);
