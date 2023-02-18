@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-24 19:16+0000\n"
-"PO-Revision-Date: 2023-02-18 18:23+0000\n"
+"PO-Revision-Date: 2023-02-18 18:29+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -472,11 +472,11 @@ msgstr "Kraftigere verktøy for omsettingar skriving og grammatikkstøtte"
 
 #: src/amo/components/AddonSuggestions/index.js:107
 msgid "More amazing extensions to change the way Firefox looks"
-msgstr ""
+msgstr "Fleire fantastiske utvidingar for å endre måten Firefox ser ut på"
 
 #: src/amo/components/AddonSuggestions/index.js:114
 msgid "More incredible social media extensions"
-msgstr ""
+msgstr "Fleire utrulige utvidingar for sosiale medium"
 
 #: src/amo/components/AddonSuggestions/index.js:119
 msgid "More excellent search extensions"
@@ -484,15 +484,15 @@ msgstr "Fleire utmerkte søkjetillegg"
 
 #: src/amo/components/AddonSuggestions/index.js:124
 msgid "More great extensions for feeds, news & media"
-msgstr ""
+msgstr "Fleire flotte utvidingar for kanalar, nyheiter og media"
 
 #: src/amo/components/AddonSuggestions/index.js:129
 msgid "More great notification extensions"
-msgstr ""
+msgstr "Fleire flotte varslingsutvidingar"
 
 #: src/amo/components/AddonSuggestions/index.js:138
 msgid "More great tools for web developers"
-msgstr ""
+msgstr "Fleire flotte verktøy for webutviklarar"
 
 #: src/amo/components/AddonSuggestions/index.js:268
 msgid "See Firefox Staff Picks"
@@ -500,11 +500,11 @@ msgstr "Sjå Firefox-tillegg utvalde av tilsette"
 
 #: src/amo/components/AddonSuggestions/index.js:57
 msgid "Explore our 'Starter Pack' to get started with extensions"
-msgstr ""
+msgstr "Utforsk «startpakken» vår for å kome i gang med utvidingar"
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
-msgstr ""
+msgstr "Fleire kraftige utvidingar for personvern og sikkerheit"
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
@@ -512,15 +512,15 @@ msgstr "Fleire utrulege nedlastingshandsamarar"
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
-msgstr ""
+msgstr "Fleire fantastiske fane- og bokmerkeutvidingar"
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
-msgstr ""
+msgstr "Fleire flotte utvidingar for spel og underhaldning"
 
 #: src/amo/components/AddonSuggestions/index.js:95
 msgid "More amazing image, photo & media extensions"
-msgstr ""
+msgstr "Fleire fantastiske bilde-, foto- og medieutvidingar"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
