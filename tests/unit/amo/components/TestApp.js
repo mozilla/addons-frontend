@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { waitFor } from '@testing-library/react';
 
-import App, { mapDispatchToProps, mapStateToProps } from 'amo/components/App';
+import App, { mapDispatchToProps } from 'amo/components/App';
 import { getErrorComponent } from 'amo/components/ErrorPage';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
@@ -74,12 +74,6 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(setClientAppAction(clientApp));
   });
 
-  it('sets the userAgent as props', () => {
-    store.dispatch(setUserAgentAction('tofubrowser'));
-    const { userAgent } = mapStateToProps(store.getState());
-    expect(userAgent).toEqual('tofubrowser');
-  });
-
   it('uses navigator.userAgent if userAgent prop is empty', () => {
     dispatchClientMetadata({ store, userAgent: '' });
     const _navigator = { userAgent: 'Firefox 10000000.0' };
@@ -91,6 +85,17 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(
       setUserAgentAction(_navigator.userAgent),
     );
+  });
+
+  it('does not use navigator.userAgent if userAgent prop is populated', () => {
+    store.dispatch(setUserAgentAction('tofubrowser'));
+    const _navigator = { userAgent: 'Firefox 10000000.0' };
+
+    const dispatch = jest.spyOn(store, 'dispatch');
+
+    render({ _navigator });
+
+    expect(dispatch).not.toHaveBeenCalled();
   });
 
   it('resets the clientApp if it does not match the URL', async () => {
