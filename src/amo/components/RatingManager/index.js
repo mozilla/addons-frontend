@@ -69,7 +69,10 @@ export class RatingManagerBase extends React.Component<InternalProps> {
   componentDidMount() {
     const { addon, dispatch, errorHandler, userId, userReview } = this.props;
 
-    if (errorHandler.hasError()) {
+    if (
+      errorHandler.hasError() &&
+      errorHandler.capturedError.responseStatusCode !== 429
+    ) {
       log.warn('Not loading data because of an error');
       return;
     }
