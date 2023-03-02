@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createEvent, fireEvent } from '@testing-library/react';
 import defaultUserEvent from '@testing-library/user-event';
 
+import { createApiError } from 'amo/api';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -178,6 +179,31 @@ describe(__filename, () => {
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ type: FETCH_LATEST_USER_REVIEW }),
+    );
+  });
+
+  it('dispatches fetchLatestUserReview if there was a 429 error', () => {
+    const addonId = 123;
+    const userId = 12889;
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: addonId });
+    dispatchSignInActionsWithStore({ store, userId });
+    createFailedErrorHandler({
+      id: errorHandlerId,
+      error: createApiError({ response: { status: 429 } }),
+      store,
+    });
+
+    const dispatch = jest.spyOn(store, 'dispatch');
+
+    render({ addon });
+
+    expect(dispatch).toHaveBeenCalledWith(
+      fetchLatestUserReview({
+        addonId: addon.id,
+        addonSlug: addon.slug,
+        errorHandlerId,
+        userId,
+      }),
     );
   });
 

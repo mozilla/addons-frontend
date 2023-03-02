@@ -69,7 +69,13 @@ export class RatingManagerBase extends React.Component<InternalProps> {
   componentDidMount() {
     const { addon, dispatch, errorHandler, userId, userReview } = this.props;
 
-    if (errorHandler.hasError()) {
+    if (
+      errorHandler.hasError() &&
+      // A 429 can result when a user tries to post too many ratings and gets
+      // throttled. In that case we still want to try to load the rating,
+      // especially if the user navigated to a new add-on.
+      errorHandler.capturedError.responseStatusCode !== 429
+    ) {
       log.warn('Not loading data because of an error');
       return;
     }
