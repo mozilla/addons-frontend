@@ -579,6 +579,10 @@ export const unfilteredLanguages = {
     English: 'Telugu',
     native: '\u0c24\u0c46\u0c32\u0c41\u0c17\u0c41',
   },
+  tg: {
+    English: 'Tajik',
+    native: '\u0422\u043e\u04b7\u0438\u043a\u04e3',
+  },
   th: {
     English: 'Thai',
     native: '\u0e44\u0e17\u0e22',
