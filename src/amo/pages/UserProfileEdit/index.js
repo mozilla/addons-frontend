@@ -1,5 +1,7 @@
 /* @flow */
 /* global window */
+import url from 'url';
+
 import invariant from 'invariant';
 import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
@@ -212,15 +214,15 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
       let toPath = location.query.to;
-      if (toPath && typeof toPath === 'string' && !toPath.startsWith('//')) {
-        if (!toPath.startsWith('/')) {
-          toPath = `/${toPath}`;
-        }
-        try {
-          this.props._window.location.assign(toPath);
-          return;
-        } catch (error) {
-          log.warn(`Error redirecting to location: ${toPath}: ${error}`);
+      if (toPath && typeof toPath === 'string') {
+        toPath = url.parse(toPath).pathname;
+        if (toPath && !toPath.startsWith('//')) {
+          try {
+            this.props._window.location.assign(toPath);
+            return;
+          } catch (error) {
+            log.warn(`Error redirecting to location: ${toPath}: ${error}`);
+          }
         }
       }
       this.props._window.location.assign(

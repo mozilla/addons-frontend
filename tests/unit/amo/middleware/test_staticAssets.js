@@ -15,6 +15,9 @@ describe(__filename, () => {
   it('does not blow up if optional args not defined', () => {
     const expressStub = sinon.stub(Express, 'static');
     serveAssetsLocally();
-    sinon.assert.calledWithMatch(expressStub, 'addons-frontend/dist/static');
+    sinon.assert.calledWithMatch(
+      expressStub,
+      /addons-frontend.*\/dist\/static/,
+    );
   });
 });

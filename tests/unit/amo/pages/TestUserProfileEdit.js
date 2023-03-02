@@ -574,37 +574,43 @@ describe(__filename, () => {
       );
 
       expect(window.location.assign).toHaveBeenCalledWith(expectedURL);
+      return true;
     };
 
-    // eslint-disable-next-line jest/expect-expect
     it('redirects to the user profile page when there is no `to` param', async () => {
       const to = null;
       const expectedURL = `/${lang}/${clientApp}/user/${defaultUserId}/`;
 
-      await testRedirect({ expectedURL, to });
+      expect(await testRedirect({ expectedURL, to })).toBeTruthy();
     });
 
-    // eslint-disable-next-line jest/expect-expect
     it('redirects to the `to` URL param', async () => {
       const to = '/addon/some-slug/';
-      await testRedirect({ expectedURL: to, to });
+      expect(await testRedirect({ expectedURL: to, to })).toBeTruthy();
     });
 
-    // eslint-disable-next-line jest/expect-expect
-    it('converts an absolute `to` URL into a relative one', async () => {
-      const to = 'https://addons.mozilla.org/addon/some-slug/';
-      await testRedirect({ expectedURL: `/${to}`, to });
+    it('uses only the pathname from an absolute `to` URL', async () => {
+      const pathname = '/addon/some-slug/';
+      const to = `https://addons.mozilla.org${pathname}`;
+      expect(await testRedirect({ expectedURL: pathname, to })).toBeTruthy();
     });
 
-    // eslint-disable-next-line jest/expect-expect
     it('redirects to user profile page when the `to` param is a protocol-less URL', async () => {
       const to = '//addon/some-slug/';
       const expectedURL = `/${lang}/${clientApp}/user/${defaultUserId}/`;
 
-      await testRedirect({ expectedURL, to });
+      expect(await testRedirect({ expectedURL, to })).toBeTruthy();
     });
 
-    // eslint-disable-next-line jest/expect-expect
+    it('redirects to user profile page when the `to` param is a masked protocol-less URL', async () => {
+      // prettier-ignore
+      // eslint-disable-next-line no-useless-escape
+      const to = '/\/example.com';
+      const expectedURL = `/${lang}/${clientApp}/user/${defaultUserId}/`;
+
+      expect(await testRedirect({ expectedURL, to })).toBeTruthy();
+    });
+
     it('redirects to user profile page when the `to` param is not a string', async () => {
       const to = { url: '/addon/some-slug/' };
       const location = createFakeLocation({
@@ -616,10 +622,9 @@ describe(__filename, () => {
 
       const expectedURL = `/${lang}/${clientApp}/user/${defaultUserId}/`;
 
-      await testRedirect({ expectedURL, renderHistory });
+      expect(await testRedirect({ expectedURL, renderHistory })).toBeTruthy();
     });
 
-    // eslint-disable-next-line jest/expect-expect
     it('redirects to user profile page if the `to` URL throws an error', async () => {
       const to = '/addon/some-slug/';
       const expectedURL = `/${lang}/${clientApp}/user/${defaultUserId}/`;
@@ -629,7 +634,7 @@ describe(__filename, () => {
       });
       window.location.assign.mockImplementationOnce(() => null);
 
-      await testRedirect({ expectedURL, to });
+      expect(await testRedirect({ expectedURL, to })).toBeTruthy();
 
       expect(window.location.assign).toHaveBeenCalledWith(to);
       expect(window.location.assign).toHaveBeenCalledWith(expectedURL);
