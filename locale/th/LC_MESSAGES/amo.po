@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-24 19:16+0000\n"
-"PO-Revision-Date: 2023-03-04 21:45+0000\n"
+"PO-Revision-Date: 2023-03-04 22:05+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -100,7 +100,7 @@ msgstr "%(addonName)s – รับชุดภาษานี้สำหรั
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – รับชุดตกแต่งนี้สำหรับ 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – รับชุดรูปแบบนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
@@ -125,7 +125,7 @@ msgstr "%(addonName)s – รับชุดภาษานี้สำหรั
 
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – รับชุดตกแต่งนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – รับชุดรูปแบบนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
@@ -438,19 +438,19 @@ msgstr "ชุดภาษาเพิ่มเติมโดยผู้แป
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More themes by %(author)s"
-msgstr "ชุดตกแต่งเพิ่มเติมโดย %(author)s"
+msgstr "ชุดรูปแบบเพิ่มเติมโดย %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:292
 msgid "More themes by these artists"
-msgstr "ชุดตกแต่งเพิ่มเติมโดยศิลปินเหล่านี้"
+msgstr "ชุดรูปแบบเพิ่มเติมโดยศิลปินเหล่านี้"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:296
 msgid "Themes by %(author)s"
-msgstr "ชุดตกแต่งโดย %(author)s"
+msgstr "ชุดรูปแบบโดย %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:299
 msgid "Themes by these artists"
-msgstr "ชุดตกแต่งโดยศิลปินเหล่านี้"
+msgstr "ชุดรูปแบบโดยศิลปินเหล่านี้"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:305
 msgid "More add-ons by %(author)s"
@@ -589,7 +589,7 @@ msgstr "กำลังถอนการติดตั้ง"
 
 #: src/amo/components/AMInstallButton/index.js:154
 msgid "Install Theme"
-msgstr "ติดตั้งชุดตกแต่ง"
+msgstr "ติดตั้งชุดรูปแบบ"
 
 #: src/amo/components/AMInstallButton/index.js:155
 msgid "Add to Firefox"
@@ -1045,7 +1045,7 @@ msgstr "เพื่อใช้ส่วนเสริมเหล่านี
 
 #: src/amo/components/GetFirefoxButton/index.js:121
 msgid "Download Firefox and get the theme"
-msgstr "ดาวน์โหลด Firefox และรับชุดตกแต่ง"
+msgstr "ดาวน์โหลด Firefox และรับชุดรูปแบบ"
 
 #: src/amo/components/GetFirefoxButton/index.js:122
 msgid "Download Firefox and get the extension"
@@ -1053,7 +1053,7 @@ msgstr "ดาวน์โหลด Firefox และรับส่วนขย
 
 #: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download the new Firefox and get the theme"
-msgstr "ดาวน์โหลด Firefox ใหม่และรับชุดตกแต่ง"
+msgstr "ดาวน์โหลด Firefox ใหม่และรับชุดรูปแบบ"
 
 #: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download the new Firefox and get the extension"
@@ -1089,7 +1089,7 @@ msgstr "ส่งส่วนเสริมใหม่"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
-msgstr "ส่งชุดตกแต่งใหม่"
+msgstr "ส่งชุดรูปแบบใหม่"
 
 #: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
@@ -1267,7 +1267,7 @@ msgstr "เข้าถึงประวัติการเรียกดู
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
-msgstr "เฝ้าสังเกตการใช้ส่วนขยายและจัดการชุดตกแต่ง"
+msgstr "เฝ้าสังเกตการใช้ส่วนขยายและจัดการชุดรูปแบบ"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
@@ -1347,7 +1347,7 @@ msgstr "เข้าสู่ระบบเพื่อให้คะแนน
 
 #: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this theme"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดตกแต่งนี้"
+msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดรูปแบบนี้"
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this extension"
@@ -1492,7 +1492,7 @@ msgstr "เราได้รับรายงานของคุณแล้
 
 #: src/amo/components/Search/index.js:139 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
-msgstr "ผลการค้นหา"
+msgstr "ผลลัพธ์การค้นหา"
 
 #: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:213 src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
@@ -1500,7 +1500,7 @@ msgstr "ส่วนขยายที่แนะนำ"
 
 #: src/amo/components/Search/index.js:148 src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
-msgstr "ชุดตกแต่งที่แนะนำ"
+msgstr "ชุดรูปแบบที่แนะนำ"
 
 #: src/amo/components/Search/index.js:151
 msgid "Recommended add-ons"
@@ -1512,7 +1512,7 @@ msgstr "ส่วนขยายโดย Firefox"
 
 #: src/amo/components/Search/index.js:159
 msgid "Themes by Firefox"
-msgstr "ชุดตกแต่งโดย Firefox"
+msgstr "ชุดรูปแบบโดย Firefox"
 
 #: src/amo/components/Search/index.js:162
 msgid "Add-ons by Firefox"
@@ -1548,7 +1548,7 @@ msgstr "ส่วนขยายที่กำลังนิยม"
 
 #: src/amo/components/Search/index.js:195 src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
-msgstr "ชุดตกแต่งที่กำลังนิยม"
+msgstr "ชุดรูปแบบที่กำลังนิยม"
 
 #: src/amo/components/Search/index.js:198
 msgid "Trending add-ons"
@@ -1560,7 +1560,7 @@ msgstr "ส่วนขยายที่ได้รับการจัดอ
 
 #: src/amo/components/Search/index.js:207 src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
-msgstr "ชุดตกแต่งที่ได้รับการจัดอันดับสูงสุด"
+msgstr "ชุดรูปแบบที่ได้รับการจัดอันดับสูงสุด"
 
 #: src/amo/components/Search/index.js:210
 msgid "Top rated add-ons"
@@ -1572,7 +1572,7 @@ msgstr "ส่วนขยายยอดนิยม"
 
 #: src/amo/components/Search/index.js:219
 msgid "Popular themes"
-msgstr "ชุดตกแต่งยอดนิยม"
+msgstr "ชุดรูปแบบยอดนิยม"
 
 #: src/amo/components/Search/index.js:222
 msgid "Popular add-ons"
@@ -1640,7 +1640,7 @@ msgstr[0] "พบ %(count)s ชุดตกแต่งใน %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "พบ %(count)s ชุดตกแต่ง"
+msgstr[0] ""
 
 #: src/amo/components/SearchContextCard/index.js:209
 #, fuzzy
@@ -1710,7 +1710,7 @@ msgstr "ส่วนขยาย"
 
 #: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
-msgstr "ชุดตกแต่ง"
+msgstr "ชุดรูปแบบ"
 
 #: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
@@ -1771,7 +1771,7 @@ msgstr "ไปยังหน้าของส่วนเสริม"
 
 #: src/amo/components/SearchResult/index.js:195
 msgid "No theme preview available"
-msgstr "ไม่มีตัวอย่างชุดตกแต่ง"
+msgstr "ไม่มีตัวอย่างชุดรูปแบบ"
 
 #: src/amo/components/SearchResult/index.js:230
 msgid "Add-on note"
@@ -1796,7 +1796,7 @@ msgstr "ไม่พบผลลัพธ์"
 
 #: src/amo/components/SectionLinks/index.js:112 src/amo/pages/CategoryPage/index.js:60 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
-msgstr "ชุดตกแต่ง"
+msgstr "ชุดรูปแบบ"
 
 #: src/amo/components/SectionLinks/index.js:118
 msgid "More…"
