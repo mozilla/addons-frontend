@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-24 19:16+0000\n"
-"PO-Revision-Date: 2023-03-04 22:07+0000\n"
+"PO-Revision-Date: 2023-03-04 22:33+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -257,7 +257,7 @@ msgstr "Estadístiques d'ús"
 
 #: src/amo/components/AddonMoreInfo/index.js:389
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetes"
 
 #: src/amo/components/AddonMoreInfo/index.js:405
 msgid "More information"
@@ -994,7 +994,7 @@ msgstr "Polítiques de desenvolupament"
 
 #: src/amo/components/Footer/index.js:115
 msgid "Community Blog"
-msgstr ""
+msgstr "Bloc de la comunitat"
 
 #: src/amo/components/Footer/index.js:120
 msgid "Forum"
@@ -1954,7 +1954,7 @@ msgstr "Resposta del desenvolupador"
 
 #: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "Estalvieu un 50% amb una subscripció d’un any sencer"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
