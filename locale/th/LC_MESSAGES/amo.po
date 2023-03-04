@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-24 19:16+0000\n"
-"PO-Revision-Date: 2023-03-04 22:05+0000\n"
+"PO-Revision-Date: 2023-03-04 22:15+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -1848,7 +1848,7 @@ msgstr "เรียกดูส่วนขยายทั้งหมด"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr "เรียกดูชุดตกแต่งทั้งหมด"
+msgstr "เรียกดูชุดรูปแบบทั้งหมด"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
@@ -1958,7 +1958,7 @@ msgstr "เกี่ยวกับชุดภาษานี้"
 
 #: src/amo/pages/Addon/index.js:280
 msgid "About this theme"
-msgstr "เกี่ยวกับชุดตกแต่งนี้"
+msgstr "เกี่ยวกับชุดรูปแบบนี้"
 
 #: src/amo/pages/Addon/index.js:283
 msgid "About this add-on"
@@ -2106,7 +2106,7 @@ msgstr "หมวดหมู่ส่วนขยายทั้งหมด"
 
 #: src/amo/pages/CategoriesPage/index.js:37
 msgid "All theme categories"
-msgstr "หมวดหมู่ชุดตกแต่งทั้งหมด"
+msgstr "หมวดหมู่ชุดรูปแบบทั้งหมด"
 
 #: src/amo/pages/CategoryPage/index.js:57
 #, fuzzy
