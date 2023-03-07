@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-24 19:16+0000\n"
+"POT-Creation-Date: 2023-03-07 17:49+0000\n"
 "PO-Revision-Date: 2023-01-18 07:20+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -186,7 +186,7 @@ msgstr "可用於"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:674
+#: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr "首頁"
 
@@ -324,7 +324,7 @@ msgstr "刪除"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:897
+#: src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
 msgstr "取消"
 
@@ -1216,12 +1216,12 @@ msgid "View My Collections"
 msgstr "檢視我的收藏集"
 
 #: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:561
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
 msgstr "檢視我的個人資料"
 
 #: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:567
+#: src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
 msgstr "編輯我的個人資料"
 
@@ -1453,43 +1453,43 @@ msgstr "為這套附加元件評價 %(starRating)s 分，滿分 5 分"
 msgid "There are no ratings yet"
 msgstr "目前沒有評分"
 
-#: src/amo/components/RatingManager/index.js:123
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
 msgstr "登入後即可為此字典評分"
 
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
 msgstr "登入後即可為此語言套件評分"
 
-#: src/amo/components/RatingManager/index.js:127
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
 msgstr "登入後即可為此佈景主題評分"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
 msgstr "登入後即可幫此擴充套件評分"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
 msgstr "登入後即可為此附加元件評分"
 
-#: src/amo/components/RatingManager/index.js:178
+#: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "您真的要刪除對 %(addonName)s 的評論嗎？"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "您真的要刪除對 %(addonName)s 的評分嗎？"
 
-#: src/amo/components/RatingManager/index.js:188
+#: src/amo/components/RatingManager/index.js:194
 msgid "How are you enjoying %(addonName)s?"
 msgstr "您有多喜歡 %(addonName)s 的使用體驗？"
 
-#: src/amo/components/RatingManager/index.js:231
+#: src/amo/components/RatingManager/index.js:237
 msgid "Saving star rating"
 msgstr "正在儲存星等"
 
-#: src/amo/components/RatingManager/index.js:232
+#: src/amo/components/RatingManager/index.js:238
 msgid "Star rating saved"
 msgstr "已儲存星等"
 
@@ -2907,7 +2907,7 @@ msgid "Theme artist"
 msgstr "佈景主題藝術家"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:549
+#: src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
 msgstr "%(user)s 的使用者資料"
 
@@ -2916,12 +2916,12 @@ msgid "User Profile"
 msgstr "使用者資料"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:691
+#: src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr "地點"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:706
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr "職業"
 
@@ -2938,7 +2938,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "此開發者的附加元件平均分數"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:728
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr "自我介紹"
 
@@ -2950,11 +2950,11 @@ msgstr "編輯個人資料"
 msgid "Admin user"
 msgstr "管理員使用者"
 
-#: src/amo/pages/UserProfileEdit/index.js:209
+#: src/amo/pages/UserProfileEdit/index.js:211
 msgid "Picture successfully deleted"
 msgstr "已成功刪除照片"
 
-#: src/amo/pages/UserProfileEdit/index.js:457
+#: src/amo/pages/UserProfileEdit/index.js:459
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -2962,7 +2962,7 @@ msgstr ""
 "請告訴其他使用者關於您的更多資訊。大部分欄位為選填，但能夠幫助其他人更加了解"
 "您。"
 
-#: src/amo/pages/UserProfileEdit/index.js:461
+#: src/amo/pages/UserProfileEdit/index.js:463
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -2970,101 +2970,101 @@ msgstr ""
 "請告訴其他使用者關於這位使用者的更多資訊。大部分欄位為選填，但能夠幫助其他人"
 "更加了解 %(userName)s。"
 
-#: src/amo/pages/UserProfileEdit/index.js:476
+#: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
 msgstr "若您願意的話，歡迎您向整個社群自我介紹一下"
 
-#: src/amo/pages/UserProfileEdit/index.js:477
+#: src/amo/pages/UserProfileEdit/index.js:479
 msgid "Introduce %(userName)s to the community"
 msgstr "介紹 %(userName)s 給社群成員認識"
 
-#: src/amo/pages/UserProfileEdit/index.js:503
+#: src/amo/pages/UserProfileEdit/index.js:505
 msgid "Log in to edit the profile"
 msgstr "登入後即可編輯個人資料"
 
-#: src/amo/pages/UserProfileEdit/index.js:525
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Creating your profile…"
 msgstr "正在建立您的帳號…"
 
-#: src/amo/pages/UserProfileEdit/index.js:526
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Create My Profile"
 msgstr "建立我的帳號"
 
-#: src/amo/pages/UserProfileEdit/index.js:530
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Updating your profile…"
 msgstr "正在更新您的帳號…"
 
-#: src/amo/pages/UserProfileEdit/index.js:531
+#: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Update My Profile"
 msgstr "更新我的帳號"
 
-#: src/amo/pages/UserProfileEdit/index.js:534
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Updating profile…"
 msgstr "正在更新帳號…"
 
-#: src/amo/pages/UserProfileEdit/index.js:535
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Update Profile"
 msgstr "更新帳號"
 
-#: src/amo/pages/UserProfileEdit/index.js:562
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "View user's profile"
 msgstr "檢視使用者的個人資料"
 
-#: src/amo/pages/UserProfileEdit/index.js:568
+#: src/amo/pages/UserProfileEdit/index.js:570
 msgid "Edit user's profile"
 msgstr "編輯使用者的個人資料"
 
-#: src/amo/pages/UserProfileEdit/index.js:586
+#: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Account"
 msgstr "帳號"
 
-#: src/amo/pages/UserProfileEdit/index.js:587
+#: src/amo/pages/UserProfileEdit/index.js:589
 msgid "Account for %(userName)s"
 msgstr "%(userName)s 的帳號"
 
-#: src/amo/pages/UserProfileEdit/index.js:594
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
 msgstr "電子郵件地址"
 
-#: src/amo/pages/UserProfileEdit/index.js:602
+#: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
 msgstr "無法在此修改電子郵件信箱"
 
-#: src/amo/pages/UserProfileEdit/index.js:613
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
 msgstr "您可到 Firefox 帳號網站修改信箱。%(startLink)s需要幫助嗎？%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:632
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Firefox Accounts…"
 msgstr "管理 Firefox 帳號…"
 
-#: src/amo/pages/UserProfileEdit/index.js:640
+#: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
 msgstr "個人資料"
 
-#: src/amo/pages/UserProfileEdit/index.js:649
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
 msgstr "此欄位必填"
 
-#: src/amo/pages/UserProfileEdit/index.js:653
+#: src/amo/pages/UserProfileEdit/index.js:655
 msgid "Display Name *"
 msgstr "顯示名稱 *"
 
-#: src/amo/pages/UserProfileEdit/index.js:686
+#: src/amo/pages/UserProfileEdit/index.js:688
 msgid "This URL will only be visible for users who are developers."
 msgstr "此網址只會顯示給其他開發者看到。"
 
-#: src/amo/pages/UserProfileEdit/index.js:743
+#: src/amo/pages/UserProfileEdit/index.js:745
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "支援部分 HTML: %(htmlTags)s。不允許使用鏈結。"
 
-#: src/amo/pages/UserProfileEdit/index.js:767
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Notifications"
 msgstr "通知"
 
-#: src/amo/pages/UserProfileEdit/index.js:771
+#: src/amo/pages/UserProfileEdit/index.js:773
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3072,7 +3072,7 @@ msgstr ""
 "有時候 Mozilla 可能會寄給您即將釋出的版本和附加元件活動。請選擇您感興趣的主"
 "題。"
 
-#: src/amo/pages/UserProfileEdit/index.js:776
+#: src/amo/pages/UserProfileEdit/index.js:778
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3080,32 +3080,32 @@ msgstr ""
 "有時候 Mozilla 可能會寄送即將釋出的版本和附加元件活動相關資訊給此使用者。請選"
 "擇這位使用者感興趣的主題。"
 
-#: src/amo/pages/UserProfileEdit/index.js:791
+#: src/amo/pages/UserProfileEdit/index.js:793
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 "Mozilla 保留使用此資訊與您聯絡，詢問關於您放上網的附加元件相關問題的權利。"
 
-#: src/amo/pages/UserProfileEdit/index.js:817
-#: src/amo/pages/UserProfileEdit/index.js:889
+#: src/amo/pages/UserProfileEdit/index.js:819
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
 msgstr "刪除我的帳號"
 
-#: src/amo/pages/UserProfileEdit/index.js:818
-#: src/amo/pages/UserProfileEdit/index.js:890
+#: src/amo/pages/UserProfileEdit/index.js:820
+#: src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
 msgstr "刪除帳號"
 
-#: src/amo/pages/UserProfileEdit/index.js:830
+#: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "重要: 刪除您的 Firefox 附加元件站帳號後無法恢復。"
 
-#: src/amo/pages/UserProfileEdit/index.js:833
+#: src/amo/pages/UserProfileEdit/index.js:835
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "重要: 刪除此 Firefox 附加元件站帳號後無法恢復。"
 
-#: src/amo/pages/UserProfileEdit/index.js:842
+#: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3114,7 +3114,7 @@ msgstr ""
 "將永久刪除您的資料，包含個人詳細資料（大頭照、使用者名稱、顯示名稱、所在地"
 "點、首頁、自傳、工作）、通知偏好設定、評論與收藏集資訊。"
 
-#: src/amo/pages/UserProfileEdit/index.js:848
+#: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3123,7 +3123,7 @@ msgstr ""
 "將永久刪除該使用者的資料，包含個人詳細資料（大頭照、使用者名稱、顯示名稱、所"
 "在地點、首頁、自傳、工作）、通知偏好設定、評論與收藏集資訊。"
 
-#: src/amo/pages/UserProfileEdit/index.js:857
+#: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3132,7 +3132,7 @@ msgstr ""
 "若您是任何附加元件的唯一作者，這些附加元件也將被刪除。若您與其他作者共享附加"
 "元件的所有權，則將從該元件的作者名單中移除，其餘的作者將繼續擁有該附加元件。"
 
-#: src/amo/pages/UserProfileEdit/index.js:863
+#: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3142,7 +3142,7 @@ msgstr ""
 "者共享附加元件的所有權，則將從該元件的作者名單中移除，其餘的作者將繼續擁有該"
 "附加元件。"
 
-#: src/amo/pages/UserProfileEdit/index.js:873
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "

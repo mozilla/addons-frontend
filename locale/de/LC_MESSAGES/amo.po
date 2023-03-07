@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-24 19:16+0000\n"
+"POT-Creation-Date: 2023-03-07 17:49+0000\n"
 "PO-Revision-Date: 2023-01-17 19:26+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -203,7 +203,7 @@ msgstr "Verwendet von"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:674
+#: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr "Homepage"
 
@@ -341,7 +341,7 @@ msgstr "Löschen"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:897
+#: src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -1278,12 +1278,12 @@ msgid "View My Collections"
 msgstr "Meine Sammlungen ansehen"
 
 #: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:561
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
 msgstr "Mein Profil anzeigen"
 
 #: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:567
+#: src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
 msgstr "Mein Profil bearbeiten"
 
@@ -1525,43 +1525,43 @@ msgstr "Bewerten Sie dieses Add-on mit %(starRating)s von 5 Sternen"
 msgid "There are no ratings yet"
 msgstr "Es liegen noch keine Bewertungen vor"
 
-#: src/amo/components/RatingManager/index.js:123
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
 msgstr "Melden Sie sich an, um dieses Wörterbuch zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
 msgstr "Melden Sie sich an, um dieses Sprachpaket zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:127
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
 msgstr "Melden Sie sich an, um dieses Theme zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
 msgstr "Melden Sie sich an, um diese Erweiterung zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
 msgstr "Melden Sie sich an, um dieses Add-on zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:178
+#: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "Soll Ihre Bewertung von %(addonName)s wirklich gelöscht werden?"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "Soll Ihre Bewertung von %(addonName)s wirklich gelöscht werden?"
 
-#: src/amo/components/RatingManager/index.js:188
+#: src/amo/components/RatingManager/index.js:194
 msgid "How are you enjoying %(addonName)s?"
 msgstr "Wie gefällt Ihnen %(addonName)s?"
 
-#: src/amo/components/RatingManager/index.js:231
+#: src/amo/components/RatingManager/index.js:237
 msgid "Saving star rating"
 msgstr "Stern-Bewertung wird gespeichert"
 
-#: src/amo/components/RatingManager/index.js:232
+#: src/amo/components/RatingManager/index.js:238
 msgid "Star rating saved"
 msgstr "Stern-Bewertung gespeichert"
 
@@ -3118,7 +3118,7 @@ msgid "Theme artist"
 msgstr "Theme-Künstler"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:549
+#: src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
 msgstr "Benutzerprofil von %(user)s"
 
@@ -3127,12 +3127,12 @@ msgid "User Profile"
 msgstr "Benutzerprofil"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:691
+#: src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr "Ort"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:706
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr "Beruf"
 
@@ -3149,7 +3149,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Durchschnittliche Bewertung der Add-ons des Entwicklers"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:728
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr "Biografie"
 
@@ -3161,11 +3161,11 @@ msgstr "Profil bearbeiten"
 msgid "Admin user"
 msgstr "Admin-Benutzer"
 
-#: src/amo/pages/UserProfileEdit/index.js:209
+#: src/amo/pages/UserProfileEdit/index.js:211
 msgid "Picture successfully deleted"
 msgstr "Bild erfolgreich gelöscht"
 
-#: src/amo/pages/UserProfileEdit/index.js:457
+#: src/amo/pages/UserProfileEdit/index.js:459
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3173,7 +3173,7 @@ msgstr ""
 "Erzählen Sie uns etwas mehr über sich. Die meisten Felder sind optional, "
 "helfen anderen Nutzern aber, Sie besser kennenzulernen."
 
-#: src/amo/pages/UserProfileEdit/index.js:461
+#: src/amo/pages/UserProfileEdit/index.js:463
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3181,67 +3181,67 @@ msgstr ""
 "Erzählen Sie uns etwas mehr über diesen Benutzer. Die meisten Felder sind "
 "optional, helfen anderen Nutzern aber, %(userName)s besser kennenzulernen."
 
-#: src/amo/pages/UserProfileEdit/index.js:476
+#: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
 msgstr "Stellen Sie sich der Gemeinschaft vor, wenn Sie möchten"
 
-#: src/amo/pages/UserProfileEdit/index.js:477
+#: src/amo/pages/UserProfileEdit/index.js:479
 msgid "Introduce %(userName)s to the community"
 msgstr "Stellen Sie %(userName)s der Gemeinschaft vor"
 
-#: src/amo/pages/UserProfileEdit/index.js:503
+#: src/amo/pages/UserProfileEdit/index.js:505
 msgid "Log in to edit the profile"
 msgstr "Melden Sie sich an, um das Profil zu bearbeiten"
 
-#: src/amo/pages/UserProfileEdit/index.js:525
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Creating your profile…"
 msgstr "Ihr Profil wird erstellt…"
 
-#: src/amo/pages/UserProfileEdit/index.js:526
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Create My Profile"
 msgstr "Mein Profil erstellen"
 
-#: src/amo/pages/UserProfileEdit/index.js:530
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Updating your profile…"
 msgstr "Ihr Profil wird aktualisiert…"
 
-#: src/amo/pages/UserProfileEdit/index.js:531
+#: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Update My Profile"
 msgstr "Mein Profil aktualisieren"
 
-#: src/amo/pages/UserProfileEdit/index.js:534
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Updating profile…"
 msgstr "Profil wird aktualisiert…"
 
-#: src/amo/pages/UserProfileEdit/index.js:535
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Update Profile"
 msgstr "Profil aktualisieren"
 
-#: src/amo/pages/UserProfileEdit/index.js:562
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "View user's profile"
 msgstr "Benutzerprofil anzeigen"
 
-#: src/amo/pages/UserProfileEdit/index.js:568
+#: src/amo/pages/UserProfileEdit/index.js:570
 msgid "Edit user's profile"
 msgstr "Benutzerprofil bearbeiten"
 
-#: src/amo/pages/UserProfileEdit/index.js:586
+#: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Account"
 msgstr "Konto"
 
-#: src/amo/pages/UserProfileEdit/index.js:587
+#: src/amo/pages/UserProfileEdit/index.js:589
 msgid "Account for %(userName)s"
 msgstr "Konto für %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:594
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
 msgstr "E-Mail-Adresse"
 
-#: src/amo/pages/UserProfileEdit/index.js:602
+#: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
 msgstr "E-Mail-Addresse kann hier nicht geändert werden"
 
-#: src/amo/pages/UserProfileEdit/index.js:613
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3249,36 +3249,36 @@ msgstr ""
 "Sie können Ihre E-Mail-Adresse beim Firefox-Konto ändern. "
 "%(startLink)sBenötigen Sie Hilfe?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:632
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Firefox Accounts…"
 msgstr "Firefox-Konten verwalten…"
 
-#: src/amo/pages/UserProfileEdit/index.js:640
+#: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:649
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
 msgstr "Dieses Feld ist erforderlich"
 
-#: src/amo/pages/UserProfileEdit/index.js:653
+#: src/amo/pages/UserProfileEdit/index.js:655
 msgid "Display Name *"
 msgstr "Anzeigename *"
 
-#: src/amo/pages/UserProfileEdit/index.js:686
+#: src/amo/pages/UserProfileEdit/index.js:688
 msgid "This URL will only be visible for users who are developers."
 msgstr "Diese URL ist nur sichtbar, wenn der Nutzer ein Entwickler ist."
 
-#: src/amo/pages/UserProfileEdit/index.js:743
+#: src/amo/pages/UserProfileEdit/index.js:745
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 "HTML wird teilweise unterstützt: %(htmlTags)s. Links sind nicht erlaubt."
 
-#: src/amo/pages/UserProfileEdit/index.js:767
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-#: src/amo/pages/UserProfileEdit/index.js:771
+#: src/amo/pages/UserProfileEdit/index.js:773
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3287,7 +3287,7 @@ msgstr ""
 "Veröffentlichungen und Add-on-Veranstaltungen schicken. Bitte wählen Sie die "
 "Themen, an denen Sie interessiert sind."
 
-#: src/amo/pages/UserProfileEdit/index.js:776
+#: src/amo/pages/UserProfileEdit/index.js:778
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3296,7 +3296,7 @@ msgstr ""
 "Veröffentlichungen und Add-on-Veranstaltungen schicken. Bitte wählen Sie die "
 "Themen, an denen dieser Nutzer interessiert sein könnte."
 
-#: src/amo/pages/UserProfileEdit/index.js:791
+#: src/amo/pages/UserProfileEdit/index.js:793
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3304,29 +3304,29 @@ msgstr ""
 "Mozilla behält sich vor, Ihnen persönliche E-Mails zu schreiben, wenn es um "
 "bestimmte Angelegenheiten im Bezug auf Ihre hier beherbergten Add-ons geht."
 
-#: src/amo/pages/UserProfileEdit/index.js:817
-#: src/amo/pages/UserProfileEdit/index.js:889
+#: src/amo/pages/UserProfileEdit/index.js:819
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
 msgstr "Mein Profil löschen"
 
-#: src/amo/pages/UserProfileEdit/index.js:818
-#: src/amo/pages/UserProfileEdit/index.js:890
+#: src/amo/pages/UserProfileEdit/index.js:820
+#: src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
 msgstr "Profil löschen"
 
-#: src/amo/pages/UserProfileEdit/index.js:830
+#: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "WICHTIG: Die Löschung Ihres Firefox-Add-ons-Profils kann nicht rückgängig "
 "gemacht werden."
 
-#: src/amo/pages/UserProfileEdit/index.js:833
+#: src/amo/pages/UserProfileEdit/index.js:835
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "WICHTIG: Die Löschung dieses Firefox-Add-ons-Profils kann nicht rückgängig "
 "gemacht werden."
 
-#: src/amo/pages/UserProfileEdit/index.js:842
+#: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3336,7 +3336,7 @@ msgstr ""
 "Profil (Profilbild, Benutzername, Anzeigename, Ort, Homepage, Biografie, "
 "Beruf), Benachrichtigungseinstellungen, Bewertungen und Sammlungen."
 
-#: src/amo/pages/UserProfileEdit/index.js:848
+#: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3347,7 +3347,7 @@ msgstr ""
 "Homepage, Biografie, Beruf), Benachrichtigungseinstellungen, Bewertungen und "
 "Sammlungen."
 
-#: src/amo/pages/UserProfileEdit/index.js:857
+#: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3357,7 +3357,7 @@ msgstr ""
 "denn, auch andere Autoren sind die Eigentümer. In diesem Fall werden Sie als "
 "Autor entfernt und die verbleibenden Autoren bleiben Eigentümer des Add-ons."
 
-#: src/amo/pages/UserProfileEdit/index.js:863
+#: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3368,7 +3368,7 @@ msgstr ""
 "Benutzer als Autor entfernt und die verbleibenden Autoren bleiben Eigentümer "
 "des Add-ons."
 
-#: src/amo/pages/UserProfileEdit/index.js:873
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "

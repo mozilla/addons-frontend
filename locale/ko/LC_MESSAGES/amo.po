@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-24 19:16+0000\n"
+"POT-Creation-Date: 2023-03-07 17:49+0000\n"
 "PO-Revision-Date: 2022-11-13 20:57+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -181,7 +181,7 @@ msgstr "사용됨"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:674
+#: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr "홈 페이지"
 
@@ -319,7 +319,7 @@ msgstr "삭제"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:897
+#: src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
 msgstr "취소"
 
@@ -1228,12 +1228,12 @@ msgid "View My Collections"
 msgstr "내 모음집 보기"
 
 #: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:561
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
 msgstr "내 프로필 보기"
 
 #: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:567
+#: src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
 msgstr "내 프로필 수정"
 
@@ -1470,43 +1470,43 @@ msgstr "이 부가 기능을 5점 만점에 %(starRating)s점으로 평가"
 msgid "There are no ratings yet"
 msgstr "아직 평점이 없습니다"
 
-#: src/amo/components/RatingManager/index.js:123
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
 msgstr "로그인하여 이 사전의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
 msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:127
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
 msgstr "로그인하여 이 테마의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
 msgstr "로그인하여 이 확장 기능의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
 msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:178
+#: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "%(addonName)s에 대한 리뷰를 삭제하시겠습니까?"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "%(addonName)s의 평점을 삭제하시겠습니까?"
 
-#: src/amo/components/RatingManager/index.js:188
+#: src/amo/components/RatingManager/index.js:194
 msgid "How are you enjoying %(addonName)s?"
 msgstr "%(addonName)s 부가 기능을 어떻게 사용하셨나요?"
 
-#: src/amo/components/RatingManager/index.js:231
+#: src/amo/components/RatingManager/index.js:237
 msgid "Saving star rating"
 msgstr "별점 저장 중"
 
-#: src/amo/components/RatingManager/index.js:232
+#: src/amo/components/RatingManager/index.js:238
 msgid "Star rating saved"
 msgstr "별점 저장됨"
 
@@ -2943,7 +2943,7 @@ msgid "Theme artist"
 msgstr "테마 아티스트"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:549
+#: src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
 msgstr "%(user)s님의 사용자 프로필"
 
@@ -2952,12 +2952,12 @@ msgid "User Profile"
 msgstr "사용자 프로필"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:691
+#: src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr "지역"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:706
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr "직업"
 
@@ -2974,7 +2974,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "개발자 부가 기능의 평균 별점"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:728
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr "소개"
 
@@ -2986,11 +2986,11 @@ msgstr "프로필 수정"
 msgid "Admin user"
 msgstr "관리자 사용자"
 
-#: src/amo/pages/UserProfileEdit/index.js:209
+#: src/amo/pages/UserProfileEdit/index.js:211
 msgid "Picture successfully deleted"
 msgstr "사진이 성공적으로 삭제되었습니다"
 
-#: src/amo/pages/UserProfileEdit/index.js:457
+#: src/amo/pages/UserProfileEdit/index.js:459
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -2999,73 +2999,73 @@ msgstr ""
 "지만 입력해 놓으면 다른 사람들이 당신을 보다 잘 알 수 있게 도와주는 역할을 하"
 "게 됩니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:461
+#: src/amo/pages/UserProfileEdit/index.js:463
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:476
+#: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
 msgstr "커뮤니티에 자기 소개하기"
 
-#: src/amo/pages/UserProfileEdit/index.js:477
+#: src/amo/pages/UserProfileEdit/index.js:479
 msgid "Introduce %(userName)s to the community"
 msgstr "커뮤니티에 %(userName)s 소개하기"
 
-#: src/amo/pages/UserProfileEdit/index.js:503
+#: src/amo/pages/UserProfileEdit/index.js:505
 msgid "Log in to edit the profile"
 msgstr "프로필을 편집하려면 로그인하세요"
 
-#: src/amo/pages/UserProfileEdit/index.js:525
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Creating your profile…"
 msgstr "프로필을 만드는 중…"
 
-#: src/amo/pages/UserProfileEdit/index.js:526
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Create My Profile"
 msgstr "내 프로필 만들기"
 
-#: src/amo/pages/UserProfileEdit/index.js:530
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Updating your profile…"
 msgstr "프로필 업데이트 중…"
 
-#: src/amo/pages/UserProfileEdit/index.js:531
+#: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Update My Profile"
 msgstr "내 프로필 수정"
 
-#: src/amo/pages/UserProfileEdit/index.js:534
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Updating profile…"
 msgstr "프로필 업데이트 중…"
 
-#: src/amo/pages/UserProfileEdit/index.js:535
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Update Profile"
 msgstr "프로필 수정"
 
-#: src/amo/pages/UserProfileEdit/index.js:562
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "View user's profile"
 msgstr "사용자 프로필 보기"
 
-#: src/amo/pages/UserProfileEdit/index.js:568
+#: src/amo/pages/UserProfileEdit/index.js:570
 msgid "Edit user's profile"
 msgstr "사용자 프로필 수정"
 
-#: src/amo/pages/UserProfileEdit/index.js:586
+#: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Account"
 msgstr "계정"
 
-#: src/amo/pages/UserProfileEdit/index.js:587
+#: src/amo/pages/UserProfileEdit/index.js:589
 msgid "Account for %(userName)s"
 msgstr "%(userName)s 계정"
 
-#: src/amo/pages/UserProfileEdit/index.js:594
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
 msgstr "이메일 주소"
 
-#: src/amo/pages/UserProfileEdit/index.js:602
+#: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
 msgstr "여기에서 이메일 주소 변경할 수 없음"
 
-#: src/amo/pages/UserProfileEdit/index.js:613
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3073,35 +3073,35 @@ msgstr ""
 "Firefox 계정에서 이메일 주소를 변경할 수 있습니다. %(startLink)s도움이 필요하"
 "십니까?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:632
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Firefox Accounts…"
 msgstr "Firefox 계정 관리…"
 
-#: src/amo/pages/UserProfileEdit/index.js:640
+#: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
 msgstr "프로필"
 
-#: src/amo/pages/UserProfileEdit/index.js:649
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
 msgstr "필수 항목"
 
-#: src/amo/pages/UserProfileEdit/index.js:653
+#: src/amo/pages/UserProfileEdit/index.js:655
 msgid "Display Name *"
 msgstr "표시 이름 *"
 
-#: src/amo/pages/UserProfileEdit/index.js:686
+#: src/amo/pages/UserProfileEdit/index.js:688
 msgid "This URL will only be visible for users who are developers."
 msgstr "이 URL은 개발자인 사용자에게만 표시됩니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:743
+#: src/amo/pages/UserProfileEdit/index.js:745
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "일부 HTML 지원: %(htmlTags)s. 링크는 금지되어 있습니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:767
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Notifications"
 msgstr "알림"
 
-#: src/amo/pages/UserProfileEdit/index.js:771
+#: src/amo/pages/UserProfileEdit/index.js:773
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3109,7 +3109,7 @@ msgstr ""
 "때때로 Mozilla에서 곧 출시될 최신 버전 정보와 및 부가 기능 이벤트에 대한 이메"
 "일을 보낼 수 있습니다. 관심 있는 주제를 선택하세요."
 
-#: src/amo/pages/UserProfileEdit/index.js:776
+#: src/amo/pages/UserProfileEdit/index.js:778
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3118,7 +3118,7 @@ msgstr ""
 "트에 대한 이메일을 보낼 수 있습니다. 이 사용자가 관심을 가질만한 주제를 선택"
 "하세요."
 
-#: src/amo/pages/UserProfileEdit/index.js:791
+#: src/amo/pages/UserProfileEdit/index.js:793
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3126,25 +3126,25 @@ msgstr ""
 "Mozilla는 당신이 등록한 부가 기능의 특정 사항에 대한 개인적 연락을 할 권리를 "
 "보장하고 있습니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:817
-#: src/amo/pages/UserProfileEdit/index.js:889
+#: src/amo/pages/UserProfileEdit/index.js:819
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
 msgstr "내 프로필 삭제"
 
-#: src/amo/pages/UserProfileEdit/index.js:818
-#: src/amo/pages/UserProfileEdit/index.js:890
+#: src/amo/pages/UserProfileEdit/index.js:820
+#: src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
 msgstr "프로필 삭제"
 
-#: src/amo/pages/UserProfileEdit/index.js:830
+#: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "중요: Firefox 부가 기능 프로필을 삭제하면 되돌릴 수 없습니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:833
+#: src/amo/pages/UserProfileEdit/index.js:835
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "중요: 이 Firefox 부가 기능 프로필을 삭제하면 되돌릴 수 없습니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:842
+#: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3153,7 +3153,7 @@ msgstr ""
 "프로필 세부 정보 (사진, 사용자 이름, 표시 이름, 위치, 홈페이지, 소개, 직업), "
 "알림 기본 설정, 평가 및 모음집을 포함한 데이터가 영구적으로 제거됩니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:848
+#: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3163,21 +3163,21 @@ msgstr ""
 "알림 환경 설정, 평가 및 모음집을 포함한 사용자의 데이터가 영구적으로 삭제됩니"
 "다."
 
-#: src/amo/pages/UserProfileEdit/index.js:857
+#: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
 "and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:863
+#: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
 "author and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:873
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
