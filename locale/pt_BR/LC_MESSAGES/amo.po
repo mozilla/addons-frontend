@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-24 19:16+0000\n"
-"PO-Revision-Date: 2023-03-02 13:20+0000\n"
+"PO-Revision-Date: 2023-03-07 13:35+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1463,7 +1463,7 @@ msgstr "Denunciar esta extensão por abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:181
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Por favor, não use este formulário para denunciar erros ou solicitar funcionalidades para a extensão; este formulário será enviado para a Mozilla e não para o desenvolvedor da extensão."
+msgstr "Não use este formulário para relatar erros ou solicitar funcionalidades para a extensão; este relatório é enviado para a Mozilla e não para o desenvolvedor da extensão."
 
 #: src/amo/components/ReportAbuseButton/index.js:194 src/amo/components/ReportUserAbuse/index.js:152
 msgid "Send abuse report"
