@@ -221,6 +221,7 @@ describe(__filename, () => {
   };
 
   const createVersionWithPermissions = ({
+    host = [],
     optional = [],
     required = [],
     versionProps = {},
@@ -229,6 +230,7 @@ describe(__filename, () => {
       ...fakeVersion,
       file: {
         ...fakeFile,
+        host_permissions: host,
         optional_permissions: optional,
         permissions: required,
       },
@@ -1859,6 +1861,7 @@ describe(__filename, () => {
 
       it('renders optional permissions only', () => {
         addon.current_version = createVersionWithPermissions({
+          host: ['*://example.com/*'],
           optional: ['bookmarks'],
         });
         renderWithAddon();
@@ -1873,6 +1876,9 @@ describe(__filename, () => {
           screen.getByClassName('Icon-permission-bookmarks'),
         ).toBeInTheDocument();
         expect(
+          screen.getByText('Access your data for example.com'),
+        ).toBeInTheDocument();
+        expect(
           screen.queryByClassName('PermissionsCard-subhead--required'),
         ).not.toBeInTheDocument();
         expect(
@@ -1882,6 +1888,7 @@ describe(__filename, () => {
 
       it('renders both optional and required permissions', () => {
         addon.current_version = createVersionWithPermissions({
+          host: ['*://example.com/*'],
           optional: ['bookmarks'],
           required: ['history'],
         });
@@ -1898,6 +1905,9 @@ describe(__filename, () => {
         ).toBeInTheDocument();
         expect(
           screen.getByClassName('Icon-permission-history'),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByText('Access your data for example.com'),
         ).toBeInTheDocument();
         expect(
           screen.getByClassName('PermissionsCard-list--required'),
@@ -1917,9 +1927,8 @@ describe(__filename, () => {
           '*://*.mozilla.com/*',
           '*://*.mozilla.ca/*',
           '*://*.mozilla.us/*',
-          '*://*.mozilla.co.nz/*',
-          '*://*.mozilla.co.uk/*',
         ],
+        host: ['*://*.mozilla.co.nz/*', '*://*.mozilla.co.uk/*'],
       });
       renderWithAddon();
 
@@ -1960,9 +1969,8 @@ describe(__filename, () => {
           '*://developer.mozilla.org/*',
           '*://addons.mozilla.org/*',
           '*://www.mozilla.org/*',
-          '*://testing.mozilla.org/*',
-          '*://awesome.mozilla.org/*',
         ],
+        host: ['*://testing.mozilla.org/*', '*://awesome.mozilla.org/*'],
       });
       renderWithAddon();
 
@@ -1994,6 +2002,29 @@ describe(__filename, () => {
       for (const allUrlsPermission of ['<all_urls>', '*://*/']) {
         addon.current_version = createVersionWithPermissions({
           required: [...permissions, allUrlsPermission],
+          host: [...permissions, allUrlsPermission],
+        });
+        renderWithAddon();
+
+        // The all URLs permission will be displayed in both required and optional permissions.
+        expect(
+          screen.getAllByClassName('Icon-permission-hostPermission'),
+        ).toHaveLength(2);
+        expect(
+          screen.getAllByText('Access your data for all websites'),
+        ).toHaveLength(2);
+        cleanup();
+      }
+    });
+
+    it('returns a single optional host permission for all urls', () => {
+      const permissions = [
+        '*://*.mozilla.com/*',
+        '*://developer.mozilla.org/*',
+      ];
+      for (const allUrlsPermission of ['<all_urls>', '*://*/']) {
+        addon.current_version = createVersionWithPermissions({
+          host: [...permissions, allUrlsPermission],
         });
         renderWithAddon();
 
@@ -2010,6 +2041,7 @@ describe(__filename, () => {
     it('does not return a host permission for moz-extension: urls', () => {
       addon.current_version = createVersionWithPermissions({
         required: ['moz-extension://should/not/generate/a/permission/'],
+        host: ['moz-extension://should/not/generate/another/permission/'],
       });
       renderWithAddon();
 
@@ -2019,6 +2051,7 @@ describe(__filename, () => {
     it('does not return a host permission for an invalid pattern', () => {
       addon.current_version = createVersionWithPermissions({
         required: ['*'],
+        host: ['*'],
       });
       renderWithAddon();
 
@@ -2029,7 +2062,6 @@ describe(__filename, () => {
       addon.current_version = createVersionWithPermissions({
         required: [
           'https://*.okta.com/',
-          'https://*.okta.com/login/login.htm*',
           'https://*.okta.com/signin/verify/okta/push',
           'https://*.okta.com/signin/verify/okta/sms',
           'https://trishulgoel.com/about',
@@ -2041,15 +2073,19 @@ describe(__filename, () => {
           '*://*.mozilla.co.nz/*',
           '*://*.mozilla.co.uk/*',
         ],
+        host: ['https://*.okta.com/login/login.htm*'],
       });
       renderWithAddon();
 
       expect(
         screen.getAllByClassName('Icon-permission-hostPermission'),
-      ).toHaveLength(8);
+      ).toHaveLength(9);
+      // This will be displayed in both required and optional permissions.
       expect(
-        screen.getByText('Access your data for sites in the okta.com domain'),
-      ).toBeInTheDocument();
+        screen.getAllByText(
+          'Access your data for sites in the okta.com domain',
+        ),
+      ).toHaveLength(2);
       expect(
         screen.getByText(
           'Access your data for sites in the mozilla.org domain',

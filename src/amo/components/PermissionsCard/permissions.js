@@ -77,7 +77,8 @@ export class PermissionUtils {
       return permissions;
     }
 
-    permissions.optional = file.optional_permissions;
+    const hostPermissions = file.host_permissions || [];
+    permissions.optional = [...file.optional_permissions, ...hostPermissions];
     permissions.required = file.permissions;
     return permissions;
   }

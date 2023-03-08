@@ -30,6 +30,23 @@ describe(__filename, () => {
       });
     });
 
+    it('puts host_permissions after optional permissions', () => {
+      const hostPermissions = ['*://example.com/*'];
+      const optionalPermissions = ['webRequest'];
+      const permissions = ['bookmarks'];
+
+      const file = {
+        host_permissions: hostPermissions,
+        optional_permissions: optionalPermissions,
+        permissions,
+      };
+
+      expect(_getCurrentPermissions({ file })).toEqual({
+        optional: [...optionalPermissions, ...hostPermissions],
+        required: permissions,
+      });
+    });
+
     it('returns empty arrays if no file was found', () => {
       const file = null;
       expect(_getCurrentPermissions({ file })).toEqual({
