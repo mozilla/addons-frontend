@@ -127,6 +127,16 @@ describe(__filename, () => {
     expect(reducedError.messages).toEqual(nonFieldErrors);
   });
 
+  it('sanitizes non_field_errors from API error response', () => {
+    const messageText = 'Some safe text';
+    const badMessage = `${messageText}<script>alert(document.cookie);</script>`;
+    const nonFieldErrors = [badMessage];
+    const reducedError = getReducedError(
+      createFakeApiError({ nonFieldErrors }),
+    );
+    expect(reducedError.messages).toEqual([messageText]);
+  });
+
   it('gets field errors from API error response', () => {
     const fieldErrors = {
       username: ['not long enough', 'contains invalid characters'],
@@ -138,6 +148,15 @@ describe(__filename, () => {
     expect(messages).toContain('not long enough');
     expect(messages).toContain('contains invalid characters');
     expect(messages).toContain('sorry, it cannot be 1234');
+  });
+
+  it('sanitizes field errors from API error response', () => {
+    const messageText = 'Some safe text';
+    const badMessage = `${messageText}<script>alert(document.cookie);</script>`;
+    const fieldErrors = { username: [badMessage] };
+    const reducedError = getReducedError(createFakeApiError({ fieldErrors }));
+
+    expect(reducedError.messages).toEqual([messageText]);
   });
 
   it('stores API responses when they do not have messages', () => {
@@ -217,7 +236,19 @@ describe(__filename, () => {
       // real API response correctly. We should at least store them.
       jsonResponse: { nested },
     });
-    expect(getReducedError(error).messages).toEqual([nested]);
+    expect(getReducedError(error).messages).toEqual([JSON.stringify(nested)]);
+  });
+
+  it('sanitizes error messages', () => {
+    const messageText = 'Some safe text';
+    const badMessage = `${messageText}<script>alert(document.cookie);</script>`;
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { detail: badMessage },
+    });
+
+    expect(getReducedError(error).messages).toEqual([messageText]);
   });
 
   it('ignores unknown error keys', () => {
