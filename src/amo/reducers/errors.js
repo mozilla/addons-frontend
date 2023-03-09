@@ -6,6 +6,11 @@ import {
   ERROR_UNKNOWN,
 } from 'amo/constants';
 import log from 'amo/logger';
+import { sanitizeHTML } from 'amo/utils';
+
+const sanitizeMessage = (message) =>
+  sanitizeHTML(typeof message === 'object' ? JSON.stringify(message) : message)
+    .__html;
 
 /*
  * This inspects an error object and returns an array of messages from it.
@@ -40,7 +45,7 @@ function getMessagesFromError(error) {
           // Add a field specific error message. We do not prefix the message with
           // `key`, which is the field name (or `non_field_errors`), since it is not
           // localized.
-          errorData.messages.push(message);
+          errorData.messages.push(sanitizeMessage(message));
         });
       } else if (key === 'code') {
         errorData.code = value;
@@ -60,7 +65,7 @@ function getMessagesFromError(error) {
         // This is a catch-all for errors that are not structured like
         // Django/DRF form field errors. It won't be perfect but at least
         // the user will see some kind of error.
-        errorData.messages.push(value);
+        errorData.messages.push(sanitizeMessage(value));
       } else {
         log.warn(`Ignoring key "${key}": "${value}" in data of error response`);
       }
