@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-03-07 17:49+0000\n"
-"PO-Revision-Date: 2023-03-12 22:28+0000\n"
+"PO-Revision-Date: 2023-03-12 22:30+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1090,14 +1090,12 @@ msgid "You'll need Firefox to use this extension"
 msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਨੂੰ ਵਰਤਣ ਲਈ ਤੁਹਾਨੂੰ Firefox ਦੀ ਲੋੜ ਹੈ"
 
 #: src/amo/components/GetFirefoxButton/index.js:139
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "ਇਸ ਥੀਮ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
+msgstr "ਇਸ ਥੀਮ ਲਈ ਤੁਹਾਨੂੰ Firefox ਦਾ ਅੱਪਡੇਟ ਵਰਜ਼ਨ ਦੀ ਲੋੜ ਹੈ"
 
 #: src/amo/components/GetFirefoxButton/index.js:140
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
+msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਲਈ ਤੁਹਾਨੂੰ Firefox ਦਾ ਅੱਪਡੇਟ ਵਰਜ਼ਨ ਦੀ ਲੋੜ ਹੈ"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
@@ -1171,9 +1169,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox ਉਹ ਇਕਸਟੈਨਸ਼ਨਾੰ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ ਹਨ।"
 
 #: src/amo/components/HomepageShelves/index.js:75
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "ਹੋਰ %(categoryName)s ਵੇਖੋ"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1208,9 +1205,8 @@ msgid "Learn more"
 msgstr "ਹੋਰ ਜਾਣੋ"
 
 #: src/amo/components/InstallWarning/index.js:108
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "ਮੋਜ਼ੀਲਾ ਦੇ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਐਕਸਟੈਂਸ਼ਨਜ਼ ਪ੍ਰੋਗਰਾਮ ਰਾਹੀਂ ਸੁਰੱਖਿਆ ਲਈ ਇਸ ਦੀ ਨਿਗਰਾਨੀ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀੈ। ਇਹ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਸਥਾਪਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਇਸ ਤੇ ਭਰੋਸਾ ਕੀਤਾ ਹੈੈ।"
+msgstr "ਇਸ ਐਡ-ਆਨ ਨੂੰ Mozilla ਵਲੋੰ ਸੁਰੱਖਿਆ ਲਈ ਸਰਗਰਮ ਰੂਪ ਵਿੱਚ ਨਿਗਰਾਨੀ ਨਹੀੰ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ। ਇੰਸਟਾਲ ਕਰਨ ਤੋੰ ਪਹਿਲਾੰ ਤੁਹਾਨੂੰ ਇਸ ਉੱਤੇ ਭਰੋਸਾ ਕਰਨ ਦੀ ਲੋੜ ਹੈ।"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
