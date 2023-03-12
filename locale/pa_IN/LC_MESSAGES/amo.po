@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-03-07 17:49+0000\n"
-"PO-Revision-Date: 2023-03-12 22:30+0000\n"
+"PO-Revision-Date: 2023-03-12 22:46+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -498,7 +498,7 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:268
 msgid "See Firefox Staff Picks"
-msgstr ""
+msgstr "Firefox ਮੁਲਾਜ਼ਮਾਂ ਵਲੋੰ ਚੁਣੇ ਗਏ ਵੇਖੋ"
 
 #: src/amo/components/AddonSuggestions/index.js:57
 msgid "Explore our 'Starter Pack' to get started with extensions"
@@ -506,7 +506,7 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
-msgstr ""
+msgstr "ਵੱਧ ਮਜ਼ਬੂਤ ਪਰਦੇਦਾਰੀ ਤੇ ਸੁਰੱਖਿਆ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
@@ -1336,14 +1336,12 @@ msgstr ""
 "ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਦੇ ਮਿਆਰਾਂ ਉੱਤੇ ਖ਼ਰੀ ਉਤਰਦੀ ਹੈ।"
 
 #: src/amo/components/PromotedBadge/index.js:49
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ ਹਨ।"
+msgstr "Firefox ਸਿਰਫ਼ ਉਹੀ ਐਡ-ਆਨ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ, ਜੋ ਸਾਡੇ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਮਿਆਰਾਂ ਉੱਤੇ ਪੂਰਾ ਉਤਰਦੀਆਂ ਹਨ।"
 
 #: src/amo/components/PromotedBadge/index.js:57
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ ਹਨ।"
+msgstr "ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰਾਂ ਉੱਤੇ ਖ਼ਰ੍ਹਾ ਉਤਰਨ ਲਈ ਇਸ ਐਡ-ਆਨ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ ਚੁੱਕੀ ਹੈ।"
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1582,9 +1580,8 @@ msgid "Verified themes"
 msgstr "ਪ੍ਰਮਾਣਿਤ ਥੀਮ"
 
 #: src/amo/components/Search/index.js:184
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "ਫੀਚਰ ਐਡ-ਆਨ"
+msgstr "ਤਸਦੀਕ ਕੀਤੇ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
@@ -1801,9 +1798,8 @@ msgid "Any"
 msgstr "ਕੋਈ ਵੀ"
 
 #: src/amo/components/SearchFilters/index.js:190
-#, fuzzy
 msgid "All Reviewed"
-msgstr "ਪੜਤਾਲ"
+msgstr "ਸਭ ਪੜਤਾਲਾਂ"
 
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
@@ -1955,15 +1951,15 @@ msgstr "ਵਿਕਾਸਕਾਰ ਜਵਾਬ"
 
 #: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "ਪੂਰੇ ਸਾਲ ਦੀ ਮੈਂਬਰੀ ਨਾਲ 50% ਦੀ ਬੱਚਤ ਕਰੋ"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "ਆਪਣੇ ਆਨਲਾਈਨ ਡਾਟੇ ਨੂੰ ਬਚਾਓ — ਅਤੇ ਆਪਣੀ VPN ਮੈੰਬਰੀ ਪਲਾਨ ਚੁਣੋ, ਜੋ ਤੁਹਾਡੇ ਲਈ ਢੁੱਕਵਾਂ ਹੋਵੇ।"
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
-msgstr ""
+msgstr "Mozilla VPN ਲਵੋ"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 #, fuzzy
@@ -2390,9 +2386,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "ਐਡਆਨ ਕਮਿਊਨਟੀ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਉਣ ਦੇ ਹੋਰ ਤਰੀਕਿਆਂ ਨੂੰ ਵੇਖਣ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੇ %(startLink)sਵਿਕੀ%(endLink)s ਉਤੇ ਜਾਓ।"
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰੋ"
+msgstr "ਮਸਲੇ ਦੀ ਰਿਪੋਰਟ ਕਰੋ"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
