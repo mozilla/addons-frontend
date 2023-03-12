@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-03-07 17:49+0000\n"
-"PO-Revision-Date: 2023-03-12 21:58+0000\n"
+"PO-Revision-Date: 2023-03-12 22:07+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -583,7 +583,7 @@ msgstr "ਸਮਰੱਥ ਬਣਾਉਣਾ"
 
 #: src/amo/components/AMInstallButton/index.js:140
 msgid "Disabling"
-msgstr "ਅਯੋਗ ਕਰ ਰਿਹਾ ਹੈ"
+msgstr "ਅਸਮਰੱਥ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/AMInstallButton/index.js:142
 msgid "Downloading"
@@ -603,23 +603,23 @@ msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 
 #: src/amo/components/AMInstallButton/index.js:155
 msgid "Add to Firefox"
-msgstr "ਫ਼ਾਇਰਫ਼ਾਕਸ ਵਿੱਚ ਜੋੜੋ"
+msgstr "Firefox ਵਿੱਚ ਜੋੜੋ"
 
 #: src/amo/components/App/index.js:122 src/amo/components/HeadMetaTags/index.js:93
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
+msgstr "Firefox (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/App/index.js:126 src/amo/components/HeadMetaTags/index.js:87
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%(title)s – ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
+msgstr "%(title)s – Firefox (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/App/index.js:134 src/amo/components/HeadMetaTags/index.js:92
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਈਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
+msgstr "Firefox ਐਂਡਰਾਈਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/App/index.js:138 src/amo/components/HeadMetaTags/index.js:86
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਇਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
+msgstr "%(title)s – Firefox ਐਂਡਰਾਇਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:148
 msgid "Log out"
@@ -631,7 +631,7 @@ msgstr "ਲਾਗ ਇਨ"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:143
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr "ਇਹ ਕਾਰਵਾਈ ਇਸ ਸਮੇਂ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਪਲ ਵਿੱਚ ਪੇਜ ਨੂੰ ਮੁੜ ਲੋਡ ਕਰੋ।"
+msgstr "ਇਹ ਕਾਰਵਾਈ ਇਸ ਸਮੇਂ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਪਲ ਵਿੱਚ ਸਫ਼ੇ ਨੂੰ ਮੁੜ ਲੋਡ ਕਰੋ।"
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
@@ -663,7 +663,7 @@ msgstr "ਸੰਗ੍ਰਹਿ ਵਿੱਚ ਜੋੜਿਆ ਗਿਆ"
 
 #: src/amo/components/CollectionAddAddon/index.js:170
 msgid "Removed from collection"
-msgstr "ਸੰਗ੍ਰਹਿ ਤੋਂ ਹਟਾ ਦਿੱਤਾ ਗਿਆ"
+msgstr "ਸੰਗ੍ਰਹਿ ਤੋਂ ਹਟਾਇਆ"
 
 #: src/amo/components/CollectionAddAddon/index.js:179
 msgid "Find an add-on to include in this collection"
@@ -691,7 +691,7 @@ msgstr "ਨਿਰਮਾਤਾ"
 
 #: src/amo/components/CollectionManager/index.js:248
 msgid "Create collection"
-msgstr "ਸੰਗ੍ਰਹਿ ਰਚੋ"
+msgstr "ਸੰਗ੍ਰਹਿ ਬਣਾਓ"
 
 #: src/amo/components/CollectionManager/index.js:249
 msgid "Save changes"
@@ -763,7 +763,7 @@ msgstr "ਇਨ੍ਹਾਂ ਕਲਾਕਾਰਾਂ ਦਾ ਸਮਰਥਨ ਕ�
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr "ਇਸ ਥੀਮ ਦਾ ਕਲਾਕਾਰ ਇਹ ਪੁੱਛਦਾ ਹੈ ਕਿ ਤੁਸੀਂ ਇਕ ਛੋਟਾ ਜਿਹਾ ਯੋਗਦਾਨ ਪਾ ਕੇ ਇਸ ਦੀ ਨਿਰੰਤਰ ਸ੍ਰਿਸ਼ਟੀ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੇ ਹੋ।"
+msgstr "ਇਸ ਥੀਮ ਦਾ ਕਲਾਕਾਰ ਇਹ ਪੁੱਛਦਾ ਹੈ ਕਿ ਤੁਸੀਂ ਇਕ ਛੋਟਾ ਜਿਹਾ ਯੋਗਦਾਨ ਪਾ ਕੇ ਇਸ ਦੀ ਨਿਰੰਤਰ ਨਿਰਮਾਣ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰੋਗੇ।"
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
@@ -861,7 +861,7 @@ msgstr "ਅਧਿਕਾਰਤ ਨਹੀਂ"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:36
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਤੁਸੀਂ ਇਸ ਪੇਜ ਨੂੰ ਐਕਸੈਸ ਕਰਨ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀਂ ਹੋ। ਜੇਕਰ ਤੁਸੀਂ ਸਾਇਨ ਇਨ ਨਹੀਂ ਹੋ, ਤਾਂ ਪੰਨੇ ਦੇ ਸਿਖਰ ਤੇ ਲਿੰਕ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਸਾਈਨ ਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+msgstr "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਤੁਸੀਂ ਇਸ ਸਫ਼ੇ ਨੂੰ ਐਕਸੈਸ ਕਰਨ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀਂ ਹੋ। ਜੇਕਰ ਤੁਸੀਂ ਸਾਇਨ ਇਨ ਨਹੀਂ ਹੋ, ਤਾਂ ਪੰਨੇ ਦੇ ਸਿਖਰ ਤੇ ਲਿੰਕ ਦਾ ਵਰਤ ਕੇ ਸਾਈਨ ਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
 #: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
@@ -976,7 +976,7 @@ msgstr "ਇਸ ਪੜਤਾਲ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰਨ ਲ�
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "This is spam"
-msgstr "ਇਹ ਸਪੈਮ"
+msgstr "ਇਹ ਸਪੈਮ ਹੈ"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
@@ -984,7 +984,7 @@ msgstr "ਸਪੈਮ ਦੇ ਰੂਪ ਵਿੱਚ ਨਿਸ਼ਾਨਬੱਧ ਕ�
 
 #: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
-msgstr "ਇਸ ਵਿੱਚ ਅਣਉਚਿਤ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਹੈ"
+msgstr "ਇਸ ਵਿੱਚ ਅਢੁੱਕਵੀਂ ਭਾਸ਼ਾ ਹੈ"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
@@ -1040,7 +1040,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
-msgstr "ਮੋਜ਼ੀਲਾ ਮੁੱਖ ਸਫ਼ੇ ਉਤੇ ਜਾਓ"
+msgstr "Mozilla ਮੁੱਖ ਸਫ਼ੇ ਉਤੇ ਜਾਓ"
 
 #: src/amo/components/Footer/index.js:63
 msgid "About"
@@ -1171,7 +1171,7 @@ msgstr "ਇਸ਼ਤਿਹਾਰ"
 
 #: src/amo/components/HeroRecommendation/index.js:256
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr "ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ ਹਨ।"
+msgstr "Firefox ਉਹ ਇਕਸਟੈਨਸ਼ਨਾੰ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ ਹਨ।"
 
 #: src/amo/components/HomepageShelves/index.js:75
 #, fuzzy
@@ -1192,7 +1192,7 @@ msgstr "%(param)s ਲਈ ਆਪਣਾ ਡੇਟਾ ਐਕਸੈਸ ਕਰੋ"
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
-msgstr "Firefox ਦੁਆਰਾ"
+msgstr "Firefox ਵਲੋੰ"
 
 #: src/amo/components/IconPromotedBadge/index.js:47 src/amo/components/PromotedBadge/index.js:48 src/amo/components/SearchFilters/index.js:180
 msgid "Recommended"
@@ -1394,7 +1394,7 @@ msgstr "ਕੀ ਤੁਸੀਂ %(addonName)s ਦੀ ਆਪਣੀ ਸਮੀਖਿ
 
 #: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "ਕੀ ਤੁਸੀਂ ਨਿਸ਼ਚਤ ਰੂਪ ਤੋਂ ਆਪਣੀ %(addonName)s ਰੇਟਿੰਗ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr "ਕੀ ਤੁਸੀਂ ਨਿਸ਼ਚਤ ਰੂਪ ਤੋਂ ਆਪਣੀ %(addonName)s ਰੇਟਿੰਗ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/RatingManager/index.js:194
 msgid "How are you enjoying %(addonName)s?"
@@ -1504,7 +1504,7 @@ msgstr "ਦੁਰਵਿਵਹਾਰ ਰਿਪੋਰਟ ਭੇਜੋ"
 
 #: src/amo/components/ReportAbuseButton/index.js:195 src/amo/components/ReportUserAbuse/index.js:153
 msgid "Sending abuse report"
-msgstr "ਸ਼ੋਸ਼ਣ ਦੀ ਰਿਪੋਰਟ ਭੇਜਣਾ"
+msgstr "ਦੁਰਵਿਵਹਾਰ ਦੀ ਰਿਪੋਰਟ ਭੇਜੀ ਜਾ ਰਹੀ ਹੈ"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
@@ -1607,7 +1607,7 @@ msgstr "ਐਡ-ਆਨ ਰੁਝਾਨ"
 
 #: src/amo/components/Search/index.js:204 src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
-msgstr "ਸਿਖਰਲੀ ਦਰਜਾਬੰਦੀ ਦੇ ਵਾਧਰੇ"
+msgstr "ਸਿਖਰਲੀ ਦਰਜਾਬੰਦੀ ਦੇ ਇਕਸਟੈਨਸ਼ਨਾੰ"
 
 #: src/amo/components/Search/index.js:207 src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
@@ -2004,7 +2004,7 @@ msgstr "%(localizedSize)s TB"
 
 #: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr "ਇਹ ਐਡ-ਆਨ ਨੂੰ ਦਰਜਾ ਨਹੀਂ ਦਿੱਤਾ ਜਾ ਸਕਦਾ ਕਿਉਂਕਿ ਕੋਈ ਵਰਜਨ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ।"
+msgstr "ਇਹ ਐਡ-ਆਨ ਨੂੰ ਦਰਜਾ ਨਹੀਂ ਦਿੱਤਾ ਜਾ ਸਕਦਾ ਕਿਉਂਕਿ ਕੋਈ ਵਰਜ਼ਨ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ।"
 
 #: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
@@ -2118,11 +2118,11 @@ msgstr[1] "%(addonName)s ਦਾ ਵਰਜਨ ਅਤੀਤ - %(total)s s ਵਰ�
 
 #: src/amo/pages/AddonVersions/index.js:165
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr "ਪੁਰਾਣੇ ਵਰਜਨ ਨਾਲ ਸਾਵਧਾਨ ਰਹੋ! ਇਹ ਵਰਜਨ ਟੈਸਟਿੰਗ ਅਤੇ ਸੰਦਰਭ ਦੇ ਉਦੇਸ਼ਾਂ ਲਈ ਪ੍ਰਦਰਸ਼ਿਤ ਹੁੰਦੇ ਹਨ।"
+msgstr "ਪੁਰਾਣੇ ਵਰਜ਼ਨ ਨਾਲ ਸਾਵਧਾਨ ਰਹੋ! ਇਹ ਵਰਜ਼ਨ ਟੈਸਟਿੰਗ ਅਤੇ ਹਵਾਲੇ ਵਾਸਤੇ ਦਿਖਾਏ ਗਏ ਹਨ।"
 
 #: src/amo/pages/AddonVersions/index.js:170
 msgid "You should always use the latest version of an add-on."
-msgstr "ਤੁਹਾਨੂੰ ਹਮੇਸ਼ਾਂ ਐਡ-ਆਨ ਦਾ ਨਵੀਨਤਮ ਸੰਸਕਰਣ ਵਰਤਣਾ ਚਾਹੀਦਾ ਹੈ।"
+msgstr "ਤੁਹਾਨੂੰ ਹਮੇਸ਼ਾਂ ਐਡ-ਆਨ ਦਾ ਨਵਾੰ ਵਰਜ਼ਨ ਵਰਤਣਾ ਚਾਹੀਦਾ ਹੈ।"
 
 #: src/amo/pages/AddonVersions/index.js:179
 msgid "Latest version"
@@ -2134,19 +2134,19 @@ msgstr "ਪੁਰਾਣਾ ਵਰਜ਼ਨ"
 
 #: src/amo/pages/Block/index.js:102
 msgid "View block request"
-msgstr "ਬਲਾਕ ਬੇਨਤੀ ਵੇਖੋ"
+msgstr "ਪਾਬੰਦੀ ਬੇਨਤੀ ਵੇਖੋ"
 
 #: src/amo/pages/Block/index.js:119
 msgid "Versions blocked: all versions."
-msgstr "ਵਰਜਨ ਬਲੌਕ ਕੀਤੇ: ਸਾਰੇ ਸੰਸਕਰਣ।"
+msgstr "ਪਾਬੰਦੀ ਲਾਏ ਵਰਜ਼ਨ: ਸਾਰੇ ਵਰਜ਼ਨ।"
 
 #: src/amo/pages/Block/index.js:122
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr "ਵਰਜਨ ਬਲੌਕ ਕੀਤੇ: %(min)s ਤੋਂ %(max)s।"
+msgstr "ਪਾਬੰਦੀ ਲਾਏ ਵਰਜ਼ਨ: %(min)s ਤੋਂ %(max)s।"
 
 #: src/amo/pages/Block/index.js:144
 msgid "%(addonName)s has been blocked for your protection."
-msgstr "ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ %(addonName)s ਬਲਾਕ ਕੀਤਾ ਗਿਆ।"
+msgstr "ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ %(addonName)s ਪਾਬੰਦੀ ਲਾਈ ਗਈ।"
 
 #: src/amo/pages/Block/index.js:149
 msgid "This add-on has been blocked for your protection."
