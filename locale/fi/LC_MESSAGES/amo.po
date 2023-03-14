@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-07 17:49+0000\n"
+"POT-Creation-Date: 2023-03-14 16:11+0000\n"
 "PO-Revision-Date: 2023-01-20 13:11+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
@@ -3351,17 +3351,17 @@ msgid "(no name)"
 msgstr "(ei nimeä)"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/amo/reducers/versions.js:304
+#: src/amo/reducers/versions.js:305
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s ja uudemmat"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/amo/reducers/versions.js:308
+#: src/amo/reducers/versions.js:309
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s versiosta %(minVersion)s versioon %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/amo/reducers/versions.js:328
+#: src/amo/reducers/versions.js:329
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Yhteensopivuus: %(listOfApplicatonsAndVersions)s"
 
