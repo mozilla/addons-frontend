@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-14 16:11+0000\n"
+"POT-Creation-Date: 2023-03-21 17:09+0000\n"
 "PO-Revision-Date: 2023-03-12 22:46+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1383,71 +1383,79 @@ msgid "Input data to the clipboard"
 msgstr "ਕਲਿੱਪਬੋਰਡ 'ਚ ਡਾਟਾ ਇਨਪੁੱਟ ਕਰਨ"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
+msgid "Block content on any page"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:34
+msgid "Read your browsing history"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
 msgstr "ਟੈਬਾਂ ਖੋਲ੍ਹਣ ਵਿੱਚ ਤੁਹਾਡੇ ਡਾਟਾ ਲਈ ਡਿਵੈਲਪਰ ਟੂਲਾਂ ਦੀ ਪਹੁੰਚ ਵਧਾਓ"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Download files and read and modify the browser’s download history"
 msgstr "ਫ਼ਾਈਲਾਂ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰਨ ਅਤੇ ਬਰਾਊਜ਼ਰ ਦੇ ਡਾਊਨਲੋਡ ਅਤੀਤ ਨੂੰ ਪੜ੍ਹਣ ਅਤੇ ਸੋਧਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Open files downloaded to your computer"
 msgstr "ਆਪਣੇ ਕੰਪਿਊਟਰ ਤੇ ਡਾਊਨਲੋਡ ਕੀਤੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read the text of all open tabs"
 msgstr "ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਟੈਬਾਂ ਦੀ ਲਿਖਤ ਨੂੰ ਪੜ੍ਹੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access your location"
 msgstr "ਤੁਹਾਡੇ ਟਿਕਾਣੇ ਲਈ ਪਹੁੰਚ"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access browsing history"
 msgstr "ਬਰਾਊਜ਼ਰ ਅਤੀਤ ਲਈ ਪਹੁੰਚ"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Monitor extension usage and manage themes"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਵਰਤੋਂ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਥੀਮਾਂ ਦਾ ਬੰਦੋਬਸਤ ਕਰੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Exchange messages with programs other than Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਤੋਂ ਬਿਨਾਂ ਹੋਰ ਪਰੋਗਰਾਮਾਂ ਨਾਲ ਸੁਨੇਹੇ ਤਬਾਦਲਾ ਕਰੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:49
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Display notifications to you"
 msgstr "ਤੁਹਾਨੂੰ ਸੂਚਨਾਵਾਂ ਦਿਖਾਉਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:50
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Provide cryptographic authentication services"
 msgstr "ਕ੍ਰਿਪਟੋਗਰਾਫ਼ਿਕ ਪਰਮਾਣਕਿਤਾ ਸੇਵਾਵਾਂ ਦੇਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Control browser proxy settings"
 msgstr "ਬਰਾਊਜ਼ਰ ਪਰਾਕਸੀ ਸੈਟਿੰਗਾਂ ਨੂੰ ਕੰਟਰੋਲ ਕਰੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:52
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Read and modify privacy settings"
 msgstr "ਪਰਦੇਦਾਰੀ ਸੈਟਿੰਗਾਂ ਨੂੰ ਪੜ੍ਹਨ ਤੇ ਸੋਧਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:53
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access recently closed tabs"
 msgstr "ਹੁਣੇ ਹੀ ਬੰਦ ਕੀਤੀਆਂ ਟੈਬਾਂ ਲਈ ਪਹੁੰਚ"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browser tabs"
 msgstr "ਬਰਾਊਜ਼ਰ ਟੈਬਾਂ ਲਈ ਪਹੁੰਚ"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Hide and show browser tabs"
 msgstr "ਬਰਾਊਜ਼ਰ ਟੈਬਾਂ ਨੂੰ ਲੁਕਾਉਣ ਅਤੇ ਵੇਖਾਉਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Store unlimited amount of client-side data"
 msgstr "ਕਲਾਈਂਟ ਸਾਈਡ ਡਾਟਾ ਦੀ ਅਸੀਮ ਮਾਤਰਾ ਨੂੰ ਸਟੋਰ ਕਰੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Access browser activity during navigation"
 msgstr "ਨੇਵੀਗੇਸ਼ਨ ਦੌਰਾਨ ਬਰਾਊਜ਼ਰ ਸਰਗਰਮੀ ਲਈ ਪਹੁੰਚ"
 
