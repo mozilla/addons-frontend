@@ -30,6 +30,8 @@ export class PermissionUtils {
       ),
       clipboardRead: i18n.gettext('Get data from the clipboard'),
       clipboardWrite: i18n.gettext('Input data to the clipboard'),
+      declarativeNetRequest: i18n.gettext('Block content on any page'),
+      declarativeNetRequestFeedback: i18n.gettext('Read your browsing history'),
       devtools: i18n.gettext(
         'Extend developer tools to access your data in open tabs',
       ),
