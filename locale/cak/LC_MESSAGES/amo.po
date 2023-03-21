@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-14 16:11+0000\n"
+"POT-Creation-Date: 2023-03-21 17:09+0000\n"
 "PO-Revision-Date: 2023-02-23 00:02+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1434,75 +1434,83 @@ msgid "Input data to the clipboard"
 msgstr "Kenim taq tzij pa ri yakwujb'äl"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
+msgid "Block content on any page"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:34
+msgid "Read your browsing history"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 "Kenimirisäx ri kisamajib'al b'anonela' richin ke'ok pa taq kitzij pa jaqon "
 "taq ruwi'"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 "Keqasäx taq yakb'äl, tisik'ïx chuqa' tijalwachïx ri kinatab'al ruqasanik "
 "okik'amaya'l"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Open files downloaded to your computer"
 msgstr "Kejaq ri taq yakb'äl eqasan pan akematz'ib'"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read the text of all open tabs"
 msgstr "Tisik'ïx cholan kitzij konojel ri jaqäl taq ruwi'"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access your location"
 msgstr "Katok pan ak'ojlib'al"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access browsing history"
 msgstr "Okem pa runatab'al okem pa k'amaya'l"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Monitor extension usage and manage themes"
 msgstr "Kenik'öx ri rokisaxik k'amal chuqa' ri kinuk'samajixik taq wachinel"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Exchange messages with programs other than Firefox"
 msgstr "Kejalwachïx taq rutzijol kik'in taq kema' ri man e Firefox ta"
 
-#: src/amo/components/PermissionsCard/permissions.js:49
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Display notifications to you"
 msgstr "Kek'ut pe ri rutzijol chawäch"
 
-#: src/amo/components/PermissionsCard/permissions.js:50
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Provide cryptographic authentication services"
 msgstr "Keya' chib'äl juxun taq samaj"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Control browser proxy settings"
 msgstr "Tichajïx runuk'ulem ruproxi ri okik'amaya'l"
 
-#: src/amo/components/PermissionsCard/permissions.js:52
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Read and modify privacy settings"
 msgstr "Tisik'ïx chuqa' tijal ri runuk'ulem ichinanem"
 
-#: src/amo/components/PermissionsCard/permissions.js:53
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access recently closed tabs"
 msgstr "Katok pa ri taq ruwi' nimakol kejaq"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browser tabs"
 msgstr "Tok pa ri taq ruwi' okik'amaya'l"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Hide and show browser tabs"
 msgstr "Ke'ewäx chuqa' kek'ut pe ri taq ruwi' okem pa k'amaya'l"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Store unlimited amount of client-side data"
 msgstr "Tiyak mek'isel kajilab'al taq tzij richin ri qawinaq"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Access browser activity during navigation"
 msgstr "Nok pa ri rusamaj okik'amaya'l toq okinäq pa k'amaya'l"
 

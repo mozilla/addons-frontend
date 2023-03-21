@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-14 16:11+0000\n"
+"POT-Creation-Date: 2023-03-21 17:09+0000\n"
 "PO-Revision-Date: 2023-01-17 20:57+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -1367,71 +1367,79 @@ msgid "Input data to the clipboard"
 msgstr "הזנת נתונים בלוח העריכה"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
+msgid "Block content on any page"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:34
+msgid "Read your browsing history"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
 msgstr "הרחבת כלי הפיתוח לקבלת גישה לנתונים שלך בלשוניות פתוחות"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Download files and read and modify the browser’s download history"
 msgstr "הורדת קבצים, קריאה ועריכת היסטוריית ההורדות של הדפדפן"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Open files downloaded to your computer"
 msgstr "פתיחת קבצים שהורדו למחשב שלך"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read the text of all open tabs"
 msgstr "קריאת הטקסט של כל הלשוניות הפתוחות"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access your location"
 msgstr "גישה לנתוני המיקום שלך"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access browsing history"
 msgstr "גישה להיסטוריית הגלישה"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Monitor extension usage and manage themes"
 msgstr "ניטור שימוש בהרחבות וניהול ערכות נושא"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Exchange messages with programs other than Firefox"
 msgstr "החלפת הודעות עם יישומים אחרים מ־Firefox"
 
-#: src/amo/components/PermissionsCard/permissions.js:49
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Display notifications to you"
 msgstr "הצגת התרעות"
 
-#: src/amo/components/PermissionsCard/permissions.js:50
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Provide cryptographic authentication services"
 msgstr "אספקת שירותי אימות מוצפנים"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Control browser proxy settings"
 msgstr "שליטה בהגדרות המתווך של הדפדפן"
 
-#: src/amo/components/PermissionsCard/permissions.js:52
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Read and modify privacy settings"
 msgstr "קריאה ועריכה של הגדרות פרטיות"
 
-#: src/amo/components/PermissionsCard/permissions.js:53
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access recently closed tabs"
 msgstr "גישה ללשוניות שנסגרו לאחרונה"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browser tabs"
 msgstr "גישה ללשוניות"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Hide and show browser tabs"
 msgstr "הסתרה והצגת לשוניות הדפדפן"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Store unlimited amount of client-side data"
 msgstr "אחסון נתונים בלתי מוגבלים של צד לקוח"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Access browser activity during navigation"
 msgstr "גישה לפעילות הדפדפן במהלך הניווט"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-14 16:11+0000\n"
+"POT-Creation-Date: 2023-03-21 17:09+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -1484,72 +1484,80 @@ msgid "Input data to the clipboard"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:33
+msgid "Block content on any page"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:34
+msgid "Read your browsing history"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Open files downloaded to your computer"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read the text of all open tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access your location"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:42
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:58
 #, fuzzy
 msgid "Access browsing history"
 msgstr "Leagan"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Monitor extension usage and manage themes"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Exchange messages with programs other than Firefox"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:49
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Display notifications to you"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:50
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Provide cryptographic authentication services"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Control browser proxy settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:52
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Read and modify privacy settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:53
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access recently closed tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browser tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Hide and show browser tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Store unlimited amount of client-side data"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Access browser activity during navigation"
 msgstr ""
 

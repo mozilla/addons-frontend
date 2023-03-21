@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-14 16:11+0000\n"
+"POT-Creation-Date: 2023-03-21 17:09+0000\n"
 "PO-Revision-Date: 2023-02-27 20:52+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -1405,75 +1405,83 @@ msgid "Input data to the clipboard"
 msgstr "Daty do mjazywótkłada kopěrowaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
+msgid "Block content on any page"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:34
+msgid "Read your browsing history"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 "Rozšyŕśo wuwijarske rědy, aby pśistup k swójim datam we wócynjonych "
 "rejtarikach měł"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 "Ześěgniśo dataje a cytajśo a změńśo ześěgnjeńsku historiju swójogo "
 "wobglědowaka"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Open files downloaded to your computer"
 msgstr "Dataje wócyniś, kótarež su se na wašom licadle ześěgnuli"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read the text of all open tabs"
 msgstr "Tekst wšych wócynjonych rejtarikow cytaś"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access your location"
 msgstr "Mějśo pśistup k swójomu městnoju"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access browsing history"
 msgstr "Mějśo pśistup k pśeglědowańskej historiji"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Monitor extension usage and manage themes"
 msgstr "Wužywanje rozšyrjenjow wobglědowaś a drastwy zastojaś"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Exchange messages with programs other than Firefox"
 msgstr "Powěsći z drugimi programami ako Firefox wuměniś"
 
-#: src/amo/components/PermissionsCard/permissions.js:49
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Display notifications to you"
 msgstr "Powěźeńki na was pokazaś"
 
-#: src/amo/components/PermissionsCard/permissions.js:50
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Provide cryptographic authentication services"
 msgstr "Kryptografiske awtentificěrowańske słužby wobstaraś"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Control browser proxy settings"
 msgstr "Nastajenja proksy wobglědowaka wóźiś"
 
-#: src/amo/components/PermissionsCard/permissions.js:52
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Read and modify privacy settings"
 msgstr "Nastajenja priwatnosći cytaś a změniś"
 
-#: src/amo/components/PermissionsCard/permissions.js:53
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access recently closed tabs"
 msgstr "Mějśo pśistup k njedawno zacynjonym rejtarikam"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browser tabs"
 msgstr "Pśistup k rejtarikam wobglědowaka měś"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Hide and show browser tabs"
 msgstr "Rejtariki wobglědowaka schowaś a pokazaś"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Store unlimited amount of client-side data"
 msgstr "Njewobgranicowanu licbu klientowych datow składowaś"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Access browser activity during navigation"
 msgstr "Pśistup k aktiwiśe wobglědowaka za nawigaciju měś"
 

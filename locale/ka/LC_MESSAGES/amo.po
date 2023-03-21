@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-14 16:11+0000\n"
+"POT-Creation-Date: 2023-03-21 17:09+0000\n"
 "PO-Revision-Date: 2023-02-03 12:53+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1401,73 +1401,81 @@ msgid "Input data to the clipboard"
 msgstr "აღებული მონაცემების ასლში ინფორმაციის ჩამატება"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
+msgid "Block content on any page"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:34
+msgid "Read your browsing history"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 "შემმუშავებლის ხელსაწყოების გამოყენება, გახსნილ ჩანართებზე თქვენს "
 "მონაცემებთან წვდომისთვის"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Download files and read and modify the browser’s download history"
 msgstr "ფაილების ჩამოტვირთვა, ჩამოტვირთვების ისტორიის ნახვა და შეცვლა"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Open files downloaded to your computer"
 msgstr "თქვენს კომპიუტერში ჩამოტვირთული ფაილების გახსნა"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read the text of all open tabs"
 msgstr "ტექსტის წაკითხვა ყველა გახსნილი ჩანართიდან"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access your location"
 msgstr "მდებარეობის მონაცემებთან წვდომა"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access browsing history"
 msgstr "მონახულებული გვერდების ისტორიასთან წვდომა"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Monitor extension usage and manage themes"
 msgstr "გაფართოების მოხმარების შესახებ მონაცემების შეგროვება და თემების მართვა"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Exchange messages with programs other than Firefox"
 msgstr "შეტყობინებებს გაუცვლის სხვა პროგრამებიც, არამხოლოდ Firefox"
 
-#: src/amo/components/PermissionsCard/permissions.js:49
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Display notifications to you"
 msgstr "შეტყობინებების ჩვენება"
 
-#: src/amo/components/PermissionsCard/permissions.js:50
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Provide cryptographic authentication services"
 msgstr "ანგარიშზე დაშიფრულად შესვლის მომსახურებების გამოყენება"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Control browser proxy settings"
 msgstr "ბრაუზერის პროქსის პარამეტრების მართვა"
 
-#: src/amo/components/PermissionsCard/permissions.js:52
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Read and modify privacy settings"
 msgstr "პირადი მონაცემების პარამეტრების ნახვა და შეცვლა"
 
-#: src/amo/components/PermissionsCard/permissions.js:53
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access recently closed tabs"
 msgstr "ბოლოს დახურულ ჩანართებთან წვდომა"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browser tabs"
 msgstr "ბრაუზერის ჩანართებთან წვდომა"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Hide and show browser tabs"
 msgstr "ბრაუზერის ჩანართების დამალვა და გამოჩენა"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Store unlimited amount of client-side data"
 msgstr "განუსაზღვრელი მოცულობის მონაცემების შენახვა დისკზე"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Access browser activity during navigation"
 msgstr "გვერდებზე გადაადგილებისას, ბრაუზერის მოქმედებებთან წვდომა"
 
