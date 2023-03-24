@@ -1,15 +1,27 @@
 #!/usr/bin/env sh
 set -x
+
+# Locally build the frontend image docker-compose will pick, that's what we
+# want to test. We do that before cloning addons-server to avoid copying the
+# contents of that repo, since we copy from `.` when building the image.
+docker build . -t mozilla/addons-frontend:latest
+
+# Clone and initialize addons-server for ui tests
 git clone --depth 1 https://github.com/mozilla/addons-server.git
-docker build -f addons-server/Dockerfile --build-arg GROUP_ID=$(id -g) --build-arg USER_ID=$(id -u) -t addons/addons-server:latest addons-server/
-docker-compose -f addons-server/docker-compose.yml -f tests/smoke/docker-compose.functional-tests.yml up -d --build
-docker-compose -f addons-server/docker-compose.yml -f tests/smoke/docker-compose.functional-tests.yml ps
-sudo chown -R  $USER:$USER .
-# Make sure dependencies get updated in worker and web container
-docker-compose -f addons-server/docker-compose.yml -f tests/smoke/docker-compose.functional-tests.yml exec worker make -f Makefile-docker update_deps update_assets
-docker-compose -f addons-server/docker-compose.yml -f tests/smoke/docker-compose.functional-tests.yml restart worker
-docker-compose -f addons-server/docker-compose.yml -f tests/smoke/docker-compose.functional-tests.yml exec web make -f Makefile-docker update_deps update_assets
-docker-compose -f addons-server/docker-compose.yml -f tests/smoke/docker-compose.functional-tests.yml restart web
-docker-compose -f addons-server/docker-compose.yml -f tests/smoke/docker-compose.functional-tests.yml exec web make setup-ui-tests
-docker-compose -f addons-server/docker-compose.yml -f tests/smoke/docker-compose.functional-tests.yml stop nginx
-docker-compose -f addons-server/docker-compose.yml -f tests/smoke/docker-compose.functional-tests.yml up -d
+
+cd addons-server
+UID=`id -u`
+GID=`id -g`
+# Emulate initialization, but without doing it completely since setup-ui-tests
+# would do what it needs later on.
+make create_env_file
+docker-compose run --rm --user ${UID}:${GID} web make update_deps
+docker-compose run --rm --user ${UID}:${GID} web make update_assets
+docker-compose up -d
+docker-compose ps
+# At this point olympia user should have the correct UID/GID and we can use it to run the setup.
+docker-compose exec --user olympia web make setup-ui-tests
+docker-compose stop nginx
+docker-compose up -d
+
+cd -
