@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-03-21 17:09+0000\n"
-"PO-Revision-Date: 2023-03-31 11:50+0000\n"
+"PO-Revision-Date: 2023-03-31 11:55+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -168,7 +168,7 @@ msgstr "İncelemeler"
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "İnceleme"
-msgstr[1] "İncelemeler"
+msgstr[1] "İnceleme"
 
 #: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
@@ -232,7 +232,7 @@ msgstr "Son güncelleme"
 
 #: src/amo/components/AddonMoreInfo/index.js:337
 msgid "Related Categories"
-msgstr "İlgili Kategoriler"
+msgstr "İlgili kategoriler"
 
 #: src/amo/components/AddonMoreInfo/index.js:347
 msgid "License"
@@ -1863,7 +1863,7 @@ msgstr "Devamını okumak için genişlet"
 
 #: src/amo/components/ShowMoreCard/index.js:167
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "Devamını okumak için <span class=\"visually-hidden\">genişletin</span>"
+msgstr "<span class=\"visually-hidden\">Genişlet ve</span> Devamını oku"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
