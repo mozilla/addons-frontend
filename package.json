@@ -18,7 +18,7 @@
     "build-locales": "bin/build-locales",
     "bundlewatch": "bundlewatch",
     "extract-locales": "better-npm-run extract-locales",
-    "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
+    "clean": "rimraf -g './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
     "amo:dev": "better-npm-run amo:dev",
     "amo:dev-https": "better-npm-run amo:dev-https",
     "amo:olympia": "better-npm-run amo:olympia",
