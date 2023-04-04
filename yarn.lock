@@ -7782,10 +7782,10 @@ pino-abstract-transport@^1.0.0, pino-abstract-transport@v1.0.0:
     readable-stream "^4.0.0"
     split2 "^4.0.0"
 
-pino-devtools@^2.1.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/pino-devtools/-/pino-devtools-2.6.0.tgz#32e7bb34011b1c62fb88f7394f268773033b143d"
-  integrity sha512-/KZNbdm7Ge57JkPWnlvRTzezBtIU/aFyhX5MqH6JHvCAfRNF5Aoeir5c4KdYOvzIB47VreQyCq7RjluVsqv6XQ==
+pino-devtools@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/pino-devtools/-/pino-devtools-2.7.0.tgz#1895802715413003918114b9ef7c9c62e54481da"
+  integrity sha512-a3T+ktBy1riAUy+w7hBkXqzoNBBCDq7WyBPFG4iBaMLUt4ZL6lncABqKtZGQziCP//t3qjlG1tIb4CGCoUXUFg==
   dependencies:
     minimist "^1.2.0"
     open "^8.4.0"
