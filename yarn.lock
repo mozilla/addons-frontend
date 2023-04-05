@@ -1506,10 +1506,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@redux-saga/core@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.2.2.tgz#99b1daac93a42feecd9bab449f452f56f3155fea"
-  integrity sha512-0qr5oleOAmI5WoZLRA6FEa30M4qKZcvx+ZQOQw+RqFeH8t20bvhE329XSPsNfTVP8C6qyDsXOSjuoV+g3+8zkg==
+"@redux-saga/core@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.2.3.tgz#882ed9ac58b5f42c6abb23349542315b871de305"
+  integrity sha512-U1JO6ncFBAklFTwoQ3mjAeQZ6QGutsJzwNBjgVLSWDpZTRhobUzuVDS1qH3SKGJD8fvqoaYOjp6XJ3gCmeZWgA==
   dependencies:
     "@babel/runtime" "^7.6.3"
     "@redux-saga/deferred" "^1.2.1"
@@ -8794,12 +8794,12 @@ redux-saga-tester@^1.0.372:
   dependencies:
     babel-runtime "^6.11.6"
 
-redux-saga@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.2.2.tgz#4b9b30e022cf94ed1450605e9afd45998c3e8ac1"
-  integrity sha512-6xAHWgOqRP75MFuLq88waKK9/+6dCdMQjii2TohDMARVHeQ6HZrZoJ9HZ3dLqMWCZ9kj4iuS6CDsujgnovn11A==
+redux-saga@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.2.3.tgz#7362f78a0235868daf1210f8862a95906ac018a1"
+  integrity sha512-HDe0wTR5nhd8Xr5xjGzoyTbdAw6rjy1GDplFt3JKtKN8/MnkQSRqK/n6aQQhpw5NI4ekDVOaW+w4sdxPBaCoTQ==
   dependencies:
-    "@redux-saga/core" "^1.2.2"
+    "@redux-saga/core" "^1.2.3"
 
 redux-thunk@^2.4.2:
   version "2.4.2"
