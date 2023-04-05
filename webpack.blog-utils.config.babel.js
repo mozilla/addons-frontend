@@ -45,7 +45,6 @@ const makeConfig = ({ target, externals = {} }) => ({
     minimizer: [
       new TerserPlugin({
         extractComments: false,
-        sourceMap: false,
         terserOptions: {
           output: {
             comments: false,
