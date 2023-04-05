@@ -51,9 +51,6 @@ export default {
         // This has been enabled by default in terser-webpack-plugin 2.0.0 but
         // we were not using it before.
         extractComments: false,
-        // Even though devtool is set to source-map, this must be true to
-        // output source maps:
-        sourceMap: true,
         // Do not change these options without busting the cache.
         // See: https://github.com/mozilla/addons-frontend/issues/5796
         terserOptions: {
