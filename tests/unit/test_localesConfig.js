@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 import config from 'config';
-import glob from 'glob';
+import { globSync } from 'glob';
 
 import { langToLocale, localeToLang } from 'amo/i18n/utils';
 
@@ -19,7 +19,7 @@ describe(__filename, () => {
     fs.lstatSync(path.join(basePath, 'locale', langToLocale(lang)));
   });
 
-  for (const localeDir of glob.sync('locale/*')) {
+  for (const localeDir of globSync('locale/*')) {
     const locale = path.basename(localeDir);
     const lang = localeToLang(locale);
     if (locale === 'templates') {
@@ -31,7 +31,7 @@ describe(__filename, () => {
   }
 
   describe('Check Locale JS files', () => {
-    for (const localeJSFile of glob.sync('src/locale/*/*.js')) {
+    for (const localeJSFile of globSync('src/locale/*/*.js')) {
       // eslint-disable-next-line jest/no-done-callback
       it(`${localeJSFile} should not have html entities`, (done) => {
         fs.readFile(localeJSFile, 'utf8', (err, data) => {
