@@ -59,6 +59,80 @@ references:
       paths:
         - ~/.cache/yarn
 
+commands:
+  better_checkout:
+    description: circle ci checkout step on steroids
+    parameters:
+      clone_options:
+        type: string
+        default: --depth=1
+        description: git clone options
+      fetch_options:
+        type: string
+        default: --depth=10
+        description: git fetch options
+    steps:
+      - run:
+          name: checkout
+          command: |
+            #!/bin/sh
+            set -e
+
+            # Workaround old docker images with incorrect $HOME
+            # check https://github.com/docker/docker/issues/2968 for details
+            if [ "${HOME}" = "/" ]
+            then
+              export HOME=$(getent passwd $(id -un) | cut -d: -f6)
+            fi
+
+            export SSH_CONFIG_DIR="$HOME/.ssh"
+
+            echo "Using SSH Config Dir $SSH_CONFIG_DIR"
+
+            mkdir -p "$SSH_CONFIG_DIR"
+
+            echo 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=' >> "$SSH_CONFIG_DIR/known_hosts"
+
+            (umask 077; touch "$SSH_CONFIG_DIR/id_rsa")
+            chmod 0600 "$SSH_CONFIG_DIR/id_rsa"
+            (cat $CHECKOUT_KEY > "$SSH_CONFIG_DIR/id_rsa")
+
+            export GIT_SSH_COMMAND='ssh -i $SSH_CONFIG_DIR/id_rsa -o UserKnownHostsFile=$SSH_CONFIG_DIR/known_hosts'
+
+            # use git+ssh instead of https
+            git config --global url."ssh://git@github.com".insteadOf "https://github.com" || true
+            git config --global gc.auto 0 || true
+
+            if [ -e .git ]
+            then
+              git remote set-url origin "$CIRCLE_REPOSITORY_URL" || true
+            else
+              git clone << parameters.clone_options >> "$CIRCLE_REPOSITORY_URL" .
+            fi
+
+            if [ -n "$CIRCLE_TAG" ]
+            then
+              git fetch << parameters.fetch_options >> --force origin "refs/tags/${CIRCLE_TAG}"
+            elif [[ "$CIRCLE_BRANCH" =~ ^pull\/* ]]
+            then
+              git fetch << parameters.fetch_options >> --force origin "${CIRCLE_BRANCH}/head:remotes/origin/${CIRCLE_BRANCH}"
+            else
+              git fetch << parameters.fetch_options >> --force origin "${CIRCLE_BRANCH}:remotes/origin/${CIRCLE_BRANCH}"
+            fi
+
+
+            if [ -n "$CIRCLE_TAG" ]
+            then
+              git reset --hard "$CIRCLE_SHA1"
+              git checkout -q "$CIRCLE_TAG"
+            elif [ -n "$CIRCLE_BRANCH" ]
+            then
+              git reset --hard "$CIRCLE_SHA1"
+              git checkout -q -B "$CIRCLE_BRANCH"
+            fi
+
+            git reset --hard "$CIRCLE_SHA1"
+
 jobs:
   build:
     <<: *defaults
@@ -87,7 +161,7 @@ jobs:
   test:
     <<: *defaults
     steps:
-      - checkout
+      - better_checkout
       - *restore_build_cache
       - *run_yarn_install
       - *save_build_cache
@@ -99,7 +173,7 @@ jobs:
     docker:
       - image: cimg/python:3.11-node
     steps:
-      - checkout
+      - better_checkout
       - *restore_build_cache
       - *run_yarn_install
       - *save_build_cache
@@ -119,7 +193,7 @@ jobs:
   test-next:
     <<: *defaults-next
     steps:
-      - checkout
+      - better_checkout
       - *restore_next_build_cache
       - *run_yarn_install
       - *save_next_build_cache
@@ -128,7 +202,7 @@ jobs:
   dennis-lint:
     <<: *defaults-release
     steps:
-      - checkout
+      - better_checkout
       - run: pyenv global 3.10.2
       - run: pip install tox
       - run: TOXENV=dennis-lint tox
