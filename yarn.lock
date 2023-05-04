@@ -7846,10 +7846,10 @@ pino-syslog@3.0.0:
     split2 "^4.1.0"
     through2 "^4.0.2"
 
-pino@8.11.0:
-  version "8.11.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-8.11.0.tgz#2a91f454106b13e708a66c74ebc1c2ab7ab38498"
-  integrity sha512-Z2eKSvlrl2rH8p5eveNUnTdd4AjJk8tAsLkHYZQKGHP4WTh2Gi1cOSOs3eWPqaj+niS3gj4UkoreoaWgF3ZWYg==
+pino@8.12.1:
+  version "8.12.1"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-8.12.1.tgz#9aca3c733b221a5894ee58b2e070c66dd3e89fcf"
+  integrity sha512-n4F7nrEUDH0u5pjlUPkrvsN6oZOhScZWwpWPniwVkMnO6a2DhpnMNWDUlW0SawVICgrNhOf0yTNgw2lYQBsPYA==
   dependencies:
     atomic-sleep "^1.0.0"
     fast-redact "^3.1.1"
