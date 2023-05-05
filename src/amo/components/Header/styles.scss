@@ -239,11 +239,16 @@
     max-width: 250px;
   }
 
+  @include respond-to(large) {
+    grid-row: 2 / 3;
+  }
+
   @include respond-to(extraLarge) {
     align-self: center;
     margin: 0;
     max-width: 284px;
     width: 100%;
+    grid-row: 3 / 3;
   }
 
   &.Header-search-form--desktop {
