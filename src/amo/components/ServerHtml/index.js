@@ -182,8 +182,8 @@ export default class ServerHtml extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
 
           {/* Keep stylesheets high to make sure there are in the first TCP packet sent */}
-          {this.getStyle()}
           {this.getFontPreload()}
+          {this.getStyle()}
 
           {head.meta.toComponent()}
 
