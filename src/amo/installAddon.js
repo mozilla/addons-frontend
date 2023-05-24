@@ -42,6 +42,7 @@ import type { AppState } from 'amo/store';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AddonType } from 'amo/types/addons';
 import type { DispatchFunc } from 'amo/types/redux';
+import type { LocalizedStringWithLocale } from 'amo/types/api';
 
 type AddonInstallType = {|
   maxProgress: number,
@@ -60,7 +61,7 @@ type MakeProgressHandlerParams = {|
   _tracking: typeof tracking,
   dispatch: DispatchFunc,
   guid: string,
-  name: string,
+  name: LocalizedStringWithLocale,
   type: string,
 |};
 
@@ -142,7 +143,7 @@ type WithInstallHelpersInternalProps = {|
 
 type UninstallParams = {|
   guid: string,
-  name: string,
+  name: LocalizedStringWithLocale,
   type: string,
 |};
 

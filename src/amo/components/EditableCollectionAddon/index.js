@@ -113,9 +113,11 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
           <img
             className="EditableCollectionAddon-icon"
             src={iconURL}
-            alt={addon.name}
+            alt={addon.name.content}
           />
-          <h2 className="EditableCollectionAddon-name">{addon.name}</h2>
+          <h2 className="EditableCollectionAddon-name" lang={addon.name.locale}>
+            {addon.name.content}
+          </h2>
         </div>
         <div className="EditableCollectionAddon-buttons">
           <div

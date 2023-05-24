@@ -134,7 +134,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
           versions.length,
         ),
         {
-          addonName: addon.name,
+          addonName: addon.name.content,
           total: i18n.formatNumber(versions.length),
         },
       );

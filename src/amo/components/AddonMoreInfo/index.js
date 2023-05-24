@@ -122,12 +122,13 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     }
 
     let supportEmail: React.Element<'li'> | null;
-    if (addon.support_email && /.+@.+/.test(addon.support_email)) {
+    if (addon.support_email && /.+@.+/.test(addon.support_email.content)) {
       supportEmail = (
         <li>
           <a
             className="AddonMoreInfo-support-email"
-            href={`mailto:${addon.support_email}`}
+            href={`mailto:${addon.support_email.content}`}
+            lang={addon.support_email.locale}
           >
             {i18n.gettext('Support Email')}
           </a>

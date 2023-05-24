@@ -88,12 +88,12 @@ describe(__filename, () => {
 
     expect(screen.getByRole('list')).toBeInTheDocument();
     expect(screen.getAllByRole('listitem')).toHaveLength(2);
-    expect(screen.getByRole('link', { name: addons[0].name })).toHaveClass(
-      'SearchResult-link',
-    );
-    expect(screen.getByRole('link', { name: addons[1].name })).toHaveClass(
-      'SearchResult-link',
-    );
+    expect(
+      screen.getByRole('link', { name: addons[0].name.content }),
+    ).toHaveClass('SearchResult-link');
+    expect(
+      screen.getByRole('link', { name: addons[1].name.content }),
+    ).toHaveClass('SearchResult-link');
   });
 
   it('renders editable add-ons when supplied and requested', () => {
@@ -101,12 +101,12 @@ describe(__filename, () => {
 
     expect(screen.getByRole('list')).toBeInTheDocument();
     expect(screen.getAllByRole('listitem')).toHaveLength(2);
-    expect(screen.getByRole('heading', { name: addons[0].name })).toHaveClass(
-      'EditableCollectionAddon-name',
-    );
-    expect(screen.getByRole('heading', { name: addons[1].name })).toHaveClass(
-      'EditableCollectionAddon-name',
-    );
+    expect(
+      screen.getByRole('heading', { name: addons[0].name.content }),
+    ).toHaveClass('EditableCollectionAddon-name');
+    expect(
+      screen.getByRole('heading', { name: addons[1].name.content }),
+    ).toHaveClass('EditableCollectionAddon-name');
   });
 
   it('passes expected functions to editable add-ons', async () => {
@@ -177,10 +177,10 @@ describe(__filename, () => {
     render({ addons, loading: true });
 
     expect(
-      screen.getByRole('link', { name: addons[0].name }),
+      screen.getByRole('link', { name: addons[0].name.content }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: addons[1].name }),
+      screen.getByRole('link', { name: addons[1].name.content }),
     ).toBeInTheDocument();
   });
 

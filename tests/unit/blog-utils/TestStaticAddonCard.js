@@ -71,7 +71,7 @@ describe(__filename, () => {
       }),
     ).toHaveTextContent('Recommended');
 
-    expect(screen.getByText(addon.summary)).toBeInTheDocument();
+    expect(screen.getByText(addon.summary.content)).toBeInTheDocument();
 
     // GetFirefoxButton
     expect(
@@ -91,7 +91,7 @@ describe(__filename, () => {
 
     render({ addon });
 
-    expect(screen.getByText(addon.description)).toBeInTheDocument();
+    expect(screen.getByText(addon.description.content)).toBeInTheDocument();
   });
 
   it('sanitizes the summary', () => {

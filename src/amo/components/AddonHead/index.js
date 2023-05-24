@@ -57,7 +57,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     invariant(addon, 'addon is required');
 
     const i18nValues = {
-      addonName: addon.name,
+      addonName: addon.name.content,
       locale: lang,
     };
 
@@ -130,8 +130,8 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     return i18n.sprintf(
       i18n.gettext('Download %(addonName)s for Firefox. %(summary)s'),
       {
-        addonName: addon.name,
-        summary: addon.summary,
+        addonName: addon.name.content,
+        summary: addon.summary ? addon.summary.content : null,
       },
     );
   }

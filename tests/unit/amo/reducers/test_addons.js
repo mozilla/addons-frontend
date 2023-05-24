@@ -912,13 +912,13 @@ describe(__filename, () => {
         lang,
       );
 
-      expect(addon.description).toEqual(description);
-      expect(addon.developer_comments).toEqual(developer_comments);
+      expect(addon.description.content).toEqual(description);
+      expect(addon.developer_comments.content).toEqual(developer_comments);
       expect(addon.homepage).toEqual(homepage);
-      expect(addon.name).toEqual(name);
+      expect(addon.name.content).toEqual(name);
       expect(addon.previews).toEqual(createInternalPreviews(previews, lang));
-      expect(addon.summary).toEqual(summary);
-      expect(addon.support_email).toEqual(support_email);
+      expect(addon.summary.content).toEqual(summary);
+      expect(addon.support_email.content).toEqual(support_email);
       expect(addon.support_url).toEqual(support_url);
     });
   });
