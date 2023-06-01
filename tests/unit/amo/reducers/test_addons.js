@@ -875,7 +875,7 @@ describe(__filename, () => {
   });
 
   describe('createInternalAddon', () => {
-    it('coverts localized strings into simple strings', () => {
+    it('coverts localized strings into localized strings with locale', () => {
       const description = 'Some description';
       const developer_comments = 'developer comments';
       const homepage = {
@@ -913,12 +913,17 @@ describe(__filename, () => {
       );
 
       expect(addon.description.content).toEqual(description);
+      expect(addon.description.locale).toEqual(lang);
       expect(addon.developer_comments.content).toEqual(developer_comments);
+      expect(addon.developer_comments.locale).toEqual(lang);
       expect(addon.homepage).toEqual(homepage);
       expect(addon.name.content).toEqual(name);
+      expect(addon.name.locale).toEqual(lang);
       expect(addon.previews).toEqual(createInternalPreviews(previews, lang));
       expect(addon.summary.content).toEqual(summary);
+      expect(addon.summary.locale).toEqual(lang);
       expect(addon.support_email.content).toEqual(support_email);
+      expect(addon.support_email.locale).toEqual(lang);
       expect(addon.support_url).toEqual(support_url);
     });
   });

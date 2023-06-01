@@ -318,7 +318,11 @@ export class AddonBase extends React.Component {
   renderDevCommentsCard = () => {
     const { addon, i18n } = this.props;
 
-    if (!addon || !addon.developer_comments) {
+    if (
+      !addon ||
+      !addon.developer_comments ||
+      !addon.developer_comments.content
+    ) {
       return null;
     }
 

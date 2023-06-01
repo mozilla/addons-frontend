@@ -35,6 +35,7 @@ import {
   createInternalAddonWithLang,
   createInternalVersionWithLang,
   createLocalizedString,
+  DEFAULT_LANG_IN_TESTS,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
   fakeAddon,
@@ -416,6 +417,10 @@ describe(__filename, () => {
       renderWithReview();
 
       expect(screen.getByClassName('RatingManager-legend')).toBeInTheDocument();
+      expect(screen.getByClassName('RatingManager-legend')).toHaveAttribute(
+        'lang',
+        DEFAULT_LANG_IN_TESTS,
+      );
       expect(
         screen.getByClassName('RatingManager-UserRating'),
       ).toBeInTheDocument();

@@ -80,6 +80,7 @@ import {
   createFakeErrorHandler,
   createLocalizedString,
   createExperimentCookie,
+  DEFAULT_LANG_IN_TESTS,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
   fakeAddon,
@@ -671,6 +672,7 @@ describe(__filename, () => {
     expect(
       within(addonSummary).queryByTagName('script'),
     ).not.toBeInTheDocument();
+    expect(addonSummary).toHaveAttribute('lang', DEFAULT_LANG_IN_TESTS);
   });
 
   it('adds <br> tags for newlines in a summary', () => {
@@ -695,6 +697,10 @@ describe(__filename, () => {
     expect(
       within(addonDescription).queryByTagName('script'),
     ).not.toBeInTheDocument();
+    expect(screen.getByClassName('AddonDescription-contents')).toHaveAttribute(
+      'lang',
+      DEFAULT_LANG_IN_TESTS,
+    );
   });
 
   // This is a test helper that can be used to test the integration between
@@ -858,6 +864,9 @@ describe(__filename, () => {
 
     expect(screen.getByText('Developer comments')).toBeInTheDocument();
     expect(screen.getByText(developerComments)).toBeInTheDocument();
+    expect(
+      screen.getByClassName('Addon-developer-comments-contents'),
+    ).toHaveAttribute('lang', DEFAULT_LANG_IN_TESTS);
   });
 
   it('passes the expected contentId to ShowMoreCard for developer comments', async () => {

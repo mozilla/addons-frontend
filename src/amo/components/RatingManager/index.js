@@ -196,7 +196,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
 
     const promptHTML = sanitizeHTML(
       i18n.sprintf(prompt, {
-        addonName: `<b lang="${addon.name.locale}">${addon.name.content}</b>`,
+        addonName: `<b>${addon.name.content}</b>`,
       }),
       ['b'],
     );

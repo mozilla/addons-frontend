@@ -10,6 +10,7 @@ import {
   fakeAddon,
   createLocalizedString,
   createInternalAddonWithLang,
+  DEFAULT_LANG_IN_TESTS,
   dispatchClientMetadata,
   render as defaultRender,
   screen,
@@ -114,6 +115,10 @@ describe(__filename, () => {
     expect(
       screen.getByClassName('StaticAddonCard-summary'),
     ).not.toHaveTextContent('<script>');
+    expect(screen.getByText(plainText)).toHaveAttribute(
+      'lang',
+      DEFAULT_LANG_IN_TESTS,
+    );
   });
 
   it('displays the number of users', () => {

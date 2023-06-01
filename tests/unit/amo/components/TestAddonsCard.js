@@ -14,6 +14,7 @@ import {
   createHistory,
   createInternalAddonWithLang,
   createLocalizedString,
+  DEFAULT_LANG_IN_TESTS,
   dispatchClientMetadata,
   fakeAddon,
   fakeAuthor,
@@ -107,6 +108,12 @@ describe(__filename, () => {
     expect(
       screen.getByRole('heading', { name: addons[1].name.content }),
     ).toHaveClass('EditableCollectionAddon-name');
+    expect(
+      screen.getByRole('heading', { name: addons[0].name.content }),
+    ).toHaveAttribute('lang', addons[0].locale);
+    expect(
+      screen.getByRole('heading', { name: addons[1].name.content }),
+    ).toHaveAttribute('lang', addons[1].locale);
   });
 
   it('passes expected functions to editable add-ons', async () => {
@@ -447,6 +454,10 @@ describe(__filename, () => {
       });
 
       expect(screen.getByText(summary)).toBeInTheDocument();
+      expect(screen.getByText(summary)).toHaveAttribute(
+        'lang',
+        DEFAULT_LANG_IN_TESTS,
+      );
     });
 
     it('can hide the summary section', () => {
