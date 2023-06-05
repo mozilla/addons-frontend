@@ -1223,7 +1223,7 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
-"@babel/types@^7.0.0", "@babel/types@^7.18.6", "@babel/types@^7.18.9", "@babel/types@^7.19.0", "@babel/types@^7.20.0", "@babel/types@^7.20.5", "@babel/types@^7.20.7", "@babel/types@^7.21.0", "@babel/types@^7.21.4", "@babel/types@^7.21.5", "@babel/types@^7.22.0", "@babel/types@^7.22.3", "@babel/types@^7.22.4", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4":
+"@babel/types@^7.0.0", "@babel/types@^7.18.6", "@babel/types@^7.18.9", "@babel/types@^7.19.0", "@babel/types@^7.20.0", "@babel/types@^7.20.5", "@babel/types@^7.20.7", "@babel/types@^7.21.0", "@babel/types@^7.21.4", "@babel/types@^7.21.5", "@babel/types@^7.22.0", "@babel/types@^7.22.4", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4":
   version "7.22.4"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.22.4.tgz#56a2653ae7e7591365dabf20b76295410684c071"
   integrity sha512-Tx9x3UBHTTsMSW85WB2kphxYQVvrZ/t1FxD88IpSgIjiUJlCm9z+xWIDwyo1vffTwSqteqyznB8ZE9vYYk16zA==
@@ -7931,10 +7931,10 @@ postcss-discard-overridden@^6.0.0:
   resolved "https://registry.yarnpkg.com/postcss-discard-overridden/-/postcss-discard-overridden-6.0.0.tgz#49c5262db14e975e349692d9024442de7cd8e234"
   integrity sha512-4VELwssYXDFigPYAZ8vL4yX4mUepF/oCBeeIT4OXsJPYOtvJumyz9WflmJWTfDwCUcpDR+z0zvCWBXgTx35SVw==
 
-postcss-loader@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-7.3.0.tgz#05991c1e490d8ff86ef18358d87db3b5b2dcb5f5"
-  integrity sha512-qLAFjvR2BFNz1H930P7mj1iuWJFjGey/nVhimfOAAQ1ZyPpcClAxP8+A55Sl8mBvM+K2a9Pjgdj10KpANWrNfw==
+postcss-loader@^7.3.2:
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-7.3.2.tgz#ac3344ad1f14bb65df135744b7efae4dbdad4301"
+  integrity sha512-c7qDlXErX6n0VT+LUsW+nwefVtTu3ORtVvK8EXuUIDcxo+b/euYqpuHlJAvePb0Af5e8uMjR/13e0lTuYifaig==
   dependencies:
     cosmiconfig "^8.1.3"
     jiti "^1.18.2"
