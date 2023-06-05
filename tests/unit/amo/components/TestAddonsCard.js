@@ -460,6 +460,21 @@ describe(__filename, () => {
       );
     });
 
+    it('does not render the summary nor the lang attribute if it is empty', () => {
+      renderWithResult({
+        addonProps: {
+          summary: createLocalizedString(''),
+        },
+      });
+
+      expect(
+        screen.getByClassName('SearchResult-summary'),
+      ).toBeEmptyDOMElement();
+      expect(
+        screen.queryByClassName('SearchResult-summary').getAttribute('lang'),
+      ).not.toBeInTheDocument();
+    });
+
     it('can hide the summary section', () => {
       const summary = 'Summary for an add-on';
       renderWithResult({
