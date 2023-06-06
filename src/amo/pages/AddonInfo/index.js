@@ -173,7 +173,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
 
     if (addon) {
-      header = i18n.sprintf(title, { addonName: addon.name });
+      header = i18n.sprintf(title, { addonName: addon.name.content });
     }
 
     if (

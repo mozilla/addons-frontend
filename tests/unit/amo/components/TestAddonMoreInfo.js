@@ -21,6 +21,7 @@ import {
   createInternalAddonWithLang,
   createLocalizedString,
   createStubErrorHandler,
+  DEFAULT_LANG_IN_TESTS,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
@@ -185,6 +186,7 @@ describe(__filename, () => {
 
     const link = screen.getByText('Support Email');
     expect(link).toHaveAttribute('href', 'mailto:ba@bar.com');
+    expect(link).toHaveAttribute('lang', DEFAULT_LANG_IN_TESTS);
   });
 
   const _loadVersions = (versionProps = {}) => {

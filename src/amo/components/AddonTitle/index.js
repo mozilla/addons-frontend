@@ -77,10 +77,10 @@ export const AddonTitleBase = ({
                 queryParamsForAttribution,
               )}
             >
-              {addon.name}
+              {addon.name.content}
             </Link>
           ) : (
-            addon.name
+            addon.name.content
           )}
           {authors.length > 0 && (
             <span className="AddonTitle-author">

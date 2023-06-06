@@ -94,9 +94,9 @@ describe(__filename, () => {
     });
 
     expect(
-      screen.getByRole('link', { name: results[0].name }),
+      screen.getByRole('link', { name: results[0].name.content }),
     ).toBeInTheDocument();
-    expect(screen.getByAltText(results[0].name)).toHaveAttribute(
+    expect(screen.getByAltText(results[0].name.content)).toHaveAttribute(
       'src',
       headerImageFull,
     );
@@ -115,10 +115,9 @@ describe(__filename, () => {
       'utm_medium=referral',
       `utm_content=${INSTALL_SOURCE_SEARCH}`,
     ].join('&');
-    expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
-      'href',
-      expectedLink,
-    );
+    expect(
+      screen.getByRole('link', { name: results[0].name.content }),
+    ).toHaveAttribute('href', expectedLink);
   });
 
   it('sets add-on install source to recommended when approrpriate', () => {
@@ -134,10 +133,9 @@ describe(__filename, () => {
       'utm_medium=referral',
       `utm_content=${INSTALL_SOURCE_FEATURED}`,
     ].join('&');
-    expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
-      'href',
-      expectedLink,
-    );
+    expect(
+      screen.getByRole('link', { name: results[0].name.content }),
+    ).toHaveAttribute('href', expectedLink);
   });
 
   it('passes a paginator as footer prop to the AddonsCard if supplied', () => {

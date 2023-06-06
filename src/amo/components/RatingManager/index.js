@@ -195,7 +195,9 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     }
 
     const promptHTML = sanitizeHTML(
-      i18n.sprintf(prompt, { addonName: `<b>${addon.name}</b>` }),
+      i18n.sprintf(prompt, {
+        addonName: `<b>${addon.name.content}</b>`,
+      }),
       ['b'],
     );
 
@@ -206,6 +208,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
           <legend
             className="RatingManager-legend"
             dangerouslySetInnerHTML={promptHTML}
+            lang={addon.name.locale}
           />
           {/* eslint-enable react/no-danger */}
           <div className="RatingManager-ratingControl">
