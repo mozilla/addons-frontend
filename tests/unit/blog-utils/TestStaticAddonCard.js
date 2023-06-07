@@ -10,7 +10,6 @@ import {
   fakeAddon,
   createLocalizedString,
   createInternalAddonWithLang,
-  DEFAULT_LANG_IN_TESTS,
   dispatchClientMetadata,
   render as defaultRender,
   screen,
@@ -72,7 +71,7 @@ describe(__filename, () => {
       }),
     ).toHaveTextContent('Recommended');
 
-    expect(screen.getByText(addon.summary.content)).toBeInTheDocument();
+    expect(screen.getByText(addon.summary)).toBeInTheDocument();
 
     // GetFirefoxButton
     expect(
@@ -92,7 +91,7 @@ describe(__filename, () => {
 
     render({ addon });
 
-    expect(screen.getByText(addon.description.content)).toBeInTheDocument();
+    expect(screen.getByText(addon.description)).toBeInTheDocument();
   });
 
   it('sanitizes the summary', () => {
@@ -115,10 +114,6 @@ describe(__filename, () => {
     expect(
       screen.getByClassName('StaticAddonCard-summary'),
     ).not.toHaveTextContent('<script>');
-    expect(screen.getByText(plainText)).toHaveAttribute(
-      'lang',
-      DEFAULT_LANG_IN_TESTS,
-    );
   });
 
   it('displays the number of users', () => {

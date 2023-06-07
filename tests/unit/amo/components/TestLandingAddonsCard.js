@@ -72,7 +72,7 @@ describe(__filename, () => {
     render({ addons });
 
     expect(
-      screen.getByRole('link', { name: addons[0].name.content }),
+      screen.getByRole('link', { name: addons[0].name }),
     ).toBeInTheDocument();
   });
 
@@ -86,9 +86,10 @@ describe(__filename, () => {
       'utm_medium=referral',
       `utm_content=${addonInstallSource}`,
     ].join('&');
-    expect(
-      screen.getByRole('link', { name: addons[0].name.content }),
-    ).toHaveAttribute('href', expectedLink);
+    expect(screen.getByRole('link', { name: addons[0].name })).toHaveAttribute(
+      'href',
+      expectedLink,
+    );
   });
 
   it('passes isHomepageShelf to AddonsCard', () => {

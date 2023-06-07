@@ -31,7 +31,7 @@ export const ThemeImageBase = ({
     'A ThemeImage can only be rendered for a static theme',
   );
   const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
-    title: addon.name.content,
+    title: addon.name,
   });
 
   return (

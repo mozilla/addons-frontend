@@ -17,25 +17,3 @@ export const selectLocalizedContent = (
 
   return field[lang];
 };
-
-export const selectLocalizedContentWithLocale = (
-  field: LocalizedString,
-  lang: string,
-) => {
-  invariant(lang, 'lang must not be empty');
-  if (!field) {
-    return null;
-  }
-
-  if (!field[lang]) {
-    return {
-      content: field[field._default],
-      locale: field._default,
-    };
-  }
-
-  return {
-    content: field[lang],
-    locale: lang,
-  };
-};

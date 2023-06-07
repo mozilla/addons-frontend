@@ -197,7 +197,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     return i18n.sprintf(
       i18n.gettext(`Reviews and ratings for %(addonName)s. Find out what other
         users think about %(addonName)s and add it to your Firefox Browser.`),
-      { addonName: addon.name.content },
+      { addonName: addon.name },
     );
   }
 
@@ -260,7 +260,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
     const header = addon
       ? i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
-          addonName: addon.name.content,
+          addonName: addon.name,
         })
       : '';
 
