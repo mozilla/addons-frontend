@@ -9,10 +9,7 @@ import type {
   UnloadAddonReviewsAction,
   UpdateRatingCountsAction,
 } from 'amo/actions/reviews';
-import {
-  selectLocalizedContent,
-  selectLocalizedContentWithLocale,
-} from 'amo/reducers/utils';
+import { selectLocalizedContent } from 'amo/reducers/utils';
 import { SET_LANG } from 'amo/reducers/api';
 import type { ExternalAddonInfoType } from 'amo/api/addonInfo';
 import type { AppState } from 'amo/store';
@@ -204,8 +201,8 @@ export function createInternalAddon(
     contributions_url: apiAddon.contributions_url,
     created: apiAddon.created,
     default_locale: apiAddon.default_locale,
-    description: selectLocalizedContentWithLocale(apiAddon.description, lang),
-    developer_comments: selectLocalizedContentWithLocale(
+    description: selectLocalizedContent(apiAddon.description, lang),
+    developer_comments: selectLocalizedContent(
       apiAddon.developer_comments,
       lang,
     ),
@@ -223,7 +220,7 @@ export function createInternalAddon(
     last_updated: apiAddon.last_updated,
     latest_unlisted_version: apiAddon.latest_unlisted_version,
     locale_disambiguation: apiAddon.locale_disambiguation,
-    name: selectLocalizedContentWithLocale(apiAddon.name, lang),
+    name: selectLocalizedContent(apiAddon.name, lang),
     previews: apiAddon.previews
       ? createInternalPreviews(apiAddon.previews, lang)
       : undefined,
@@ -233,11 +230,8 @@ export function createInternalAddon(
     review_url: apiAddon.review_url,
     slug: apiAddon.slug,
     status: apiAddon.status,
-    summary: selectLocalizedContentWithLocale(apiAddon.summary, lang),
-    support_email: selectLocalizedContentWithLocale(
-      apiAddon.support_email,
-      lang,
-    ),
+    summary: selectLocalizedContent(apiAddon.summary, lang),
+    support_email: selectLocalizedContent(apiAddon.support_email, lang),
     support_url: selectLocalizedUrlWithOutgoing(apiAddon.support_url, lang),
     tags: apiAddon.tags,
     target_locale: apiAddon.target_locale,

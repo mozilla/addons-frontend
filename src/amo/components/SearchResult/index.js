@@ -130,7 +130,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
           to={this.getAddonLink(addon, addonInstallSource)}
           onClick={this.onClickAddon}
         >
-          {addon.name.content}
+          {addon.name}
         </Link>
       );
     }
@@ -164,10 +164,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     if (showSummary) {
       const summaryProps = {};
       if (addon) {
-        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(
-          addon.summary ? addon.summary.content : '',
-        );
-        summaryProps.lang = addon.summary ? addon.summary.locale : null;
+        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(addon.summary);
       } else {
         summaryProps.children = <LoadingText />;
       }
@@ -191,7 +188,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
                   'SearchResult-icon--loading': !addon,
                 })}
                 src={imageURL}
-                alt={addon ? `${addon.name.content}` : ''}
+                alt={addon ? `${addon.name}` : ''}
               />
             ) : (
               <p className="SearchResult-notheme">

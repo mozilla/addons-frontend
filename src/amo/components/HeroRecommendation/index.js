@@ -184,7 +184,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           ? {}
           : { rel: 'noopener noreferrer', target: '_blank' };
         if (addon) {
-          heading = addon.name.content;
+          heading = addon.name;
           link = (
             <Link
               className="HeroRecommendation-link"
