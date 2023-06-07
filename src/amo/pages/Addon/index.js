@@ -179,7 +179,7 @@ export class AddonBase extends React.Component {
 
     const label = addon
       ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
-          title: addon.name.content,
+          title: addon.name,
         })
       : null;
 
@@ -283,19 +283,13 @@ export class AddonBase extends React.Component {
           title = i18n.gettext('About this add-on');
       }
 
-      const description = addon.description
-        ? addon.description.content
-        : addon.summary.content;
-      const descriptionLang = addon.description
-        ? addon.description.locale
-        : addon.summary.locale;
-      showAbout = description !== addon.summary.content;
+      const description = addon.description ? addon.description : addon.summary;
+      showAbout = description !== addon.summary;
 
       if (!description || !description.length) {
         return null;
       }
       descriptionProps.dangerouslySetInnerHTML = sanitizeUserHTML(description);
-      descriptionProps.lang = descriptionLang;
     } else {
       title = <LoadingText width={40} />;
       descriptionProps.children = <LoadingText width={100} />;
@@ -318,15 +312,11 @@ export class AddonBase extends React.Component {
   renderDevCommentsCard = () => {
     const { addon, i18n } = this.props;
 
-    if (
-      !addon ||
-      !addon.developer_comments ||
-      !addon.developer_comments.content
-    ) {
+    if (!addon || !addon.developer_comments) {
       return null;
     }
 
-    const devComments = sanitizeUserHTML(addon.developer_comments.content);
+    const devComments = sanitizeUserHTML(addon.developer_comments);
     const showMoreCardName = 'Addon-developer-comments';
 
     /* eslint-disable react/no-danger */
@@ -340,7 +330,6 @@ export class AddonBase extends React.Component {
         <div
           className="Addon-developer-comments-contents"
           dangerouslySetInnerHTML={devComments}
-          lang={addon.developer_comments.locale}
         />
       </ShowMoreCard>
     );
@@ -440,18 +429,13 @@ export class AddonBase extends React.Component {
     if (addon) {
       // Themes lack a summary so we do the inverse :-/
       // TODO: We should file an API bug about this...
-      const summary = addon.summary
-        ? addon.summary.content
-        : addon.description.content;
-      const summaryLang = addon.summary
-        ? addon.summary.locale
-        : addon.description.locale;
+      const summary = addon.summary ? addon.summary : addon.description;
+
       if (summary && summary.length) {
         summaryProps.dangerouslySetInnerHTML = sanitizeHTML(nl2br(summary), [
           'a',
           'br',
         ]);
-        summaryProps.lang = summaryLang;
         showSummary = true;
       }
     } else {

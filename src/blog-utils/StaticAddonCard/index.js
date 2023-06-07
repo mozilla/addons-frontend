@@ -33,17 +33,7 @@ export const StaticAddonCardBase = ({
     return null;
   }
 
-  let summary;
-  let summaryLang;
-
-  if (addon.summary) {
-    summary = addon.summary.content;
-    summaryLang = addon.summary.locale;
-  } else if (addon.description) {
-    summary = addon.description.content;
-    summaryLang = addon.description.locale;
-  }
-
+  const summary = addon.summary ? addon.summary : addon.description;
   const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
 
   return (
@@ -75,7 +65,6 @@ export const StaticAddonCardBase = ({
 
       <div className="StaticAddonCard-summary">
         <p
-          lang={summaryLang}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={sanitizeHTML(nl2br(summary), ['a', 'br'])}
         />

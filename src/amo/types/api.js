@@ -22,11 +22,6 @@ export type LocalizedString = {
   [locale: string]: string,
 };
 
-export type LocalizedStringWithLocale = {
-  locale: string,
-  content: string,
-};
-
 export type UrlWithOutgoing = {|
   outgoing: string,
   url: string,

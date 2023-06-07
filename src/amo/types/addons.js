@@ -9,7 +9,6 @@ import type {
   LocalizedUrlWithOutgoing,
   LocalizedString,
   UrlWithOutgoing,
-  LocalizedStringWithLocale,
 } from 'amo/types/api';
 
 export type AddonStatusType =
@@ -165,13 +164,13 @@ export type PartialExternalAddonType = {|
 export type AddonType = {|
   ...ExternalAddonType,
   // normalized l10n fields
-  description: LocalizedStringWithLocale | null,
-  developer_comments: LocalizedStringWithLocale | null,
+  description: string | null,
+  developer_comments: string | null,
   homepage: UrlWithOutgoing | null,
-  name: LocalizedStringWithLocale,
+  name: string,
   previews?: Array<PreviewType>,
-  summary: LocalizedStringWithLocale | null,
-  support_email: LocalizedStringWithLocale | null,
+  summary: string | null,
+  support_email: string | null,
   support_url: UrlWithOutgoing | null,
   // Here are some custom properties for our internal representation.
   currentVersionId: VersionIdType | null,

@@ -89,7 +89,7 @@ describe(__filename, () => {
     render({ addon });
 
     // This makes sure only the add-on name is displayed.
-    expect(screen.getByRole('heading')).toHaveTextContent(addon.name.content);
+    expect(screen.getByRole('heading')).toHaveTextContent(addon.name);
     expect(
       screen.queryByClassName('AddonTitle-author'),
     ).not.toBeInTheDocument();
@@ -174,9 +174,10 @@ describe(__filename, () => {
     render({ addon, linkToAddon: true });
 
     expect(screen.getAllByRole('link')).toHaveLength(2);
-    expect(
-      screen.getByRole('link', { name: addon.name.content }),
-    ).toHaveAttribute('href', `/en-US/android${getAddonURL(addon.slug)}`);
+    expect(screen.getByRole('link', { name: addon.name })).toHaveAttribute(
+      'href',
+      `/en-US/android${getAddonURL(addon.slug)}`,
+    );
     expect(
       screen.getByRole('link', { name: addon.authors[0].name }),
     ).toHaveAttribute('href', `/en-US/android/user/${addon.authors[0].id}/`);
@@ -193,9 +194,7 @@ describe(__filename, () => {
     render({ addon, as: 'span' });
 
     expect(screen.queryByRole('heading')).not.toBeInTheDocument();
-    expect(screen.getAllByTagName('span')[0]).toHaveTextContent(
-      addon.name.content,
-    );
+    expect(screen.getAllByTagName('span')[0]).toHaveTextContent(addon.name);
   });
 
   it('accepts some query params for attribution to append to the add-on URL', () => {
@@ -208,9 +207,7 @@ describe(__filename, () => {
       queryParamsForAttribution,
     });
 
-    expect(
-      screen.getByRole('link', { name: addon.name.content }),
-    ).toHaveAttribute(
+    expect(screen.getByRole('link', { name: addon.name })).toHaveAttribute(
       'href',
       `/en-US/android${getAddonURL(addon.slug)}?some=value`,
     );
