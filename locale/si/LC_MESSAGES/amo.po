@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-04-21 19:51+0000\n"
+"PO-Revision-Date: 2023-06-12 23:03+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1188,7 +1188,7 @@ msgstr "නිර්දේශිත"
 
 #: src/amo/components/IconPromotedBadge/index.js:48 src/amo/components/PromotedBadge/index.js:56 src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
-msgstr "තහවුරුයි"
+msgstr "සත්‍යාපිතයි"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1558,15 +1558,15 @@ msgstr "සමාලෝචිත එක්කහු"
 
 #: src/amo/components/Search/index.js:178
 msgid "Verified extensions"
-msgstr "තහවුරු කළ දිගු"
+msgstr "සත්‍යාපිත දිගු"
 
 #: src/amo/components/Search/index.js:181
 msgid "Verified themes"
-msgstr "තහවුරු කළ තේමා"
+msgstr "සත්‍යාපිත තේමා"
 
 #: src/amo/components/Search/index.js:184
 msgid "Verified add-ons"
-msgstr "තහවුරු කළ එක්කහු"
+msgstr "සත්‍යාපිත එක්කහු"
 
 #: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
