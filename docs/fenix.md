@@ -40,7 +40,7 @@ index 81d60db1fc..f3c4d53ebd 100644
                  "}"
          // This should be the base URL used to call the AMO API.
 -        buildConfigField "String", "AMO_SERVER_URL", "\"https://services.addons.mozilla.org\""
-+        buildConfigField "String", "AMO_SERVER_URL", "\"https://addons.allizom.org\""
++        buildConfigField "String", "AMO_SERVER_URL", "\"https://services.addons.allizom.org\""
 
          def deepLinkSchemeValue = "fenix-dev"
          buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
