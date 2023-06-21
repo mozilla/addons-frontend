@@ -185,10 +185,9 @@ describe(__filename, () => {
     expect(screen.queryByClassName('Block-reason')).not.toBeInTheDocument();
   });
 
-  it('renders "all versions" when min is 0 and max is *', () => {
+  it('renders "all versions" when "is_all_versions" is true', () => {
     const block = _createFakeBlockResult({
-      min_version: '0',
-      max_version: '*',
+      is_all_versions: true,
     });
     const i18n = fakeI18n();
     store.dispatch(loadBlock({ block }));
@@ -205,12 +204,12 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('renders the min/max versions if min is not 0 and max is not *', () => {
-    const min = '12';
-    const max = '34';
+  it('renders the versions if "is_all_versions" is false', () => {
+    const v1 = '12';
+    const v2 = '34';
     const block = _createFakeBlockResult({
-      min_version: min,
-      max_version: max,
+      versions: [v1, v2],
+      is_all_versions: false,
     });
     const i18n = fakeI18n();
     store.dispatch(loadBlock({ block }));
@@ -220,7 +219,29 @@ describe(__filename, () => {
     // by a </br>.
     expect(
       screen.getByTextAcrossTags(
-        `Versions blocked: ${min} to ${max}.Blocked on ${i18n
+        `Versions blocked: ${v1}, ${v2}.Blocked on ${i18n
+          .moment(block.created)
+          .format('ll')}.`,
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it('renders the versions if "is_all_versions" is missing', () => {
+    const v1 = '12';
+    const v2 = '34';
+    const block = _createFakeBlockResult({
+      versions: [v1, v2],
+      is_all_versions: undefined,
+    });
+    const i18n = fakeI18n();
+    store.dispatch(loadBlock({ block }));
+    render();
+
+    // The version info and the block date are inside the same tag, separated
+    // by a </br>.
+    expect(
+      screen.getByTextAcrossTags(
+        `Versions blocked: ${v1}, ${v2}.Blocked on ${i18n
           .moment(block.created)
           .format('ll')}.`,
       ),
