@@ -115,13 +115,14 @@ export class BlockBase extends React.Component<InternalProps> {
       return <LoadingText />;
     }
 
-    if (block.min_version === '0' && block.max_version === '*') {
+    if (block.is_all_versions) {
       return i18n.gettext('Versions blocked: all versions.');
     }
 
-    return i18n.sprintf(i18n.gettext('Versions blocked: %(min)s to %(max)s.'), {
-      min: block.min_version,
-      max: block.max_version,
+    const versions = block.versions.join(', ');
+
+    return i18n.sprintf(i18n.gettext('Versions blocked: %(versions)s.'), {
+      versions,
     });
   }
 
