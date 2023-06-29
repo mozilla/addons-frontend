@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-06-17 11:45+0000\n"
+"PO-Revision-Date: 2023-06-29 14:00+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1473,7 +1473,7 @@ msgstr "Αναφορά προσθέτου για κατάχρηση"
 
 #: src/amo/components/ReportAbuseButton/index.js:181
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Παρακαλούμε μην χρησιμοποιείτε αυτήν τη φόρμα για να αναφέρετε σφάλματα ή να αιτηθείτε λειτουργίες· αυτή η αναφορά θα αποσταλεί στη Mozilla και όχι στον δημιουργό του προσθέτου."
+msgstr "Παρακαλούμε μη χρησιμοποιείτε αυτήν τη φόρμα για να αναφέρετε σφάλματα ή να αιτηθείτε λειτουργίες· αυτή η αναφορά θα αποσταλεί στη Mozilla και όχι στον δημιουργό του προσθέτου."
 
 #: src/amo/components/ReportAbuseButton/index.js:194 src/amo/components/ReportUserAbuse/index.js:152
 msgid "Send abuse report"
@@ -1501,7 +1501,7 @@ msgstr "Αν πιστεύετε ότι αυτός ο χρήστης παραβι
 
 #: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Παρακαλούμε μην χρησιμοποιείτε αυτήν τη φόρμα για να αναφέρετε σφάλματα ή να επικοινωνήσετε με τον χρήστη· η αναφορά σας θα αποσταλεί μόνο στη Mozilla και όχι στον χρήστη."
+msgstr "Παρακαλούμε μη χρησιμοποιείτε αυτήν τη φόρμα για να αναφέρετε σφάλματα ή να επικοινωνήσετε με τον χρήστη· η αναφορά σας θα αποσταλεί μόνο στη Mozilla και όχι στον χρήστη."
 
 #: src/amo/components/ReportUserAbuse/index.js:149
 msgid "Explain how this user is violating our policies."
