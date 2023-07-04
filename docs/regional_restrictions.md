@@ -21,4 +21,4 @@ For navigation past the initial page loaded by the browser, if JavaScript is ena
 
 ## Admin bypass
 
-Authenticated requests are not served from cached (nor cached themselves), so a request from an admin user will go directly through to addons-server. From there, if they have the right permission they will be allowed to bypass the restriction entirely.
+Authenticated requests are not served from cache (nor cached themselves), so a request from an admin user will go directly through to addons-server. From there, if they have the right permission they will be allowed to bypass the restriction entirely.
