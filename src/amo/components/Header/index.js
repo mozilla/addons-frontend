@@ -108,7 +108,10 @@ export class HeaderBase extends React.Component {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link href="/developers/theme/submit" prependClientApp={false}>
+          <Link
+            href="/developers/addon/submit/theme/distribution"
+            prependClientApp={false}
+          >
             {i18n.gettext('Submit a New Theme')}
           </Link>
         </DropdownMenuItem>
