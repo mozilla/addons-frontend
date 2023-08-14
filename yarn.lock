@@ -10215,10 +10215,10 @@ universal-base64url@1.1.0:
   dependencies:
     universal-base64 "^2.1.0"
 
-universal-cookie-express@4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-4.0.3.tgz#07e871d5a6e2c157690aa5c77654d82d5a34f509"
-  integrity sha512-hDZW9UsRpFMdbtC0JjgTMfwEp42gGWLD5Q9qkS72cogLAqX6SyWK9klWAZWsNSNkInZZrPlRQhQie79qFugZSQ==
+universal-cookie-express@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-5.0.0.tgz#dfc7c494782d9251d82597f75f626ade47353db8"
+  integrity sha512-khcSEyss+9qzVheoxO4yl8pomwLFDV8Lvs5DGTh3N469BLwT4B+L4VA1GNZRK192FVXMehpOMGqv6sX0tU54TQ==
   dependencies:
     universal-cookie "^4.0.0"
 
