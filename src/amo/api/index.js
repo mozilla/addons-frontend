@@ -12,7 +12,6 @@ import log from 'amo/logger';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
-  fixFiltersForClientApp,
 } from 'amo/searchUtils';
 import { addQueryParams } from 'amo/utils/url';
 import type { ApiState } from 'amo/reducers/api';
@@ -298,7 +297,6 @@ export function logOutFromServer({
 }
 
 export type AutocompleteParams = {|
-  _fixFiltersForClientApp?: typeof fixFiltersForClientApp,
   api: ApiState,
   filters: {|
     query: string,
@@ -307,13 +305,12 @@ export type AutocompleteParams = {|
 |};
 
 export function autocomplete({
-  _fixFiltersForClientApp = fixFiltersForClientApp,
   api,
   filters,
 }: AutocompleteParams): Promise<Array<ExternalSuggestion>> {
   const filtersWithAppVersion = addVersionCompatibilityToFilters({
-    filters: _fixFiltersForClientApp({ api, filters }),
-    userAgentInfo: api.userAgentInfo,
+    filters: filters,
+    api: api,
   });
 
   return callApi({

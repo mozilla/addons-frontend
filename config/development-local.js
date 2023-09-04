@@ -18,4 +18,7 @@ module.exports = {
 
   // See: https://github.com/mozilla/addons-frontend/issues/10545
   enableTrailingSlashesMiddleware: false,
+
+  // For testing until we remove that restriction in stage&prod too
+  restrictAndroidToRecommended: false,
 };

@@ -6,7 +6,6 @@ import { callApi } from 'amo/api';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
-  fixFiltersForClientApp,
 } from 'amo/searchUtils';
 import log from 'amo/logger';
 import type { ApiState } from 'amo/reducers/api';
@@ -31,21 +30,19 @@ export type SearchFilters = {|
 |};
 
 export type SearchParams = {|
-  _fixFiltersForClientApp?: typeof fixFiltersForClientApp,
   api: ApiState,
   auth?: boolean,
   filters: SearchFilters,
 |};
 
 export function search({
-  _fixFiltersForClientApp = fixFiltersForClientApp,
   api,
   auth = false,
   filters = {},
 }: SearchParams): Promise<PaginatedApiResponse<ExternalAddonType>> {
   const newFilters = addVersionCompatibilityToFilters({
-    filters: _fixFiltersForClientApp({ api, filters }),
-    userAgentInfo: api.userAgentInfo,
+    filters: filters,
+    api: api,
   });
 
   // The API says: 'The "sort" parameter "random" can only be specified when

@@ -14,11 +14,8 @@ module.exports = {
   proxyPort: 3000,
   proxyEnabled: true,
 
-  // Setting this to false returns add-ons that are not compatible but means
-  // developers can pull from a much larger dataset on the local/-dev/-stage
-  // servers. Set this to true to only get compatible add-ons (this is what
-  // happens in production) but get a lot fewer add-ons in search results.
-  restrictSearchResultsToAppVersion: false,
+  // For testing until we remove that restriction in stage&prod too
+  restrictAndroidToRecommended: false,
 
   fxaConfig: 'local',
   trackingEnabled: false,

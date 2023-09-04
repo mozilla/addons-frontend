@@ -22,7 +22,6 @@ import {
   RECOMMENDED,
 } from 'amo/constants';
 import log from 'amo/logger';
-import { getPromotedCategory } from 'amo/utils/addons';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';
@@ -115,16 +114,13 @@ export const isAndroidInstallable = ({
 }: {
   addon: AddonType | null,
 }): boolean => {
-  // Only extensions that are recommended on android are considered compatible.
+  // if restrictAndroidToRecommended config is true, only extensions that are
+  // recommended/line on android are considered compatible.
   // See https://github.com/mozilla/addons-frontend/issues/9713.
+  // FIXME pass config to do that
   return (
     !!addon &&
-    addon.type === ADDON_TYPE_EXTENSION &&
-    getPromotedCategory({
-      addon,
-      clientApp: CLIENT_APP_ANDROID,
-    }) === RECOMMENDED
-  );
+    addon.type === ADDON_TYPE_EXTENSION);
 };
 
 export type IsCompatibleWithUserAgentParams = {|

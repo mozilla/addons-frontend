@@ -41,4 +41,7 @@ module.exports = {
   allowErrorSimulation: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
+
+  // For testing until we remove that restriction in stage&prod too
+  restrictAndroidToRecommended: false,
 };

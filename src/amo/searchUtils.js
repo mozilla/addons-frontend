@@ -8,6 +8,7 @@ import {
 } from 'amo/constants';
 import log from 'amo/logger';
 import { USER_AGENT_OS_IOS } from 'amo/reducers/api';
+import { isFirefoxForAndroid } from 'amo/utils/compatibility';
 
 // TODO: we need to specify these API params in `paramsToFilter` so that the
 // app uses them when making API calls but ideally we'd revisit the filter
@@ -42,16 +43,24 @@ export const paramsToFilter = {
 export function addVersionCompatibilityToFilters({
   config = defaultConfig,
   filters,
-  userAgentInfo,
+  api,
 } = {}) {
   if (!filters) {
     throw new Error('filters are required');
   }
-  if (!userAgentInfo) {
-    throw new Error('userAgentInfo is required');
+  if (!api.userAgentInfo) {
+    throw new Error('api.userAgentInfo is required');
   }
 
   const newFilters = { ...filters };
+  const userAgentInfo = api.userAgentInfo;
+
+  if (!newFilters.clientApp && api.clientApp) {
+    log.debug(
+      `No clientApp found in filters; using api.clientApp (${api.clientApp})`,
+    );
+    newFilters.clientApp = api.clientApp;
+  }
 
   // If the browser is Firefox or Firefox for Android and we're searching for
   // extensions, send the appversion param to get extensions marked as
@@ -62,23 +71,28 @@ export function addVersionCompatibilityToFilters({
   ) {
     const browserVersion = parseInt(userAgentInfo.browser.version, 10);
 
-    // We are only setting the `compatibleWithVersion` filter for browsers
-    // with a version of at least 57, at least for now. Find the explanation
-    // here: https://github.com/mozilla/addons-frontend/pull/2969#issuecomment-323551742
-    if (browserVersion >= 57) {
-      if (config.get('restrictSearchResultsToAppVersion')) {
-        log.debug(oneLine`Setting "compatibleWithVersion" to current application
-        version (Firefox ${browserVersion}) so only relevant extensions are
-        displayed.`);
-        newFilters.compatibleWithVersion = userAgentInfo.browser.version;
-      } else {
-        log.warn(oneLine`restrictSearchResultsToAppVersion config set;
-          not setting "compatibleWithVersion" to current application version,
-          even though it's above 57.`);
-      }
-    }
+    newFilters.compatibleWithVersion = userAgentInfo.browser.version;
   }
 
+  if (newFilters.clientApp === CLIENT_APP_ANDROID) {
+    // On Android pages, we only want extensions.
+    newFilters.addonType = ADDON_TYPE_EXTENSION;
+
+    if (config.get('restrictAndroidToRecommended')) {
+      // Legacy Fenix behavior before we started working on general
+      // availability: only recommended extensions are displayed.
+      log.debug(oneLine`Setting "promoted" to "RECOMMENDED" so only recommended
+      extensions are displayed on Android.`);
+      newFilters.promoted = RECOMMENDED;
+    } else if (!isFirefoxForAndroid(api.userAgentInfo)) {
+      // If the browser is not Firefox for Android, we want to filter out
+      // extensions to only the limited set, so we force compatibleWithVersion
+      // to 117.0. This should be removed after General Avaibility. This should
+      // apply even to Firefox Desktop browsing Android pages.
+      newFilters.compatibleWithVersion = '117.0'
+    }
+    // Otherwise we rely on the regular compatibleWithVersion behavior above.
+  }
   return newFilters;
 }
 
@@ -117,27 +131,6 @@ export function convertQueryParamsToFilters(params) {
     return object;
   }, {});
 }
-
-export const fixFiltersForClientApp = ({ api, filters }) => {
-  const newFilters = { ...filters };
-
-  if (!newFilters.clientApp && api.clientApp) {
-    log.debug(
-      `No clientApp found in filters; using api.clientApp (${api.clientApp})`,
-    );
-    newFilters.clientApp = api.clientApp;
-  }
-
-  // This adds a filter to return only Android compatible add-ons (which
-  // currently) means they are Recommended. It also only includes extensions,
-  // as only those are available on Android.
-  if (newFilters.clientApp === CLIENT_APP_ANDROID) {
-    newFilters.promoted = RECOMMENDED;
-    newFilters.addonType = ADDON_TYPE_EXTENSION;
-  }
-
-  return newFilters;
-};
 
 // We don't allow `clientApp` or `lang` as a filter from location because
 // they can lead to weird, unintuitive URLs where the queryParams override
