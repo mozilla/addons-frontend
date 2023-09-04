@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-05-08 20:32+0000\n"
-"Last-Translator: Melo46 <melo@carmu.com>\n"
+"PO-Revision-Date: 2023-09-04 12:20+0000\n"
+"Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
@@ -1508,7 +1508,7 @@ msgstr "Si tu pensa que iste usator viola le %(linkTagStart)sPoliticas del addit
 
 #: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Per favor non usar iste formulario pro reportar defectos o pro continger iste usator; tu reporto essera solo inviate a Mozilla e non a iste usator."
+msgstr "Per favor non usar iste formulario pro reportar defectos o pro contactar iste usator; tu reporto essera solmente inviate a Mozilla e non a iste usator."
 
 #: src/amo/components/ReportUserAbuse/index.js:149
 msgid "Explain how this user is violating our policies."
@@ -2781,7 +2781,7 @@ msgstr "De tempore in tempore, Mozilla pote mitter iste email de usator circa ve
 
 #: src/amo/pages/UserProfileEdit/index.js:793
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr "Mozilla se reserva le derecto de continger te individualmente circa specific problemas con tu additivos albergate."
+msgstr "Mozilla se reserva le derecto de contactar te individualmente sur problemas specific con tu additivos albergate."
 
 #: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
@@ -2900,7 +2900,7 @@ msgstr "remane ajornate con novas e eventos pertinente al disveloppatores de add
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr "Mozilla debe continger me circa mi additivo personal"
+msgstr "Mozilla debe contactar me sur mi additivo individual"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
