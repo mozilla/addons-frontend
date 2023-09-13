@@ -45,13 +45,6 @@ module.exports = {
   isDeployed: true,
   isDevelopment: false,
 
-  // For all Firefox 57+ (Quantum) UAs, send the `appversion` in all API
-  // search requests. This will return only compatible add-ons, which is
-  // good for UX (it prevents a lot of incompatible old add-ons).
-  // Disable this in development when working with stage data, which is
-  // very out-of-date and mostly not 57+ compatible.
-  restrictSearchResultsToAppVersion: true,
-
   // The node server host and port.
   serverHost: '127.0.0.1',
   serverPort: 4000,
@@ -107,7 +100,6 @@ module.exports = {
     'langs',
     'loggingLevel',
     'mozillaUserId',
-    'restrictSearchResultsToAppVersion',
     'rtlLangs',
     'staticPath',
     'trackingEnabled',
