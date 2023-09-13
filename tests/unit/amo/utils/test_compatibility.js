@@ -34,6 +34,7 @@ import {
   createInternalVersionWithLang,
   fakeAddon,
   fakeVersion,
+  getFakeConfig,
   getFakeLogger,
   userAgents,
   userAgentsByPlatform,
@@ -906,71 +907,141 @@ describe(__filename, () => {
   });
 
   describe('isAndroidInstallable', () => {
-    it('returns true if the add-on is recommended on android', () => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+    describe('with enableFeatureMoreAndroidExtensions enabled', () => {
+      const _config = getFakeConfig({
+        enableFeatureMoreAndroidExtensions: true,
       });
 
-      expect(isAndroidInstallable({ addon })).toEqual(true);
-    });
-
-    it('returns true if the add-on is recommended on android and desktop', () => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        promoted: {
-          category: RECOMMENDED,
-          apps: [CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX],
-        },
-      });
-
-      expect(isAndroidInstallable({ addon })).toEqual(true);
-    });
-
-    it.each(validAddonTypes.filter((type) => type !== ADDON_TYPE_EXTENSION))(
-      'returns false for a %s, even if the add-on is recommended on android',
-      (type) => {
+      it('returns true if the add-on is recommended on android', () => {
         const addon = createInternalAddonWithLang({
           ...fakeAddon,
           promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
-          type,
         });
 
-        expect(isAndroidInstallable({ addon })).toEqual(false);
-      },
-    );
-
-    it('returns false if the add-on is recommended but not on android', () => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
+        expect(isAndroidInstallable({ _config, addon })).toEqual(true);
       });
 
-      expect(isAndroidInstallable({ addon })).toEqual(false);
-    });
+      it('returns true if the add-on is recommended on android and desktop', () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          promoted: {
+            category: RECOMMENDED,
+            apps: [CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX],
+          },
+        });
 
-    it.each(
-      ALL_PROMOTED_CATEGORIES.filter((category) => category !== RECOMMENDED),
-    )('returns false if the add-on is %s on android', (category) => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        promoted: { category, apps: [CLIENT_APP_ANDROID] },
+        expect(isAndroidInstallable({ _config, addon })).toEqual(true);
       });
 
-      expect(isAndroidInstallable({ addon })).toEqual(false);
-    });
+      it.each(validAddonTypes.filter((type) => type !== ADDON_TYPE_EXTENSION))(
+        'returns false for a %s, even if the add-on is recommended on android',
+        (type) => {
+          const addon = createInternalAddonWithLang({
+            ...fakeAddon,
+            promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+            type,
+          });
 
-    it('returns false if the add-on is not promoted', () => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        promoted: null,
+          expect(isAndroidInstallable({ _config, addon })).toEqual(false);
+        },
+      );
+
+      it.each(
+        ALL_PROMOTED_CATEGORIES.filter((category) => category !== RECOMMENDED),
+      )('returns true when the add-on is %s on android', (category) => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          promoted: { category, apps: [CLIENT_APP_ANDROID] },
+        });
+
+        expect(isAndroidInstallable({ _config, addon })).toEqual(true);
       });
 
-      expect(isAndroidInstallable({ addon })).toEqual(false);
+      it('returns true when add-on is not promoted', () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          promoted: null,
+        });
+
+        expect(isAndroidInstallable({ _config, addon })).toEqual(true);
+      });
+
+      it('returns false if addon is null', () => {
+        expect(isAndroidInstallable({ _config, addon: null })).toEqual(false);
+      });
     });
 
-    it('returns false if addon is null', () => {
-      expect(isAndroidInstallable({ addon: null })).toEqual(false);
+    describe('with enableFeatureMoreAndroidExtensions disabled', () => {
+      const _config = getFakeConfig({
+        enableFeatureMoreAndroidExtensions: false,
+      });
+
+      it('returns true if the add-on is recommended on android', () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+        });
+
+        expect(isAndroidInstallable({ _config, addon })).toEqual(true);
+      });
+
+      it('returns true if the add-on is recommended on android and desktop', () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          promoted: {
+            category: RECOMMENDED,
+            apps: [CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX],
+          },
+        });
+
+        expect(isAndroidInstallable({ _config, addon })).toEqual(true);
+      });
+
+      it.each(validAddonTypes.filter((type) => type !== ADDON_TYPE_EXTENSION))(
+        'returns false for a %s, even if the add-on is recommended on android',
+        (type) => {
+          const addon = createInternalAddonWithLang({
+            ...fakeAddon,
+            promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+            type,
+          });
+
+          expect(isAndroidInstallable({ _config, addon })).toEqual(false);
+        },
+      );
+
+      it('returns false if the add-on is recommended but not on android', () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
+        });
+
+        expect(isAndroidInstallable({ _config, addon })).toEqual(false);
+      });
+
+      it.each(
+        ALL_PROMOTED_CATEGORIES.filter((category) => category !== RECOMMENDED),
+      )('returns false if the add-on is %s on android', (category) => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          promoted: { category, apps: [CLIENT_APP_ANDROID] },
+        });
+
+        expect(isAndroidInstallable({ _config, addon })).toEqual(false);
+      });
+
+      it('returns false if the add-on is not promoted', () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          promoted: null,
+        });
+
+        expect(isAndroidInstallable({ _config, addon })).toEqual(false);
+      });
+
+      it('returns false if addon is null', () => {
+        expect(isAndroidInstallable({ _config, addon: null })).toEqual(false);
+      });
     });
   });
 });
