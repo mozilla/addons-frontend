@@ -21,7 +21,6 @@ describe(__filename, () => {
   let api;
   let mockWindow;
   const firefox57 = userAgents.firefox[5];
-  const firefoxESR52 = userAgents.firefox[4];
 
   beforeEach(() => {
     api = dispatchSignInActions({
@@ -80,21 +79,6 @@ describe(__filename, () => {
     return _search().then(() => mockWindow.verify());
   });
 
-  // See: https://github.com/mozilla/addons-frontend/pull/2969#issuecomment-323551742
-  it('does not set appversion if version is below 57', () => {
-    api = dispatchSignInActions({
-      clientApp: CLIENT_APP_FIREFOX,
-      userAgent: firefoxESR52,
-    }).store.getState().api;
-
-    mockWindow.expects('fetch').callsFake((urlString) => {
-      expect(urlString).not.toContain('appversion');
-      return mockResponse();
-    });
-
-    return _search().then(() => mockWindow.verify());
-  });
-
   it('sets appversion if Firefox for Android', () => {
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_ANDROID,
@@ -112,7 +96,7 @@ describe(__filename, () => {
   it('does not set appversion if Firefox for iOS', () => {
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_FIREFOX,
-      userAgent: userAgents.firefoxIOS[3],
+      userAgent: userAgents.firefoxIOS[2],
     }).store.getState().api;
 
     mockWindow.expects('fetch').callsFake((urlString) => {
@@ -137,7 +121,7 @@ describe(__filename, () => {
     return _search().then(() => mockWindow.verify());
   });
 
-  it('sets appversion if browser is Firefox 57+', () => {
+  it('sets appversion', () => {
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_FIREFOX,
       userAgent: firefox57,

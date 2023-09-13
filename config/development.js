@@ -14,12 +14,6 @@ module.exports = {
   proxyPort: 3000,
   proxyEnabled: true,
 
-  // Setting this to false returns add-ons that are not compatible but means
-  // developers can pull from a much larger dataset on the local/-dev/-stage
-  // servers. Set this to true to only get compatible add-ons (this is what
-  // happens in production) but get a lot fewer add-ons in search results.
-  restrictSearchResultsToAppVersion: false,
-
   fxaConfig: 'local',
   trackingEnabled: false,
   loggingLevel: 'debug',
@@ -34,7 +28,7 @@ module.exports = {
   enableStrictMode: true,
 
   serverPort: 3333,
-  
+
   // We need this config variable for `bin/webpack-dev-server.js`.
   webpackServerPort,
 
