@@ -1,5 +1,4 @@
 import { oneLine } from 'common-tags';
-import defaultConfig from 'config';
 
 import {
   ADDON_TYPE_EXTENSION,
@@ -40,7 +39,6 @@ export const paramsToFilter = {
 };
 
 export function addVersionCompatibilityToFilters({
-  config = defaultConfig,
   filters,
   userAgentInfo,
 } = {}) {
@@ -62,21 +60,10 @@ export function addVersionCompatibilityToFilters({
   ) {
     const browserVersion = parseInt(userAgentInfo.browser.version, 10);
 
-    // We are only setting the `compatibleWithVersion` filter for browsers
-    // with a version of at least 57, at least for now. Find the explanation
-    // here: https://github.com/mozilla/addons-frontend/pull/2969#issuecomment-323551742
-    if (browserVersion >= 57) {
-      if (config.get('restrictSearchResultsToAppVersion')) {
-        log.debug(oneLine`Setting "compatibleWithVersion" to current application
-        version (Firefox ${browserVersion}) so only relevant extensions are
-        displayed.`);
-        newFilters.compatibleWithVersion = userAgentInfo.browser.version;
-      } else {
-        log.warn(oneLine`restrictSearchResultsToAppVersion config set;
-          not setting "compatibleWithVersion" to current application version,
-          even though it's above 57.`);
-      }
-    }
+    log.debug(oneLine`Setting "compatibleWithVersion" to current application
+      version (Firefox ${browserVersion}) so only relevant extensions are
+      displayed.`);
+    newFilters.compatibleWithVersion = userAgentInfo.browser.version;
   }
 
   return newFilters;
