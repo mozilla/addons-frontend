@@ -356,3 +356,5 @@ export const APP_NAME = 'amo';
 export const WEBPACK_ENTRYPOINT = APP_NAME;
 
 export const ONE_YEAR_IN_SECONDS = 31536000;
+
+export const APPVERSION_FOR_ANDROID = '117.0';
