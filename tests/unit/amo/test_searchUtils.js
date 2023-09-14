@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  APPVERSION_FOR_ANDROID,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   RECOMMENDED,
@@ -18,6 +19,7 @@ import {
 } from 'amo/searchUtils';
 import {
   dispatchClientMetadata,
+  getFakeConfig,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
@@ -67,7 +69,7 @@ describe(__filename, () => {
       expect(newFilters).toEqual({ query: 'foo' });
     });
 
-    it('adds compatibleWithVersion if Firefox 57+', () => {
+    it('adds compatibleWithVersion if Firefox', () => {
       const { state } = dispatchClientMetadata({
         userAgent: userAgentsByPlatform.mac.firefox57,
       });
@@ -99,6 +101,80 @@ describe(__filename, () => {
       expect(() => {
         addVersionCompatibilityToFilters({ filters: {} });
       }).toThrow('userAgentInfo is required');
+    });
+
+    describe('when clientApp is CLIENT_APP_ANDROID', () => {
+      it('adds addonType, compatibleWithVersion and promoted', () => {
+        const _config = getFakeConfig({
+          enableFeatureMoreAndroidExtensions: false,
+        });
+        const { state } = dispatchClientMetadata({
+          userAgent: userAgentsByPlatform.android.firefox70,
+        });
+
+        const newFilters = addVersionCompatibilityToFilters({
+          _config,
+          filters: { clientApp: CLIENT_APP_ANDROID, query: 'foo' },
+          userAgentInfo: state.api.userAgentInfo,
+        });
+
+        expect(newFilters).toEqual({
+          addonType: ADDON_TYPE_EXTENSION,
+          clientApp: CLIENT_APP_ANDROID,
+          compatibleWithVersion: '70.0',
+          promoted: RECOMMENDED,
+          query: 'foo',
+        });
+      });
+
+      it('does not set promoted and does not override compatibleWithVersion when enableFeatureMoreAndroidExtensions is enabled and browser is Firefox for Android', () => {
+        const _config = getFakeConfig({
+          enableFeatureMoreAndroidExtensions: true,
+        });
+        const { state } = dispatchClientMetadata({
+          userAgent: userAgentsByPlatform.android.firefox70,
+        });
+
+        const newFilters = addVersionCompatibilityToFilters({
+          _config,
+          filters: { clientApp: CLIENT_APP_ANDROID, query: 'foo' },
+          userAgentInfo: state.api.userAgentInfo,
+        });
+
+        expect(newFilters).toEqual({
+          addonType: ADDON_TYPE_EXTENSION,
+          clientApp: CLIENT_APP_ANDROID,
+          compatibleWithVersion: '70.0',
+          query: 'foo',
+        });
+      });
+
+      it.each([
+        // This works because it is Firefox Desktop.
+        userAgentsByPlatform.windows.firefox40,
+        userAgentsByPlatform.mac.chrome41,
+      ])(
+        'does not set promoted but overrides compatibleWithVersion when enableFeatureMoreAndroidExtensions is enabled and browser is not Firefox for Android - userAgent: %s',
+        (userAgent) => {
+          const _config = getFakeConfig({
+            enableFeatureMoreAndroidExtensions: true,
+          });
+          const { state } = dispatchClientMetadata({ userAgent });
+
+          const newFilters = addVersionCompatibilityToFilters({
+            _config,
+            filters: { clientApp: CLIENT_APP_ANDROID, query: 'foo' },
+            userAgentInfo: state.api.userAgentInfo,
+          });
+
+          expect(newFilters).toEqual({
+            addonType: ADDON_TYPE_EXTENSION,
+            clientApp: CLIENT_APP_ANDROID,
+            compatibleWithVersion: APPVERSION_FOR_ANDROID,
+            query: 'foo',
+          });
+        },
+      );
     });
   });
 
@@ -190,48 +266,6 @@ describe(__filename, () => {
 
       const newFilters = fixFiltersForClientApp({ api: state.api, filters });
       expect(newFilters.clientApp).toEqual(clientApp);
-    });
-
-    it('adds a promoted=recommended filter on Android', () => {
-      const clientApp = CLIENT_APP_ANDROID;
-      const { state } = dispatchClientMetadata({ clientApp });
-
-      const filters = {};
-
-      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
-      expect(newFilters.clientApp).toEqual(clientApp);
-      expect(newFilters.promoted).toEqual(RECOMMENDED);
-    });
-
-    it('does not add a promoted=recommended filter on Desktop', () => {
-      const clientApp = CLIENT_APP_FIREFOX;
-      const { state } = dispatchClientMetadata({ clientApp });
-
-      const filters = {};
-
-      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
-      expect(newFilters.promoted).toEqual(undefined);
-    });
-
-    it('adds a addonType=extension filter on Android', () => {
-      const clientApp = CLIENT_APP_ANDROID;
-      const { state } = dispatchClientMetadata({ clientApp });
-
-      const filters = {};
-
-      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
-      expect(newFilters.clientApp).toEqual(clientApp);
-      expect(newFilters.addonType).toEqual(ADDON_TYPE_EXTENSION);
-    });
-
-    it('does not add a addonType=extension filter on Desktop', () => {
-      const clientApp = CLIENT_APP_FIREFOX;
-      const { state } = dispatchClientMetadata({ clientApp });
-
-      const filters = {};
-
-      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
-      expect(newFilters.addonType).toEqual(undefined);
     });
   });
 

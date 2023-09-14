@@ -85,6 +85,7 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'enableDevTools',
+    'enableFeatureMoreAndroidExtensions',
     'enableFeatureVPNPromo',
     'enableRequestID',
     'enableStrictMode',
@@ -408,6 +409,8 @@ module.exports = {
   // https://github.com/mozilla/addons-frontend/issues/6362.
 
   enableFeatureVPNPromo: true,
+
+  enableFeatureMoreAndroidExtensions: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

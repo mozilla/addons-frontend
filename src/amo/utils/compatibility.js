@@ -3,6 +3,7 @@
 import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import { mozCompare } from 'addons-moz-compare';
+import config from 'config';
 
 import {
   USER_AGENT_BROWSER_FIREFOX,
@@ -111,19 +112,26 @@ export const isFirefoxForIOS = (userAgentInfo: UserAgentInfoType): boolean => {
 };
 
 export const isAndroidInstallable = ({
+  _config = config,
   addon,
 }: {
+  _config?: typeof config,
   addon: AddonType | null,
 }): boolean => {
-  // Only extensions that are recommended on android are considered compatible.
-  // See https://github.com/mozilla/addons-frontend/issues/9713.
+  if (!addon || addon.type !== ADDON_TYPE_EXTENSION) {
+    return false;
+  }
+
+  // When we enable this feature, extensions should be installable on Android.
+  if (_config.get('enableFeatureMoreAndroidExtensions')) {
+    return true;
+  }
+
+  // Otherwise, only extensions that are recommended on android are considered
+  // compatible, see: https://github.com/mozilla/addons-frontend/issues/9713.
   return (
-    !!addon &&
-    addon.type === ADDON_TYPE_EXTENSION &&
-    getPromotedCategory({
-      addon,
-      clientApp: CLIENT_APP_ANDROID,
-    }) === RECOMMENDED
+    getPromotedCategory({ addon, clientApp: CLIENT_APP_ANDROID }) ===
+    RECOMMENDED
   );
 };
 

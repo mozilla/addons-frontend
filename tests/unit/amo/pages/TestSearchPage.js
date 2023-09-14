@@ -1,5 +1,6 @@
 import { cleanup, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import config from 'config';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import { createApiError } from 'amo/api/index';
@@ -36,10 +37,16 @@ import {
   fakeCategory,
   getElement,
   getElements,
+  getMockConfig,
   getSearchErrorHandlerId,
   renderPage as defaultRender,
   screen,
 } from 'tests/unit/helpers';
+
+// We need to control the config, which is used by SearchFilters, but we are
+// rendering the SearchPage component, so we have to control it via mocking as
+// opposed to injecting a _config prop.
+jest.mock('config');
 
 describe(__filename, () => {
   let history;
@@ -50,6 +57,11 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
+
+    const mockConfig = getMockConfig({});
+    config.get.mockImplementation((key) => {
+      return mockConfig[key];
+    });
   });
 
   const getLocation = ({ category, query, tag, type }) => {
@@ -832,7 +844,14 @@ describe(__filename, () => {
       });
     });
 
-    it('does not display the addonType or badging filters on Android', () => {
+    it('does not display the addonType or badging filters on Android when enableFeatureMoreAndroidExtensions is disabled', () => {
+      const mockConfig = getMockConfig({
+        enableFeatureMoreAndroidExtensions: false,
+      });
+      config.get.mockImplementation((key) => {
+        return mockConfig[key];
+      });
+
       dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
       render({ location: `/${lang}/${CLIENT_APP_ANDROID}/search/` });
 
@@ -842,6 +861,25 @@ describe(__filename, () => {
       expect(
         screen.queryByRole('combobox', { name: 'Badging' }),
       ).not.toBeInTheDocument();
+    });
+
+    it('displays the badging filter but not the addonType one on Android when enableFeatureMoreAndroidExtensions is enabled', () => {
+      const mockConfig = getMockConfig({
+        enableFeatureMoreAndroidExtensions: true,
+      });
+      config.get.mockImplementation((key) => {
+        return mockConfig[key];
+      });
+
+      dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
+      render({ location: `/${lang}/${CLIENT_APP_ANDROID}/search/` });
+
+      expect(
+        screen.queryByRole('combobox', { name: 'Add-on Type' }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByRole('combobox', { name: 'Badging' }),
+      ).toBeInTheDocument();
     });
   });
 
