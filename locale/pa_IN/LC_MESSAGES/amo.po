@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-09-02 13:52+0000\n"
+"PO-Revision-Date: 2023-09-16 14:47+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1460,9 +1460,8 @@ msgstr[0] "ਚਾਰ-ਸਟਾਰ ਦੀਆਂ ਸਾਰੀਆਂ ਸਮੀਖ�
 msgstr[1] "ਚਾਰ-ਸਟਾਰ ਦੀਆਂ ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
+msgstr "ਕੋਈ ਚਾਰ-ਸਟਾਰ ਰੀਵਿਊ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:93
 #, fuzzy
