@@ -410,7 +410,7 @@ module.exports = {
 
   enableFeatureVPNPromo: true,
 
-  enableFeatureMoreAndroidExtensions: false,
+  enableFeatureMoreAndroidExtensions: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
