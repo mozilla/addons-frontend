@@ -23,6 +23,30 @@
   }
 }
 
+.AddonReviewCard-addonReviewLabel {
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+.AddonReviewCard-addonNameBold {
+  font-weight: bold;
+}
+
+.AddonReviewCard-addonInfo {
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.AddonReviewCard-addonInfo img {
+  max-width: 40px;
+  max-height: 40px;
+  margin-right: 10px;
+}
+
 .AddonReviewCard-authorByLine {
   overflow: hidden;
   text-overflow: ellipsis;
