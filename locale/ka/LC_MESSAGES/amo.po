@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-05-18 19:49+0000\n"
+"PO-Revision-Date: 2023-09-23 19:13+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -380,7 +380,7 @@ msgstr "დაწერეთ მიმოხილვა"
 
 #: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
-msgstr "დაწეროთ თქვენი გამოცდილების შესახებ, დამატებით სარგებლობასთან დაკავშირებით."
+msgstr "დაწეროთ თქვენი გამოცდილების შესახებ დამატებით სარგებლობასთან დაკავშირებით."
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
@@ -2533,12 +2533,12 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
-"დამატების მიმოხილვები არის საშუალება, დამატების შესახებ, თქვენი მოსაზრების სხვებისთვის გაზიარებისთვის. ჩვენი შემსწორებელთა გუნდი იტოვებს უფლებას უარყოს, ან წაშალოს ნებისმიერი მიმოხილვა, რომელიც "
+"დამატების მიმოხილვები არის საშუალება დამატების შესახებ თქვენი მოსაზრების სხვებისთვის გაზიარებისთვის. ჩვენი შემსწორებელთა გუნდი იტოვებს უფლებას უარყოს ან წაშალოს ნებისმიერი მიმოხილვა, რომელიც "
 "ეწინააღმდეგება ჩვენს წესდებას."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
-msgstr "რჩევები, სრულყოფილი მიმოხილვის გასაკეთებლად"
+msgstr "რჩევები სრულყოფილი მიმოხილვის გასაკეთებლად"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
@@ -2546,7 +2546,7 @@ msgstr "სასურველია:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "დაწეროთ ისე, თითქოს თქვენს მეგობარს უამბობთ თქვენი გამოცდილების შესახებ, დამატებით სარგებლობასთან დაკავშირებით."
+msgstr "დაწეროთ ისე, თითქოს თქვენს მეგობარს უამბობთ თქვენი გამოცდილების შესახებ დამატებით სარგებლობასთან დაკავშირებით."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -2586,19 +2586,19 @@ msgstr "არაა სასურველი:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr "ერთსიტყვიანი მიმოხილვის გაგზავნა, როგორიცაა \"მშვენიერია!\", \"საოცარია\", ან \"ცუდია\"."
+msgstr "ერთსიტყვიანი მიმოხილვის გაგზავნა, როგორიცაა „მშვენიერია!“, „საოცარია“ ან „ცუდია“."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
-"ტექნიკური ხარვეზების აღნიშვნა, მხარდაჭერის შესახებ მოთხოვნები და ახალი შესაძლებლობების შესახებ, შეთავაზებების გაკეთება. ამისთვის, შეგიძლიათ გამოიყენოთ დამატების მხარდასაჭერი ბმულები, არსებობის "
-"შემთხვევაში. მათი პოვნა, დამატების მთავარი გვერდის მარცხნივ არსებულ სვეტში შეიძლება."
+"ტექნიკური ხარვეზების აღნიშვნა, მხარდაჭერის შესახებ მოთხოვნები და ახალი შესაძლებლობების შესახებ შეთავაზებების გაკეთება. ამისთვის შეგიძლიათ გამოიყენოთ დამატების მხარდასაჭერი ბმულები არსებობის "
+"შემთხვევაში. მათი პოვნა დამატების მთავარი გვერდის მარცხნივ არსებულ სვეტში შეიძლება."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr "იმ დამატებებზე მიმოხილვის გაკეთება, რომელიც თავად არ გამოგიყენებიათ."
+msgstr "იმ დამატებებზე მიმოხილვის გაკეთება, რომლებიც თავად არ გამოგიყენებიათ."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
 msgid "Use profanity, sexual language or language that can be construed as hateful."
