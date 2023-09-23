@@ -359,7 +359,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     let byLine;
     const addonIconURL = review ? review.reviewAddon.iconUrl : null;
-    const addonName = review ? review.reviewAddon.name['en-US'] : null;
+    const addonName = review
+      ? review.reviewAddon.name['en-US'] ||
+        review.reviewAddon.name[review.reviewAddon.name._default]
+      : null;
     const noAuthor = shortByLine || this.isReply();
     const showUserProfileLink = !noAuthor && hasUsersEditPermission;
 
