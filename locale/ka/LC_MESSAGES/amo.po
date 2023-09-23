@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-09-23 19:13+0000\n"
+"PO-Revision-Date: 2023-09-23 19:18+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2481,16 +2481,16 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
-"კრიტიკა დამატების იმ მხარეების, რაც წინასწარვე იყო განსაზღვრული. მაგალითად, უარყოფითი მიმოხილვის დატოვება, დამატებაში რეკლამების ჩვენების ან ინფორმაციის შეგროვების შესახებ, მაშინ როცა ეს ყველაფერი "
-"დამატების დანიშნულებას წარმოადგენს ან მისი მუშაობისთვისაა აუცილებელი."
+"კრიტიკა დამატების იმ მხარეებისა, რომლებიც იმთავითვე განსაზღვრული იყო. მაგალითად, უარყოფითი მიმოხილვის დატოვება დამატებაში რეკლამების ჩვენების ან ინფორმაციის შეგროვების შესახებ, მაშინ როცა ეს "
+"ყველაფერი დამატების დანიშნულებას წარმოადგენს ან მისი მუშაობისთვისაა აუცილებელი."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
-msgstr "ხშირად დასმული კითხვები, მიმოხილვის გაკეთების შესახებ"
+msgstr "ხშირად დასმული კითხვები მიმოხილვის გაკეთების შესახებ"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
-msgstr "როგორ გავგზავნო მოხსენება, არასასურველი მიმოხილვის შესახებ?"
+msgstr "როგორ გავგზავნო მოხსენება არასასურველი მიმოხილვის შესახებ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
@@ -2506,7 +2506,7 @@ msgstr "მე ვარ დამატების ავტორი, შე�
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr "დიახ, დამატების ავტორს, თითოეულ მიმოხილვაზე პასუხის გაცემა შეუძლია ერთხელ. დამატებითი განხილვისთვის კი შეგიძლიათ თემა გახსნათ ჩვენს %(startLink)sფორუმზე%(endLink)s."
+msgstr "დიახ, დამატების შემქმნელს თითოეულ მიმოხილვაზე პასუხის გაცემა შეუძლია ერთხელ. დამატებითი განხილვისთვის კი შეგიძლიათ თემა გახსნათ ჩვენს %(startLink)sფორუმზე%(endLink)s."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -2517,8 +2517,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
-"ზოგადად, არა. მაგრამ თუ მიმოხილვა არ შეესაბამება ჩვენი მიმოხილვის სახელმძღვანელოში მოცემულ წესებს, შეგიძლიათ დააწკაპოთ ბმულზე \"მოხსენება ამ მიმოხილვაზე\" და გაუგზავნოთ შემსწორებელთა გუნდს. თუ "
-"მოხსენება შეიცავს უკმაყოფილებას იმ საკითხზე, რაც უკვე გამოსწორებულია ახალ ვერსიაში, ჩვენ შეიძლება წავშალოთ ასეთი მიმოხილვა."
+"საზოგადოდ, არა. მიუხედავად ამისა, თუ მიმოხილვა ეწინააღმდეგება ჩვენი მიმოხილვის სახელმძღვანელო წესებით, შეგიძლიათ დაწკაპოთ ბმულზე „მიმოხილვის გასაჩივრება“ და გაუგზავნოთ ზედამხედველთა გუნდს. თუ "
+"მოხსენება შეიცავს უკმაყოფილებას იმ საკითხზე, რომელიც უკვე გამოსწორებულია ახალ ვერსიაში, ჩვენ შეიძლება წავშალოთ ასეთი მიმოხილვა."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
