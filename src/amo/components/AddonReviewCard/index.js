@@ -67,6 +67,7 @@ type Props = {|
   isReplyToReviewId?: number,
   review?: UserReviewType | null,
   siteUserCanReply: ?boolean,
+  isUserProfile?: boolean,
 |};
 
 type PropsFromState = {|
@@ -551,7 +552,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         <div className="AddonReviewCard-container">
           {errorHandler.renderErrorIfPresent()}
           {/* Div to display Addon's name and icon */}
-          {addonName && addonIconURL && (
+          {this.props.isUserProfile && addonName && addonIconURL && (
             <div className="AddonReviewCard-addonInfo">
               <img src={addonIconURL} alt={`Icon for ${addonName}`} />
               <span>

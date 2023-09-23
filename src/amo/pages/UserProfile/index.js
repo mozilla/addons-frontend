@@ -249,6 +249,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   review={review}
                   shortByLine
                   siteUserCanReply={false}
+                  isUserProfile
                 />
               </li>
             );
