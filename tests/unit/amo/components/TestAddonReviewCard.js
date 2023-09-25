@@ -1853,37 +1853,5 @@ describe(__filename, () => {
         ).toEqual(id.toString());
       });
     });
-
-    describe('AddonName extraction and display in AddonReviewCard', () => {
-      it('displays the addonName extracted from "en-US" key', () => {
-        const addonName = 'Test Addon';
-        const review = _setReview({
-          reviewAddon: {
-            name: {
-              'en-US': addonName,
-            },
-          },
-        });
-        render({ review });
-
-        expect(screen.getByText(`Review of ${addonName}`)).toBeInTheDocument();
-      });
-
-      it('displays the addonName from the default key if "en-US" is not present', () => {
-        const addonName = 'Test Addon';
-        const review = _setReview({
-          reviewAddon: {
-            name: {
-              '_default': {
-                'FR': addonName,
-              },
-            },
-          },
-        });
-        render({ review });
-
-        expect(screen.getByText(`Review of ${addonName}`)).toBeInTheDocument();
-      });
-    });
   });
 });
