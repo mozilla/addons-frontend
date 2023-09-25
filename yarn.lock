@@ -4308,10 +4308,10 @@ eslint-plugin-react@7.32.2, eslint-plugin-react@^7.30.0:
     semver "^6.3.0"
     string.prototype.matchall "^4.0.8"
 
-eslint-plugin-testing-library@^5.11.0:
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-5.11.0.tgz#0bad7668e216e20dd12f8c3652ca353009163121"
-  integrity sha512-ELY7Gefo+61OfXKlQeXNIDVVLPcvKTeiQOoMZG9TeuWa7Ln4dUNRv8JdRWBQI9Mbb427XGlVB1aa1QPZxBJM8Q==
+eslint-plugin-testing-library@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-6.0.2.tgz#a0884f603d8744695919413e7cf2adfb42223e2c"
+  integrity sha512-3BV6FWtLbpKFb4Y1obSdt8PC9xSqz6T+7EHB/6pSCXqVjKPoS67ck903feKMKQphd5VhrX+N51yHuVaPa7elsw==
   dependencies:
     "@typescript-eslint/utils" "^5.58.0"
 
