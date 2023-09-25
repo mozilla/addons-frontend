@@ -1593,10 +1593,10 @@
   resolved "https://registry.yarnpkg.com/@redux-saga/types/-/types-1.2.1.tgz#9403f51c17cae37edf870c6bc0c81c1ece5ccef8"
   integrity sha512-1dgmkh+3so0+LlBWRhGA33ua4MYr7tUOj+a9Si28vUi0IUFNbff1T3sgpeDJI/LaC75bBYnQ0A3wXjn0OrRNBA==
 
-"@reduxjs/toolkit@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.9.5.tgz#d3987849c24189ca483baa7aa59386c8e52077c4"
-  integrity sha512-Rt97jHmfTeaxL4swLRNPD/zV4OxTes4la07Xc4hetpUW/vc75t5m1ANyxG6ymnEQ2FsLQsoMlYB2vV1sO3m8tQ==
+"@reduxjs/toolkit@1.9.6":
+  version "1.9.6"
+  resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.9.6.tgz#fc968b45fe5b17ff90932c4556960d9c1078365a"
+  integrity sha512-Gc4ikl90ORF4viIdAkY06JNUnODjKfGxZRwATM30EdHq8hLSVoSrwXne5dd739yenP5bJxAX7tLuOWK5RPGtrw==
   dependencies:
     immer "^9.0.21"
     redux "^4.2.1"
