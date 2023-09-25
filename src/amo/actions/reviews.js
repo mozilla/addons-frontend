@@ -55,7 +55,7 @@ export const UPDATE_RATING_COUNTS: 'UPDATE_RATING_COUNTS' =
 export type ReviewAddonType = {|
   iconUrl: string,
   id: number,
-  name: string,
+  name: Object,
   slug: string,
 |};
 
