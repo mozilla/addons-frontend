@@ -359,11 +359,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     } = this.props;
 
     let byLine;
-    const addonIconURL = review ? review.reviewAddon.iconUrl : null;
-    const addonName =
-      review?.reviewAddon?.name?.['en-US'] ||
-      review?.reviewAddon?.name?.[review?.reviewAddon?.name?._default] ||
-      null;
+    const addonIconURL = review?.reviewAddon?.iconUrl || null;
+    const addonName = review?.reviewAddon?.name || null;
     const noAuthor = shortByLine || this.isReply();
     const showUserProfileLink = !noAuthor && hasUsersEditPermission;
 
@@ -552,19 +549,20 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         <div className="AddonReviewCard-container">
           {errorHandler.renderErrorIfPresent()}
           {/* Div to display Addon's name and icon */}
-          {this.props.isUserProfile && addonName && addonIconURL && (
-            <div className="AddonReviewCard-addonInfo">
-              <img src={addonIconURL} alt={`Icon for ${addonName}`} />
-              <span>
-                <span className="AddonReviewCard-addonReviewLabel">
-                  Review of{' '}
+          {this.props.isUserProfile &&
+            addonName &&
+            addonIconURL &&
+            this.isReply() && (
+              <div className="AddonReviewCard-addonInfo">
+                <img src={addonIconURL} alt={`Icon for ${addonName}`} />
+                <span>
+                  <span className="AddonReviewCard-addonReviewLabel">
+                    Review of{' '}
+                  </span>
+                  <span className="AddonReviewCard-addonName">{addonName}</span>
                 </span>
-                <span className="AddonReviewCard-addonNameBold">
-                  {addonName}
-                </span>
-              </span>
-            </div>
-          )}
+              </div>
+            )}
 
           {review && review.isDeleted && (
             <Notice type="error" className="AddonReviewCard-non-public-notice">

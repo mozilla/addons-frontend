@@ -43,6 +43,7 @@ import reviewsReducer, {
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
 import { fakeAddon, fakeReview } from 'tests/unit/helpers';
+import { selectLocalizedContent } from 'amo/reducers/utils';
 
 describe(__filename, () => {
   function setFakeReview({
@@ -124,7 +125,7 @@ describe(__filename, () => {
       reviewAddon: {
         iconUrl: fakeReview.addon.icon_url,
         id: fakeReview.addon.id,
-        name: fakeReview.addon.name,
+        name: selectLocalizedContent(fakeReview.addon.name, 'en-US'),
         slug: fakeReview.addon.slug,
       },
       body: fakeReview.body,
