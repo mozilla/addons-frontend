@@ -7,8 +7,7 @@ import { callApi } from 'amo/api';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { ApiState } from 'amo/reducers/api';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
-import type { PaginatedApiResponse } from 'amo/types/api';
-import type { LocalizedString } from 'amo/types/api';
+import type { PaginatedApiResponse, LocalizedString } from 'amo/types/api';
 
 type ExternalReviewTypeBase = {|
   addon: {|
