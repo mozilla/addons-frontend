@@ -552,7 +552,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           {this.props.isUserProfile &&
             addonName &&
             addonIconURL &&
-            this.isReply() && (
+            !this.isReply() && (
               <div className="AddonReviewCard-addonInfo">
                 <img src={addonIconURL} alt={`Icon for ${addonName}`} />
                 <span>
