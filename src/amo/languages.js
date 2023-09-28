@@ -495,7 +495,7 @@ export const unfilteredLanguages = {
   },
   sat: {
     English: 'Santali',
-    native: '\u0938\u0902\u0924\u093e\u0932\u0940',
+    native: '\u1c65\u1c5f\u1c71\u1c5b\u1c5f\u1c72\u1c64',
   },
   sah: {
     English: 'Sakha',
