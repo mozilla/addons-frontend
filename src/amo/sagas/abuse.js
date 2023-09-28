@@ -19,7 +19,14 @@ import type {
 import type { Saga } from 'amo/types/sagas';
 
 export function* reportAddon({
-  payload: { addonSlug, errorHandlerId, message },
+  payload: {
+    addonSlug,
+    errorHandlerId,
+    reporter_email,
+    reporter_name,
+    message,
+    reason,
+  },
 }: SendAddonAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -31,14 +38,20 @@ export function* reportAddon({
     const params: ReportAddonParams = {
       addonSlug,
       api: state.api,
+      reporter_name: reporter_name || null,
+      reporter_email: reporter_email || null,
       message,
+      reason: reason || null,
     };
     const response = yield call(reportAddonApi, params);
 
     yield put(
       loadAddonAbuseReport({
         addon: response.addon,
+        reporter_name: response.reporter_name,
+        reporter_email: response.reporter_email,
         message: response.message,
+        reason: response.reason,
         reporter: response.reporter,
       }),
     );
@@ -59,6 +72,9 @@ export function* reportAddonViaFirefox({
           addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
           message: null,
           reporter: null,
+          reporter_email: null,
+          reporter_name: null,
+          reason: null,
         }),
       );
     }

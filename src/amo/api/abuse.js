@@ -23,7 +23,10 @@ export type AbuseReporter = {|
 export type ReportAddonParams = {|
   addonSlug: string,
   api: ApiState,
+  reporter_name: string | null,
+  reporter_email: string | null,
   message: string,
+  reason: string | null,
 |};
 
 export type ReportAddonResponse = {|
@@ -34,18 +37,24 @@ export type ReportAddonResponse = {|
   |},
   message: string | null,
   reporter: AbuseReporter | null,
+  reporter_name: string | null,
+  reporter_email: string | null,
+  reason: string | null,
 |};
 
 export function reportAddon({
   addonSlug,
   api,
+  reporter_name,
+  reporter_email,
   message,
+  reason,
 }: ReportAddonParams): Promise<ReportAddonResponse> {
   return callApi({
     auth: true,
     endpoint: 'abuse/report/addon',
     method: 'POST',
-    body: { addon: addonSlug, message },
+    body: { addon: addonSlug, reporter_email, reporter_name, message, reason },
     apiState: api,
   });
 }

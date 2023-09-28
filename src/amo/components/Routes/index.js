@@ -16,6 +16,7 @@ import CategoryPage from 'amo/pages/CategoryPage';
 import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
+import Feedback from 'amo/pages/Feedback';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
@@ -160,6 +161,12 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       exact
       path="/:lang/:application(firefox|android)/tag/:tag/"
       component={TagPage}
+    />
+
+    <Route
+      exact
+      path="/:lang/:application(firefox|android)/feedback/addon/:addonIdentifier/"
+      component={Feedback}
     />
 
     {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}

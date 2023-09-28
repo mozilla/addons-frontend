@@ -28,11 +28,15 @@ export type AbuseState = {|
   bySlug: {
     [addonSlug: string]: AddonAbuseState,
   },
+  byGUID: {
+    [addonGUID: string]: AddonAbuseState,
+  },
   loading: boolean,
 |};
 
 export const initialState: AbuseState = {
   bySlug: {},
+  byGUID: {},
   loading: false,
 };
 
@@ -61,7 +65,10 @@ type LoadAddonAbuseReportAction = {|
 
 export function loadAddonAbuseReport({
   addon,
+  reporter_email,
+  reporter_name,
   message,
+  reason,
   reporter,
 }: ReportAddonResponse): LoadAddonAbuseReportAction {
   invariant(addon, 'addon is required');
@@ -70,14 +77,24 @@ export function loadAddonAbuseReport({
 
   return {
     type: LOAD_ADDON_ABUSE_REPORT,
-    payload: { addon, message, reporter },
+    payload: {
+      addon,
+      reporter_email,
+      reporter_name,
+      message,
+      reason,
+      reporter,
+    },
   };
 }
 
 type SendAddonAbuseReportParams = {|
   addonSlug: string,
   errorHandlerId: string,
+  reporter_email?: string | null,
+  reporter_name?: string | null,
   message: string,
+  reason?: string | null,
 |};
 
 export type SendAddonAbuseReportAction = {|
@@ -88,7 +105,10 @@ export type SendAddonAbuseReportAction = {|
 export function sendAddonAbuseReport({
   addonSlug,
   errorHandlerId,
+  reporter_email = null,
+  reporter_name = null,
   message,
+  reason = null,
 }: SendAddonAbuseReportParams): SendAddonAbuseReportAction {
   invariant(addonSlug, 'addonSlug is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
@@ -96,7 +116,14 @@ export function sendAddonAbuseReport({
 
   return {
     type: SEND_ADDON_ABUSE_REPORT,
-    payload: { addonSlug, errorHandlerId, message },
+    payload: {
+      addonSlug,
+      errorHandlerId,
+      reporter_email,
+      reporter_name,
+      message,
+      reason,
+    },
   };
 }
 
@@ -178,6 +205,10 @@ export default function abuseReducer(
         bySlug: {
           ...state.bySlug,
           [addon.slug]: { message, reporter, uiVisible: false },
+        },
+        byGUID: {
+          ...state.byGUID,
+          [addon.guid]: { message, reporter, uiVisible: false },
         },
         loading: false,
       };

@@ -1,0 +1,113 @@
+@import '~amo/css/styles';
+
+$font-size-aside: $font-size-xs;
+
+.Feedback {
+  @include page-padding;
+
+  @include respond-to(large) {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.Feedback-form-messages .Notice,
+.Feedback--Card {
+  margin-bottom: $padding-page;
+
+  ul {
+    padding-left: 0;
+  }
+}
+
+.Feedback-details-aside {
+  color: $grey-50;
+  font-size: $font-size-aside;
+  margin-top: 0;
+
+  @include respond-to(large) {
+    @include margin(0, 0, 0, $padding-page);
+
+    float: right;
+    width: 35%;
+
+    [dir='rtl'] & {
+      float: left;
+    }
+  }
+}
+
+.Feedback--label {
+  display: block;
+}
+
+input[type='radio'] + .Feedback--label,
+input[type='checkbox'] + .Feedback--label {
+  display: revert;
+  padding-inline-start: 1em;
+}
+
+.Feedback--help {
+  color: $grey-50;
+  display: block;
+  font-size: $font-size-aside;
+  margin-top: 4px;
+}
+
+.Feedback input,
+.Feedback textarea {
+  width: 100%;
+
+  &:disabled {
+    background: $grey-20;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    @include focus;
+  }
+}
+
+.Feedback input {
+  @include respond-to(large) {
+    width: 60%;
+  }
+}
+
+.Feedback input[type='radio'],
+.Feedback input[type='checkbox'] {
+  width: revert;
+}
+
+.Feedback-name,
+.Feedback-email {
+  margin-bottom: 16px;
+}
+
+.Feedback-text {
+  min-height: 3rem;
+  resize: vertical;
+}
+
+.Feedback-category--li {
+  list-style: none;
+}
+
+.Feedback-buttons-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  @include respond-to(medium) {
+    flex-flow: row-reverse;
+  }
+}
+
+.Feedback-button {
+  margin-bottom: $padding-page;
+
+  @include respond-to(medium) {
+    margin-bottom: 0;
+  }
+}

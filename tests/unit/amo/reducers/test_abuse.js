@@ -27,7 +27,7 @@ describe(__filename, () => {
       store.dispatch(
         loadAddonAbuseReport(
           createFakeAddonAbuseReport({
-            addon: { ...fakeAddon, slug: 'some-addon' },
+            addon: { ...fakeAddon, slug: 'some-addon', guid: 'some@guid' },
             message: 'This add-on is malwaré.',
             reporter: null,
           }),
@@ -36,7 +36,11 @@ describe(__filename, () => {
       store.dispatch(
         loadAddonAbuseReport(
           createFakeAddonAbuseReport({
-            addon: { ...fakeAddon, slug: 'another-addon' },
+            addon: {
+              ...fakeAddon,
+              slug: 'another-addon',
+              guid: 'another@guid',
+            },
             message: 'The add-on is boring',
             reporter: null,
           }),
@@ -49,6 +53,14 @@ describe(__filename, () => {
             message: 'The add-on is boring',
           },
           'some-addon': {
+            message: 'This add-on is malwaré.',
+          },
+        },
+        byGUID: {
+          'another@guid': {
+            message: 'The add-on is boring',
+          },
+          'some@guid': {
             message: 'This add-on is malwaré.',
           },
         },
@@ -66,6 +78,7 @@ describe(__filename, () => {
           bySlug: {
             [fakeAddon.slug]: { uiVisible: false },
           },
+          byGUID: {},
           loading: false,
         });
       });
@@ -82,6 +95,7 @@ describe(__filename, () => {
           bySlug: {
             [fakeAddon.slug]: { uiVisible: true },
           },
+          byGUID: {},
           loading: false,
         });
       });
@@ -95,6 +109,9 @@ describe(__filename, () => {
           addonSlug: 'some-addon',
           errorHandlerId: 'some-error-handler',
           message: 'The add-on is malware',
+          reason: 'malware',
+          reporter_name: 'Foxy',
+          reporter_email: 'made_up@email',
         };
       });
 
