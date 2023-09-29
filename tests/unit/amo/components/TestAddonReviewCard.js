@@ -1334,6 +1334,29 @@ describe(__filename, () => {
     });
   });
 
+  describe('Tests for AddonReviewCard-addonInfo', () => {
+    it('displays addon icon and name when isUserProfile is true and isReply is false', () => {
+      const review = _setReview({
+        reviewAddon: {
+          ...fakeReview.reviewAddon,
+          IconUrl: 'http://sample.url/icon.png',
+          name: 'Sample Addon',
+        },
+      });
+
+      render({ review, isUserProfile: true, isReply: false });
+      expect(
+        screen.getByClassName('AddonReviewCard-addonInfo'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByClassName('AddonReviewCard-addonReviewLabel'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByClassName('AddonReviewCard-addonName'),
+      ).toBeInTheDocument();
+    });
+  });
+
   describe('Tests for UserRating', () => {
     it('renders a Rating', () => {
       render({ review: _setReview({ score: 2 }) });
