@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-09-30 09:32+0000\n"
+"PO-Revision-Date: 2023-09-30 09:35+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1971,8 +1971,8 @@ msgstr "අනුවාද කිසිවක් ප්‍රකාශයට ප
 #: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "සමාලෝචන %(count)s කියවන්න"
-msgstr[1] "සමාලෝචන %(count)s කියවන්න"
+msgstr[0] "සමාලෝචන %(count)s ක් කියවන්න"
+msgstr[1] "සමාලෝචන %(count)s ක් කියවන්න"
 
 #: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
