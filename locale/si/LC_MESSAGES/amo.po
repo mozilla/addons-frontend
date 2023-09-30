@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-09-30 08:43+0000\n"
+"PO-Revision-Date: 2023-09-30 09:32+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -517,11 +517,11 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
-msgstr ""
+msgstr "ක්‍රීඩා සහ විනෝදාස්වාදය සඳහා තවත් කදිම දිගු"
 
 #: src/amo/components/AddonSuggestions/index.js:95
 msgid "More amazing image, photo & media extensions"
-msgstr ""
+msgstr "විස්මයජනක අනුරූප, ඡායාරූප සහ මාධ්‍ය දිගු"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -714,7 +714,7 @@ msgstr "එක්කහු වර්ගනය"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Newest first"
-msgstr "මුලින්ම අළුත්"
+msgstr "පළමුව අළුත්"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Oldest first"
@@ -939,7 +939,7 @@ msgstr "සමාලෝචනය හමු නොවිණි."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "මෙය දෝෂ වාර්තාවක් හෝ සහාය ඉල්ලීමකි"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
@@ -999,7 +999,7 @@ msgstr "සංසදය"
 
 #: src/amo/components/Footer/index.js:128
 msgid "Report a bug"
-msgstr ""
+msgstr "දෝෂ වාර්තා"
 
 #: src/amo/components/Footer/index.js:133
 msgid "Review Guide"
@@ -1256,11 +1256,11 @@ msgstr "පසුරු පුවරුවට දත්ත ආදානය"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Block content on any page"
-msgstr ""
+msgstr "ඕනෑම පිටුවක අන්තර්ගත අවහිරය"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Read your browsing history"
-msgstr ""
+msgstr "පිරික්සුම් ඉතිහාසය කියවීම"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
