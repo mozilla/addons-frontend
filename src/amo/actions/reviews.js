@@ -80,12 +80,11 @@ export function createInternalReview(
   review: ExternalReviewType | ExternalReviewReplyType,
   lang: string = '',
 ): UserReviewType {
-  const effectiveLang = lang || 'en-US';
   return {
     reviewAddon: {
       iconUrl: review.addon.icon_url,
       id: review.addon.id,
-      name: selectLocalizedContent(review.addon.name, effectiveLang),
+      name: selectLocalizedContent(review.addon.name, lang),
       slug: review.addon.slug,
     },
     body: review.body,
@@ -95,9 +94,7 @@ export function createInternalReview(
     isDeveloperReply: review.is_developer_reply,
     isLatest: review.is_latest,
     score: review.score || null,
-    reply: review.reply
-      ? createInternalReview(review.reply, effectiveLang)
-      : null,
+    reply: review.reply ? createInternalReview(review.reply, lang) : null,
     userId: review.user.id,
     userName: review.user.name,
     userUrl: review.user.url,

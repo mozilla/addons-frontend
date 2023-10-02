@@ -54,6 +54,7 @@ import App from 'amo/components/App';
 import { ErrorHandler } from 'amo/errorHandler';
 import { makeI18n } from 'amo/i18n/utils';
 import { createGroupedRatings, createInternalAddon } from 'amo/reducers/addons';
+import { createInternalReview } from 'amo/actions/reviews';
 import {
   autocompleteLoad,
   autocompleteStart,
@@ -1305,6 +1306,13 @@ export const fakeEventData = Object.freeze({
   click: 'some-click-data',
   conversion: 'some-conversion-data',
 });
+
+export const createInternalReviewWithLang = (
+  review,
+  lang = DEFAULT_LANG_IN_TESTS,
+) => {
+  return createInternalReview(review, lang);
+};
 
 export const createInternalAddonWithLang = (
   addon,

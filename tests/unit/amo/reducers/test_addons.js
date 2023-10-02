@@ -1,8 +1,4 @@
-import {
-  createInternalReview,
-  unloadAddonReviews,
-  updateRatingCounts,
-} from 'amo/actions/reviews';
+import { unloadAddonReviews, updateRatingCounts } from 'amo/actions/reviews';
 import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import addons, {
   createGroupedRatings,
@@ -24,6 +20,7 @@ import addons, {
 } from 'amo/reducers/addons';
 import { setLang } from 'amo/reducers/api';
 import {
+  createInternalReviewWithLang,
   createFakeAddon,
   createInternalAddonWithLang,
   createLocalizedString,
@@ -376,7 +373,7 @@ describe(__filename, () => {
     function _updateRatingCounts({
       addonId = 321,
       oldReview = null,
-      newReview = createInternalReview({ ...fakeReview }),
+      newReview = createInternalReviewWithLang({ ...fakeReview }),
     } = {}) {
       return updateRatingCounts({ addonId, oldReview, newReview });
     }
@@ -396,7 +393,7 @@ describe(__filename, () => {
     }
 
     function reviewWithScore(score) {
-      return createInternalReview({ ...fakeReview, score });
+      return createInternalReviewWithLang({ ...fakeReview, score });
     }
 
     function average(numbers) {
@@ -548,7 +545,7 @@ describe(__filename, () => {
         _updateRatingCounts({
           addonId: addon.id,
           oldReview: null,
-          newReview: createInternalReview({
+          newReview: createInternalReviewWithLang({
             ...fakeReview,
             body: null,
             score: 5,
@@ -574,7 +571,7 @@ describe(__filename, () => {
         _updateRatingCounts({
           addonId: addon.id,
           oldReview: null,
-          newReview: createInternalReview({
+          newReview: createInternalReviewWithLang({
             ...fakeReview,
             body: 'Fantastic add-on',
             score: 5,
@@ -598,12 +595,12 @@ describe(__filename, () => {
         state,
         _updateRatingCounts({
           addonId: addon.id,
-          oldReview: createInternalReview({
+          oldReview: createInternalReviewWithLang({
             ...fakeReview,
             body: null,
             score: 5,
           }),
-          newReview: createInternalReview({
+          newReview: createInternalReviewWithLang({
             ...fakeReview,
             body: 'Fantastic add-on',
             score: 5,
@@ -629,8 +626,8 @@ describe(__filename, () => {
         state,
         _updateRatingCounts({
           addonId: addon.id,
-          oldReview: createInternalReview({ ...fakeReview }),
-          newReview: createInternalReview({ ...fakeReview }),
+          oldReview: createInternalReviewWithLang({ ...fakeReview }),
+          newReview: createInternalReviewWithLang({ ...fakeReview }),
         }),
       );
 
@@ -648,7 +645,7 @@ describe(__filename, () => {
         _updateRatingCounts({
           addonId: addon.id,
           oldReview: null,
-          newReview: createInternalReview({
+          newReview: createInternalReviewWithLang({
             ...fakeReview,
             body: 'This add-on is nice',
             score: 5,
@@ -677,8 +674,14 @@ describe(__filename, () => {
         state,
         _updateRatingCounts({
           addonId: addon.id,
-          oldReview: createInternalReview({ ...fakeReview, score: oldScore }),
-          newReview: createInternalReview({ ...fakeReview, score: newScore }),
+          oldReview: createInternalReviewWithLang({
+            ...fakeReview,
+            score: oldScore,
+          }),
+          newReview: createInternalReviewWithLang({
+            ...fakeReview,
+            score: newScore,
+          }),
         }),
       );
 
@@ -703,7 +706,10 @@ describe(__filename, () => {
         _updateRatingCounts({
           addonId: addon.id,
           oldReview: null,
-          newReview: createInternalReview({ ...fakeReview, score: newScore }),
+          newReview: createInternalReviewWithLang({
+            ...fakeReview,
+            score: newScore,
+          }),
         }),
       );
 
@@ -724,7 +730,10 @@ describe(__filename, () => {
         _updateRatingCounts({
           addonId: addon.id,
           oldReview: null,
-          newReview: createInternalReview({ ...fakeReview, score: newScore }),
+          newReview: createInternalReviewWithLang({
+            ...fakeReview,
+            score: newScore,
+          }),
         }),
       );
 
@@ -746,12 +755,12 @@ describe(__filename, () => {
         state,
         _updateRatingCounts({
           addonId: addon.id,
-          oldReview: createInternalReview({
+          oldReview: createInternalReviewWithLang({
             ...fakeReview,
             body: null,
             score: 5,
           }),
-          newReview: createInternalReview({
+          newReview: createInternalReviewWithLang({
             ...fakeReview,
             body: 'Fantastic add-on',
             score: 5,
@@ -780,7 +789,10 @@ describe(__filename, () => {
         _updateRatingCounts({
           addonId: addon.id,
           oldReview: null,
-          newReview: createInternalReview({ ...fakeReview, score: newScore }),
+          newReview: createInternalReviewWithLang({
+            ...fakeReview,
+            score: newScore,
+          }),
         }),
       );
 
