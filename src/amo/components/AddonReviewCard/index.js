@@ -554,10 +554,13 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             addonIconURL &&
             !this.isReply() && (
               <div className="AddonReviewCard-addonInfo">
-                <img src={addonIconURL} alt={`Icon for ${addonName}`} />
+                <img
+                  src={addonIconURL}
+                  alt={i18n.sprintf(i18n.gettext('Icon for %1$s'), addonName)}
+                />
                 <span>
                   <span className="AddonReviewCard-addonReviewLabel">
-                    Review of{' '}
+                    {i18n.sprintf(i18n.gettext('Review of %1$s'), addonName)}
                   </span>
                   <span className="AddonReviewCard-addonName">{addonName}</span>
                 </span>
