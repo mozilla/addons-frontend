@@ -27,6 +27,7 @@ import {
   unloadAddonReviews,
 } from 'amo/actions/reviews';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
+import { setLang } from 'amo/reducers/api';
 import reviewsReducer, {
   addReviewToState,
   changeViewState,
@@ -113,6 +114,9 @@ describe(__filename, () => {
     });
   }
 
+  const lang = 'en-US';
+  const stateWithLang = reviewsReducer(undefined, setLang(lang));
+
   it('defaults to an empty object', () => {
     expect(reviewsReducer(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(
       initialState,
@@ -121,7 +125,7 @@ describe(__filename, () => {
 
   it('stores a user review', () => {
     const action = setFakeReview();
-    const state = reviewsReducer(undefined, action);
+    const state = reviewsReducer(stateWithLang, action);
     const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview).toEqual({
@@ -153,7 +157,7 @@ describe(__filename, () => {
         body: replyBody,
       },
     });
-    const state = reviewsReducer(undefined, action);
+    const state = reviewsReducer(stateWithLang, action);
     const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview.reply.body).toEqual(replyBody);
@@ -163,7 +167,7 @@ describe(__filename, () => {
     it('sets a loading flag when fetching a review', () => {
       const reviewId = 1;
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         fetchReview({ errorHandlerId: 1, reviewId }),
       );
 
@@ -176,19 +180,19 @@ describe(__filename, () => {
       const _addReviewToState = sinon.stub().returns(initialState);
 
       const review = fakeReview;
-      reviewsReducer(undefined, setReview(review), {
+      reviewsReducer(stateWithLang, setReview(review), {
         _addReviewToState,
       });
 
       sinon.assert.calledWith(_addReviewToState, {
-        state: initialState,
+        state: stateWithLang,
         review: createInternalReviewWithLang(review),
       });
     });
 
     it('sets the loading flag to false', () => {
       const review = fakeReview;
-      const state = reviewsReducer(undefined, setReview(fakeReview));
+      const state = reviewsReducer(stateWithLang, setReview(fakeReview));
 
       expect(state.view[review.id].loadingReview).toEqual(false);
     });
@@ -199,12 +203,12 @@ describe(__filename, () => {
       const _addReviewToState = sinon.spy();
 
       const review = createInternalReviewWithLang(fakeReview);
-      reviewsReducer(undefined, setInternalReview(review), {
+      reviewsReducer(stateWithLang, setInternalReview(review), {
         _addReviewToState,
       });
 
       sinon.assert.calledWith(_addReviewToState, {
-        state: initialState,
+        state: stateWithLang,
         review,
       });
     });
@@ -212,7 +216,7 @@ describe(__filename, () => {
 
   it('stores a review reply object', () => {
     const review = { ...fakeReview, id: 1, body: 'Original review body' };
-    const state = reviewsReducer(undefined, setReview(review));
+    const state = reviewsReducer(stateWithLang, setReview(review));
 
     const reply = { ...review, id: 2, body: 'A developer reply' };
     const newState = reviewsReducer(
@@ -234,7 +238,7 @@ describe(__filename, () => {
     const reply = { ...fakeReview, body: 'A developer reply' };
     expect(() => {
       reviewsReducer(
-        undefined,
+        stateWithLang,
         setReviewReply({
           originalReviewId: 3,
           reply,
@@ -244,7 +248,7 @@ describe(__filename, () => {
   });
 
   it('preserves existing reviews', () => {
-    let state;
+    let state = stateWithLang;
 
     state = reviewsReducer(
       state,
@@ -276,7 +280,7 @@ describe(__filename, () => {
   });
 
   it('preserves unrelated state', () => {
-    let state = { ...initialState, somethingUnrelated: 'erp' };
+    let state = { ...stateWithLang, somethingUnrelated: 'erp' };
     state = reviewsReducer(state, setFakeReview());
     expect(state.somethingUnrelated).toEqual('erp');
   });
@@ -289,7 +293,7 @@ describe(__filename, () => {
         addonSlug: fakeAddon.slug,
         reviews: [review1, review2],
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
       const storedReviews = _selectReviews({
         reviewsState: state,
         addonSlug: fakeAddon.slug,
@@ -306,7 +310,7 @@ describe(__filename, () => {
       const review2 = { ...fakeReview, id: 3 };
       const review3 = { ...fakeReview, id: 4 };
 
-      let state;
+      let state = stateWithLang;
       state = reviewsReducer(
         state,
         _setAddonReviews({
@@ -341,7 +345,7 @@ describe(__filename, () => {
         addonSlug: fakeAddon.slug,
         reviews: [review1, review2],
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
       expect(state.byId[review1.id]).toEqual(
         createInternalReviewWithLang(review1),
       );
@@ -352,7 +356,7 @@ describe(__filename, () => {
 
     it('stores review counts', () => {
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setAddonReviews({
           addonSlug: 'slug1',
           reviews: [fakeReview],
@@ -382,7 +386,7 @@ describe(__filename, () => {
         reviews: [{ ...fakeReview, id: 1 }],
         score,
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
 
       expect(state.byAddon[fakeAddon.slug].score).toEqual(score);
     });
@@ -393,7 +397,7 @@ describe(__filename, () => {
         reviews: [{ ...fakeReview, id: 1 }],
         score: null,
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
 
       expect(state.byAddon[fakeAddon.slug].score).toEqual(null);
     });
@@ -405,7 +409,7 @@ describe(__filename, () => {
         page,
         reviews: [{ ...fakeReview, id: 1 }],
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
 
       expect(state.byAddon[fakeAddon.slug].page).toEqual(page);
     });
@@ -416,7 +420,7 @@ describe(__filename, () => {
       addonId,
       addonSlug = 'some-slug',
       permissionsToSet = { canReplyToReviews: true },
-      startState,
+      startState = stateWithLang,
       reviewId,
       userId,
     }) => {
@@ -509,7 +513,7 @@ describe(__filename, () => {
       const reviewId = 111;
 
       let state = reviewsReducer(
-        undefined,
+        stateWithLang,
         deleteAddonReview({
           addonId,
           errorHandlerId: 1,
@@ -602,7 +606,7 @@ describe(__filename, () => {
         addonSlug: fakeAddon.slug,
         reviews: [review1, review2],
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
 
       const reviewsData = _selectReviews({
         reviewsState: state,
@@ -642,7 +646,7 @@ describe(__filename, () => {
         reviews: [review1, review2],
         reviewCount,
       });
-      const reviewsState = reviewsReducer(undefined, action);
+      const reviewsState = reviewsReducer(stateWithLang, action);
 
       const data = _selectReviews({
         reviewsState,
@@ -659,7 +663,7 @@ describe(__filename, () => {
         addonSlug: 'slug1',
         reviews: [{ ...fakeReview, id: 1 }],
       });
-      const reviewsState = reviewsReducer(undefined, action);
+      const reviewsState = reviewsReducer(stateWithLang, action);
 
       const data = _selectReviews({
         reviewsState,
@@ -675,7 +679,7 @@ describe(__filename, () => {
         reviews: [{ ...fakeReview, id: 1 }],
         score,
       });
-      const reviewsState = reviewsReducer(undefined, action);
+      const reviewsState = reviewsReducer(stateWithLang, action);
 
       const data = _selectReviews({
         reviewsState,
@@ -691,7 +695,7 @@ describe(__filename, () => {
         page: '2',
         reviews: [{ ...fakeReview, id: 1 }],
       });
-      const reviewsState = reviewsReducer(undefined, action);
+      const reviewsState = reviewsReducer(stateWithLang, action);
 
       const data = _selectReviews({
         addonSlug: fakeAddon.slug,
@@ -747,7 +751,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         showEditReviewForm({ reviewId: review.id }),
       );
 
@@ -776,7 +780,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         showReplyToReviewForm({ reviewId: review.id }),
       );
 
@@ -805,7 +809,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         hideEditReviewForm({
           reviewId: review.id,
         }),
@@ -820,7 +824,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         hideReplyToReviewForm({
           reviewId: review.id,
         }),
@@ -833,7 +837,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         sendReplyToReview({
           errorHandlerId: 'some-id',
           originalReviewId: review.id,
@@ -856,7 +860,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         sendReplyToReview({
           errorHandlerId: 'some-id',
           originalReviewId: review.id,
@@ -873,7 +877,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         beginDeleteAddonReview({ reviewId: review.id }),
       );
 
@@ -904,7 +908,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         flagReview({
           errorHandlerId: 'some-id',
           reason: REVIEW_FLAG_REASON_SPAM,
@@ -923,7 +927,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         setReviewWasFlagged({
           reason: REVIEW_FLAG_REASON_SPAM,
           reviewId: review.id,
@@ -1046,7 +1050,7 @@ describe(__filename, () => {
       const review2 = { ...fakeReview, id: 3 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [review1, review2],
           userId,
@@ -1070,7 +1074,7 @@ describe(__filename, () => {
         userId,
       });
 
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
       const storedReviews = state.byUserId[userId].reviews;
 
       expect(storedReviews.length).toEqual(2);
@@ -1080,7 +1084,7 @@ describe(__filename, () => {
 
     it('stores review counts', () => {
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [fakeReview],
           userId,
@@ -1104,7 +1108,7 @@ describe(__filename, () => {
       const pageSize = 10;
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           pageSize,
           userId,
@@ -1144,7 +1148,7 @@ describe(__filename, () => {
     it('requires setReview()', () => {
       expect(() => {
         reviewsReducer(
-          undefined,
+          stateWithLang,
           _setLatestReview({ review: { ...fakeReview, id: 2 } }),
         );
       }).toThrow(/review 2 has not been set/);
@@ -1155,7 +1159,7 @@ describe(__filename, () => {
       const userId = 3;
       const review = { ...fakeReview, id: 2 };
 
-      let state;
+      let state = stateWithLang;
       state = reviewsReducer(state, setReview(review));
       state = reviewsReducer(
         state,
@@ -1172,7 +1176,7 @@ describe(__filename, () => {
       const userId = 3;
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setLatestReview({ addonId, userId, review: null }),
       );
 
@@ -1186,7 +1190,7 @@ describe(__filename, () => {
       const review1 = { ...fakeReview, id: 1 };
       const review2 = { ...fakeReview, id: 2 };
 
-      let state;
+      let state = stateWithLang;
       state = reviewsReducer(state, setReview(review1));
       state = reviewsReducer(
         state,
@@ -1236,7 +1240,7 @@ describe(__filename, () => {
       const userId = 123;
 
       const prevState = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [{ ...fakeReview, id: reviewId1 }],
           userId,
@@ -1267,7 +1271,7 @@ describe(__filename, () => {
       const userId = 123;
 
       const prevState = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [{ ...fakeReview, id: reviewId1 }],
           userId,
@@ -1296,7 +1300,7 @@ describe(__filename, () => {
       const userId = 123;
 
       const prevState = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [fakeReview],
           userId,
@@ -1333,7 +1337,7 @@ describe(__filename, () => {
       };
 
       const prevState = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [ratingOnlyReview],
           userId,
@@ -1358,7 +1362,7 @@ describe(__filename, () => {
     it('resets all related add-on reviews for new reviews', () => {
       const addonSlug = 'some-slug';
 
-      let state;
+      let state = stateWithLang;
       state = reviewsReducer(
         state,
         _setAddonReviews({
@@ -1385,7 +1389,7 @@ describe(__filename, () => {
       const reviewId = 1;
       const addonSlug = 'some-slug';
 
-      let state;
+      let state = stateWithLang;
       state = reviewsReducer(
         state,
         _setAddonReviews({
@@ -1414,7 +1418,7 @@ describe(__filename, () => {
       const reviewId = 1;
       const addonSlug = 'some-slug';
 
-      let state;
+      let state = stateWithLang;
       state = reviewsReducer(
         state,
         _setAddonReviews({
@@ -1449,7 +1453,10 @@ describe(__filename, () => {
 
   describe('flashReviewMessage', () => {
     it('flashes a message', () => {
-      const state = reviewsReducer(undefined, flashReviewMessage(SAVED_RATING));
+      const state = reviewsReducer(
+        stateWithLang,
+        flashReviewMessage(SAVED_RATING),
+      );
       expect(state.flashMessage).toEqual(SAVED_RATING);
     });
   });
@@ -1470,7 +1477,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 837 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         deleteAddonReview({
           addonId: fakeAddon.id,
           errorHandlerId: 'some-id',
@@ -1507,7 +1514,7 @@ describe(__filename, () => {
       const fetchedSlug = 'some-slug';
       const nonfetchedSlug = 'another-slug';
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         fetchReviews({ addonSlug: fetchedSlug, errorHandlerId: 1 }),
       );
       expect(reviewsAreLoading({ reviews: state }, nonfetchedSlug)).toBe(false);
@@ -1516,7 +1523,7 @@ describe(__filename, () => {
     it('returns true for an add-on for which reviews are loading', () => {
       const slug = 'some-slug';
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         fetchReviews({ addonSlug: slug, errorHandlerId: 1 }),
       );
       expect(reviewsAreLoading({ reviews: state }, slug)).toBe(true);
@@ -1525,7 +1532,7 @@ describe(__filename, () => {
     it('returns false for an add-on for which reviews have finished loading', () => {
       const slug = 'some-slug';
       let state = reviewsReducer(
-        undefined,
+        stateWithLang,
         fetchReviews({ addonSlug: slug, errorHandlerId: 1 }),
       );
       state = reviewsReducer(
@@ -1562,7 +1569,7 @@ describe(__filename, () => {
       const userId = 321;
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         fetchReviewPermissions({
           addonId,
           errorHandlerId: 'some-error-handler',
@@ -1620,7 +1627,7 @@ describe(__filename, () => {
       const userId = 321;
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         fetchReviewPermissions({
           addonId,
           errorHandlerId: 'some-error-handler',

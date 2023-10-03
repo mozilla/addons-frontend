@@ -75,13 +75,15 @@ describe(__filename, () => {
     });
 
     it('creates an action with the exact review object', () => {
-      const review = createInternalReview(fakeReview);
+      const review = createInternalReview(fakeReview, 'en-US');
       const action = setInternalReview(review);
       expect(action.payload).toEqual(review);
     });
 
     it('sets an action type', () => {
-      const action = setInternalReview(createInternalReview(fakeReview));
+      const action = setInternalReview(
+        createInternalReview(fakeReview, 'en-US'),
+      );
       expect(action.type).toEqual(SET_INTERNAL_REVIEW);
     });
   });

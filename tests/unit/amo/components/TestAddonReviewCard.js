@@ -10,7 +10,6 @@ import {
   STARTED_SAVE_REVIEW,
   beginDeleteAddonReview,
   cancelDeleteAddonReview,
-  createInternalReview,
   deleteAddonReview,
   flagReview,
   flashReviewMessage,
@@ -37,6 +36,7 @@ import { logOutUser } from 'amo/reducers/users';
 import {
   createFailedErrorHandler,
   createInternalAddonWithLang,
+  createInternalReviewWithLang,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
   fakeAddon,
@@ -1892,7 +1892,7 @@ describe(__filename, () => {
         const id = 551224;
         expect(
           addonReviewManagerExtractId({
-            review: createInternalReview({ ...fakeReview, id }),
+            review: createInternalReviewWithLang({ ...fakeReview, id }),
           }),
         ).toEqual(id.toString());
       });
