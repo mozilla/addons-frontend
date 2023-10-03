@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-04-17 22:21+0000\n"
+"PO-Revision-Date: 2023-10-03 22:20+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1168,7 +1168,7 @@ msgstr "PŚEZ FIREFOX"
 # If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:239
 msgid "SPONSORED"
-msgstr "SPONSOROWANY"
+msgstr "SPONSEROWANY"
 
 #: src/amo/components/HeroRecommendation/index.js:256
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
