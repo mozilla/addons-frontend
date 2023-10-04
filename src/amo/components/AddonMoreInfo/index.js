@@ -414,7 +414,6 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addon, i18n } = ownProps;
   const { categories } = state.categories;
-  const { clientApp } = state.api;
 
   let currentVersion = null;
   let relatedCategories = null;
@@ -435,9 +434,9 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
     });
   }
 
-  if (addon && addon.categories && addon.type && categories && clientApp) {
-    const appCategories = categories[clientApp][addon.type];
-    const addonCategories = addon.categories[clientApp] || [];
+  if (addon && addon.categories && addon.type && categories) {
+    const appCategories = categories[addon.type];
+    const addonCategories = addon.categories || [];
 
     relatedCategories = addonCategories.reduce((result, slug) => {
       if (typeof appCategories[slug] !== 'undefined') {

@@ -39,7 +39,6 @@ type Props = {|
 
 type PropsFromState = {|
   categoriesState: $PropertyType<CategoriesState, 'categories'>,
-  clientApp: string,
   loading: boolean,
 |};
 
@@ -81,7 +80,6 @@ export class CategoriesBase extends React.Component<InternalProps> {
       addonType,
       categoriesState,
       className,
-      clientApp,
       errorHandler,
       i18n,
       loading,
@@ -89,12 +87,8 @@ export class CategoriesBase extends React.Component<InternalProps> {
     invariant(addonType, 'addonType is undefined');
 
     let categories: Array<mixed> = [];
-    if (
-      categoriesState &&
-      categoriesState[clientApp] &&
-      categoriesState[clientApp][addonType]
-    ) {
-      categories = Object.values(categoriesState[clientApp][addonType]);
+    if (categoriesState && categoriesState[addonType]) {
+      categories = Object.values(categoriesState[addonType]);
     }
     const classNameProp = classnames('Categories', className);
 
@@ -162,7 +156,6 @@ export class CategoriesBase extends React.Component<InternalProps> {
 function mapStateToProps(state: AppState): PropsFromState {
   return {
     categoriesState: state.categories.categories,
-    clientApp: state.api.clientApp,
     loading: state.categories.loading,
   };
 }

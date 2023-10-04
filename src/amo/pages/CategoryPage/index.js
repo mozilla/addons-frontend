@@ -112,15 +112,10 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
 
   const addonType = apiAddonType(visibleAddonType);
   const categoriesState = state.categories.categories;
-  const { clientApp } = state.api;
 
-  if (categoriesState && clientApp) {
-    const appTypes = categoriesState[clientApp];
-
-    if (appTypes) {
-      const categories = appTypes[addonType];
-      categoryName = getCategoryName(categories, categorySlug);
-    }
+  if (categoriesState) {
+    const categories = categoriesState[addonType];
+    categoryName = getCategoryName(categories, categorySlug);
   }
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);

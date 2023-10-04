@@ -106,7 +106,7 @@ export type GroupedRatingsType = {|
 export type ExternalAddonType = {|
   authors?: Array<AddonAuthorType>,
   average_daily_users: number,
-  categories?: Object,
+  categories?: Object | Array<string>,
   contributions_url: UrlWithOutgoing | null,
   created: Date,
   // If you make an API request as an admin for an incomplete
