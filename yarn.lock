@@ -7881,10 +7881,10 @@ pino-devtools@^2.7.0:
   optionalDependencies:
     fsevents "2.3.2"
 
-pino-pretty@^10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-10.2.0.tgz#c674a153e15c08d7032a826d0051d786feace1d9"
-  integrity sha512-tRvpyEmGtc2D+Lr3FulIZ+R1baggQ4S3xD2Ar93KixFEDx6SEAUP3W5aYuEw1C73d6ROrNcB2IXLteW8itlwhA==
+pino-pretty@^10.2.2:
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-10.2.2.tgz#ef7a6d1403cf9563264473a9726e6394855c307c"
+  integrity sha512-RvAdCQAU51MdVsJdvXX4Bipb52wwldXtOzlva1NT8q2d7tmgYWFIMLhoSnfx2Sr+Hi7BLGpR/n8wgrcq5G/ykA==
   dependencies:
     colorette "^2.0.7"
     dateformat "^4.6.3"
