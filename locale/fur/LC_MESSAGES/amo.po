@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-05 16:55+0000\n"
+"PO-Revision-Date: 2023-10-05 18:25+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -20,24 +20,24 @@ msgstr "Daûr a cjariâ…"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 msgid "Adding…"
-msgstr ""
+msgstr "Daûr a zontâ…"
 
 #: src/amo/components/AddAddonToCollection/index.js:205
 msgid "Select a collection…"
-msgstr ""
+msgstr "Selezione une racuelte…"
 
 #: src/amo/components/AddAddonToCollection/index.js:212
 msgid "Create new collection"
-msgstr ""
+msgstr "Cree une gnove racuelte"
 
 #: src/amo/components/AddAddonToCollection/index.js:253
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "Zontât a %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
 msgid "Add to…"
-msgstr ""
+msgstr "Zonte a…"
 
 #: src/amo/components/AddAddonToCollection/index.js:274 src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
