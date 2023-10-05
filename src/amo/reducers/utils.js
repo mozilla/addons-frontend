@@ -2,6 +2,9 @@ import invariant from 'invariant';
 
 import type { LocalizedString } from 'amo/types/api';
 
+import type { CategoryEntry } from './categories';
+import type { ExternalAddonType } from '../types/addons';
+
 export const selectLocalizedContent = (
   field: LocalizedString,
   lang: string,
@@ -16,4 +19,13 @@ export const selectLocalizedContent = (
   }
 
   return field[lang];
+};
+
+export const selectCategoryObject = (
+  apiAddon: ExternalAddonType,
+): CategoryEntry => {
+  if (apiAddon.categories && apiAddon.categories.firefox) {
+    return apiAddon.categories.firefox;
+  }
+  return apiAddon.categories;
 };
