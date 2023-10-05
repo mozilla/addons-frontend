@@ -95,11 +95,12 @@ describe(__filename, () => {
         },
         {
           ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
+          application: CLIENT_APP_FIREFOX,
           name: 'I should also not appear',
           slug: 'i-should-also-not-appear',
           type: 'FAKE_TYPE',
         },
+        {},
       ];
 
       state = categories(initialState, loadCategories({ results }));
