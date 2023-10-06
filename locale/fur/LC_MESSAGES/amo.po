@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-05 18:25+0000\n"
+"PO-Revision-Date: 2023-10-06 18:04+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -41,46 +41,46 @@ msgstr "Zonte a…"
 
 #: src/amo/components/AddAddonToCollection/index.js:274 src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
-msgstr ""
+msgstr "Zonte ae racuelte"
 
 # This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:104
 msgid "Content review add-on"
-msgstr ""
+msgstr "Revisione contignûts component adizionâl"
 
 # This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:112
 msgid "Review theme"
-msgstr ""
+msgstr "Revisione teme"
 
 # This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:114
 msgid "Review add-on code"
-msgstr ""
+msgstr "Revisione codiç contignût adizionâl"
 
 # This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:134
 msgid "Admin Links"
-msgstr ""
+msgstr "Colegaments par aministradôrs"
 
 # This action allows the add-on developer to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76 src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
-msgstr ""
+msgstr "Modifiche component adizionâl"
 
 # This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:90
 msgid "Admin add-on"
-msgstr ""
+msgstr "Aministre component adizionâl"
 
 # This is a list of links to Developer functions.
 #: src/amo/components/AddonAuthorLinks/index.js:62
 msgid "Author Links"
-msgstr ""
+msgstr "Colegaments dal autôr"
 
 #: src/amo/components/AddonBadges/index.js:59
 msgid "Experimental"
-msgstr ""
+msgstr "Sperimentâl"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
