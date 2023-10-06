@@ -580,7 +580,7 @@ describe(__filename, () => {
       const { slug: slug2, name: name2 } = categories[4];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: { [CLIENT_APP_FIREFOX]: [slug1, slug2] },
+        categories: [slug1, slug2],
       });
 
       store.dispatch(loadCategories({ results: categories }));
@@ -649,7 +649,7 @@ describe(__filename, () => {
     it('does not render a related category if add-on does not have that category', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: { [CLIENT_APP_ANDROID]: ['does-not-exist'] },
+        categories: ['does-not-exist'],
       });
 
       store.dispatch(loadCategories({ results: categories }));
@@ -662,7 +662,7 @@ describe(__filename, () => {
     it('does not render a related category if add-on does not have any category at all', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: {},
+        categories: [],
       });
       store.dispatch(loadCategories({ results: categories }));
 
@@ -675,7 +675,7 @@ describe(__filename, () => {
       const { slug } = categories[0];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: { [CLIENT_APP_ANDROID]: [slug] },
+        categories: [slug],
         type: ADDON_TYPE_STATIC_THEME,
       });
 
@@ -691,7 +691,7 @@ describe(__filename, () => {
       (type) => {
         const addon = createInternalAddonWithLang({
           ...fakeAddon,
-          categories: { [CLIENT_APP_ANDROID]: [categories[0].slug] },
+          categories: [categories[0].slug],
           type,
         });
         store.dispatch(loadCategories({ results: categories }));

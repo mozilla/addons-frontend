@@ -95,11 +95,12 @@ describe(__filename, () => {
         },
         {
           ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
+          application: CLIENT_APP_FIREFOX,
           name: 'I should also not appear',
           slug: 'i-should-also-not-appear',
           type: 'FAKE_TYPE',
         },
+        {},
       ];
 
       state = categories(initialState, loadCategories({ results }));
@@ -174,83 +175,45 @@ describe(__filename, () => {
       state = categories(initialState, loadCategories({ results }));
 
       expect(state.categories).toEqual({
-        firefox: {
-          [ADDON_TYPE_DICT]: {},
-          [ADDON_TYPE_EXTENSION]: {
-            'alert-update': {
-              ...fakeCategory,
-              application: CLIENT_APP_FIREFOX,
-              name: 'Alerts & Update',
-              slug: 'alert-update',
-              type: ADDON_TYPE_EXTENSION,
-            },
-            security: {
-              ...fakeCategory,
-              application: CLIENT_APP_FIREFOX,
-              name: 'Security',
-              slug: 'security',
-              type: ADDON_TYPE_EXTENSION,
-            },
+        [ADDON_TYPE_DICT]: {},
+        [ADDON_TYPE_EXTENSION]: {
+          'alert-update': {
+            ...fakeCategory,
+            application: CLIENT_APP_FIREFOX,
+            name: 'Alerts & Update',
+            slug: 'alert-update',
+            type: ADDON_TYPE_EXTENSION,
           },
-          [ADDON_TYPE_LANG]: {},
-          [ADDON_TYPE_STATIC_THEME]: {
-            anime: {
-              ...fakeCategory,
-              application: CLIENT_APP_FIREFOX,
-              name: 'Anime',
-              slug: 'anime',
-              type: ADDON_TYPE_STATIC_THEME,
-            },
-            naturé: {
-              ...fakeCategory,
-              application: CLIENT_APP_FIREFOX,
-              name: 'Naturé',
-              slug: 'naturé',
-              type: ADDON_TYPE_STATIC_THEME,
-            },
-            painting: {
-              ...fakeCategory,
-              application: CLIENT_APP_FIREFOX,
-              name: 'Painting',
-              slug: 'painting',
-              type: ADDON_TYPE_STATIC_THEME,
-            },
+          security: {
+            ...fakeCategory,
+            application: CLIENT_APP_FIREFOX,
+            name: 'Security',
+            slug: 'security',
+            type: ADDON_TYPE_EXTENSION,
           },
         },
-        android: {
-          [ADDON_TYPE_DICT]: {},
-          [ADDON_TYPE_EXTENSION]: {
-            'alert-update': {
-              ...fakeCategory,
-              application: CLIENT_APP_ANDROID,
-              name: 'Alerts & Update',
-              slug: 'alert-update',
-              type: ADDON_TYPE_EXTENSION,
-            },
-            blogging: {
-              ...fakeCategory,
-              application: CLIENT_APP_ANDROID,
-              name: 'Blogging',
-              slug: 'blogging',
-              type: ADDON_TYPE_EXTENSION,
-            },
-            Games: {
-              ...fakeCategory,
-              application: CLIENT_APP_ANDROID,
-              name: 'Games',
-              slug: 'Games',
-              type: ADDON_TYPE_EXTENSION,
-            },
+        [ADDON_TYPE_LANG]: {},
+        [ADDON_TYPE_STATIC_THEME]: {
+          anime: {
+            ...fakeCategory,
+            application: CLIENT_APP_FIREFOX,
+            name: 'Anime',
+            slug: 'anime',
+            type: ADDON_TYPE_STATIC_THEME,
           },
-          [ADDON_TYPE_LANG]: {},
-          [ADDON_TYPE_STATIC_THEME]: {
-            painting: {
-              ...fakeCategory,
-              application: CLIENT_APP_ANDROID,
-              name: 'Painting',
-              slug: 'painting',
-              type: ADDON_TYPE_STATIC_THEME,
-            },
+          naturé: {
+            ...fakeCategory,
+            application: CLIENT_APP_FIREFOX,
+            name: 'Naturé',
+            slug: 'naturé',
+            type: ADDON_TYPE_STATIC_THEME,
+          },
+          painting: {
+            ...fakeCategory,
+            application: CLIENT_APP_FIREFOX,
+            name: 'Painting',
+            slug: 'painting',
+            type: ADDON_TYPE_STATIC_THEME,
           },
         },
       });

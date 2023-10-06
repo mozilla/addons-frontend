@@ -277,22 +277,17 @@ function mapStateToProps(state: AppState): PropsFromState {
 
   if (currentCategory) {
     const categoriesState = state.categories.categories;
-    const { clientApp } = state.api;
 
-    if (categoriesState && clientApp) {
-      const appTypes = categoriesState[clientApp];
+    if (categoriesState) {
+      if (
+        filters &&
+        filters.addonType &&
+        typeof filters.addonType === 'string'
+      ) {
+        const { addonType } = filters;
+        const categories = categoriesState[addonType];
 
-      if (appTypes) {
-        if (
-          filters &&
-          filters.addonType &&
-          typeof filters.addonType === 'string'
-        ) {
-          const { addonType } = filters;
-          const categories = appTypes[addonType];
-
-          categoryName = getCategoryName(categories, currentCategory);
-        }
+        categoryName = getCategoryName(categories, currentCategory);
       }
     }
   }

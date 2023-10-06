@@ -9,7 +9,10 @@ import type {
   UnloadAddonReviewsAction,
   UpdateRatingCountsAction,
 } from 'amo/actions/reviews';
-import { selectLocalizedContent } from 'amo/reducers/utils';
+import {
+  selectLocalizedContent,
+  selectCategoryObject,
+} from 'amo/reducers/utils';
 import { SET_LANG } from 'amo/reducers/api';
 import type { ExternalAddonInfoType } from 'amo/api/addonInfo';
 import type { AppState } from 'amo/store';
@@ -197,7 +200,7 @@ export function createInternalAddon(
   const addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
-    categories: apiAddon.categories,
+    categories: selectCategoryObject(apiAddon),
     contributions_url: apiAddon.contributions_url,
     created: apiAddon.created,
     default_locale: apiAddon.default_locale,

@@ -143,7 +143,7 @@ const getCategory = (
     },
   ];
 
-  const categories = addon?.categories?.firefox || [];
+  const categories = addon?.categories || [];
   if (categories.length) {
     for (const category of categoryHierarchy) {
       if (categories.includes(category.slug)) {
