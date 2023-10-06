@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-06 18:04+0000\n"
+"PO-Revision-Date: 2023-10-06 18:12+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -84,113 +84,113 @@ msgstr "Sperimentâl"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Cualchi funzion e podarès jessi a paiament"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Chest component adizionâl nol è compatibil cu la tô version di Firefox."
 
 #: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "Chest component adizionâl nol è disponibil su la tô plateforme."
 
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame cheste estension par 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame chest pachet des lenghis par 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame chest teme par 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame chest component adizionâl par 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:131
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Discjame %(addonName)s par Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame chest dizionari par 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame cheste estension par 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame chest pachet des lenghis par 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame chest teme par 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame chest component adizionâl par 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Discjame chest dizionari par 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s stele"
+msgstr[1] "%(total)s stelis"
 
 #: src/amo/components/AddonMeta/index.js:128
 msgid "Not rated yet"
-msgstr ""
+msgstr "Ancjemò nissune valutazion"
 
 #: src/amo/components/AddonMeta/index.js:49
 msgid "Users"
-msgstr ""
+msgstr "Utents"
 
 #: src/amo/components/AddonMeta/index.js:52
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Utent"
+msgstr[1] "Utents"
 
 #: src/amo/components/AddonMeta/index.js:54
 msgid "No Users"
-msgstr ""
+msgstr "Nissun utent"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
-msgstr ""
+msgstr "Recensions"
 
 #: src/amo/components/AddonMeta/index.js:64
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Recension"
+msgstr[1] "Recensions"
 
 #: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
-msgstr ""
+msgstr "Nissune recension"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Used by"
-msgstr ""
+msgstr "Doprât di"
 
 #: src/amo/components/AddonMoreInfo/index.js:102 src/amo/pages/UserProfile/index.js:356 src/amo/pages/UserProfile/index.js:358 src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
-msgstr ""
+msgstr "Pagjine iniziâl"
 
 #: src/amo/components/AddonMoreInfo/index.js:118
 msgid "Support site"
-msgstr ""
+msgstr "Sît di supuart"
 
 #: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Support Email"
-msgstr ""
+msgstr "E-mail pal supuart"
 
 #: src/amo/components/AddonMoreInfo/index.js:150
 msgid "Visit stats dashboard"
