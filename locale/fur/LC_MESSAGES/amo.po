@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-06 18:12+0000\n"
+"PO-Revision-Date: 2023-10-06 18:21+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -194,214 +194,214 @@ msgstr "E-mail pal supuart"
 
 #: src/amo/components/AddonMoreInfo/index.js:150
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Va al panel des statistichis"
 
 #: src/amo/components/AddonMoreInfo/index.js:169
 msgid "Custom License"
-msgstr ""
+msgstr "Licence personalizade"
 
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:214
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:230
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Lei la informative su la riservatece par chest component adizionâl"
 
 #: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Lei il contrat di licence par chest component adizionâl"
 
 #: src/amo/components/AddonMoreInfo/index.js:254
 msgid "See all versions"
-msgstr ""
+msgstr "Viôt dutis lis versions"
 
 #: src/amo/components/AddonMoreInfo/index.js:301
 msgid "Add-on Links"
-msgstr ""
+msgstr "Colegaments component adizionâl"
 
 #: src/amo/components/AddonMoreInfo/index.js:313
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: src/amo/components/AddonMoreInfo/index.js:321
 msgid "Size"
-msgstr ""
+msgstr "Dimension"
 
 #: src/amo/components/AddonMoreInfo/index.js:329 src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
-msgstr ""
+msgstr "Ultin inzornament"
 
 #: src/amo/components/AddonMoreInfo/index.js:337
 msgid "Related Categories"
-msgstr ""
+msgstr "Categoriis coreladis"
 
 #: src/amo/components/AddonMoreInfo/index.js:347
 msgid "License"
-msgstr ""
+msgstr "Licence"
 
 #: src/amo/components/AddonMoreInfo/index.js:355
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Informative su la riservatece"
 
 #: src/amo/components/AddonMoreInfo/index.js:363
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "Contrat di licence pal utent finâl (EULA)"
 
 #: src/amo/components/AddonMoreInfo/index.js:371
 msgid "Version History"
-msgstr ""
+msgstr "Cronologjie versions"
 
 #: src/amo/components/AddonMoreInfo/index.js:381
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Statistichis utilizazion"
 
 #: src/amo/components/AddonMoreInfo/index.js:389
 msgid "Tags"
-msgstr ""
+msgstr "Etichetis"
 
 #: src/amo/components/AddonMoreInfo/index.js:405
 msgid "More information"
-msgstr ""
+msgstr "Altris informazions"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Altris utents cun cheste estension a àn instalât ancje"
 
 #: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
-msgstr ""
+msgstr "Altris estensions popolârs"
 
 #: src/amo/components/AddonReviewCard/index.js:210
 msgid "Edit reply"
-msgstr ""
+msgstr "Modifiche rispueste"
 
 #: src/amo/components/AddonReviewCard/index.js:213
 msgid "Edit review"
-msgstr ""
+msgstr "Modifiche recension"
 
 #: src/amo/components/AddonReviewCard/index.js:220 src/amo/components/AddonReviewCard/index.js:252
 msgid "Delete reply"
-msgstr ""
+msgstr "Elimine rispueste"
 
 #: src/amo/components/AddonReviewCard/index.js:224 src/amo/components/AddonReviewCard/index.js:256
 msgid "Delete rating"
-msgstr ""
+msgstr "Elimine valutazion"
 
 #: src/amo/components/AddonReviewCard/index.js:227 src/amo/components/AddonReviewCard/index.js:259
 msgid "Delete review"
-msgstr ""
+msgstr "Elimine recension"
 
 #: src/amo/components/AddonReviewCard/index.js:234
 msgid "Do you really want to delete this reply?"
-msgstr ""
+msgstr "Eliminâ pardabon cheste rispueste?"
 
 #: src/amo/components/AddonReviewCard/index.js:238
 msgid "Do you really want to delete this rating?"
-msgstr ""
+msgstr "Eliminâ pardabon cheste valutazion?"
 
 #: src/amo/components/AddonReviewCard/index.js:241
 msgid "Do you really want to delete this review?"
-msgstr ""
+msgstr "Eliminâ pardabon cheste recension?"
 
 #: src/amo/components/AddonReviewCard/index.js:248 src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
-msgstr ""
+msgstr "Elimine"
 
 #: src/amo/components/AddonReviewCard/index.js:266 src/amo/components/AddonReviewManager/index.js:146 src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61 src/amo/components/DismissibleTextForm/index.js:221 src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
-msgstr ""
+msgstr "Anule"
 
 #: src/amo/components/AddonReviewCard/index.js:270
 msgid "Keep reply"
-msgstr ""
+msgstr "Manten rispueste"
 
 #: src/amo/components/AddonReviewCard/index.js:274
 msgid "Keep rating"
-msgstr ""
+msgstr "Manten valutazion"
 
 #: src/amo/components/AddonReviewCard/index.js:277
 msgid "Keep review"
-msgstr ""
+msgstr "Manten recension"
 
 #: src/amo/components/AddonReviewCard/index.js:313
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "Scrîf une rispueste a cheste recension."
 
 #: src/amo/components/AddonReviewCard/index.js:316
 msgid "Update reply"
-msgstr ""
+msgstr "Inzorne rispueste"
 
 #: src/amo/components/AddonReviewCard/index.js:317
 msgid "Publish reply"
-msgstr ""
+msgstr "Publiche la rispueste"
 
 #: src/amo/components/AddonReviewCard/index.js:321
 msgid "Updating reply"
-msgstr ""
+msgstr "Daûr a inzornâ la rispueste"
 
 #: src/amo/components/AddonReviewCard/index.js:322
 msgid "Publishing reply"
-msgstr ""
+msgstr "Daûr a publicâ la rispueste"
 
 # Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "publicât ai %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:371
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "di %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "di %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:489
 msgid "Deleting…"
-msgstr ""
+msgstr "Daûr a eliminâ…"
 
 #: src/amo/components/AddonReviewCard/index.js:520
 msgid "Reply to this review"
-msgstr ""
+msgstr "Rispuint a cheste recension"
 
 #: src/amo/components/AddonReviewCard/index.js:550
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Cheste valutazion o recension e je stade eliminade. Tu viodis chest messaç dome parcè che tu âs permès speciâi."
 
 #: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
-msgstr ""
+msgstr "Scrîf une recension"
 
 #: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
-msgstr ""
+msgstr "Descrîf la tô esperience cun chest component adizionâl."
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
-msgstr ""
+msgstr "Mande recension"
 
 #: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
-msgstr ""
+msgstr "Daûr a mandâ la recension"
 
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
-msgstr ""
+msgstr "Inzorne recension"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
-msgstr ""
+msgstr "Daûr a inzornâ la recension"
 
 #: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
-msgstr ""
+msgstr "Daûr a salvâ"
 
 #: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
-msgstr ""
+msgstr "Salvât"
 
 #: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
