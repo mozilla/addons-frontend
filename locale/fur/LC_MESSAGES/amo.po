@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-07 08:03+0000\n"
+"PO-Revision-Date: 2023-10-07 08:19+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -896,14 +896,16 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Se tu âs altris informazions che a puedin judânus tu puedis <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">segnalâ un probleme</a>. Dînus te segnalazion i passaçs necessaris che "
+"a puartin a vê l'erôr."
 
 #: src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
-msgstr ""
+msgstr "Erôr dal servidôr"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Nus displâs, la richieste no je stade elaborade par vie di un erôr dal servidôr. O vin regjistrât chest erôr e lu analizarìn."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 msgid ""
