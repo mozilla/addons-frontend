@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-07 04:36+0000\n"
+"PO-Revision-Date: 2023-10-07 04:53+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -674,63 +674,63 @@ msgstr "Modifiche cheste racuelte"
 
 #: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
-msgstr ""
+msgstr "Modifiche detais de racuelte"
 
 #: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
-msgstr ""
+msgstr "Torne ae racuelte"
 
 #: src/amo/components/CollectionDetails/index.js:77 src/amo/components/Footer/index.js:58
 msgid "Add-ons"
-msgstr ""
+msgstr "Components adizionâi"
 
 #: src/amo/components/CollectionDetails/index.js:81
 msgid "Creator"
-msgstr ""
+msgstr "Autôr"
 
 #: src/amo/components/CollectionManager/index.js:248
 msgid "Create collection"
-msgstr ""
+msgstr "Cree une gnove racuelte"
 
 #: src/amo/components/CollectionManager/index.js:249
 msgid "Save changes"
-msgstr ""
+msgstr "Salve modifichis"
 
 #: src/amo/components/CollectionManager/index.js:258
 msgid "Collection name"
-msgstr ""
+msgstr "Non de racuelte"
 
 #: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
-msgstr ""
+msgstr "Descrizion"
 
 #: src/amo/components/CollectionManager/index.js:284
 msgid "Custom URL"
-msgstr ""
+msgstr "URL personalizât"
 
 #: src/amo/components/CollectionSort/index.js:108
 msgid "Sort add-ons by"
-msgstr ""
+msgstr "Ordene i components adizionâi par"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Newest first"
-msgstr ""
+msgstr "Prime i plui resints"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Oldest first"
-msgstr ""
+msgstr "Prime i plui vecjos"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Name"
-msgstr ""
+msgstr "Non"
 
 #: src/amo/components/CollectionSort/index.js:96
 msgid "Popularity"
-msgstr ""
+msgstr "Popolaritât"
 
 #: src/amo/components/ConfirmationDialog/index.js:53
 msgid "Confirm"
-msgstr ""
+msgstr "Conferme"
 
 #: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
