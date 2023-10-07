@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-07 05:10+0000\n"
+"PO-Revision-Date: 2023-10-07 05:13+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -774,63 +774,63 @@ msgstr "Sosten chest autôr"
 
 #: src/amo/components/ContributeCard/index.js:75
 msgid "Support these authors"
-msgstr ""
+msgstr "Sosten chescj autôrs"
 
 #: src/amo/components/ContributeCard/index.js:79
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "L’autôr di chest component adizionâl ti domande di sostignîlu tal so lavôr continuatîf fasint une piçule donazion."
 
 #: src/amo/components/ContributeCard/index.js:81
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "I autôrs di chest component adizionâl ti domandin di sostignîju tal lôr lavôr continuatîf fasint une piçule donazion."
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
-msgstr ""
+msgstr "Inserìs il test achì."
 
 #: src/amo/components/DismissibleTextForm/index.js:200
 msgid "Submit"
-msgstr ""
+msgstr "Invie"
 
 #: src/amo/components/DismissibleTextForm/index.js:202
 msgid "Submitting"
-msgstr ""
+msgstr "Daûr a inviâ"
 
 #: src/amo/components/EditableCollectionAddon/index.js:132 src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
-msgstr ""
+msgstr "Lasse une note"
 
 #: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
-msgstr ""
+msgstr "Note dal autôr de racuelte"
 
 #: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
-msgstr ""
+msgstr "Zonte un coment su chest component adizionâl."
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
-msgstr ""
+msgstr "Salve"
 
 #: src/amo/components/EditableCollectionAddon/index.js:188
 msgid "Edit"
-msgstr ""
+msgstr "Modifiche"
 
 #: src/amo/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Session scjadude"
 
 #: src/amo/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Al è capitât un erôr inspietât"
 
 #: src/amo/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Torne cjame par continuâ"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Pagjine no cjatade"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
