@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-06 18:21+0000\n"
+"PO-Revision-Date: 2023-10-07 04:08+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -405,75 +405,75 @@ msgstr "Salvât"
 
 #: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Va daûr des nestris %(linkStart)sliniis vuide pes recensions%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "La tô valutazion in stelis:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Altris dizionaris di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:256
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Altris dizionaris di chescj tradutôrs"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Altris estensions di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:266
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "Altris estensions di chescj svilupadôrs"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:270
 msgid "Extensions by %(author)s"
-msgstr ""
+msgstr "Estensions di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:273
 msgid "Extensions by these developers"
-msgstr ""
+msgstr "Estensions di chescj svilupadôrs"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:279
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Altris pachets di lenghis di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Altris pachets di lenghis di chescj tradutôrs"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Altris temis di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:292
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Altris temis di chescj artiscj"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:296
 msgid "Themes by %(author)s"
-msgstr ""
+msgstr "Temis di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:299
 msgid "Themes by these artists"
-msgstr ""
+msgstr "Temis di chescj artiscj"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:305
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Altris components adizionâi di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Altris components adizionâi di chescj svilupadôrs"
 
 #: src/amo/components/AddonSuggestions/index.js:100
 msgid "More powerful tools for translations, writing & grammar support"
-msgstr ""
+msgstr "Struments ancjemò plui potents par traduzions, scriture e supuart gramaticâl"
 
 #: src/amo/components/AddonSuggestions/index.js:107
 msgid "More amazing extensions to change the way Firefox looks"
-msgstr ""
+msgstr "Altris fantastichis estensions par cambiâ l’aspiet di Firefox"
 
 #: src/amo/components/AddonSuggestions/index.js:114
 msgid "More incredible social media extensions"
