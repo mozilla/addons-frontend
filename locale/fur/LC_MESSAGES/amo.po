@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-07 04:33+0000\n"
+"PO-Revision-Date: 2023-10-07 04:36+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -618,59 +618,59 @@ msgstr "Components adizionâi par Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:138 src/amo/components/HeadMetaTags/index.js:86
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Components adizionâi par Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:148
 msgid "Log out"
-msgstr ""
+msgstr "Jes"
 
 #: src/amo/components/AuthenticateButton/index.js:93
 msgid "Log in"
-msgstr ""
+msgstr "Jentre"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:143
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "In chest moment cheste operazion no je disponibile. Spiete un pôc e torne cjame la pagjine."
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
-msgstr ""
+msgstr "Daûr a cjariâ"
 
 #: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
-msgstr ""
+msgstr "Cjate components adizionâi"
 
 #: src/amo/components/AutoSearchInput/index.js:323 src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
-msgstr ""
+msgstr "Cîr"
 
 #: src/amo/components/Categories/index.js:105
 msgid "No categories found."
-msgstr ""
+msgstr "Nissune categorie cjatade."
 
 #: src/amo/components/Categories/index.js:112
 msgid "Categories"
-msgstr ""
+msgstr "Categoriis"
 
 #: src/amo/components/Categories/index.js:117
 msgid "Loading categories."
-msgstr ""
+msgstr "Daûr a cjariâ lis categoriis."
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
-msgstr ""
+msgstr "Zontât ae racuelte"
 
 #: src/amo/components/CollectionAddAddon/index.js:170
 msgid "Removed from collection"
-msgstr ""
+msgstr "Gjavât de racuelte"
 
 #: src/amo/components/CollectionAddAddon/index.js:179
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Cjate un component adizionâl di includi in cheste racuelte"
 
 #: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
-msgstr ""
+msgstr "Modifiche cheste racuelte"
 
 #: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
