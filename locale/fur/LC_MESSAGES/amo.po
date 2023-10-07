@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-07 04:22+0000\n"
+"PO-Revision-Date: 2023-10-07 04:33+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -481,140 +481,140 @@ msgstr "Altris incredibilis estensions pai social media"
 
 #: src/amo/components/AddonSuggestions/index.js:119
 msgid "More excellent search extensions"
-msgstr ""
+msgstr "Altris estensions par miorâ lis ricercjis"
 
 #: src/amo/components/AddonSuggestions/index.js:124
 msgid "More great extensions for feeds, news & media"
-msgstr ""
+msgstr "Altris maraveosis estensions par feeds, notiziis e contignûts multimediâi"
 
 #: src/amo/components/AddonSuggestions/index.js:129
 msgid "More great notification extensions"
-msgstr ""
+msgstr "Altris maraveosis estensions pes notifichis"
 
 #: src/amo/components/AddonSuggestions/index.js:138
 msgid "More great tools for web developers"
-msgstr ""
+msgstr "Altris maraveôs struments pai svilupadôrs web"
 
 #: src/amo/components/AddonSuggestions/index.js:268
 msgid "See Firefox Staff Picks"
-msgstr ""
+msgstr "Visualize lis sieltis dal personâl di Firefox"
 
 #: src/amo/components/AddonSuggestions/index.js:57
 msgid "Explore our 'Starter Pack' to get started with extensions"
-msgstr ""
+msgstr "Esplore il nestri “Pachet par scomençâ” par scomençâ cu lis estensions"
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
-msgstr ""
+msgstr "Altris potentis estensions di riservatece e sigurece"
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
-msgstr ""
+msgstr "Altris incredibii gjestôrs di discjariaments"
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
-msgstr ""
+msgstr "Altris fantastichis estensions par schedis e segnelibris"
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
-msgstr ""
+msgstr "Altris maraveosis estensions par zûcs e intratigniment"
 
 #: src/amo/components/AddonSuggestions/index.js:95
 msgid "More amazing image, photo & media extensions"
-msgstr ""
+msgstr "Altris stupendis estensions par imagjins, fotos e contignûts multimediâi"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
-msgstr ""
+msgstr "Icone component adizionâl"
 
 # roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:78
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(rating)s stele su 5"
+msgstr[1] "%(rating)s stelis su 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
-msgstr ""
+msgstr "di"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr ""
+msgstr "Codiç sorzint publicât sot licence %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr ""
+msgstr "Codiç sorzint publicât sot %(linkStart)sune licence personalizade%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
-msgstr ""
+msgstr "Codiç sorzint publicât sot %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
-msgstr ""
+msgstr "Nissune version cjatade"
 
 #: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Version %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Publicât %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/AMInstallButton/index.js:133
 msgid "Enable"
-msgstr ""
+msgstr "Ative"
 
 #: src/amo/components/AMInstallButton/index.js:136 src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
-msgstr ""
+msgstr "Gjave"
 
 #: src/amo/components/AMInstallButton/index.js:138
 msgid "Enabling"
-msgstr ""
+msgstr "Daûr a ativâ"
 
 #: src/amo/components/AMInstallButton/index.js:140
 msgid "Disabling"
-msgstr ""
+msgstr "Daûr a disativâ"
 
 #: src/amo/components/AMInstallButton/index.js:142
 msgid "Downloading"
-msgstr ""
+msgstr "Daûr a discjamâ"
 
 #: src/amo/components/AMInstallButton/index.js:144
 msgid "Installing"
-msgstr ""
+msgstr "Daûr a instalâ"
 
 #: src/amo/components/AMInstallButton/index.js:146
 msgid "Uninstalling"
-msgstr ""
+msgstr "Daûr a disinstalâ"
 
 #: src/amo/components/AMInstallButton/index.js:154
 msgid "Install Theme"
-msgstr ""
+msgstr "Instale teme"
 
 #: src/amo/components/AMInstallButton/index.js:155
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Zonte a Firefox"
 
 #: src/amo/components/App/index.js:122 src/amo/components/HeadMetaTags/index.js:93
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "Components adizionâi par Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:126 src/amo/components/HeadMetaTags/index.js:87
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Components adizionâi par Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:134 src/amo/components/HeadMetaTags/index.js:92
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "Components adizionâi par Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:138 src/amo/components/HeadMetaTags/index.js:86
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
