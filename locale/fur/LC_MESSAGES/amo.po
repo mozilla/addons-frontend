@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-07 08:41+0000\n"
+"PO-Revision-Date: 2023-10-07 09:10+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -937,51 +937,51 @@ msgstr "Recension di %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
-msgstr ""
+msgstr "La recension no je stade cjatade."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Cheste e je une segnalazion di erôr o une richieste di supuart"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Segnalât come segnalazion erôr o richieste di supuart"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
-msgstr ""
+msgstr "Segnalât"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
-msgstr ""
+msgstr "Segnale"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
-msgstr ""
+msgstr "Segnale cheste rispueste dal svilupadôr"
 
 #: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
-msgstr ""
+msgstr "Segnale cheste recension"
 
 #: src/amo/components/FlagReviewMenu/index.js:74
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "Jentre par segnalâ cheste rispueste"
 
 #: src/amo/components/FlagReviewMenu/index.js:75
 msgid "Log in to flag this review"
-msgstr ""
+msgstr "Jentre par segnalâ cheste recension"
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "This is spam"
-msgstr ""
+msgstr "Chest al è spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Segnalât come spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Chest al conten lengaç sconvenient"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
