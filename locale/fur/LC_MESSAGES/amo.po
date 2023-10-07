@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-07 08:19+0000\n"
+"PO-Revision-Date: 2023-10-07 08:41+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -912,26 +912,28 @@ msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Tu podaressis cjatâ ce che tu ciris in une des %(extensionStart)sestensions%(extensionEnd)s o dai %(themeStart)stemis%(themeEnd)s disponibii o domandant jutori sui %(communityStart)sforums de nestre"
+" comunitât%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
-msgstr ""
+msgstr "Chê pagjine no je disponibile te tô regjon"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
 msgid "The page you tried to access is not available in your region."
-msgstr ""
+msgstr "La pagjine che tu âs cirût di acedi no je disponibile te tô regjon."
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
-msgstr ""
+msgstr "Ative o disative i contignûts"
 
 #: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Response by %(userName)s"
-msgstr ""
+msgstr "Rispueste di %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:79
 msgid "Review by %(userName)s"
-msgstr ""
+msgstr "Recension di %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
