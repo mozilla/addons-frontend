@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 08:04+0000\n"
+"PO-Revision-Date: 2023-10-08 08:14+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1174,63 +1174,63 @@ msgstr "Acedi ai tiei dâts di ducj i sîts web"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Acedi ai dâts utents dai sîts includûts tal domini %(param)s"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Acedi ai dâts utent di %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
-msgstr ""
+msgstr "Di Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47 src/amo/components/PromotedBadge/index.js:48 src/amo/components/SearchFilters/index.js:180
 msgid "Recommended"
-msgstr ""
+msgstr "Conseâts"
 
 #: src/amo/components/IconPromotedBadge/index.js:48 src/amo/components/PromotedBadge/index.js:56 src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
-msgstr ""
+msgstr "Verificât"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
-msgstr ""
+msgstr "Discjame il file"
 
 #: src/amo/components/InstallWarning/index.js:104 src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
-msgstr ""
+msgstr "Plui informazions"
 
 #: src/amo/components/InstallWarning/index.js:108
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr ""
+msgstr "La sigurece di chest component adizionâl no je monitorade in mût atîf di Mozilla. Controle che al sedi afidabil prime di instalâlu."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
-msgstr ""
+msgstr "Cambie lenghe"
 
 #: src/amo/components/Notice/index.js:154
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Siere chest avîs"
 
 #: src/amo/components/Paginate/index.js:155
 msgid "Previous"
-msgstr ""
+msgstr "Precedent"
 
 #: src/amo/components/Paginate/index.js:174
 msgid "Next"
-msgstr ""
+msgstr "Sucessîf"
 
 #: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Pagjine %(thisPage)s di %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
-msgstr ""
+msgstr "Permès"
 
 #: src/amo/components/PermissionsCard/index.js:84
 msgid "This add-on needs to:"
-msgstr ""
+msgstr "Chest component adizionâl al à bisugne di:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "This add-on may also ask to:"
