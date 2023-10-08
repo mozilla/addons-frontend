@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 12:53+0000\n"
+"PO-Revision-Date: 2023-10-08 16:26+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1342,19 +1342,19 @@ msgstr "Firefox al consee dome components adizionâi che a sodisfin i nestris st
 
 #: src/amo/components/PromotedBadge/index.js:57
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr ""
+msgstr "Chest component adizionâl al è stât revisionât par sodisfâ i nestris standards di sigurece e prestazions."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Valutade %(rating)s su 5"
 
 #: src/amo/components/Rating/index.js:109
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "Inzorne la tô valutazion in %(starRating)s su 5"
 
 #: src/amo/components/Rating/index.js:115
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr ""
+msgstr "Valute chest component adizionâl %(starRating)s su 5"
 
 #: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
