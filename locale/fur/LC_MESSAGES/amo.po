@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 17:53+0000\n"
+"PO-Revision-Date: 2023-10-08 17:56+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1432,35 +1432,35 @@ msgstr "No son ancjemò recensions"
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
 msgstr[0] "Lei la recension a cinc stelis"
-msgstr[1] ""
+msgstr[1] "Lei dutis e %(total)s lis recensions a cinc stelis"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
-msgstr ""
+msgstr "No son ancjemò recensions a cinc stelis"
 
 #: src/amo/components/RatingsByStar/index.js:78
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lei la recension a cuatri stelis"
+msgstr[1] "Lei dutis e %(total)s lis recensions a cuatri stelis"
 
 #: src/amo/components/RatingsByStar/index.js:88
 msgid "There are no four-star reviews"
-msgstr ""
+msgstr "No son ancjemò recensions a cuatri stelis"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lei la recension a trê stelis"
+msgstr[1] "Lei dutis e %(total)s lis recensions a trê stelis"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Tu âs segnalât par abûs chest component adizionâl"
 
 #: src/amo/components/ReportAbuseButton/index.js:117
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "O vin ricevût la tô segnalazion. Graciis par vênus comunicât lis tôs perplessitâts su chest component adizionâl."
 
 #: src/amo/components/ReportAbuseButton/index.js:124 src/amo/components/ReportUserAbuse/index.js:172
 msgid "We can't respond to every abuse report but we'll look into this issue."
