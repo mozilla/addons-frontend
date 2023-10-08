@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 10:05+0000\n"
+"PO-Revision-Date: 2023-10-08 11:25+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1294,35 +1294,35 @@ msgstr "Monitorâ l’ûs des estensions e gjestî i temis"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Scambiâ messaçs cun programs diviers di Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Mostrâti notifichis"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Furnî servizis di autenticazion criptografiche"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Controlâ lis impostazions dal proxy dal navigadôr"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Lei e modificâ lis impostazions di riservatece"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Acedi aes schedis sieradis di resint"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Acedi aes schedis dal navigadôr"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Platâ e mostrâ schedis dal navigadôr"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Store unlimited amount of client-side data"
