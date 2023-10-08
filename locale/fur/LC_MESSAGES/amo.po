@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-07 09:11+0000\n"
+"PO-Revision-Date: 2023-10-08 08:04+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1032,143 +1032,145 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Gjavant dulà che al è %(startNotedLink)sindict%(endNotedLink)s in mût diviers, i contignûts su chest sît a son distribuîts cun licence %(startLicenseLink)sCreative Commons Atribuzion Condivît te "
+"stesse maniere v3.0%(endLicenseLink)s o versions sucessivis."
 
 #: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Va ae pagjine principâl dal sît Mozilla"
 
 #: src/amo/components/Footer/index.js:63
 msgid "About"
-msgstr ""
+msgstr "Informazions"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
-msgstr ""
+msgstr "Blog dai components adizionâi di Firefox"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
-msgstr ""
+msgstr "Laboratori estensions"
 
 #: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
 msgid "Developer Hub"
-msgstr ""
+msgstr "Centri di svilup"
 
 #: src/amo/components/GetFirefoxBanner/index.js:72
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "Par doprâ chescj components adizionâi tu varâs di %(linkStart)sdiscjariâ Firefox%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:121
 msgid "Download Firefox and get the theme"
-msgstr ""
+msgstr "Discjame Firefox e instale il teme"
 
 #: src/amo/components/GetFirefoxButton/index.js:122
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "Discjame Firefox e instale la estension"
 
 #: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download the new Firefox and get the theme"
-msgstr ""
+msgstr "Discjame il gnûf Firefox e instale il teme"
 
 #: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download the new Firefox and get the extension"
-msgstr ""
+msgstr "Discjame il gnûf Firefox e instale la estension"
 
 #: src/amo/components/GetFirefoxButton/index.js:131
 msgid "Download Firefox"
-msgstr ""
+msgstr "Discjame Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:134
 msgid "You'll need Firefox to use this theme"
-msgstr ""
+msgstr "Ti covente Firefox par doprâ chest teme"
 
 #: src/amo/components/GetFirefoxButton/index.js:135
 msgid "You'll need Firefox to use this extension"
-msgstr ""
+msgstr "Ti covente Firefox par doprâ cheste estension"
 
 #: src/amo/components/GetFirefoxButton/index.js:139
 msgid "You need an updated version of Firefox for this theme"
-msgstr ""
+msgstr "Ti covente une version inzornade di Firefox par instalâ chest teme"
 
 #: src/amo/components/GetFirefoxButton/index.js:140
 msgid "You need an updated version of Firefox for this extension"
-msgstr ""
+msgstr "Ti covente une version inzornade di Firefox par instalâ cheste estension"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
-msgstr ""
+msgstr "Struments"
 
 #: src/amo/components/Header/index.js:107
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Cjame in rêt un gnûf component adizionâl"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Cjame in rêt un gnûf teme"
 
 #: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Gjestìs i miei elements cjariâts in rêt"
 
 #: src/amo/components/Header/index.js:131
 msgid "Reviewer Tools"
-msgstr ""
+msgstr "Struments par revisôrs"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:183
 msgid "Firefox Browser Add-ons"
-msgstr ""
+msgstr "Components adizionâi par Firefox"
 
 #: src/amo/components/Header/index.js:211
 msgid "Learn how to create extensions and themes"
-msgstr ""
+msgstr "Scuvierç cemût creâ estensions e temis"
 
 #: src/amo/components/Header/index.js:221
 msgid "Submit and manage extensions and themes"
-msgstr ""
+msgstr "Cjame in rêt e gjestìs estensions e temis"
 
 #: src/amo/components/Header/index.js:75
 msgid "My Account"
-msgstr ""
+msgstr "Gno account"
 
 #: src/amo/components/Header/index.js:81
 msgid "View My Collections"
-msgstr ""
+msgstr "Visualize lis mês racueltis"
 
 #: src/amo/components/Header/index.js:89 src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
-msgstr ""
+msgstr "Visualize il gno profîl"
 
 #: src/amo/components/Header/index.js:97 src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
-msgstr ""
+msgstr "Modifiche il gno profîl"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
-msgstr ""
+msgstr "Discjame estension"
 
 #: src/amo/components/HeroRecommendation/index.js:233
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "CONSEÂTS"
 
 #: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
-msgstr ""
+msgstr "DI FIREFOX"
 
 #: src/amo/components/HeroRecommendation/index.js:239
 msgid "SPONSORED"
-msgstr ""
+msgstr "PATROCINÂTS"
 
 #: src/amo/components/HeroRecommendation/index.js:256
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox al consee dome estensions che a sodisfin i nestris standards di sigurece e di prestazion."
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
-msgstr ""
+msgstr "Viôt altris in %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Acedi ai tiei dâts di ducj i sîts web"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
