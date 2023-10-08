@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 16:55+0000\n"
+"PO-Revision-Date: 2023-10-08 17:39+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1382,23 +1382,23 @@ msgstr "Jentre par dâ un vôt a chest component adizionâl"
 
 #: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr ""
+msgstr "Eliminâ pardabon la tô recension di %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr ""
+msgstr "Eliminâ pardabon la tô valutazion di %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:194
 msgid "How are you enjoying %(addonName)s?"
-msgstr ""
+msgstr "Trop stâstu gjoldint %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:237
 msgid "Saving star rating"
-msgstr ""
+msgstr "Salvament valutazion in stelis"
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Star rating saved"
-msgstr ""
+msgstr "Valutazion in stelis salvade"
 
 #: src/amo/components/RatingsByStar/index.js:103
 msgid "There are no three-star reviews"
