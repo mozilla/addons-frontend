@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 08:14+0000\n"
+"PO-Revision-Date: 2023-10-08 08:15+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1234,35 +1234,35 @@ msgstr "Chest component adizionâl al à bisugne di:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "This add-on may also ask to:"
-msgstr ""
+msgstr "Chest component adizionâl al domande ancje di:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Lei e modificâ i segnelibris"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Lei e modificâ lis impostazions dal navigadôr"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Netâ la cronologjie di navigazion resinte, i cookies e i dâts relatîfs"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Otignî i dâts des notis"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Meti dâts tes notis"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Block content on any page"
-msgstr ""
+msgstr "Blocâ i contignûts in cualsisei pagjine"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Read your browsing history"
-msgstr ""
+msgstr "Lei la tô cronologjie di navigazion"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
