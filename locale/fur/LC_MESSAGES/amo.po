@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 16:26+0000\n"
+"PO-Revision-Date: 2023-10-08 16:55+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1358,27 +1358,27 @@ msgstr "Valute chest component adizionâl %(starRating)s su 5"
 
 #: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "No son ancjemò valutazions"
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Jentre par dâ une vôt a chest dizionari"
 
 #: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Jentre par dâ un vôt a chest pachet des lenghis"
 
 #: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Jentre par dâ un vôt a chest teme"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "Jentre par dâ un vôt a cheste estension"
 
 #: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Jentre par dâ un vôt a chest component adizionâl"
 
 #: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
