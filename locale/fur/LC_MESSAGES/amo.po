@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 08:15+0000\n"
+"PO-Revision-Date: 2023-10-08 10:02+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1266,15 +1266,15 @@ msgstr "Lei la tô cronologjie di navigazion"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Permeti ai struments dai disvilupadôrs di acedi ai tiei dâts tes schedis viertis"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Discjariâ files, lei e modificâ la cronologjie dai discjamâts dal navigadôr"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Vierzi i files discjamâts sul computer"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read the text of all open tabs"
