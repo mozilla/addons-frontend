@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 17:56+0000\n"
+"PO-Revision-Date: 2023-10-08 18:20+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1464,7 +1464,7 @@ msgstr "O vin ricevût la tô segnalazion. Graciis par vênus comunicât lis tô
 
 #: src/amo/components/ReportAbuseButton/index.js:124 src/amo/components/ReportUserAbuse/index.js:172
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "No rivìn a rispuindi a dutis lis segnalazions di abûs ma o esaminarìn la cuistion."
 
 #: src/amo/components/ReportAbuseButton/index.js:134
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
