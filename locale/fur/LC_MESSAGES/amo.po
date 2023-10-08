@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 17:39+0000\n"
+"PO-Revision-Date: 2023-10-08 17:53+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1402,36 +1402,36 @@ msgstr "Valutazion in stelis salvade"
 
 #: src/amo/components/RatingsByStar/index.js:103
 msgid "There are no three-star reviews"
-msgstr ""
+msgstr "No son ancjemò recensions a trê stelis"
 
 #: src/amo/components/RatingsByStar/index.js:108
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lei la recension a dôs stelis"
+msgstr[1] "Lei dutis e %(total)s lis recensions a dôs stelis"
 
 #: src/amo/components/RatingsByStar/index.js:118
 msgid "There are no two-star reviews"
-msgstr ""
+msgstr "No son ancjemò recensions a dôs stelis"
 
 #: src/amo/components/RatingsByStar/index.js:123
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lei la recension a une stele"
+msgstr[1] "Lei dutis e %(total)s lis recensions a une stele"
 
 #: src/amo/components/RatingsByStar/index.js:133
 msgid "There are no one-star reviews"
-msgstr ""
+msgstr "No son ancjemò recensions a une stele"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:373
 msgid "There are no reviews"
-msgstr ""
+msgstr "No son ancjemò recensions"
 
 #: src/amo/components/RatingsByStar/index.js:63
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] ""
+msgstr[0] "Lei la recension a cinc stelis"
 msgstr[1] ""
 
 #: src/amo/components/RatingsByStar/index.js:73
