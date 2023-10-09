@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 17:32+0000\n"
+"PO-Revision-Date: 2023-10-09 17:43+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1980,47 +1980,47 @@ msgstr[1] "Lei dutis e %(count)s lis recensions"
 
 #: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
-msgstr ""
+msgstr "Ancjemò nissune recension"
 
 #: src/amo/pages/Addon/index.js:252
 msgid "Rate your experience"
-msgstr ""
+msgstr "Valute la tô esperience"
 
 #: src/amo/pages/Addon/index.js:271
 msgid "About this dictionary"
-msgstr ""
+msgstr "Informazions sul dizionari"
 
 #: src/amo/pages/Addon/index.js:274
 msgid "About this extension"
-msgstr ""
+msgstr "Informazions su la estension"
 
 #: src/amo/pages/Addon/index.js:277
 msgid "About this language pack"
-msgstr ""
+msgstr "Informazions sul pachet des lenghis"
 
 #: src/amo/pages/Addon/index.js:280
 msgid "About this theme"
-msgstr ""
+msgstr "Informazions sul teme"
 
 #: src/amo/pages/Addon/index.js:283
 msgid "About this add-on"
-msgstr ""
+msgstr "Informazions sul component adizionâl"
 
 #: src/amo/pages/Addon/index.js:327
 msgid "Developer comments"
-msgstr ""
+msgstr "Coments dal svilupadôrs"
 
 #: src/amo/pages/Addon/index.js:350
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "Notis di publicazion pe version %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:482
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Chest component adizionâl nol ven fûr tes listis publichis. Tu rivis a viodilu parcè che tu âs permès elevâts."
 
 #: src/amo/pages/Addon/index.js:506
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metadâts de estension"
 
 #: src/amo/pages/Addon/index.js:531
 msgid "Screenshots"
