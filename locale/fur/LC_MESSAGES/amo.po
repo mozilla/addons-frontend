@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 20:03+0000\n"
+"PO-Revision-Date: 2023-10-09 20:10+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2036,67 +2036,67 @@ msgstr "Acuardi di licence cul utent finâl par %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
-msgstr ""
+msgstr "Informative su la riservatece par %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Recensions e valutazions par %(addonName)s. Scuvierç ce che a pensin chei altris utents su %(addonName)s e zontilu al to navigadôr Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show all reviews"
-msgstr ""
+msgstr "Mostre dutis lis recensions"
 
 #: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only five-star reviews"
-msgstr ""
+msgstr "Mostre dome recensions a cinc stelis"
 
 #: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only four-star reviews"
-msgstr ""
+msgstr "Mostre dome recensions a cuatri stelis"
 
 #: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only three-star reviews"
-msgstr ""
+msgstr "Mostre dome recensions a trê stelis"
 
 #: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only two-star reviews"
-msgstr ""
+msgstr "Mostre dome recensions a dôs stelis"
 
 #: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only one-star reviews"
-msgstr ""
+msgstr "Mostre dome recensions a une stele"
 
 #: src/amo/pages/AddonReviewList/index.js:262
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Recensions par %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:272
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s recension"
+msgstr[1] "%(total)s recensions"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Cronologjie versions di %(addonName)s - %(total)s version"
+msgstr[1] "Cronologjie versions di %(addonName)s - %(total)s versions"
 
 #: src/amo/pages/AddonVersions/index.js:165
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Sta atent cu lis versions vecjis! Chês a vegnin visualizadis par finalitâts di prove e di riferiment."
 
 #: src/amo/pages/AddonVersions/index.js:170
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Tu varessis di doprâ simpri la ultime version di un component adizionâl."
 
 #: src/amo/pages/AddonVersions/index.js:179
 msgid "Latest version"
-msgstr ""
+msgstr "Ultime version"
 
 #: src/amo/pages/AddonVersions/index.js:189
 msgid "Older versions"
-msgstr ""
+msgstr "Versions plui vecjis"
 
 #: src/amo/pages/Block/index.js:102
 msgid "View block request"
