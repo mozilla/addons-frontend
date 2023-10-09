@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 08:02+0000\n"
+"PO-Revision-Date: 2023-10-09 08:04+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1622,19 +1622,19 @@ msgstr[1] "%(count)s estensions cjatadis par “%(query)s”"
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
 msgstr[0] "%(count)s estension cjatade cu la etichete %(tag)s"
-msgstr[1] ""
+msgstr[1] "%(count)s estensions cjatadis cu la etichete %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s estension cjatade"
+msgstr[1] "%(count)s estensions cjatadis"
 
 #: src/amo/components/SearchContextCard/index.js:134
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s teme cjatât par “%(query)s” cu la etichete %(tag)s in %(categoryName)s"
+msgstr[1] "%(count)s temis cjatâts par “%(query)s” cu la etichete %(tag)s in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
