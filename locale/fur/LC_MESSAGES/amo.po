@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 17:43+0000\n"
+"PO-Revision-Date: 2023-10-09 20:03+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -211,7 +211,7 @@ msgstr "Lei la informative su la riservatece par chest component adizionâl"
 
 #: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Read the license agreement for this add-on"
-msgstr "Lei il contrat di licence par chest component adizionâl"
+msgstr "Lei l’acuardi di licence par chest component adizionâl"
 
 #: src/amo/components/AddonMoreInfo/index.js:254
 msgid "See all versions"
@@ -247,7 +247,7 @@ msgstr "Informative su la riservatece"
 
 #: src/amo/components/AddonMoreInfo/index.js:363
 msgid "End-User License Agreement"
-msgstr "Contrat di licence pal utent finâl (EULA)"
+msgstr "Acuardi di licence pal utent finâl (EULA)"
 
 #: src/amo/components/AddonMoreInfo/index.js:371
 msgid "Version History"
@@ -2024,15 +2024,15 @@ msgstr "Metadâts de estension"
 
 #: src/amo/pages/Addon/index.js:531
 msgid "Screenshots"
-msgstr ""
+msgstr "Schermadis"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
-msgstr ""
+msgstr "Licence personalizade par %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
-msgstr ""
+msgstr "Acuardi di licence cul utent finâl par %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
