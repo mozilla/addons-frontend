@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-08 18:20+0000\n"
+"PO-Revision-Date: 2023-10-09 04:32+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1469,106 +1469,108 @@ msgstr "No rivìn a rispuindi a dutis lis segnalazions di abûs ma o esaminarìn
 #: src/amo/components/ReportAbuseButton/index.js:134
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Se tu pensis che chest component adizionâl al violi lis %(linkTagStart)spolitichis di Mozilla sui components adizionâi%(linkTagEnd)s o che al vedi problemis di sigurece o riservatece, par plasê "
+"segnale a Mozilla chescj problemis doprant chest formulari."
 
 #: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Segnale chest component adizionâl par abûs"
 
 #: src/amo/components/ReportAbuseButton/index.js:181
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Atenzion: no sta doprâ chest formulari par segnalâ erôrs o domandâ gnovis funzionalitâts; cheste segnalazion e vignarà mandade a Mozilla e no al svilupadôr dal component adizionâl."
 
 #: src/amo/components/ReportAbuseButton/index.js:194 src/amo/components/ReportUserAbuse/index.js:152
 msgid "Send abuse report"
-msgstr ""
+msgstr "Mande segnalazion di abûs"
 
 #: src/amo/components/ReportAbuseButton/index.js:195 src/amo/components/ReportUserAbuse/index.js:153
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Daûr a inviâ la segnalazion di abûs"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
-msgstr ""
+msgstr "Anule"
 
 #: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Spieghe cemût che chest component adizionâl al viole lis nestris politichis."
 
 #: src/amo/components/ReportUserAbuse/index.js:105 src/amo/components/ReportUserAbuse/index.js:112
 msgid "Report this user for abuse"
-msgstr ""
+msgstr "Segnale chest utent par abûs"
 
 #: src/amo/components/ReportUserAbuse/index.js:119
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "Se tu pensis che chest utent al violi lis %(linkTagStart)spolitichis di Mozilla sui components adizionâi%(linkTagEnd)s segnalilu a Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "Atenzion: no sta doprâ chest formulari par segnalâ erôrs o contatâ l’utent; la segnalazion e vignarà mandade a Mozilla e no al utent."
 
 #: src/amo/components/ReportUserAbuse/index.js:149
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "Spieghe cemût che chest utent al viole lis nestris politichis."
 
 #: src/amo/components/ReportUserAbuse/index.js:161
 msgid "You reported this user for abuse"
-msgstr ""
+msgstr "Tu âs segnalât par abûs chest utent"
 
 #: src/amo/components/ReportUserAbuse/index.js:165
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "O vin ricevût la tô segnalazion. Graciis par vênus comunicât lis tôs perplessitâts su chest utent."
 
 #: src/amo/components/Search/index.js:139 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
-msgstr ""
+msgstr "Risultâts de ricercje"
 
 #: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:213 src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
-msgstr ""
+msgstr "Estensions conseadis"
 
 #: src/amo/components/Search/index.js:148 src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
-msgstr ""
+msgstr "Temis conseâts"
 
 #: src/amo/components/Search/index.js:151
 msgid "Recommended add-ons"
-msgstr ""
+msgstr "Components adizionâi conseâts"
 
 #: src/amo/components/Search/index.js:156
 msgid "Extensions by Firefox"
-msgstr ""
+msgstr "Estensions di Firefox"
 
 #: src/amo/components/Search/index.js:159
 msgid "Themes by Firefox"
-msgstr ""
+msgstr "Temis di Firefox"
 
 #: src/amo/components/Search/index.js:162
 msgid "Add-ons by Firefox"
-msgstr ""
+msgstr "Components adizionâi di Firefox"
 
 #: src/amo/components/Search/index.js:167
 msgid "Reviewed extensions"
-msgstr ""
+msgstr "Estensions revisionadis"
 
 #: src/amo/components/Search/index.js:170
 msgid "Reviewed themes"
-msgstr ""
+msgstr "Temis revisionâts"
 
 #: src/amo/components/Search/index.js:173
 msgid "Reviewed add-ons"
-msgstr ""
+msgstr "Components adizionâi revisionâts"
 
 #: src/amo/components/Search/index.js:178
 msgid "Verified extensions"
-msgstr ""
+msgstr "Estensions verificadis"
 
 #: src/amo/components/Search/index.js:181
 msgid "Verified themes"
-msgstr ""
+msgstr "Temis verificâts"
 
 #: src/amo/components/Search/index.js:184
 msgid "Verified add-ons"
-msgstr ""
+msgstr "Components adizionâi verificâts"
 
 #: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
