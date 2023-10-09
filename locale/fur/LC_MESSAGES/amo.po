@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 08:13+0000\n"
+"PO-Revision-Date: 2023-10-09 08:23+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1731,140 +1731,140 @@ msgstr[1] "%(count)s estensions cjatadis cun etichete %(tag)s in %(categoryName)
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s estension cjatade in %(categoryName)s"
+msgstr[1] "%(count)s estensions cjatadis in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s estension cjatade par “%(query)s” cun etichete %(tag)s"
+msgstr[1] "%(count)s estension cjatade par “%(query)s” cun etichete %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
-msgstr ""
+msgstr "Ducj"
 
 #: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
-msgstr ""
+msgstr "Estension"
 
 #: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
-msgstr ""
+msgstr "Teme"
 
 #: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
-msgstr ""
+msgstr "Pertinence"
 
 #: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
-msgstr ""
+msgstr "Inzornâts di resint"
 
 #: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
-msgstr ""
+msgstr "Numar plui alt di utents"
 
 #: src/amo/components/SearchFilters/index.js:170
 msgid "Top Rated"
-msgstr ""
+msgstr "Plui votâts"
 
 #: src/amo/components/SearchFilters/index.js:171
 msgid "Trending"
-msgstr ""
+msgstr "Di tindince"
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
-msgstr ""
+msgstr "Ducj"
 
 #: src/amo/components/SearchFilters/index.js:190
 msgid "All Reviewed"
-msgstr ""
+msgstr "Ducj i revisionâts"
 
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
-msgstr ""
+msgstr "Filtre risultâts"
 
 #: src/amo/components/SearchFilters/index.js:215
 msgid "Sort by"
-msgstr ""
+msgstr "Ordene par"
 
 #: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
-msgstr ""
+msgstr "Gjenar di component adizionâl"
 
 #: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
-msgstr ""
+msgstr "Classificazion"
 
 #: src/amo/components/SearchForm/index.js:65
 msgid "Firefox Add-ons for Android"
-msgstr ""
+msgstr "Components adizionâi di Firefox par Android"
 
 #: src/amo/components/SearchForm/index.js:66
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Components adizionâi par Firefox"
 
 #: src/amo/components/SearchForm/index.js:89
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Va ae pagjine dal component adizionâl"
 
 #: src/amo/components/SearchResult/index.js:195
 msgid "No theme preview available"
-msgstr ""
+msgstr "Nissune anteprime dal teme disponibile"
 
 #: src/amo/components/SearchResult/index.js:230
 msgid "Add-on note"
-msgstr ""
+msgstr "Note pal component adizionâl"
 
 #: src/amo/components/SearchResult/index.js:248
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s utent"
+msgstr[1] "%(total)s utents"
 
 #: src/amo/components/SearchResults/index.js:45
 msgid "Searching…"
-msgstr ""
+msgstr "Daûr a cirî…"
 
 #: src/amo/components/SearchResults/index.js:50
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Nissun risultât cjatât par “%(query)s”."
 
 #: src/amo/components/SearchResults/index.js:56
 msgid "No results were found."
-msgstr ""
+msgstr "Nissun risultât cjatât."
 
 #: src/amo/components/SectionLinks/index.js:112 src/amo/pages/CategoryPage/index.js:60 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
-msgstr ""
+msgstr "Temis"
 
 #: src/amo/components/SectionLinks/index.js:118
 msgid "More…"
-msgstr ""
+msgstr "Altri…"
 
 #: src/amo/components/SectionLinks/index.js:122
 msgid "for Firefox"
-msgstr ""
+msgstr "par Firefox"
 
 #: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Dizionaris e pachets di lenghis"
 
 #: src/amo/components/SectionLinks/index.js:136
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Altris sîts"
 
 #: src/amo/components/SectionLinks/index.js:146
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Components adizionâi par Android"
 
 #: src/amo/components/SectionLinks/index.js:96 src/amo/pages/CategoryPage/index.js:66 src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
-msgstr ""
+msgstr "Estensions"
 
 #: src/amo/components/ShowMoreCard/index.js:162
 msgid "Expand to read more"
-msgstr ""
+msgstr "Slargje par continuâ a lei"
 
 #: src/amo/components/ShowMoreCard/index.js:167
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
