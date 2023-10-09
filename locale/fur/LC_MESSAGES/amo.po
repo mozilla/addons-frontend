@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 16:53+0000\n"
+"PO-Revision-Date: 2023-10-09 17:32+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1934,49 +1934,49 @@ msgstr "Sparagne il 50% cuntun abonament anuâl"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "Protêç i tiei dâts in rêt e sielç un plan di abonament VPN adat aes tôs esigjencis."
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
-msgstr ""
+msgstr "Oten Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr ""
+msgstr "Par cjatâ components adizionâi compatibii cun Firefox par Android, <a href=\"%(newLocation)s\">fâs clic achì</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr ""
+msgstr "I components adizionâi no son compatibii cun Firefox par iOS. Prove a instalâju in Firefox par scritori."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/amo/i18n/utils.js:265
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s kB"
 
 #: src/amo/i18n/utils.js:267
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/amo/i18n/utils.js:269
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/amo/i18n/utils.js:271
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 #: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "Nol è pussibil vautâ chest component adizionâl parcè che nol à versions publicadis."
 
 #: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lei %(count)s recension"
+msgstr[1] "Lei dutis e %(count)s lis recensions"
 
 #: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
