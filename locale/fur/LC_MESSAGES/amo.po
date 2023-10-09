@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 08:24+0000\n"
+"PO-Revision-Date: 2023-10-09 08:51+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1872,7 +1872,7 @@ msgstr "<span class=\"visually-hidden\">Slargje par</span> Lei di plui"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "Cualchi funzion pal moment e je disativade par lavôrs di manutenzion. Ca di pôc o tornarìn ae normâl funzionalitât."
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
