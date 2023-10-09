@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 08:51+0000\n"
+"PO-Revision-Date: 2023-10-09 10:51+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1876,33 +1876,33 @@ msgstr "Cualchi funzion pal moment e je disativade par lavôrs di manutenzion. C
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
-msgstr ""
+msgstr "La tô utence e je stade disconetude."
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Pagjinis conseadis"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Esplore dutis lis estensions"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr ""
+msgstr "Esplore ducj i temis"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "Pagjine iniziâl components adizionâi"
 
 #: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:181
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Anteprime di %(title)s"
 
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s component adizionâl"
+msgstr[1] "%(total)s components adizionâi"
 
 #: src/amo/components/UserProfileEditPicture/index.js:100
 msgid "Do you really want to delete this picture?"
