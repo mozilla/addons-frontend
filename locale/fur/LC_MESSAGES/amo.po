@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 04:32+0000\n"
+"PO-Revision-Date: 2023-10-09 05:24+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1574,43 +1574,43 @@ msgstr "Components adizionâi verificâts"
 
 #: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
-msgstr ""
+msgstr "Estensions di tindince"
 
 #: src/amo/components/Search/index.js:195 src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
-msgstr ""
+msgstr "Temis di tindince"
 
 #: src/amo/components/Search/index.js:198
 msgid "Trending add-ons"
-msgstr ""
+msgstr "Components adizionâi di tindince"
 
 #: src/amo/components/Search/index.js:204 src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Estensions plui votadis"
 
 #: src/amo/components/Search/index.js:207 src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
-msgstr ""
+msgstr "Temis plui votâts"
 
 #: src/amo/components/Search/index.js:210
 msgid "Top rated add-ons"
-msgstr ""
+msgstr "Components adizionâi plui votâts"
 
 #: src/amo/components/Search/index.js:216
 msgid "Popular extensions"
-msgstr ""
+msgstr "Estensions popolârs"
 
 #: src/amo/components/Search/index.js:219
 msgid "Popular themes"
-msgstr ""
+msgstr "Temis popolârs"
 
 #: src/amo/components/Search/index.js:222
 msgid "Popular add-ons"
-msgstr ""
+msgstr "Components adizionâi popolârs"
 
 #: src/amo/components/Search/index.js:228
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "Risultâts di ricercje par “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:104
 msgid "%(count)s extension found for \"%(query)s\""
