@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 08:04+0000\n"
+"PO-Revision-Date: 2023-10-09 08:13+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1639,94 +1639,94 @@ msgstr[1] "%(count)s temis cjatâts par “%(query)s” cu la etichete %(tag)s i
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s teme cjatât par “%(query)s” in %(categoryName)s"
+msgstr[1] "%(count)s temis cjatâts par “%(query)s” in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s teme cjatât cun etichete %(tag)s in %(categoryName)s"
+msgstr[1] "%(count)s temis cjatâts cun etichete %(tag)s in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s teme cjatât in %(categoryName)s"
+msgstr[1] "%(count)s temis cjatâts in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s teme cjatât par “%(query)s” cun etichete %(tag)s"
+msgstr[1] "%(count)s temis cjatâts par “%(query)s” cun etichete %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s teme cjatât par “%(query)s”"
+msgstr[1] "%(count)s temis cjatâts par “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:188
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s teme cjatât cun etichete %(tag)s"
+msgstr[1] "%(count)s temis cjatâts cun etichete %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s teme cjatât"
+msgstr[1] "%(count)s temis cjatâts"
 
 #: src/amo/components/SearchContextCard/index.js:209
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s risultât cjatât par “%(query)s” cun etichete %(tag)s"
+msgstr[1] "%(count)s risultâts cjatâts par “%(query)s” cun etichete %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s risultât cjatât par “%(query)s”"
+msgstr[1] "%(count)s risultâts cjatâts par “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:227
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s risultât cjatât cun etichete %(tag)s"
+msgstr[1] "%(count)s risultâts cjatâts cun etichete %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s risultât cjatât"
+msgstr[1] "%(count)s risultâts cjatâts"
 
 #: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "Ricercje di “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
-msgstr ""
+msgstr "Daûr a cirî components adizionâi"
 
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s estension cjatade par “%(query)s” cun etichete %(tag)s in %(categoryName)s"
+msgstr[1] "%(count)s estensions cjatadis par “%(query)s” cun etichete %(tag)s in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s estension cjatade par “%(query)s” in %(categoryName)s"
+msgstr[1] "%(count)s estensions cjatadis par “%(query)s” in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s estension cjatade cun etichete %(tag)s in %(categoryName)s"
+msgstr[1] "%(count)s estensions cjatadis cun etichete %(tag)s in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
