@@ -190,6 +190,7 @@ module.exports = {
     'fa',
     'fi',
     'fr',
+    'fur',
     'fy-NL',
     'ga-IE',
     'he',
