@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-10 16:36+0000\n"
+"PO-Revision-Date: 2023-10-10 18:20+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2413,11 +2413,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
+msgstr "Se tu stâs cirint components adizionâi par Thunderbird o SeaMonkey, visite %(startTBLink)saddons.thunderbird.net%(endTBLink)s o %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
-msgstr ""
+msgstr "Une comunitât di creatîfs"
 
 #: src/amo/pages/StaticPages/About/index.js:56
 msgid ""
