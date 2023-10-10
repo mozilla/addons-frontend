@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-10 06:32+0000\n"
+"PO-Revision-Date: 2023-10-10 12:02+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2353,22 +2353,23 @@ msgstr "Partecipe tal nestri %(startLink)sforum%(endLink)s."
 #: src/amo/pages/StaticPages/About/index.js:162
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
 msgstr ""
+"Lasse une opinion ai tiei components adizionâi preferîts. I autôrs si butin plui vulintîr a miorâ i lôr components adizionâi e a creânt di gnûfs cuant che a viodin che la int e presee il lôr lavôr."
 
 #: src/amo/pages/StaticPages/About/index.js:167
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Dîs ai tiei amîs e ae famee che Firefox al è un navigadôr svelt e sigûr che al protêç la lôr riservatece, e che a puedin doprâ components adizionâi par rindilu personalizât!"
 
 #: src/amo/pages/StaticPages/About/index.js:175
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr ""
+msgstr "Par viodi altris mûts di colaborâ ae comunitât dai components adizionâi, visite il nestri %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Report an issue"
-msgstr ""
+msgstr "Segnale un probleme"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
-msgstr ""
+msgstr "Informazions sui components adizionâi par Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
