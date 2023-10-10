@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-10 05:14+0000\n"
+"PO-Revision-Date: 2023-10-10 05:23+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2185,51 +2185,51 @@ msgstr "Prime di zontâ estensions e temis tu âs di creâ une racuelte."
 
 #: src/amo/pages/Collection/index.js:460
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Cîr estensions e temis di zontâ ae tô racuelte."
 
 #: src/amo/pages/Collection/index.js:520
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Discjame e cree lis racueltis di Firefox par tignî segnâts lis estensions e i temis preferîts. Esplore %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:523
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Discjame e cree lis racueltis di Firefox par tignî segnâts lis tôs estensions e i tiei temis preferîts. Esplore %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
-msgstr ""
+msgstr "Lis mês racueltis"
 
 #: src/amo/pages/CollectionList/index.js:123
 msgid "Collections"
-msgstr ""
+msgstr "Racueltis"
 
 #: src/amo/pages/CollectionList/index.js:128
 msgid "Log in to view your collections"
-msgstr ""
+msgstr "Jentre par viodi lis tôs racueltis"
 
 #: src/amo/pages/CollectionList/index.js:133
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Lis racueltis a permeti di tignî segnâts i components adizionâi preferîts e condividi lis funzionalitâts personalizadis dal propri navigadôr cun altris utents."
 
 #: src/amo/pages/CollectionList/index.js:143
 msgid "Create a collection"
-msgstr ""
+msgstr "Cree une racuelte"
 
 #: src/amo/pages/CollectionList/index.js:70
 msgid "You do not have any collections."
-msgstr ""
+msgstr "No tu âs ancjemò nissune racuelte."
 
 #: src/amo/pages/Home/index.js:103
 msgid "Music"
-msgstr ""
+msgstr "Musiche"
 
 #: src/amo/pages/Home/index.js:108
 msgid "Seasonal"
-msgstr ""
+msgstr "Stagjons"
 
 #: src/amo/pages/Home/index.js:158
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Modifiche l’aspiet di Firefox cui temis."
 
 #: src/amo/pages/Home/index.js:167
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
