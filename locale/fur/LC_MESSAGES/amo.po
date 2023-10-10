@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-10 05:42+0000\n"
+"PO-Revision-Date: 2023-10-10 05:45+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2339,10 +2339,12 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Desideristu ineragjî cun addons.mozilla.org (AMO) a nivel di programazion? Controle la documentazion dai %(startAddonsServerDocumentation)sServidôrs dai components "
+"adizionâi%(endAddonsServerDocumentation)s pai detais su lis APIs dopradis di AMO e il %(startAddonsManager)sGjestôr dai components adizionâi%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Se tu desieris contribuî ma no tu âs lis compentencis tecnichis necessaris, tu puedis simpri judâ in altris manieris:"
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
