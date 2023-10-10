@@ -613,6 +613,23 @@ describe(__filename, () => {
       expect(screen.queryByText('Related Categories')).not.toBeInTheDocument();
     });
 
+    it('does not render related categories when add-on only has Android categories', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        // We are migrating away from per-app categories so if an Addon only
+        // has Android categories, ignore them completely, even on Android
+        // pages.
+        categories: { [CLIENT_APP_ANDROID]: ['some', 'thing'] },
+      });
+
+      store.dispatch(loadCategories({ results: categories }));
+      store.dispatch(setClientApp(CLIENT_APP_ANDROID));
+
+      render({ addon, store });
+
+      expect(screen.queryByText('Related Categories')).not.toBeInTheDocument();
+    });
+
     it('does not render related categories when there are no loaded categories', () => {
       const { slug: slug1 } = categories[3];
       const { slug: slug2 } = categories[4];

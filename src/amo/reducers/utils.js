@@ -24,8 +24,8 @@ export const selectLocalizedContent = (
 export const selectCategoryObject = (
   apiAddon: ExternalAddonType,
 ): CategoryEntry => {
-  if (apiAddon.categories && apiAddon.categories.firefox) {
-    return apiAddon.categories.firefox;
+  if (apiAddon.categories instanceof Array) {
+    return apiAddon.categories;
   }
-  return apiAddon.categories;
+  return apiAddon.categories?.firefox;
 };
