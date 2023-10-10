@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-10 12:02+0000\n"
+"PO-Revision-Date: 2023-10-10 12:29+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2373,21 +2373,23 @@ msgstr "Informazions sui components adizionâi par Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr ""
+msgstr "Se tu cjatis un probleme cul sît, nus plasarès risolvilu. Presente une segnalazion di %(startIssueLink)sprobleme%(endIssueLink)s e inclût plui detais pussibii."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Il sît uficiâl di Mozilla par discjariâ estensions e temis di Firefox. Zonte gnovis funzionalitâts e cambie l’aspiet dal navigadôr par personalizâ la tô esperience web."
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Par segnalâ une vulnerabilitât di sigurece di une estension, ancje se e je ospitade su chest sît, vierç une segnalazion di %(startSecIssueLink)sprobleme%(endSecIssueLink)s su Bugzilla o mande une "
+"e-mail a %(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Dutis lis segnalazions su lis vulnerabilitâts di sigurece a son %(startLink)sriservadis%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
-msgstr ""
+msgstr "Oten supuart"
 
 #: src/amo/pages/StaticPages/About/index.js:237
 msgid ""
