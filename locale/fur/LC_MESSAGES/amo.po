@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-09 20:10+0000\n"
+"PO-Revision-Date: 2023-10-10 05:14+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2100,85 +2100,88 @@ msgstr "Versions plui vecjis"
 
 #: src/amo/pages/Block/index.js:102
 msgid "View block request"
-msgstr ""
+msgstr "Visualize la richieste di bloc"
 
 #: src/amo/pages/Block/index.js:119
 msgid "Versions blocked: all versions."
-msgstr ""
+msgstr "Versions blocadis: dutis lis versions."
 
 #: src/amo/pages/Block/index.js:122
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Versions blocadis: di %(min)s a %(max)s."
 
 #: src/amo/pages/Block/index.js:144
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s al è stât blocât pe tô protezion."
 
 #: src/amo/pages/Block/index.js:149
 msgid "This add-on has been blocked for your protection."
-msgstr ""
+msgstr "Chest component adizionâl al è stât blocât pe tô protezion."
 
 #: src/amo/pages/Block/index.js:160
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Parcè isal stât blocât?"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Chest component adizionâl al viole lis %(startLink)spolitichis Mozilla sui components adizionâi%(endLink)s."
 
 #: src/amo/pages/Block/index.js:177
 msgid "What does this mean?"
-msgstr ""
+msgstr "Ce significhial?"
 
 #: src/amo/pages/Block/index.js:179
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Il component adizionâl o il plugin problematic al vignarà disativât in automatic e nol sarà plui utilizabil."
 
 #: src/amo/pages/Block/index.js:186
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Cuant ce Mozilla al identifiche un component adizionâl, plugin o altri software di tiercis parts che al rive a comprometi in mût sevêr la sigurece, la stabilitât o lis prestazions di Firefox e al "
+"jentre in %(criteriaStartLink)sdeterminâts criteris%(criteriaEndLink)s, chel software al podarès vignî blocât par impedî la sô utilizazion. Par vê plui informazions, lei %(supportStartLink)schest "
+"articul di supuart%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:93
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Blocât ai %(date)s."
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
-msgstr ""
+msgstr "Dutis lis categoriis di estensions"
 
 #: src/amo/pages/CategoriesPage/index.js:37
 msgid "All theme categories"
-msgstr ""
+msgstr "Dutis lis categoriis di temis"
 
 #: src/amo/pages/CategoryPage/index.js:57
 msgid "Themes in %(categoryName)s"
-msgstr ""
+msgstr "Temis in %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
 msgid "Extensions in %(categoryName)s"
-msgstr ""
+msgstr "Estensions in %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
-msgstr ""
+msgstr "Eliminâ pardabon cheste racuelte?"
 
 #: src/amo/pages/Collection/index.js:403
 msgid "Delete this collection"
-msgstr ""
+msgstr "Elimine cheste racuelte"
 
 #: src/amo/pages/Collection/index.js:422
 msgid "Log in to create a collection"
-msgstr ""
+msgstr "Jentre par creâ une racuelte"
 
 #: src/amo/pages/Collection/index.js:423
 msgid "Log in to edit this collection"
-msgstr ""
+msgstr "Jentre par modificâ cheste racuelte"
 
 #: src/amo/pages/Collection/index.js:457
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "Prime di zontâ estensions e temis tu âs di creâ une racuelte."
 
 #: src/amo/pages/Collection/index.js:460
 msgid "Search for extensions and themes to add to your collection."
