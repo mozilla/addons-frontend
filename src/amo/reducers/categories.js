@@ -113,8 +113,10 @@ export default function reducer(
         // If the API returns data for an application we don't support,
         // we'll ignore it for now.
         if (category.application && category.application !== 'firefox') {
-          log.warn(oneLine`Category data for unknown clientApp
-              "${category.application}" received from API.`);
+          if (category.application !== 'android') {
+            log.warn(oneLine`Category data for unknown clientApp
+                "${category.application}" received from API.`);
+          }
           return;
         }
 
