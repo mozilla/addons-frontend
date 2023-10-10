@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-10 12:47+0000\n"
+"PO-Revision-Date: 2023-10-10 12:56+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2401,7 +2401,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sChi tu puedis cjatâ informazions su cemût contatâ il grup di Mozilla che al à in caric i components adizionâi di Mozilla%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
