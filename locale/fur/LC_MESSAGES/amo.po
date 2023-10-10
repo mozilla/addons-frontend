@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-10 05:23+0000\n"
+"PO-Revision-Date: 2023-10-10 05:40+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2234,82 +2234,85 @@ msgstr "Modifiche l’aspiet di Firefox cui temis."
 #: src/amo/pages/Home/index.js:167
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
+"Discjame lis estensions e i temis di Firefox. A son come aplicazions pal to navigadôr. A puedin blocâ publicitâts fastidiosis, protezi passwords, cambiâ l’aspiet dal navigadôr e ancjemò altri."
 
 #: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
-msgstr ""
+msgstr "Viôt altris estensions conseadis"
 
 #: src/amo/pages/Home/index.js:83
 msgid "Abstract"
-msgstr ""
+msgstr "Astrat"
 
 #: src/amo/pages/Home/index.js:88
 msgid "Nature"
-msgstr ""
+msgstr "Nature"
 
 #: src/amo/pages/Home/index.js:93
 msgid "Film & TV"
-msgstr ""
+msgstr "Film e TV"
 
 #: src/amo/pages/Home/index.js:98
 msgid "Scenery"
-msgstr ""
+msgstr "Paisaçs"
 
 #: src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
-msgstr ""
+msgstr "Viôt altris estensions di tindince"
 
 #: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
-msgstr ""
+msgstr "Viôt altris estensions plui votadis"
 
 #: src/amo/pages/LandingPage/index.js:163
 msgid "See more recommended themes"
-msgstr ""
+msgstr "Viôt altris temis conseâts"
 
 #: src/amo/pages/LandingPage/index.js:172
 msgid "See more trending themes"
-msgstr ""
+msgstr "Viôt altris temis di tindince"
 
 #: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
-msgstr ""
+msgstr "Viôt altris temis plui votâts"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Discjame i temis par cambiâ l’aspiet di Firefox. Personalize la tô esperience daûr dai tiei guscj. Creaturis nininis, robot triscj, paisaçs maraveôs: tu âs miârs di opzions."
 
 #: src/amo/pages/LandingPage/index.js:210
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Discjame lis estensions di Firefox par zontâ funzions e personalizâ la navigazion. Protêç passwords, cjate ufiertis, miore la riproduzion video e bloche publicitâts fastidiosis cu lis aplicazions "
+"dal navigadôr."
 
 #: src/amo/pages/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "Cambie l'aspiet dal to navigadôr. Sielç tra miârs di temis par dâi a Firefox une man personâl."
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Esplore struments potents e funzions par rindi Firefox pardabon personâl."
 
 #: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
-msgstr ""
+msgstr "Esplore dutis lis categoriis"
 
 #: src/amo/pages/LanguageTools/index.js:118
 msgid "Available for your locale"
-msgstr ""
+msgstr "Disponibil te tô lenghe"
 
 #: src/amo/pages/LanguageTools/index.js:145
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "Dizionaris e pachets des lenghis"
 
 #: src/amo/pages/LanguageTools/index.js:155
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Discjame i dizionaris e i pachets des lenghis par Firefox. Zonte une lenghe tant che opzion pal coretôr ortografic o cambie la lenghe de interface dal navigadôr."
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Instalant un dizionari tu zontarâs une gnove lenghe al coretôr ortografic, il strument che al controle la ortografie intant che tu scrivis in Firefox."
 
 #: src/amo/pages/LanguageTools/index.js:171
 msgid "Language packs change your browser's interface language, including menu options and settings."
