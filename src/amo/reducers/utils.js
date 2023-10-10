@@ -27,5 +27,5 @@ export const selectCategoryObject = (
   if (apiAddon.categories instanceof Array) {
     return apiAddon.categories;
   }
-  return apiAddon.categories.firefox;
+  return apiAddon.categories?.firefox;
 };
