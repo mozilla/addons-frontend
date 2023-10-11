@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-11 05:04+0000\n"
+"PO-Revision-Date: 2023-10-11 05:13+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1261,7 +1261,7 @@ msgstr "Ανάγνωση του ιστορικού περιήγησής σας"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Κάνει επέκταση των εργαλείων προγραμματιστή για πρόσβαση στα δεδομένα σας στις ανοιχτές καρτέλες"
+msgstr "Κάνει επέκταση των εργαλείων προγραμματιστή για πρόσβαση στα δεδομένα σας στις ανοικτές καρτέλες"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Download files and read and modify the browser’s download history"
@@ -2416,9 +2416,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
-"Αν ψάχνετε πρόσθετα για το Thunderbird ή το SeaMonkey, παρακαλούμε επισκεφθείτε το %(startTBLink)saddons.thunderbird.net%(endTBLink)s ή το "
-"%(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
+msgstr "Εάν ψάχνετε πρόσθετα για το Thunderbird ή το SeaMonkey, επισκεφτείτε το %(startTBLink)saddons.thunderbird.net%(endTBLink)s ή το %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
