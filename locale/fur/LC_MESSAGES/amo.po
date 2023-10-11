@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-11 06:52+0000\n"
+"PO-Revision-Date: 2023-10-11 07:22+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2488,15 +2488,16 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "O soi un autôr di components adizionâi, puedio rispuindi aes recensions?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Sì, i autôrs di components adizionâi a puedin dâ une singule rispueste par recension. Par continuâ la conversazion o lâ insot cul argoment vierç une discussion sul %(startLink)sforum%(endLink)s."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "O soi un autôr di components adizionâi, puedio eliminâ recensions o valutazions sfavorevulis?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
