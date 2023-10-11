@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-06-29 14:00+0000\n"
+"PO-Revision-Date: 2023-10-11 05:04+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -862,8 +862,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Δοκιμάστε να επισκεφθείτε αργότερα τη σελίδα, καθώς το θέμα ή η επέκταση ενδέχεται να διατεθεί ξανά. Εναλλακτικά, ίσως βρείτε αυτό που ψάχνετε σε μια διαθέσιμη "
-"%(extensionStart)sεπέκταση%(extensionEnd)s ή %(themeStart)sθέμα%(themeEnd)s, ή ζητώντας βοήθεια στο %(communityStart)sφόρουμ της κοινότητάς μας%(communityEnd)s."
+"Δοκιμάστε να επισκεφτείτε αργότερα τη σελίδα, καθώς το θέμα ή η επέκταση ενδέχεται να διατεθεί ξανά. Εναλλακτικά, ίσως βρείτε αυτό που ψάχνετε σε μια διαθέσιμη "
+"%(extensionStart)sεπέκταση%(extensionEnd)s ή %(themeStart)sθέμα%(themeEnd)s, ή ζητώντας βοήθεια στο %(communityStart)sφόρουμ της κοινότητάς%(communityEnd)s μας."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
@@ -915,7 +915,7 @@ msgstr "Αυτή η σελίδα δεν είναι διαθέσιμη στην �
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
 msgid "The page you tried to access is not available in your region."
-msgstr "Η σελίδα που προσπαθήσατε να επισκεφθείτε δεν είναι διαθέσιμη στην περιοχή σας."
+msgstr "Η σελίδα που προσπαθήσατε να επισκεφτείτε δεν είναι διαθέσιμη στην περιοχή σας."
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
@@ -2359,7 +2359,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:175
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Για να δείτε περισσότερους τρόπους συνεισφοράς στην κοινότητα προσθέτων, παρακαλούμε επισκεφθείτε το %(startLink)swiki%(endLink)s μας."
+msgstr "Για να δείτε περισσότερους τρόπους συνεισφοράς στην κοινότητα προσθέτων, επισκεφτείτε το %(startLink)swiki%(endLink)s μας."
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Report an issue"
@@ -2398,8 +2398,8 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Αν θα θέλατε να μάθετε περισσότερα σχετικά με τη διαχείριση των προσθέτων στο Firefox, ή χρειάζεται να βρείτε γενική υποστήριξη για το Firefox, παρακαλούμε επισκεφθείτε την "
-"%(startSUMOLink)sΥποστήριξη%(endSUMOLink)s Mozilla. Αν δεν βρείτε απάντηση εκεί, μπορείτε να %(startForumLink)sρωτήσετε στο φόρουμ της κοινότητας%(endForumLink)s."
+"Εάν θα θέλατε να μάθετε περισσότερα σχετικά με τη διαχείριση των προσθέτων στο Firefox ή χρειάζεστε γενική υποστήριξη για το Firefox, επισκεφτείτε την %(startSUMOLink)sΥποστήριξη "
+"Mozilla%(endSUMOLink)s. Εάν δεν βρείτε απάντηση εκεί, μπορείτε να %(startForumLink)sκάνετε μια ερώτηση στο φόρουμ της κοινότητάς%(endForumLink)s μας."
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
