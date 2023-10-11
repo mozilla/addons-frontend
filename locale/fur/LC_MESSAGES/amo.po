@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-11 06:41+0000\n"
+"PO-Revision-Date: 2023-10-11 06:52+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2467,20 +2467,24 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Criticâ un component adizionâl parcè che al è progjetât par fâ une determinade robe. Par esempli lassâ une recension negative di un component adizionâl che al mostre publicitâts o che al tire dongje"
+" dâts cuant che al è stât creât di pueste par chê reson, o che al à bisugne di tirâ dongje dâts par funzionâ."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "FAQ (domandis frecuentis) su Recensions"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Cemût puedio segnalâ une recension problematiche?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Se tu cjatis recensions discutibilis, segnalile fasint clic su “Segnale cheste recension”. Il grup di moderadôrs al valutarà, in base aes liniis vuide des recensions, se eliminâ la recension o "
+"ripristinâle sul sît."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
