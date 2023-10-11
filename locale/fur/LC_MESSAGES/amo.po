@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-11 06:31+0000\n"
+"PO-Revision-Date: 2023-10-11 06:41+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2450,14 +2450,17 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Judinus a miorâ chest sît web. Il so codiç al è open source (a codiç viert), duncje tu puedis segnalâ erôrs e proponi blecs pai erôrs. Tu puedis scomençâ provant a risolvi un probleme cun etichete "
+"%(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s o viodi ducj i problemis vierts su Github pal %(startAddonsServerRepoLink)sservidôr%(endAddonsServerRepoLink)s AMO e il so "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Includi direzions e-mail, numars di telefon o altris detais personâi tiei o di altris."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Publicâ recensions su components adizionâi svilupâts o rapresentâts di te o de tô organizazion."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
