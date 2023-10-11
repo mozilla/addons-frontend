@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-11 07:59+0000\n"
+"PO-Revision-Date: 2023-10-11 15:00+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2580,62 +2580,65 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Publicâ problemis tecnics, richiestis di supuart o sugjeriments par gnovis funzionalitâts. Se disponibii, dopre i canâi di supuart specifics par ogni component adizionâl. Tu puedis cjatâju te sezion"
+" “Altris informazions” te sbare laterâl su la pagjine dedicade ai detais dal componente."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Scrivi recensions par components adizionâi che no tu âs provât di persone."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Doprâ lengaç volgâr, soç o che al pues vignî interpretât come odeôs."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Includi codiç HTML, colegaments, codiç sorzint o tocs di codiç. Lis recensions a àn di vê nome test."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Fâ afermazions falsis, discreditâ i autôrs dal component adizionâl o insultâju in mût personâl."
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Components adizionâi cun etichete %(tag)s"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
-msgstr ""
+msgstr "Lis mês recensions"
 
 #: src/amo/pages/UserProfile/index.js:270
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
+"Il profîl di %(user)s, un autôr di estensions e temis par Firefox. Cjate altris aplicazions di %(user)s, includudis lis mediis des valutazions, il dirit di possès e la opzion par segnalâ problemis."
 
 #: src/amo/pages/UserProfile/index.js:274
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Il profîl di %(user)s, autôr di estensions par Firefox. Cjate altris estensions di %(user)s, includudis lis mediis des valutazions, il dirit di possès e la opzion par segnalâ problemis."
 
 #: src/amo/pages/UserProfile/index.js:278
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Il profîl di %(user)s, autôr di temis par Firefox. Cjate altris temis di %(user)s, includudis lis mediis des valutazions, il dirit di possès e la opzion par segnalâ problemis."
 
 #: src/amo/pages/UserProfile/index.js:308
 msgid "User Avatar"
-msgstr ""
+msgstr "Imagjin utent"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
-msgstr ""
+msgstr "Svilupadôr di components adizionâi"
 
 #: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
-msgstr ""
+msgstr "Artist dal teme"
 
 #: src/amo/pages/UserProfile/index.js:335 src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
-msgstr ""
+msgstr "Profîl utent di %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
-msgstr ""
+msgstr "Profîl utent"
 
 #: src/amo/pages/UserProfile/index.js:364 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
