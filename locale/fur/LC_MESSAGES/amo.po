@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-11 07:46+0000\n"
+"PO-Revision-Date: 2023-10-11 07:57+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2509,57 +2509,59 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Liniis vuide pes recensions"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Liniis vuide, sugjeriments e domandis frecuentis par lassâ une recension su lis estensions e i temis che tu âs discjariât e doprât su Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Lis recensions a son un mût par condividi lis tôs opinions sui components adizionâi che tu âs instalât e doprât. Il nestri grup di moderazion si risierve il dirit di refudâ o gjavâ dutis lis "
+"recensions che no rispietin chestis liniis vuide."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Sugjeriments par scrivi une buine recension"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
-msgstr ""
+msgstr "Sì:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Scrivi come che tu stessis contant a un amì la tô esperience cul component adizionâl."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Scrivi recensions sintetichis e claris."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Dâ detais specifics e utii. Par esempli:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Il component adizionâl funzionial te maniere che tu ti spietavis?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Ce funzions âstu preseât e cualis mancul?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
-msgstr ""
+msgstr "Lu cjatistu util?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Isal facil di doprâ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "Continuarâstu a doprâ chest component adizionâl?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
