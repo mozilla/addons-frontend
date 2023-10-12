@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-12 12:39+0000\n"
+"PO-Revision-Date: 2023-10-12 15:53+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2650,32 +2650,32 @@ msgstr "Ocupazion"
 
 #: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
-msgstr ""
+msgstr "Utent di"
 
 #: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
-msgstr ""
+msgstr "Numar di components adizionâi"
 
 #: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Medie des valutazions pai components adizionâi di chest svilupadôr"
 
 #: src/amo/pages/UserProfile/index.js:410 src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
-msgstr ""
+msgstr "Biografie"
 
 #: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
-msgstr ""
+msgstr "Modifiche profîl"
 
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
-msgstr ""
+msgstr "Aministre utent"
 
 #: src/amo/pages/UserProfileEdit/index.js:211
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Imagjin eliminade cun sucès"
 
 #: src/amo/pages/UserProfileEdit/index.js:459
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
