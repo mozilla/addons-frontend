@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-12 15:53+0000\n"
+"PO-Revision-Date: 2023-10-12 16:22+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2679,11 +2679,11 @@ msgstr "Imagjin eliminade cun sucès"
 
 #: src/amo/pages/UserProfileEdit/index.js:459
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Conte ai utents cualchi altre informazion su di te. Tancj cjamps a son facoltatîfs, ma a judin i utents a cognossiti miôr."
 
 #: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "Conte ai utents cualchi altre informazions su chest utent. Tancj cjamps a son facoltatîfs, ma a judin i utents a cognossi miôr %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
