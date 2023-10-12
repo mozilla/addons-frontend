@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-11 15:00+0000\n"
+"PO-Revision-Date: 2023-10-12 12:39+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2642,11 +2642,11 @@ msgstr "Profîl utent"
 
 #: src/amo/pages/UserProfile/index.js:364 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
-msgstr ""
+msgstr "Localitât"
 
 #: src/amo/pages/UserProfile/index.js:372 src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
-msgstr ""
+msgstr "Ocupazion"
 
 #: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
