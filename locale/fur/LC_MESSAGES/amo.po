@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-12 16:28+0000\n"
+"PO-Revision-Date: 2023-10-12 17:39+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2711,39 +2711,39 @@ msgstr "Daûr a inzornâ il to profîl…"
 
 #: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Update My Profile"
-msgstr ""
+msgstr "Inzorne il gno profîl"
 
 #: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Updating profile…"
-msgstr ""
+msgstr "Daûr a inzornâ il profîl…"
 
 #: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Update Profile"
-msgstr ""
+msgstr "Inzorne profîl"
 
 #: src/amo/pages/UserProfileEdit/index.js:564
 msgid "View user's profile"
-msgstr ""
+msgstr "Visualize il profîl utent"
 
 #: src/amo/pages/UserProfileEdit/index.js:570
 msgid "Edit user's profile"
-msgstr ""
+msgstr "Modifiche il profîl utent"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Account"
-msgstr ""
+msgstr "Account"
 
 #: src/amo/pages/UserProfileEdit/index.js:589
 msgid "Account for %(userName)s"
-msgstr ""
+msgstr "Account di %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
-msgstr ""
+msgstr "Direzion e-mail"
 
 #: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Nol è pussibil cambiâ la direzion e-mail di chi"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
