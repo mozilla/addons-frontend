@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-13 14:19+0000\n"
+"PO-Revision-Date: 2023-10-13 14:53+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2853,7 +2853,7 @@ msgstr "La tô iscrizion e je stade gjavade cun sucès!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr "La direzion e-mail %(strongStart)s%(email)s%(strongEnd)sno ricevarà plui messaçs cuant:"
+msgstr "La direzion e-mail %(strongStart)s%(email)s%(strongEnd)s no ricevarà plui messaçs cuant che:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
@@ -2904,32 +2904,32 @@ msgstr "Al è vignût fûr un erôr inspietât."
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "reste inzornât cun novitâts e i events pai svilupadôrs di components adizionâi (includude la newsletter about:addons)"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla al à bisugne di contatâmi in merit al gno component adizionâl"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "a son disponibii gnûfs components adizionâi o gnovis funzions par Firefox"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "cualchidun al scrîf une recension dal gno component adizionâl"
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "un svilupadôr di components adizionâi al rispuint a une mê recension"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "il gno component adizionâl al ricêf une recension"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "nol è pussibil inzornâ la compatibilitât dal gno component adizionâl"
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "la compatibilitât dal gno component adizionâl e je inzornade cun sucès"
