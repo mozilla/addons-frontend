@@ -3,6 +3,7 @@ import { createMemoryHistory } from 'history';
 import userEvent from '@testing-library/user-event';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 
+import * as constants from 'amo/constants';
 import { setViewContext } from 'amo/actions/viewContext';
 import { createApiError } from 'amo/api/index';
 import { extractId } from 'amo/pages/UserProfileEdit';
@@ -10,6 +11,7 @@ import {
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
   VIEW_CONTEXT_HOME,
+  MZA_LAUNCH_DATETIME,
   isMzaBranding,
 } from 'amo/constants';
 import { clearError } from 'amo/reducers/errors';
@@ -1414,6 +1416,70 @@ describe(__filename, () => {
       expect(
         screen.getByClassName('UserProfileEditPicture-file'),
       ).not.toHaveClass('UserProfileEditPicture-file--has-focus');
+    });
+  });
+
+  describe('Tests for accounts branding', () => {
+    let isMzaBrandingMock;
+    let dateMock;
+
+    beforeEach(() => {
+      isMzaBrandingMock = jest
+        .spyOn(constants, 'isMzaBranding')
+        .mockReturnValue(true);
+    });
+
+    afterEach(() => {
+      isMzaBrandingMock.mockRestore();
+      dateMock?.mockRestore();
+    });
+    it('renders the Mozilla Accounts Branding', () => {
+      renderForCurrentUser();
+
+      expect(
+        screen.getByRole('link', {
+          name: 'Manage Mozilla Accounts…',
+        }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByTextAcrossTags(
+          'You can change your email address on Mozilla Accounts. Need help?',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('renders the Firefox Accounts Branding', () => {
+      isMzaBrandingMock = jest
+        .spyOn(constants, 'isMzaBranding')
+        .mockReturnValue(false);
+      renderForCurrentUser();
+
+      expect(
+        screen.getByRole('link', {
+          name: 'Manage Firefox Accounts…',
+        }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByTextAcrossTags(
+          'You can change your email address on Firefox Accounts. Need help?',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('returns false if the date is earlier than MZA_LAUNCH_DATETIME', () => {
+      isMzaBrandingMock.mockRestore();
+      const before = new Date();
+      before.setTime(MZA_LAUNCH_DATETIME.getTime() - 1000);
+      dateMock = jest.spyOn(global, 'Date').mockImplementation(() => before);
+      expect(isMzaBranding()).toBe(false);
+    });
+
+    it('returns true if the date is earlier than MZA_LAUNCH_DATETIME', () => {
+      isMzaBrandingMock.mockRestore();
+      const after = new Date();
+      after.setTime(MZA_LAUNCH_DATETIME.getTime() + 1000);
+      dateMock = jest.spyOn(global, 'Date').mockImplementation(() => after);
+      expect(isMzaBranding()).toBe(true);
     });
   });
 });
