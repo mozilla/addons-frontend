@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-13 14:13+0000\n"
+"PO-Revision-Date: 2023-10-13 14:19+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2866,41 +2866,41 @@ msgstr "(cence non)"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s%(minVersion)s e sucessivis"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:309
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s de %(minVersion)s ae %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:329
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Al funzione cun %(listOfApplicatonsAndVersions)s"
 
 #: src/amo/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "La instalazion e je stade interote parcè che il component adizionâl al risulte ruvinât."
 
 #: src/amo/utils/addons.js:40
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Instalazion falide. Torne prove."
 
 #: src/amo/utils/addons.js:42
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Nol è stât pussibil discjariâ. Controle la conession."
 
 #: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Al è vignût fûr un erôr inspietât dilunc la instalazion."
 
 #: src/amo/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Al è vignût fûr un erôr inspietât dilunc la disinstalazion."
 
 #: src/amo/utils/addons.js:51
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Al è vignût fûr un erôr inspietât."
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
