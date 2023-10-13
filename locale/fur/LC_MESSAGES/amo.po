@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-12 17:39+0000\n"
+"PO-Revision-Date: 2023-10-13 06:24+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2747,19 +2747,19 @@ msgstr "Nol è pussibil cambiâ la direzion e-mail di chi"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Tu puedis cambiâ la direzion e-mail dal to account Firefox. %(startLink)sTi covential aiût?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "Gjestìs i accounts Firefox…"
 
 #: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
-msgstr ""
+msgstr "Profîl"
 
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
-msgstr ""
+msgstr "Chest cjamp al è obligatori"
 
 # the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:655
