@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-13 06:43+0000\n"
+"PO-Revision-Date: 2023-10-13 06:52+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2772,35 +2772,36 @@ msgstr "Chest URL al sarà visibil dome pai svilupadôrs."
 
 #: src/amo/pages/UserProfileEdit/index.js:745
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Cualchi HTML supuartât: %(htmlTags)s. I colegaments no son consintûts."
 
 #: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Notifications"
-msgstr ""
+msgstr "Notifichis"
 
 #: src/amo/pages/UserProfileEdit/index.js:773
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Di cuant in cuant, Mozilla al podarès mandâti une e-mail par inzornâti su lis gnovis versions e su events in merit ai components adizionâi. Selezione i argoments che ti puedin interessâ."
 
 #: src/amo/pages/UserProfileEdit/index.js:778
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"Di cuant in cuant, Mozilla al podarès mandâ a chest utent une e-mail par inzornâlu su lis gnovis versions e su events in merit ai components adizionâi. Selezione i argoments che i puedin interessâ."
 
 #: src/amo/pages/UserProfileEdit/index.js:793
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla si riserve il dirit di contatâti tal câs di problemis cui components adizionâi che tu gjestissis."
 
 #: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
-msgstr ""
+msgstr "Elimine il gno profîl"
 
 #: src/amo/pages/UserProfileEdit/index.js:820 src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
-msgstr ""
+msgstr "Elimine profîl"
 
 #: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "IMPUARTANT: nol è pussibil tornâ indaûr de eliminazion dal to profîl di Firefox Add-ons."
 
 #: src/amo/pages/UserProfileEdit/index.js:835
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
