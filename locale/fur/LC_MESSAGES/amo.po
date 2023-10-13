@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-10-13 07:15+0000\n"
+"PO-Revision-Date: 2023-10-13 07:20+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2811,12 +2811,16 @@ msgstr "IMPUARTANT: nol è pussibil tornâ indaûr de eliminazion di chest prof�
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
+"I tiei dâts, includûts i detais dal profîl (imagjin, non utent, non visualizât, localitât, sît web, biografie, ocupazion), lis preferencis pes notifichis, lis recensions e lis racueltis, a vignaran "
+"eliminâts par simpri."
 
 #: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
+"I dâts dal utent, includûts i detais dal profîl (imagjin, non utent, non visualizât, localitât, sît web, biografie, ocupazion), lis preferencis pes notifichis, lis recensions e lis racueltis, a "
+"vignaran eliminâts par simpri."
 
 #: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
