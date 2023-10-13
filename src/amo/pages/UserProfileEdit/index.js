@@ -27,7 +27,7 @@ import {
   logOutUser,
 } from 'amo/reducers/users';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
-import { USERS_EDIT, VIEW_CONTEXT_HOME } from 'amo/constants';
+import { USERS_EDIT, VIEW_CONTEXT_HOME, isMzaBranding } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
@@ -612,7 +612,10 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                         // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={sanitizeHTML(
                           i18n.sprintf(
-                            i18n.gettext(`You can change your email address on
+                            isMzaBranding()
+                              ? i18n.gettext(`You can change your email address on
+                          Mozilla Accounts. %(startLink)sNeed help?%(endLink)s`)
+                              : i18n.gettext(`You can change your email address on
                           Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
                             {
                               startLink:
@@ -631,7 +634,11 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                           href={user.fxa_edit_email_url}
                           className="UserProfileEdit-manage-account-link"
                         >
-                          {i18n.gettext('Manage Firefox Accounts…')}
+                          {i18n.gettext(
+                            isMzaBranding()
+                              ? 'Manage Mozilla Accounts…'
+                              : 'Manage Firefox Accounts…',
+                          )}
                         </a>
                       )}
                   </div>

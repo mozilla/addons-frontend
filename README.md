@@ -249,7 +249,7 @@ API_HOST=http://10.0.0.1:3000 \
 
 On your Android device, you could then access the development site at `http://10.0.0.1:3000`.
 
-**NOTE**: At this time, it is not possible to sign in with this configuration because the Firefox Accounts client redirects to `localhost:3000`. You may be able to try a different approach by editing `/etc/hosts` on your device so that `localhost` points to your development machine but this has not been fully tested.
+**NOTE**: At this time, it is not possible to sign in with this configuration because the Mozilla Accounts client redirects to `localhost:3000`. You may be able to try a different approach by editing `/etc/hosts` on your device so that `localhost` points to your development machine but this has not been fully tested.
 
 ### Disabling CSP for local development
 

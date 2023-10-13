@@ -10,6 +10,7 @@ import {
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
   VIEW_CONTEXT_HOME,
+  isMzaBranding,
 } from 'amo/constants';
 import { clearError } from 'amo/reducers/errors';
 import {
@@ -152,7 +153,11 @@ describe(__filename, () => {
       screen.getByText('Introduce yourself to the community if you like'),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: 'Manage Firefox Accounts…' }),
+      screen.getByRole('link', {
+        name: isMzaBranding()
+          ? 'Manage Mozilla Accounts…'
+          : 'Manage Firefox Accounts…',
+      }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
@@ -302,7 +307,9 @@ describe(__filename, () => {
 
     expect(
       screen.getByTextAcrossTags(
-        'You can change your email address on Firefox Accounts. Need help?',
+        isMzaBranding()
+          ? 'You can change your email address on Mozilla Accounts. Need help?'
+          : 'You can change your email address on Firefox Accounts. Need help?',
       ),
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Need help?' })).toHaveAttribute(
@@ -684,7 +691,11 @@ describe(__filename, () => {
 
     // We do not render this link when user is not the current logged-in user.
     expect(
-      screen.queryByRole('link', { name: 'Manage Firefox Accounts…' }),
+      screen.queryByRole('link', {
+        name: isMzaBranding()
+          ? 'Manage Mozilla Accounts…'
+          : 'Manage Firefox Accounts…',
+      }),
     ).not.toBeInTheDocument();
 
     expect(
@@ -1074,7 +1085,11 @@ describe(__filename, () => {
     renderForCurrentUser({ fxa_edit_email_url: link });
 
     expect(
-      screen.getByRole('link', { name: 'Manage Firefox Accounts…' }),
+      screen.getByRole('link', {
+        name: isMzaBranding()
+          ? 'Manage Mozilla Accounts…'
+          : 'Manage Firefox Accounts…',
+      }),
     ).toHaveAttribute('href', link);
   });
 
