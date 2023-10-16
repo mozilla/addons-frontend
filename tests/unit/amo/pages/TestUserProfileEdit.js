@@ -47,8 +47,6 @@ import {
   within,
 } from 'tests/unit/helpers';
 
-import { isMzaBranding } from '../../../../src/amo/pages/UserProfileEdit/utils';
-
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
   const defaultDisplayName = 'Display McDisplayNamey';
