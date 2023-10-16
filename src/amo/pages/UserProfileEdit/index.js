@@ -27,7 +27,7 @@ import {
   logOutUser,
 } from 'amo/reducers/users';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
-import { USERS_EDIT, VIEW_CONTEXT_HOME, isMzaBranding } from 'amo/constants';
+import { USERS_EDIT, VIEW_CONTEXT_HOME } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
@@ -53,6 +53,8 @@ import type {
   ReactRouterMatchType,
 } from 'amo/types/router';
 import { setViewContext } from 'amo/actions/viewContext';
+
+import { isMzaBranding } from './utils';
 
 import './styles.scss';
 
