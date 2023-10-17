@@ -29,7 +29,8 @@ describe(__filename, () => {
   const defaultUserId = fakeAuthors[0].id;
   const defaultAddonGUID = '@guid';
   const defaultReason = 'hate_speech';
-  const defaultReasonLabel = 'Contains hate speech.';
+  const defaultReasonLabel =
+    'It contains hateful, violent, deceptive, or other inappropriate content';
   const defaultMessage = 'its bad';
   let store;
   let fakeConfig;
@@ -93,7 +94,7 @@ describe(__filename, () => {
 
     expect(screen.getByText('Submit report')).toBeInTheDocument();
     expect(
-      screen.getByText(`Provide feedback to the developer about their add-on`),
+      screen.getByText(`Send some feedback about an add-on`),
     ).toBeInTheDocument();
 
     expect(screen.getByLabelText('Your Email Address')).not.toBeDisabled();
@@ -110,7 +111,7 @@ describe(__filename, () => {
 
     expect(screen.getByText('Submit report')).toBeInTheDocument();
     expect(
-      screen.getByText(`Provide feedback to the developer about their add-on`),
+      screen.getByText(`Send some feedback about an add-on`),
     ).toBeInTheDocument();
 
     const emailInput = screen.getByLabelText('Your Email Address');
@@ -125,9 +126,18 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it.each(['hate_speech', 'illegal'])(`renders category %s`, (category) => {
+  it.each([
+    ['report', 'policy_violation'],
+    ['report', 'hate_speech'],
+    ['report', 'illegal'],
+    ['report', 'other'],
+    ['feedback', 'does_not_work'],
+    ['feedback', 'not_wanted'],
+  ])(`renders reason %s`, (category, reason_slug) => {
     const categories = getCategories(fakeI18n());
-    const reason = categories.report.find((item) => category === item.value);
+    const reason = categories[category].find(
+      (item) => reason_slug === item.value,
+    );
     render();
 
     expect(screen.getByLabelText(reason.label)).toBeInTheDocument();

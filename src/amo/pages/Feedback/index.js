@@ -85,26 +85,53 @@ export const getCategories = (
   feedback: Array<Reason>,
 } => {
   return {
-    report: [
-      {
-        value: 'hate_speech',
-        label: i18n.gettext('Contains hate speech.'),
-        help: i18n.gettext('Example: contains racist imagery'),
-      },
-      {
-        value: 'illegal',
-        label: i18n.gettext('Is illegal.'),
-        help: i18n.gettext('Example: infringes your copyright or trademark'),
-      },
-    ],
     feedback: [
       {
         value: 'does_not_work',
         label: i18n.gettext(
-          'It does not work, breaks websites, or slows down Firefox',
+          'It doesn’t work, breaks websites, or slows down Firefox',
         ),
         help: i18n.gettext(
           "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual",
+        ),
+      },
+      {
+        value: 'not_wanted',
+        label: i18n.gettext('it’s SPAM'),
+        help: i18n.gettext(
+          'Example: An application installed it without my permission',
+        ),
+      },
+    ],
+    report: [
+      {
+        value: 'policy_violation',
+        label: i18n.gettext('It violates Add-on Policies'),
+        help: i18n.gettext(
+          'Example: I didn’t want it or It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me.',
+        ),
+      },
+      {
+        value: 'hate_speech',
+        label: i18n.gettext(
+          'It contains hateful, violent, deceptive, or other inappropriate content',
+        ),
+        help: i18n.gettext('Example: contains racist imagery'),
+      },
+      {
+        value: 'illegal',
+        label: i18n.gettext(
+          'It violates the law or contains content that violates the law',
+        ),
+        help: i18n.gettext(
+          'Example: Copyright or Trademark Infringement, Fraud',
+        ),
+      },
+      {
+        value: 'other',
+        label: i18n.gettext('Something else'),
+        help: i18n.gettext(
+          'Anything that does’t fit into the other categories',
         ),
       },
     ],
@@ -286,12 +313,12 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
           {abuseSubmitted && (
             <div>
               <Card
-                header={i18n.gettext('You reported this add-on for abuse')}
+                header={i18n.gettext('You sent a report about this add-on')}
                 className="Feedback--Card"
               >
                 <p className="ReportAbuseButton-first-paragraph">
                   {i18n.gettext(
-                    `We have received your feedback or report. Thanks for letting us know.`,
+                    `We have received your report. Thanks for letting us know.`,
                   )}
                 </p>
               </Card>
@@ -310,9 +337,7 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
               <div>
                 <Card
                   className="Feedback--Card"
-                  header={i18n.gettext(
-                    'Provide feedback to the developer about their add-on',
-                  )}
+                  header={i18n.gettext('Send some feedback about an add-on')}
                 >
                   <ul>{categoryInputs.feedback}</ul>
                 </Card>
