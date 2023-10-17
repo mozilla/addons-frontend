@@ -543,6 +543,13 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
 
     return (
       <Page>
+        <div className="warning-container">
+          <Notice type="warning" key="MzA-branding" className="MzA-branding">
+            {i18n.gettext(
+              'Firefox accounts will be renamed to Mozilla accounts on Nov 1. You will still sign in with the same username and password, and there are no other changes to the products that you use',
+            )}
+          </Notice>
+        </div>
         {alternateOutput || (
           <div className="UserProfileEdit">
             {user && (

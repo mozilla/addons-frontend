@@ -11,6 +11,14 @@ $font-size-aside: $font-size-xs;
   }
 }
 
+.warning-container {
+  @include page-padding;
+
+  @include respond-to(large) {
+    margin-bottom: -$padding-page;
+  }
+}
+
 .UserProfileEdit-authenticate,
 .UserProfileEdit-user-links {
   display: none;
