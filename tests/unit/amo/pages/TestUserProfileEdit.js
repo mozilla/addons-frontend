@@ -3,7 +3,7 @@ import { createMemoryHistory } from 'history';
 import userEvent from '@testing-library/user-event';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 
-import * as MzAUtils from 'amo/pages/UserProfileEdit/utils';
+import * as MzAUtils from 'amo/utils/fxa';
 import { setViewContext } from 'amo/actions/viewContext';
 import { createApiError } from 'amo/api/index';
 import { extractId } from 'amo/pages/UserProfileEdit';
@@ -11,7 +11,6 @@ import {
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
   VIEW_CONTEXT_HOME,
-  MZA_LAUNCH_DATETIME,
 } from 'amo/constants';
 import { clearError } from 'amo/reducers/errors';
 import {
@@ -46,6 +45,7 @@ import {
   screen,
   within,
 } from 'tests/unit/helpers';
+import { MZA_LAUNCH_DATETIME } from 'amo/utils/fxa';
 
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
@@ -160,7 +160,7 @@ describe(__filename, () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole('link', {
-        name: 'Manage Mozilla Accounts…',
+        name: 'Manage Mozilla accounts…',
       }),
     ).toBeInTheDocument();
     expect(
@@ -311,7 +311,7 @@ describe(__filename, () => {
 
     expect(
       screen.getByTextAcrossTags(
-        'You can change your email address on Mozilla Accounts. Need help?',
+        'You can change your email address on Mozilla accounts. Need help?',
       ),
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Need help?' })).toHaveAttribute(
@@ -694,7 +694,7 @@ describe(__filename, () => {
     // We do not render this link when user is not the current logged-in user.
     expect(
       screen.queryByRole('link', {
-        name: 'Manage Mozilla Accounts…',
+        name: 'Manage Mozilla accounts…',
       }),
     ).not.toBeInTheDocument();
 
@@ -1086,7 +1086,7 @@ describe(__filename, () => {
 
     expect(
       screen.getByRole('link', {
-        name: 'Manage Mozilla Accounts…',
+        name: 'Manage Mozilla accounts…',
       }),
     ).toHaveAttribute('href', link);
   });
@@ -1416,18 +1416,18 @@ describe(__filename, () => {
   });
 
   describe('Tests for accounts branding', () => {
-    it('renders the Mozilla Accounts Branding', () => {
+    it('renders the Mozilla accounts Branding', () => {
       isMzaBrandingMock.mockReturnValue(true);
       renderForCurrentUser();
 
       expect(
         screen.getByRole('link', {
-          name: 'Manage Mozilla Accounts…',
+          name: 'Manage Mozilla accounts…',
         }),
       ).toBeInTheDocument();
       expect(
         screen.getByTextAcrossTags(
-          'You can change your email address on Mozilla Accounts. Need help?',
+          'You can change your email address on Mozilla accounts. Need help?',
         ),
       ).toBeInTheDocument();
     });
