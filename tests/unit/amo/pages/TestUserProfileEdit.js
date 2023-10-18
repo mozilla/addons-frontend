@@ -1430,9 +1430,9 @@ describe(__filename, () => {
         ),
       ).toBeInTheDocument();
 
-      const banner = screen.getByClassName('MzA-branding');
-      expect(banner).toBeInTheDocument();
-      expect(banner).toHaveTextContent(
+      const bannerElement = screen.getByClassName('MzA-branding');
+      expect(bannerElement).toBeInTheDocument();
+      expect(bannerElement).toHaveTextContent(
         'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
       );
     });
@@ -1452,9 +1452,9 @@ describe(__filename, () => {
         ),
       ).toBeInTheDocument();
 
-      const banner = screen.getByClassName('MzA-branding');
-      expect(banner).toBeInTheDocument();
-      expect(banner).toHaveTextContent(
+      const bannerElement = screen.getByClassName('MzA-branding');
+      expect(bannerElement).toBeInTheDocument();
+      expect(bannerElement).toHaveTextContent(
         'Firefox Accounts will be renamed to Mozilla accounts on Nov 1',
       );
     });
@@ -1490,13 +1490,13 @@ describe(__filename, () => {
     it('renders the banner on the page', () => {
       renderForCurrentUser();
 
-      const element = screen.getByClassName('MzA-branding');
-      expect(element).toBeInTheDocument();
+      const bannerElement = screen.getByClassName('MzA-branding');
+      expect(bannerElement).toBeInTheDocument();
 
-      expect(element).toHaveTextContent(
+      expect(bannerElement).toHaveTextContent(
         'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
       );
-      expect(element).toHaveTextContent(
+      expect(bannerElement).toHaveTextContent(
         'You will still sign in with the same username and password, and there are no other changes to the products that you use.',
       );
 
