@@ -53,6 +53,7 @@ import type {
   ReactRouterMatchType,
 } from 'amo/types/router';
 import { setViewContext } from 'amo/actions/viewContext';
+import { isMzaBranding } from 'amo/utils/fxa';
 
 import './styles.scss';
 
@@ -612,7 +613,10 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                         // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={sanitizeHTML(
                           i18n.sprintf(
-                            i18n.gettext(`You can change your email address on
+                            isMzaBranding()
+                              ? i18n.gettext(`You can change your email address on
+                          Mozilla accounts. %(startLink)sNeed help?%(endLink)s`)
+                              : i18n.gettext(`You can change your email address on
                           Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
                             {
                               startLink:
@@ -631,7 +635,9 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                           href={user.fxa_edit_email_url}
                           className="UserProfileEdit-manage-account-link"
                         >
-                          {i18n.gettext('Manage Firefox Accounts…')}
+                          {isMzaBranding()
+                            ? i18n.gettext('Manage Mozilla accounts…')
+                            : i18n.gettext('Manage Firefox Accounts…')}
                         </a>
                       )}
                   </div>

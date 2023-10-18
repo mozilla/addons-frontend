@@ -3,6 +3,7 @@ import { createMemoryHistory } from 'history';
 import userEvent from '@testing-library/user-event';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 
+import * as MzAUtils from 'amo/utils/fxa';
 import { setViewContext } from 'amo/actions/viewContext';
 import { createApiError } from 'amo/api/index';
 import { extractId } from 'amo/pages/UserProfileEdit';
@@ -53,6 +54,7 @@ describe(__filename, () => {
   const defaultUserId = fakeAuthors[0].id;
   let history;
   let store;
+  let isMzaBrandingMock;
 
   const savedLocation = window.location;
 
@@ -63,10 +65,14 @@ describe(__filename, () => {
       assign: jest.fn(),
     });
     window.scroll = jest.fn();
+    isMzaBrandingMock = jest
+      .spyOn(MzAUtils, 'isMzaBranding')
+      .mockReturnValue(true);
   });
 
   afterEach(() => {
     window.location = savedLocation;
+    isMzaBrandingMock.mockRestore();
   });
 
   function defaultUserProps(props = {}) {
@@ -152,7 +158,9 @@ describe(__filename, () => {
       screen.getByText('Introduce yourself to the community if you like'),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: 'Manage Firefox Accounts…' }),
+      screen.getByRole('link', {
+        name: 'Manage Mozilla accounts…',
+      }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
@@ -302,7 +310,7 @@ describe(__filename, () => {
 
     expect(
       screen.getByTextAcrossTags(
-        'You can change your email address on Firefox Accounts. Need help?',
+        'You can change your email address on Mozilla accounts. Need help?',
       ),
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Need help?' })).toHaveAttribute(
@@ -684,7 +692,9 @@ describe(__filename, () => {
 
     // We do not render this link when user is not the current logged-in user.
     expect(
-      screen.queryByRole('link', { name: 'Manage Firefox Accounts…' }),
+      screen.queryByRole('link', {
+        name: 'Manage Mozilla accounts…',
+      }),
     ).not.toBeInTheDocument();
 
     expect(
@@ -1074,7 +1084,9 @@ describe(__filename, () => {
     renderForCurrentUser({ fxa_edit_email_url: link });
 
     expect(
-      screen.getByRole('link', { name: 'Manage Firefox Accounts…' }),
+      screen.getByRole('link', {
+        name: 'Manage Mozilla accounts…',
+      }),
     ).toHaveAttribute('href', link);
   });
 
@@ -1399,6 +1411,66 @@ describe(__filename, () => {
       expect(
         screen.getByClassName('UserProfileEditPicture-file'),
       ).not.toHaveClass('UserProfileEditPicture-file--has-focus');
+    });
+  });
+
+  describe('Tests for accounts branding', () => {
+    it('renders the Mozilla accounts Branding', () => {
+      isMzaBrandingMock.mockReturnValue(true);
+      renderForCurrentUser();
+
+      expect(
+        screen.getByRole('link', {
+          name: 'Manage Mozilla accounts…',
+        }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByTextAcrossTags(
+          'You can change your email address on Mozilla accounts. Need help?',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('renders the Firefox Accounts Branding', () => {
+      isMzaBrandingMock.mockReturnValue(false);
+      renderForCurrentUser();
+
+      expect(
+        screen.getByRole('link', {
+          name: 'Manage Firefox Accounts…',
+        }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByTextAcrossTags(
+          'You can change your email address on Firefox Accounts. Need help?',
+        ),
+      ).toBeInTheDocument();
+    });
+  });
+
+  describe('isMzaBranding datetime switch', () => {
+    let dateMock;
+
+    beforeEach(() => {
+      isMzaBrandingMock.mockRestore();
+    });
+
+    afterEach(() => {
+      dateMock?.mockRestore();
+    });
+
+    it('returns false if the date is earlier than MZA_LAUNCH_DATETIME', () => {
+      const before = new Date();
+      before.setTime(MzAUtils.MZA_LAUNCH_DATETIME.getTime() - 1000);
+      dateMock = jest.spyOn(global, 'Date').mockImplementation(() => before);
+      expect(MzAUtils.isMzaBranding()).toBe(false);
+    });
+
+    it('returns true if the date is earlier than MZA_LAUNCH_DATETIME', () => {
+      const after = new Date();
+      after.setTime(MzAUtils.MZA_LAUNCH_DATETIME.getTime() + 1000);
+      dateMock = jest.spyOn(global, 'Date').mockImplementation(() => after);
+      expect(MzAUtils.isMzaBranding()).toBe(true);
     });
   });
 });
