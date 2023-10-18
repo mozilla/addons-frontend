@@ -1429,6 +1429,12 @@ describe(__filename, () => {
           'You can change your email address on Mozilla accounts. Need help?',
         ),
       ).toBeInTheDocument();
+
+      const banner = screen.getByClassName('MzA-branding');
+      expect(banner).toBeInTheDocument();
+      expect(banner).toHaveTextContent(
+        'Firefox accounts was renamed to Mozilla accounts on Nov 1',
+      );
     });
 
     it('renders the Firefox Accounts Branding', () => {
@@ -1445,6 +1451,12 @@ describe(__filename, () => {
           'You can change your email address on Firefox Accounts. Need help?',
         ),
       ).toBeInTheDocument();
+
+      const banner = screen.getByClassName('MzA-branding');
+      expect(banner).toBeInTheDocument();
+      expect(banner).toHaveTextContent(
+        'Firefox accounts will be renamed to Mozilla accounts on Nov 1',
+      );
     });
   });
 
@@ -1471,6 +1483,29 @@ describe(__filename, () => {
       after.setTime(MzAUtils.MZA_LAUNCH_DATETIME.getTime() + 1000);
       dateMock = jest.spyOn(global, 'Date').mockImplementation(() => after);
       expect(MzAUtils.isMzaBranding()).toBe(true);
+    });
+  });
+
+  describe('fxa banner tests', () => {
+    it('renders the banner on the page', () => {
+      renderForCurrentUser();
+
+      const element = screen.getByClassName('MzA-branding');
+      expect(element).toBeInTheDocument();
+
+      expect(element).toHaveTextContent(
+        'Firefox accounts was renamed to Mozilla accounts on Nov 1',
+      );
+      expect(element).toHaveTextContent(
+        'You will still sign in with the same username and password, and there are no other changes to the products that you use.',
+      );
+
+      const infoLink = screen.getByClassName('fxa-info-link');
+      expect(infoLink).toBeInTheDocument();
+      expect(infoLink).toHaveAttribute(
+        'href',
+        'https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts',
+      );
     });
   });
 });

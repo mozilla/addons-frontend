@@ -56,6 +56,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { isMzaBranding } from 'amo/utils/fxa';
 
 import './styles.scss';
+import { replaceStringsWithJSX } from '../../i18n/utils';
 
 type Props = {||};
 
@@ -542,20 +543,64 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
     const userProfileURL = `/user/${userId}/`;
     const overlayClassName = 'UserProfileEdit-deletion-modal';
 
+    const bannerText = isMzaBranding()
+      ? i18n.gettext(
+          '%(boldStart)sFirefox accounts was renamed to Mozilla accounts on Nov 1%(boldEnd)s %(newLine)s %(newLineEnd)sYou will still sign in with the same username and password, and there are no other changes to the products that you use. %(linkStart)sLearn More%(linkEnd)s',
+        )
+      : i18n.gettext(
+          '%(boldStart)sFirefox accounts will be renamed to Mozilla accounts on Nov 1%(boldEnd)s %(newLine)s %(newLineEnd)sYou will still sign in with the same username and password, and there are no other changes to the products that you use. %(linkStart)sLearn More%(linkEnd)s',
+        );
+
+    const replacements = [
+      [
+        'linkStart',
+        'linkEnd',
+        (text) => {
+          return (
+            <a
+              target="_blank"
+              href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts"
+              rel="noreferrer"
+              className="fxa-info-link"
+            >
+              {text}
+            </a>
+          );
+        },
+      ],
+      [
+        'newLine',
+        'newLineEnd',
+        () => {
+          return <br />;
+        },
+      ],
+      [
+        'boldStart',
+        'boldEnd',
+        (text) => {
+          return <strong>{text}</strong>;
+        },
+      ],
+    ];
+
+    const bannerContent = replaceStringsWithJSX({
+      text: i18n.sprintf(bannerText, {
+        linkEnd: '%(linkEnd)s',
+        linkStart: '%(linkStart)s',
+        newLine: '%(newLine)s',
+        newLineEnd: '%(newLineEnd)s',
+        boldStart: '%(boldStart)s',
+        boldEnd: '%(boldEnd)s',
+      }),
+      replacements,
+    });
+
     return (
       <Page>
         <div className="warning-container">
-          <Notice
-            type="warning"
-            key="MzA-branding"
-            className="MzA-branding"
-            actionText={i18n.gettext('Learn more')}
-            actionHref="https://support.mozilla.org/en-US/kb/change-primary-email-address-firefox-accounts"
-            actionTarget="_blank"
-          >
-            {i18n.gettext(
-              'Firefox accounts will be renamed to Mozilla accounts on Nov 1. You will still sign in with the same username and password, and there are no other changes to the products that you use.',
-            )}
+          <Notice type="warning" key="MzA-branding" className="MzA-branding">
+            <span className="notice-text-span">{bannerContent}</span>
           </Notice>
         </div>
         {alternateOutput || (
