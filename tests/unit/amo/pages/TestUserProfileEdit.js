@@ -1504,7 +1504,7 @@ describe(__filename, () => {
       expect(infoLink).toBeInTheDocument();
       expect(infoLink).toHaveAttribute(
         'href',
-        'https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts',
+        'https://support.mozilla.org/kb/firefox-accounts-renamed-mozilla-accounts',
       );
     });
   });

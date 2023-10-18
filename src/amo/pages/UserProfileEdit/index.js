@@ -559,7 +559,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
           return (
             <a
               target="_blank"
-              href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts"
+              href="https://support.mozilla.org/kb/firefox-accounts-renamed-mozilla-accounts"
               rel="noreferrer"
               className="fxa-info-link"
             >
