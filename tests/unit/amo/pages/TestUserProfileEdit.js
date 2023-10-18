@@ -45,7 +45,6 @@ import {
   screen,
   within,
 } from 'tests/unit/helpers';
-import { MZA_LAUNCH_DATETIME } from 'amo/utils/fxa';
 
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
@@ -1462,14 +1461,14 @@ describe(__filename, () => {
 
     it('returns false if the date is earlier than MZA_LAUNCH_DATETIME', () => {
       const before = new Date();
-      before.setTime(MZA_LAUNCH_DATETIME.getTime() - 1000);
+      before.setTime(MzAUtils.MZA_LAUNCH_DATETIME.getTime() - 1000);
       dateMock = jest.spyOn(global, 'Date').mockImplementation(() => before);
       expect(MzAUtils.isMzaBranding()).toBe(false);
     });
 
     it('returns true if the date is earlier than MZA_LAUNCH_DATETIME', () => {
       const after = new Date();
-      after.setTime(MZA_LAUNCH_DATETIME.getTime() + 1000);
+      after.setTime(MzAUtils.MZA_LAUNCH_DATETIME.getTime() + 1000);
       dateMock = jest.spyOn(global, 'Date').mockImplementation(() => after);
       expect(MzAUtils.isMzaBranding()).toBe(true);
     });
