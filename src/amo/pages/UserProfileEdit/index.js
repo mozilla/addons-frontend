@@ -545,10 +545,10 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
 
     const bannerText = isMzaBranding()
       ? i18n.gettext(
-          '%(boldStart)sFirefox accounts was renamed to Mozilla accounts on Nov 1%(boldEnd)s %(newLine)s %(newLineEnd)sYou will still sign in with the same username and password, and there are no other changes to the products that you use. %(linkStart)sLearn More%(linkEnd)s',
+          '%(boldStart)sFirefox Accounts was renamed to Mozilla accounts on Nov 1%(boldEnd)s %(newLine)s %(newLineEnd)sYou will still sign in with the same username and password, and there are no other changes to the products that you use. %(linkStart)sLearn More%(linkEnd)s',
         )
       : i18n.gettext(
-          '%(boldStart)sFirefox accounts will be renamed to Mozilla accounts on Nov 1%(boldEnd)s %(newLine)s %(newLineEnd)sYou will still sign in with the same username and password, and there are no other changes to the products that you use. %(linkStart)sLearn More%(linkEnd)s',
+          '%(boldStart)sFirefox Accounts will be renamed to Mozilla accounts on Nov 1%(boldEnd)s %(newLine)s %(newLineEnd)sYou will still sign in with the same username and password, and there are no other changes to the products that you use. %(linkStart)sLearn More%(linkEnd)s',
         );
 
     const replacements = [

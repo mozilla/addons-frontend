@@ -1433,7 +1433,7 @@ describe(__filename, () => {
       const banner = screen.getByClassName('MzA-branding');
       expect(banner).toBeInTheDocument();
       expect(banner).toHaveTextContent(
-        'Firefox accounts was renamed to Mozilla accounts on Nov 1',
+        'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
       );
     });
 
@@ -1455,7 +1455,7 @@ describe(__filename, () => {
       const banner = screen.getByClassName('MzA-branding');
       expect(banner).toBeInTheDocument();
       expect(banner).toHaveTextContent(
-        'Firefox accounts will be renamed to Mozilla accounts on Nov 1',
+        'Firefox Accounts will be renamed to Mozilla accounts on Nov 1',
       );
     });
   });
@@ -1494,7 +1494,7 @@ describe(__filename, () => {
       expect(element).toBeInTheDocument();
 
       expect(element).toHaveTextContent(
-        'Firefox accounts was renamed to Mozilla accounts on Nov 1',
+        'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
       );
       expect(element).toHaveTextContent(
         'You will still sign in with the same username and password, and there are no other changes to the products that you use.',
