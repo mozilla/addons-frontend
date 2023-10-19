@@ -16,7 +16,7 @@ $font-size-aside: $font-size-xs;
   margin-bottom: $padding-page;
 
   ul {
-    padding-left: 0;
+    @include padding-start(0);
   }
 }
 

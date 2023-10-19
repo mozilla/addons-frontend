@@ -91,7 +91,7 @@ export const getCategories = (
       },
       {
         value: 'not_wanted',
-        label: i18n.gettext('it’s SPAM'),
+        label: i18n.gettext('It’s SPAM'),
         help: i18n.gettext(
           'Example: An application installed it without my permission',
         ),
@@ -291,7 +291,7 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
               {i18n.sprintf(
                 i18n.gettext('Submit Feedback for %(type)s %(identifer)s'),
                 {
-                  type: 'Addon',
+                  type: i18n.gettext('Addon'),
                   identifer: addonIdentifier,
                 },
               )}
