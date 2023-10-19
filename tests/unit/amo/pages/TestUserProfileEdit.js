@@ -1429,6 +1429,12 @@ describe(__filename, () => {
           'You can change your email address on Mozilla accounts. Need help?',
         ),
       ).toBeInTheDocument();
+
+      const bannerElement = screen.getByClassName('UserProfileEdit-fxa-notice');
+      expect(bannerElement).toBeInTheDocument();
+      expect(bannerElement).toHaveTextContent(
+        'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
+      );
     });
 
     it('renders the Firefox Accounts Branding', () => {
@@ -1445,6 +1451,12 @@ describe(__filename, () => {
           'You can change your email address on Firefox Accounts. Need help?',
         ),
       ).toBeInTheDocument();
+
+      const bannerElement = screen.getByClassName('UserProfileEdit-fxa-notice');
+      expect(bannerElement).toBeInTheDocument();
+      expect(bannerElement).toHaveTextContent(
+        'Firefox Accounts will be renamed to Mozilla accounts on Nov 1',
+      );
     });
   });
 
@@ -1471,6 +1483,29 @@ describe(__filename, () => {
       after.setTime(MzAUtils.MZA_LAUNCH_DATETIME.getTime() + 1000);
       dateMock = jest.spyOn(global, 'Date').mockImplementation(() => after);
       expect(MzAUtils.isMzaBranding()).toBe(true);
+    });
+  });
+
+  describe('fxa banner tests', () => {
+    it('renders the banner on the page', () => {
+      renderForCurrentUser();
+
+      const bannerElement = screen.getByClassName('UserProfileEdit-fxa-notice');
+      expect(bannerElement).toBeInTheDocument();
+
+      expect(bannerElement).toHaveTextContent(
+        'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
+      );
+      expect(bannerElement).toHaveTextContent(
+        'You will still sign in with the same username and password, and there are no other changes to the products that you use.',
+      );
+
+      const infoLink = screen.getByClassName('Notice-button');
+      expect(infoLink).toBeInTheDocument();
+      expect(infoLink).toHaveAttribute(
+        'href',
+        'https://support.mozilla.org/kb/firefox-accounts-renamed-mozilla-accounts',
+      );
     });
   });
 });

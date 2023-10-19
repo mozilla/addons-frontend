@@ -542,10 +542,36 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
     const userProfileURL = `/user/${userId}/`;
     const overlayClassName = 'UserProfileEdit-deletion-modal';
 
+    const title = isMzaBranding()
+      ? i18n.gettext(
+          'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
+        )
+      : i18n.gettext(
+          'Firefox Accounts will be renamed to Mozilla accounts on Nov 1',
+        );
+
     return (
       <Page>
-        {alternateOutput || (
-          <div className="UserProfileEdit">
+        {alternateOutput || [
+          <div
+            className="UserProfileEdit-notice-wrapper"
+            key="UserProfileEdit-notice-wrapper"
+          >
+            <Notice
+              actionHref="https://support.mozilla.org/kb/firefox-accounts-renamed-mozilla-accounts"
+              actionTarget="_blank"
+              actionText={i18n.gettext('Learn more')}
+              className="UserProfileEdit-fxa-notice"
+              type="warning"
+            >
+              <strong>{title}</strong>
+              <br />
+              {i18n.gettext(`You will still sign in with the same username and
+                        password, and there are no other changes to the products that
+                        you use.`)}
+            </Notice>
+          </div>,
+          <div className="UserProfileEdit" key="UserProfileEdit">
             {user && (
               <Helmet>
                 <title>
@@ -907,8 +933,8 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                 </div>
               </OverlayCard>
             )}
-          </div>
-        )}
+          </div>,
+        ]}
       </Page>
     );
   }
