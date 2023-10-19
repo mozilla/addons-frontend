@@ -2,7 +2,7 @@
 
 $font-size-aside: $font-size-xs;
 
-.Feedback {
+.FeedbackForm {
   @include page-padding;
 
   @include respond-to(large) {
@@ -11,8 +11,8 @@ $font-size-aside: $font-size-xs;
   }
 }
 
-.Feedback-form-messages .Notice,
-.Feedback--Card {
+.FeedbackForm-form-messages .Notice,
+.FeedbackForm--Card {
   margin-bottom: $padding-page;
 
   ul {
@@ -20,7 +20,7 @@ $font-size-aside: $font-size-xs;
   }
 }
 
-.Feedback-details-aside {
+.FeedbackForm-details-aside {
   color: $grey-50;
   font-size: $font-size-aside;
   margin-top: 0;
@@ -37,25 +37,25 @@ $font-size-aside: $font-size-xs;
   }
 }
 
-.Feedback--label {
+.FeedbackForm--label {
   display: block;
 }
 
-input[type='radio'] + .Feedback--label,
-input[type='checkbox'] + .Feedback--label {
+input[type='radio'] + .FeedbackForm--label,
+input[type='checkbox'] + .FeedbackForm--label {
   display: revert;
   padding-inline-start: 1em;
 }
 
-.Feedback--help {
+.FeedbackForm--help {
   color: $grey-50;
   display: block;
   font-size: $font-size-aside;
   margin-top: 4px;
 }
 
-.Feedback input,
-.Feedback textarea {
+.FeedbackForm input,
+.FeedbackForm textarea {
   width: 100%;
 
   &:disabled {
@@ -68,32 +68,32 @@ input[type='checkbox'] + .Feedback--label {
   }
 }
 
-.Feedback input {
+.FeedbackForm input {
   @include respond-to(large) {
     width: 60%;
   }
 }
 
-.Feedback input[type='radio'],
-.Feedback input[type='checkbox'] {
+.FeedbackForm input[type='radio'],
+.FeedbackForm input[type='checkbox'] {
   width: revert;
 }
 
-.Feedback-name,
-.Feedback-email {
+.FeedbackForm-name,
+.FeedbackForm-email {
   margin-bottom: 16px;
 }
 
-.Feedback-text {
+.FeedbackForm-text {
   min-height: 3rem;
   resize: vertical;
 }
 
-.Feedback-category--li {
+.FeedbackForm-category--li {
   list-style: none;
 }
 
-.Feedback-buttons-wrapper {
+.FeedbackForm-buttons-wrapper {
   align-items: center;
   display: flex;
   flex-flow: column;
@@ -104,7 +104,7 @@ input[type='checkbox'] + .Feedback--label {
   }
 }
 
-.Feedback-button {
+.FeedbackForm-button {
   margin-bottom: $padding-page;
 
   @include respond-to(medium) {

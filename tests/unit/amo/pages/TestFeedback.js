@@ -3,14 +3,17 @@ import config from 'config';
 import userEvent from '@testing-library/user-event';
 
 import { createApiError } from 'amo/api/index';
-import { extractId, getCategories } from 'amo/pages/Feedback';
+import { getCategories } from 'amo/components/FeedbackForm';
+import { extractId } from 'amo/pages/Feedback';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import { loadAddon } from 'amo/reducers/addons';
 import { clearError } from 'amo/reducers/errors';
 import { sendAddonAbuseReport } from 'amo/reducers/abuse';
 import {
   createFailedErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
+  fakeAddon,
   fakeAuthors,
   fakeI18n,
   getMockConfig,
@@ -33,10 +36,15 @@ describe(__filename, () => {
   const defaultMessage = 'its bad';
   let store;
   let fakeConfig;
+  let addon;
 
   const savedLocation = window.location;
 
   beforeEach(() => {
+    addon = {
+      ...fakeAddon,
+      guid: defaultAddonGUID,
+    };
     store = dispatchClientMetadata({ clientApp, lang }).store;
     delete window.location;
     window.location = Object.assign(new URL('https://example.org'), {
@@ -73,10 +81,11 @@ describe(__filename, () => {
     return `/${lang}/${clientApp}/feedback/addon/${addonGUID}/`;
   };
 
-  const getErrorHandlerId = (addonIdentifier) =>
-    `src/amo/pages/Feedback/index.js-${addonIdentifier}`;
+  const getErrorHandlerId = (addonId) =>
+    `src/amo/pages/Feedback/index.js-${addonId}`;
 
   const render = ({ location, addonGUID = defaultAddonGUID } = {}) => {
+    store.dispatch(loadAddon({ addon, slug: addonGUID }));
     const renderOptions = {
       initialEntries: [location || getLocation(addonGUID)],
       store,
@@ -164,9 +173,9 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(
       sendAddonAbuseReport({
         errorHandlerId: getErrorHandlerId(defaultAddonGUID),
-        addonSlug: defaultAddonGUID,
-        reporter_email: '',
-        reporter_name: '',
+        addonId: defaultAddonGUID,
+        reporterEmail: '',
+        reporterName: '',
         message: defaultMessage,
         reason: defaultReason,
       }),

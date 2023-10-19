@@ -71,7 +71,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
 
     dispatch(
       sendAddonAbuseReport({
-        addonSlug: addon.slug,
+        addonId: addon.slug,
         errorHandlerId: errorHandler.id,
         message: text,
       }),

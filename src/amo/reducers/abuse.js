@@ -26,17 +26,13 @@ export type AddonAbuseState = {|
 
 export type AbuseState = {|
   bySlug: {
-    [addonSlug: string]: AddonAbuseState,
-  },
-  byGUID: {
-    [addonGUID: string]: AddonAbuseState,
+    [addonId: string]: AddonAbuseState,
   },
   loading: boolean,
 |};
 
 export const initialState: AbuseState = {
   bySlug: {},
-  byGUID: {},
   loading: false,
 };
 
@@ -65,8 +61,8 @@ type LoadAddonAbuseReportAction = {|
 
 export function loadAddonAbuseReport({
   addon,
-  reporter_email,
-  reporter_name,
+  reporterEmail,
+  reporterName,
   message,
   reason,
   reporter,
@@ -79,8 +75,8 @@ export function loadAddonAbuseReport({
     type: LOAD_ADDON_ABUSE_REPORT,
     payload: {
       addon,
-      reporter_email,
-      reporter_name,
+      reporterEmail,
+      reporterName,
       message,
       reason,
       reporter,
@@ -89,10 +85,10 @@ export function loadAddonAbuseReport({
 }
 
 type SendAddonAbuseReportParams = {|
-  addonSlug: string,
+  addonId: string,
   errorHandlerId: string,
-  reporter_email?: string | null,
-  reporter_name?: string | null,
+  reporterEmail?: string | null,
+  reporterName?: string | null,
   message: string,
   reason?: string | null,
 |};
@@ -103,24 +99,24 @@ export type SendAddonAbuseReportAction = {|
 |};
 
 export function sendAddonAbuseReport({
-  addonSlug,
+  addonId,
   errorHandlerId,
-  reporter_email = null,
-  reporter_name = null,
+  reporterEmail = null,
+  reporterName = null,
   message,
   reason = null,
 }: SendAddonAbuseReportParams): SendAddonAbuseReportAction {
-  invariant(addonSlug, 'addonSlug is required');
+  invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(message, 'message is required');
 
   return {
     type: SEND_ADDON_ABUSE_REPORT,
     payload: {
-      addonSlug,
+      addonId,
       errorHandlerId,
-      reporter_email,
-      reporter_name,
+      reporterEmail,
+      reporterName,
       message,
       reason,
     },
@@ -205,10 +201,6 @@ export default function abuseReducer(
         bySlug: {
           ...state.bySlug,
           [addon.slug]: { message, reporter, uiVisible: false },
-        },
-        byGUID: {
-          ...state.byGUID,
-          [addon.guid]: { message, reporter, uiVisible: false },
         },
         loading: false,
       };

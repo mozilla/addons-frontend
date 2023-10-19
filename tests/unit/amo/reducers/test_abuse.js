@@ -56,14 +56,6 @@ describe(__filename, () => {
             message: 'This add-on is malwaré.',
           },
         },
-        byGUID: {
-          'another@guid': {
-            message: 'The add-on is boring',
-          },
-          'some@guid': {
-            message: 'This add-on is malwaré.',
-          },
-        },
       });
     });
 
@@ -78,7 +70,6 @@ describe(__filename, () => {
           bySlug: {
             [fakeAddon.slug]: { uiVisible: false },
           },
-          byGUID: {},
           loading: false,
         });
       });
@@ -95,7 +86,6 @@ describe(__filename, () => {
           bySlug: {
             [fakeAddon.slug]: { uiVisible: true },
           },
-          byGUID: {},
           loading: false,
         });
       });
@@ -106,12 +96,12 @@ describe(__filename, () => {
 
       beforeEach(() => {
         defaultParams = {
-          addonSlug: 'some-addon',
+          addonId: 'some-addon',
           errorHandlerId: 'some-error-handler',
           message: 'The add-on is malware',
           reason: 'malware',
-          reporter_name: 'Foxy',
-          reporter_email: 'made_up@email',
+          reporterName: 'Foxy',
+          reporterEmail: 'made_up@email',
         };
       });
 
@@ -122,13 +112,13 @@ describe(__filename, () => {
         expect(action.payload).toEqual(defaultParams);
       });
 
-      it('requires an addonSlug', () => {
+      it('requires an addonId', () => {
         expect(() => {
           const partialParams = { ...defaultParams };
-          delete partialParams.addonSlug;
+          delete partialParams.addonId;
 
           sendAddonAbuseReport(partialParams);
-        }).toThrow('addonSlug is required');
+        }).toThrow('addonId is required');
       });
 
       it('requires an errorHandlerId', () => {
