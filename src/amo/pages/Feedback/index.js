@@ -30,13 +30,17 @@ import { setViewContext } from 'amo/actions/viewContext';
 
 import './styles.scss';
 
-type Props = {||};
+type Props = {|
+  match: {|
+    ...ReactRouterMatchType,
+    params: {| addonIdentifier: string |},
+  |},
+|};
 
 type PropsFromState = {|
   currentUser: UserType | null,
   loading: boolean,
   currentUser: UserType | null,
-  addonIdentifier: string,
   abuseReport: AddonAbuseState | null,
 |};
 
@@ -45,17 +49,12 @@ type DefaultProps = {|
 |};
 
 type InternalProps = {|
+  ...Props,
   ...PropsFromState,
   ...DefaultProps,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  // `match` is used in `mapStateToProps()`
-  // eslint-disable-next-line react/no-unused-prop-types
-  match: {|
-    ...ReactRouterMatchType,
-    params: {| addonIdentifier: string |},
-  |},
 |};
 
 type FormValues = {|
@@ -188,7 +187,13 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
   onSubmit: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
-    const { dispatch, errorHandler, addonIdentifier } = this.props;
+    const {
+      dispatch,
+      errorHandler,
+      match: {
+        params: { addonIdentifier },
+      },
+    } = this.props;
     const { email, name, text, category } = this.state;
 
     invariant(text.trim().length, 'A report cannot be sent with no content.');
@@ -236,7 +241,9 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
       i18n,
       loading,
       currentUser,
-      addonIdentifier,
+      match: {
+        params: { addonIdentifier },
+      },
       abuseReport,
     } = this.props;
 
@@ -450,7 +457,6 @@ function mapStateToProps(
   return {
     currentUser,
     loading: state.abuse.loading,
-    addonIdentifier,
     abuseReport: state.abuse.byGUID[addonIdentifier]
       ? state.abuse.byGUID[addonIdentifier]
       : null,
