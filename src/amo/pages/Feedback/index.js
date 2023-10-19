@@ -6,7 +6,6 @@ import Textarea from 'react-textarea-autosize';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import config from 'config';
 
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Page from 'amo/components/Page';
@@ -43,7 +42,6 @@ type PropsFromState = {|
 
 type DefaultProps = {|
   _window: typeof window | Object,
-  _config: typeof config,
 |};
 
 type InternalProps = {|
@@ -141,7 +139,6 @@ export const getCategories = (
 export class FeedbackBase extends React.Component<InternalProps, State> {
   static defaultProps: DefaultProps = {
     _window: typeof window !== 'undefined' ? window : {},
-    _config: config,
   };
 
   constructor(props: InternalProps) {
@@ -235,7 +232,6 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
 
   render(): React.Node {
     const {
-      _config,
       errorHandler,
       i18n,
       loading,
@@ -243,10 +239,6 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
       addonIdentifier,
       abuseReport,
     } = this.props;
-
-    if (!_config.get('enableFeatureFeedbackForm')) {
-      return <NotFoundPage />;
-    }
 
     let errorMessage;
 

@@ -163,11 +163,13 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       component={TagPage}
     />
 
-    <Route
-      exact
-      path="/:lang/:application(firefox|android)/feedback/addon/:addonIdentifier/"
-      component={Feedback}
-    />
+    {config.get('enableFeatureFeedbackForm') && (
+      <Route
+        exact
+        path="/:lang/:application(firefox|android)/feedback/addon/:addonIdentifier/"
+        component={Feedback}
+      />
+    )}
 
     {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
     <Route
