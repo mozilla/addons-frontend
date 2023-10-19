@@ -1430,7 +1430,7 @@ describe(__filename, () => {
         ),
       ).toBeInTheDocument();
 
-      const bannerElement = screen.getByClassName('MzA-branding');
+      const bannerElement = screen.getByClassName('UserProfileEdit-fxa-notice');
       expect(bannerElement).toBeInTheDocument();
       expect(bannerElement).toHaveTextContent(
         'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
@@ -1452,7 +1452,7 @@ describe(__filename, () => {
         ),
       ).toBeInTheDocument();
 
-      const bannerElement = screen.getByClassName('MzA-branding');
+      const bannerElement = screen.getByClassName('UserProfileEdit-fxa-notice');
       expect(bannerElement).toBeInTheDocument();
       expect(bannerElement).toHaveTextContent(
         'Firefox Accounts will be renamed to Mozilla accounts on Nov 1',
@@ -1490,7 +1490,7 @@ describe(__filename, () => {
     it('renders the banner on the page', () => {
       renderForCurrentUser();
 
-      const bannerElement = screen.getByClassName('MzA-branding');
+      const bannerElement = screen.getByClassName('UserProfileEdit-fxa-notice');
       expect(bannerElement).toBeInTheDocument();
 
       expect(bannerElement).toHaveTextContent(
@@ -1500,7 +1500,7 @@ describe(__filename, () => {
         'You will still sign in with the same username and password, and there are no other changes to the products that you use.',
       );
 
-      const infoLink = screen.getByClassName('fxa-info-link');
+      const infoLink = screen.getByClassName('Notice-button');
       expect(infoLink).toBeInTheDocument();
       expect(infoLink).toHaveAttribute(
         'href',
