@@ -11,7 +11,6 @@ import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Page from 'amo/components/Page';
 import { sendAddonAbuseReport } from 'amo/reducers/abuse';
 import { getCurrentUser } from 'amo/reducers/users';
-import { VIEW_CONTEXT_HOME } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
@@ -26,7 +25,6 @@ import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterMatchType } from 'amo/types/router';
-import { setViewContext } from 'amo/actions/viewContext';
 
 import './styles.scss';
 
@@ -40,7 +38,6 @@ type Props = {|
 type PropsFromState = {|
   currentUser: UserType | null,
   loading: boolean,
-  currentUser: UserType | null,
   abuseReport: AddonAbuseState | null,
 |};
 
@@ -143,18 +140,12 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
   constructor(props: InternalProps) {
     super(props);
 
-    const { dispatch, errorHandler, currentUser } = props;
+    const { currentUser } = props;
 
     this.state = {
       successMessage: null,
       ...this.getFormValues(currentUser),
     };
-
-    dispatch(setViewContext(VIEW_CONTEXT_HOME));
-
-    if (errorHandler.hasError()) {
-      log.warn('Not loading data because of an error.');
-    }
   }
 
   componentDidUpdate(prevProps: InternalProps, prevState: State) {
@@ -174,8 +165,6 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
   onFieldChange: (event: SyntheticEvent<HTMLInputElement>) => void = (
     event: SyntheticEvent<HTMLInputElement>,
   ) => {
-    // event.preventDefault();
-
     const { name, value } = event.currentTarget;
 
     this.setState({

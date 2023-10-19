@@ -2,10 +2,9 @@
 import config from 'config';
 import userEvent from '@testing-library/user-event';
 
-import { setViewContext } from 'amo/actions/viewContext';
 import { createApiError } from 'amo/api/index';
 import { extractId, getCategories } from 'amo/pages/Feedback';
-import { CLIENT_APP_FIREFOX, VIEW_CONTEXT_HOME } from 'amo/constants';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import { clearError } from 'amo/reducers/errors';
 import { sendAddonAbuseReport } from 'amo/reducers/abuse';
 import {
@@ -273,12 +272,5 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(
       clearError(getErrorHandlerId(defaultAddonGUID)),
     );
-  });
-
-  it('dispatches setViewContext when component mounts', () => {
-    const dispatch = jest.spyOn(store, 'dispatch');
-    render();
-
-    expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
   });
 });
