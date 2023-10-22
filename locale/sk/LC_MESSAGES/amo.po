@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-04-04 16:25+0000\n"
-"PO-Revision-Date: 2023-04-24 17:48+0000\n"
+"PO-Revision-Date: 2023-10-22 18:01+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -191,7 +191,7 @@ msgstr "Stránka podpory"
 
 #: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Support Email"
-msgstr "E-mail podpory"
+msgstr "E‑mail podpory"
 
 #: src/amo/components/AddonMoreInfo/index.js:150
 msgid "Visit stats dashboard"
@@ -2409,7 +2409,7 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
-"Ak chcete nahlásiť chybu zabezpečenia rozšírenia, aj keď nie je umiestnené na tejto stránke, nahláste %(startSecIssueLink)sbug%(endSecIssueLink)s v Bugzille alebo pošlite e-mail na adresu "
+"Ak chcete nahlásiť chybu zabezpečenia rozšírenia, aj keď nie je umiestnené na tejto stránke, nahláste %(startSecIssueLink)sbug%(endSecIssueLink)s v Bugzille alebo pošlite e‑mail na adresu "
 "%(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Všetky správy o chybách zabezpečenia sú %(startLink)sdôverné%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
@@ -2480,7 +2480,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr "Nevkladajte svoju ani cudziu e-mailovú adresu, telefónne číslo ani iné osobné údaje."
+msgstr "Nevkladajte svoju ani cudziu e‑mailovú adresu, telefónne číslo ani iné osobné údaje."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
@@ -2758,15 +2758,15 @@ msgstr "Účet používateľa %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
-msgstr "E-mailová adresa"
+msgstr "E‑mailová adresa"
 
 #: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
-msgstr "E-mailovú adresu nemožno zmeniť na tejto stránke"
+msgstr "E‑mailovú adresu nemožno zmeniť na tejto stránke"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "Svoju e-mailovú adresu môžete zmeniť vo svojom účte Firefox. %(startLink)sPotrebujete pomoc?%(endLink)s"
+msgstr "Svoju e‑mailovú adresu môžete zmeniť vo svojom účte Firefox. %(startLink)sPotrebujete pomoc?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Firefox Accounts…"
@@ -2798,11 +2798,11 @@ msgstr "Upozornenia"
 
 #: src/amo/pages/UserProfileEdit/index.js:773
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr "Z času na čas môže Mozilla posielať e-mailové správy o nadchádzajúcich verziách a udalostiach spojených s doplnkami. Vyberte si témy, ktoré vás zaujímajú."
+msgstr "Z času na čas môže Mozilla posielať e‑mailové správy o nadchádzajúcich verziách a udalostiach spojených s doplnkami. Vyberte si témy, ktoré vás zaujímajú."
 
 #: src/amo/pages/UserProfileEdit/index.js:778
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr "Z času na čas môže Mozilla tomuto používateľovi posielať e-mailové správy o nadchádzajúcich verziách a udalostiach spojených s doplnkami. Vyberte si témy, ktoré tohto používateľa zaujímajú."
+msgstr "Z času na čas môže Mozilla tomuto používateľovi posielať e‑mailové správy o nadchádzajúcich verziách a udalostiach spojených s doplnkami. Vyberte si témy, ktoré tohto používateľa zaujímajú."
 
 #: src/amo/pages/UserProfileEdit/index.js:793
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
@@ -2866,7 +2866,7 @@ msgstr "Boli ste úspešne odhlásení!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr "Na e-mailovú adresu %(strongStart)s%(email)s%(strongEnd)s už nebudú odosielané správy, ak:"
+msgstr "Na e‑mailovú adresu %(strongStart)s%(email)s%(strongEnd)s už nebudú odosielané správy, ak:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
