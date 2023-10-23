@@ -9,6 +9,10 @@ $font-size-aside: $font-size-xs;
     display: flex;
     justify-content: flex-start;
   }
+
+  > div {
+    width: 100%;
+  }
 }
 
 .FeedbackForm-form-messages .Notice,
