@@ -7,6 +7,7 @@ import log from 'amo/logger';
 import {
   INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
   SEND_ADDON_ABUSE_REPORT,
+  abortAbuseReport,
   finishAddonAbuseReportViaFirefox,
   loadAddonAbuseReport,
 } from 'amo/reducers/abuse';
@@ -58,6 +59,8 @@ export function* reportAddon({
   } catch (error) {
     log.warn(`Reporting add-on for abuse failed: ${error}`);
     yield put(errorHandler.createErrorAction(error));
+
+    yield put(abortAbuseReport({ addonId }));
   }
 }
 

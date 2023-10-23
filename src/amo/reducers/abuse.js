@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import type { AddonType } from 'amo/types/addons';
 import type { AbuseReporter, ReportAddonResponse } from 'amo/api/abuse';
 
+export const ABORT_ABUSE_REPORT: 'ABORT_ABUSE_REPORT' = 'ABORT_ABUSE_REPORT';
 export const HIDE_ADDON_ABUSE_REPORT_UI: 'HIDE_ADDON_ABUSE_REPORT_UI' =
   'HIDE_ADDON_ABUSE_REPORT_UI';
 export const LOAD_ADDON_ABUSE_REPORT: 'LOAD_ADDON_ABUSE_REPORT' =
@@ -16,6 +17,26 @@ export const INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'INITIATE_ADDON_ABUSE_REPO
   'INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX';
 export const FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX' =
   'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX';
+
+type AbortAbuseReportParams = {|
+  addonId: string,
+|};
+
+type AbortAbuseReportAction = {|
+  type: typeof ABORT_ABUSE_REPORT,
+  payload: AbortAbuseReportParams,
+|};
+
+export function abortAbuseReport({
+  addonId,
+}: AbortAbuseReportParams): AbortAbuseReportAction {
+  invariant(addonId, 'addonId is required');
+
+  return {
+    type: ABORT_ABUSE_REPORT,
+    payload: { addonId },
+  };
+}
 
 export type AddonAbuseState = {|
   buttonEnabled?: boolean,
@@ -183,6 +204,12 @@ export default function abuseReducer(
   action: Action,
 ): AbuseState {
   switch (action.type) {
+    case ABORT_ABUSE_REPORT: {
+      return {
+        ...state,
+        loading: false,
+      };
+    }
     case HIDE_ADDON_ABUSE_REPORT_UI: {
       const { addon } = action.payload;
 
