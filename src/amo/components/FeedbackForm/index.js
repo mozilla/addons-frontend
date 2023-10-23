@@ -53,6 +53,7 @@ type FormValues = {|
   email: string,
   text: string,
   category: string | null,
+  legalAssertion: boolean,
 |};
 
 type State = {|
@@ -196,6 +197,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       name: '',
       text: '',
       category: null,
+      legalAssertion: false,
     };
 
     const { email, display_name: name } = currentUser || {};
@@ -209,9 +211,15 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
   preventSubmit(): boolean {
     const { loading } = this.props;
-    const { text, category } = this.state;
+    const { text, category, legalAssertion } = this.state;
 
-    return loading || !category || !text || (text && text.trim() === '');
+    return (
+      loading ||
+      !category ||
+      !text ||
+      (text && text.trim() === '') ||
+      !legalAssertion
+    );
   }
 
   render(): React.Node {
