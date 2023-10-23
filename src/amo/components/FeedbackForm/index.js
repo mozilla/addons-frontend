@@ -85,7 +85,7 @@ export const getCategories = (
         ),
       },
       {
-        value: 'not_wanted',
+        value: 'feedback_spam',
         label: i18n.gettext('It’s SPAM'),
         help: i18n.gettext(
           'Example: An application installed it without my permission',
@@ -101,7 +101,7 @@ export const getCategories = (
         ),
       },
       {
-        value: 'hate_speech',
+        value: 'hateful_violent_deceptive',
         label: i18n.gettext(
           'It contains hateful, violent, deceptive, or other inappropriate content',
         ),

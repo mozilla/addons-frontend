@@ -42,20 +42,18 @@ type State = {||};
 export class FeedbackBase extends React.Component<InternalProps, State> {
   constructor(props: InternalProps) {
     super(props);
-
-    const { addon, addonIsLoading, dispatch, errorHandler, match } = props;
-
-    if (!addon && !addonIsLoading) {
-      dispatch(
-        fetchAddon({
-          slug: match.params.addonIdentifier,
-          errorHandler,
-        }),
-      );
-    }
+    this.loadDataIfNeeded();
   }
 
   componentDidUpdate() {
+    this.loadDataIfNeeded();
+  }
+
+  componentWillUnmount() {
+    this.props.errorHandler.clear();
+  }
+
+  loadDataIfNeeded() {
     const { addon, addonIsLoading, dispatch, errorHandler, match } = this.props;
 
     if (!addon && !addonIsLoading) {
@@ -66,10 +64,6 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
         }),
       );
     }
-  }
-
-  componentWillUnmount() {
-    this.props.errorHandler.clear();
   }
 
   render(): React.Node {

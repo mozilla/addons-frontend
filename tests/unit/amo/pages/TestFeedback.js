@@ -1,16 +1,18 @@
 /* global window */
 import config from 'config';
 import userEvent from '@testing-library/user-event';
+import { waitFor } from '@testing-library/react';
 
 import { createApiError } from 'amo/api/index';
 import { getCategories } from 'amo/components/FeedbackForm';
-import { extractId } from 'amo/pages/Feedback';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
-import { loadAddon } from 'amo/reducers/addons';
+import { extractId } from 'amo/pages/Feedback';
+import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
+import { loadAddon, fetchAddon } from 'amo/reducers/addons';
 import { clearError } from 'amo/reducers/errors';
-import { sendAddonAbuseReport } from 'amo/reducers/abuse';
 import {
   createFailedErrorHandler,
+  createFakeErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
   fakeAddon,
@@ -30,7 +32,7 @@ describe(__filename, () => {
   const defaultEmail = 'otheruser@mozilla.com';
   const defaultUserId = fakeAuthors[0].id;
   const defaultAddonGUID = '@guid';
-  const defaultReason = 'hate_speech';
+  const defaultReason = 'hateful_violent_deceptive';
   const defaultReasonLabel =
     'It contains hateful, violent, deceptive, or other inappropriate content';
   const defaultMessage = 'its bad';
@@ -84,8 +86,10 @@ describe(__filename, () => {
   const getErrorHandlerId = (addonId) =>
     `src/amo/pages/Feedback/index.js-${addonId}`;
 
-  const render = ({ location, addonGUID = defaultAddonGUID } = {}) => {
-    store.dispatch(loadAddon({ addon, slug: addonGUID }));
+  const renderWithoutLoadingAddon = ({
+    location,
+    addonGUID = defaultAddonGUID,
+  } = {}) => {
     const renderOptions = {
       initialEntries: [location || getLocation(addonGUID)],
       store,
@@ -93,9 +97,28 @@ describe(__filename, () => {
     config.get.mockImplementation((key) => {
       return fakeConfig[key];
     });
-    const renderResults = defaultRender(renderOptions);
-    return renderResults;
+    return defaultRender(renderOptions);
   };
+
+  const render = ({ location, addonGUID = defaultAddonGUID } = {}) => {
+    store.dispatch(loadAddon({ addon, slug: addonGUID }));
+    return renderWithoutLoadingAddon({ location, addonGUID });
+  };
+
+  it('dispatches fetchAddon if addonId is not found', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const errorHandler = createFakeErrorHandler({
+      id: getErrorHandlerId(defaultAddonGUID),
+    });
+    renderWithoutLoadingAddon();
+
+    expect(dispatch).toHaveBeenCalledWith(
+      fetchAddon({
+        errorHandler,
+        slug: defaultAddonGUID,
+      }),
+    );
+  });
 
   it('renders feedback form for logged out user with editable name and email', () => {
     render();
@@ -136,11 +159,11 @@ describe(__filename, () => {
 
   it.each([
     ['report', 'policy_violation'],
-    ['report', 'hate_speech'],
+    ['report', 'hateful_violent_deceptive'],
     ['report', 'illegal'],
     ['report', 'other'],
     ['feedback', 'does_not_work'],
-    ['feedback', 'not_wanted'],
+    ['feedback', 'feedback_spam'],
   ])(`renders reason %s`, (category, reason_slug) => {
     const categories = getCategories(fakeI18n());
     const reason = categories[category].find(
@@ -180,6 +203,28 @@ describe(__filename, () => {
         reason: defaultReason,
       }),
     );
+  });
+
+  it('shows success message after submission', async () => {
+    render();
+
+    store.dispatch(
+      loadAddonAbuseReport({
+        addon: fakeAddon,
+        message: defaultMessage,
+        reporter: null,
+      }),
+    );
+
+    expect(
+      await screen.findByText(
+        'We have received your report. Thanks for letting us know.',
+      ),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.queryByText('Send some feedback about an add-on'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders a submit button with a different text when updating', async () => {
@@ -260,12 +305,39 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
+  it('renders the form without the addon if the API request is a 401', () => {
+    createFailedErrorHandler({
+      error: createApiError({
+        response: { status: 401 },
+      }),
+      id: getErrorHandlerId(defaultAddonGUID),
+      store,
+    });
+
+    render();
+
+    expect(
+      screen.getByText('Send some feedback about an add-on'),
+    ).toBeInTheDocument();
+  });
+
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on params', () => {
       expect(
         extractId({ match: { params: { addonIdentifier: defaultAddonGUID } } }),
       ).toEqual(defaultAddonGUID);
     });
+  });
+
+  it('scrolls to the top of the page when an error is rendered', async () => {
+    render();
+
+    createFailedErrorHandler({
+      id: getErrorHandlerId(defaultAddonGUID),
+      store,
+    });
+
+    await waitFor(() => expect(window.scroll).toHaveBeenCalledWith(0, 0));
   });
 
   it('clears the error handler when unmounting', () => {
