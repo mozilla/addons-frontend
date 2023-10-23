@@ -222,6 +222,23 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     );
   }
 
+  renderReportSentConfirmation(i18n: I18nType): React.Node {
+    return (
+      <div>
+        <Card
+          header={i18n.gettext('You sent a report about this add-on')}
+          className="FeedbackForm--Card"
+        >
+          <p className="ReportAbuseButton-first-paragraph">
+            {i18n.gettext(
+              `We have received your report. Thanks for letting us know.`,
+            )}
+          </p>
+        </Card>
+      </div>
+    );
+  }
+
   render(): React.Node {
     const { addonId, abuseReport, currentUser, errorHandler, i18n, loading } =
       this.props;
@@ -283,22 +300,9 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
           </title>
         </Helmet>
 
-        {abuseSubmitted && (
-          <div>
-            <Card
-              header={i18n.gettext('You sent a report about this add-on')}
-              className="FeedbackForm--Card"
-            >
-              <p className="ReportAbuseButton-first-paragraph">
-                {i18n.gettext(
-                  `We have received your report. Thanks for letting us know.`,
-                )}
-              </p>
-            </Card>
-          </div>
-        )}
-
-        {!abuseSubmitted && (
+        {abuseSubmitted ? (
+          this.renderReportSentConfirmation(i18n)
+        ) : (
           <form className="FeedbackForm-form" onSubmit={this.onSubmit}>
             <div className="FeedbackForm-form-messages">
               {errorMessage}
