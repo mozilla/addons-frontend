@@ -7,6 +7,7 @@ import log from 'amo/logger';
 import {
   INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
   SEND_ADDON_ABUSE_REPORT,
+  abortAbuseReport,
   finishAddonAbuseReportViaFirefox,
   loadAddonAbuseReport,
 } from 'amo/reducers/abuse';
@@ -19,7 +20,14 @@ import type {
 import type { Saga } from 'amo/types/sagas';
 
 export function* reportAddon({
-  payload: { addonSlug, errorHandlerId, message },
+  payload: {
+    addonId,
+    errorHandlerId,
+    reporterEmail,
+    reporterName,
+    message,
+    reason,
+  },
 }: SendAddonAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -29,22 +37,30 @@ export function* reportAddon({
     const state = yield select(getState);
 
     const params: ReportAddonParams = {
-      addonSlug,
+      addonId,
       api: state.api,
+      reporterName: reporterName || null,
+      reporterEmail: reporterEmail || null,
       message,
+      reason: reason || null,
     };
     const response = yield call(reportAddonApi, params);
 
     yield put(
       loadAddonAbuseReport({
         addon: response.addon,
+        reporterName: response.reporter_name,
+        reporterEmail: response.reporter_email,
         message: response.message,
+        reason: response.reason,
         reporter: response.reporter,
       }),
     );
   } catch (error) {
     log.warn(`Reporting add-on for abuse failed: ${error}`);
     yield put(errorHandler.createErrorAction(error));
+
+    yield put(abortAbuseReport({ addonId }));
   }
 }
 
@@ -59,6 +75,9 @@ export function* reportAddonViaFirefox({
           addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
           message: null,
           reporter: null,
+          reporterEmail: null,
+          reporterName: null,
+          reason: null,
         }),
       );
     }

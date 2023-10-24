@@ -1,0 +1,117 @@
+@import '~amo/css/styles';
+
+$font-size-aside: $font-size-xs;
+
+.FeedbackForm {
+  @include page-padding;
+
+  @include respond-to(large) {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  > div {
+    width: 100%;
+  }
+}
+
+.FeedbackForm-form-messages .Notice,
+.FeedbackForm--Card {
+  margin-bottom: $padding-page;
+
+  ul {
+    @include padding-start(0);
+  }
+}
+
+.FeedbackForm-details-aside {
+  color: $grey-50;
+  font-size: $font-size-aside;
+  margin-top: 0;
+
+  @include respond-to(large) {
+    @include margin(0, 0, 0, $padding-page);
+
+    float: right;
+    width: 35%;
+
+    [dir='rtl'] & {
+      float: left;
+    }
+  }
+}
+
+.FeedbackForm--label {
+  display: block;
+}
+
+input[type='radio'] + .FeedbackForm--label,
+input[type='checkbox'] + .FeedbackForm--label {
+  display: revert;
+  padding-inline-start: 1em;
+}
+
+.FeedbackForm--help {
+  color: $grey-50;
+  display: block;
+  font-size: $font-size-aside;
+  margin-top: 4px;
+}
+
+.FeedbackForm input,
+.FeedbackForm textarea {
+  width: 100%;
+
+  &:disabled {
+    background: $grey-20;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    @include focus;
+  }
+}
+
+.FeedbackForm input {
+  @include respond-to(large) {
+    width: 60%;
+  }
+}
+
+.FeedbackForm input[type='radio'],
+.FeedbackForm input[type='checkbox'] {
+  width: revert;
+}
+
+.FeedbackForm-name,
+.FeedbackForm-email {
+  margin-bottom: 16px;
+}
+
+.FeedbackForm-text {
+  min-height: 3rem;
+  resize: vertical;
+}
+
+.FeedbackForm-category--li {
+  list-style: none;
+}
+
+.FeedbackForm-buttons-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  @include respond-to(medium) {
+    flex-flow: row-reverse;
+  }
+}
+
+.FeedbackForm-button {
+  margin-bottom: $padding-page;
+
+  @include respond-to(medium) {
+    margin-bottom: 0;
+  }
+}

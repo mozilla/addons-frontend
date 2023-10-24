@@ -26,6 +26,10 @@ describe(__filename, () => {
     it('calls the report add-on abuse API', async () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
+      const reason = 'does_not_work';
+      const reporterName = 'Foxy';
+      const reporterEmail = 'fox@moz.co';
+      const addonId = 'cool-addon';
 
       mockApi
         .expects('callApi')
@@ -33,7 +37,13 @@ describe(__filename, () => {
           auth: true,
           endpoint: 'abuse/report/addon',
           method: 'POST',
-          body: { addon: 'cool-addon', message },
+          body: {
+            addon: addonId,
+            message,
+            reason,
+            reporter_email: reporterEmail,
+            reporter_name: reporterName,
+          },
           apiState,
         })
         .once()
@@ -45,9 +55,12 @@ describe(__filename, () => {
         );
 
       await reportAddon({
-        addonSlug: 'cool-addon',
+        addonId,
         api: apiState,
         message,
+        reason,
+        reporterEmail,
+        reporterName,
       });
 
       mockApi.verify();

@@ -559,7 +559,7 @@ describe(__filename, () => {
 
       expect(dispatch).toHaveBeenCalledWith(
         sendAddonAbuseReport({
-          addonSlug: fakeAddon.slug,
+          addonId: fakeAddon.slug,
           errorHandlerId: 'ReportAbuseButton',
           message,
         }),

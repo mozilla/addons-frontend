@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import type { AddonType } from 'amo/types/addons';
 import type { AbuseReporter, ReportAddonResponse } from 'amo/api/abuse';
 
+export const ABORT_ABUSE_REPORT: 'ABORT_ABUSE_REPORT' = 'ABORT_ABUSE_REPORT';
 export const HIDE_ADDON_ABUSE_REPORT_UI: 'HIDE_ADDON_ABUSE_REPORT_UI' =
   'HIDE_ADDON_ABUSE_REPORT_UI';
 export const LOAD_ADDON_ABUSE_REPORT: 'LOAD_ADDON_ABUSE_REPORT' =
@@ -17,6 +18,26 @@ export const INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'INITIATE_ADDON_ABUSE_REPO
 export const FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX' =
   'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX';
 
+type AbortAbuseReportParams = {|
+  addonId: string,
+|};
+
+type AbortAbuseReportAction = {|
+  type: typeof ABORT_ABUSE_REPORT,
+  payload: AbortAbuseReportParams,
+|};
+
+export function abortAbuseReport({
+  addonId,
+}: AbortAbuseReportParams): AbortAbuseReportAction {
+  invariant(addonId, 'addonId is required');
+
+  return {
+    type: ABORT_ABUSE_REPORT,
+    payload: { addonId },
+  };
+}
+
 export type AddonAbuseState = {|
   buttonEnabled?: boolean,
   message: string | null,
@@ -26,7 +47,7 @@ export type AddonAbuseState = {|
 
 export type AbuseState = {|
   bySlug: {
-    [addonSlug: string]: AddonAbuseState,
+    [addonId: string]: AddonAbuseState,
   },
   loading: boolean,
 |};
@@ -61,7 +82,10 @@ type LoadAddonAbuseReportAction = {|
 
 export function loadAddonAbuseReport({
   addon,
+  reporterEmail,
+  reporterName,
   message,
+  reason,
   reporter,
 }: ReportAddonResponse): LoadAddonAbuseReportAction {
   invariant(addon, 'addon is required');
@@ -70,14 +94,24 @@ export function loadAddonAbuseReport({
 
   return {
     type: LOAD_ADDON_ABUSE_REPORT,
-    payload: { addon, message, reporter },
+    payload: {
+      addon,
+      reporterEmail,
+      reporterName,
+      message,
+      reason,
+      reporter,
+    },
   };
 }
 
 type SendAddonAbuseReportParams = {|
-  addonSlug: string,
+  addonId: string,
   errorHandlerId: string,
+  reporterEmail?: string | null,
+  reporterName?: string | null,
   message: string,
+  reason?: string | null,
 |};
 
 export type SendAddonAbuseReportAction = {|
@@ -86,17 +120,27 @@ export type SendAddonAbuseReportAction = {|
 |};
 
 export function sendAddonAbuseReport({
-  addonSlug,
+  addonId,
   errorHandlerId,
+  reporterEmail = null,
+  reporterName = null,
   message,
+  reason = null,
 }: SendAddonAbuseReportParams): SendAddonAbuseReportAction {
-  invariant(addonSlug, 'addonSlug is required');
+  invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(message, 'message is required');
 
   return {
     type: SEND_ADDON_ABUSE_REPORT,
-    payload: { addonSlug, errorHandlerId, message },
+    payload: {
+      addonId,
+      errorHandlerId,
+      reporterEmail,
+      reporterName,
+      message,
+      reason,
+    },
   };
 }
 
@@ -160,6 +204,12 @@ export default function abuseReducer(
   action: Action,
 ): AbuseState {
   switch (action.type) {
+    case ABORT_ABUSE_REPORT: {
+      return {
+        ...state,
+        loading: false,
+      };
+    }
     case HIDE_ADDON_ABUSE_REPORT_UI: {
       const { addon } = action.payload;
 

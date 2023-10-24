@@ -43,7 +43,7 @@ describe(__filename, () => {
     function _sendAddonAbuseReport(params) {
       sagaTester.dispatch(
         sendAddonAbuseReport({
-          addonSlug: fakeAddon.slug,
+          addonId: fakeAddon.slug,
           errorHandlerId: errorHandler.id,
           message: 'Testing',
           ...params,
@@ -58,7 +58,7 @@ describe(__filename, () => {
 
       mockApi.expects('reportAddon').once().returns(Promise.resolve(response));
 
-      _sendAddonAbuseReport({ addonSlug: addon.slug, message });
+      _sendAddonAbuseReport({ addonId: addon.slug, message });
 
       const expectedLoadAction = loadAddonAbuseReport({
         addon: response.addon,
@@ -95,14 +95,14 @@ describe(__filename, () => {
 
     it('throws an error if multiple reports are submitted for the same add-on', async () => {
       _sendAddonAbuseReport({
-        addonSlug: 'some-addon',
+        addonId: 'some-addon',
         message: 'This add-on is malwaré!',
       });
 
       // Report the same add-on again; this will cause the reducer to throw
       // an error and the saga should dispatch an error.
       _sendAddonAbuseReport({
-        addonSlug: 'some-addon',
+        addonId: 'some-addon',
         message: 'Duplicate!',
       });
 
@@ -148,6 +148,9 @@ describe(__filename, () => {
         addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
         message: null,
         reporter: null,
+        reporterName: null,
+        reporterEmail: null,
+        reason: null,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
