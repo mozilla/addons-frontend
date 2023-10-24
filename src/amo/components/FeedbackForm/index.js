@@ -291,9 +291,11 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
         <Helmet>
           <title>
             {i18n.sprintf(
-              i18n.gettext('Submit FeedbackForm for %(type)s %(identifier)s'),
+              i18n.gettext(
+                'Submit feedback or report for %(type)s %(identifier)s',
+              ),
               {
-                type: i18n.gettext('Addon'),
+                type: i18n.gettext('Add-on'),
                 identifier: addonId,
               },
             )}
