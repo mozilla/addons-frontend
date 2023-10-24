@@ -36,6 +36,9 @@ describe(__filename, () => {
   const defaultReasonLabel =
     'It contains hateful, violent, deceptive, or other inappropriate content';
   const defaultMessage = 'its bad';
+  const defaultLocation = 'both';
+  const defaultLocationLabel = 'Both locations';
+
   let store;
   let fakeConfig;
   let addon;
@@ -188,6 +191,10 @@ describe(__filename, () => {
     await userEvent.click(
       screen.getByRole('radio', { name: defaultReasonLabel }),
     );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', { name: 'Where is the offending content' }),
+      defaultLocationLabel,
+    );
     await userEvent.click(screen.getByRole('checkbox'));
     await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
@@ -201,6 +208,7 @@ describe(__filename, () => {
         reporterName: '',
         message: defaultMessage,
         reason: defaultReason,
+        location: defaultLocation,
       }),
     );
   });

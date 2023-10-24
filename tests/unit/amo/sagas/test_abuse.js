@@ -151,6 +151,7 @@ describe(__filename, () => {
         reporterName: null,
         reporterEmail: null,
         reason: null,
+        location: null,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);

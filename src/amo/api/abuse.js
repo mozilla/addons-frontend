@@ -27,6 +27,7 @@ export type ReportAddonParams = {|
   reporterEmail: string | null,
   message: string,
   reason: string | null,
+  location: string | null,
 |};
 
 export type ReportAddonResponse = {|
@@ -40,6 +41,7 @@ export type ReportAddonResponse = {|
   reporterName: string | null,
   reporterEmail: string | null,
   reason: string | null,
+  location: string | null,
 |};
 
 export function reportAddon({
@@ -49,6 +51,7 @@ export function reportAddon({
   reporterEmail,
   message,
   reason,
+  location,
 }: ReportAddonParams): Promise<ReportAddonResponse> {
   return callApi({
     auth: true,
@@ -60,6 +63,7 @@ export function reportAddon({
       reporter_name: reporterName,
       message,
       reason,
+      location,
     },
     apiState: api,
   });

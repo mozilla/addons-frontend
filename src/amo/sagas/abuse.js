@@ -27,6 +27,7 @@ export function* reportAddon({
     reporterName,
     message,
     reason,
+    location,
   },
 }: SendAddonAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -43,6 +44,7 @@ export function* reportAddon({
       reporterEmail: reporterEmail || null,
       message,
       reason: reason || null,
+      location: location || null,
     };
     const response = yield call(reportAddonApi, params);
 
@@ -54,6 +56,7 @@ export function* reportAddon({
         message: response.message,
         reason: response.reason,
         reporter: response.reporter,
+        location: response.location,
       }),
     );
   } catch (error) {
@@ -78,6 +81,7 @@ export function* reportAddonViaFirefox({
           reporterEmail: null,
           reporterName: null,
           reason: null,
+          location: null,
         }),
       );
     }
