@@ -339,6 +339,7 @@ module.exports = {
     '__frontend_version__',
     '__version__',
     'about',
+    'abuse',
     'admin',
     'apps',
     'blocklist',
