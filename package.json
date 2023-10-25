@@ -346,5 +346,6 @@
       "path": "./dist/static/amo-*.css",
       "maxSize": "32 kB"
     }
-  ]
+  ],
+  "packageManager": "yarn@1.22.19"
 }
