@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-26 14:24+0000\n"
+"PO-Revision-Date: 2023-10-26 14:40+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -830,7 +830,7 @@ msgstr "მოულოდნელი შეცდომა"
 
 #: src/amo/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr "გასაგრძელებლად, ხელახლა გახსენით"
+msgstr "ხელახლა გახსენით, რომ განაგრძოთ"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -1011,6 +1011,8 @@ msgid ""
 "I hereby certify, under penalty of perjury, my bona fide belief that the allegations in this report are complete and accurate. For allegations of trademark or copyright infringement, I further "
 "certify that I am either the affected rightsholder, or have been authorized to act on that rightsholder's behalf."
 msgstr ""
+"მკაფიოდ ვადასტურებ ცრუ ინფორმაციის მიწოდებისთვის მოსალოდნელი სასჯელის გაცნობიერებით, რომ გულწრფელად მიმაჩნია, ამ მოხსენებაში მოცემული ბრალდებები არის სრული და მართებული. სასაქონლო ნიშნის ან "
+"საკუთრების უფლებების დარღვევის ბრალდებებთან დაკავშირებით დამატებით ვადასტურებ, რომ ვარ დაზარალებული მესაკუთრე ან უფლებამოსილი, ვიმოქმედო მესაკუთრის სახელით."
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Your details"
