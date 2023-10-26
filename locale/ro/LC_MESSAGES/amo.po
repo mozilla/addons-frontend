@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-04 16:25+0000\n"
+"POT-Creation-Date: 2023-10-26 09:21+0000\n"
 "PO-Revision-Date: 2022-06-25 13:19+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -111,7 +111,8 @@ msgstr "%(addonName)s – Descarcă această temă pentru 🦊 Firefox (%(locale
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Descarcă acest supliment pentru 🦊 Firefox (%(locale)s)"
+msgstr ""
+"%(addonName)s – Descarcă acest supliment pentru 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:131
 msgid "Download %(addonName)s for Firefox. %(summary)s"
@@ -150,7 +151,8 @@ msgstr ""
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Descarcă acest dicționar pentru 🦊 Firefox (%(locale)s)"
+msgstr ""
+"%(addonName)s – Descarcă acest dicționar pentru 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
@@ -200,7 +202,7 @@ msgstr "Folosit de"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:676
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Homepage"
 msgstr "Pagină de start"
 
@@ -338,7 +340,7 @@ msgstr "Șterge"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:899
+#: src/amo/pages/UserProfileEdit/index.js:931
 msgid "Cancel"
 msgstr "Renunță"
 
@@ -664,7 +666,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Suplimente pentru Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:148
+#: src/amo/components/Header/index.js:151
 msgid "Log out"
 msgstr "Deconectare"
 
@@ -673,7 +675,7 @@ msgid "Log in"
 msgstr "Autentifică-te"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:143
+#: src/amo/components/Header/index.js:146
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -693,17 +695,17 @@ msgstr "Caută suplimente"
 msgid "Search"
 msgstr "Caută"
 
-#: src/amo/components/Categories/index.js:105
-msgid "No categories found."
-msgstr "Nicio categorie găsită."
-
-#: src/amo/components/Categories/index.js:112
+#: src/amo/components/Categories/index.js:106
 msgid "Categories"
 msgstr "Categorii"
 
-#: src/amo/components/Categories/index.js:117
+#: src/amo/components/Categories/index.js:111
 msgid "Loading categories."
 msgstr "Se încarcă categoriile."
+
+#: src/amo/components/Categories/index.js:99
+msgid "No categories found."
+msgstr "Nicio categorie găsită."
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
@@ -932,9 +934,9 @@ msgstr "Autentificare expirată"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+"If you are signed in and think this message is an error, please <a "
+"href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you "
+"were trying to access, and we'll fix the issue."
 msgstr ""
 "Dacă ești autentificat(ă) și consideri că acest mesaj este o eroare, te "
 "rugăm să <a href=\"%(url)s\">raportezi o problemă</a>. Spune-ne de unde "
@@ -1001,13 +1003,13 @@ msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a "
+"href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an "
+"issue</a>. Tell us what steps you took that lead to the error and we'll do "
+"our best to fix it."
 msgstr ""
-"Dacă ai informații suplimentare care ne-ar putea ajuta, poți <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">raporta o "
+"Dacă ai informații suplimentare care ne-ar putea ajuta, poți <a "
+"href=\"https://github.com/mozilla/addons-frontend/issues/new/\">raporta o "
 "problemă</a>. Spune-ne ce pași ai urmat înainte de a ajunge la eroare și vom "
 "face tot ce putem ca să o rezolvăm."
 
@@ -1027,9 +1029,9 @@ msgstr ""
 #, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available "
-"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes"
-"%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums"
-"%(communityEnd)s."
+"%(extensionStart)sextensions%(extensionEnd)s or "
+"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 "Încearcă să intri pe pagină mai târziu, pentru că tema sau extensia poate "
 "deveni disponibilă din nou. Alternativ, este posibil să găsești ce cauți "
@@ -1062,6 +1064,128 @@ msgstr "Recenzie de către %(userName)s"
 #: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
 msgstr "Recenzia nu a fost găsită."
+
+#: src/amo/components/FeedbackForm/index.js:105
+msgid "It contains hateful, violent, deceptive, or other inappropriate content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:108
+msgid "Example: contains racist imagery"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:112
+msgid "It violates the law or contains content that violates the law"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:115
+msgid "Example: Copyright or Trademark Infringement, Fraud"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:121
+msgid "Something else"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:122
+msgid "Anything that does’t fit into the other categories"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:229
+msgid "You sent a report about this add-on"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:233
+msgid "We have received your report. Thanks for letting us know."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:255
+msgid "Submitting your report…"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:256
+msgid "Submit report"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:294
+msgid "Submit feedback or report for %(type)s %(identifier)s"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:298
+msgid "Add-on"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:319
+msgid "Send some feedback about an add-on"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:325
+msgid "Report an add-on to Mozilla because it's illegal or incompliant"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:334
+msgid "Tell us more"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:337
+msgid "Give details of your feedback or report"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:358
+msgid ""
+"I hereby certify, under penalty of perjury, my bona fide belief that the "
+"allegations in this report are complete and accurate. For allegations of "
+"trademark or copyright infringement, I further certify that I am either the "
+"affected rightsholder, or have been authorized to act on that rightsholder's "
+"behalf."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:370
+msgid "Your details"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:374
+msgid "We will notify you by email with any updates about your report."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:377
+msgid "To receive updates about your report enter your name and email address."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:382
+msgid "Your Full Name"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:394
+msgid "Your Email Address"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:80
+msgid "It doesn’t work, breaks websites, or slows down Firefox"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:83
+msgid ""
+"Example: Features are slow, hard to use, or don’t work; parts of websites "
+"won't load or look unusual"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:89
+msgid "It’s SPAM"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:90
+msgid "Example: An application installed it without my permission"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:98
+msgid "It violates Add-on Policies"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:99
+msgid ""
+"Example: I didn’t want it or It compromised my data without informing or "
+"asking me, or it changed my search engine or home page without informing or "
+"asking me."
+msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
@@ -1170,16 +1294,16 @@ msgstr "Du-te pe pagina de start Mozilla"
 msgid "About"
 msgstr "Despre"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:200
 #, fuzzy
 msgid "Firefox Add-ons Blog"
 msgstr "Suplimente Firefox"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
 msgstr "Atelier de lucru pentru extensii"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr "Hubul dezvoltatorilor"
 
@@ -1187,8 +1311,8 @@ msgstr "Hubul dezvoltatorilor"
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
-"Pentru a folosi aceste suplimente, va trebui să %(linkStart)sdescarci Firefox"
-"%(linkEnd)s"
+"Pentru a folosi aceste suplimente, va trebui să %(linkStart)sdescarci "
+"Firefox%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:121
 #, fuzzy
@@ -1238,27 +1362,27 @@ msgstr "Unelte"
 msgid "Submit a New Add-on"
 msgstr "Propune un supliment nou"
 
-#: src/amo/components/Header/index.js:112
+#: src/amo/components/Header/index.js:115
 msgid "Submit a New Theme"
 msgstr "Propune o temă nouă"
 
-#: src/amo/components/Header/index.js:121
+#: src/amo/components/Header/index.js:124
 msgid "Manage My Submissions"
 msgstr "Gestionează propunerile mele"
 
-#: src/amo/components/Header/index.js:131
+#: src/amo/components/Header/index.js:134
 msgid "Reviewer Tools"
 msgstr "Instrumente pentru recenzori"
 
-#: src/amo/components/Header/index.js:183
+#: src/amo/components/Header/index.js:186
 msgid "Firefox Browser Add-ons"
 msgstr "Suplimente pentru Firefox"
 
-#: src/amo/components/Header/index.js:211
+#: src/amo/components/Header/index.js:214
 msgid "Learn how to create extensions and themes"
 msgstr "Află cum să creezi extensii și teme"
 
-#: src/amo/components/Header/index.js:221
+#: src/amo/components/Header/index.js:224
 msgid "Submit and manage extensions and themes"
 msgstr "Trimitere și gestionare de extensii și teme"
 
@@ -1271,12 +1395,12 @@ msgid "View My Collections"
 msgstr "Vezi colecțiile mele"
 
 #: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:563
+#: src/amo/pages/UserProfileEdit/index.js:590
 msgid "View My Profile"
 msgstr "Vezi profilul meu"
 
 #: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:569
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Edit My Profile"
 msgstr "Editează profilul meu"
 
@@ -1325,19 +1449,19 @@ msgstr "Să îți acceseze datele pentru %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:182
+#: src/amo/components/SearchFilters/index.js:192
 msgid "By Firefox"
 msgstr "De Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:190
 msgid "Recommended"
 msgstr "Recomandate"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:186
+#: src/amo/components/SearchFilters/index.js:196
 msgid "Verified"
 msgstr "Verificat"
 
@@ -1347,6 +1471,7 @@ msgstr "Descarcă fișierul"
 
 #: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "Learn more"
 msgstr "Află mai multe"
 
@@ -1662,9 +1787,9 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:134
 msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
+"If you think this add-on violates %(linkTagStart)sMozilla's add-on "
+"policies%(linkTagEnd)s or has security or privacy issues, please report "
+"these issues to Mozilla using this form."
 msgstr ""
 "În cazul în care crezi că acest supliment încalcă %(linkTagStart)spoliticile "
 "Mozilla privind suplimentele%(linkTagEnd)s sau că are probleme de securitate "
@@ -1709,8 +1834,8 @@ msgstr "Raportează acest utilizator pentru abuz"
 
 #: src/amo/components/ReportUserAbuse/index.js:119
 msgid ""
-"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
-"%(linkTagEnd)s, please report this user to Mozilla."
+"If you think this user is violating %(linkTagStart)sMozilla's Add-on "
+"Policies%(linkTagEnd)s, please report this user to Mozilla."
 msgstr ""
 "În cazul în care consideri că acest utilizator încalcă "
 "%(linkTagStart)spoliticile Mozilla privind suplimentele%(linkTagEnd)s, te "
@@ -2013,60 +2138,60 @@ msgstr[0] "%(count)s extensie găsită pentru „%(query)s” în %(categoryName
 msgstr[1] "%(count)s extensii găsite pentru „%(query)s” în %(categoryName)s"
 msgstr[2] "%(count)s de extensii găsite pentru „%(query)s” în %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:158
 msgid "All"
 msgstr "Toate"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:159
 msgid "Extension"
 msgstr "Extensie"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:163
 msgid "Theme"
 msgstr "Temă"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:174
 msgid "Relevance"
 msgstr "Relevanță"
 
-#: src/amo/components/SearchFilters/index.js:166
+#: src/amo/components/SearchFilters/index.js:176
 msgid "Recently Updated"
 msgstr "Actualizate recent"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Most Users"
 msgstr "Cei mai mulți utilizatori"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Top Rated"
 msgstr "În topul evaluărilor"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:181
 msgid "Trending"
 msgstr "În tendințe"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:189
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:200
 #, fuzzy
 msgid "All Reviewed"
 msgstr "recenzie"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:229
 msgid "Filter results"
 msgstr "Filtrează rezultatele"
 
-#: src/amo/components/SearchFilters/index.js:215
+#: src/amo/components/SearchFilters/index.js:234
 msgid "Sort by"
 msgstr "Sortează după"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:256
 msgid "Add-on Type"
 msgstr "Tipul suplimentului"
 
-#: src/amo/components/SearchFilters/index.js:260
+#: src/amo/components/SearchFilters/index.js:279
 msgid "Badging"
 msgstr "Insigne"
 
@@ -2230,8 +2355,8 @@ msgstr ""
 #: src/amo/components/WrongPlatformWarning/index.js:104
 #, fuzzy
 msgid ""
-"To find add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
+"To find add-ons compatible with Firefox for Android, <a "
+"href=\"%(newLocation)s\">click here</a>."
 msgstr ""
 "Pentru a afla mai multe despre suplimentele compatibile cu Firefox pentru "
 "Android, <a href=\"%(newLocation)s\">dă clic aici</a>."
@@ -2419,33 +2544,33 @@ msgstr "Vezi cererea blocată"
 msgid "Versions blocked: all versions."
 msgstr "Versiuni blocate: toate versiunile."
 
-#: src/amo/pages/Block/index.js:122
-msgid "Versions blocked: %(min)s to %(max)s."
-msgstr "Versiuni blocate: %(min)s până la %(max)s."
+#: src/amo/pages/Block/index.js:124
+msgid "Versions blocked: %(versions)s."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:144
+#: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s a fost blocat pentru a te proteja."
 
-#: src/amo/pages/Block/index.js:149
+#: src/amo/pages/Block/index.js:150
 msgid "This add-on has been blocked for your protection."
 msgstr "Acest supliment a fost blocat pentru a te proteja."
 
-#: src/amo/pages/Block/index.js:160
+#: src/amo/pages/Block/index.js:161
 msgid "Why was it blocked?"
 msgstr "De ce a fost blocat?"
 
-#: src/amo/pages/Block/index.js:165
+#: src/amo/pages/Block/index.js:166
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
 msgstr ""
-"Acest supliment încalcă %(startLink)sPoliticile Mozilla pentru suplimente"
-"%(endLink)s."
+"Acest supliment încalcă %(startLink)sPoliticile Mozilla pentru "
+"suplimente%(endLink)s."
 
-#: src/amo/pages/Block/index.js:177
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "Ce înseamnă?"
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:180
 msgid ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
@@ -2453,21 +2578,21 @@ msgstr ""
 "Suplimentul sau pluginul problematic va fi dezactivat automat și nu va mai "
 "fi utilizabil."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:187
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
-"performance and meets %(criteriaStartLink)scertain criteria"
-"%(criteriaEndLink)s, the software may be blocked from general use. For more "
-"information, please read %(supportStartLink)sthis support article"
-"%(supportEndLink)s."
+"performance and meets %(criteriaStartLink)scertain "
+"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
+"For more information, please read %(supportStartLink)sthis support "
+"article%(supportEndLink)s."
 msgstr ""
 "Când Mozilla ia cunoștință de suplimente, pluginuri sau alte programe de la "
 "terți care pot compromite grav securitatea, stabilitatea sau performanța "
-"Firefox și întrunesc %(criteriaStartLink)sanumite criterii"
-"%(criteriaEndLink)s, software-ul poate fi blocat de la uz general. Pentru "
-"mai multe informații, citește %(supportStartLink)sacest articol de asistență"
-"%(supportEndLink)s."
+"Firefox și întrunesc %(criteriaStartLink)sanumite "
+"criterii%(criteriaEndLink)s, software-ul poate fi blocat de la uz general. "
+"Pentru mai multe informații, citește %(supportStartLink)sacest articol de "
+"asistență%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:93
 msgid "Blocked on %(date)s."
@@ -2715,14 +2840,16 @@ msgstr "Dicționare"
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
-"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
-"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
-"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+"the %(startAddonsServerDocumentation)sAdd-ons Servers "
+"documentation%(endAddonsServerDocumentation)s for details about the APIs "
+"used by AMO and the %(startAddonsManager)sAdd-ons "
+"Manager%(endAddonsManager)s."
 msgstr ""
 "Vrei să interacționezi cu addons.mozilla.org (AMO) programatic? Vezi "
-"%(startAddonsServerDocumentation)sdocumentația despre serverele de suplimente"
-"%(endAddonsServerDocumentation)s pentru detalii despre API-urile utilizate "
-"de AMO și %(startAddonsManager)smanagerul de suplimente%(endAddonsManager)s."
+"%(startAddonsServerDocumentation)sdocumentația despre serverele de "
+"suplimente%(endAddonsServerDocumentation)s pentru detalii despre API-urile "
+"utilizate de AMO și %(startAddonsManager)smanagerul de "
+"suplimente%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid ""
@@ -2792,10 +2919,10 @@ msgstr ""
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
 "To report a security vulnerability for an extension, even if it is not "
-"hosted on this site, please file an %(startSecIssueLink)sissue"
-"%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-admins@mozilla."
-"com%(endMailLink)s. All security vulnerability reports are "
-"%(startLink)sconfidential%(endLink)s."
+"hosted on this site, please file an "
+"%(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email "
+"%(startMailLink)samo-admins@mozilla.com%(endMailLink)s. All security "
+"vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:232
@@ -2805,9 +2932,9 @@ msgstr "Obține asistență"
 #: src/amo/pages/StaticPages/About/index.js:237
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
+"need to find general Firefox support, please visit "
+"%(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an answer "
+"there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
 "Dacă vrei să afli mai multe despre gestionarea suplimentelor în Firefox sau "
 "dacă ai nevoie de asistență pentru Firefox în general, intră pe "
@@ -2899,9 +3026,10 @@ msgstr ""
 "Ajută la îmbunătățirea acestui site web. Este cu sursă deschisă și poți "
 "raporta defecte și trimite module de corecție. Poți începe cu un "
 "%(startGoodFirstBugLink)sprim defect bun%(endGoodFirstBugLink)s sau poți "
-"vedea toate tichetele deschise pentru %(startAddonsServerRepoLink)sserverul"
-"%(endAddonsServerRepoLink)s AMO și %(startAddonsFrontendRepoLink)sfrontend"
-"%(endAddonsFrontendRepoLink)s pe Github."
+"vedea toate tichetele deschise pentru "
+"%(startAddonsServerRepoLink)sserverul%(endAddonsServerRepoLink)s AMO și "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s pe "
+"Github."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid ""
@@ -3152,7 +3280,7 @@ msgid "Theme artist"
 msgstr "Artist de teme"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:551
+#: src/amo/pages/UserProfileEdit/index.js:578
 msgid "User Profile for %(user)s"
 msgstr "Profil de utilizator pentru %(user)s"
 
@@ -3161,12 +3289,12 @@ msgid "User Profile"
 msgstr "Profilul utilizatorului"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:693
+#: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Location"
 msgstr "Locație"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:708
+#: src/amo/pages/UserProfileEdit/index.js:740
 msgid "Occupation"
 msgstr "Ocupație"
 
@@ -3183,7 +3311,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Evaluarea medie a suplimentelor dezvoltatorului"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:730
+#: src/amo/pages/UserProfileEdit/index.js:762
 msgid "Biography"
 msgstr "Biografie"
 
@@ -3195,11 +3323,11 @@ msgstr "Editează profilul"
 msgid "Admin user"
 msgstr "Utilizator administrator"
 
-#: src/amo/pages/UserProfileEdit/index.js:211
+#: src/amo/pages/UserProfileEdit/index.js:212
 msgid "Picture successfully deleted"
 msgstr "Imagine ștearsă cu succes"
 
-#: src/amo/pages/UserProfileEdit/index.js:459
+#: src/amo/pages/UserProfileEdit/index.js:460
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3208,7 +3336,7 @@ msgstr ""
 "câmpuri sunt opționale, însă vor ajuta alți utilizatori să te cunoască mai "
 "bine."
 
-#: src/amo/pages/UserProfileEdit/index.js:463
+#: src/amo/pages/UserProfileEdit/index.js:464
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3217,67 +3345,87 @@ msgstr ""
 "mai multe câmpuri sunt opționale, însă vor ajuta alți utilizatori să îl "
 "cunoască mai bine pe %(userName)s."
 
-#: src/amo/pages/UserProfileEdit/index.js:478
+#: src/amo/pages/UserProfileEdit/index.js:479
 msgid "Introduce yourself to the community if you like"
 msgstr "Prezintă-te comunității dacă vrei"
 
-#: src/amo/pages/UserProfileEdit/index.js:479
+#: src/amo/pages/UserProfileEdit/index.js:480
 msgid "Introduce %(userName)s to the community"
 msgstr "Prezintă-l pe %(userName)s comunității"
 
-#: src/amo/pages/UserProfileEdit/index.js:505
+#: src/amo/pages/UserProfileEdit/index.js:506
 msgid "Log in to edit the profile"
 msgstr "Intră în cont pentru a edita profilul"
 
-#: src/amo/pages/UserProfileEdit/index.js:527
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Creating your profile…"
 msgstr "Ți se creează profilul…"
 
-#: src/amo/pages/UserProfileEdit/index.js:528
+#: src/amo/pages/UserProfileEdit/index.js:529
 msgid "Create My Profile"
 msgstr "Creează-mi profilul"
 
-#: src/amo/pages/UserProfileEdit/index.js:532
+#: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Updating your profile…"
 msgstr "Se actualizează profilul…"
 
-#: src/amo/pages/UserProfileEdit/index.js:533
+#: src/amo/pages/UserProfileEdit/index.js:534
 msgid "Update My Profile"
 msgstr "Actualizează-mi profilul"
 
-#: src/amo/pages/UserProfileEdit/index.js:536
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Updating profile…"
 msgstr "Se actualizează profilul…"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:538
 msgid "Update Profile"
 msgstr "Actualizează profilul"
 
-#: src/amo/pages/UserProfileEdit/index.js:564
+#: src/amo/pages/UserProfileEdit/index.js:546
+msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:549
+msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:569
+msgid ""
+"You will still sign in with the same username and password, and there are no "
+"other changes to the products that you use."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:591
 msgid "View user's profile"
 msgstr "Vezi profilul utilizatorului"
 
-#: src/amo/pages/UserProfileEdit/index.js:570
+#: src/amo/pages/UserProfileEdit/index.js:597
 msgid "Edit user's profile"
 msgstr "Editează profilul utilizatorului"
 
-#: src/amo/pages/UserProfileEdit/index.js:588
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid "Account"
 msgstr "Cont"
 
-#: src/amo/pages/UserProfileEdit/index.js:589
+#: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Account for %(userName)s"
 msgstr "Cont pentru %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/pages/UserProfileEdit/index.js:623
 msgid "Email Address"
 msgstr "Adresă de e-mail"
 
-#: src/amo/pages/UserProfileEdit/index.js:604
+#: src/amo/pages/UserProfileEdit/index.js:631
 msgid "Email address cannot be changed here"
 msgstr "Adresa de e-mail nu poate fi modificată aici"
 
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:643
+msgid ""
+"You can change your email address on Mozilla accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:645
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3285,37 +3433,41 @@ msgstr ""
 "Îți poți modifica adresa de e-mail pe Conturi Firefox. %(startLink)sAi "
 "nevoie de ajutor?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:634
+#: src/amo/pages/UserProfileEdit/index.js:665
+msgid "Manage Mozilla accounts…"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
 msgstr "Gestionează Conturi Firefox…"
 
-#: src/amo/pages/UserProfileEdit/index.js:642
+#: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:683
 msgid "This field is required"
 msgstr "Acest câmp este obligatoriu"
 
-#: src/amo/pages/UserProfileEdit/index.js:655
+#: src/amo/pages/UserProfileEdit/index.js:687
 msgid "Display Name *"
 msgstr "Nume afișat *"
 
-#: src/amo/pages/UserProfileEdit/index.js:688
+#: src/amo/pages/UserProfileEdit/index.js:720
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 "Acest URL va fi vizibil numai pentru utilizatorii care sunt dezvoltatori."
 
-#: src/amo/pages/UserProfileEdit/index.js:745
+#: src/amo/pages/UserProfileEdit/index.js:777
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 "Unele etichete HTML sunt suportate: %(htmlTags)s. Linkurile sunt interzise."
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:801
 msgid "Notifications"
 msgstr "Notificări"
 
-#: src/amo/pages/UserProfileEdit/index.js:773
+#: src/amo/pages/UserProfileEdit/index.js:805
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3324,7 +3476,7 @@ msgstr ""
 "viitoare și evenimente privind dezvoltarea de suplimente. Te rugăm să "
 "selectezi subiectele care te interesează."
 
-#: src/amo/pages/UserProfileEdit/index.js:778
+#: src/amo/pages/UserProfileEdit/index.js:810
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3333,7 +3485,7 @@ msgstr ""
 "evenimente viitoare și evenimente privind dezvoltarea de suplimente. Te "
 "rugăm să selectezi subiectele de care acest utilizator ar putea fi interesat."
 
-#: src/amo/pages/UserProfileEdit/index.js:793
+#: src/amo/pages/UserProfileEdit/index.js:825
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3341,27 +3493,27 @@ msgstr ""
 "Mozilla își rezervă dreptul de a te contacta individual despre probleme "
 "specifice legate de suplimentele găzduite de tine."
 
-#: src/amo/pages/UserProfileEdit/index.js:819
-#: src/amo/pages/UserProfileEdit/index.js:891
+#: src/amo/pages/UserProfileEdit/index.js:851
+#: src/amo/pages/UserProfileEdit/index.js:923
 msgid "Delete My Profile"
 msgstr "Șterge-mi profilul"
 
-#: src/amo/pages/UserProfileEdit/index.js:820
-#: src/amo/pages/UserProfileEdit/index.js:892
+#: src/amo/pages/UserProfileEdit/index.js:852
+#: src/amo/pages/UserProfileEdit/index.js:924
 msgid "Delete Profile"
 msgstr "Șterge profilul"
 
-#: src/amo/pages/UserProfileEdit/index.js:832
+#: src/amo/pages/UserProfileEdit/index.js:864
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "IMPORTANT: Ștergerea profilului de suplimente Firefox este ireversibilă."
 
-#: src/amo/pages/UserProfileEdit/index.js:835
+#: src/amo/pages/UserProfileEdit/index.js:867
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "IMPORTANT: Ștergerea acestui profil de suplimente Firefox este ireversibilă."
 
-#: src/amo/pages/UserProfileEdit/index.js:844
+#: src/amo/pages/UserProfileEdit/index.js:876
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3371,7 +3523,7 @@ msgstr ""
 "(fotografie, nume de utilizator, nume afișat, localitate, pagină de start, "
 "biografie, ocupație) și preferințele de notificări, recenziile și colecțiile."
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:882
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3381,7 +3533,7 @@ msgstr ""
 "(fotografie, nume de utilizator, nume afișat, localitate, pagină de start, "
 "biografie, ocupație), preferințele de notificări, recenziile și colecțiile."
 
-#: src/amo/pages/UserProfileEdit/index.js:859
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3392,7 +3544,7 @@ msgstr ""
 "autor, iar ceilalți autori își vor păstra drepturile de autor asupra "
 "suplimentelor."
 
-#: src/amo/pages/UserProfileEdit/index.js:865
+#: src/amo/pages/UserProfileEdit/index.js:897
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3403,7 +3555,7 @@ msgstr ""
 "utilizatorul va fi șters ca autor, iar ceilalți autori își vor păstra "
 "drepturile de autor asupra suplimentelor."
 
-#: src/amo/pages/UserProfileEdit/index.js:875
+#: src/amo/pages/UserProfileEdit/index.js:907
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3432,11 +3584,11 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid ""
-"You can edit your notification settings by %(linkStart)sediting your profile"
-"%(linkEnd)s."
+"You can edit your notification settings by %(linkStart)sediting your "
+"profile%(linkEnd)s."
 msgstr ""
-"Îți poți edita setările de notificare prin %(linkStart)seditarea profilului"
-"%(linkEnd)s."
+"Îți poți edita setările de notificare prin %(linkStart)seditarea "
+"profilului%(linkEnd)s."
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
@@ -3517,6 +3669,9 @@ msgstr "compatibilitatea suplimentului meu nu poate fi actualizată"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
+
+#~ msgid "Versions blocked: %(min)s to %(max)s."
+#~ msgstr "Versiuni blocate: %(min)s până la %(max)s."
 
 #, fuzzy
 #~ msgid "Get %(addonName)s for Android"
@@ -3622,11 +3777,11 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 #~ "%(yourVersion)s."
 
 #~ msgid ""
-#~ "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-#~ "\">download Firefox</a> to install this add-on."
+#~ "Your browser does not support add-ons. You can <a "
+#~ "href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 #~ msgstr ""
-#~ "Browserul tău nu are suport pentru suplimente. Poți <a href="
-#~ "\"%(downloadUrl)s\">să descarci Firefox</a> pentru a instala acest "
+#~ "Browserul tău nu are suport pentru suplimente. Poți <a "
+#~ "href=\"%(downloadUrl)s\">să descarci Firefox</a> pentru a instala acest "
 #~ "supliment."
 
 #~ msgid "Only with Firefox—Get Firefox Now"
@@ -3698,8 +3853,8 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 #~ "href=\"%(newLocation)s\">add-ons for Android</a>."
 #~ msgstr ""
 #~ "Nu este disponibil pe Firefox pentru Android. Poți utiliza acest "
-#~ "supliment cu Firefox pentru calculator. Află mai multe despre <a href="
-#~ "\"%(newLocation)s\">suplimentele pentru Android</a>."
+#~ "supliment cu Firefox pentru calculator. Află mai multe despre <a "
+#~ "href=\"%(newLocation)s\">suplimentele pentru Android</a>."
 
 #~ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 #~ msgstr ""
@@ -3709,42 +3864,44 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 #~ msgstr "Disponibile pentru limba ta"
 
 #~ msgid ""
-#~ "To find add-ons compatible with Firefox on desktop, <a href="
-#~ "\"%(newLocation)s\">visit our desktop site</a>."
+#~ "To find add-ons compatible with Firefox on desktop, <a "
+#~ "href=\"%(newLocation)s\">visit our desktop site</a>."
 #~ msgstr ""
-#~ "Pentru a găsi suplimente compatibile cu Firefox pentru desktop, <a href="
-#~ "\"%(newLocation)s\">vizitează site-ul nostru pentru desktop</a>."
+#~ "Pentru a găsi suplimente compatibile cu Firefox pentru desktop, <a "
+#~ "href=\"%(newLocation)s\">vizitează site-ul nostru pentru desktop</a>."
 
 #~ msgid ""
 #~ "Not available on Firefox for Android. You can use this add-on with "
-#~ "Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s"
-#~ "\">Android add-ons</a>."
+#~ "Firefox for Desktop,  or look for similar <a "
+#~ "href=\"%(newLocation)s\">Android add-ons</a>."
 #~ msgstr ""
 #~ "Nu este disponibil pe Firefox pentru Android. Poți utiliza acest "
-#~ "supliment cu Firefox pentru calculator sau caută <a href=\"%(newLocation)s"
-#~ "\">suplimente Android</a> similare."
+#~ "supliment cu Firefox pentru calculator sau caută <a "
+#~ "href=\"%(newLocation)s\">suplimente Android</a> similare."
 
 #~ msgid ""
-#~ "To find add-ons compatible with Firefox on Android, <a href="
-#~ "\"%(newLocation)s\">visit our mobile site</a>."
+#~ "To find add-ons compatible with Firefox on Android, <a "
+#~ "href=\"%(newLocation)s\">visit our mobile site</a>."
 #~ msgstr ""
-#~ "Pentru a găsi suplimente compatibile cu Firefox pentru Android, <a href="
-#~ "\"%(newLocation)s\">vizitează site-ul nostru pentru dispozitive mobile</"
+#~ "Pentru a găsi suplimente compatibile cu Firefox pentru Android, <a "
+#~ "href=\"%(newLocation)s\">vizitează site-ul nostru pentru dispozitive "
+#~ "mobile</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a "
+#~ "href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
+#~ msgstr ""
+#~ "Această listare nu este destinată acestei platforme. <a "
+#~ "href=\"%(newLocation)s\">Răsfoiește suplimente de Firefox pentru Android</"
 #~ "a>."
 
 #~ msgid ""
-#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
-#~ "\">Browse add-ons for Firefox on Android</a>."
+#~ "This listing is not intended for this platform. <a "
+#~ "href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
 #~ msgstr ""
-#~ "Această listare nu este destinată acestei platforme. <a href="
-#~ "\"%(newLocation)s\">Răsfoiește suplimente de Firefox pentru Android</a>."
-
-#~ msgid ""
-#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
-#~ "\">Browse add-ons for Firefox on desktop</a>."
-#~ msgstr ""
-#~ "Această listare nu este destinată acestei platforme. <a href="
-#~ "\"%(newLocation)s\">Răsfoiește suplimente de Firefox pentru desktop</a>."
+#~ "Această listare nu este destinată acestei platforme. <a "
+#~ "href=\"%(newLocation)s\">Răsfoiește suplimente de Firefox pentru desktop</"
+#~ "a>."
 
 #~ msgid ""
 #~ "Not available on Firefox for Android. You can use this add-on with "
@@ -3752,8 +3909,8 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 #~ "for Android</a>."
 #~ msgstr ""
 #~ "Nu este disponibil pe Firefox pentru Android. Poți utiliza acest "
-#~ "supliment cu Firefox pentru calculator. Află mai multe despre <a href="
-#~ "\"%(newLocation)s\">suplimentele pentru Android</a>."
+#~ "supliment cu Firefox pentru calculator. Află mai multe despre <a "
+#~ "href=\"%(newLocation)s\">suplimentele pentru Android</a>."
 
 #~ msgid "Promoted Add-Ons"
 #~ msgstr "Suplimente în topul evaluărilor"
@@ -3846,8 +4003,8 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 
 #~ msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
 #~ msgstr ""
-#~ "Explorează mai multe extensii pentru %(linkStart)sgestionarea filelor"
-#~ "%(linkEnd)s."
+#~ "Explorează mai multe extensii pentru %(linkStart)sgestionarea "
+#~ "filelor%(linkEnd)s."
 
 #~ msgid "Better browsing with improved bookmarks"
 #~ msgstr "Navigare mai bună cu marcaje îmbunătățite"
@@ -3868,8 +4025,8 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 
 #~ msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
 #~ msgstr ""
-#~ "Explorează mai multe extensii pentru %(linkStart)sgestionarea marcajelor"
-#~ "%(linkEnd)s."
+#~ "Explorează mai multe extensii pentru %(linkStart)sgestionarea "
+#~ "marcajelor%(linkEnd)s."
 
 #~ msgid "Enjoy a fresh new tab experience"
 #~ msgstr "Bucură-te de o nouă experiență cu filele"
@@ -4046,8 +4203,8 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 #~ "the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 #~ msgstr ""
 #~ "%(strongStart)sNOTĂ:%(strongEnd)s Nu poți șterge un profil de utilizator "
-#~ "dacă utilizatorul este %(linkStart)sautorul oricăror suplimente"
-#~ "%(linkEnd)s."
+#~ "dacă utilizatorul este %(linkStart)sautorul oricăror "
+#~ "suplimente%(linkEnd)s."
 
 #~ msgid "Access your data in %(param)s other domain"
 #~ msgid_plural "Access your data in %(param)s other domains"
@@ -4118,11 +4275,11 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 #~ msgstr "Browser Focus"
 
 #~ msgid ""
-#~ "This add-on is not compatible with Firefox for Android. <a href="
-#~ "\"%(newLocation)s\">Learn more</a>."
+#~ "This add-on is not compatible with Firefox for Android. <a "
+#~ "href=\"%(newLocation)s\">Learn more</a>."
 #~ msgstr ""
-#~ "Acest supliment nu este compatibil cu Firefox pentru Android. <a href="
-#~ "\"%(newLocation)s\">Află mai multe</a>."
+#~ "Acest supliment nu este compatibil cu Firefox pentru Android. <a "
+#~ "href=\"%(newLocation)s\">Află mai multe</a>."
 
 #~ msgid ""
 #~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
@@ -4173,8 +4330,8 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 
 #~ msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
 #~ msgstr ""
-#~ "Explorează mai multe %(linkStart)sinstrumente de gestionare a filelor"
-#~ "%(linkEnd)s selecționate de echipa noastră."
+#~ "Explorează mai multe %(linkStart)sinstrumente de gestionare a "
+#~ "filelor%(linkEnd)s selecționate de echipa noastră."
 
 #~ msgid ""
 #~ "Want help organizing all of your favorite online cooking recipes, how-to "
@@ -4206,8 +4363,8 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 #~ "de echipa noastră."
 
 #~ msgid ""
-#~ "Explore among thousands of %(linkStart)sphoto, music & video extensions"
-#~ "%(linkEnd)s."
+#~ "Explore among thousands of %(linkStart)sphoto, music & video "
+#~ "extensions%(linkEnd)s."
 #~ msgstr ""
 #~ "Explorează printre mii de %(linkStart)sextensii pentru fotografii, muzică "
 #~ "și videoclipuri%(linkEnd)s."

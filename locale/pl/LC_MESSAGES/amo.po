@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-04 16:25+0000\n"
+"POT-Creation-Date: 2023-10-26 09:21+0000\n"
 "PO-Revision-Date: 2023-03-26 14:15+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -201,7 +201,7 @@ msgstr "Używane przez"
 #: src/amo/components/AddonMoreInfo/index.js:102
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:676
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Homepage"
 msgstr "Domowa"
 
@@ -339,7 +339,7 @@ msgstr "Usuń"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:899
+#: src/amo/pages/UserProfileEdit/index.js:931
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -667,7 +667,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s — dodatki do Firefoksa na Androida (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:148
+#: src/amo/components/Header/index.js:151
 msgid "Log out"
 msgstr "Wyloguj się"
 
@@ -676,7 +676,7 @@ msgid "Log in"
 msgstr "Zaloguj się"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:143
+#: src/amo/components/Header/index.js:146
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -695,17 +695,17 @@ msgstr "Wyszukaj dodatki"
 msgid "Search"
 msgstr "Wyszukaj"
 
-#: src/amo/components/Categories/index.js:105
-msgid "No categories found."
-msgstr "Nie odnaleziono żadnych kategorii."
-
-#: src/amo/components/Categories/index.js:112
+#: src/amo/components/Categories/index.js:106
 msgid "Categories"
 msgstr "Kategorie"
 
-#: src/amo/components/Categories/index.js:117
+#: src/amo/components/Categories/index.js:111
 msgid "Loading categories."
 msgstr "Wczytywanie kategorii."
+
+#: src/amo/components/Categories/index.js:99
+msgid "No categories found."
+msgstr "Nie odnaleziono żadnych kategorii."
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
@@ -933,9 +933,9 @@ msgstr "Logowanie wygasło"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+"If you are signed in and think this message is an error, please <a "
+"href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you "
+"were trying to access, and we'll fix the issue."
 msgstr ""
 "Jeśli zalogowano i ten komunikat to błąd, to prosimy <a href=\"%(url)s\">go "
 "zgłosić</a>. Aby go naprawić, potrzebujemy wiedzieć, jak się tu znaleziono "
@@ -963,9 +963,9 @@ msgid ""
 msgstr ""
 "Spróbuj odwiedzić tę stronę później, jako że motyw lub rozszerzenie może "
 "stać się ponownie dostępne. Można też przeszukać obecnie dostępne "
-"%(extensionStart)srozszerzenia%(extensionEnd)s i %(themeStart)smotywy"
-"%(themeEnd)s lub poprosić o pomoc na %(communityStart)sforach społeczności"
-"%(communityEnd)s."
+"%(extensionStart)srozszerzenia%(extensionEnd)s "
+"i %(themeStart)smotywy%(themeEnd)s lub poprosić o pomoc na "
+"%(communityStart)sforach społeczności%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
@@ -1001,10 +1001,10 @@ msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a "
+"href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an "
+"issue</a>. Tell us what steps you took that lead to the error and we'll do "
+"our best to fix it."
 msgstr ""
 "Można <a href=\"https://github.com/mozilla/addons-frontend/issues/new/"
 "\">zgłosić błąd</a>, jeśli masz informacje mogące nam pomóc. Aby go "
@@ -1025,12 +1025,13 @@ msgstr ""
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 msgid ""
 "You may be able to find what you’re looking for in one of the available "
-"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes"
-"%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums"
-"%(communityEnd)s."
+"%(extensionStart)sextensions%(extensionEnd)s or "
+"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Można przeszukać obecnie dostępne %(extensionStart)srozszerzenia"
-"%(extensionEnd)s i %(themeStart)smotywy%(themeEnd)s lub poprosić o pomoc na "
+"Można przeszukać obecnie dostępne "
+"%(extensionStart)srozszerzenia%(extensionEnd)s "
+"i %(themeStart)smotywy%(themeEnd)s lub poprosić o pomoc na "
 "%(communityStart)sforach społeczności%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
@@ -1056,6 +1057,128 @@ msgstr "Autor recenzji: %(userName)s"
 #: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
 msgstr "Nie odnaleziono recenzji."
+
+#: src/amo/components/FeedbackForm/index.js:105
+msgid "It contains hateful, violent, deceptive, or other inappropriate content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:108
+msgid "Example: contains racist imagery"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:112
+msgid "It violates the law or contains content that violates the law"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:115
+msgid "Example: Copyright or Trademark Infringement, Fraud"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:121
+msgid "Something else"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:122
+msgid "Anything that does’t fit into the other categories"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:229
+msgid "You sent a report about this add-on"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:233
+msgid "We have received your report. Thanks for letting us know."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:255
+msgid "Submitting your report…"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:256
+msgid "Submit report"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:294
+msgid "Submit feedback or report for %(type)s %(identifier)s"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:298
+msgid "Add-on"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:319
+msgid "Send some feedback about an add-on"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:325
+msgid "Report an add-on to Mozilla because it's illegal or incompliant"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:334
+msgid "Tell us more"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:337
+msgid "Give details of your feedback or report"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:358
+msgid ""
+"I hereby certify, under penalty of perjury, my bona fide belief that the "
+"allegations in this report are complete and accurate. For allegations of "
+"trademark or copyright infringement, I further certify that I am either the "
+"affected rightsholder, or have been authorized to act on that rightsholder's "
+"behalf."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:370
+msgid "Your details"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:374
+msgid "We will notify you by email with any updates about your report."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:377
+msgid "To receive updates about your report enter your name and email address."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:382
+msgid "Your Full Name"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:394
+msgid "Your Email Address"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:80
+msgid "It doesn’t work, breaks websites, or slows down Firefox"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:83
+msgid ""
+"Example: Features are slow, hard to use, or don’t work; parts of websites "
+"won't load or look unusual"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:89
+msgid "It’s SPAM"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:90
+msgid "Example: An application installed it without my permission"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:98
+msgid "It violates Add-on Policies"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:99
+msgid ""
+"Example: I didn’t want it or It compromised my data without informing or "
+"asking me, or it changed my search engine or home page without informing or "
+"asking me."
+msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
@@ -1163,15 +1286,15 @@ msgstr "Strona domowa Mozilli"
 msgid "About"
 msgstr "O serwisie"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:200
 msgid "Firefox Add-ons Blog"
 msgstr "Blog dodatków do Firefoksa"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
 msgstr "Warsztat rozszerzeń"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr "Strefa autora"
 
@@ -1179,8 +1302,8 @@ msgstr "Strefa autora"
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
-"Aby używać tych dodatków, potrzebujesz %(linkStart)spobrać Firefoksa"
-"%(linkEnd)s"
+"Aby używać tych dodatków, potrzebujesz %(linkStart)spobrać "
+"Firefoksa%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:121
 msgid "Download Firefox and get the theme"
@@ -1226,27 +1349,27 @@ msgstr "Narzędzia"
 msgid "Submit a New Add-on"
 msgstr "Prześlij nowy dodatek"
 
-#: src/amo/components/Header/index.js:112
+#: src/amo/components/Header/index.js:115
 msgid "Submit a New Theme"
 msgstr "Prześlij nowy motyw"
 
-#: src/amo/components/Header/index.js:121
+#: src/amo/components/Header/index.js:124
 msgid "Manage My Submissions"
 msgstr "Zarządzaj moimi zgłoszeniami"
 
-#: src/amo/components/Header/index.js:131
+#: src/amo/components/Header/index.js:134
 msgid "Reviewer Tools"
 msgstr "Narzędzia recenzenta"
 
-#: src/amo/components/Header/index.js:183
+#: src/amo/components/Header/index.js:186
 msgid "Firefox Browser Add-ons"
 msgstr "Dodatki do przeglądarki Firefox"
 
-#: src/amo/components/Header/index.js:211
+#: src/amo/components/Header/index.js:214
 msgid "Learn how to create extensions and themes"
 msgstr "Więcej informacji o tworzeniu rozszerzeń i motywów"
 
-#: src/amo/components/Header/index.js:221
+#: src/amo/components/Header/index.js:224
 msgid "Submit and manage extensions and themes"
 msgstr "Przesyłaj i zarządzaj rozszerzeniami i motywami"
 
@@ -1259,12 +1382,12 @@ msgid "View My Collections"
 msgstr "Moje kolekcje"
 
 #: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:563
+#: src/amo/pages/UserProfileEdit/index.js:590
 msgid "View My Profile"
 msgstr "Wyświetl mój profil"
 
 #: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:569
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Edit My Profile"
 msgstr "Edytuj mój profil"
 
@@ -1312,19 +1435,19 @@ msgstr "Mieć dostęp do danych użytkownika na stronie „%(param)s”"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:182
+#: src/amo/components/SearchFilters/index.js:192
 msgid "By Firefox"
 msgstr "Od Firefoksa"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:190
 msgid "Recommended"
 msgstr "Polecane"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:186
+#: src/amo/components/SearchFilters/index.js:196
 msgid "Verified"
 msgstr "Zweryfikowany"
 
@@ -1334,6 +1457,7 @@ msgstr "Pobierz plik"
 
 #: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "Learn more"
 msgstr "Więcej informacji"
 
@@ -1639,13 +1763,13 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:134
 msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
+"If you think this add-on violates %(linkTagStart)sMozilla's add-on "
+"policies%(linkTagEnd)s or has security or privacy issues, please report "
+"these issues to Mozilla using this form."
 msgstr ""
-"Jeśli uważasz, że ten dodatek narusza %(linkTagStart)szasady dodatków Mozilli"
-"%(linkTagEnd)s albo ma błędy bezpieczeństwa lub prywatności, to prosimy "
-"zgłosić to do Mozilli za pomocą tego formularza."
+"Jeśli uważasz, że ten dodatek narusza %(linkTagStart)szasady dodatków "
+"Mozilli%(linkTagEnd)s albo ma błędy bezpieczeństwa lub prywatności, to "
+"prosimy zgłosić to do Mozilli za pomocą tego formularza."
 
 #: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
@@ -1685,8 +1809,8 @@ msgstr "Zgłoś tego użytkownika za nadużycie"
 
 #: src/amo/components/ReportUserAbuse/index.js:119
 msgid ""
-"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
-"%(linkTagEnd)s, please report this user to Mozilla."
+"If you think this user is violating %(linkTagStart)sMozilla's Add-on "
+"Policies%(linkTagEnd)s, please report this user to Mozilla."
 msgstr ""
 "Jeśli uważasz, że ten użytkownik narusza %(linkTagStart)szasady dodatków "
 "Mozilli%(linkTagEnd)s, to prosimy zgłosić go do Mozilli."
@@ -2016,59 +2140,59 @@ msgstr[2] ""
 "Odnaleziono %(count)s rozszerzeń dla zapytania „%(query)s” z etykietą "
 "„%(tag)s”"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:158
 msgid "All"
 msgstr "Wszystkie"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:159
 msgid "Extension"
 msgstr "Rozszerzenie"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:163
 msgid "Theme"
 msgstr "Motyw"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:174
 msgid "Relevance"
 msgstr "Trafność"
 
-#: src/amo/components/SearchFilters/index.js:166
+#: src/amo/components/SearchFilters/index.js:176
 msgid "Recently Updated"
 msgstr "Ostatnio zaktualizowane"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Most Users"
 msgstr "Najczęściej używane"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Top Rated"
 msgstr "Najwyżej oceniane"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:181
 msgid "Trending"
 msgstr "Zdobywające popularność"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:189
 msgid "Any"
 msgstr "Wszystkie"
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:200
 msgid "All Reviewed"
 msgstr "Wszystkie sprawdzone"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:229
 msgid "Filter results"
 msgstr "Filtruj wyniki"
 
-#: src/amo/components/SearchFilters/index.js:215
+#: src/amo/components/SearchFilters/index.js:234
 msgid "Sort by"
 msgstr "Uporządkuj według"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:256
 msgid "Add-on Type"
 msgstr "Typ dodatku"
 
-#: src/amo/components/SearchFilters/index.js:260
+#: src/amo/components/SearchFilters/index.js:279
 msgid "Badging"
 msgstr "Odznaki"
 
@@ -2232,11 +2356,11 @@ msgstr "Wypróbuj Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid ""
-"To find add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
+"To find add-ons compatible with Firefox for Android, <a "
+"href=\"%(newLocation)s\">click here</a>."
 msgstr ""
-"Aby znaleźć dodatki zgodne z Firefoksem na Androida, <a href="
-"\"%(newLocation)s\">kliknij tutaj</a>."
+"Aby znaleźć dodatki zgodne z Firefoksem na Androida, <a "
+"href=\"%(newLocation)s\">kliknij tutaj</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
 msgid ""
@@ -2421,31 +2545,31 @@ msgstr "Wyświetl żądanie zablokowania"
 msgid "Versions blocked: all versions."
 msgstr "Zablokowane wersje: wszystkie."
 
-#: src/amo/pages/Block/index.js:122
-msgid "Versions blocked: %(min)s to %(max)s."
-msgstr "Zablokowane wersje: %(min)s do %(max)s."
+#: src/amo/pages/Block/index.js:124
+msgid "Versions blocked: %(versions)s."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:144
+#: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
 msgstr "Dodatek %(addonName)s został zablokowany z przyczyn bezpieczeństwa."
 
-#: src/amo/pages/Block/index.js:149
+#: src/amo/pages/Block/index.js:150
 msgid "This add-on has been blocked for your protection."
 msgstr "Ten dodatek został zablokowany z przyczyn bezpieczeństwa."
 
-#: src/amo/pages/Block/index.js:160
+#: src/amo/pages/Block/index.js:161
 msgid "Why was it blocked?"
 msgstr "Dlaczego został zablokowany?"
 
-#: src/amo/pages/Block/index.js:165
+#: src/amo/pages/Block/index.js:166
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
 msgstr "Ten dodatek narusza %(startLink)szasady dodatków Mozilli%(endLink)s."
 
-#: src/amo/pages/Block/index.js:177
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "Co to oznacza?"
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:180
 msgid ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
@@ -2453,14 +2577,14 @@ msgstr ""
 "Problematyczny dodatek lub wtyczka zostaną automatycznie wyłączone i nie "
 "będzie można ich używać."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:187
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
-"performance and meets %(criteriaStartLink)scertain criteria"
-"%(criteriaEndLink)s, the software may be blocked from general use. For more "
-"information, please read %(supportStartLink)sthis support article"
-"%(supportEndLink)s."
+"performance and meets %(criteriaStartLink)scertain "
+"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
+"For more information, please read %(supportStartLink)sthis support "
+"article%(supportEndLink)s."
 msgstr ""
 "Kiedy Mozilla zostaje poinformowana o dodatkach, wtyczkach lub innym "
 "oprogramowaniu firmy trzeciej, które poważnie zagrażają bezpieczeństwu, "
@@ -2708,14 +2832,15 @@ msgstr "Słowniki"
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
-"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
-"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
-"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+"the %(startAddonsServerDocumentation)sAdd-ons Servers "
+"documentation%(endAddonsServerDocumentation)s for details about the APIs "
+"used by AMO and the %(startAddonsManager)sAdd-ons "
+"Manager%(endAddonsManager)s."
 msgstr ""
 "Potrzebujesz programistycznie komunikować się ze stroną addons.mozilla.org "
-"(AMO)? %(startAddonsServerDocumentation)sDokumentacja serwera dodatków"
-"%(endAddonsServerDocumentation)s zawiera informacje o API używanych przez "
-"AMO i %(startAddonsManager)smenedżera dodatków%(endAddonsManager)s."
+"(AMO)? %(startAddonsServerDocumentation)sDokumentacja serwera "
+"dodatków%(endAddonsServerDocumentation)s zawiera informacje o API używanych "
+"przez AMO i %(startAddonsManager)smenedżera dodatków%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid ""
@@ -2785,16 +2910,17 @@ msgstr ""
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
 "To report a security vulnerability for an extension, even if it is not "
-"hosted on this site, please file an %(startSecIssueLink)sissue"
-"%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-admins@mozilla."
-"com%(endMailLink)s. All security vulnerability reports are "
-"%(startLink)sconfidential%(endLink)s."
+"hosted on this site, please file an "
+"%(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email "
+"%(startMailLink)samo-admins@mozilla.com%(endMailLink)s. All security "
+"vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
 "Aby zgłosić lukę bezpieczeństwa w rozszerzeniu, nawet jeśli nie jest ono "
-"dostępne na tej stronie, odwiedź %(startSecIssueLink)sBugzillę"
-"%(endSecIssueLink)s lub napisz wiadomość na adres %(startMailLink)samo-"
-"admins@mozilla.com%(endMailLink)s (w języku angielskim). Wszystkie "
-"zgłoszenia błędów bezpieczeństwa są %(startLink)spoufne%(endLink)s."
+"dostępne na tej stronie, odwiedź "
+"%(startSecIssueLink)sBugzillę%(endSecIssueLink)s lub napisz wiadomość na "
+"adres %(startMailLink)samo-admins@mozilla.com%(endMailLink)s (w języku "
+"angielskim). Wszystkie zgłoszenia błędów bezpieczeństwa są "
+"%(startLink)spoufne%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
@@ -2803,14 +2929,14 @@ msgstr "Pomoc"
 #: src/amo/pages/StaticPages/About/index.js:237
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
+"need to find general Firefox support, please visit "
+"%(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an answer "
+"there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
 "%(startSUMOLink)sPomoc%(endSUMOLink)s Mozilli zawiera więcej informacji "
 "o zarządzaniu dodatkami w Firefoksie i używaniu Firefoksa. Jeśli czegoś tam "
-"brakuje, to można %(startForumLink)szapytać na forum społeczności"
-"%(endForumLink)s."
+"brakuje, to można %(startForumLink)szapytać na forum "
+"społeczności%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid ""
@@ -2894,9 +3020,10 @@ msgstr ""
 "Pomóż ulepszać tę stronę. Jest ona open source — można zgłaszać błędy "
 "i wysyłać poprawki. Można zacząć od %(startGoodFirstBugLink)sdobrego błędu "
 "na początek%(endGoodFirstBugLink)s lub przeglądać wszystkie otwarte "
-"zgłoszenia dla %(startAddonsServerRepoLink)sserwera"
-"%(endAddonsServerRepoLink)s i %(startAddonsFrontendRepoLink)sinterfejsu"
-"%(endAddonsFrontendRepoLink)s AMO na GitHubie."
+"zgłoszenia dla "
+"%(startAddonsServerRepoLink)sserwera%(endAddonsServerRepoLink)s "
+"i %(startAddonsFrontendRepoLink)sinterfejsu%(endAddonsFrontendRepoLink)s AMO "
+"na GitHubie."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid ""
@@ -3138,7 +3265,7 @@ msgid "Theme artist"
 msgstr "Twórca motywów"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:551
+#: src/amo/pages/UserProfileEdit/index.js:578
 msgid "User Profile for %(user)s"
 msgstr "Profil użytkownika „%(user)s”"
 
@@ -3147,12 +3274,12 @@ msgid "User Profile"
 msgstr "Profil użytkownika"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:693
+#: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Location"
 msgstr "Położenie"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:708
+#: src/amo/pages/UserProfileEdit/index.js:740
 msgid "Occupation"
 msgstr "Zawód"
 
@@ -3169,7 +3296,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Średnia ocena dodatków autora"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:730
+#: src/amo/pages/UserProfileEdit/index.js:762
 msgid "Biography"
 msgstr "Notka biograficzna"
 
@@ -3181,11 +3308,11 @@ msgstr "Edytuj profil"
 msgid "Admin user"
 msgstr "Administrator"
 
-#: src/amo/pages/UserProfileEdit/index.js:211
+#: src/amo/pages/UserProfileEdit/index.js:212
 msgid "Picture successfully deleted"
 msgstr "Pomyślnie usunięto obraz"
 
-#: src/amo/pages/UserProfileEdit/index.js:459
+#: src/amo/pages/UserProfileEdit/index.js:460
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3193,7 +3320,7 @@ msgstr ""
 "Powiedz użytkownikom coś o sobie. Większość pól jest opcjonalna, ale pomogą "
 "innym użytkownikom poznać Cię lepiej."
 
-#: src/amo/pages/UserProfileEdit/index.js:463
+#: src/amo/pages/UserProfileEdit/index.js:464
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3201,67 +3328,87 @@ msgstr ""
 "Powiedz innym coś o tym użytkowniku. Większość pól jest opcjonalna, ale "
 "pomogą innym lepiej poznać użytkownika %(userName)s."
 
-#: src/amo/pages/UserProfileEdit/index.js:478
+#: src/amo/pages/UserProfileEdit/index.js:479
 msgid "Introduce yourself to the community if you like"
 msgstr "Przedstaw się społeczności, jeśli chcesz"
 
-#: src/amo/pages/UserProfileEdit/index.js:479
+#: src/amo/pages/UserProfileEdit/index.js:480
 msgid "Introduce %(userName)s to the community"
 msgstr "Przedstaw użytkownika %(userName)s społeczności"
 
-#: src/amo/pages/UserProfileEdit/index.js:505
+#: src/amo/pages/UserProfileEdit/index.js:506
 msgid "Log in to edit the profile"
 msgstr "Zaloguj się, aby edytować profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:527
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Creating your profile…"
 msgstr "Tworzenie profilu…"
 
-#: src/amo/pages/UserProfileEdit/index.js:528
+#: src/amo/pages/UserProfileEdit/index.js:529
 msgid "Create My Profile"
 msgstr "Utwórz profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:532
+#: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Updating your profile…"
 msgstr "Aktualizowanie mojego profilu…"
 
-#: src/amo/pages/UserProfileEdit/index.js:533
+#: src/amo/pages/UserProfileEdit/index.js:534
 msgid "Update My Profile"
 msgstr "Aktualizuj mój profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:536
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Updating profile…"
 msgstr "Aktualizowanie profilu…"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:538
 msgid "Update Profile"
 msgstr "Aktualizuj profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:564
+#: src/amo/pages/UserProfileEdit/index.js:546
+msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:549
+msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:569
+msgid ""
+"You will still sign in with the same username and password, and there are no "
+"other changes to the products that you use."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:591
 msgid "View user's profile"
 msgstr "Wyświetl profil użytkownika"
 
-#: src/amo/pages/UserProfileEdit/index.js:570
+#: src/amo/pages/UserProfileEdit/index.js:597
 msgid "Edit user's profile"
 msgstr "Edytuj profil użytkownika"
 
-#: src/amo/pages/UserProfileEdit/index.js:588
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid "Account"
 msgstr "Konto"
 
-#: src/amo/pages/UserProfileEdit/index.js:589
+#: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Account for %(userName)s"
 msgstr "Konto użytkownika %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/pages/UserProfileEdit/index.js:623
 msgid "Email Address"
 msgstr "Adres e-mail"
 
-#: src/amo/pages/UserProfileEdit/index.js:604
+#: src/amo/pages/UserProfileEdit/index.js:631
 msgid "Email address cannot be changed here"
 msgstr "Tutaj nie można zmienić adresu e-mail"
 
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:643
+msgid ""
+"You can change your email address on Mozilla accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:645
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3269,37 +3416,41 @@ msgstr ""
 "Można zmienić adres e-mail na koncie Firefoksa. %(startLink)sPotrzebujesz "
 "pomocy?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:634
+#: src/amo/pages/UserProfileEdit/index.js:665
+msgid "Manage Mozilla accounts…"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
 msgstr "Zarządzaj kontami Firefoksa…"
 
-#: src/amo/pages/UserProfileEdit/index.js:642
+#: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:683
 msgid "This field is required"
 msgstr "To pole jest wymagane"
 
-#: src/amo/pages/UserProfileEdit/index.js:655
+#: src/amo/pages/UserProfileEdit/index.js:687
 msgid "Display Name *"
 msgstr "Wyświetlana nazwa *"
 
-#: src/amo/pages/UserProfileEdit/index.js:688
+#: src/amo/pages/UserProfileEdit/index.js:720
 msgid "This URL will only be visible for users who are developers."
 msgstr "Ten adres będzie widoczny tylko dla użytkowników będących autorami."
 
-#: src/amo/pages/UserProfileEdit/index.js:745
+#: src/amo/pages/UserProfileEdit/index.js:777
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 "Część znaczników HTML jest obsługiwana: %(htmlTags)s. Odnośniki są "
 "zabronione."
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:801
 msgid "Notifications"
 msgstr "Powiadomienia"
 
-#: src/amo/pages/UserProfileEdit/index.js:773
+#: src/amo/pages/UserProfileEdit/index.js:805
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3308,7 +3459,7 @@ msgstr ""
 "wydaniach i wydarzeniach związanych z dodatkami. Proszę wybrać tematy, które "
 "Cię interesują."
 
-#: src/amo/pages/UserProfileEdit/index.js:778
+#: src/amo/pages/UserProfileEdit/index.js:810
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3317,7 +3468,7 @@ msgstr ""
 "o nadchodzących wydaniach i wydarzeniach związanych z dodatkami. Proszę "
 "wybrać tematy, które mogą zainteresować tego użytkownika."
 
-#: src/amo/pages/UserProfileEdit/index.js:793
+#: src/amo/pages/UserProfileEdit/index.js:825
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3325,28 +3476,28 @@ msgstr ""
 "Mozilla zastrzega sobie prawo indywidualnego kontaktu w konkretnych sprawach "
 "związanych z udostępnianymi dodatkami."
 
-#: src/amo/pages/UserProfileEdit/index.js:819
-#: src/amo/pages/UserProfileEdit/index.js:891
+#: src/amo/pages/UserProfileEdit/index.js:851
+#: src/amo/pages/UserProfileEdit/index.js:923
 msgid "Delete My Profile"
 msgstr "Usuń mój profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:820
-#: src/amo/pages/UserProfileEdit/index.js:892
+#: src/amo/pages/UserProfileEdit/index.js:852
+#: src/amo/pages/UserProfileEdit/index.js:924
 msgid "Delete Profile"
 msgstr "Usuń profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:832
+#: src/amo/pages/UserProfileEdit/index.js:864
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "WAŻNE: usunięcie profilu serwisu Dodatków do Firefoksa jest nieodwracalne."
 
-#: src/amo/pages/UserProfileEdit/index.js:835
+#: src/amo/pages/UserProfileEdit/index.js:867
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "WAŻNE: usunięcie tego profilu serwisu Dodatków do Firefoksa jest "
 "nieodwracalne."
 
-#: src/amo/pages/UserProfileEdit/index.js:844
+#: src/amo/pages/UserProfileEdit/index.js:876
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3356,7 +3507,7 @@ msgstr ""
 "nazwa użytkownika, wyświetlana nazwa, położenie, strona domowa, notka "
 "biograficzna, zawód), preferencje powiadomień, recenzje i kolekcje."
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:882
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3366,7 +3517,7 @@ msgstr ""
 "(obraz, nazwa użytkownika, wyświetlana nazwa, położenie, strona domowa, "
 "notka biograficzna, zawód), preferencje powiadomień, recenzje i kolekcje."
 
-#: src/amo/pages/UserProfileEdit/index.js:859
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3376,7 +3527,7 @@ msgstr ""
 "jest dzielone z innymi użytkownikami. W takim przypadku Twoje autorstwo "
 "zostanie usunięte, a pozostali autorzy zachowają własność dodatku."
 
-#: src/amo/pages/UserProfileEdit/index.js:865
+#: src/amo/pages/UserProfileEdit/index.js:897
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3387,7 +3538,7 @@ msgstr ""
 "użytkownika zostanie usunięte, a pozostali autorzy zachowają własność "
 "dodatku."
 
-#: src/amo/pages/UserProfileEdit/index.js:875
+#: src/amo/pages/UserProfileEdit/index.js:907
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3416,8 +3567,8 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid ""
-"You can edit your notification settings by %(linkStart)sediting your profile"
-"%(linkEnd)s."
+"You can edit your notification settings by %(linkStart)sediting your "
+"profile%(linkEnd)s."
 msgstr ""
 "%(linkStart)sW swoim profilu%(linkEnd)s można zmienić ustawienia powiadomień."
 
@@ -3501,6 +3652,9 @@ msgstr "zgodność mojego dodatku nie może zostać zaktualizowana"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
+
+#~ msgid "Versions blocked: %(min)s to %(max)s."
+#~ msgstr "Zablokowane wersje: %(min)s do %(max)s."
 
 #~ msgid "Get %(addonName)s for Android"
 #~ msgstr "Pobierz „%(addonName)s” na Androida"
@@ -3617,11 +3771,12 @@ msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
 #~ "%(yourVersion)s."
 
 #~ msgid ""
-#~ "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-#~ "\">download Firefox</a> to install this add-on."
+#~ "Your browser does not support add-ons. You can <a "
+#~ "href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 #~ msgstr ""
-#~ "Ta przeglądarka nie obsługuje dodatków. Można <a href=\"%(downloadUrl)s"
-#~ "\">pobrać Firefoksa</a>, aby zainstalować ten dodatek."
+#~ "Ta przeglądarka nie obsługuje dodatków. Można <a "
+#~ "href=\"%(downloadUrl)s\">pobrać Firefoksa</a>, aby zainstalować ten "
+#~ "dodatek."
 
 #~ msgid "Only with Firefox—Get Firefox Now"
 #~ msgstr "Tylko w Firefoksie — pobierz go teraz"
@@ -3691,8 +3846,8 @@ msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
 #~ "You can install this add-on in the Add-ons Manager. Learn more about <a "
 #~ "href=\"%(newLocation)s\">add-ons for Android</a>."
 #~ msgstr ""
-#~ "Można zainstalować ten dodatek w menedżerze dodatków. <a href="
-#~ "\"%(newLocation)s\">Więcej informacji o dodatkach na Androida</a>."
+#~ "Można zainstalować ten dodatek w menedżerze dodatków. <a "
+#~ "href=\"%(newLocation)s\">Więcej informacji o dodatkach na Androida</a>."
 
 #~ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 #~ msgstr "To oficjalny dodatek stworzony przez twórców Mozilli Firefox."
@@ -3701,41 +3856,41 @@ msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
 #~ msgstr "Niedostępne ze względów prawnych"
 
 #~ msgid ""
-#~ "To find add-ons compatible with Firefox on desktop, <a href="
-#~ "\"%(newLocation)s\">visit our desktop site</a>."
+#~ "To find add-ons compatible with Firefox on desktop, <a "
+#~ "href=\"%(newLocation)s\">visit our desktop site</a>."
 #~ msgstr ""
-#~ "Aby znaleźć dodatki zgodne z Firefoksem na komputery, <a href="
-#~ "\"%(newLocation)s\">odwiedź naszą stronę dla komputerów</a>."
+#~ "Aby znaleźć dodatki zgodne z Firefoksem na komputery, <a "
+#~ "href=\"%(newLocation)s\">odwiedź naszą stronę dla komputerów</a>."
 
 #~ msgid ""
 #~ "Not available on Firefox for Android. You can use this add-on with "
-#~ "Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s"
-#~ "\">Android add-ons</a>."
+#~ "Firefox for Desktop,  or look for similar <a "
+#~ "href=\"%(newLocation)s\">Android add-ons</a>."
 #~ msgstr ""
 #~ "Niedostępne w Firefoksie na Androida. Można używać tego dodatku "
-#~ "w Firefoksie na komputery lub poszukać podobnego <a href=\"%(newLocation)s"
-#~ "\">dodatku na Androida</a>."
+#~ "w Firefoksie na komputery lub poszukać podobnego <a "
+#~ "href=\"%(newLocation)s\">dodatku na Androida</a>."
 
 #~ msgid ""
-#~ "To find add-ons compatible with Firefox on Android, <a href="
-#~ "\"%(newLocation)s\">visit our mobile site</a>."
+#~ "To find add-ons compatible with Firefox on Android, <a "
+#~ "href=\"%(newLocation)s\">visit our mobile site</a>."
 #~ msgstr ""
-#~ "Aby znaleźć dodatki zgodne z Firefoksem na Androida, <a href="
-#~ "\"%(newLocation)s\">odwiedź naszą stronę mobilną</a>."
+#~ "Aby znaleźć dodatki zgodne z Firefoksem na Androida, <a "
+#~ "href=\"%(newLocation)s\">odwiedź naszą stronę mobilną</a>."
 
 #~ msgid ""
-#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
-#~ "\">Browse add-ons for Firefox on Android</a>."
+#~ "This listing is not intended for this platform. <a "
+#~ "href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
 #~ msgstr ""
-#~ "Ta lista nie jest przeznaczona dla tej platformy. <a href="
-#~ "\"%(newLocation)s\">Przeglądaj dodatki do Firefoksa na Androida</a>."
+#~ "Ta lista nie jest przeznaczona dla tej platformy. <a "
+#~ "href=\"%(newLocation)s\">Przeglądaj dodatki do Firefoksa na Androida</a>."
 
 #~ msgid ""
-#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
-#~ "\">Browse add-ons for Firefox on desktop</a>."
+#~ "This listing is not intended for this platform. <a "
+#~ "href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
 #~ msgstr ""
-#~ "Ta lista nie jest przeznaczona dla tej platformy. <a href="
-#~ "\"%(newLocation)s\">Przeglądaj dodatki do Firefoksa na komputery</a>."
+#~ "Ta lista nie jest przeznaczona dla tej platformy. <a "
+#~ "href=\"%(newLocation)s\">Przeglądaj dodatki do Firefoksa na komputery</a>."
 
 #~ msgid ""
 #~ "Not available on Firefox for Android. You can use this add-on with "
@@ -3789,8 +3944,8 @@ msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
 
 #~ msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
 #~ msgstr ""
-#~ "Poznaj więcej świetnych %(linkStart)snarzędzi do blokowania reklam"
-#~ "%(linkEnd)s."
+#~ "Poznaj więcej świetnych %(linkStart)snarzędzi do blokowania "
+#~ "reklam%(linkEnd)s."
 
 #~ msgid "Stop online trackers from stalking you"
 #~ msgstr "Uniemożliw śledzenie Cię w Internecie"
@@ -4109,11 +4264,11 @@ msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
 #~ msgstr "Przeglądarka Focus"
 
 #~ msgid ""
-#~ "This add-on is not compatible with Firefox for Android. <a href="
-#~ "\"%(newLocation)s\">Learn more</a>."
+#~ "This add-on is not compatible with Firefox for Android. <a "
+#~ "href=\"%(newLocation)s\">Learn more</a>."
 #~ msgstr ""
-#~ "Ten dodatek nie jest zgodny z Firefoksem na Androida. <a href="
-#~ "\"%(newLocation)s\">Więcej informacji</a>."
+#~ "Ten dodatek nie jest zgodny z Firefoksem na Androida. <a "
+#~ "href=\"%(newLocation)s\">Więcej informacji</a>."
 
 #~ msgid ""
 #~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
@@ -4200,11 +4355,11 @@ msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
 #~ "przez nas."
 
 #~ msgid ""
-#~ "Explore among thousands of %(linkStart)sphoto, music & video extensions"
-#~ "%(linkEnd)s."
+#~ "Explore among thousands of %(linkStart)sphoto, music & video "
+#~ "extensions%(linkEnd)s."
 #~ msgstr ""
-#~ "Wybieraj z tysięcy %(linkStart)srozszerzeń do zdjęć, muzyki i filmów"
-#~ "%(linkEnd)s."
+#~ "Wybieraj z tysięcy %(linkStart)srozszerzeń do zdjęć, muzyki "
+#~ "i filmów%(linkEnd)s."
 
 #~ msgid "Bookmarks"
 #~ msgstr "Zakładki"
