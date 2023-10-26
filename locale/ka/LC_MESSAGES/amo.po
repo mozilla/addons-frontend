@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-26 14:14+0000\n"
+"PO-Revision-Date: 2023-10-26 14:24+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2859,7 +2859,7 @@ msgstr "Firefox-ანგარიშებს დაერქმევა Mozil
 
 #: src/amo/pages/UserProfileEdit/index.js:569
 msgid "You will still sign in with the same username and password, and there are no other changes to the products that you use."
-msgstr ""
+msgstr "კვლავ შეგეძლებათ შეხვიდეთ მომხმარებლის იმავე სახელითა და პაროლით, სხვა ცვლილება არ შეეხება პროდუქტებს, რომელთაც იყენებთ."
 
 #: src/amo/pages/UserProfileEdit/index.js:591
 msgid "View user's profile"
@@ -2887,7 +2887,7 @@ msgstr "ელფოსტის აქედან შეცვლა, შე�
 
 #: src/amo/pages/UserProfileEdit/index.js:643
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "ელფოსტის მისამართის შეცვლა შეგიძლიათ Mozilla-ანგარიშებიდან. %(startLink)sდახმარება გესაჭიროებათ?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:645
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2895,7 +2895,7 @@ msgstr "ელფოსტის მისამართის შეცვლ�
 
 #: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "მართეთ Mozilla-ანგარიშები…"
 
 #: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
