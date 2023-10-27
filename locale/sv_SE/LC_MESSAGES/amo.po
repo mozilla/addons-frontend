@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-27 03:47+0000\n"
+"PO-Revision-Date: 2023-10-27 16:44+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -940,47 +940,47 @@ msgstr "Recensionen hittades inte."
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
-msgstr ""
+msgstr "Det innehåller hatiskt, våldsamt, bedrägligt eller annat olämpligt innehåll"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: contains racist imagery"
-msgstr ""
+msgstr "Exempel: innehåller rasistiska bilder"
 
 #: src/amo/components/FeedbackForm/index.js:112
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Det bryter mot lagen eller innehåller innehåll som bryter mot lagen"
 
 #: src/amo/components/FeedbackForm/index.js:115
 msgid "Example: Copyright or Trademark Infringement, Fraud"
-msgstr ""
+msgstr "Exempel: Upphovsrätts- eller varumärkesintrång, bedrägeri"
 
 #: src/amo/components/FeedbackForm/index.js:121
 msgid "Something else"
-msgstr ""
+msgstr "Något annat"
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "Anything that does’t fit into the other categories"
-msgstr ""
+msgstr "Allt som inte passar in i de andra kategorierna"
 
 #: src/amo/components/FeedbackForm/index.js:229
 msgid "You sent a report about this add-on"
-msgstr ""
+msgstr "Du har skickat in en rapport om detta tillägg"
 
 #: src/amo/components/FeedbackForm/index.js:233
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "Vi har tagit emot din anmälan. Tack för att du berättar för oss."
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Submitting your report…"
-msgstr ""
+msgstr "Skickar in din rapport…"
 
 #: src/amo/components/FeedbackForm/index.js:256
 msgid "Submit report"
-msgstr ""
+msgstr "Skicka in rapport"
 
 #: src/amo/components/FeedbackForm/index.js:294
 msgid "Submit feedback or report for %(type)s %(identifier)s"
-msgstr ""
+msgstr "Skicka feedback eller rapport för %(type)s %(identifier)s"
 
 #: src/amo/components/FeedbackForm/index.js:298
 msgid "Add-on"
