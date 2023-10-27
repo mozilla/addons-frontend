@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-26 16:06+0000\n"
+"PO-Revision-Date: 2023-10-26 16:02+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -926,7 +926,7 @@ msgstr "未找到此评价。"
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
-msgstr ""
+msgstr "包含仇恨、暴力、诈骗等不适当的内容"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: contains racist imagery"
@@ -970,7 +970,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:298
 msgid "Add-on"
-msgstr ""
+msgstr "附加组件"
 
 #: src/amo/components/FeedbackForm/index.js:319
 msgid "Send some feedback about an add-on"
@@ -1008,11 +1008,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:382
 msgid "Your Full Name"
-msgstr ""
+msgstr "您的全名"
 
 #: src/amo/components/FeedbackForm/index.js:394
 msgid "Your Email Address"
-msgstr ""
+msgstr "您的电子邮件地址"
 
 #: src/amo/components/FeedbackForm/index.js:80
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
@@ -1032,7 +1032,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:98
 msgid "It violates Add-on Policies"
-msgstr ""
+msgstr "违反附加组件政策"
 
 #: src/amo/components/FeedbackForm/index.js:99
 msgid "Example: I didn’t want it or It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
@@ -2754,11 +2754,11 @@ msgstr "更新个人资料"
 
 #: src/amo/pages/UserProfileEdit/index.js:546
 msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "Firefox 账户已于 11 月 1 日起更名为 Mozilla 账户"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "11 月 1 日起，Firefox 账户将更名为 Mozilla 账户"
 
 #: src/amo/pages/UserProfileEdit/index.js:569
 msgid "You will still sign in with the same username and password, and there are no other changes to the products that you use."
@@ -2798,7 +2798,7 @@ msgstr "您可以更改您 Firefox 账户上的电子邮件地址。%(startLink)
 
 #: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "管理 Mozilla 账户…"
 
 #: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
