@@ -34,6 +34,9 @@ node_modules
 # Optional npm cache directory
 .npm
 
+# yarn cache directory
+.yarn
+
 # Optional REPL history
 .node_repl_history
 
