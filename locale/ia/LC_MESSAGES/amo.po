@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-26 20:39+0000\n"
+"PO-Revision-Date: 2023-10-27 10:49+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -941,19 +941,19 @@ msgstr "Le revision non ha essite trovate."
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
-msgstr ""
+msgstr "Illo contine contento odiose, violente, fraudulente, o alteremente inconveniente"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: contains racist imagery"
-msgstr ""
+msgstr "Exemplo: contine ideographia racista"
 
 #: src/amo/components/FeedbackForm/index.js:112
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Illo viola le lege o contine contento que viola le lege"
 
 #: src/amo/components/FeedbackForm/index.js:115
 msgid "Example: Copyright or Trademark Infringement, Fraud"
-msgstr ""
+msgstr "Exemplo: violation de derectos de autor o marca de fabrica, fraude"
 
 #: src/amo/components/FeedbackForm/index.js:121
 msgid "Something else"
@@ -961,15 +961,15 @@ msgstr "Altere cosa"
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "Anything that does’t fit into the other categories"
-msgstr ""
+msgstr "Alcun cosa que non es apte in le altere categorias"
 
 #: src/amo/components/FeedbackForm/index.js:229
 msgid "You sent a report about this add-on"
-msgstr ""
+msgstr "Tu ha inviate un reporto re iste additivo"
 
 #: src/amo/components/FeedbackForm/index.js:233
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "Nos ha recipite tu reporto. Gratias pro facer lo saper a nos."
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Submitting your report…"
@@ -1023,35 +1023,35 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:382
 msgid "Your Full Name"
-msgstr ""
+msgstr "Tu prenomine e nomine de familia"
 
 #: src/amo/components/FeedbackForm/index.js:394
 msgid "Your Email Address"
-msgstr ""
+msgstr "Tu adresse email"
 
 #: src/amo/components/FeedbackForm/index.js:80
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr ""
+msgstr "Illo non functiona, corrumpe sitos web, o relenta Firefox"
 
 #: src/amo/components/FeedbackForm/index.js:83
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual"
-msgstr ""
+msgstr "Exemplo: le functiones es lente, difficile a usar, o non functiona; partes de sitos web non cargara o apparera inusual"
 
 #: src/amo/components/FeedbackForm/index.js:89
 msgid "It’s SPAM"
-msgstr ""
+msgstr "Illo es SPAM"
 
 #: src/amo/components/FeedbackForm/index.js:90
 msgid "Example: An application installed it without my permission"
-msgstr ""
+msgstr "Exemplo: un application lo installava sin mi permisso"
 
 #: src/amo/components/FeedbackForm/index.js:98
 msgid "It violates Add-on Policies"
-msgstr ""
+msgstr "Illo viola Criterios pro le additivos"
 
 #: src/amo/components/FeedbackForm/index.js:99
 msgid "Example: I didn’t want it or It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr ""
+msgstr "Exemplo: Io non lo voleva o Illo compromittite mi datos sin informar me o demandar me, o illo ha cambiate mi motor de recerca o pagina initial sin informar me o demandar me."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
@@ -2224,7 +2224,7 @@ msgstr "Versiones blocate: tote le versiones."
 
 #: src/amo/pages/Block/index.js:124
 msgid "Versions blocked: %(versions)s."
-msgstr ""
+msgstr "Versiones blocate: %(versions)s."
 
 #: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
@@ -2831,15 +2831,15 @@ msgstr "Actualisar le profilo"
 
 #: src/amo/pages/UserProfileEdit/index.js:546
 msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "Le contos Firefox ha essite renominate a contos Mozilla desde le 1 de novembre"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "Le contos Firefox sera renominate a contos Mozilla desde le 1 de novembre"
 
 #: src/amo/pages/UserProfileEdit/index.js:569
 msgid "You will still sign in with the same username and password, and there are no other changes to the products that you use."
-msgstr ""
+msgstr "Tu ancora accedera con le mesme nomine de usator e contrasigno, e il non ha alcun altere cambiamentos al productos que tu usa."
 
 #: src/amo/pages/UserProfileEdit/index.js:591
 msgid "View user's profile"
