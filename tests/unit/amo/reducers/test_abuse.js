@@ -102,6 +102,7 @@ describe(__filename, () => {
           reason: 'malware',
           reporterName: 'Foxy',
           reporterEmail: 'made_up@email',
+          location: 'both',
         };
       });
 

@@ -84,7 +84,9 @@ input[type='checkbox'] + .FeedbackForm--label {
 }
 
 .FeedbackForm-name,
-.FeedbackForm-email {
+.FeedbackForm-email,
+.FeedbackForm-violationLocation,
+.FeedbackForm-text {
   margin-bottom: 16px;
 }
 

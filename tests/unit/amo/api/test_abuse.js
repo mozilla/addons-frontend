@@ -30,6 +30,7 @@ describe(__filename, () => {
       const reporterName = 'Foxy';
       const reporterEmail = 'fox@moz.co';
       const addonId = 'cool-addon';
+      const location = 'both';
 
       mockApi
         .expects('callApi')
@@ -43,6 +44,7 @@ describe(__filename, () => {
             reason,
             reporter_email: reporterEmail,
             reporter_name: reporterName,
+            location,
           },
           apiState,
         })
@@ -61,6 +63,7 @@ describe(__filename, () => {
         reason,
         reporterEmail,
         reporterName,
+        location,
       });
 
       mockApi.verify();

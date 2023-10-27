@@ -13,6 +13,7 @@ import translate from 'amo/i18n/translate';
 import Button from 'amo/components/Button';
 import Card from 'amo/components/Card';
 import Notice from 'amo/components/Notice';
+import Select from 'amo/components/Select';
 import type { AddonAbuseState } from 'amo/reducers/abuse';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
@@ -54,6 +55,7 @@ type FormValues = {|
   text: string,
   category: string | null,
   legalAssertion: boolean,
+  violationLocation: string | null,
 |};
 
 type State = {|
@@ -172,7 +174,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     event.preventDefault();
 
     const { addon, dispatch, errorHandler } = this.props;
-    const { email, name, text, category } = this.state;
+    const { email, name, text, category, violationLocation } = this.state;
 
     invariant(text.trim().length, 'A report cannot be sent with no content.');
     invariant(addon, 'An add-on is required for a report.');
@@ -187,6 +189,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
         reporterName: name,
         message: text,
         reason: category,
+        location: violationLocation,
       }),
     );
   };
@@ -198,6 +201,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       text: '',
       category: null,
       legalAssertion: false,
+      violationLocation: null,
     };
 
     const { email, display_name: name } = currentUser || {};
@@ -284,6 +288,16 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       });
     }
 
+    const violationLocationOptions = [
+      { children: i18n.gettext('--Select a location--'), value: '' },
+      {
+        children: i18n.gettext("On the add-on's page on this website"),
+        value: 'amo',
+      },
+      { children: i18n.gettext('Inside the add-on'), value: 'addon' },
+      { children: i18n.gettext('Both locations'), value: 'both' },
+    ];
+
     const abuseSubmitted = abuseReport && abuseReport.message !== undefined;
 
     return (
@@ -333,6 +347,24 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 className="FeedbackForm--Card"
                 header={i18n.gettext('Tell us more')}
               >
+                <label
+                  className="FeedbackForm--label"
+                  htmlFor="feedbackLocation"
+                >
+                  {i18n.gettext('Where is the offending content')}
+                </label>
+                <Select
+                  className="FeedbackForm-violationLocation"
+                  id="feedbackLocation"
+                  name="violationLocation"
+                  onChange={this.onFieldChange}
+                  value={this.state.violationLocation}
+                >
+                  {violationLocationOptions.map((option) => {
+                    return <option key={option.value} {...option} />;
+                  })}
+                </Select>
+
                 <label className="FeedbackForm--label" htmlFor="feedbackText">
                   {i18n.gettext('Give details of your feedback or report')}
                 </label>
