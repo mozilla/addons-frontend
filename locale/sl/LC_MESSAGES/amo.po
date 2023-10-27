@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-27 07:04+0000\n"
+"PO-Revision-Date: 2023-10-27 07:03+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1000,7 +1000,7 @@ msgstr "Pošljite povratne informacije o dodatku"
 
 #: src/amo/components/FeedbackForm/index.js:325
 msgid "Report an add-on to Mozilla because it's illegal or incompliant"
-msgstr ""
+msgstr "Prijavite dodatek Mozilli, ker je nezakonit ali neskladen s pravili"
 
 #: src/amo/components/FeedbackForm/index.js:334
 msgid "Tell us more"
@@ -1008,7 +1008,7 @@ msgstr "Povejte nam več"
 
 #: src/amo/components/FeedbackForm/index.js:337
 msgid "Give details of your feedback or report"
-msgstr "Navedite podrobnosti svojih povratnih informacij ali poročila"
+msgstr "Navedite podrobnosti svoje povratne informacije ali prijave"
 
 #: src/amo/components/FeedbackForm/index.js:358
 msgid ""
