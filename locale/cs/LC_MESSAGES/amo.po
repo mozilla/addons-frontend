@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-27 19:04+0000\n"
+"PO-Revision-Date: 2023-10-27 19:08+0000\n"
 "Last-Translator: Pavel Cvrček <jasnapaka@jasnapaka.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1050,7 +1050,9 @@ msgstr "Doplněk porušuje pravidla pro doplňky"
 
 #: src/amo/components/FeedbackForm/index.js:99
 msgid "Example: I didn’t want it or It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr "Příklad: Nechci, nebo Došlo k ohrožení mých dat, aniž by o tom někdo věděl či se zeptal, nebo změnil můj vyhledávač či domovskou stránku, aniž by o tom věděl či se zeptal."
+msgstr ""
+"Příklad: Nechtěl jsem to nebo ohrozilo to moje data, aniž by mě to informovalo nebo se mě zeptalo, nebo to změnilo můj vyhledávač nebo domovskou stránku, aniž by mě to informovalo nebo se mě "
+"zeptalo."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
@@ -2252,7 +2254,7 @@ msgstr "Zablokované verze: všechny"
 
 #: src/amo/pages/Block/index.js:124
 msgid "Versions blocked: %(versions)s."
-msgstr "Zablokované verze: %(versions)s"
+msgstr "Zablokované verze: %(versions)s."
 
 #: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
