@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-26 14:22+0000\n"
+"PO-Revision-Date: 2023-10-26 14:23+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -930,7 +930,7 @@ msgstr "包含仇恨、暴力、诈骗等不适当的内容"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: contains racist imagery"
-msgstr ""
+msgstr "例如：包含种族主义图像"
 
 #: src/amo/components/FeedbackForm/index.js:112
 msgid "It violates the law or contains content that violates the law"
