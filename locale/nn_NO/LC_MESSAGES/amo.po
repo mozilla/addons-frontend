@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-27 08:52+0000\n"
+"PO-Revision-Date: 2023-10-27 09:01+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -954,7 +954,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:121
 msgid "Something else"
-msgstr ""
+msgstr "Noko anna"
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "Anything that does’t fit into the other categories"
@@ -1020,11 +1020,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:382
 msgid "Your Full Name"
-msgstr ""
+msgstr "Ditt fulle namn"
 
 #: src/amo/components/FeedbackForm/index.js:394
 msgid "Your Email Address"
-msgstr ""
+msgstr "Di e-postadresse"
 
 #: src/amo/components/FeedbackForm/index.js:80
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
@@ -2873,7 +2873,7 @@ msgstr "Du kan endre e-postadressa di i Firefox Accounts. %(startLink)sTreng du 
 
 #: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Handsam Mozilla-kontoane…"
 
 #: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
