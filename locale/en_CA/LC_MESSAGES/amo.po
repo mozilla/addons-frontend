@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-27 16:33+0000\n"
+"PO-Revision-Date: 2023-10-27 16:34+0000\n"
 "Last-Translator: pdehaan <pdehaan@mozilla.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en_CA\n"
@@ -2222,7 +2222,7 @@ msgstr "Versions blocked: all versions."
 
 #: src/amo/pages/Block/index.js:124
 msgid "Versions blocked: %(versions)s."
-msgstr ""
+msgstr "Versions blocked: %(versions)s."
 
 #: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
@@ -2826,15 +2826,15 @@ msgstr "Update Profile"
 
 #: src/amo/pages/UserProfileEdit/index.js:546
 msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
 
 #: src/amo/pages/UserProfileEdit/index.js:569
 msgid "You will still sign in with the same username and password, and there are no other changes to the products that you use."
-msgstr ""
+msgstr "You will still sign in with the same username and password, and there are no other changes to the products that you use."
 
 #: src/amo/pages/UserProfileEdit/index.js:591
 msgid "View user's profile"
@@ -2862,7 +2862,7 @@ msgstr "Email address cannot be changed here"
 
 #: src/amo/pages/UserProfileEdit/index.js:643
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:645
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2870,7 +2870,7 @@ msgstr "You can change your email address on Firefox Accounts. %(startLink)sNeed
 
 #: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Manage Mozilla accounts…"
 
 #: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
