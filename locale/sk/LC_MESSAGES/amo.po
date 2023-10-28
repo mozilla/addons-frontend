@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-27 17:51+0000\n"
+"PO-Revision-Date: 2023-10-28 10:14+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1016,11 +1016,11 @@ msgstr "Vaše údaje"
 
 #: src/amo/components/FeedbackForm/index.js:374
 msgid "We will notify you by email with any updates about your report."
-msgstr "Budeme vás informovať e-mailom o akýchkoľvek aktualizáciách týkajúcich sa vášho hlásenia."
+msgstr "Budeme vás informovať e‑mailom o akýchkoľvek aktualizáciách týkajúcich sa vášho hlásenia."
 
 #: src/amo/components/FeedbackForm/index.js:377
 msgid "To receive updates about your report enter your name and email address."
-msgstr "Ak chcete dostávať aktualizácie o svojom hlásení, zadajte svoje meno a e-mailovú adresu."
+msgstr "Ak chcete dostávať aktualizácie o svojom hlásení, zadajte svoje meno a e‑mailovú adresu."
 
 #: src/amo/components/FeedbackForm/index.js:382
 msgid "Your Full Name"
@@ -1028,7 +1028,7 @@ msgstr "Vaše celé meno"
 
 #: src/amo/components/FeedbackForm/index.js:394
 msgid "Your Email Address"
-msgstr "Vaša e-mailová adresa"
+msgstr "Vaša e‑mailová adresa"
 
 #: src/amo/components/FeedbackForm/index.js:80
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
