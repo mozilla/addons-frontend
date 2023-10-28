@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-28 11:12+0000\n"
+"PO-Revision-Date: 2023-10-28 11:23+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2839,15 +2839,15 @@ msgstr "Inzorne profîl"
 
 #: src/amo/pages/UserProfileEdit/index.js:546
 msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "I accounts di Firefox a àn cambiât non in accounts di Mozilla dal 1ⁿ di Novembar"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "I accounts di Firefox a cambiaran non in accounts di Mozilla dal 1ⁿ di Novembar"
 
 #: src/amo/pages/UserProfileEdit/index.js:569
 msgid "You will still sign in with the same username and password, and there are no other changes to the products that you use."
-msgstr ""
+msgstr "Dut câs tu jentrarâs cul stes non utent e password e no saran fatis altris modifichis ai prodots che tu dopris."
 
 #: src/amo/pages/UserProfileEdit/index.js:591
 msgid "View user's profile"
@@ -2875,7 +2875,7 @@ msgstr "Nol è pussibil cambiâ la direzion e-mail di chi"
 
 #: src/amo/pages/UserProfileEdit/index.js:643
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Tu puedis cambiâ la direzion e-mail dal to account Mozilla. %(startLink)sTi covential aiût?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:645
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2883,7 +2883,7 @@ msgstr "Tu puedis cambiâ la direzion e-mail dal to account Firefox. %(startLink
 
 #: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Gjestìs i accounts Mozilla…"
 
 #: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
