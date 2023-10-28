@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-28 04:52+0000\n"
+"PO-Revision-Date: 2023-10-28 10:39+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -941,15 +941,15 @@ msgstr "La recension no je stade cjatade."
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
-msgstr ""
+msgstr "Al à contignûts che a incitin al odi, violents, ingjanôs o altris contignûts sconvenients"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: contains racist imagery"
-msgstr ""
+msgstr "Esempli: al conten imagjins razistis"
 
 #: src/amo/components/FeedbackForm/index.js:112
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Al viole la leç o al à contignûts che a violin la leç"
 
 #: src/amo/components/FeedbackForm/index.js:115
 msgid "Example: Copyright or Trademark Infringement, Fraud"
