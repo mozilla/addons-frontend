@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-28 11:03+0000\n"
+"PO-Revision-Date: 2023-10-28 11:12+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1037,23 +1037,23 @@ msgstr "Nol funzione, al ruvine i sîts web o al moreste Firefox"
 
 #: src/amo/components/FeedbackForm/index.js:83
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual"
-msgstr ""
+msgstr "Esempli: lis funzionalitâts a son lentis, dificilis di doprâ opûr no funzionin; parts dai sîts web no vignaran cjariadis o a varan un aspiet insolit"
 
 #: src/amo/components/FeedbackForm/index.js:89
 msgid "It’s SPAM"
-msgstr ""
+msgstr "Al è SPAM"
 
 #: src/amo/components/FeedbackForm/index.js:90
 msgid "Example: An application installed it without my permission"
-msgstr ""
+msgstr "Esempli: instalazion fate cence il gno permès de bande di une aplicazion"
 
 #: src/amo/components/FeedbackForm/index.js:98
 msgid "It violates Add-on Policies"
-msgstr ""
+msgstr "Al viole lis politichis sui components adizionâi"
 
 #: src/amo/components/FeedbackForm/index.js:99
 msgid "Example: I didn’t want it or It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr ""
+msgstr "Esempli: no lu volevi o al à comprometût i miei dâts cence informâmi o domandâmal, opûr al à cambiât il gno motôr di ricercje o la mê pagjine iniziâl cence informâmi o domandâmal."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
@@ -2224,7 +2224,7 @@ msgstr "Versions blocadis: dutis lis versions."
 
 #: src/amo/pages/Block/index.js:124
 msgid "Versions blocked: %(versions)s."
-msgstr ""
+msgstr "Versions blocadis: %(versions)s."
 
 #: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
