@@ -122,7 +122,7 @@ export const getCategories = (
         value: 'other',
         label: i18n.gettext('Something else'),
         help: i18n.gettext(
-          'Anything that does’t fit into the other categories',
+          'Anything that doesn’t fit into the other categories',
         ),
       },
     ],
