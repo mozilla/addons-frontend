@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-26 12:49+0000\n"
-"Last-Translator: Google Translate <pontoon-gt@example.com>\n"
+"PO-Revision-Date: 2023-10-31 11:08+0000\n"
+"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -1155,8 +1155,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
-"Če ni %(startNotedLink)snavedeno%(endNotedLink)s drugače, je vsebina te spletne strani na voljo pod licenco %(startLicenseLink)sCreative Commons Attribution Share-Alike v3.0%(endLicenseLink)s ali "
-"pod katerokoli novejšo različico."
+"Če ni %(startNotedLink)snavedeno%(endNotedLink)s drugače, je vsebina tega spletnega mesta na voljo pod licenco %(startLicenseLink)sCreative Commons Attribution Share-Alike v3.0%(endLicenseLink)s ali"
+" pod katerokoli novejšo različico."
 
 #: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
@@ -1294,11 +1294,11 @@ msgstr "Več iz kategorije %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr "dostopa do vaših podatkov za vse spletne strani"
+msgstr "dostopa do vaših podatkov za vsa spletna mesta"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "dostopa do vaših podatkov za strani na domeni %(param)s"
+msgstr "dostopa do vaših podatkov za spletna mesta na domeni %(param)s"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
@@ -2555,7 +2555,7 @@ msgstr "Če odkrijete napako na spletnem mestu, bi jo želeli odpraviti. Prijavi
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr "Uradna Mozillina stran za prenos razširitev in tem za Firefox. Dodajte nove funkcije in spremenite videz brskalnika, da si prilagodite spletno izkušnjo."
+msgstr "Uradno Mozillino spletno mesto z razširitvami in temami za Firefox. Dodajte nove funkcije in spremenite videz brskalnika, da si prilagodite spletno izkušnjo."
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
@@ -2586,8 +2586,8 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO) je Mozillina uradna spletna stran za raziskovanje in nameščanje dodatkov za brskalnik Firefox. Dodatki vam omogočajo spremeniti ter prilagoditi izkušnjo brskanja z "
-"dodajanjem novih funkcij v Firefox, obogatitvijo možnosti obravnavanja spletne vsebine ali spreminjanjem videza brskalnika."
+"Addons.mozilla.org (AMO) je Mozillino uradno spletno mesto za odkrivanje in prenos dodatkov za brskalnik Firefox. Dodatki vam omogočajo spremeniti ter prilagoditi izkušnjo brskanja z dodajanjem "
+"novih funkcij v Firefox, obogatitvijo možnosti obravnavanja spletne vsebine ali spreminjanjem videza brskalnika."
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
