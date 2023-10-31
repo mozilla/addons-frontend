@@ -289,7 +289,6 @@ export const getMobileHomepageLink = (lang: string): string =>
 
 export const correctedLocationForPlatform = ({
   clientApp,
-  isHomePage = false,
   lang,
   location,
   userAgentInfo,
@@ -311,11 +310,8 @@ export const correctedLocationForPlatform = ({
 
   if (
     // Android browser on desktop site.
-    (isFirefoxForAndroid(userAgentInfo) && clientApp === CLIENT_APP_FIREFOX) ||
-    // Android browser on page other than Home or Search.
-    (isFirefoxForAndroid(userAgentInfo) &&
-      !isHomePage &&
-      !location.pathname.includes('/search/'))
+    isFirefoxForAndroid(userAgentInfo) &&
+    clientApp === CLIENT_APP_FIREFOX
   ) {
     // Redirect to `android` home page.
     return getMobileHomepageLink(lang);
