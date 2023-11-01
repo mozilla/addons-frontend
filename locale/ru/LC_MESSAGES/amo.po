@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-11-01 21:04+0000\n"
+"PO-Revision-Date: 2023-11-01 21:07+0000\n"
 "Last-Translator: Valery Ledovskoy <valery@ledovskoy.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -2879,11 +2879,11 @@ msgstr "Аккаунты Firefox были переименованы в акка
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "Аккаунты Firefox будут переименованы в аккаунты Mozilla 1 ноября"
 
 #: src/amo/pages/UserProfileEdit/index.js:569
 msgid "You will still sign in with the same username and password, and there are no other changes to the products that you use."
-msgstr ""
+msgstr "Вы по-прежнему будете входить в систему с тем же именем пользователя и паролем, и никаких других изменений в продуктах, которые вы используете, не произойдет."
 
 #: src/amo/pages/UserProfileEdit/index.js:591
 msgid "View user's profile"
@@ -2911,7 +2911,7 @@ msgstr "Здесь нельзя изменить адрес электронно
 
 #: src/amo/pages/UserProfileEdit/index.js:643
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Вы можете изменить свой адрес электронной почты в аккаунтах Mozilla. %(startLink)sНужна помощь?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:645
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2919,7 +2919,7 @@ msgstr "Вы можете изменить свой адрес электрон�
 
 #: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Управление аккаунтами Mozilla…"
 
 #: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
