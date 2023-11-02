@@ -721,7 +721,7 @@ describe(__filename, () => {
       ).toEqual(getMobileHomepageLink(lang));
     });
 
-    it('returns a link to the mobile homepage when on Firefox for Android and clientApp is android for most pages', () => {
+    it('returns null when on Firefox for Android and clientApp is android for most pages', () => {
       const lang = 'fr';
       expect(
         _correctedLocationForPlatform({
@@ -731,7 +731,7 @@ describe(__filename, () => {
           location: createFakeLocation({ pathname: '/some/path' }),
           userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
         }),
-      ).toEqual(getMobileHomepageLink(lang));
+      ).toEqual(null);
     });
 
     it('returns null when on Firefox for Android and clientApp is android for the home page', () => {

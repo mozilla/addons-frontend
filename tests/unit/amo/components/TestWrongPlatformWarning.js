@@ -168,6 +168,16 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
+  it('does not generate a message on android when on /android/ pages that are not home or search', () => {
+    _correctedLocationForPlatform.mockReturnValue(null);
+    _isFirefoxForAndroid.mockReturnValue(true);
+    render({ location: '/android/extensions/categories' });
+
+    expect(
+      screen.queryByClassName('WrongPlatformWarning'),
+    ).not.toBeInTheDocument();
+  });
+
   it('generates the expected message when being directed to other than the mobile home page, from the detail page', () => {
     const newLocation = '/some/location/';
     _correctedLocationForPlatform.mockReturnValue(newLocation);
