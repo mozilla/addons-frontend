@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-26 09:21+0000\n"
-"PO-Revision-Date: 2023-10-31 09:47+0000\n"
+"PO-Revision-Date: 2023-11-02 13:35+0000\n"
 "Last-Translator: Jenny <leanintocuriosity@gmx.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -954,7 +954,7 @@ msgstr "Viola la legge o include contenuti che violano la legge"
 
 #: src/amo/components/FeedbackForm/index.js:115
 msgid "Example: Copyright or Trademark Infringement, Fraud"
-msgstr ""
+msgstr "Esempio: violazione di copyright o marchi registrati, frode"
 
 #: src/amo/components/FeedbackForm/index.js:121
 msgid "Something else"
@@ -966,11 +966,11 @@ msgstr "Tutto ciò che non rientra nelle altre categorie"
 
 #: src/amo/components/FeedbackForm/index.js:229
 msgid "You sent a report about this add-on"
-msgstr ""
+msgstr "Hai inviato una segnalazione relativa a questo componente aggiuntivo"
 
 #: src/amo/components/FeedbackForm/index.js:233
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "Abbiamo ricevuto la tua segnalazione. Grazie per il tuo messaggio."
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Submitting your report…"
@@ -990,7 +990,7 @@ msgstr "Componente aggiuntivo"
 
 #: src/amo/components/FeedbackForm/index.js:319
 msgid "Send some feedback about an add-on"
-msgstr ""
+msgstr "Invia commenti relativi a un componente aggiuntivo"
 
 #: src/amo/components/FeedbackForm/index.js:325
 msgid "Report an add-on to Mozilla because it's illegal or incompliant"
@@ -998,17 +998,19 @@ msgstr "Segnala un componente aggiuntivo a Mozilla perché illegale o non confor
 
 #: src/amo/components/FeedbackForm/index.js:334
 msgid "Tell us more"
-msgstr ""
+msgstr "Inserisci ulteriori dettagli"
 
 #: src/amo/components/FeedbackForm/index.js:337
 msgid "Give details of your feedback or report"
-msgstr ""
+msgstr "Fornisci dettagli per i commenti o la segnalazione"
 
 #: src/amo/components/FeedbackForm/index.js:358
 msgid ""
 "I hereby certify, under penalty of perjury, my bona fide belief that the allegations in this report are complete and accurate. For allegations of trademark or copyright infringement, I further "
 "certify that I am either the affected rightsholder, or have been authorized to act on that rightsholder's behalf."
 msgstr ""
+"Con la presente dichiaro, sotto pena di spergiuro, di essere in buona fede convinto che le accuse contenute in questo rapporto siano complete e accurate. Per le accuse di violazione del copyright o "
+"dei marchi registrati, dichiaro inoltre di essere il titolare del diritto interessato, o di essere stato autorizzato ad agire per conto del titolare di tale diritto."
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Your details"
@@ -1036,7 +1038,7 @@ msgstr "Non funziona, rende i siti web inutilizzabili o rallenta Firefox"
 
 #: src/amo/components/FeedbackForm/index.js:83
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual"
-msgstr ""
+msgstr "Esempio: è difficile da utilizzare, è lenta o non funziona. I siti web si caricano in modo parziale o vengono visualizzati in modo incorretto"
 
 #: src/amo/components/FeedbackForm/index.js:89
 msgid "It’s SPAM"
@@ -1053,6 +1055,7 @@ msgstr "Viola le norme sui componenti aggiuntivi"
 #: src/amo/components/FeedbackForm/index.js:99
 msgid "Example: I didn’t want it or It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
 msgstr ""
+"Esempio: non ne ho richiesto l’installazione o ha compromesso i miei dati senza avvisare né chiedere, oppure ha cambiato il mio motore di ricerca o la mia pagina iniziale senza avvisare né chiedere."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
