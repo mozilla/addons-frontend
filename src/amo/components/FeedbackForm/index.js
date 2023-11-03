@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { withInstallHelpers } from 'amo/installAddon';
 import { sendAddonAbuseReport } from 'amo/reducers/abuse';
 import { getCurrentUser } from 'amo/reducers/users';
 import translate from 'amo/i18n/translate';
@@ -22,6 +23,8 @@ import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 import type { AddonType } from 'amo/types/addons';
 import type { DispatchFunc } from 'amo/types/redux';
+import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
+import type { InstalledAddon } from 'amo/reducers/installations';
 
 import './styles.scss';
 
@@ -35,6 +38,7 @@ type PropsFromState = {|
   abuseReport: AddonAbuseState | null,
   currentUser: UserType | null,
   loading: boolean,
+  installedAddon: InstalledAddon | null,
 |};
 
 type DefaultProps = {|
@@ -45,6 +49,7 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   ...DefaultProps,
+  ...WithInstallHelpersInjectedProps,
   dispatch: DispatchFunc,
   i18n: I18nType,
 |};
@@ -173,7 +178,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
   onSubmit: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
-    const { addon, dispatch, errorHandler } = this.props;
+    const { addon, dispatch, errorHandler, installedAddon } = this.props;
     const { email, name, text, category, violationLocation } = this.state;
 
     invariant(text.trim().length, 'A report cannot be sent with no content.');
@@ -190,6 +195,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
         message: text,
         reason: category,
         location: violationLocation,
+        addonVersion: installedAddon?.version || null,
       }),
     );
   };
@@ -457,15 +463,19 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
   const { addon } = ownProps;
   const currentUser = getCurrentUser(state.users);
+  const installedAddon =
+    (addon?.guid && state.installations[addon.guid]) || null;
 
   return {
     abuseReport: (addon?.slug && state.abuse.bySlug[addon.slug]) || null,
     currentUser,
     loading: state.abuse.loading,
+    installedAddon,
   };
 }
 
 const FeedbackForm: React.ComponentType<Props> = compose(
+  withInstallHelpers,
   connect(mapStateToProps),
   translate(),
 )(FeedbackFormBase);

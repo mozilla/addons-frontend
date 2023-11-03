@@ -28,6 +28,7 @@ export function* reportAddon({
     message,
     reason,
     location,
+    addonVersion,
   },
 }: SendAddonAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -45,20 +46,11 @@ export function* reportAddon({
       message,
       reason: reason || null,
       location: location || null,
+      addonVersion: addonVersion || null,
     };
     const response = yield call(reportAddonApi, params);
 
-    yield put(
-      loadAddonAbuseReport({
-        addon: response.addon,
-        reporterName: response.reporter_name,
-        reporterEmail: response.reporter_email,
-        message: response.message,
-        reason: response.reason,
-        reporter: response.reporter,
-        location: response.location,
-      }),
-    );
+    yield put(loadAddonAbuseReport(response));
   } catch (error) {
     log.warn(`Reporting add-on for abuse failed: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -78,10 +70,11 @@ export function* reportAddonViaFirefox({
           addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
           message: null,
           reporter: null,
-          reporterEmail: null,
-          reporterName: null,
+          reporter_email: null,
+          reporter_name: null,
           reason: null,
           location: null,
+          addon_version: null,
         }),
       );
     }
