@@ -1161,12 +1161,12 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it('renders only the Recommended extensions shelf on android', () => {
+  it('renders the recommended extensions shelf on android', () => {
     const clientApp = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp, store });
     render({ location: getLocation({ clientApp }) });
 
-    expect(screen.getAllByClassName('LandingAddonsCard')).toHaveLength(1);
+    expect(screen.getAllByClassName('LandingAddonsCard')).toHaveLength(2);
     expect(screen.getByText('Recommended extensions')).toBeInTheDocument();
 
     // Expect the shelf to be in a loading state.
@@ -1174,10 +1174,10 @@ describe(__filename, () => {
       within(screen.getByClassName('Home-RecommendedExtensions')).getAllByRole(
         'alert',
       ),
-    ).toHaveLength(40);
+    ).toHaveLength(16);
   });
 
-  it('renders the Recommended extensions shelf with data loaded on android', () => {
+  it('renders the recommended extensions shelf with data loaded on android', () => {
     const clientApp = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp, store });
     const addonName = 'My Add-On';
@@ -1204,10 +1204,56 @@ describe(__filename, () => {
     );
   });
 
+  it('renders the trending extensions shelf on android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    dispatchClientMetadata({ clientApp, store });
+    render({ location: getLocation({ clientApp }) });
+
+    expect(screen.getAllByClassName('LandingAddonsCard')).toHaveLength(2);
+    expect(
+      screen.getByText('Explore all Android extensions'),
+    ).toBeInTheDocument();
+
+    // Expect the shelf to be in a loading state.
+    expect(
+      within(screen.getByClassName('Home-TrendingExtensions')).getAllByRole(
+        'alert',
+      ),
+    ).toHaveLength(32);
+  });
+
   it('renders a comment for monitoring', () => {
     render();
 
     expect(screen.getByClassName('do-not-remove')).toBeInTheDocument();
+  });
+
+  it('renders the trending extensions shelf with data loaded on android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    dispatchClientMetadata({ clientApp, store });
+    const addonName = 'My Add-On';
+    const addon = { ...fakeAddon, name: createLocalizedString(addonName) };
+    const trendingExtensions = createAddonsApiResult([addon]);
+
+    renderWithHomeData({
+      location: getLocation({ clientApp }),
+      shelves: { trendingExtensions },
+    });
+
+    expect(
+      // eslint-disable-next-line testing-library/prefer-presence-queries
+      within(screen.getByClassName('Home-TrendingExtensions')).queryByRole(
+        'alert',
+      ),
+    ).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
+      'href',
+      `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
+        utm_source: DEFAULT_UTM_SOURCE,
+        utm_medium: DEFAULT_UTM_MEDIUM,
+        utm_content: INSTALL_SOURCE_FEATURED,
+      })}`,
+    );
   });
 
   it('dispatches an action to fetch the add-ons to display', () => {
@@ -1329,30 +1375,19 @@ describe(__filename, () => {
     );
   });
 
-  it('renders the heroHeader for Android', () => {
-    const clientApp = CLIENT_APP_ANDROID;
-    const description = 'A description';
-    const headline = 'A Headline';
-    dispatchClientMetadata({ clientApp, store });
-    renderWithHomeData({
-      location: getLocation({ clientApp }),
-      secondaryProps: { description, headline },
-    });
+  it('renders a static hero header for Android', () => {
+    dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
 
-    expect(screen.getByRole('heading', { name: headline })).toBeInTheDocument();
+    render();
+
     expect(
-      screen.getByRole('heading', { name: description }),
+      screen.getByRole('heading', { name: 'Firefox for Android extensions' }),
     ).toBeInTheDocument();
-  });
-
-  it('renders the heroHeader for Android in a loading state if shelves are not loaded', () => {
-    const clientApp = CLIENT_APP_ANDROID;
-    dispatchClientMetadata({ clientApp, store });
-    render({ location: getLocation({ clientApp }) });
-
     expect(
-      within(screen.getByClassName('Home-heroHeader')).getAllByRole('alert'),
-    ).toHaveLength(2);
+      screen.getByRole('heading', {
+        name: /^Personalize Firefox for Android.+/,
+      }),
+    ).toBeInTheDocument();
   });
 
   it('does not render the heroHeader for Desktop', () => {

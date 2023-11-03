@@ -12,17 +12,18 @@ import HeroRecommendation from 'amo/components/HeroRecommendation';
 import HomepageShelves from 'amo/components/HomepageShelves';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
-import LoadingText from 'amo/components/LoadingText';
 import Page from 'amo/components/Page';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
-  MOBILE_HOME_PAGE_EXTENSION_COUNT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   INSTALL_SOURCE_FEATURED,
+  MOBILE_HOME_PAGE_RECOMMENDED_EXTENSIONS_COUNT,
+  MOBILE_HOME_PAGE_TRENDING_EXTENSIONS_COUNT,
   RECOMMENDED,
   SEARCH_SORT_RANDOM,
+  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
@@ -131,29 +132,69 @@ export class HomeBase extends React.Component {
     );
   }
 
-  renderHeroHeader() {
-    const { homeShelves } = this.props;
+  renderAndroidHeroHeader() {
+    const { i18n } = this.props;
+
     return (
       <div className="Home-heroHeader">
         <h2 className="Home-heroHeader-title">
-          {homeShelves ? homeShelves.secondary.headline : <LoadingText />}
+          {i18n.gettext('Firefox for Android extensions')}
         </h2>
         <h3 className="Home-heroHeader-subtitle">
-          {homeShelves ? homeShelves.secondary.description : <LoadingText />}
+          {i18n.gettext(
+            `Personalize Firefox for Android with powerful extensions.`,
+          )}
         </h3>
       </div>
     );
   }
 
+  renderAndroidShelves() {
+    const { i18n, shelves, resultsLoaded } = this.props;
+    const loading = resultsLoaded === false;
+
+    return [
+      <LandingAddonsCard
+        key="recommended-extensions"
+        addonInstallSource={INSTALL_SOURCE_FEATURED}
+        addons={shelves.recommendedExtensions}
+        className="Home-RecommendedExtensions"
+        header={i18n.gettext('Recommended extensions')}
+        footerText={i18n.gettext('See more recommended extensions')}
+        footerLink={{
+          pathname: '/search/',
+          query: {
+            addonType: ADDON_TYPE_EXTENSION,
+            promoted: RECOMMENDED,
+            sort: SEARCH_SORT_RANDOM,
+          },
+        }}
+        loading={loading}
+        placeholderCount={MOBILE_HOME_PAGE_RECOMMENDED_EXTENSIONS_COUNT}
+      />,
+      <LandingAddonsCard
+        key="trending-extensions"
+        addonInstallSource={INSTALL_SOURCE_FEATURED}
+        addons={shelves.trendingExtensions}
+        className="Home-TrendingExtensions"
+        header={i18n.gettext('Explore all Android extensions')}
+        footerText={i18n.gettext('See more trending extensions')}
+        footerLink={{
+          pathname: '/search/',
+          query: {
+            addonType: ADDON_TYPE_EXTENSION,
+            sort: SEARCH_SORT_TRENDING,
+          },
+        }}
+        loading={loading}
+        placeholderCount={MOBILE_HOME_PAGE_TRENDING_EXTENSIONS_COUNT}
+      />,
+    ];
+  }
+
   render() {
-    const {
-      errorHandler,
-      homeShelves,
-      i18n,
-      isDesktopSite,
-      resultsLoaded,
-      shelves,
-    } = this.props;
+    const { errorHandler, homeShelves, i18n, isDesktopSite, resultsLoaded } =
+      this.props;
 
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
@@ -198,7 +239,7 @@ export class HomeBase extends React.Component {
               />
             ) : null}
 
-            {!isDesktopSite ? this.renderHeroHeader() : null}
+            {isDesktopSite ? null : this.renderAndroidHeroHeader()}
 
             {isDesktopSite ? (
               <HomepageShelves
@@ -206,23 +247,7 @@ export class HomeBase extends React.Component {
                 shelves={homeShelves ? homeShelves.results : []}
               />
             ) : (
-              <LandingAddonsCard
-                addonInstallSource={INSTALL_SOURCE_FEATURED}
-                addons={shelves.recommendedExtensions}
-                className="Home-RecommendedExtensions"
-                header={i18n.gettext('Recommended extensions')}
-                footerText={i18n.gettext('See more recommended extensions')}
-                footerLink={{
-                  pathname: '/search/',
-                  query: {
-                    addonType: ADDON_TYPE_EXTENSION,
-                    promoted: RECOMMENDED,
-                    sort: SEARCH_SORT_RANDOM,
-                  },
-                }}
-                loading={loading}
-                placeholderCount={MOBILE_HOME_PAGE_EXTENSION_COUNT}
-              />
+              this.renderAndroidShelves()
             )}
 
             {isDesktopSite ? (

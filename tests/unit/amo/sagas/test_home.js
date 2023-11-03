@@ -1,10 +1,12 @@
 import SagaTester from 'redux-saga-tester';
 
 import {
-  MOBILE_HOME_PAGE_EXTENSION_COUNT,
   ADDON_TYPE_EXTENSION,
+  MOBILE_HOME_PAGE_RECOMMENDED_EXTENSIONS_COUNT,
+  MOBILE_HOME_PAGE_TRENDING_EXTENSIONS_COUNT,
   RECOMMENDED,
   SEARCH_SORT_RANDOM,
+  SEARCH_SORT_TRENDING,
 } from 'amo/constants';
 import homeReducer, {
   abortFetchHomeData,
@@ -98,7 +100,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseApiArgs,
           filters: {
-            page_size: String(MOBILE_HOME_PAGE_EXTENSION_COUNT),
+            page_size: String(MOBILE_HOME_PAGE_RECOMMENDED_EXTENSIONS_COUNT),
             addonType: ADDON_TYPE_EXTENSION,
             promoted: RECOMMENDED,
             sort: SEARCH_SORT_RANDOM,
@@ -106,18 +108,28 @@ describe(__filename, () => {
         })
         .resolves(recommendedExtensions);
 
-      const homeShelves = createHomeShelves();
-      mockShelvesApi
-        .expects('getHomeShelves')
-        .withArgs(baseApiArgs)
-        .resolves(homeShelves);
+      const trendingExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseApiArgs,
+          filters: {
+            page_size: String(MOBILE_HOME_PAGE_TRENDING_EXTENSIONS_COUNT),
+            addonType: ADDON_TYPE_EXTENSION,
+            sort: SEARCH_SORT_TRENDING,
+          },
+        })
+        .resolves(trendingExtensions);
+
+      mockShelvesApi.expects('getHomeShelves').exactly(0);
 
       _fetchHomeData({ isDesktopSite: false });
 
       const loadAction = loadHomeData({
-        homeShelves,
+        homeShelves: null,
         shelves: {
           recommendedExtensions,
+          trendingExtensions,
         },
       });
 
@@ -176,21 +188,6 @@ describe(__filename, () => {
 
       const expectedAction = await sagaTester.waitFor(abortAction.type);
       expect(expectedAction).toEqual(abortAction);
-    });
-
-    it('does not attempt a search fetch after a failed homeShelves fetch', async () => {
-      mockSearchApi.expects('search').exactly(0);
-
-      const error = createApiError({ response: { status: 500 } });
-      mockShelvesApi.expects('getHomeShelves').rejects(error);
-
-      _fetchHomeData({ isDesktopSite: false });
-
-      const errorAction = errorHandler.createErrorAction(error);
-      await sagaTester.waitFor(errorAction.type);
-
-      mockShelvesApi.verify();
-      mockSearchApi.verify();
     });
   });
 });
