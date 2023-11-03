@@ -145,15 +145,27 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       component={CollectionEdit}
     />
 
+    {/* Only show category pages for both extensions and themes on Desktop. For
+        Android, we only allow category pages for extensions since Firefox for
+        Android doesn't support themes. */}
     <Route
       exact
-      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions|themes)/categories/"
+      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions)/categories/"
       component={CategoriesPage}
     />
-
     <Route
       exact
-      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions|themes)/category/:categorySlug/"
+      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions)/category/:categorySlug/"
+      component={CategoryPage}
+    />
+    <Route
+      exact
+      path="/:lang/:application(firefox)/:visibleAddonType(themes)/categories/"
+      component={CategoriesPage}
+    />
+    <Route
+      exact
+      path="/:lang/:application(firefox)/:visibleAddonType(themes)/category/:categorySlug/"
       component={CategoryPage}
     />
 
@@ -234,9 +246,18 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
         </Page>
       )}
     />
+
+    {/* Only show category pages for both extensions and themes on Desktop. For
+        Android, we only allow category pages for extensions since Firefox for
+        Android doesn't support themes. */}
     <Route
       exact
-      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions|themes)/"
+      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions)/"
+      component={LandingPage}
+    />
+    <Route
+      exact
+      path="/:lang/:application(firefox)/:visibleAddonType(themes)/"
       component={LandingPage}
     />
 
