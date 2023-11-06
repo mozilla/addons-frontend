@@ -2,6 +2,7 @@
 import config from 'config';
 import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
+import { oneLine } from 'common-tags';
 
 import { createApiError } from 'amo/api/index';
 import { getCategories } from 'amo/components/FeedbackForm';
@@ -14,6 +15,7 @@ import { setInstallState } from 'amo/reducers/installations';
 import {
   createFailedErrorHandler,
   createFakeErrorHandler,
+  createLocalizedString,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
   fakeAddon,
@@ -29,26 +31,31 @@ jest.mock('config');
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
   const lang = 'en-US';
-  const defaultName = 'Display McDisplayNamey';
-  const defaultEmail = 'otheruser@mozilla.com';
-  const defaultUserId = fakeAuthors[0].id;
+  const defaultUser = { ...fakeAuthors[0], email: 'some-email@example.org' };
   const defaultAddonGUID = '@guid';
-  const defaultReason = 'hateful_violent_deceptive';
-  const defaultReasonLabel =
-    'It contains hateful, violent, deceptive, or other inappropriate content';
+  const hatefulReason = 'hateful_violent_deceptive';
+  const hatefulReasonLabel = oneLine`It contains hateful, violent, deceptive,
+    or other inappropriate content`;
+  const illegalReasonLabel = oneLine`It violates the law or contains content
+    that violates the law`;
   const defaultMessage = 'its bad';
   const defaultLocation = 'both';
   const defaultLocationLabel = 'Both locations';
+  const defaultAddonName = 'some add-on name';
+  const certificationLabel = oneLine`By submitting this report I certify, under
+    penalty of perjury, that the allegations it contains are complete and
+    accurate, to the best of my knowledge.`;
+
+  const savedLocation = window.location;
 
   let store;
   let fakeConfig;
   let addon;
 
-  const savedLocation = window.location;
-
   beforeEach(() => {
     addon = {
       ...fakeAddon,
+      name: createLocalizedString(defaultAddonName),
       guid: defaultAddonGUID,
     };
     store = dispatchClientMetadata({ clientApp, lang }).store;
@@ -66,18 +73,12 @@ describe(__filename, () => {
     window.location = savedLocation;
   });
 
-  function defaultUserProps(props = {}) {
-    return {
-      name: defaultName,
-      email: defaultEmail,
-      ...props,
-    };
-  }
+  function signInUserWithProps({ userId, ...props } = {}) {
+    const { id, ...userProps } = defaultUser;
 
-  function signInUserWithProps({ userId = defaultUserId, ...props } = {}) {
     dispatchSignInActionsWithStore({
-      userId,
-      userProps: defaultUserProps(props),
+      userId: userId || id,
+      userProps: { ...userProps, ...props },
       store,
     });
     return userId;
@@ -120,6 +121,7 @@ describe(__filename, () => {
       fetchAddon({
         errorHandler,
         slug: defaultAddonGUID,
+        assumeNonPublic: true,
       }),
     );
   });
@@ -127,13 +129,19 @@ describe(__filename, () => {
   it('renders feedback form for logged out user with editable name and email', () => {
     render();
 
+    // Add-on header.
+    expect(screen.getByText(defaultAddonName)).toBeInTheDocument();
+    expect(screen.getByText(addon.authors[0].name)).toBeInTheDocument();
+
     expect(screen.getByText('Submit report')).toBeInTheDocument();
     expect(
-      screen.getByText(`Send some feedback about an add-on`),
+      screen.getByText(`Report this add-on to Mozilla`),
     ).toBeInTheDocument();
 
-    expect(screen.getByLabelText('Your Email Address')).not.toBeDisabled();
-    expect(screen.getByLabelText('Your Full Name')).not.toBeDisabled();
+    expect(screen.getByLabelText('Your name')).not.toBeDisabled();
+    expect(screen.getByLabelText('Your name').value).toBeEmpty();
+    expect(screen.getByLabelText('Your email address')).not.toBeDisabled();
+    expect(screen.getByLabelText('Your email address').value).toBeEmpty();
 
     expect(
       screen.queryByClassName('ReportAbuseButton-first-paragraph'),
@@ -146,15 +154,21 @@ describe(__filename, () => {
 
     expect(screen.getByText('Submit report')).toBeInTheDocument();
     expect(
-      screen.getByText(`Send some feedback about an add-on`),
+      screen.getByText('Report this add-on to Mozilla'),
     ).toBeInTheDocument();
 
-    const emailInput = screen.getByLabelText('Your Email Address');
-    expect(emailInput).toBeDisabled();
-    expect(emailInput).toHaveValue(fakeAuthors[0].displayName);
-    const nameInput = screen.getByLabelText('Your Full Name');
+    const nameInput = screen.getByLabelText('Your name');
     expect(nameInput).toBeDisabled();
-    expect(nameInput).toHaveValue(fakeAuthors[0].email);
+    expect(nameInput).toHaveValue(defaultUser.name);
+
+    const emailInput = screen.getByLabelText('Your email address');
+    expect(emailInput).toBeDisabled();
+    expect(emailInput).toHaveValue(defaultUser.email);
+
+    // SignedInUser component should be visible.
+    expect(
+      screen.getByText(`Signed in as ${defaultUser.name}`),
+    ).toBeInTheDocument();
 
     expect(
       screen.queryByClassName('ReportAbuseButton-first-paragraph'),
@@ -168,10 +182,10 @@ describe(__filename, () => {
     ['report', 'other'],
     ['feedback', 'does_not_work'],
     ['feedback', 'feedback_spam'],
-  ])(`renders reason %s`, (category, reason_slug) => {
+  ])(`renders reason %s`, (category, reasonSlug) => {
     const categories = getCategories(fakeI18n());
     const reason = categories[category].find(
-      (item) => reason_slug === item.value,
+      (item) => reasonSlug === item.value,
     );
     render();
 
@@ -185,15 +199,15 @@ describe(__filename, () => {
 
     await userEvent.type(
       screen.getByRole('textbox', {
-        name: 'Give details of your feedback or report',
+        name: 'Provide more details (optional)',
       }),
       defaultMessage,
     );
     await userEvent.click(
-      screen.getByRole('radio', { name: defaultReasonLabel }),
+      screen.getByRole('radio', { name: hatefulReasonLabel }),
     );
     await userEvent.selectOptions(
-      screen.getByRole('combobox', { name: 'Where is the offending content' }),
+      screen.getByRole('combobox', { name: 'Place of the violation' }),
       defaultLocationLabel,
     );
     await userEvent.click(screen.getByRole('checkbox'));
@@ -208,10 +222,34 @@ describe(__filename, () => {
         reporterEmail: '',
         reporterName: '',
         message: defaultMessage,
-        reason: defaultReason,
+        reason: hatefulReason,
         location: defaultLocation,
       }),
     );
+  });
+
+  it('shows a certification checkbox when the chosen reason requires it', async () => {
+    render();
+
+    expect(screen.queryByLabelText(certificationLabel)).not.toBeInTheDocument();
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: hatefulReasonLabel }),
+    );
+
+    expect(screen.getByLabelText(certificationLabel)).toBeInTheDocument();
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: 'Something else' }),
+    );
+
+    expect(screen.queryByLabelText(certificationLabel)).not.toBeInTheDocument();
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: illegalReasonLabel }),
+    );
+
+    expect(screen.getByLabelText(certificationLabel)).toBeInTheDocument();
   });
 
   it('sends the installed add-on version when available', async () => {
@@ -227,15 +265,15 @@ describe(__filename, () => {
 
     await userEvent.type(
       screen.getByRole('textbox', {
-        name: 'Give details of your feedback or report',
+        name: 'Provide more details (optional)',
       }),
       defaultMessage,
     );
     await userEvent.click(
-      screen.getByRole('radio', { name: defaultReasonLabel }),
+      screen.getByRole('radio', { name: hatefulReasonLabel }),
     );
     await userEvent.selectOptions(
-      screen.getByRole('combobox', { name: 'Where is the offending content' }),
+      screen.getByRole('combobox', { name: 'Place of the violation' }),
       defaultLocationLabel,
     );
     await userEvent.click(screen.getByRole('checkbox'));
@@ -250,7 +288,7 @@ describe(__filename, () => {
         reporterEmail: '',
         reporterName: '',
         message: defaultMessage,
-        reason: defaultReason,
+        reason: hatefulReason,
         location: defaultLocation,
         addonVersion: version,
       }),
@@ -275,18 +313,18 @@ describe(__filename, () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.queryByText('Send some feedback about an add-on'),
+      screen.queryByText('Report this add-on to Mozilla'),
     ).not.toBeInTheDocument();
   });
 
   it('renders a submit button with a different text when updating', async () => {
     render();
     await userEvent.click(
-      screen.getByRole('radio', { name: defaultReasonLabel }),
+      screen.getByRole('radio', { name: hatefulReasonLabel }),
     );
     await userEvent.type(
       screen.getByRole('textbox', {
-        name: 'Give details of your feedback or report',
+        name: 'Provide more details (optional)',
       }),
       defaultMessage,
     );
@@ -341,7 +379,7 @@ describe(__filename, () => {
     expect(window.scroll).not.toHaveBeenCalled();
   });
 
-  it('renders a not found page if the API request is a 404', () => {
+  it('renders a not found page if the API response is a 404', () => {
     createFailedErrorHandler({
       error: createApiError({
         response: { status: 404 },
@@ -354,22 +392,6 @@ describe(__filename, () => {
 
     expect(
       screen.getByText('Oops! We can’t find that page'),
-    ).toBeInTheDocument();
-  });
-
-  it('renders the form without the addon if the API request is a 401', () => {
-    createFailedErrorHandler({
-      error: createApiError({
-        response: { status: 401 },
-      }),
-      id: getErrorHandlerId(defaultAddonGUID),
-      store,
-    });
-
-    render();
-
-    expect(
-      screen.getByText('Send some feedback about an add-on'),
     ).toBeInTheDocument();
   });
 

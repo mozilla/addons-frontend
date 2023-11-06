@@ -3,7 +3,6 @@
 import invariant from 'invariant';
 import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
-import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -13,8 +12,11 @@ import { getCurrentUser } from 'amo/reducers/users';
 import translate from 'amo/i18n/translate';
 import Button from 'amo/components/Button';
 import Card from 'amo/components/Card';
+import AddonTitle from 'amo/components/AddonTitle';
 import Notice from 'amo/components/Notice';
 import Select from 'amo/components/Select';
+import SignedInUser from 'amo/components/SignedInUser';
+import { getAddonIconUrl } from 'amo/imageUtils';
 import type { AddonAbuseState } from 'amo/reducers/abuse';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
@@ -30,7 +32,6 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
-  addonId: string,
   errorHandler: ErrorHandlerType,
 |};
 
@@ -59,8 +60,8 @@ type FormValues = {|
   email: string,
   text: string,
   category: string | null,
-  legalAssertion: boolean,
-  violationLocation: string | null,
+  certification: boolean,
+  location: string | null,
 |};
 
 type State = {|
@@ -88,14 +89,14 @@ export const getCategories = (
           'It doesn’t work, breaks websites, or slows down Firefox',
         ),
         help: i18n.gettext(
-          "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual",
+          "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual.",
         ),
       },
       {
         value: 'feedback_spam',
         label: i18n.gettext('It’s SPAM'),
         help: i18n.gettext(
-          'Example: An application installed it without my permission',
+          'Example: The listing advertises unrelated products or services.',
         ),
       },
     ],
@@ -104,7 +105,7 @@ export const getCategories = (
         value: 'policy_violation',
         label: i18n.gettext('It violates Add-on Policies'),
         help: i18n.gettext(
-          'Example: I didn’t want it or It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me.',
+          'Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me.',
         ),
       },
       {
@@ -112,7 +113,7 @@ export const getCategories = (
         label: i18n.gettext(
           'It contains hateful, violent, deceptive, or other inappropriate content',
         ),
-        help: i18n.gettext('Example: contains racist imagery'),
+        help: i18n.gettext('Example: It contains racist imagery.'),
       },
       {
         value: 'illegal',
@@ -120,14 +121,14 @@ export const getCategories = (
           'It violates the law or contains content that violates the law',
         ),
         help: i18n.gettext(
-          'Example: Copyright or Trademark Infringement, Fraud',
+          'Example: Copyright or Trademark Infringement, Fraud.',
         ),
       },
       {
         value: 'other',
         label: i18n.gettext('Something else'),
         help: i18n.gettext(
-          'Anything that doesn’t fit into the other categories',
+          'Anything that doesn’t fit into the other categories.',
         ),
       },
     ],
@@ -167,10 +168,15 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
   onFieldChange: (event: SyntheticEvent<HTMLInputElement>) => void = (
     event: SyntheticEvent<HTMLInputElement>,
   ) => {
-    const { name, value } = event.currentTarget;
+    const { name, value, checked } = event.currentTarget;
+
+    let newValue: boolean | string | null = value;
+    if (name === 'certification') {
+      newValue = checked;
+    }
 
     this.setState({
-      [name]: value,
+      [name]: newValue,
       successMessage: null,
     });
   };
@@ -179,9 +185,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     event.preventDefault();
 
     const { addon, dispatch, errorHandler, installedAddon } = this.props;
-    const { email, name, text, category, violationLocation } = this.state;
+    const { email, name, text, category, location } = this.state;
 
-    invariant(text.trim().length, 'A report cannot be sent with no content.');
     invariant(addon, 'An add-on is required for a report.');
 
     dispatch(
@@ -194,7 +199,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
         reporterName: name,
         message: text,
         reason: category,
-        location: violationLocation,
+        location,
         addonVersion: installedAddon?.version || null,
       }),
     );
@@ -206,8 +211,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       name: '',
       text: '',
       category: null,
-      legalAssertion: false,
-      violationLocation: null,
+      certification: false,
+      location: null,
     };
 
     const { email, display_name: name } = currentUser || {};
@@ -221,14 +226,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
   preventSubmit(): boolean {
     const { loading } = this.props;
-    const { text, category, legalAssertion } = this.state;
+    const { category, certification } = this.state;
 
     return (
-      loading ||
-      !category ||
-      !text ||
-      (text && text.trim() === '') ||
-      !legalAssertion
+      loading || !category || (this.isCertificationRequired() && !certification)
     );
   }
 
@@ -249,8 +250,14 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     );
   }
 
+  isCertificationRequired(): boolean {
+    return ['illegal', 'hateful_violent_deceptive'].includes(
+      this.state.category,
+    );
+  }
+
   render(): React.Node {
-    const { addonId, abuseReport, currentUser, errorHandler, i18n, loading } =
+    const { abuseReport, addon, currentUser, errorHandler, i18n, loading } =
       this.props;
 
     let errorMessage;
@@ -288,14 +295,16 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
             >
               {category.label}
             </label>
-            <p className="FeedbackForm--help">{category.help}</p>
+            {category.help && (
+              <p className="FeedbackForm--help">{category.help}</p>
+            )}
           </li>,
         );
       });
     }
 
-    const violationLocationOptions = [
-      { children: i18n.gettext('--Select a location--'), value: '' },
+    const locationOptions = [
+      { children: i18n.gettext('Select place'), value: '' },
       {
         children: i18n.gettext("On the add-on's page on this website"),
         value: 'amo',
@@ -308,19 +317,19 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
     return (
       <div className="FeedbackForm">
-        <Helmet>
-          <title>
-            {i18n.sprintf(
-              i18n.gettext(
-                'Submit feedback or report for %(type)s %(identifier)s',
-              ),
-              {
-                type: i18n.gettext('Add-on'),
-                identifier: addonId,
-              },
-            )}
-          </title>
-        </Helmet>
+        <Card className="FeedbackForm-header">
+          <div className="FeedbackForm-header-icon">
+            <div className="FeedbackForm-header-icon-wrapper">
+              <img
+                className="FeedbackForm-header-icon-image"
+                src={getAddonIconUrl(addon)}
+                alt=""
+              />
+            </div>
+          </div>
+
+          <AddonTitle addon={addon} />
+        </Card>
 
         {abuseSubmitted ? (
           this.renderReportSentConfirmation(i18n)
@@ -333,125 +342,117 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 <Notice type="success">{this.state.successMessage}</Notice>
               )}
             </div>
-            <div>
-              <Card
-                className="FeedbackForm--Card"
-                header={i18n.gettext('Send some feedback about an add-on')}
-              >
-                <ul>{categoryInputs.feedback}</ul>
-              </Card>
-              <Card
-                className="FeedbackForm--Card"
-                header={i18n.gettext(
-                  "Report an add-on to Mozilla because it's illegal or incompliant",
+
+            <Card
+              className="FeedbackForm--Card"
+              header={i18n.gettext('Report this add-on to Mozilla')}
+            >
+              <h3>{i18n.gettext('Send some feedback about the add-on')}</h3>
+              <ul>{categoryInputs.feedback}</ul>
+
+              <h3>
+                {i18n.gettext(
+                  "Report the add-on because it's illegal or incompliant",
                 )}
-              >
-                <ul>{categoryInputs.report}</ul>
-              </Card>
+              </h3>
+              <ul>{categoryInputs.report}</ul>
+            </Card>
 
-              <Card
-                className="FeedbackForm--Card"
-                header={i18n.gettext('Tell us more')}
+            <Card
+              className="FeedbackForm--Card"
+              header={i18n.gettext('Provide more information')}
+            >
+              <label className="FeedbackForm--label" htmlFor="feedbackLocation">
+                {i18n.gettext('Place of the violation')}
+              </label>
+              <Select
+                className="FeedbackForm-location"
+                id="feedbackLocation"
+                name="location"
+                onChange={this.onFieldChange}
+                value={this.state.location}
               >
-                <label
-                  className="FeedbackForm--label"
-                  htmlFor="feedbackLocation"
-                >
-                  {i18n.gettext('Where is the offending content')}
-                </label>
-                <Select
-                  className="FeedbackForm-violationLocation"
-                  id="feedbackLocation"
-                  name="violationLocation"
-                  onChange={this.onFieldChange}
-                  value={this.state.violationLocation}
-                >
-                  {violationLocationOptions.map((option) => {
-                    return <option key={option.value} {...option} />;
-                  })}
-                </Select>
+                {locationOptions.map((option) => {
+                  return <option key={option.value} {...option} />;
+                })}
+              </Select>
 
-                <label className="FeedbackForm--label" htmlFor="feedbackText">
-                  {i18n.gettext('Give details of your feedback or report')}
-                </label>
-                <Textarea
-                  className="FeedbackForm-text"
-                  id="feedbackText"
-                  name="text"
-                  onChange={this.onFieldChange}
-                  value={this.state.text}
-                />
-                <input
-                  type="checkbox"
-                  className="FeedbackForm-legalAssertion"
-                  id="feedbackLegalAssertion"
-                  name="legalAssertion"
-                  onChange={this.onFieldChange}
-                  required="true"
-                />
-                <label
-                  className="FeedbackForm--label"
-                  htmlFor="feedbackLegalAssertion"
-                >
-                  {i18n.gettext(
-                    'I hereby certify, under penalty of perjury, my bona fide belief ' +
-                      'that the allegations in this report are complete and accurate. ' +
-                      'For allegations of trademark or copyright infringement, I further ' +
-                      'certify that I am either the affected rightsholder, or have been ' +
-                      "authorized to act on that rightsholder's behalf.",
-                  )}
-                </label>
-              </Card>
+              <label className="FeedbackForm--label" htmlFor="feedbackText">
+                {i18n.gettext('Provide more details')}
+                <span>({i18n.gettext('optional')})</span>
+              </label>
+              <Textarea
+                className="FeedbackForm-text"
+                id="feedbackText"
+                name="text"
+                onChange={this.onFieldChange}
+                value={this.state.text}
+              />
+            </Card>
 
-              <Card
-                className="FeedbackForm--Card"
-                header={i18n.gettext('Your details')}
-              >
-                <p className="FeedbackForm-details-aside">
-                  {currentUser
-                    ? i18n.gettext(
-                        'We will notify you by email with any updates about your report.',
-                      )
-                    : i18n.gettext(
-                        'To receive updates about your report enter your name and email address.',
-                      )}
+            <Card
+              className="FeedbackForm--Card"
+              header={i18n.gettext('Contact information')}
+            >
+              {currentUser && <SignedInUser user={currentUser} />}
+
+              <label className="FeedbackForm--label" htmlFor="feedbackName">
+                {i18n.gettext('Your name')}
+              </label>
+              <input
+                className="FeedbackForm-name"
+                id="feedbackName"
+                name="name"
+                disabled={currentUser}
+                onChange={this.onFieldChange}
+                value={this.state.name || (currentUser && currentUser.name)}
+              />
+
+              <label className="FeedbackForm--label" htmlFor="feedbackEmail">
+                {i18n.gettext('Your email address')}
+              </label>
+              <input
+                className="FeedbackForm-email"
+                id="feedbackEmail"
+                name="email"
+                disabled={currentUser}
+                onChange={this.onFieldChange}
+                value={this.state.email || (currentUser && currentUser.email)}
+              />
+
+              {this.isCertificationRequired() && (
+                <p>
+                  <input
+                    type="checkbox"
+                    className="FeedbackForm-certification"
+                    id="feedbackCertification"
+                    name="certification"
+                    onChange={this.onFieldChange}
+                    checked={!!this.state.certification}
+                    required={this.isCertificationRequired()}
+                  />
+                  <label
+                    className="FeedbackForm--label"
+                    htmlFor="feedbackCertification"
+                  >
+                    {i18n.gettext(`By submitting this report I certify, under
+                    penalty of perjury, that the allegations it contains are
+                    complete and accurate, to the best of my knowledge.`)}
+                  </label>
                 </p>
-                <label className="FeedbackForm--label" htmlFor="feedbackName">
-                  {i18n.gettext('Your Full Name')}
-                </label>
-                <input
-                  className="FeedbackForm-name"
-                  id="feedbackName"
-                  name="name"
-                  disabled={currentUser}
-                  onChange={this.onFieldChange}
-                  value={this.state.name || (currentUser && currentUser.name)}
-                />
+              )}
+            </Card>
 
-                <label className="FeedbackForm--label" htmlFor="feedbackEmail">
-                  {i18n.gettext('Your Email Address')}
-                </label>
-                <input
-                  className="FeedbackForm-email"
-                  id="feedbackEmail"
-                  name="email"
-                  disabled={currentUser}
-                  onChange={this.onFieldChange}
-                  value={this.state.email || (currentUser && currentUser.email)}
-                />
-              </Card>
-
-              <div className="FeedbackForm-buttons-wrapper">
-                <Button
-                  buttonType="action"
-                  className="FeedbackForm-submit-button FeedbackForm-button"
-                  disabled={this.preventSubmit()}
-                  puffy
-                  type="submit"
-                >
-                  {submitButtonText}
-                </Button>
-              </div>
+            <div className="FeedbackForm-buttons-wrapper">
+              <Button
+                buttonType="action"
+                className="FeedbackForm-submit-button FeedbackForm-button"
+                disabled={this.preventSubmit()}
+                puffy
+                type="submit"
+              >
+                {submitButtonText}
+              </Button>
             </div>
           </form>
         )}

@@ -1,6 +1,8 @@
 /* @flow */
 import { call, put, select, takeEvery, takeLatest } from 'redux-saga/effects';
+import config from 'config';
 
+import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import { getAddonInfo } from 'amo/api/addonInfo';
 import { fetchAddon as fetchAddonFromApi } from 'amo/api';
 import {
@@ -24,7 +26,7 @@ import type {
 import type { Saga } from 'amo/types/sagas';
 
 export function* fetchAddon({
-  payload: { errorHandlerId, showGroupedRatings, slug },
+  payload: { errorHandlerId, showGroupedRatings, slug, assumeNonPublic },
 }: FetchAddonAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -42,7 +44,49 @@ export function* fetchAddon({
     yield put(loadAddon({ addon, slug }));
   } catch (error) {
     log.warn(`Failed to load add-on with slug ${slug}: ${error}`);
-    yield put(errorHandler.createErrorAction(error));
+
+    if ([401, 403].includes(error.response?.status) && assumeNonPublic) {
+      log.warn('Assuming we attempted to fetch a non-public add-on');
+      const defaultLocale = config.get('defaultLang');
+      const addon = {
+        slug,
+        // This isn't going to be a numeric ID but that should still be fine.
+        id: (slug: any),
+        guid: slug,
+        name: {
+          [defaultLocale]: slug,
+        },
+        default_locale: defaultLocale,
+        homepage: null,
+        contributions_url: null,
+        url: '',
+        average_daily_users: 0,
+        weekly_downloads: 0,
+        tags: [],
+        support_url: null,
+        ratings: {
+          average: 0,
+          bayesian_average: 0,
+          count: 0,
+          grouped_counts: {
+            '1': 0,
+            '2': 0,
+            '3': 0,
+            '4': 0,
+            '5': 0,
+          },
+          text_count: 0,
+        },
+        // Assume extension.
+        type: ADDON_TYPE_EXTENSION,
+        promoted: null,
+        created: new Date(0),
+        last_updated: null,
+      };
+      yield put(loadAddon({ addon, slug }));
+    } else {
+      yield put(errorHandler.createErrorAction(error));
+    }
   }
 }
 

@@ -25,7 +25,7 @@ export type ReportAddonParams = {|
   api: ApiState,
   reporterName: string | null,
   reporterEmail: string | null,
-  message: string,
+  message: string | null,
   reason: string | null,
   location: string | null,
   addonVersion: string | null,
