@@ -20,7 +20,7 @@ references:
     working_directory: ~/addons-frontend
     docker:
       # This is the next NodeJS version we will support.
-      - image: cimg/node:20.09
+      - image: cimg/node:20.9
 
   defaults-release: &defaults-release
     machine:
