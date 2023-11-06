@@ -14,17 +14,17 @@ references:
     working_directory: ~/addons-frontend
     docker:
       # This is the NodeJS version we run in production.
-      - image: cimg/node:16.19
+      - image: cimg/node:18.18
 
   defaults-next: &defaults-next
     working_directory: ~/addons-frontend
     docker:
       # This is the next NodeJS version we will support.
-      - image: cimg/node:18.12
+      - image: cimg/node:20.9
 
   defaults-release: &defaults-release
     machine:
-      image: ubuntu-2004:202201-02
+      image: ubuntu-2004:2023.10.1
     working_directory: ~/addons-frontend
 
   restore_build_cache: &restore_build_cache
@@ -203,7 +203,7 @@ jobs:
     <<: *defaults-release
     steps:
       - better_checkout
-      - run: pyenv global 3.10.2
+      - run: pyenv global 3.11
       - run: pip install tox
       - run: TOXENV=dennis-lint tox
 
