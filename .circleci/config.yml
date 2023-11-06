@@ -203,7 +203,7 @@ jobs:
     <<: *defaults-release
     steps:
       - better_checkout
-      - run: pyenv global 3.10.2
+      - run: pyenv global 3.11
       - run: pip install tox
       - run: TOXENV=dennis-lint tox
 
