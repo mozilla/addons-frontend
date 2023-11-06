@@ -82,12 +82,13 @@ type LoadAddonAbuseReportAction = {|
 
 export function loadAddonAbuseReport({
   addon,
-  reporterEmail,
-  reporterName,
+  reporter_email,
+  reporter_name,
   message,
   reason,
   reporter,
   location,
+  addon_version,
 }: ReportAddonResponse): LoadAddonAbuseReportAction {
   invariant(addon, 'addon is required');
   invariant(typeof message !== 'undefined', 'message must be defined');
@@ -97,12 +98,13 @@ export function loadAddonAbuseReport({
     type: LOAD_ADDON_ABUSE_REPORT,
     payload: {
       addon,
-      reporterEmail,
-      reporterName,
+      reporter_email,
+      reporter_name,
       message,
       reason,
       reporter,
       location,
+      addon_version,
     },
   };
 }
@@ -115,6 +117,7 @@ type SendAddonAbuseReportParams = {|
   message: string,
   reason?: string | null,
   location?: string | null,
+  addonVersion?: string | null,
 |};
 
 export type SendAddonAbuseReportAction = {|
@@ -130,6 +133,7 @@ export function sendAddonAbuseReport({
   message,
   reason = null,
   location = null,
+  addonVersion = null,
 }: SendAddonAbuseReportParams): SendAddonAbuseReportAction {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
@@ -145,6 +149,7 @@ export function sendAddonAbuseReport({
       message,
       reason,
       location,
+      addonVersion,
     },
   };
 }

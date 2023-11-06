@@ -103,6 +103,7 @@ describe(__filename, () => {
           reporterName: 'Foxy',
           reporterEmail: 'made_up@email',
           location: 'both',
+          addonVersion: '1.2.3',
         };
       });
 

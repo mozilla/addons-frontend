@@ -10,6 +10,7 @@ import { extractId } from 'amo/pages/Feedback';
 import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
 import { loadAddon, fetchAddon } from 'amo/reducers/addons';
 import { clearError } from 'amo/reducers/errors';
+import { setInstallState } from 'amo/reducers/installations';
 import {
   createFailedErrorHandler,
   createFakeErrorHandler,
@@ -209,6 +210,49 @@ describe(__filename, () => {
         message: defaultMessage,
         reason: defaultReason,
         location: defaultLocation,
+      }),
+    );
+  });
+
+  it('sends the installed add-on version when available', async () => {
+    const version = '2.4.5';
+    store.dispatch(
+      setInstallState({
+        guid: defaultAddonGUID,
+        version,
+      }),
+    );
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
+
+    await userEvent.type(
+      screen.getByRole('textbox', {
+        name: 'Give details of your feedback or report',
+      }),
+      defaultMessage,
+    );
+    await userEvent.click(
+      screen.getByRole('radio', { name: defaultReasonLabel }),
+    );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', { name: 'Where is the offending content' }),
+      defaultLocationLabel,
+    );
+    await userEvent.click(screen.getByRole('checkbox'));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendAddonAbuseReport({
+        errorHandlerId: getErrorHandlerId(defaultAddonGUID),
+        addonId: defaultAddonGUID,
+        reporterEmail: '',
+        reporterName: '',
+        message: defaultMessage,
+        reason: defaultReason,
+        location: defaultLocation,
+        addonVersion: version,
       }),
     );
   });

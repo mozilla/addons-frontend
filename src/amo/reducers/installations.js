@@ -38,6 +38,7 @@ export type InstalledAddon = {
   needsRestart?: boolean,
   status: InstalledAddonStatus,
   url?: $PropertyType<AddonType, 'url'>,
+  version?: string,
 };
 
 export type InstallationsState = {
@@ -119,6 +120,7 @@ export default function installations(
           needsRestart: payload.needsRestart || false,
           status: payload.status,
           url: payload.url,
+          version: payload.version,
         },
       };
     case START_DOWNLOAD:

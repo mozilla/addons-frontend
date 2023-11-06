@@ -148,10 +148,11 @@ describe(__filename, () => {
         addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
         message: null,
         reporter: null,
-        reporterName: null,
-        reporterEmail: null,
+        reporter_name: null,
+        reporter_email: null,
         reason: null,
         location: null,
+        addon_version: null,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);

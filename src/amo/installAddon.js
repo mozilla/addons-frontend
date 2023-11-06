@@ -220,6 +220,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
               ...payload,
               status,
               canUninstall: clientAddon.canUninstall,
+              version: clientAddon.version,
             }),
           );
         },
