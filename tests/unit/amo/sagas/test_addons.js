@@ -1,5 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
+import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import * as addonInfoApi from 'amo/api/addonInfo';
 import * as api from 'amo/api';
 import addonsReducer, {
@@ -70,6 +71,75 @@ describe(__filename, () => {
 
       mockApi.verify();
     });
+
+    it.each([401, 403])(
+      'kinda fetches a non-public addon from the API (status=%d)',
+      async (status) => {
+        const guid = 'some-guid';
+        mockApi
+          .expects('fetchAddon')
+          .once()
+          .withArgs({
+            slug: guid,
+            api: { ...apiState },
+            showGroupedRatings: false,
+          })
+          .returns(
+            Promise.reject(
+              api.createApiError({ url: '', response: { status } }),
+            ),
+          );
+
+        _fetchAddon({
+          assumeNonPublic: true,
+          slug: guid,
+          showGroupedRatings: false,
+        });
+
+        const expectedAction = loadAddon({
+          addon: {
+            slug: guid,
+            // This isn't going to be a numeric ID but that should still be fine.
+            id: guid,
+            guid,
+            name: {
+              'en-US': guid,
+            },
+            default_locale: 'en-US',
+            homepage: null,
+            contributions_url: null,
+            url: '',
+            average_daily_users: 0,
+            weekly_downloads: 0,
+            tags: [],
+            support_url: null,
+            ratings: {
+              average: 0,
+              bayesian_average: 0,
+              count: 0,
+              grouped_counts: {
+                '1': 0,
+                '2': 0,
+                '3': 0,
+                '4': 0,
+                '5': 0,
+              },
+              text_count: 0,
+            },
+            // Assume extension.
+            type: ADDON_TYPE_EXTENSION,
+            promoted: null,
+            created: new Date(0),
+            last_updated: null,
+          },
+          slug: guid,
+        });
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+
+        mockApi.verify();
+      },
+    );
 
     it('clears the error handler', async () => {
       mockApi.expects('fetchAddon').returns(Promise.resolve(fakeAddon));

@@ -131,15 +131,6 @@ describe(__filename, () => {
           sendAddonAbuseReport(partialParams);
         }).toThrow('errorHandlerId is required');
       });
-
-      it('requires a message', () => {
-        expect(() => {
-          const partialParams = { ...defaultParams };
-          delete partialParams.message;
-
-          sendAddonAbuseReport(partialParams);
-        }).toThrow('message is required');
-      });
     });
 
     describe('loadAddonAbuseReport', () => {

@@ -73,6 +73,41 @@ describe(__filename, () => {
       expect(loadAction).toEqual(expectedLoadAction);
     });
 
+    it('kinda handles non-public add-ons', async () => {
+      const addon = { ...fakeAddon };
+      const response = {
+        // This is how a response for a non-public add-on looks like.
+        addon: {
+          guid: addon.guid,
+          id: null,
+          slug: null,
+        },
+        message: '',
+        reporter: null,
+      };
+
+      mockApi.expects('reportAddon').once().returns(Promise.resolve(response));
+
+      // Send the add-on GUID.
+      _sendAddonAbuseReport({ addonId: addon.guid });
+
+      const expectedLoadAction = loadAddonAbuseReport({
+        addon: {
+          ...response.addon,
+          guid: addon.guid,
+          slug: addon.guid,
+        },
+        message: response.message,
+        reporter: response.reporter,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const loadAction = sagaTester.getCalledActions()[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
     it('clears the error handler', async () => {
       _sendAddonAbuseReport();
 

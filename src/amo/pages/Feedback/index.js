@@ -2,7 +2,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { Helmet } from 'react-helmet';
 
+import translate from 'amo/i18n/translate';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Page from 'amo/components/Page';
 import {
@@ -17,6 +19,9 @@ import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonType } from 'amo/types/addons';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterMatchType } from 'amo/types/router';
+import type { I18nType } from 'amo/types/i18n';
+
+import './styles.scss';
 
 type Props = {|
   match: {|
@@ -33,6 +38,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
+  i18n: I18nType,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
 |};
@@ -61,34 +67,34 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
         fetchAddon({
           slug: match.params.addonIdentifier,
           errorHandler,
+          assumeNonPublic: true,
         }),
       );
     }
   }
 
   render(): React.Node {
-    const { errorHandler, match } = this.props;
-    let { addon } = this.props;
+    const { addon, errorHandler, i18n } = this.props;
 
-    if (errorHandler.hasError()) {
-      if (errorHandler.capturedError.responseStatusCode === 404) {
-        return <NotFoundPage />;
-      }
-
-      if ([401, 403].includes(errorHandler.capturedError.responseStatusCode)) {
-        // If we cannot load an add-on because of a 401 or 403, this might be
-        // because we're attempting to load an unlisted add-on.
-        addon = null;
-      }
+    if (
+      errorHandler.hasError() &&
+      errorHandler.capturedError.responseStatusCode === 404
+    ) {
+      return <NotFoundPage />;
     }
 
     return (
       <Page>
-        <FeedbackForm
-          addonId={match.params.addonIdentifier}
-          addon={addon}
-          errorHandler={errorHandler}
-        />
+        <div className="Feedback-page">
+          <Helmet>
+            <title>
+              {i18n.gettext('Submit feedback or report an add-on to Mozilla')}
+            </title>
+            <meta name="robots" content="noindex, follow" />
+          </Helmet>
+
+          <FeedbackForm addon={addon} errorHandler={errorHandler} />
+        </div>
       </Page>
     );
   }
@@ -112,6 +118,7 @@ export const extractId = (ownProps: InternalProps): string => {
 };
 
 const Feedback: React.ComponentType<Props> = compose(
+  translate(),
   connect(mapStateToProps),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(FeedbackBase);

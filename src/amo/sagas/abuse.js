@@ -50,6 +50,17 @@ export function* reportAddon({
     };
     const response = yield call(reportAddonApi, params);
 
+    // Update the response for non-public add-ons so that the rest of our
+    // (redux) logic isn't confused by the lack of information.
+    if (!response.addon.id && !response.addon.slug) {
+      const { addon } = response;
+      response.addon = {
+        ...addon,
+        guid: addon.guid,
+        slug: addon.guid,
+      };
+    }
+
     yield put(loadAddonAbuseReport(response));
   } catch (error) {
     log.warn(`Reporting add-on for abuse failed: ${error}`);
