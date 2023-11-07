@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 import { oneLine } from 'common-tags';
 
-import { createApiError } from 'amo/api/index';
 import { getCategories } from 'amo/components/FeedbackForm';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import { extractId } from 'amo/pages/Feedback';
@@ -377,22 +376,6 @@ describe(__filename, () => {
     // navigates to the edit profile page and, in both cases, the scroll will
     // be at the top of the page.
     expect(window.scroll).not.toHaveBeenCalled();
-  });
-
-  it('renders a not found page if the API response is a 404', () => {
-    createFailedErrorHandler({
-      error: createApiError({
-        response: { status: 404 },
-      }),
-      id: getErrorHandlerId(defaultAddonGUID),
-      store,
-    });
-
-    render();
-
-    expect(
-      screen.getByText('Oops! We can’t find that page'),
-    ).toBeInTheDocument();
   });
 
   describe('errorHandler - extractId', () => {

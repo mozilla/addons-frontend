@@ -72,7 +72,7 @@ describe(__filename, () => {
       mockApi.verify();
     });
 
-    it.each([401, 403])(
+    it.each([401, 403, 404])(
       'kinda fetches a non-public addon from the API (status=%d)',
       async (status) => {
         const guid = 'some-guid';
