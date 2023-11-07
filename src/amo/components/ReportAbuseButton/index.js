@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import config from 'config';
 
 import { hasAbuseReportPanelEnabled } from 'amo/addonManager';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
@@ -149,6 +150,17 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     // See https://github.com/mozilla/addons-frontend/issues/4025#issuecomment-349103373
     const prompt = i18n.gettext('Report this add-on for abuse');
 
+    let reportButtonProps: Object = {
+      onClick: this.onReportButtonClick,
+    };
+
+    // When this feature flag is active, we link to the feedback form.
+    if (config.get('enableFeatureFeedbackFormLinks')) {
+      reportButtonProps = {
+        to: `/feedback/addon/${addon.slug}/`,
+      };
+    }
+
     /* eslint-disable react/no-danger */
     return (
       <div
@@ -162,8 +174,8 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
             buttonType="neutral"
             className="ReportAbuseButton-show-more"
             disabled={loading}
-            onClick={this.onReportButtonClick}
             puffy
+            {...reportButtonProps}
           >
             {prompt}
           </Button>

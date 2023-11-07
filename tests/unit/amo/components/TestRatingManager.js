@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { createEvent, fireEvent } from '@testing-library/react';
 import defaultUserEvent from '@testing-library/user-event';
+import config from 'config';
 
 import { createApiError } from 'amo/api';
 import {
@@ -40,6 +41,7 @@ import {
   fakeAddon,
   fakeReview,
   fakeVersion,
+  getMockConfig,
   render as defaultRender,
   screen,
 } from 'tests/unit/helpers';
@@ -48,6 +50,8 @@ import {
 jest.mock('amo/addonManager', () => ({
   hasAbuseReportPanelEnabled: jest.fn().mockReturnValue(false),
 }));
+
+jest.mock('config');
 
 // We need to mock validAddonTypes in a test.
 const mockValidAddonTypesGetter = jest.fn();
@@ -69,6 +73,11 @@ describe(__filename, () => {
   beforeEach(() => {
     store = dispatchClientMetadata().store;
     userEvent = defaultUserEvent.setup({ delay: null });
+    const fakeConfig = getMockConfig({ enableFeatureFeedbackFormLinks: false });
+
+    config.get.mockImplementation((key) => {
+      return fakeConfig[key];
+    });
   });
 
   afterEach(() => {
@@ -765,6 +774,25 @@ describe(__filename, () => {
 
       render();
       expect(screen.getByText(message)).toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for ReportAbuseButton with enableFeatureFeedbackFormLinks set', () => {
+    it('allows a user to report an add-on for abuse', async () => {
+      const fakeConfig = getMockConfig({
+        enableFeatureFeedbackFormLinks: true,
+      });
+      config.get.mockImplementation((key) => {
+        return fakeConfig[key];
+      });
+
+      render();
+
+      expect(
+        screen.getByRole('link', {
+          name: 'Report this add-on for abuse',
+        }),
+      ).toBeInTheDocument();
     });
   });
 
