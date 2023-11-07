@@ -236,14 +236,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
   renderReportSentConfirmation(i18n: I18nType): React.Node {
     return (
       <div>
-        <Card
-          header={i18n.gettext('You sent a report about this add-on')}
-          className="FeedbackForm--Card"
-        >
-          <p className="ReportAbuseButton-first-paragraph">
-            {i18n.gettext(
-              `We have received your report. Thanks for letting us know.`,
-            )}
+        <Card header={i18n.gettext('You sent a report about this add-on')}>
+          <p className="FeedbackForm-success-first-paragraph">
+            {i18n.gettext(`We have received your report. Thanks for letting us
+              know.`)}
           </p>
         </Card>
       </div>
