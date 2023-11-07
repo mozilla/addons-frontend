@@ -83,4 +83,5 @@ module.exports = {
   enableFeatureMoreAndroidExtensions: true,
 
   enableFeatureFeedbackForm: true,
+  enableFeatureFeedbackFormLinks: true,
 };

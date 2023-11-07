@@ -88,6 +88,7 @@ module.exports = {
     'enableFeatureMoreAndroidExtensions',
     'enableFeatureVPNPromo',
     'enableFeatureFeedbackForm',
+    'enableFeatureFeedbackFormLinks',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -416,6 +417,7 @@ module.exports = {
   enableFeatureMoreAndroidExtensions: true,
 
   enableFeatureFeedbackForm: false,
+  enableFeatureFeedbackFormLinks: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
