@@ -47,6 +47,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_FIREFOX,
 } from 'amo/constants';
 import { getAddonIconUrl } from 'amo/imageUtils';
 import translate from 'amo/i18n/translate';
@@ -411,6 +412,20 @@ export class AddonBase extends React.Component {
     return <AddonSuggestions addon={addon} />;
   }
 
+  renderRecommendations() {
+    const { addon, clientApp } = this.props;
+    const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
+
+    if (
+      addonType === ADDON_TYPE_EXTENSION &&
+      clientApp === CLIENT_APP_FIREFOX
+    ) {
+      return <AddonRecommendations addon={addon} />;
+    }
+
+    return null;
+  }
+
   render() {
     const { addon, addonsByAuthors, currentVersion, errorHandler, i18n } =
       this.props;
@@ -538,9 +553,7 @@ export class AddonBase extends React.Component {
 
               {this.renderDevCommentsCard()}
 
-              {addonType === ADDON_TYPE_EXTENSION && (
-                <AddonRecommendations addon={addon} />
-              )}
+              {this.renderRecommendations()}
             </div>
 
             {this.renderRatingsCard()}
