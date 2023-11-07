@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-26 09:21+0000\n"
+"POT-Creation-Date: 2023-11-07 18:50+0000\n"
 "PO-Revision-Date: 2023-03-26 14:15+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -1059,70 +1059,101 @@ msgid "The review was not found."
 msgstr "Nie odnaleziono recenzji."
 
 #: src/amo/components/FeedbackForm/index.js:105
-msgid "It contains hateful, violent, deceptive, or other inappropriate content"
+msgid "It violates Add-on Policies"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:108
-msgid "Example: contains racist imagery"
+#: src/amo/components/FeedbackForm/index.js:106
+msgid ""
+"Example: I didn’t want it or It compromised my data without informing or "
+"asking me, or it changed my search engine or home page without informing or "
+"asking me."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:112
-msgid "It violates the law or contains content that violates the law"
+msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:115
-msgid "Example: Copyright or Trademark Infringement, Fraud"
+msgid "Example: contains racist imagery"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:121
-msgid "Something else"
+#: src/amo/components/FeedbackForm/index.js:119
+msgid "It violates the law or contains content that violates the law"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:122
-msgid "Anything that does’t fit into the other categories"
+msgid "Example: Copyright or Trademark Infringement, Fraud"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:229
+#: src/amo/components/FeedbackForm/index.js:128
+msgid "Something else"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:129
+msgid "Anything that doesn’t fit into the other categories"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:239
 msgid "You sent a report about this add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:233
+#: src/amo/components/FeedbackForm/index.js:243
 msgid "We have received your report. Thanks for letting us know."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:255
+#: src/amo/components/FeedbackForm/index.js:265
 msgid "Submitting your report…"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:256
+#: src/amo/components/FeedbackForm/index.js:266
 msgid "Submit report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:294
+#: src/amo/components/FeedbackForm/index.js:298
+msgid "--Select a location--"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:300
+msgid "On the add-on's page on this website"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:303
+msgid "Inside the add-on"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:304
+msgid "Both locations"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:314
 msgid "Submit feedback or report for %(type)s %(identifier)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:298
+#: src/amo/components/FeedbackForm/index.js:318
 msgid "Add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:319
+#: src/amo/components/FeedbackForm/index.js:339
 msgid "Send some feedback about an add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:325
+#: src/amo/components/FeedbackForm/index.js:345
 msgid "Report an add-on to Mozilla because it's illegal or incompliant"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:334
+#: src/amo/components/FeedbackForm/index.js:354
 msgid "Tell us more"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:337
+#: src/amo/components/FeedbackForm/index.js:360
+msgid "Where is the offending content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:375
 msgid "Give details of your feedback or report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:358
+#: src/amo/components/FeedbackForm/index.js:396
 msgid ""
 "I hereby certify, under penalty of perjury, my bona fide belief that the "
 "allegations in this report are complete and accurate. For allegations of "
@@ -1131,53 +1162,42 @@ msgid ""
 "behalf."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:370
+#: src/amo/components/FeedbackForm/index.js:408
 msgid "Your details"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:374
+#: src/amo/components/FeedbackForm/index.js:412
 msgid "We will notify you by email with any updates about your report."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:377
+#: src/amo/components/FeedbackForm/index.js:415
 msgid "To receive updates about your report enter your name and email address."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:382
+#: src/amo/components/FeedbackForm/index.js:420
 msgid "Your Full Name"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:394
+#: src/amo/components/FeedbackForm/index.js:432
 msgid "Your Email Address"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:80
+#: src/amo/components/FeedbackForm/index.js:87
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:83
+#: src/amo/components/FeedbackForm/index.js:90
 msgid ""
 "Example: Features are slow, hard to use, or don’t work; parts of websites "
 "won't load or look unusual"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:89
+#: src/amo/components/FeedbackForm/index.js:96
 msgid "It’s SPAM"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:90
+#: src/amo/components/FeedbackForm/index.js:97
 msgid "Example: An application installed it without my permission"
-msgstr ""
-
-#: src/amo/components/FeedbackForm/index.js:98
-msgid "It violates Add-on Policies"
-msgstr ""
-
-#: src/amo/components/FeedbackForm/index.js:99
-msgid ""
-"Example: I didn’t want it or It compromised my data without informing or "
-"asking me, or it changed my search engine or home page without informing or "
-"asking me."
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:111
@@ -1742,11 +1762,11 @@ msgstr[0] "Trzygwiazdkowa recenzja"
 msgstr[1] "Wszystkie %(total)s trzygwiazdkowe recenzje"
 msgstr[2] "Wszystkie %(total)s trzygwiazdkowych recenzji"
 
-#: src/amo/components/ReportAbuseButton/index.js:113
+#: src/amo/components/ReportAbuseButton/index.js:114
 msgid "You reported this add-on for abuse"
 msgstr "Zgłoszono ten dodatek za nadużycie"
 
-#: src/amo/components/ReportAbuseButton/index.js:117
+#: src/amo/components/ReportAbuseButton/index.js:118
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
@@ -1754,14 +1774,14 @@ msgstr ""
 "Otrzymaliśmy Twoje zgłoszenie. Dziękujemy za poinformowanie nas o problemach "
 "z tym dodatkiem."
 
-#: src/amo/components/ReportAbuseButton/index.js:124
+#: src/amo/components/ReportAbuseButton/index.js:125
 #: src/amo/components/ReportUserAbuse/index.js:172
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "Nie możemy odpowiedzieć na każde zgłoszenie indywidualnie, ale przyjrzymy "
 "się sprawie."
 
-#: src/amo/components/ReportAbuseButton/index.js:134
+#: src/amo/components/ReportAbuseButton/index.js:135
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on "
 "policies%(linkTagEnd)s or has security or privacy issues, please report "
@@ -1771,11 +1791,11 @@ msgstr ""
 "Mozilli%(linkTagEnd)s albo ma błędy bezpieczeństwa lub prywatności, to "
 "prosimy zgłosić to do Mozilli za pomocą tego formularza."
 
-#: src/amo/components/ReportAbuseButton/index.js:150
+#: src/amo/components/ReportAbuseButton/index.js:151
 msgid "Report this add-on for abuse"
 msgstr "Zgłoś ten dodatek za nadużycie"
 
-#: src/amo/components/ReportAbuseButton/index.js:181
+#: src/amo/components/ReportAbuseButton/index.js:193
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1784,21 +1804,21 @@ msgstr ""
 "funkcje w dodatkach. Zgłoszenie zostanie wysłane do Mozilli, nie do autora "
 "dodatku."
 
-#: src/amo/components/ReportAbuseButton/index.js:194
+#: src/amo/components/ReportAbuseButton/index.js:206
 #: src/amo/components/ReportUserAbuse/index.js:152
 msgid "Send abuse report"
 msgstr "Wyślij zgłoszenie o nadużyciu"
 
-#: src/amo/components/ReportAbuseButton/index.js:195
+#: src/amo/components/ReportAbuseButton/index.js:207
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "Sending abuse report"
 msgstr "Wysyłanie zgłoszenia o nadużyciu"
 
-#: src/amo/components/ReportAbuseButton/index.js:197
+#: src/amo/components/ReportAbuseButton/index.js:209
 msgid "Dismiss"
 msgstr "Odrzuć"
 
-#: src/amo/components/ReportAbuseButton/index.js:198
+#: src/amo/components/ReportAbuseButton/index.js:210
 msgid "Explain how this add-on is violating our policies."
 msgstr "Wyjaśnij, jak ten dodatek narusza nasze zasady."
 
@@ -1845,7 +1865,7 @@ msgstr ""
 msgid "Search results"
 msgstr "Wyniki wyszukiwania"
 
-#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:162
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Polecane rozszerzenia"
@@ -2303,7 +2323,7 @@ msgstr "Wszystkie motywy"
 msgid "Add-ons Home Page"
 msgstr "Strona domowa dodatków"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:181
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:182
 msgid "Preview of %(title)s"
 msgstr "Podgląd „%(title)s”"
 
@@ -2390,56 +2410,56 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:210
+#: src/amo/pages/Addon/index.js:211
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Nie można ocenić tego dodatku, ponieważ nie ma on żadnych opublikowanych "
 "wersji."
 
-#: src/amo/pages/Addon/index.js:221
+#: src/amo/pages/Addon/index.js:222
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s recenzja"
 msgstr[1] "%(count)s recenzje"
 msgstr[2] "%(count)s recenzji"
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:243
 msgid "No reviews yet"
 msgstr "Nie ma jeszcze recenzji"
 
-#: src/amo/pages/Addon/index.js:252
+#: src/amo/pages/Addon/index.js:253
 msgid "Rate your experience"
 msgstr "Oceń swoje wrażenia"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:272
 msgid "About this dictionary"
 msgstr "O tym słowniku"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:275
 msgid "About this extension"
 msgstr "O tym rozszerzeniu"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:278
 msgid "About this language pack"
 msgstr "O tym pakiecie językowym"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:281
 msgid "About this theme"
 msgstr "O tym motywie"
 
-#: src/amo/pages/Addon/index.js:283
+#: src/amo/pages/Addon/index.js:284
 msgid "About this add-on"
 msgstr "O tym dodatku"
 
-#: src/amo/pages/Addon/index.js:327
+#: src/amo/pages/Addon/index.js:328
 msgid "Developer comments"
 msgstr "Komentarze autora"
 
-#: src/amo/pages/Addon/index.js:350
+#: src/amo/pages/Addon/index.js:351
 msgid "Release notes for %(addonVersion)s"
 msgstr "Informacje o wydaniu %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:482
+#: src/amo/pages/Addon/index.js:497
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2447,11 +2467,11 @@ msgstr ""
 "To nie jest publiczna lista. Widzisz ją tylko z powodu podwyższonych "
 "uprawnień."
 
-#: src/amo/pages/Addon/index.js:506
+#: src/amo/pages/Addon/index.js:521
 msgid "Extension Metadata"
 msgstr "Metadane rozszerzenia"
 
-#: src/amo/pages/Addon/index.js:531
+#: src/amo/pages/Addon/index.js:546
 msgid "Screenshots"
 msgstr "Zrzuty ekranu"
 
@@ -2683,19 +2703,39 @@ msgstr "Utwórz kolekcję"
 msgid "You do not have any collections."
 msgstr "Nie ma żadnych kolekcji."
 
-#: src/amo/pages/Home/index.js:103
+#: src/amo/pages/Home/index.js:104
 msgid "Music"
 msgstr "Muzyka"
 
-#: src/amo/pages/Home/index.js:108
+#: src/amo/pages/Home/index.js:109
 msgid "Seasonal"
 msgstr "Pory roku"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:141
+msgid "Firefox for Android extensions"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:144
+msgid "Personalize Firefox for Android with powerful extensions."
+msgstr ""
+
+#: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
+msgid "See more recommended extensions"
+msgstr "Więcej polecanych rozszerzeń"
+
+#: src/amo/pages/Home/index.js:180
+msgid "Explore all Android extensions"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
+msgid "See more trending extensions"
+msgstr "Więcej rozszerzeń na czasie"
+
+#: src/amo/pages/Home/index.js:199
 msgid "Change the way Firefox looks with themes."
 msgstr "Zmień wygląd Firefoksa za pomocą motywów."
 
-#: src/amo/pages/Home/index.js:167
+#: src/amo/pages/Home/index.js:208
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2705,29 +2745,21 @@ msgstr ""
 "przeglądarki. Mogą blokować irytujące reklamy, chronić hasła, zmieniać "
 "wygląd przeglądarki i nie tylko."
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
-msgid "See more recommended extensions"
-msgstr "Więcej polecanych rozszerzeń"
-
-#: src/amo/pages/Home/index.js:83
+#: src/amo/pages/Home/index.js:84
 msgid "Abstract"
 msgstr "Abstrakcyjne"
 
-#: src/amo/pages/Home/index.js:88
+#: src/amo/pages/Home/index.js:89
 msgid "Nature"
 msgstr "Przyroda"
 
-#: src/amo/pages/Home/index.js:93
+#: src/amo/pages/Home/index.js:94
 msgid "Film & TV"
 msgstr "Filmy i telewizja"
 
-#: src/amo/pages/Home/index.js:98
+#: src/amo/pages/Home/index.js:99
 msgid "Scenery"
 msgstr "Krajobrazy"
-
-#: src/amo/pages/LandingPage/index.js:141
-msgid "See more trending extensions"
-msgstr "Więcej rozszerzeń na czasie"
 
 #: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"

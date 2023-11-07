@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-26 09:21+0000\n"
+"POT-Creation-Date: 2023-11-07 18:50+0000\n"
 "PO-Revision-Date: 2022-11-13 20:57+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -1027,70 +1027,101 @@ msgid "The review was not found."
 msgstr "리뷰를 찾을 수 없습니다."
 
 #: src/amo/components/FeedbackForm/index.js:105
-msgid "It contains hateful, violent, deceptive, or other inappropriate content"
+msgid "It violates Add-on Policies"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:108
-msgid "Example: contains racist imagery"
+#: src/amo/components/FeedbackForm/index.js:106
+msgid ""
+"Example: I didn’t want it or It compromised my data without informing or "
+"asking me, or it changed my search engine or home page without informing or "
+"asking me."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:112
-msgid "It violates the law or contains content that violates the law"
+msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:115
-msgid "Example: Copyright or Trademark Infringement, Fraud"
+msgid "Example: contains racist imagery"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:121
-msgid "Something else"
+#: src/amo/components/FeedbackForm/index.js:119
+msgid "It violates the law or contains content that violates the law"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:122
-msgid "Anything that does’t fit into the other categories"
+msgid "Example: Copyright or Trademark Infringement, Fraud"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:229
+#: src/amo/components/FeedbackForm/index.js:128
+msgid "Something else"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:129
+msgid "Anything that doesn’t fit into the other categories"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:239
 msgid "You sent a report about this add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:233
+#: src/amo/components/FeedbackForm/index.js:243
 msgid "We have received your report. Thanks for letting us know."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:255
+#: src/amo/components/FeedbackForm/index.js:265
 msgid "Submitting your report…"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:256
+#: src/amo/components/FeedbackForm/index.js:266
 msgid "Submit report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:294
+#: src/amo/components/FeedbackForm/index.js:298
+msgid "--Select a location--"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:300
+msgid "On the add-on's page on this website"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:303
+msgid "Inside the add-on"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:304
+msgid "Both locations"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:314
 msgid "Submit feedback or report for %(type)s %(identifier)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:298
+#: src/amo/components/FeedbackForm/index.js:318
 msgid "Add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:319
+#: src/amo/components/FeedbackForm/index.js:339
 msgid "Send some feedback about an add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:325
+#: src/amo/components/FeedbackForm/index.js:345
 msgid "Report an add-on to Mozilla because it's illegal or incompliant"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:334
+#: src/amo/components/FeedbackForm/index.js:354
 msgid "Tell us more"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:337
+#: src/amo/components/FeedbackForm/index.js:360
+msgid "Where is the offending content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:375
 msgid "Give details of your feedback or report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:358
+#: src/amo/components/FeedbackForm/index.js:396
 msgid ""
 "I hereby certify, under penalty of perjury, my bona fide belief that the "
 "allegations in this report are complete and accurate. For allegations of "
@@ -1099,53 +1130,42 @@ msgid ""
 "behalf."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:370
+#: src/amo/components/FeedbackForm/index.js:408
 msgid "Your details"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:374
+#: src/amo/components/FeedbackForm/index.js:412
 msgid "We will notify you by email with any updates about your report."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:377
+#: src/amo/components/FeedbackForm/index.js:415
 msgid "To receive updates about your report enter your name and email address."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:382
+#: src/amo/components/FeedbackForm/index.js:420
 msgid "Your Full Name"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:394
+#: src/amo/components/FeedbackForm/index.js:432
 msgid "Your Email Address"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:80
+#: src/amo/components/FeedbackForm/index.js:87
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:83
+#: src/amo/components/FeedbackForm/index.js:90
 msgid ""
 "Example: Features are slow, hard to use, or don’t work; parts of websites "
 "won't load or look unusual"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:89
+#: src/amo/components/FeedbackForm/index.js:96
 msgid "It’s SPAM"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:90
+#: src/amo/components/FeedbackForm/index.js:97
 msgid "Example: An application installed it without my permission"
-msgstr ""
-
-#: src/amo/components/FeedbackForm/index.js:98
-msgid "It violates Add-on Policies"
-msgstr ""
-
-#: src/amo/components/FeedbackForm/index.js:99
-msgid ""
-"Example: I didn’t want it or It compromised my data without informing or "
-"asking me, or it changed my search engine or home page without informing or "
-"asking me."
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:111
@@ -1696,23 +1716,23 @@ msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "3 별점 리뷰 모두 보기"
 
-#: src/amo/components/ReportAbuseButton/index.js:113
+#: src/amo/components/ReportAbuseButton/index.js:114
 msgid "You reported this add-on for abuse"
 msgstr "이 부가 기능을 신고하셨습니다"
 
-#: src/amo/components/ReportAbuseButton/index.js:117
+#: src/amo/components/ReportAbuseButton/index.js:118
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr ""
 "신고가 접수되었습니다. 이 부가 기능에 대한 우려를 알려주셔서 감사합니다."
 
-#: src/amo/components/ReportAbuseButton/index.js:124
+#: src/amo/components/ReportAbuseButton/index.js:125
 #: src/amo/components/ReportUserAbuse/index.js:172
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "모든 신고 사항에 대해 답변을 드릴 수는 없지만 문제는 조사될 것입니다."
 
-#: src/amo/components/ReportAbuseButton/index.js:134
+#: src/amo/components/ReportAbuseButton/index.js:135
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on "
 "policies%(linkTagEnd)s or has security or privacy issues, please report "
@@ -1722,11 +1742,11 @@ msgstr ""
 "전, 개인정보 관련 문제로 위협한다고 생각되시면, 이 양식을 이용하여 Mozilla에 "
 "이 문제를 보고해 주십시오."
 
-#: src/amo/components/ReportAbuseButton/index.js:150
+#: src/amo/components/ReportAbuseButton/index.js:151
 msgid "Report this add-on for abuse"
 msgstr "이 부가 기능 신고하기"
 
-#: src/amo/components/ReportAbuseButton/index.js:181
+#: src/amo/components/ReportAbuseButton/index.js:193
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1734,21 +1754,21 @@ msgstr ""
 "이 양식을 버그 신고나 기능 추가 요청용으로 사용하지 마십시오. 이 보고서는 "
 "Mozilla에 전송되며 개발자에게 전달되지 않습니다."
 
-#: src/amo/components/ReportAbuseButton/index.js:194
+#: src/amo/components/ReportAbuseButton/index.js:206
 #: src/amo/components/ReportUserAbuse/index.js:152
 msgid "Send abuse report"
 msgstr "정책 위반 신고 보내기"
 
-#: src/amo/components/ReportAbuseButton/index.js:195
+#: src/amo/components/ReportAbuseButton/index.js:207
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "Sending abuse report"
 msgstr "정책 위반 보고서 보내는 중"
 
-#: src/amo/components/ReportAbuseButton/index.js:197
+#: src/amo/components/ReportAbuseButton/index.js:209
 msgid "Dismiss"
 msgstr "닫기"
 
-#: src/amo/components/ReportAbuseButton/index.js:198
+#: src/amo/components/ReportAbuseButton/index.js:210
 msgid "Explain how this add-on is violating our policies."
 msgstr "이 부가 기능이 어떻게 정책을 위반하는지 알려주세요."
 
@@ -1793,7 +1813,7 @@ msgstr ""
 msgid "Search results"
 msgstr "검색 결과"
 
-#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:162
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "추천 확장 기능"
@@ -2181,7 +2201,7 @@ msgstr "모든 테마 탐색하기"
 msgid "Add-ons Home Page"
 msgstr "부가 기능 홈 페이지"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:181
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:182
 msgid "Preview of %(title)s"
 msgstr "%(title)s 미리보기"
 
@@ -2264,62 +2284,62 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:210
+#: src/amo/pages/Addon/index.js:211
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "배포된 버전이 없으므로 이 부가 기능에 점수를 줄 수 없습니다."
 
-#: src/amo/pages/Addon/index.js:221
+#: src/amo/pages/Addon/index.js:222
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "리뷰 %(count)s개 모두 읽기"
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:243
 msgid "No reviews yet"
 msgstr "아직 리뷰 없음"
 
-#: src/amo/pages/Addon/index.js:252
+#: src/amo/pages/Addon/index.js:253
 msgid "Rate your experience"
 msgstr "평가"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:272
 msgid "About this dictionary"
 msgstr "이 사전 정보"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:275
 msgid "About this extension"
 msgstr "정보"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:278
 msgid "About this language pack"
 msgstr "이 언어 팩 정보"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:281
 msgid "About this theme"
 msgstr "이 테마 정보"
 
-#: src/amo/pages/Addon/index.js:283
+#: src/amo/pages/Addon/index.js:284
 msgid "About this add-on"
 msgstr "이 부가 기능 정보"
 
-#: src/amo/pages/Addon/index.js:327
+#: src/amo/pages/Addon/index.js:328
 msgid "Developer comments"
 msgstr "개발자 의견"
 
-#: src/amo/pages/Addon/index.js:350
+#: src/amo/pages/Addon/index.js:351
 msgid "Release notes for %(addonVersion)s"
 msgstr "버전 %(addonVersion)s의 출시 정보"
 
-#: src/amo/pages/Addon/index.js:482
+#: src/amo/pages/Addon/index.js:497
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "공개 목록이 아닙니다. 상승된 권한으로 보고 있습다."
 
-#: src/amo/pages/Addon/index.js:506
+#: src/amo/pages/Addon/index.js:521
 msgid "Extension Metadata"
 msgstr "확장 메타 데이터"
 
-#: src/amo/pages/Addon/index.js:531
+#: src/amo/pages/Addon/index.js:546
 msgid "Screenshots"
 msgstr "스크린샷"
 
@@ -2545,19 +2565,39 @@ msgstr "모음집 만들기"
 msgid "You do not have any collections."
 msgstr "모음집이 없습니다."
 
-#: src/amo/pages/Home/index.js:103
+#: src/amo/pages/Home/index.js:104
 msgid "Music"
 msgstr "음악"
 
-#: src/amo/pages/Home/index.js:108
+#: src/amo/pages/Home/index.js:109
 msgid "Seasonal"
 msgstr "계절"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:141
+msgid "Firefox for Android extensions"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:144
+msgid "Personalize Firefox for Android with powerful extensions."
+msgstr ""
+
+#: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
+msgid "See more recommended extensions"
+msgstr "추천 확장 기능 더보기"
+
+#: src/amo/pages/Home/index.js:180
+msgid "Explore all Android extensions"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
+msgid "See more trending extensions"
+msgstr "인기 확장 기능 더보기"
+
+#: src/amo/pages/Home/index.js:199
 msgid "Change the way Firefox looks with themes."
 msgstr "테마로 Firefox 외양을 바꿔보세요."
 
-#: src/amo/pages/Home/index.js:167
+#: src/amo/pages/Home/index.js:208
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2567,29 +2607,21 @@ msgstr ""
 "광고를 차단하고, 비밀번호를 보호하며, 브라우저 외양 변경과 더 많은 것들을 할 "
 "수 있습니다."
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
-msgid "See more recommended extensions"
-msgstr "추천 확장 기능 더보기"
-
-#: src/amo/pages/Home/index.js:83
+#: src/amo/pages/Home/index.js:84
 msgid "Abstract"
 msgstr "추상"
 
-#: src/amo/pages/Home/index.js:88
+#: src/amo/pages/Home/index.js:89
 msgid "Nature"
 msgstr "자연"
 
-#: src/amo/pages/Home/index.js:93
+#: src/amo/pages/Home/index.js:94
 msgid "Film & TV"
 msgstr "영화와 TV"
 
-#: src/amo/pages/Home/index.js:98
+#: src/amo/pages/Home/index.js:99
 msgid "Scenery"
 msgstr "풍경"
-
-#: src/amo/pages/LandingPage/index.js:141
-msgid "See more trending extensions"
-msgstr "인기 확장 기능 더보기"
 
 #: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
