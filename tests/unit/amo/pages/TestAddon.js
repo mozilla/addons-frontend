@@ -2297,6 +2297,19 @@ describe(__filename, () => {
       },
     );
 
+    it('does not render recommendations for Android', () => {
+      doLoadRecommendations({
+        addons: [fakeAddon],
+        outcome: OUTCOME_RECOMMENDED_FALLBACK,
+      });
+      store.dispatch(setClientApp(CLIENT_APP_ANDROID));
+      renderWithAddon();
+
+      expect(
+        screen.queryByText('Other popular extensions'),
+      ).not.toBeInTheDocument();
+    });
+
     it('should dispatch a fetch action if no recommendations exist', () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddon();
