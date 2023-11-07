@@ -29,6 +29,7 @@ export function* reportAddon({
     reason,
     location,
     addonVersion,
+    auth,
   },
 }: SendAddonAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -47,6 +48,7 @@ export function* reportAddon({
       reason: reason || null,
       location: location || null,
       addonVersion: addonVersion || null,
+      auth,
     };
     const response = yield call(reportAddonApi, params);
 

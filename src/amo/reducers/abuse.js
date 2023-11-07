@@ -118,6 +118,7 @@ type SendAddonAbuseReportParams = {|
   reason?: string | null,
   location?: string | null,
   addonVersion?: string | null,
+  auth: boolean,
 |};
 
 export type SendAddonAbuseReportAction = {|
@@ -134,6 +135,7 @@ export function sendAddonAbuseReport({
   reason = null,
   location = null,
   addonVersion = null,
+  auth,
 }: SendAddonAbuseReportParams): SendAddonAbuseReportAction {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
@@ -149,6 +151,7 @@ export function sendAddonAbuseReport({
       reason,
       location,
       addonVersion,
+      auth,
     },
   };
 }

@@ -5,6 +5,7 @@ import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import makeClassName from 'classnames';
 
 import { withInstallHelpers } from 'amo/installAddon';
 import { sendAddonAbuseReport } from 'amo/reducers/abuse';
@@ -66,6 +67,7 @@ type FormValues = {|
 
 type State = {|
   ...FormValues,
+  anonymous: boolean,
   successMessage: string | null,
 |};
 
@@ -146,6 +148,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     const { currentUser } = props;
 
     this.state = {
+      anonymous: false,
       successMessage: null,
       ...this.getFormValues(currentUser),
     };
@@ -171,7 +174,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     const { name, value, checked } = event.currentTarget;
 
     let newValue: boolean | string | null = value;
-    if (name === 'certification') {
+    if (['anonymous', 'certification'].includes(name)) {
       newValue = checked;
     }
 
@@ -185,7 +188,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     event.preventDefault();
 
     const { addon, dispatch, errorHandler, installedAddon } = this.props;
-    const { email, name, text, category, location } = this.state;
+    const { anonymous, email, name, text, category, location } = this.state;
 
     invariant(addon, 'An add-on is required for a report.');
 
@@ -195,12 +198,15 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
         // We need to send the GUID because the abuse report API doesn't accept
         // anything else for pure unlisted add-ons.
         addonId: addon.guid,
-        reporterEmail: email,
-        reporterName: name,
+        reporterEmail: anonymous ? '' : email,
+        reporterName: anonymous ? '' : name,
         message: text,
         reason: category,
         location,
         addonVersion: installedAddon?.version || null,
+        // Only authenticate the API call when the report isn't submitted
+        // anonymously.
+        auth: anonymous === false,
       }),
     );
   };
@@ -273,7 +279,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       categoryInputs[categoryType] = [];
       categories[categoryType].forEach((category) => {
         categoryInputs[categoryType].push(
-          <li className="FeedbackForm-category--li" id={`li-${category.value}`}>
+          <li className="FeedbackForm-checkbox-wrapper">
             <input
               type="radio"
               className="FeedbackForm-catgeory"
@@ -284,7 +290,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               selected={this.state.category === category.value}
             />
             <label
-              className="FeedbackForm--label"
+              className="FeedbackForm-label"
               htmlFor={`feedbackCategory${category.value}`}
             >
               {category.label}
@@ -356,7 +362,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               className="FeedbackForm--Card"
               header={i18n.gettext('Provide more information')}
             >
-              <label className="FeedbackForm--label" htmlFor="feedbackLocation">
+              <label className="FeedbackForm-label" htmlFor="feedbackLocation">
                 {i18n.gettext('Place of the violation')}
                 <span>({i18n.gettext('optional')})</span>
               </label>
@@ -372,7 +378,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 })}
               </Select>
 
-              <label className="FeedbackForm--label" htmlFor="feedbackText">
+              <label className="FeedbackForm-label" htmlFor="feedbackText">
                 {i18n.gettext('Provide more details')}
                 <span>({i18n.gettext('optional')})</span>
               </label>
@@ -389,36 +395,85 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               className="FeedbackForm--Card"
               header={i18n.gettext('Contact information')}
             >
-              {currentUser && <SignedInUser user={currentUser} />}
+              <p className="FeedbackForm-checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  className="FeedbackForm-anonymous"
+                  id="feedbackAnonymous"
+                  name="anonymous"
+                  onChange={this.onFieldChange}
+                  checked={!!this.state.anonymous}
+                />
+                <label
+                  className="FeedbackForm-label"
+                  htmlFor="feedbackAnonymous"
+                >
+                  {i18n.gettext('File report anonymously')}
+                </label>
+                <p className="FeedbackForm--help">
+                  {i18n.gettext(`Filing an anonymous report will prevent us
+                    from communicating with you about the report’s status, or
+                    about any options for appeal.`)}
+                </p>
+              </p>
 
-              <label className="FeedbackForm--label" htmlFor="feedbackName">
+              {currentUser && (
+                <SignedInUser
+                  user={currentUser}
+                  disabled={this.state.anonymous}
+                />
+              )}
+
+              <label
+                className={makeClassName('FeedbackForm-label', {
+                  'FeedbackForm-label--disabled': this.state.anonymous,
+                })}
+                htmlFor="feedbackName"
+              >
                 {i18n.gettext('Your name')}
                 {!currentUser && <span>({i18n.gettext('optional')})</span>}
               </label>
               <input
-                className="FeedbackForm-name"
+                className={makeClassName('FeedbackForm-name', {
+                  'FeedbackForm-input--disabled': this.state.anonymous,
+                })}
                 id="feedbackName"
                 name="name"
-                disabled={currentUser}
+                disabled={!!currentUser}
                 onChange={this.onFieldChange}
-                value={this.state.name || (currentUser && currentUser.name)}
+                value={
+                  this.state.anonymous
+                    ? ''
+                    : this.state.name || (currentUser && currentUser.name)
+                }
               />
 
-              <label className="FeedbackForm--label" htmlFor="feedbackEmail">
+              <label
+                className={makeClassName('FeedbackForm-label', {
+                  'FeedbackForm-label--disabled': this.state.anonymous,
+                })}
+                htmlFor="feedbackEmail"
+              >
                 {i18n.gettext('Your email address')}
                 {!currentUser && <span>({i18n.gettext('optional')})</span>}
               </label>
               <input
-                className="FeedbackForm-email"
+                className={makeClassName('FeedbackForm-email', {
+                  'FeedbackForm-input--disabled': this.state.anonymous,
+                })}
                 id="feedbackEmail"
                 name="email"
-                disabled={currentUser}
+                disabled={!!currentUser}
                 onChange={this.onFieldChange}
-                value={this.state.email || (currentUser && currentUser.email)}
+                value={
+                  this.state.anonymous
+                    ? ''
+                    : this.state.email || (currentUser && currentUser.email)
+                }
               />
 
               {this.isCertificationRequired() && (
-                <p>
+                <p className="FeedbackForm-checkbox-wrapper">
                   <input
                     type="checkbox"
                     className="FeedbackForm-certification"
@@ -429,7 +484,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                     required={this.isCertificationRequired()}
                   />
                   <label
-                    className="FeedbackForm--label"
+                    className="FeedbackForm-label"
                     htmlFor="feedbackCertification"
                   >
                     {i18n.gettext(`By submitting this report I certify, under

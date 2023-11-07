@@ -46,26 +46,45 @@ $icon-size: 32px;
     @include padding-start(0);
   }
 
-  h3:first-child {
+  h3:first-child,
+  p:first-child {
     margin-top: 0;
   }
 }
 
-.FeedbackForm--label {
+.FeedbackForm-checkbox-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  input {
+    @include margin-end(12px);
+
+    align-self: start;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-top: 4px;
+  }
+
+  label {
+    grid-column: 2;
+    grid-row: 1;
+    user-select: none;
+  }
+
+  p {
+    grid-row: 2;
+    grid-column: 2;
+  }
+}
+
+.FeedbackForm-label {
   display: block;
 }
 
-.FeedbackForm--label > span {
+.FeedbackForm-label > span {
   @include margin-start(4px);
 
   color: $grey-50;
-}
-
-input[type='radio'] + .FeedbackForm--label,
-input[type='checkbox'] + .FeedbackForm--label {
-  @include padding-start(0.5em);
-
-  display: revert;
 }
 
 .FeedbackForm--help {
@@ -119,8 +138,9 @@ input[type='checkbox'] + .FeedbackForm--label {
   width: 100%;
 }
 
-.FeedbackForm-category--li {
-  list-style: none;
+.FeedbackForm-label--disabled,
+.FeedbackForm-input--disabled {
+  @include disabled;
 }
 
 .FeedbackForm-buttons-wrapper {

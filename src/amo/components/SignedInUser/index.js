@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
+import makeClassName from 'classnames';
 
 import translate from 'amo/i18n/translate';
 import Icon from 'amo/components/Icon';
@@ -11,6 +12,7 @@ import './styles.scss';
 
 type Props = {|
   user: UserType,
+  disabled?: boolean,
 |};
 
 type InternalProps = {|
@@ -19,7 +21,11 @@ type InternalProps = {|
 |};
 
 const SignedInUserBase = (props: InternalProps) => (
-  <div className="SignedInUser">
+  <div
+    className={makeClassName('SignedInUser', {
+      'SignedInUser--disabled': !!props.disabled,
+    })}
+  >
     <Icon name="user-fill" />
     <span className="SignedInUser-text">
       {props.i18n.sprintf(props.i18n.gettext('Signed in as %(username)s'), {

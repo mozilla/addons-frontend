@@ -67,6 +67,7 @@ describe(__filename, () => {
         reporterName,
         location,
         addonVersion,
+        auth: true,
       });
 
       mockApi.verify();

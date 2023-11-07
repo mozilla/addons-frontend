@@ -8,3 +8,7 @@
 .SignedInUser-text {
   @include margin-start(4px);
 }
+
+.SignedInUser--disabled {
+  @include disabled;
+}
