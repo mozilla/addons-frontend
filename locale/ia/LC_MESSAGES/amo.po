@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-07 18:50+0000\n"
-"PO-Revision-Date: 2023-11-07 20:39+0000\n"
+"PO-Revision-Date: 2023-11-07 22:39+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -969,7 +969,7 @@ msgstr "Altere cosa"
 
 #: src/amo/components/FeedbackForm/index.js:129
 msgid "Anything that doesn’t fit into the other categories"
-msgstr ""
+msgstr "Alcun cosa que non vade ben al altere categorias"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "You sent a report about this add-on"
@@ -989,19 +989,19 @@ msgstr "Inviar reporto"
 
 #: src/amo/components/FeedbackForm/index.js:298
 msgid "--Select a location--"
-msgstr ""
+msgstr "--Elige un position--"
 
 #: src/amo/components/FeedbackForm/index.js:300
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "Sur le pagina del additivo sur iste sito web"
 
 #: src/amo/components/FeedbackForm/index.js:303
 msgid "Inside the add-on"
-msgstr ""
+msgstr "Intra le additivo"
 
 #: src/amo/components/FeedbackForm/index.js:304
 msgid "Both locations"
-msgstr ""
+msgstr "Ambe positiones"
 
 #: src/amo/components/FeedbackForm/index.js:314
 msgid "Submit feedback or report for %(type)s %(identifier)s"
@@ -1025,7 +1025,7 @@ msgstr "Conta nos plus"
 
 #: src/amo/components/FeedbackForm/index.js:360
 msgid "Where is the offending content"
-msgstr ""
+msgstr "Ubi es le contento offensive"
 
 #: src/amo/components/FeedbackForm/index.js:375
 msgid "Give details of your feedback or report"
@@ -2366,11 +2366,11 @@ msgstr "Saisonal"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "Extensiones de Firefox pro Android"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "Personalisa Firefox pro Android con extensiones potente."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2378,7 +2378,7 @@ msgstr "Vide plus de extensiones de tendentia"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Explora tote le extensiones de Android"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
