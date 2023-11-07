@@ -19,7 +19,7 @@ Never submit security-related bugs through a Github Issue or by email.
 
 ## Requirements
 
-- You need [Node](https://nodejs.org/en/) 16.x which is the current [LTS](https://github.com/nodejs/Release) (long term support) release.
+- You need [Node](https://nodejs.org/en/) [LTS](https://github.com/nodejs/Release) (long term support) release.
 - Install [yarn](https://yarnpkg.com/en/) to manage dependencies and run scripts.
 
 The easiest way to manage multiple node versions in development is to use [nvm](https://github.com/nvm-sh/nvm).
