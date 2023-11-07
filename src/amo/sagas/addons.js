@@ -45,7 +45,7 @@ export function* fetchAddon({
   } catch (error) {
     log.warn(`Failed to load add-on with slug ${slug}: ${error}`);
 
-    if ([401, 403].includes(error.response?.status) && assumeNonPublic) {
+    if ([401, 403, 404].includes(error.response?.status) && assumeNonPublic) {
       log.warn('Assuming we attempted to fetch a non-public add-on');
       const defaultLocale = config.get('defaultLang');
       const addon = {

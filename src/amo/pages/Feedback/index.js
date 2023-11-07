@@ -5,7 +5,6 @@ import { compose } from 'redux';
 import { Helmet } from 'react-helmet';
 
 import translate from 'amo/i18n/translate';
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Page from 'amo/components/Page';
 import {
   fetchAddon,
@@ -75,13 +74,6 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
 
   render(): React.Node {
     const { addon, errorHandler, i18n } = this.props;
-
-    if (
-      errorHandler.hasError() &&
-      errorHandler.capturedError.responseStatusCode === 404
-    ) {
-      return <NotFoundPage />;
-    }
 
     return (
       <Page>
