@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-07 18:50+0000\n"
-"PO-Revision-Date: 2023-11-07 19:08+0000\n"
-"Last-Translator: Google Translate <pontoon-gt@example.com>\n"
+"PO-Revision-Date: 2023-11-07 20:10+0000\n"
+"Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -988,7 +988,7 @@ msgstr "Odeslat hlášení"
 
 #: src/amo/components/FeedbackForm/index.js:298
 msgid "--Select a location--"
-msgstr "--Zvolte umístění--"
+msgstr "--Vyberte--"
 
 #: src/amo/components/FeedbackForm/index.js:300
 msgid "On the add-on's page on this website"
@@ -1024,7 +1024,7 @@ msgstr "Řekněte nám více"
 
 #: src/amo/components/FeedbackForm/index.js:360
 msgid "Where is the offending content"
-msgstr "Kde je problematický obsah?"
+msgstr "Kde je problematický obsah"
 
 #: src/amo/components/FeedbackForm/index.js:375
 msgid "Give details of your feedback or report"
@@ -2394,7 +2394,7 @@ msgstr "Sezónní"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr "Rozšíření pro Firefox pro Android"
+msgstr "Rozšíření do Firefoxu pro Android"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
