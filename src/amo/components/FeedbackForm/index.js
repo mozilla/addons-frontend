@@ -233,10 +233,15 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     );
   }
 
-  renderReportSentConfirmation(i18n: I18nType): React.Node {
+  renderReportSentConfirmation(): React.Node {
+    const { i18n } = this.props;
+
+    // Make sure the confirmation message is going to be visible.
+    window.scrollTo(0, 0);
+
     return (
       <div>
-        <Card header={i18n.gettext('You sent a report about this add-on')}>
+        <Card header={i18n.gettext('Report submitted')}>
           <p className="FeedbackForm-success-first-paragraph">
             {i18n.gettext(`We have received your report. Thanks for letting us
               know.`)}
@@ -326,7 +331,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
         </Card>
 
         {abuseSubmitted ? (
-          this.renderReportSentConfirmation(i18n)
+          this.renderReportSentConfirmation()
         ) : (
           <form className="FeedbackForm-form" onSubmit={this.onSubmit}>
             <div className="FeedbackForm-form-messages">
