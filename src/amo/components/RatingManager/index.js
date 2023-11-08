@@ -268,7 +268,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
             slim
           />
         )}
-        <ReportAbuseButton addon={addon} />
+        {addon.type !== ADDON_TYPE_LANG && <ReportAbuseButton addon={addon} />}
       </div>
     );
   }
