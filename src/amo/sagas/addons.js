@@ -82,6 +82,8 @@ export function* fetchAddon({
         promoted: null,
         created: new Date(0),
         last_updated: null,
+        // Mark the add-on as non-public.
+        status: 'unknown-non-public',
       };
       yield put(loadAddon({ addon, slug }));
     } else {

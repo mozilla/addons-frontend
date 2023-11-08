@@ -319,6 +319,89 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
+  it('sets the location to "addon" when the does_not_work category is selected', async () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+
+    render();
+
+    await userEvent.click(
+      screen.getByRole('radio', {
+        name: 'It doesn’t work, breaks websites, or slows down Firefox',
+      }),
+    );
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendAddonAbuseReport({
+        errorHandlerId: getErrorHandlerId(defaultAddonGUID),
+        addonId: defaultAddonGUID,
+        reporterEmail: '',
+        reporterName: '',
+        message: '',
+        reason: 'does_not_work',
+        location: 'addon',
+        auth: true,
+      }),
+    );
+  });
+
+  it('hides the location field when the add-on is not public', async () => {
+    render({ status: 'unknown-non-public' });
+
+    expect(
+      screen.queryByRole('combobox', {
+        name: 'Place of the violation (optional)',
+      }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('hides the location field when the add-on is disabled', async () => {
+    render({ is_disabled: true });
+
+    expect(
+      screen.queryByRole('combobox', {
+        name: 'Place of the violation (optional)',
+      }),
+    ).not.toBeInTheDocument();
+  });
+
+  it.each([{ is_disabled: true }, { status: 'unknown-non-public' }])(
+    'sets the location to "addon" when add-on is %o',
+    async (addonProps) => {
+      const addonId = 'some-addon-id';
+      const dispatch = jest.spyOn(store, 'dispatch');
+
+      render({ guid: addonId, ...addonProps });
+
+      await userEvent.click(
+        screen.getByRole('radio', { name: illegalReasonLabel }),
+      );
+      await userEvent.click(
+        screen.getByRole('checkbox', {
+          name: certificationLabel,
+        }),
+      );
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Submit report' }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        sendAddonAbuseReport({
+          errorHandlerId: getErrorHandlerId(addonId),
+          addonId,
+          reporterEmail: '',
+          reporterName: '',
+          message: '',
+          reason: illegalReason,
+          location: 'addon',
+          auth: true,
+        }),
+      );
+    },
+  );
+
   it('shows a certification checkbox when the chosen reason requires it', async () => {
     render();
 
