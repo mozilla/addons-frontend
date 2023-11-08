@@ -261,6 +261,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     return ['illegal'].includes(this.state.category);
   }
 
+  shouldShowLocation(): boolean {
+    return this.state.category !== 'does_not_work';
+  }
+
   render(): React.Node {
     const { abuseReport, addon, currentUser, errorHandler, i18n, loading } =
       this.props;
@@ -367,21 +371,28 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               className="FeedbackForm--Card"
               header={i18n.gettext('Provide more information')}
             >
-              <label className="FeedbackForm-label" htmlFor="feedbackLocation">
-                {i18n.gettext('Place of the violation')}
-                <span>({i18n.gettext('optional')})</span>
-              </label>
-              <Select
-                className="FeedbackForm-location"
-                id="feedbackLocation"
-                name="location"
-                onChange={this.onFieldChange}
-                value={this.state.location}
-              >
-                {locationOptions.map((option) => {
-                  return <option key={option.value} {...option} />;
-                })}
-              </Select>
+              {this.shouldShowLocation() && (
+                <>
+                  <label
+                    className="FeedbackForm-label"
+                    htmlFor="feedbackLocation"
+                  >
+                    {i18n.gettext('Place of the violation')}
+                    <span>({i18n.gettext('optional')})</span>
+                  </label>
+                  <Select
+                    className="FeedbackForm-location"
+                    id="feedbackLocation"
+                    name="location"
+                    onChange={this.onFieldChange}
+                    value={this.state.location}
+                  >
+                    {locationOptions.map((option) => {
+                      return <option key={option.value} {...option} />;
+                    })}
+                  </Select>
+                </>
+              )}
 
               <label className="FeedbackForm-label" htmlFor="feedbackText">
                 {i18n.gettext('Provide more details')}

@@ -239,6 +239,28 @@ describe(__filename, () => {
     );
   });
 
+  it('hides the location field when the does_not_work category is selected', async () => {
+    render();
+
+    expect(
+      screen.getByRole('combobox', {
+        name: 'Place of the violation (optional)',
+      }),
+    ).toBeInTheDocument();
+
+    await userEvent.click(
+      screen.getByRole('radio', {
+        name: 'It doesn’t work, breaks websites, or slows down Firefox',
+      }),
+    );
+
+    expect(
+      screen.queryByRole('combobox', {
+        name: 'Place of the violation (optional)',
+      }),
+    ).not.toBeInTheDocument();
+  });
+
   it('shows a certification checkbox when the chosen reason requires it', async () => {
     render();
 
