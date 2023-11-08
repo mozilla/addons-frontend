@@ -29,6 +29,7 @@ export type ReportAddonParams = {|
   reason: string | null,
   location: string | null,
   addonVersion: string | null,
+  auth: boolean,
 |};
 
 export type ReportAddonResponse = {|
@@ -55,9 +56,10 @@ export function reportAddon({
   reason,
   location,
   addonVersion,
+  auth,
 }: ReportAddonParams): Promise<ReportAddonResponse> {
   return callApi({
-    auth: true,
+    auth,
     endpoint: 'abuse/report/addon',
     method: 'POST',
     body: {

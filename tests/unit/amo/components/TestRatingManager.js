@@ -571,6 +571,7 @@ describe(__filename, () => {
           addonId: fakeAddon.slug,
           errorHandlerId: 'ReportAbuseButton',
           message,
+          auth: true,
         }),
       );
 

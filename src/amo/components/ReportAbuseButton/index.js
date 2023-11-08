@@ -75,6 +75,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
         addonId: addon.slug,
         errorHandlerId: errorHandler.id,
         message: text,
+        auth: true,
       }),
     );
   };

@@ -217,7 +217,11 @@ describe(__filename, () => {
       }),
       defaultLocationLabel,
     );
-    await userEvent.click(screen.getByRole('checkbox'));
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: certificationLabel,
+      }),
+    );
     await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
     );
@@ -231,6 +235,7 @@ describe(__filename, () => {
         message: defaultMessage,
         reason: illegalReason,
         location: defaultLocation,
+        auth: true,
       }),
     );
   });
@@ -293,6 +298,7 @@ describe(__filename, () => {
         reason: hatefulReason,
         location: defaultLocation,
         addonVersion: version,
+        auth: true,
       }),
     );
   });
