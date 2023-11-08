@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-07 18:50+0000\n"
-"PO-Revision-Date: 2023-11-07 19:29+0000\n"
+"PO-Revision-Date: 2023-11-08 02:56+0000\n"
 "Last-Translator: Francesco Lodolo [:flod] <flod+pontoon@mozilla.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -991,19 +991,19 @@ msgstr "Invia segnalazione"
 
 #: src/amo/components/FeedbackForm/index.js:298
 msgid "--Select a location--"
-msgstr ""
+msgstr "--Seleziona una posizione--"
 
 #: src/amo/components/FeedbackForm/index.js:300
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "Nella pagina del componente aggiuntivo su questo sito"
 
 #: src/amo/components/FeedbackForm/index.js:303
 msgid "Inside the add-on"
-msgstr ""
+msgstr "All’interno del componente aggiuntivo"
 
 #: src/amo/components/FeedbackForm/index.js:304
 msgid "Both locations"
-msgstr ""
+msgstr "Entrambe le posizioni"
 
 #: src/amo/components/FeedbackForm/index.js:314
 msgid "Submit feedback or report for %(type)s %(identifier)s"
@@ -1027,7 +1027,7 @@ msgstr "Inserisci ulteriori dettagli"
 
 #: src/amo/components/FeedbackForm/index.js:360
 msgid "Where is the offending content"
-msgstr ""
+msgstr "Dove si trova il contenuto offensivo"
 
 #: src/amo/components/FeedbackForm/index.js:375
 msgid "Give details of your feedback or report"
@@ -2368,11 +2368,11 @@ msgstr "Stagioni"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "Estensioni per Firefox per Android"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "Personalizza Firefox per Android con potenti estensioni."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2380,7 +2380,7 @@ msgstr "Visualizza altre estensioni consigliate"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Esplora tutte le estensioni per Android"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
