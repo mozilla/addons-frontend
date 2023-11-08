@@ -317,6 +317,8 @@ describe(__filename, () => {
     expect(
       screen.queryByText('Report this add-on to Mozilla'),
     ).not.toBeInTheDocument();
+
+    expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
   });
 
   it('renders a submit button with a different text when updating', async () => {
