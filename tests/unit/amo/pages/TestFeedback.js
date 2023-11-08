@@ -4,8 +4,12 @@ import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 import { oneLine } from 'common-tags';
 
-import { getCategories } from 'amo/components/FeedbackForm';
-import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_FIREFOX,
+} from 'amo/constants';
 import { extractId } from 'amo/pages/Feedback';
 import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
 import { loadAddon, fetchAddon } from 'amo/reducers/addons';
@@ -19,7 +23,6 @@ import {
   dispatchSignInActionsWithStore,
   fakeAddon,
   fakeAuthors,
-  fakeI18n,
   getMockConfig,
   renderPage as defaultRender,
   screen,
@@ -41,36 +44,21 @@ describe(__filename, () => {
   const defaultMessage = 'its bad';
   const defaultLocation = 'both';
   const defaultLocationLabel = 'Both locations';
-  const defaultAddonName = 'some add-on name';
   const certificationLabel = oneLine`By submitting this report I certify, under
     penalty of perjury, that the allegations it contains are complete and
     accurate, to the best of my knowledge.`;
 
-  const savedLocation = window.location;
-
   let store;
   let fakeConfig;
-  let addon;
 
   beforeEach(() => {
-    addon = {
-      ...fakeAddon,
-      name: createLocalizedString(defaultAddonName),
-      guid: defaultAddonGUID,
-    };
     store = dispatchClientMetadata({ clientApp, lang }).store;
-    delete window.location;
-    window.location = Object.assign(new URL('https://example.org'), {
-      assign: jest.fn(),
+    fakeConfig = getMockConfig({ enableFeatureFeedbackForm: true });
+    config.get.mockImplementation((key) => {
+      return fakeConfig[key];
     });
-    window.scroll = jest.fn();
-    fakeConfig = getMockConfig({
-      enableFeatureFeedbackForm: true,
-    });
-  });
 
-  afterEach(() => {
-    window.location = savedLocation;
+    window.scroll = jest.fn();
   });
 
   function signInUserWithProps({ userId, ...props } = {}) {
@@ -84,54 +72,57 @@ describe(__filename, () => {
     return userId;
   }
 
-  const getLocation = (addonGUID) => {
-    return `/${lang}/${clientApp}/feedback/addon/${addonGUID}/`;
-  };
-
   const getErrorHandlerId = (addonId) =>
     `src/amo/pages/Feedback/index.js-${addonId}`;
 
-  const renderWithoutLoadingAddon = ({
-    location,
-    addonGUID = defaultAddonGUID,
-  } = {}) => {
+  const renderWithoutLoadingAddon = (addonIdentifier) => {
     const renderOptions = {
-      initialEntries: [location || getLocation(addonGUID)],
+      initialEntries: [
+        `/${lang}/${clientApp}/feedback/addon/${addonIdentifier}/`,
+      ],
       store,
     };
-    config.get.mockImplementation((key) => {
-      return fakeConfig[key];
-    });
     return defaultRender(renderOptions);
   };
 
-  const render = ({ location, addonGUID = defaultAddonGUID } = {}) => {
-    store.dispatch(loadAddon({ addon, slug: addonGUID }));
-    return renderWithoutLoadingAddon({ location, addonGUID });
+  const render = (addonProps = {}) => {
+    const addon = {
+      ...fakeAddon,
+      guid: defaultAddonGUID,
+      ...addonProps,
+    };
+    store.dispatch(loadAddon({ addon, slug: addon.guid }));
+
+    return renderWithoutLoadingAddon(addon.guid);
   };
 
-  it('dispatches fetchAddon if addonId is not found', () => {
+  it('dispatches fetchAddon when the add-on is not loaded yet', () => {
+    const addonIdentifier = 'some-addon-id';
     const dispatch = jest.spyOn(store, 'dispatch');
     const errorHandler = createFakeErrorHandler({
-      id: getErrorHandlerId(defaultAddonGUID),
+      id: getErrorHandlerId(addonIdentifier),
     });
-    renderWithoutLoadingAddon();
+
+    renderWithoutLoadingAddon(addonIdentifier);
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchAddon({
         errorHandler,
-        slug: defaultAddonGUID,
+        slug: addonIdentifier,
         assumeNonPublic: true,
       }),
     );
   });
 
   it('renders feedback form for logged out user with editable name and email', () => {
-    render();
+    const name = createLocalizedString('some add-on name');
+    const authors = [...fakeAddon.authors];
+
+    render({ name, authors });
 
     // Add-on header.
-    expect(screen.getByText(defaultAddonName)).toBeInTheDocument();
-    expect(screen.getByText(addon.authors[0].name)).toBeInTheDocument();
+    expect(screen.getByText('some add-on name')).toBeInTheDocument();
+    expect(screen.getByText(authors[0].name)).toBeInTheDocument();
 
     expect(screen.getByText('Submit report')).toBeInTheDocument();
     expect(
@@ -179,23 +170,89 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it.each([
-    ['report', 'policy_violation'],
-    ['report', 'hateful_violent_deceptive'],
-    ['report', 'illegal'],
-    ['report', 'other'],
-    ['feedback', 'does_not_work'],
-    ['feedback', 'feedback_spam'],
-  ])(`renders reason %s`, (category, reasonSlug) => {
-    const categories = getCategories(fakeI18n());
-    const reason = categories[category].find(
-      (item) => reasonSlug === item.value,
-    );
-    render();
+  it(`renders the different categories for extensions`, () => {
+    render({ type: ADDON_TYPE_EXTENSION });
 
-    expect(screen.getByLabelText(reason.label)).toBeInTheDocument();
-    expect(screen.getByText(reason.help)).toBeInTheDocument();
+    // A
+    expect(screen.getByLabelText(/^It doesn’t work/)).toBeInTheDocument();
+    expect(screen.getByText(/^Example: Features are slow/)).toBeInTheDocument();
+
+    // B
+    expect(screen.getByLabelText('It’s SPAM')).toBeInTheDocument();
+    expect(
+      screen.getByText(/^Example: The listing advertises/),
+    ).toBeInTheDocument();
+
+    // C
+    expect(
+      screen.getByLabelText('It violates Add-on Policies'),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/^Example: It compromised/)).toBeInTheDocument();
+
+    // D
+    expect(screen.getByLabelText(/^It contains hateful/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/^Example: It contains racist/),
+    ).toBeInTheDocument();
+
+    // E
+    expect(screen.getByLabelText(/^It violates the law /)).toBeInTheDocument();
+    expect(screen.getByText(/^Example: Copyright/)).toBeInTheDocument();
+
+    // F
+    expect(screen.getByLabelText('Something else')).toBeInTheDocument();
+    expect(screen.getByText(/^Anything that doesn’t/)).toBeInTheDocument();
   });
+
+  it.each([ADDON_TYPE_STATIC_THEME, ADDON_TYPE_DICT])(
+    `omit some categories when add-on type is a %s`,
+    (addonType) => {
+      const addonName = `add-on - ${addonType}`;
+      const name = createLocalizedString(addonName);
+
+      render({ name, type: addonType });
+
+      expect(screen.getByText(addonName)).toBeInTheDocument();
+
+      // A - Shouldn't be displayed.
+      expect(
+        screen.queryByLabelText(/^It doesn’t work/),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/^Example: Features are slow/),
+      ).not.toBeInTheDocument();
+
+      // B
+      expect(screen.getByLabelText('It’s SPAM')).toBeInTheDocument();
+      expect(
+        screen.getByText(/^Example: The listing advertises/),
+      ).toBeInTheDocument();
+
+      // C - Shouldn't be displayed.
+      expect(
+        screen.queryByLabelText('It violates Add-on Policies'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/^Example: It compromised/),
+      ).not.toBeInTheDocument();
+
+      // D
+      expect(screen.getByLabelText(/^It contains hateful/)).toBeInTheDocument();
+      expect(
+        screen.getByText(/^Example: It contains racist/),
+      ).toBeInTheDocument();
+
+      // E
+      expect(
+        screen.getByLabelText(/^It violates the law /),
+      ).toBeInTheDocument();
+      expect(screen.getByText(/^Example: Copyright/)).toBeInTheDocument();
+
+      // F
+      expect(screen.getByLabelText('Something else')).toBeInTheDocument();
+      expect(screen.getByText(/^Anything that doesn’t/)).toBeInTheDocument();
+    },
+  );
 
   it('dispatches sendAddonAbuseReport action with all fields on submit', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
