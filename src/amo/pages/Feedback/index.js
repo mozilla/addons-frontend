@@ -12,7 +12,7 @@ import {
   isAddonLoading,
 } from 'amo/reducers/addons';
 import { withFixedErrorHandler } from 'amo/errorHandler';
-import FeedbackForm from 'amo/components/FeedbackForm';
+import AddonFeedbackForm from 'amo/components/AddonFeedbackForm';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonType } from 'amo/types/addons';
@@ -87,7 +87,7 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
             <meta name="robots" content="noindex, follow" />
           </Helmet>
 
-          <FeedbackForm addon={addon} errorHandler={errorHandler} />
+          <AddonFeedbackForm addon={addon} errorHandler={errorHandler} />
         </div>
       </Page>
     );

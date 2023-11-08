@@ -2,22 +2,22 @@
 
 $icon-size: 32px;
 
-.FeedbackForm-header > .Card-contents {
+.AddonFeedbackForm-header > .Card-contents {
   align-items: center;
   display: grid;
   grid-template-columns: ($icon-size + 16px) 1fr;
 
-  .FeedbackForm-header-icon {
+  .AddonFeedbackForm-header-icon {
     grid-column: 1;
   }
 
-  .FeedbackForm-header-icon-wrapper {
+  .AddonFeedbackForm-header-icon-wrapper {
     height: $icon-size;
     overflow: hidden;
     width: $icon-size;
   }
 
-  .FeedbackForm-header-icon-image {
+  .AddonFeedbackForm-header-icon-image {
     height: auto;
     width: 100%;
   }
@@ -37,11 +37,11 @@ $icon-size: 32px;
   }
 }
 
-.FeedbackForm .Card {
+.AddonFeedbackForm .Card {
   margin-bottom: $padding-page;
 }
 
-.FeedbackForm-form {
+.AddonFeedbackForm-form {
   ul {
     @include padding-start(0);
   }
@@ -52,7 +52,7 @@ $icon-size: 32px;
   }
 }
 
-.FeedbackForm-checkbox-wrapper {
+.AddonFeedbackForm-checkbox-wrapper {
   display: grid;
   grid-template-columns: auto 1fr;
 
@@ -77,28 +77,28 @@ $icon-size: 32px;
   }
 }
 
-.FeedbackForm-label {
+.AddonFeedbackForm-label {
   display: block;
 }
 
-.FeedbackForm-label > span {
+.AddonFeedbackForm-label > span {
   @include margin-start(4px);
 
   color: $grey-50;
 }
 
-.FeedbackForm--help {
+.AddonFeedbackForm--help {
   color: $grey-50;
   display: block;
   margin-top: 0;
 }
 
-.FeedbackForm textarea {
+.AddonFeedbackForm textarea {
   margin-bottom: 4px;
 }
 
-.FeedbackForm input,
-.FeedbackForm textarea {
+.AddonFeedbackForm input,
+.AddonFeedbackForm textarea {
   width: 100%;
 
   &:disabled {
@@ -111,26 +111,26 @@ $icon-size: 32px;
   }
 }
 
-.FeedbackForm input {
+.AddonFeedbackForm input {
   @include respond-to(large) {
     width: 60%;
   }
 }
 
-.FeedbackForm input[type='radio'],
-.FeedbackForm input[type='checkbox'] {
+.AddonFeedbackForm input[type='radio'],
+.AddonFeedbackForm input[type='checkbox'] {
   width: revert;
 }
 
-.FeedbackForm-name,
-.FeedbackForm-email,
-.FeedbackForm-location,
-.FeedbackForm-text,
-.FeedbackForm .SignedInUser {
+.AddonFeedbackForm-name,
+.AddonFeedbackForm-email,
+.AddonFeedbackForm-location,
+.AddonFeedbackForm-text,
+.AddonFeedbackForm .SignedInUser {
   margin-bottom: 16px;
 }
 
-.FeedbackForm-text {
+.AddonFeedbackForm-text {
   // The max height ensures that the textarea won't expand beyond 600
   // characters and instead shows a scrollbar.
   max-height: 230px;
@@ -141,12 +141,12 @@ $icon-size: 32px;
   width: 100%;
 }
 
-.FeedbackForm-label--disabled,
-.FeedbackForm-input--disabled {
+.AddonFeedbackForm-label--disabled,
+.AddonFeedbackForm-input--disabled {
   @include disabled;
 }
 
-.FeedbackForm-buttons-wrapper {
+.AddonFeedbackForm-buttons-wrapper {
   align-items: center;
   display: flex;
   flex-flow: column;
@@ -157,7 +157,7 @@ $icon-size: 32px;
   }
 }
 
-.FeedbackForm-button {
+.AddonFeedbackForm-button {
   margin-bottom: $padding-page;
 
   @include respond-to(medium) {
@@ -165,6 +165,6 @@ $icon-size: 32px;
   }
 }
 
-.FeedbackForm-success-first-paragraph {
+.AddonFeedbackForm-success-first-paragraph {
   margin-top: 6px;
 }
