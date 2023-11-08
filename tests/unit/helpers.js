@@ -561,6 +561,8 @@ export function dispatchSignInActionsWithStore({
       user: createUserAccountResponse({ id: userId, ...userProps }),
     }),
   );
+
+  return store;
 }
 
 export function dispatchSignInActions({
