@@ -114,7 +114,7 @@ type SendAddonAbuseReportParams = {|
   errorHandlerId: string,
   reporterEmail?: string | null,
   reporterName?: string | null,
-  message: string,
+  message: string | null,
   reason?: string | null,
   location?: string | null,
   addonVersion?: string | null,
@@ -130,14 +130,13 @@ export function sendAddonAbuseReport({
   errorHandlerId,
   reporterEmail = null,
   reporterName = null,
-  message,
+  message = null,
   reason = null,
   location = null,
   addonVersion = null,
 }: SendAddonAbuseReportParams): SendAddonAbuseReportAction {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(message, 'message is required');
 
   return {
     type: SEND_ADDON_ABUSE_REPORT,

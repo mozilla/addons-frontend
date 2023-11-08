@@ -70,6 +70,7 @@ type FetchAddonParams = {|
   errorHandler: ErrorHandlerType,
   showGroupedRatings?: boolean,
   slug: string,
+  assumeNonPublic?: boolean,
 |};
 
 export type FetchAddonAction = {|
@@ -78,6 +79,7 @@ export type FetchAddonAction = {|
     errorHandlerId: string,
     showGroupedRatings?: boolean,
     slug: string,
+    assumeNonPublic?: boolean,
   |},
 |};
 
@@ -85,6 +87,7 @@ export function fetchAddon({
   errorHandler,
   showGroupedRatings = false,
   slug,
+  assumeNonPublic = false,
 }: FetchAddonParams): FetchAddonAction {
   if (!errorHandler) {
     throw new Error('errorHandler cannot be empty');
@@ -94,7 +97,12 @@ export function fetchAddon({
   }
   return {
     type: FETCH_ADDON,
-    payload: { errorHandlerId: errorHandler.id, showGroupedRatings, slug },
+    payload: {
+      errorHandlerId: errorHandler.id,
+      showGroupedRatings,
+      slug,
+      assumeNonPublic,
+    },
   };
 }
 

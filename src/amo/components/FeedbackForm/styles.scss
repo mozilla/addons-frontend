@@ -1,43 +1,53 @@
 @import '~amo/css/styles';
 
-$font-size-aside: $font-size-xs;
+$icon-size: 32px;
 
-.FeedbackForm {
-  @include page-padding;
+.FeedbackForm-header > .Card-contents {
+  align-items: center;
+  display: grid;
+  grid-template-columns: ($icon-size + 16px) 1fr;
 
-  @include respond-to(large) {
-    display: flex;
-    justify-content: flex-start;
+  .FeedbackForm-header-icon {
+    grid-column: 1;
   }
 
-  > div {
+  .FeedbackForm-header-icon-wrapper {
+    height: $icon-size;
+    overflow: hidden;
+    width: $icon-size;
+  }
+
+  .FeedbackForm-header-icon-image {
+    height: auto;
     width: 100%;
+  }
+
+  .AddonTitle {
+    font-size: $font-size-heading-xs;
+    grid-column: 2;
+    margin-bottom: 0;
+
+    .AddonTitle-author {
+      &,
+      a,
+      a:link {
+        font-size: $font-size-l;
+      }
+    }
   }
 }
 
-.FeedbackForm-form-messages .Notice,
-.FeedbackForm--Card {
+.FeedbackForm .Card {
   margin-bottom: $padding-page;
+}
 
+.FeedbackForm-form {
   ul {
     @include padding-start(0);
   }
-}
 
-.FeedbackForm-details-aside {
-  color: $grey-50;
-  font-size: $font-size-aside;
-  margin-top: 0;
-
-  @include respond-to(large) {
-    @include margin(0, 0, 0, $padding-page);
-
-    float: right;
-    width: 35%;
-
-    [dir='rtl'] & {
-      float: left;
-    }
+  h3:first-child {
+    margin-top: 0;
   }
 }
 
@@ -45,16 +55,23 @@ $font-size-aside: $font-size-xs;
   display: block;
 }
 
+.FeedbackForm--label > span {
+  @include margin-start(4px);
+
+  color: $grey-50;
+}
+
 input[type='radio'] + .FeedbackForm--label,
 input[type='checkbox'] + .FeedbackForm--label {
+  @include padding-start(0.5em);
+
   display: revert;
-  padding-inline-start: 1em;
 }
 
 .FeedbackForm--help {
   color: $grey-50;
   display: block;
-  font-size: $font-size-aside;
+  font-size: $font-size-xs;
   margin-top: 4px;
 }
 
@@ -85,14 +102,21 @@ input[type='checkbox'] + .FeedbackForm--label {
 
 .FeedbackForm-name,
 .FeedbackForm-email,
-.FeedbackForm-violationLocation,
-.FeedbackForm-text {
+.FeedbackForm-location,
+.FeedbackForm-text,
+.FeedbackForm .SignedInUser {
   margin-bottom: 16px;
 }
 
 .FeedbackForm-text {
-  min-height: 3rem;
-  resize: vertical;
+  // The max height ensures that the textarea won't expand beyond 600
+  // characters and instead shows a scrollbar.
+  max-height: 230px;
+
+  // This is the height of two lines of text.
+  min-height: 51px;
+  resize: none;
+  width: 100%;
 }
 
 .FeedbackForm-category--li {
@@ -116,4 +140,8 @@ input[type='checkbox'] + .FeedbackForm--label {
   @include respond-to(medium) {
     margin-bottom: 0;
   }
+}
+
+.FeedbackForm-success-first-paragraph {
+  margin-top: 6px;
 }

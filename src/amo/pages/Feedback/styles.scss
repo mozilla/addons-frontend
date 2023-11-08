@@ -1,0 +1,5 @@
+@import '~amo/css/styles';
+
+.Feedback-page {
+  @include page-padding;
+}

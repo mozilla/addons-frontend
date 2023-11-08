@@ -1,0 +1,10 @@
+@import '~amo/css/styles';
+
+.SignedInUser {
+  display: inline-flex;
+  align-items: center;
+}
+
+.SignedInUser-text {
+  @include margin-start(4px);
+}
