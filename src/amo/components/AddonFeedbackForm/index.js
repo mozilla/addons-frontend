@@ -1,34 +1,33 @@
 /* @flow */
-/* global window */
 import invariant from 'invariant';
 import * as React from 'react';
-import Textarea from 'react-textarea-autosize';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import makeClassName from 'classnames';
 
 import { ADDON_TYPE_EXTENSION } from 'amo/constants';
+import FeedbackForm, {
+  CATEGORY_DOES_NOT_WORK,
+  CATEGORY_FEEDBACK_SPAM,
+  CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
+  CATEGORY_ILLEGAL,
+  CATEGORY_OTHER,
+  CATEGORY_POLICY_VIOLATION,
+} from 'amo/components/FeedbackForm';
 import { withInstallHelpers } from 'amo/installAddon';
 import { sendAddonAbuseReport } from 'amo/reducers/abuse';
-import { getCurrentUser } from 'amo/reducers/users';
 import translate from 'amo/i18n/translate';
-import Button from 'amo/components/Button';
 import Card from 'amo/components/Card';
 import AddonTitle from 'amo/components/AddonTitle';
-import Notice from 'amo/components/Notice';
-import Select from 'amo/components/Select';
-import SignedInUser from 'amo/components/SignedInUser';
 import { getAddonIconUrl } from 'amo/imageUtils';
 import type { AddonAbuseState } from 'amo/reducers/abuse';
-import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
-import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 import type { AddonType } from 'amo/types/addons';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
 import type { InstalledAddon } from 'amo/reducers/installations';
+import type { FeedbackFormValues } from 'amo/components/FeedbackForm';
 
 import './styles.scss';
 
@@ -39,165 +38,34 @@ type Props = {|
 
 type PropsFromState = {|
   abuseReport: AddonAbuseState | null,
-  currentUser: UserType | null,
   loading: boolean,
   installedAddon: InstalledAddon | null,
-|};
-
-type DefaultProps = {|
-  _window: typeof window | Object,
 |};
 
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  ...DefaultProps,
   ...WithInstallHelpersInjectedProps,
   dispatch: DispatchFunc,
   i18n: I18nType,
 |};
 
-type FormValues = {|
-  name: string,
-  email: string,
-  text: string,
-  category: string | null,
-  certification: boolean,
-  location: string | null,
-|};
+export class AddonFeedbackFormBase extends React.Component<InternalProps> {
+  isAddonNonPublic(): boolean {
+    const { addon } = this.props;
 
-type State = {|
-  ...FormValues,
-  anonymous: boolean,
-  successMessage: string | null,
-|};
-
-type Reason = {|
-  value: string,
-  label: string,
-  help: string,
-|};
-
-const getCategories = (
-  i18n: I18nType,
-  isExtension: boolean,
-): {
-  report: Array<Reason>,
-  feedback: Array<Reason>,
-} => {
-  const feedback = [
-    {
-      value: 'feedback_spam',
-      label: i18n.gettext('It’s SPAM'),
-      help: i18n.gettext(
-        'Example: The listing advertises unrelated products or services.',
-      ),
-    },
-  ];
-  const report = [
-    {
-      value: 'hateful_violent_deceptive',
-      label: i18n.gettext(
-        'It contains hateful, violent, deceptive, or other inappropriate content',
-      ),
-      help: i18n.gettext('Example: It contains racist imagery.'),
-    },
-    {
-      value: 'illegal',
-      label: i18n.gettext(
-        'It violates the law or contains content that violates the law',
-      ),
-      help: i18n.gettext(
-        'Example: Copyright or Trademark Infringement, Fraud.',
-      ),
-    },
-    {
-      value: 'other',
-      label: i18n.gettext('Something else'),
-      help: i18n.gettext(
-        'Anything that doesn’t fit into the other categories.',
-      ),
-    },
-  ];
-
-  // Extensions have more categories than other add-on types.
-  if (isExtension) {
-    feedback.unshift({
-      value: 'does_not_work',
-      label: i18n.gettext(
-        'It doesn’t work, breaks websites, or slows down Firefox',
-      ),
-      help: i18n.gettext(
-        "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual.",
-      ),
-    });
-    report.unshift({
-      value: 'policy_violation',
-      label: i18n.gettext('It violates Add-on Policies'),
-      help: i18n.gettext(
-        'Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me.',
-      ),
-    });
-  }
-
-  return { feedback, report };
-};
-
-export class AddonFeedbackFormBase extends React.Component<
-  InternalProps,
-  State,
-> {
-  static defaultProps: DefaultProps = {
-    _window: typeof window !== 'undefined' ? window : {},
-  };
-
-  constructor(props: InternalProps) {
-    super(props);
-
-    const { currentUser } = props;
-
-    this.state = {
-      anonymous: false,
-      successMessage: null,
-      ...this.getFormValues(currentUser),
-    };
-  }
-
-  componentDidUpdate(prevProps: InternalProps, prevState: State) {
-    if (
-      (!prevProps.errorHandler.hasError() &&
-        this.props.errorHandler.hasError()) ||
-      (!prevState.successMessage && this.state.successMessage)
-    ) {
-      this.props._window.scroll(0, 0);
+    if (!addon) {
+      return false;
     }
+
+    return addon.is_disabled || addon.status !== 'public';
   }
 
-  componentWillUnmount() {
-    this.props.errorHandler.clear();
-  }
-
-  onFieldChange: (event: SyntheticEvent<HTMLInputElement>) => void = (
-    event: SyntheticEvent<HTMLInputElement>,
+  onSubmit: (values: FeedbackFormValues) => void = (
+    values: FeedbackFormValues,
   ) => {
-    const { name, value, checked } = event.currentTarget;
-
-    let newValue: boolean | string | null = value;
-    if (['anonymous', 'certification'].includes(name)) {
-      newValue = checked;
-    }
-
-    this.setState({
-      [name]: newValue,
-      successMessage: null,
-    });
-  };
-
-  onSubmit: HTMLElementEventHandler = (event: ElementEvent) => {
-    event.preventDefault();
-
     const { addon, dispatch, errorHandler, installedAddon } = this.props;
-    const { anonymous, email, name, text, category, location } = this.state;
+    const { anonymous, email, name, text, category, location } = values;
 
     invariant(addon, 'An add-on is required for a report.');
 
@@ -211,7 +79,10 @@ export class AddonFeedbackFormBase extends React.Component<
         reporterName: anonymous ? '' : name,
         message: text,
         reason: category,
-        location: !this.shouldShowLocation() ? 'addon' : location,
+        location:
+          this.isAddonNonPublic() || category === CATEGORY_DOES_NOT_WORK
+            ? 'addon'
+            : location,
         addonVersion: installedAddon?.version || null,
         // Only authenticate the API call when the report isn't submitted
         // anonymously.
@@ -220,338 +91,58 @@ export class AddonFeedbackFormBase extends React.Component<
     );
   };
 
-  getFormValues(currentUser: UserType | null): FormValues {
-    const defaultFormValues = {
-      email: '',
-      name: '',
-      text: '',
-      category: null,
-      certification: false,
-      location: null,
-    };
-
-    const { email, display_name: name } = currentUser || {};
-
-    return {
-      ...defaultFormValues,
-      email: email || '',
-      name: name || '',
-    };
-  }
-
-  preventSubmit(): boolean {
-    const { loading } = this.props;
-    const { category, certification } = this.state;
-
-    return (
-      loading || !category || (this.isCertificationRequired() && !certification)
-    );
-  }
-
-  renderReportSentConfirmation(): React.Node {
-    const { i18n } = this.props;
-
-    // Make sure the confirmation message is going to be visible.
-    window.scrollTo(0, 0);
-
-    return (
-      <div>
-        <Card header={i18n.gettext('Report submitted')}>
-          <p className="AddonFeedbackForm-success-first-paragraph">
-            {i18n.gettext(`We have received your report. Thanks for letting us
-              know.`)}
-          </p>
-        </Card>
-      </div>
-    );
-  }
-
-  isCertificationRequired(): boolean {
-    return ['illegal'].includes(this.state.category);
-  }
-
-  isAddonNonPublic(): boolean {
-    const { addon } = this.props;
-
-    if (!addon) {
-      return false;
-    }
-
-    return addon.is_disabled || addon.status !== 'public';
-  }
-
-  shouldShowLocation(): boolean {
-    return !this.isAddonNonPublic() && this.state.category !== 'does_not_work';
-  }
-
   render(): React.Node {
-    const { abuseReport, addon, currentUser, errorHandler, i18n, loading } =
-      this.props;
-
-    let errorMessage;
-    if (
-      errorHandler.hasError() &&
-      ![401, 403, 404].includes(errorHandler.capturedError.responseStatusCode)
-    ) {
-      errorMessage = errorHandler.renderError();
-    }
-
-    const submitButtonText = loading
-      ? i18n.gettext('Submitting your report…')
-      : i18n.gettext('Submit report');
-
-    const isExtension = addon ? addon.type === ADDON_TYPE_EXTENSION : true;
-
-    const categories = getCategories(i18n, isExtension);
-    const categoryInputs = {};
-    // eslint-disable-next-line guard-for-in
-    for (const categoryType in categories) {
-      categoryInputs[categoryType] = [];
-      categories[categoryType].forEach((category) => {
-        categoryInputs[categoryType].push(
-          <li className="AddonFeedbackForm-checkbox-wrapper">
-            <input
-              type="radio"
-              className="AddonFeedbackForm-catgeory"
-              id={`feedbackCategory${category.value}`}
-              name="category"
-              onChange={this.onFieldChange}
-              value={category.value}
-              selected={this.state.category === category.value}
-            />
-            <label
-              className="AddonFeedbackForm-label"
-              htmlFor={`feedbackCategory${category.value}`}
-            >
-              {category.label}
-            </label>
-            {category.help && (
-              <p className="AddonFeedbackForm--help">{category.help}</p>
-            )}
-          </li>,
-        );
-      });
-    }
-
-    const locationOptions = [
-      { children: i18n.gettext('Select place'), value: '' },
-      {
-        children: i18n.gettext("On the add-on's page on this website"),
-        value: 'amo',
-      },
-      { children: i18n.gettext('Inside the add-on'), value: 'addon' },
-      { children: i18n.gettext('Both locations'), value: 'both' },
-    ];
-
+    const { abuseReport, addon, errorHandler, i18n, loading } = this.props;
     const abuseSubmitted = abuseReport && abuseReport.message !== undefined;
+    const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
+
+    let categories = [
+      CATEGORY_DOES_NOT_WORK,
+      CATEGORY_FEEDBACK_SPAM,
+      CATEGORY_POLICY_VIOLATION,
+      CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
+      CATEGORY_ILLEGAL,
+      CATEGORY_OTHER,
+    ];
+    if (addonType !== ADDON_TYPE_EXTENSION) {
+      categories = categories.filter(
+        (category) =>
+          ![CATEGORY_DOES_NOT_WORK, CATEGORY_POLICY_VIOLATION].includes(
+            category,
+          ),
+      );
+    }
 
     return (
       <div className="AddonFeedbackForm">
-        <Card className="AddonFeedbackForm-header">
-          <div className="AddonFeedbackForm-header-icon">
-            <div className="AddonFeedbackForm-header-icon-wrapper">
-              <img
-                className="AddonFeedbackForm-header-icon-image"
-                src={getAddonIconUrl(addon)}
-                alt=""
-              />
-            </div>
-          </div>
-
-          <AddonTitle addon={addon} />
-        </Card>
-
-        {abuseSubmitted ? (
-          this.renderReportSentConfirmation()
-        ) : (
-          <form className="AddonFeedbackForm-form" onSubmit={this.onSubmit}>
-            <div className="AddonFeedbackForm-form-messages">
-              {errorMessage}
-
-              {this.state.successMessage && (
-                <Notice type="success">{this.state.successMessage}</Notice>
-              )}
-            </div>
-
-            <Card
-              className="AddonFeedbackForm--Card"
-              header={i18n.gettext('Report this add-on to Mozilla')}
-            >
-              <h3>{i18n.gettext('Send some feedback about the add-on')}</h3>
-              <ul>{categoryInputs.feedback}</ul>
-
-              <h3>
-                {i18n.gettext(
-                  "Report the add-on because it's illegal or incompliant",
-                )}
-              </h3>
-              <ul>{categoryInputs.report}</ul>
-            </Card>
-
-            <Card
-              className="AddonFeedbackForm--Card"
-              header={i18n.gettext('Provide more information')}
-            >
-              {this.shouldShowLocation() && (
-                <>
-                  <label
-                    className="AddonFeedbackForm-label"
-                    htmlFor="feedbackLocation"
-                  >
-                    {i18n.gettext('Place of the violation')}
-                    <span>({i18n.gettext('optional')})</span>
-                  </label>
-                  <Select
-                    className="AddonFeedbackForm-location"
-                    id="feedbackLocation"
-                    name="location"
-                    onChange={this.onFieldChange}
-                    value={this.state.location}
-                  >
-                    {locationOptions.map((option) => {
-                      return <option key={option.value} {...option} />;
-                    })}
-                  </Select>
-                </>
-              )}
-
-              <label className="AddonFeedbackForm-label" htmlFor="feedbackText">
-                {i18n.gettext('Provide more details')}
-                <span>({i18n.gettext('optional')})</span>
-              </label>
-              <Textarea
-                className="AddonFeedbackForm-text"
-                id="feedbackText"
-                name="text"
-                onChange={this.onFieldChange}
-                value={this.state.text}
-              />
-              <p className="AddonFeedbackForm--help">
-                {i18n.gettext(`Please provide any additional information that
-                  may help us to understand your report (including which policy
-                  you believe has been violated). While this information is not
-                  required, failure to include it may prevent us from
-                  addressing the reported content.`)}
-              </p>
-            </Card>
-
-            <Card
-              className="AddonFeedbackForm--Card"
-              header={i18n.gettext('Contact information')}
-            >
-              <p className="AddonFeedbackForm-checkbox-wrapper">
-                <input
-                  type="checkbox"
-                  className="AddonFeedbackForm-anonymous"
-                  id="feedbackAnonymous"
-                  name="anonymous"
-                  onChange={this.onFieldChange}
-                  checked={!!this.state.anonymous}
-                />
-                <label
-                  className="AddonFeedbackForm-label"
-                  htmlFor="feedbackAnonymous"
-                >
-                  {i18n.gettext('File report anonymously')}
-                </label>
-                <p className="AddonFeedbackForm--help">
-                  {i18n.gettext(`Filing an anonymous report will prevent us
-                    from communicating with you about the report’s status, or
-                    about any options for appeal.`)}
-                </p>
-              </p>
-
-              {currentUser && (
-                <SignedInUser
-                  user={currentUser}
-                  disabled={this.state.anonymous}
-                />
-              )}
-
-              <label
-                className={makeClassName('AddonFeedbackForm-label', {
-                  'AddonFeedbackForm-label--disabled': this.state.anonymous,
-                })}
-                htmlFor="feedbackName"
-              >
-                {i18n.gettext('Your name')}
-                {!currentUser && <span>({i18n.gettext('optional')})</span>}
-              </label>
-              <input
-                className={makeClassName('AddonFeedbackForm-name', {
-                  'AddonFeedbackForm-input--disabled': this.state.anonymous,
-                })}
-                id="feedbackName"
-                name="name"
-                disabled={!!currentUser}
-                onChange={this.onFieldChange}
-                value={
-                  this.state.anonymous
-                    ? ''
-                    : this.state.name || (currentUser && currentUser.name)
-                }
-              />
-
-              <label
-                className={makeClassName('AddonFeedbackForm-label', {
-                  'AddonFeedbackForm-label--disabled': this.state.anonymous,
-                })}
-                htmlFor="feedbackEmail"
-              >
-                {i18n.gettext('Your email address')}
-                {!currentUser && <span>({i18n.gettext('optional')})</span>}
-              </label>
-              <input
-                className={makeClassName('AddonFeedbackForm-email', {
-                  'AddonFeedbackForm-input--disabled': this.state.anonymous,
-                })}
-                id="feedbackEmail"
-                name="email"
-                disabled={!!currentUser}
-                onChange={this.onFieldChange}
-                value={
-                  this.state.anonymous
-                    ? ''
-                    : this.state.email || (currentUser && currentUser.email)
-                }
-              />
-
-              {this.isCertificationRequired() && (
-                <p className="AddonFeedbackForm-checkbox-wrapper">
-                  <input
-                    type="checkbox"
-                    className="AddonFeedbackForm-certification"
-                    id="feedbackCertification"
-                    name="certification"
-                    onChange={this.onFieldChange}
-                    checked={!!this.state.certification}
-                    required={this.isCertificationRequired()}
+        <FeedbackForm
+          errorHandler={errorHandler}
+          contentHeader={
+            <Card className="AddonFeedbackForm-header">
+              <div className="AddonFeedbackForm-header-icon">
+                <div className="AddonFeedbackForm-header-icon-wrapper">
+                  <img
+                    className="AddonFeedbackForm-header-icon-image"
+                    src={getAddonIconUrl(addon)}
+                    alt=""
                   />
-                  <label
-                    className="AddonFeedbackForm-label"
-                    htmlFor="feedbackCertification"
-                  >
-                    {i18n.gettext(`By submitting this report I certify, under
-                    penalty of perjury, that the allegations it contains are
-                    complete and accurate, to the best of my knowledge.`)}
-                  </label>
-                </p>
-              )}
-            </Card>
+                </div>
+              </div>
 
-            <div className="AddonFeedbackForm-buttons-wrapper">
-              <Button
-                buttonType="action"
-                className="AddonFeedbackForm-submit-button AddonFeedbackForm-button"
-                disabled={this.preventSubmit()}
-                puffy
-                type="submit"
-              >
-                {submitButtonText}
-              </Button>
-            </div>
-          </form>
-        )}
+              <AddonTitle addon={addon} />
+            </Card>
+          }
+          abuseIsLoading={loading}
+          abuseSubmitted={!!abuseSubmitted}
+          categoryHeader={i18n.gettext('Report this add-on to Mozilla')}
+          feedbackTitle={i18n.gettext('Send some feedback about the add-on')}
+          reportTitle={i18n.gettext(
+            "Report the add-on because it's illegal or incompliant",
+          )}
+          categories={categories}
+          showLocation={!this.isAddonNonPublic()}
+          onSubmit={this.onSubmit}
+        />
       </div>
     );
   }
@@ -559,13 +150,11 @@ export class AddonFeedbackFormBase extends React.Component<
 
 function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
   const { addon } = ownProps;
-  const currentUser = getCurrentUser(state.users);
   const installedAddon =
     (addon?.guid && state.installations[addon.guid]) || null;
 
   return {
     abuseReport: (addon?.slug && state.abuse.bySlug[addon.slug]) || null,
-    currentUser,
     loading: state.abuse.loading,
     installedAddon,
   };
