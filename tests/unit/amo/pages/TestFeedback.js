@@ -108,6 +108,7 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(
       fetchAddon({
         errorHandler,
+        showGroupedRatings: true,
         slug: addonIdentifier,
         assumeNonPublic: true,
       }),
