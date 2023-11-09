@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import makeClassName from 'classnames';
 
+import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import { withInstallHelpers } from 'amo/installAddon';
 import { sendAddonAbuseReport } from 'amo/reducers/abuse';
 import { getCurrentUser } from 'amo/reducers/users';
@@ -77,64 +78,69 @@ type Reason = {|
   help: string,
 |};
 
-export const getCategories = (
+const getCategories = (
   i18n: I18nType,
+  isExtension: boolean,
 ): {
   report: Array<Reason>,
   feedback: Array<Reason>,
 } => {
-  return {
-    feedback: [
-      {
-        value: 'does_not_work',
-        label: i18n.gettext(
-          'It doesn’t work, breaks websites, or slows down Firefox',
-        ),
-        help: i18n.gettext(
-          "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual.",
-        ),
-      },
-      {
-        value: 'feedback_spam',
-        label: i18n.gettext('It’s SPAM'),
-        help: i18n.gettext(
-          'Example: The listing advertises unrelated products or services.',
-        ),
-      },
-    ],
-    report: [
-      {
-        value: 'policy_violation',
-        label: i18n.gettext('It violates Add-on Policies'),
-        help: i18n.gettext(
-          'Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me.',
-        ),
-      },
-      {
-        value: 'hateful_violent_deceptive',
-        label: i18n.gettext(
-          'It contains hateful, violent, deceptive, or other inappropriate content',
-        ),
-        help: i18n.gettext('Example: It contains racist imagery.'),
-      },
-      {
-        value: 'illegal',
-        label: i18n.gettext(
-          'It violates the law or contains content that violates the law',
-        ),
-        help: i18n.gettext(
-          'Example: Copyright or Trademark Infringement, Fraud.',
-        ),
-      },
-      {
-        value: 'other',
-        label: i18n.gettext('Something else'),
-        help: i18n.gettext(
-          'Anything that doesn’t fit into the other categories.',
-        ),
-      },
-    ],
-  };
+  const feedback = [
+    {
+      value: 'feedback_spam',
+      label: i18n.gettext('It’s SPAM'),
+      help: i18n.gettext(
+        'Example: The listing advertises unrelated products or services.',
+      ),
+    },
+  ];
+  const report = [
+    {
+      value: 'hateful_violent_deceptive',
+      label: i18n.gettext(
+        'It contains hateful, violent, deceptive, or other inappropriate content',
+      ),
+      help: i18n.gettext('Example: It contains racist imagery.'),
+    },
+    {
+      value: 'illegal',
+      label: i18n.gettext(
+        'It violates the law or contains content that violates the law',
+      ),
+      help: i18n.gettext(
+        'Example: Copyright or Trademark Infringement, Fraud.',
+      ),
+    },
+    {
+      value: 'other',
+      label: i18n.gettext('Something else'),
+      help: i18n.gettext(
+        'Anything that doesn’t fit into the other categories.',
+      ),
+    },
+  ];
+
+  // Extensions have more categories than other add-on types.
+  if (isExtension) {
+    feedback.unshift({
+      value: 'does_not_work',
+      label: i18n.gettext(
+        'It doesn’t work, breaks websites, or slows down Firefox',
+      ),
+      help: i18n.gettext(
+        "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual.",
+      ),
+    });
+    report.unshift({
+      value: 'policy_violation',
+      label: i18n.gettext('It violates Add-on Policies'),
+      help: i18n.gettext(
+        'Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me.',
+      ),
+    });
+  }
+
+  return { feedback, report };
 };
 
 export class FeedbackFormBase extends React.Component<InternalProps, State> {
@@ -277,7 +283,9 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       ? i18n.gettext('Submitting your report…')
       : i18n.gettext('Submit report');
 
-    const categories = getCategories(i18n);
+    const isExtension = addon ? addon.type === ADDON_TYPE_EXTENSION : true;
+
+    const categories = getCategories(i18n, isExtension);
     const categoryInputs = {};
     // eslint-disable-next-line guard-for-in
     for (const categoryType in categories) {
