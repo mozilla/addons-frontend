@@ -632,7 +632,7 @@ describe(__filename, () => {
       },
     );
 
-    it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+    it.each([ADDON_TYPE_DICT])(
       'does not initiate an abuse report via Firefox when add-on type is %s',
       async (addonType) => {
         hasAbuseReportPanelEnabled.mockImplementation(() => {
@@ -660,6 +660,19 @@ describe(__filename, () => {
         );
       },
     );
+
+    it('does not render an abuse button for a langpack', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        type: ADDON_TYPE_LANG,
+      });
+
+      render({ addon });
+
+      expect(
+        screen.queryByClassName('ReportAbuseButton'),
+      ).not.toBeInTheDocument();
+    });
 
     it('shows a success message and hides the button if report was sent', () => {
       const addon = fakeAddon;
