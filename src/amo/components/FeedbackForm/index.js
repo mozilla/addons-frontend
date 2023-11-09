@@ -394,6 +394,13 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 onChange={this.onFieldChange}
                 value={this.state.text}
               />
+              <p className="FeedbackForm--help">
+                {i18n.gettext(`Please provide any additional information that
+                  may help us to understand your report (including which policy
+                  you believe has been violated). While this information is not
+                  required, failure to include it may prevent us from
+                  addressing the reported content.`)}
+              </p>
             </Card>
 
             <Card
