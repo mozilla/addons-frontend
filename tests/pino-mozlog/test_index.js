@@ -55,7 +55,7 @@ describe(__filename, () => {
       expect(_console.error).toHaveBeenCalledWith(
         '[pino-mozlog] could not parse:',
         {
-          error: expect.stringContaining('SyntaxError: Unexpected token'),
+          error: 'SyntaxError: Unexpected token o in JSON at position 1',
           data,
         },
       );
