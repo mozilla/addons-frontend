@@ -12,6 +12,8 @@ import type {
 } from 'amo/types/api';
 
 export type AddonStatusType =
+  // This status isn't returned by the AMO API.
+  | 'unknown-non-public'
   | 'lite'
   | 'public'
   | 'deleted'

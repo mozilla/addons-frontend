@@ -131,6 +131,7 @@ describe(__filename, () => {
             promoted: null,
             created: new Date(0),
             last_updated: null,
+            status: 'unknown-non-public',
           },
           slug: guid,
         });

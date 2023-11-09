@@ -208,7 +208,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
         reporterName: anonymous ? '' : name,
         message: text,
         reason: category,
-        location,
+        location: !this.shouldShowLocation() ? 'addon' : location,
         addonVersion: installedAddon?.version || null,
         // Only authenticate the API call when the report isn't submitted
         // anonymously.
@@ -267,8 +267,18 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     return ['illegal'].includes(this.state.category);
   }
 
+  isAddonNonPublic(): boolean {
+    const { addon } = this.props;
+
+    if (!addon) {
+      return false;
+    }
+
+    return addon.is_disabled || addon.status !== 'public';
+  }
+
   shouldShowLocation(): boolean {
-    return this.state.category !== 'does_not_work';
+    return !this.isAddonNonPublic() && this.state.category !== 'does_not_work';
   }
 
   render(): React.Node {
