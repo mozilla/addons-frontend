@@ -179,7 +179,7 @@ describe(__filename, () => {
     expect(screen.getByText(/^Example: Features are slow/)).toBeInTheDocument();
 
     // B
-    expect(screen.getByLabelText('It’s SPAM')).toBeInTheDocument();
+    expect(screen.getByLabelText('It’s spam')).toBeInTheDocument();
     expect(
       screen.getByText(/^Example: The listing advertises/),
     ).toBeInTheDocument();
@@ -224,7 +224,7 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
 
       // B
-      expect(screen.getByLabelText('It’s SPAM')).toBeInTheDocument();
+      expect(screen.getByLabelText('It’s spam')).toBeInTheDocument();
       expect(
         screen.getByText(/^Example: The listing advertises/),
       ).toBeInTheDocument();

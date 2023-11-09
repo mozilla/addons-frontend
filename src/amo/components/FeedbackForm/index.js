@@ -101,7 +101,7 @@ export const getCategories = (
       },
       {
         value: CATEGORY_FEEDBACK_SPAM,
-        label: i18n.gettext('It’s SPAM'),
+        label: i18n.gettext('It’s spam'),
         help: i18n.gettext(
           'Example: The listing advertises unrelated products or services.',
         ),
