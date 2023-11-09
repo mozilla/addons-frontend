@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-07 18:50+0000\n"
-"PO-Revision-Date: 2023-11-09 10:22+0000\n"
+"PO-Revision-Date: 2023-11-09 10:24+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1025,7 +1025,7 @@ msgstr "Continus di plui"
 
 #: src/amo/components/FeedbackForm/index.js:360
 msgid "Where is the offending content"
-msgstr ""
+msgstr "Il puest là che si cjate il contignût ofensîf"
 
 #: src/amo/components/FeedbackForm/index.js:375
 msgid "Give details of your feedback or report"
@@ -2365,11 +2365,11 @@ msgstr "Stagjons"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "Estensions par Firefox par Android"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "Personalize Firefox par Android cun potentis estensions."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2377,7 +2377,7 @@ msgstr "Viôt altris estensions conseadis"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Esplore dutis lis estensions par Android"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
