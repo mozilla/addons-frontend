@@ -67,6 +67,27 @@ describe(__filename, () => {
     expect(calledAction).toEqual(expectedLoadAction);
   });
 
+  it('calls the API for abuse with a reason', async () => {
+    const userId = createUserAccountResponse({ id: 50 }).id;
+    const reason = 'other';
+    const response = createFakeUserAbuseReport({ userId, message: '' });
+
+    mockApi.expects('reportUser').once().returns(Promise.resolve(response));
+
+    _sendUserAbuseReport({ userId, reason });
+
+    const expectedLoadAction = loadUserAbuseReport({
+      reporter: response.reporter,
+      userId,
+      message: '',
+    });
+
+    const calledAction = await sagaTester.waitFor(expectedLoadAction.type);
+    mockApi.verify();
+
+    expect(calledAction).toEqual(expectedLoadAction);
+  });
+
   it('handles an empty reporter', async () => {
     const userId = createUserAccountResponse({ id: 50 }).id;
     const message = 'I have no reporter';

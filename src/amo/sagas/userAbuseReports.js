@@ -14,7 +14,15 @@ import type { ReportUserParams } from 'amo/api/abuse';
 import type { Saga } from 'amo/types/sagas';
 
 export function* reportUser({
-  payload: { errorHandlerId, message, userId },
+  payload: {
+    auth,
+    errorHandlerId,
+    message,
+    reason,
+    reporterEmail,
+    reporterName,
+    userId,
+  },
 }: SendUserAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -23,7 +31,15 @@ export function* reportUser({
   try {
     const state = yield select(getState);
 
-    const params: ReportUserParams = { api: state.api, message, userId };
+    const params: ReportUserParams = {
+      api: state.api,
+      auth,
+      message,
+      reason: reason || null,
+      reporterName: reporterName || null,
+      reporterEmail: reporterEmail || null,
+      userId,
+    };
     const response = yield call(reportUserApi, params);
 
     yield put(

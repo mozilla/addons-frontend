@@ -95,6 +95,10 @@ describe(__filename, () => {
           errorHandlerId: 'some-error-handler',
           message: 'The add-on is malware',
           userId: createUserAccountResponse().id,
+          auth: true,
+          reason: null,
+          reporterEmail: null,
+          reporterName: null,
           ...params,
         };
       }

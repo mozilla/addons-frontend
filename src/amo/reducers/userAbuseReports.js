@@ -75,9 +75,9 @@ export function loadUserAbuseReport({
   reporter,
   userId,
 }: LoadUserAbuseReportParams): LoadUserAbuseReportAction {
-  invariant(message, 'message is required');
-  invariant(reporter !== undefined, 'reporter cannot be undefined');
   invariant(userId, 'userId is required');
+  invariant(message !== undefined, 'message cannot be undefined');
+  invariant(reporter !== undefined, 'reporter cannot be undefined');
 
   const reportedByUserId = reporter ? reporter.id : null;
 
@@ -88,8 +88,12 @@ export function loadUserAbuseReport({
 }
 
 export type SendUserAbuseReportParams = {|
+  auth: boolean,
   errorHandlerId: string,
-  message: string,
+  message: string | null,
+  reason?: string | null,
+  reporterEmail?: string | null,
+  reporterName?: string | null,
   userId: UserId,
 |};
 
@@ -99,17 +103,28 @@ export type SendUserAbuseReportAction = {|
 |};
 
 export function sendUserAbuseReport({
+  auth = true,
   errorHandlerId,
   message,
+  reason = null,
+  reporterEmail = null,
   userId,
+  reporterName = null,
 }: SendUserAbuseReportParams): SendUserAbuseReportAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(message, 'message is required');
   invariant(userId, 'userId is required');
 
   return {
     type: SEND_USER_ABUSE_REPORT,
-    payload: { errorHandlerId, message, userId },
+    payload: {
+      auth,
+      errorHandlerId,
+      message,
+      reason,
+      reporterEmail,
+      reporterName,
+      userId,
+    },
   };
 }
 

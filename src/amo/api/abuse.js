@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import { callApi } from 'amo/api';
 import type { ApiState } from 'amo/reducers/api';
 import type { UserId } from 'amo/reducers/users';
@@ -77,32 +79,56 @@ export function reportAddon({
 
 export type ReportUserParams = {|
   api: ApiState,
-  message: string,
+  reporterName: string | null,
+  reporterEmail: string | null,
+  message: string | null,
+  reason: string | null,
   userId: UserId,
+  auth: boolean,
 |};
 
 export type ReportUserResponse = {|
-  message: string,
-  reporter: AbuseReporter,
   user: {|
     id: number,
     name: string,
     url: string,
     username: string,
   |},
+  message: string | null,
+  reporter: AbuseReporter | null,
+  reporter_name: string | null,
+  reporter_email: string | null,
+  reason: string | null,
 |};
 
 export function reportUser({
   api,
   message,
+  reason,
+  reporterEmail,
+  reporterName,
   userId,
+  auth = true,
 }: ReportUserParams): Promise<ReportUserResponse> {
+  if (!reason) {
+    invariant(
+      message?.trim(),
+      "message is required when reason isn't specified",
+    );
+  }
+
   return callApi({
-    auth: true,
+    auth,
     endpoint: 'abuse/report/user',
     method: 'POST',
     // Using an ID that isn't posted as a string causes a 500 error.
-    body: { message, user: userId.toString() },
+    body: {
+      reporter_email: reporterEmail,
+      reporter_name: reporterName,
+      message,
+      reason,
+      user: userId.toString(),
+    },
     apiState: api,
   });
 }
