@@ -44,7 +44,7 @@ type InternalProps = {|
 
 type State = {||};
 
-export class FeedbackBase extends React.Component<InternalProps, State> {
+export class AddonFeedbackBase extends React.Component<InternalProps, State> {
   constructor(props: InternalProps) {
     super(props);
     this.loadDataIfNeeded();
@@ -79,7 +79,7 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
 
     return (
       <Page>
-        <div className="Feedback-page">
+        <div className="AddonFeedback-page">
           <Helmet>
             <title>
               {i18n.gettext('Submit feedback or report an add-on to Mozilla')}
@@ -111,10 +111,10 @@ export const extractId = (ownProps: InternalProps): string => {
   return ownProps.match.params.addonIdentifier;
 };
 
-const Feedback: React.ComponentType<Props> = compose(
+const AddonFeedback: React.ComponentType<Props> = compose(
   translate(),
   connect(mapStateToProps),
   withFixedErrorHandler({ fileName: __filename, extractId }),
-)(FeedbackBase);
+)(AddonFeedbackBase);
 
-export default Feedback;
+export default AddonFeedback;

@@ -10,7 +10,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
 } from 'amo/constants';
-import { extractId } from 'amo/pages/Feedback';
+import { extractId } from 'amo/pages/AddonFeedback';
 import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
 import { loadAddon, fetchAddon } from 'amo/reducers/addons';
 import { clearError } from 'amo/reducers/errors';
@@ -73,7 +73,7 @@ describe(__filename, () => {
   }
 
   const getErrorHandlerId = (addonId) =>
-    `src/amo/pages/Feedback/index.js-${addonId}`;
+    `src/amo/pages/AddonFeedback/index.js-${addonId}`;
 
   const renderWithoutLoadingAddon = (addonIdentifier) => {
     const renderOptions = {
