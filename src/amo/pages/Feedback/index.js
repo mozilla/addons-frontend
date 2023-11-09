@@ -64,6 +64,8 @@ export class FeedbackBase extends React.Component<InternalProps, State> {
     if (!addon && !addonIsLoading) {
       dispatch(
         fetchAddon({
+          // We need this in case users navigate back to the add-on detail page.
+          showGroupedRatings: true,
           slug: match.params.addonIdentifier,
           errorHandler,
           assumeNonPublic: true,
