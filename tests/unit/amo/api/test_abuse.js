@@ -84,7 +84,8 @@ describe(__filename, () => {
     it('calls the report add-on abuse API', async () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
-      const user = createUserAccountResponse({ id: 5001 });
+      const userId = 1234;
+      const user = createUserAccountResponse({ id: userId });
 
       mockApi
         .expects('callApi')
@@ -92,7 +93,87 @@ describe(__filename, () => {
           auth: true,
           endpoint: 'abuse/report/user',
           method: 'POST',
-          body: { message, user: '5001' },
+          body: {
+            user: `${userId}`,
+            message,
+            reason: undefined,
+            reporter_email: undefined,
+            reporter_name: undefined,
+          },
+          apiState,
+        })
+        .once()
+        .returns(mockResponse({ message, user }));
+
+      await reportUser({ api: apiState, message, userId: user.id });
+
+      mockApi.verify();
+    });
+
+    it('calls the report add-on abuse API with more information', async () => {
+      const apiState = dispatchClientMetadata().store.getState().api;
+      const reason = 'other';
+      const reporterEmail = 'some-reporter-email';
+      const reporterName = 'some-reporter-name';
+      const userId = 1234;
+      const user = createUserAccountResponse({ id: userId });
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: 'abuse/report/user',
+          method: 'POST',
+          body: {
+            user: `${userId}`,
+            message: undefined,
+            reason,
+            reporter_email: reporterEmail,
+            reporter_name: reporterName,
+          },
+          apiState,
+        })
+        .once()
+        .returns(
+          mockResponse({
+            message: '',
+            reason,
+            reporter_email: reporterEmail,
+            reporter_name: reporterName,
+            user,
+          }),
+        );
+
+      await reportUser({
+        api: apiState,
+        userId: user.id,
+        reason,
+        reporterEmail,
+        reporterName,
+      });
+
+      mockApi.verify();
+    });
+
+    it('allows the report add-on abuse API to be called anonymously', async () => {
+      const apiState = dispatchClientMetadata().store.getState().api;
+      const message = 'I do not like this!';
+      const userId = 1234;
+      const user = createUserAccountResponse({ id: userId });
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: false,
+          endpoint: 'abuse/report/user',
+          method: 'POST',
+          body: {
+            user: `${userId}`,
+            message,
+            reason: undefined,
+            reporter_email: undefined,
+            reporter_name: undefined,
+          },
           apiState,
         })
         .once()
@@ -100,6 +181,7 @@ describe(__filename, () => {
 
       await reportUser({
         api: apiState,
+        auth: false,
         message,
         userId: user.id,
       });
@@ -107,4 +189,16 @@ describe(__filename, () => {
       mockApi.verify();
     });
   });
+
+  it.each([undefined, '', null, ' '])(
+    'throws when reason is not supplied and message is %s',
+    async (message) => {
+      const apiState = dispatchClientMetadata().store.getState().api;
+      const user = createUserAccountResponse();
+
+      await expect(() =>
+        reportUser({ api: apiState, userId: user.id, message }),
+      ).toThrow(/message is required when reason isn't specified/);
+    },
+  );
 });

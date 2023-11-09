@@ -62,6 +62,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
           errorHandlerId: errorHandler.id,
           message: reportData.text,
           userId: user.id,
+          auth: true,
         }),
       );
     }
