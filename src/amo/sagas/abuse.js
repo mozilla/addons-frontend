@@ -81,7 +81,7 @@ export function* reportAddonViaFirefox({
       yield put(
         loadAddonAbuseReport({
           addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
-          message: null,
+          message: '',
           reporter: null,
           reporter_email: null,
           reporter_name: null,

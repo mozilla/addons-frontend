@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import { LOCATION_CHANGE } from 'redux-first-history';
 
+import { REVIEW_FLAG_REASON_LANGUAGE } from 'amo/constants';
 import { SET_LANG } from 'amo/reducers/api';
 import {
   BEGIN_DELETE_ADDON_REVIEW,
@@ -15,6 +16,7 @@ import {
   HIDE_EDIT_REVIEW_FORM,
   HIDE_FLASHED_REVIEW_MESSAGE,
   HIDE_REPLY_TO_REVIEW_FORM,
+  SEND_RATING_ABUSE_REPORT,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
@@ -47,11 +49,12 @@ import type {
   HideFlashedReviewMessageAction,
   HideReplyToReviewFormAction,
   ReviewWasFlaggedAction,
+  FlashReviewMessageAction,
+  SendRatingAbuseReportAction,
   SendReplyToReviewAction,
   SetAddonReviewsAction,
   SetInternalReviewAction,
   SetLatestReviewAction,
-  FlashReviewMessageAction,
   SetReviewAction,
   SetReviewPermissionsAction,
   SetReviewReplyAction,
@@ -422,6 +425,7 @@ type ReviewActionType =
   | HideFlashedReviewMessageAction
   | HideReplyToReviewFormAction
   | ReviewWasFlaggedAction
+  | SendRatingAbuseReportAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
   | SetInternalReviewAction
@@ -558,6 +562,21 @@ export default function reviewsReducer(
           },
         },
       };
+    }
+    case SEND_RATING_ABUSE_REPORT: {
+      const { payload } = action;
+      return changeViewState({
+        state,
+        reviewId: payload.ratingId,
+        stateChange: {
+          flag: {
+            // This is the reason in our code that opens the feedback form page.
+            reason: REVIEW_FLAG_REASON_LANGUAGE,
+            inProgress: true,
+            wasFlagged: false,
+          },
+        },
+      });
     }
     case SEND_REVIEW_FLAG: {
       const { payload } = action;

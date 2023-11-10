@@ -52,6 +52,8 @@ export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
   'UNLOAD_ADDON_REVIEWS';
 export const UPDATE_RATING_COUNTS: 'UPDATE_RATING_COUNTS' =
   'UPDATE_RATING_COUNTS';
+export const SEND_RATING_ABUSE_REPORT: 'SEND_RATING_ABUSE_REPORT' =
+  'SEND_RATING_ABUSE_REPORT';
 
 export type ReviewAddonType = {|
   iconUrl: string,
@@ -804,5 +806,46 @@ export const unloadAddonReviews = ({
   return {
     type: UNLOAD_ADDON_REVIEWS,
     payload: { addonId, reviewId },
+  };
+};
+
+type SendRatingAbuseReportParams = {|
+  auth: boolean,
+  errorHandlerId: string,
+  message: string | null,
+  ratingId: number,
+  reason: string | null,
+  reporterEmail: string | null,
+  reporterName: string | null,
+|};
+
+export type SendRatingAbuseReportAction = {|
+  type: typeof SEND_RATING_ABUSE_REPORT,
+  payload: SendRatingAbuseReportParams,
+|};
+
+export const sendRatingAbuseReport = ({
+  auth,
+  errorHandlerId,
+  message,
+  ratingId,
+  reason,
+  reporterEmail,
+  reporterName,
+}: SendRatingAbuseReportParams): SendRatingAbuseReportAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(ratingId, 'ratingId is required');
+
+  return {
+    type: SEND_RATING_ABUSE_REPORT,
+    payload: {
+      auth,
+      errorHandlerId,
+      message,
+      ratingId,
+      reason,
+      reporterEmail,
+      reporterName,
+    },
   };
 };

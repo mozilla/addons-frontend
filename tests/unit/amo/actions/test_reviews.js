@@ -4,10 +4,11 @@ import {
   fetchReviews,
   flagReview,
   reviewIdAction,
+  sendRatingAbuseReport,
   sendReplyToReview,
   setInternalReview,
-  setReviewWasFlagged,
   setReviewReply,
+  setReviewWasFlagged,
 } from 'amo/actions/reviews';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
 import {
@@ -204,6 +205,20 @@ describe(__filename, () => {
       expect(() => setReviewWasFlagged(params)).toThrow(
         /reviewId parameter is required/,
       );
+    });
+  });
+
+  describe('sendRatingAbuseReport', () => {
+    it('requires an error handler ID', () => {
+      expect(() => sendRatingAbuseReport({})).toThrow(
+        /errorHandlerId is required/,
+      );
+    });
+
+    it('requires a ratingId', () => {
+      expect(() =>
+        sendRatingAbuseReport({ errorHandlerId: 'error-handler-id' }),
+      ).toThrow(/ratingId is required/);
     });
   });
 });

@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 import { call, delay, put, select, takeLatest } from 'redux-saga/effects';
 
+import { REVIEW_FLAG_REASON_LANGUAGE } from 'amo/constants';
 import {
   deleteReview,
   flagReview,
@@ -11,6 +12,7 @@ import {
   replyToReview,
   submitReview,
 } from 'amo/api/reviews';
+import { reportRating } from 'amo/api/abuse';
 import {
   ABORTED,
   CREATE_ADDON_REVIEW,
@@ -24,6 +26,7 @@ import {
   SAVED_REVIEW,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
+  SEND_RATING_ABUSE_REPORT,
   STARTED_SAVE_RATING,
   STARTED_SAVE_REVIEW,
   UPDATE_ADDON_REVIEW,
@@ -56,6 +59,7 @@ import type {
   SubmitReviewParams,
   SubmitReviewResponse,
 } from 'amo/api/reviews';
+import type { ReportRatingParams, ReportRatingResponse } from 'amo/api/abuse';
 import type {
   CreateAddonReviewAction,
   DeleteAddonReviewAction,
@@ -65,6 +69,7 @@ import type {
   FetchReviewsAction,
   FetchUserReviewsAction,
   FlagReviewAction,
+  SendRatingAbuseReportAction,
   SendReplyToReviewAction,
   UpdateAddonReviewAction,
 } from 'amo/actions/reviews';
@@ -421,6 +426,49 @@ function* fetchReview({
   }
 }
 
+function* sendRatingAbuseReport({
+  payload: {
+    auth,
+    errorHandlerId,
+    message,
+    ratingId,
+    reason,
+    reporterEmail,
+    reporterName,
+  },
+}: SendRatingAbuseReportAction): Saga {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const { api } = yield select(getState);
+
+    const params: ReportRatingParams = {
+      api,
+      auth,
+      message,
+      ratingId,
+      reason,
+      reporterName: reporterName || null,
+      reporterEmail: reporterEmail || null,
+    };
+
+    const response: ReportRatingResponse = yield call(reportRating, params);
+
+    yield put(
+      setReviewWasFlagged({
+        reviewId: response.rating.id,
+        // This is the reason in our code that opens the feedback form page.
+        reason: REVIEW_FLAG_REASON_LANGUAGE,
+      }),
+    );
+  } catch (error) {
+    log.warn(`Failed to report rating with ID ${ratingId}: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* reviewsSaga(options?: Options): Saga {
   yield takeLatest(FETCH_LATEST_USER_REVIEW, fetchLatestUserReview);
   yield takeLatest(FETCH_REVIEW, fetchReview);
@@ -436,4 +484,5 @@ export default function* reviewsSaga(options?: Options): Saga {
     manageAddonReview(action, options),
   );
   yield takeLatest(DELETE_ADDON_REVIEW, deleteAddonReview);
+  yield takeLatest(SEND_RATING_ABUSE_REPORT, sendRatingAbuseReport);
 }
