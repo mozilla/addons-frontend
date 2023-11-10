@@ -1,0 +1,133 @@
+@import '~amo/css/styles';
+
+.FeedbackForm .Card {
+  margin-bottom: $padding-page;
+}
+
+.FeedbackForm-form {
+  ul {
+    @include padding-start(0);
+  }
+
+  h3:first-child,
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+.FeedbackForm-checkbox-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  input {
+    @include margin-end(12px);
+
+    align-self: start;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-top: 4px;
+  }
+
+  label {
+    grid-column: 2;
+    grid-row: 1;
+    user-select: none;
+  }
+
+  p {
+    grid-row: 2;
+    grid-column: 2;
+  }
+}
+
+.FeedbackForm-label {
+  display: block;
+}
+
+.FeedbackForm-label > span {
+  @include margin-start(4px);
+
+  color: $grey-50;
+}
+
+.FeedbackForm--help {
+  color: $grey-50;
+  display: block;
+  margin-top: 0;
+}
+
+.FeedbackForm textarea {
+  margin-bottom: 4px;
+}
+
+.FeedbackForm input,
+.FeedbackForm textarea {
+  width: 100%;
+
+  &:disabled {
+    background: $grey-20;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    @include focus;
+  }
+}
+
+.FeedbackForm input {
+  @include respond-to(large) {
+    width: 60%;
+  }
+}
+
+.FeedbackForm input[type='radio'],
+.FeedbackForm input[type='checkbox'] {
+  width: revert;
+}
+
+.FeedbackForm-name,
+.FeedbackForm-email,
+.FeedbackForm-location,
+.FeedbackForm-text,
+.FeedbackForm .SignedInUser {
+  margin-bottom: 16px;
+}
+
+.FeedbackForm-text {
+  // The max height ensures that the textarea won't expand beyond 600
+  // characters and instead shows a scrollbar.
+  max-height: 230px;
+
+  // This is the height of two lines of text.
+  min-height: 51px;
+  resize: none;
+  width: 100%;
+}
+
+.FeedbackForm-label--disabled,
+.FeedbackForm-input--disabled {
+  @include disabled;
+}
+
+.FeedbackForm-buttons-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  @include respond-to(medium) {
+    flex-flow: row-reverse;
+  }
+}
+
+.FeedbackForm-button {
+  margin-bottom: $padding-page;
+
+  @include respond-to(medium) {
+    margin-bottom: 0;
+  }
+}
+
+.FeedbackForm-success-first-paragraph {
+  margin-top: 6px;
+}
