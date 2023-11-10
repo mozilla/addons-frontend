@@ -41,10 +41,20 @@ import reviewsReducer, {
   selectReviews,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
+import { setLang } from 'amo/reducers/api';
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
-import { fakeAddon, fakeReview } from 'tests/unit/helpers';
+import {
+  DEFAULT_LANG_IN_TESTS,
+  fakeAddon,
+  fakeReview,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const stateWithLang = reviewsReducer(
+    undefined,
+    setLang(DEFAULT_LANG_IN_TESTS),
+  );
+
   function setFakeReview({
     userId = fakeReview.user.id,
     addonId = fakeReview.addon.id,
@@ -117,14 +127,14 @@ describe(__filename, () => {
 
   it('stores a user review', () => {
     const action = setFakeReview();
-    const state = reviewsReducer(undefined, action);
+    const state = reviewsReducer(stateWithLang, action);
     const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview).toEqual({
       reviewAddon: {
         iconUrl: fakeReview.addon.icon_url,
         id: fakeReview.addon.id,
-        name: fakeReview.addon.name,
+        name: fakeReview.addon.name[DEFAULT_LANG_IN_TESTS],
         slug: fakeReview.addon.slug,
       },
       body: fakeReview.body,
@@ -149,7 +159,7 @@ describe(__filename, () => {
         body: replyBody,
       },
     });
-    const state = reviewsReducer(undefined, action);
+    const state = reviewsReducer(stateWithLang, action);
     const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview.reply.body).toEqual(replyBody);
@@ -172,19 +182,19 @@ describe(__filename, () => {
       const _addReviewToState = sinon.stub().returns(initialState);
 
       const review = fakeReview;
-      reviewsReducer(undefined, setReview(review), {
+      reviewsReducer(stateWithLang, setReview(review), {
         _addReviewToState,
       });
 
       sinon.assert.calledWith(_addReviewToState, {
-        state: initialState,
-        review: createInternalReview(review),
+        state: stateWithLang,
+        review: createInternalReview(review, DEFAULT_LANG_IN_TESTS),
       });
     });
 
     it('sets the loading flag to false', () => {
       const review = fakeReview;
-      const state = reviewsReducer(undefined, setReview(fakeReview));
+      const state = reviewsReducer(stateWithLang, setReview(fakeReview));
 
       expect(state.view[review.id].loadingReview).toEqual(false);
     });
@@ -194,7 +204,7 @@ describe(__filename, () => {
     it('calls _addReviewToState()', () => {
       const _addReviewToState = sinon.spy();
 
-      const review = createInternalReview(fakeReview);
+      const review = createInternalReview(fakeReview, DEFAULT_LANG_IN_TESTS);
       reviewsReducer(undefined, setInternalReview(review), {
         _addReviewToState,
       });
@@ -208,7 +218,7 @@ describe(__filename, () => {
 
   it('stores a review reply object', () => {
     const review = { ...fakeReview, id: 1, body: 'Original review body' };
-    const state = reviewsReducer(undefined, setReview(review));
+    const state = reviewsReducer(stateWithLang, setReview(review));
 
     const reply = { ...review, id: 2, body: 'A developer reply' };
     const newState = reviewsReducer(
@@ -221,7 +231,9 @@ describe(__filename, () => {
 
     expect(newState.byId[review.id].body).toEqual('Original review body');
     expect(newState.byId[review.id].reply.body).toEqual('A developer reply');
-    expect(newState.byId[review.id].reply).toEqual(createInternalReview(reply));
+    expect(newState.byId[review.id].reply).toEqual(
+      createInternalReview(reply, DEFAULT_LANG_IN_TESTS),
+    );
   });
 
   it('cannot store a reply to a non-existant review', () => {
@@ -238,10 +250,8 @@ describe(__filename, () => {
   });
 
   it('preserves existing reviews', () => {
-    let state;
-
-    state = reviewsReducer(
-      state,
+    let state = reviewsReducer(
+      stateWithLang,
       setFakeReview({
         id: 1,
         versionId: 1,
@@ -270,7 +280,7 @@ describe(__filename, () => {
   });
 
   it('preserves unrelated state', () => {
-    let state = { ...initialState, somethingUnrelated: 'erp' };
+    let state = { ...stateWithLang, somethingUnrelated: 'erp' };
     state = reviewsReducer(state, setFakeReview());
     expect(state.somethingUnrelated).toEqual('erp');
   });
@@ -283,7 +293,7 @@ describe(__filename, () => {
         addonSlug: fakeAddon.slug,
         reviews: [review1, review2],
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
       const storedReviews = _selectReviews({
         reviewsState: state,
         addonSlug: fakeAddon.slug,
@@ -302,7 +312,7 @@ describe(__filename, () => {
 
       let state;
       state = reviewsReducer(
-        state,
+        stateWithLang,
         _setAddonReviews({
           addonSlug: addon1.slug,
           reviews: [review1],
@@ -335,14 +345,18 @@ describe(__filename, () => {
         addonSlug: fakeAddon.slug,
         reviews: [review1, review2],
       });
-      const state = reviewsReducer(undefined, action);
-      expect(state.byId[review1.id]).toEqual(createInternalReview(review1));
-      expect(state.byId[review2.id]).toEqual(createInternalReview(review2));
+      const state = reviewsReducer(stateWithLang, action);
+      expect(state.byId[review1.id]).toEqual(
+        createInternalReview(review1, DEFAULT_LANG_IN_TESTS),
+      );
+      expect(state.byId[review2.id]).toEqual(
+        createInternalReview(review2, DEFAULT_LANG_IN_TESTS),
+      );
     });
 
     it('stores review counts', () => {
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setAddonReviews({
           addonSlug: 'slug1',
           reviews: [fakeReview],
@@ -372,7 +386,7 @@ describe(__filename, () => {
         reviews: [{ ...fakeReview, id: 1 }],
         score,
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
 
       expect(state.byAddon[fakeAddon.slug].score).toEqual(score);
     });
@@ -383,7 +397,7 @@ describe(__filename, () => {
         reviews: [{ ...fakeReview, id: 1 }],
         score: null,
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
 
       expect(state.byAddon[fakeAddon.slug].score).toEqual(null);
     });
@@ -395,7 +409,7 @@ describe(__filename, () => {
         page,
         reviews: [{ ...fakeReview, id: 1 }],
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
 
       expect(state.byAddon[fakeAddon.slug].page).toEqual(page);
     });
@@ -469,6 +483,7 @@ describe(__filename, () => {
       const userId = 333;
 
       let state = loadReviewDataIntoState({
+        startState: stateWithLang,
         addonId,
         addonSlug,
         reviewId,
@@ -520,6 +535,7 @@ describe(__filename, () => {
       const userId = 9643;
 
       let state = loadReviewDataIntoState({
+        startState: stateWithLang,
         addonId,
         reviewId,
         permissionsToSet: { canReplyToReviews: true },
@@ -544,6 +560,7 @@ describe(__filename, () => {
       const userId = 333;
 
       let state = loadReviewDataIntoState({
+        startState: stateWithLang,
         addonId,
         addonSlug,
         reviewId,
@@ -592,7 +609,7 @@ describe(__filename, () => {
         addonSlug: fakeAddon.slug,
         reviews: [review1, review2],
       });
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
 
       const reviewsData = _selectReviews({
         reviewsState: state,
@@ -603,8 +620,12 @@ describe(__filename, () => {
         reviews: reviewsData.reviews,
       });
 
-      expect(expanded[0]).toEqual(createInternalReview(review1));
-      expect(expanded[1]).toEqual(createInternalReview(review2));
+      expect(expanded[0]).toEqual(
+        createInternalReview(review1, DEFAULT_LANG_IN_TESTS),
+      );
+      expect(expanded[1]).toEqual(
+        createInternalReview(review2, DEFAULT_LANG_IN_TESTS),
+      );
     });
 
     it('throws an error if the review does not exist', () => {
@@ -632,7 +653,7 @@ describe(__filename, () => {
         reviews: [review1, review2],
         reviewCount,
       });
-      const reviewsState = reviewsReducer(undefined, action);
+      const reviewsState = reviewsReducer(stateWithLang, action);
 
       const data = _selectReviews({
         reviewsState,
@@ -649,7 +670,7 @@ describe(__filename, () => {
         addonSlug: 'slug1',
         reviews: [{ ...fakeReview, id: 1 }],
       });
-      const reviewsState = reviewsReducer(undefined, action);
+      const reviewsState = reviewsReducer(stateWithLang, action);
 
       const data = _selectReviews({
         reviewsState,
@@ -665,7 +686,7 @@ describe(__filename, () => {
         reviews: [{ ...fakeReview, id: 1 }],
         score,
       });
-      const reviewsState = reviewsReducer(undefined, action);
+      const reviewsState = reviewsReducer(stateWithLang, action);
 
       const data = _selectReviews({
         reviewsState,
@@ -681,7 +702,7 @@ describe(__filename, () => {
         page: '2',
         reviews: [{ ...fakeReview, id: 1 }],
       });
-      const reviewsState = reviewsReducer(undefined, action);
+      const reviewsState = reviewsReducer(stateWithLang, action);
 
       const data = _selectReviews({
         addonSlug: fakeAddon.slug,
@@ -695,8 +716,8 @@ describe(__filename, () => {
   describe('storeReviewObjects', () => {
     it('stores review objects by ID', () => {
       const reviews = [
-        createInternalReview({ ...fakeReview, id: 1 }),
-        createInternalReview({ ...fakeReview, id: 2 }),
+        createInternalReview({ ...fakeReview, id: 1 }, DEFAULT_LANG_IN_TESTS),
+        createInternalReview({ ...fakeReview, id: 2 }, DEFAULT_LANG_IN_TESTS),
       ];
       expect(storeReviewObjects({ state: initialState, reviews })).toEqual({
         [reviews[0].id]: reviews[0],
@@ -705,10 +726,16 @@ describe(__filename, () => {
     });
 
     it('preserves existing reviews', () => {
-      const review1 = createInternalReview({ ...fakeReview, id: 1 });
-      const review2 = createInternalReview({ ...fakeReview, id: 2 });
+      const review1 = createInternalReview(
+        { ...fakeReview, id: 1 },
+        DEFAULT_LANG_IN_TESTS,
+      );
+      const review2 = createInternalReview(
+        { ...fakeReview, id: 2 },
+        DEFAULT_LANG_IN_TESTS,
+      );
 
-      const state = initialState;
+      const state = stateWithLang;
       const byId = storeReviewObjects({ state, reviews: [review1] });
 
       expect(
@@ -723,7 +750,12 @@ describe(__filename, () => {
     });
 
     it('throws an error for falsy IDs', () => {
-      const reviews = [createInternalReview({ ...fakeReview, id: undefined })];
+      const reviews = [
+        createInternalReview(
+          { ...fakeReview, id: undefined },
+          DEFAULT_LANG_IN_TESTS,
+        ),
+      ];
       expect(() => {
         storeReviewObjects({ state: initialState, reviews });
       }).toThrow(/Cannot store review because review.id is falsy/);
@@ -1034,15 +1066,19 @@ describe(__filename, () => {
       const review2 = { ...fakeReview, id: 3 };
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [review1, review2],
           userId,
         }),
       );
 
-      expect(state.byId[review1.id]).toEqual(createInternalReview(review1));
-      expect(state.byId[review2.id]).toEqual(createInternalReview(review2));
+      expect(state.byId[review1.id]).toEqual(
+        createInternalReview(review1, DEFAULT_LANG_IN_TESTS),
+      );
+      expect(state.byId[review2.id]).toEqual(
+        createInternalReview(review2, DEFAULT_LANG_IN_TESTS),
+      );
     });
 
     it('stores multiple reviews for a user ID', () => {
@@ -1054,7 +1090,7 @@ describe(__filename, () => {
         userId,
       });
 
-      const state = reviewsReducer(undefined, action);
+      const state = reviewsReducer(stateWithLang, action);
       const storedReviews = state.byUserId[userId].reviews;
 
       expect(storedReviews.length).toEqual(2);
@@ -1064,7 +1100,7 @@ describe(__filename, () => {
 
     it('stores review counts', () => {
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [fakeReview],
           userId,
@@ -1088,7 +1124,7 @@ describe(__filename, () => {
       const pageSize = 10;
 
       const state = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           pageSize,
           userId,
@@ -1099,7 +1135,9 @@ describe(__filename, () => {
       expect(getReviewsByUserId(state, userId)).toEqual({
         pageSize,
         reviewCount: reviews.length,
-        reviews: reviews.map(createInternalReview),
+        reviews: reviews.map((review) =>
+          createInternalReview(review, DEFAULT_LANG_IN_TESTS),
+        ),
       });
     });
   });
@@ -1140,7 +1178,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 2 };
 
       let state;
-      state = reviewsReducer(state, setReview(review));
+      state = reviewsReducer(stateWithLang, setReview(review));
       state = reviewsReducer(
         state,
         _setLatestReview({ addonId, userId, review }),
@@ -1171,7 +1209,7 @@ describe(__filename, () => {
       const review2 = { ...fakeReview, id: 2 };
 
       let state;
-      state = reviewsReducer(state, setReview(review1));
+      state = reviewsReducer(stateWithLang, setReview(review1));
       state = reviewsReducer(
         state,
         _setLatestReview({
@@ -1208,7 +1246,10 @@ describe(__filename, () => {
     }
 
     it('stores an internal review object', () => {
-      const review = createInternalReview({ ...fakeReview, id: 1 });
+      const review = createInternalReview(
+        { ...fakeReview, id: 1 },
+        DEFAULT_LANG_IN_TESTS,
+      );
       const state = _addReviewToState({ review });
 
       expect(state.byId[review.id]).toEqual(review);
@@ -1220,23 +1261,26 @@ describe(__filename, () => {
       const userId = 123;
 
       const prevState = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [{ ...fakeReview, id: reviewId1 }],
           userId,
         }),
       );
 
-      const review = createInternalReview({
-        ...fakeReview,
-        id: reviewId2,
-        body: 'This add-on is fantastic',
-        score: 5,
-        user: {
-          ...fakeReview.user,
-          id: userId,
+      const review = createInternalReview(
+        {
+          ...fakeReview,
+          id: reviewId2,
+          body: 'This add-on is fantastic',
+          score: 5,
+          user: {
+            ...fakeReview.user,
+            id: userId,
+          },
         },
-      });
+        DEFAULT_LANG_IN_TESTS,
+      );
 
       const state = _addReviewToState({
         state: prevState,
@@ -1251,23 +1295,26 @@ describe(__filename, () => {
       const userId = 123;
 
       const prevState = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [{ ...fakeReview, id: reviewId1 }],
           userId,
         }),
       );
 
-      const review = createInternalReview({
-        ...fakeReview,
-        id: reviewId2,
-        body: undefined,
-        score: 5,
-        user: {
-          ...fakeReview.user,
-          id: userId,
+      const review = createInternalReview(
+        {
+          ...fakeReview,
+          id: reviewId2,
+          body: undefined,
+          score: 5,
+          user: {
+            ...fakeReview.user,
+            id: userId,
+          },
         },
-      });
+        DEFAULT_LANG_IN_TESTS,
+      );
 
       const state = _addReviewToState({
         state: prevState,
@@ -1280,7 +1327,7 @@ describe(__filename, () => {
       const userId = 123;
 
       const prevState = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [fakeReview],
           userId,
@@ -1288,13 +1335,16 @@ describe(__filename, () => {
       );
       expect(prevState.byUserId[userId]).toBeDefined();
 
-      const review = createInternalReview({
-        ...fakeReview,
-        user: {
-          ...fakeReview.user,
-          id: userId,
+      const review = createInternalReview(
+        {
+          ...fakeReview,
+          user: {
+            ...fakeReview.user,
+            id: userId,
+          },
         },
-      });
+        DEFAULT_LANG_IN_TESTS,
+      );
       const state = _addReviewToState({
         state: prevState,
         review,
@@ -1317,7 +1367,7 @@ describe(__filename, () => {
       };
 
       const prevState = reviewsReducer(
-        undefined,
+        stateWithLang,
         _setUserReviews({
           reviews: [ratingOnlyReview],
           userId,
@@ -1325,11 +1375,14 @@ describe(__filename, () => {
       );
 
       // Upgrade the rating to a review.
-      const review = createInternalReview({
-        ...fakeReview,
-        body: 'This add-on is pretty good',
-        user: externalReviewUser,
-      });
+      const review = createInternalReview(
+        {
+          ...fakeReview,
+          body: 'This add-on is pretty good',
+          user: externalReviewUser,
+        },
+        DEFAULT_LANG_IN_TESTS,
+      );
 
       const state = _addReviewToState({
         state: prevState,
@@ -1344,7 +1397,7 @@ describe(__filename, () => {
 
       let state;
       state = reviewsReducer(
-        state,
+        stateWithLang,
         _setAddonReviews({
           addonSlug,
           reviews: [{ ...fakeReview, id: 1 }],
@@ -1352,14 +1405,17 @@ describe(__filename, () => {
       );
       state = _addReviewToState({
         state,
-        review: createInternalReview({
-          ...fakeReview,
-          addon: {
-            ...fakeReview.addon,
-            slug: addonSlug,
+        review: createInternalReview(
+          {
+            ...fakeReview,
+            addon: {
+              ...fakeReview.addon,
+              slug: addonSlug,
+            },
+            id: 2,
           },
-          id: 2,
-        }),
+          DEFAULT_LANG_IN_TESTS,
+        ),
       });
 
       expect(state.byAddon[addonSlug]).toBeUndefined();
@@ -1371,7 +1427,7 @@ describe(__filename, () => {
 
       let state;
       state = reviewsReducer(
-        state,
+        stateWithLang,
         _setAddonReviews({
           addonSlug,
           reviews: [{ ...fakeReview, body: undefined, score: 5, id: reviewId }],
@@ -1379,16 +1435,19 @@ describe(__filename, () => {
       );
       state = _addReviewToState({
         state,
-        review: createInternalReview({
-          ...fakeReview,
-          addon: {
-            ...fakeReview.addon,
-            slug: addonSlug,
+        review: createInternalReview(
+          {
+            ...fakeReview,
+            addon: {
+              ...fakeReview.addon,
+              slug: addonSlug,
+            },
+            body: 'This add-on is pretty good',
+            score: 4,
+            id: reviewId,
           },
-          body: 'This add-on is pretty good',
-          score: 4,
-          id: reviewId,
-        }),
+          DEFAULT_LANG_IN_TESTS,
+        ),
       });
 
       expect(state.byAddon[addonSlug]).toBeUndefined();
@@ -1400,7 +1459,7 @@ describe(__filename, () => {
 
       let state;
       state = reviewsReducer(
-        state,
+        stateWithLang,
         _setAddonReviews({
           addonSlug,
           reviews: [
@@ -1415,16 +1474,19 @@ describe(__filename, () => {
       );
       state = _addReviewToState({
         state,
-        review: createInternalReview({
-          ...fakeReview,
-          addon: {
-            ...fakeReview.addon,
-            slug: addonSlug,
+        review: createInternalReview(
+          {
+            ...fakeReview,
+            addon: {
+              ...fakeReview.addon,
+              slug: addonSlug,
+            },
+            body: 'This add-on is OK',
+            score: 3,
+            id: reviewId,
           },
-          body: 'This add-on is OK',
-          score: 3,
-          id: reviewId,
-        }),
+          DEFAULT_LANG_IN_TESTS,
+        ),
       });
 
       expect(state.byAddon[addonSlug]).toBeDefined();
@@ -1509,7 +1571,7 @@ describe(__filename, () => {
     it('returns false for an add-on for which reviews have finished loading', () => {
       const slug = 'some-slug';
       let state = reviewsReducer(
-        undefined,
+        stateWithLang,
         fetchReviews({ addonSlug: slug, errorHandlerId: 1 }),
       );
       state = reviewsReducer(

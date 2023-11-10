@@ -10,7 +10,11 @@ import {
   setReviewReply,
 } from 'amo/actions/reviews';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
-import { fakeAddon, fakeReview } from 'tests/unit/helpers';
+import {
+  DEFAULT_LANG_IN_TESTS,
+  fakeAddon,
+  fakeReview,
+} from 'tests/unit/helpers';
 
 // See reducer tests for more coverage of review actions.
 describe(__filename, () => {
@@ -75,13 +79,15 @@ describe(__filename, () => {
     });
 
     it('creates an action with the exact review object', () => {
-      const review = createInternalReview(fakeReview);
+      const review = createInternalReview(fakeReview, DEFAULT_LANG_IN_TESTS);
       const action = setInternalReview(review);
       expect(action.payload).toEqual(review);
     });
 
     it('sets an action type', () => {
-      const action = setInternalReview(createInternalReview(fakeReview));
+      const action = setInternalReview(
+        createInternalReview(fakeReview, DEFAULT_LANG_IN_TESTS),
+      );
       expect(action.type).toEqual(SET_INTERNAL_REVIEW);
     });
   });
