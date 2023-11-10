@@ -143,7 +143,10 @@ const getCategories = (
   return { feedback, report };
 };
 
-export class FeedbackFormBase extends React.Component<InternalProps, State> {
+export class AddonFeedbackFormBase extends React.Component<
+  InternalProps,
+  State,
+> {
   static defaultProps: DefaultProps = {
     _window: typeof window !== 'undefined' ? window : {},
   };
@@ -254,7 +257,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     return (
       <div>
         <Card header={i18n.gettext('Report submitted')}>
-          <p className="FeedbackForm-success-first-paragraph">
+          <p className="AddonFeedbackForm-success-first-paragraph">
             {i18n.gettext(`We have received your report. Thanks for letting us
               know.`)}
           </p>
@@ -306,10 +309,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       categoryInputs[categoryType] = [];
       categories[categoryType].forEach((category) => {
         categoryInputs[categoryType].push(
-          <li className="FeedbackForm-checkbox-wrapper">
+          <li className="AddonFeedbackForm-checkbox-wrapper">
             <input
               type="radio"
-              className="FeedbackForm-catgeory"
+              className="AddonFeedbackForm-catgeory"
               id={`feedbackCategory${category.value}`}
               name="category"
               onChange={this.onFieldChange}
@@ -317,13 +320,13 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               selected={this.state.category === category.value}
             />
             <label
-              className="FeedbackForm-label"
+              className="AddonFeedbackForm-label"
               htmlFor={`feedbackCategory${category.value}`}
             >
               {category.label}
             </label>
             {category.help && (
-              <p className="FeedbackForm--help">{category.help}</p>
+              <p className="AddonFeedbackForm--help">{category.help}</p>
             )}
           </li>,
         );
@@ -343,12 +346,12 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     const abuseSubmitted = abuseReport && abuseReport.message !== undefined;
 
     return (
-      <div className="FeedbackForm">
-        <Card className="FeedbackForm-header">
-          <div className="FeedbackForm-header-icon">
-            <div className="FeedbackForm-header-icon-wrapper">
+      <div className="AddonFeedbackForm">
+        <Card className="AddonFeedbackForm-header">
+          <div className="AddonFeedbackForm-header-icon">
+            <div className="AddonFeedbackForm-header-icon-wrapper">
               <img
-                className="FeedbackForm-header-icon-image"
+                className="AddonFeedbackForm-header-icon-image"
                 src={getAddonIconUrl(addon)}
                 alt=""
               />
@@ -361,8 +364,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
         {abuseSubmitted ? (
           this.renderReportSentConfirmation()
         ) : (
-          <form className="FeedbackForm-form" onSubmit={this.onSubmit}>
-            <div className="FeedbackForm-form-messages">
+          <form className="AddonFeedbackForm-form" onSubmit={this.onSubmit}>
+            <div className="AddonFeedbackForm-form-messages">
               {errorMessage}
 
               {this.state.successMessage && (
@@ -371,7 +374,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
             </div>
 
             <Card
-              className="FeedbackForm--Card"
+              className="AddonFeedbackForm--Card"
               header={i18n.gettext('Report this add-on to Mozilla')}
             >
               <h3>{i18n.gettext('Send some feedback about the add-on')}</h3>
@@ -386,20 +389,20 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
             </Card>
 
             <Card
-              className="FeedbackForm--Card"
+              className="AddonFeedbackForm--Card"
               header={i18n.gettext('Provide more information')}
             >
               {this.shouldShowLocation() && (
                 <>
                   <label
-                    className="FeedbackForm-label"
+                    className="AddonFeedbackForm-label"
                     htmlFor="feedbackLocation"
                   >
                     {i18n.gettext('Place of the violation')}
                     <span>({i18n.gettext('optional')})</span>
                   </label>
                   <Select
-                    className="FeedbackForm-location"
+                    className="AddonFeedbackForm-location"
                     id="feedbackLocation"
                     name="location"
                     onChange={this.onFieldChange}
@@ -412,18 +415,18 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 </>
               )}
 
-              <label className="FeedbackForm-label" htmlFor="feedbackText">
+              <label className="AddonFeedbackForm-label" htmlFor="feedbackText">
                 {i18n.gettext('Provide more details')}
                 <span>({i18n.gettext('optional')})</span>
               </label>
               <Textarea
-                className="FeedbackForm-text"
+                className="AddonFeedbackForm-text"
                 id="feedbackText"
                 name="text"
                 onChange={this.onFieldChange}
                 value={this.state.text}
               />
-              <p className="FeedbackForm--help">
+              <p className="AddonFeedbackForm--help">
                 {i18n.gettext(`Please provide any additional information that
                   may help us to understand your report (including which policy
                   you believe has been violated). While this information is not
@@ -433,25 +436,25 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
             </Card>
 
             <Card
-              className="FeedbackForm--Card"
+              className="AddonFeedbackForm--Card"
               header={i18n.gettext('Contact information')}
             >
-              <p className="FeedbackForm-checkbox-wrapper">
+              <p className="AddonFeedbackForm-checkbox-wrapper">
                 <input
                   type="checkbox"
-                  className="FeedbackForm-anonymous"
+                  className="AddonFeedbackForm-anonymous"
                   id="feedbackAnonymous"
                   name="anonymous"
                   onChange={this.onFieldChange}
                   checked={!!this.state.anonymous}
                 />
                 <label
-                  className="FeedbackForm-label"
+                  className="AddonFeedbackForm-label"
                   htmlFor="feedbackAnonymous"
                 >
                   {i18n.gettext('File report anonymously')}
                 </label>
-                <p className="FeedbackForm--help">
+                <p className="AddonFeedbackForm--help">
                   {i18n.gettext(`Filing an anonymous report will prevent us
                     from communicating with you about the report’s status, or
                     about any options for appeal.`)}
@@ -466,8 +469,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               )}
 
               <label
-                className={makeClassName('FeedbackForm-label', {
-                  'FeedbackForm-label--disabled': this.state.anonymous,
+                className={makeClassName('AddonFeedbackForm-label', {
+                  'AddonFeedbackForm-label--disabled': this.state.anonymous,
                 })}
                 htmlFor="feedbackName"
               >
@@ -475,8 +478,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 {!currentUser && <span>({i18n.gettext('optional')})</span>}
               </label>
               <input
-                className={makeClassName('FeedbackForm-name', {
-                  'FeedbackForm-input--disabled': this.state.anonymous,
+                className={makeClassName('AddonFeedbackForm-name', {
+                  'AddonFeedbackForm-input--disabled': this.state.anonymous,
                 })}
                 id="feedbackName"
                 name="name"
@@ -490,8 +493,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               />
 
               <label
-                className={makeClassName('FeedbackForm-label', {
-                  'FeedbackForm-label--disabled': this.state.anonymous,
+                className={makeClassName('AddonFeedbackForm-label', {
+                  'AddonFeedbackForm-label--disabled': this.state.anonymous,
                 })}
                 htmlFor="feedbackEmail"
               >
@@ -499,8 +502,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 {!currentUser && <span>({i18n.gettext('optional')})</span>}
               </label>
               <input
-                className={makeClassName('FeedbackForm-email', {
-                  'FeedbackForm-input--disabled': this.state.anonymous,
+                className={makeClassName('AddonFeedbackForm-email', {
+                  'AddonFeedbackForm-input--disabled': this.state.anonymous,
                 })}
                 id="feedbackEmail"
                 name="email"
@@ -514,10 +517,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               />
 
               {this.isCertificationRequired() && (
-                <p className="FeedbackForm-checkbox-wrapper">
+                <p className="AddonFeedbackForm-checkbox-wrapper">
                   <input
                     type="checkbox"
-                    className="FeedbackForm-certification"
+                    className="AddonFeedbackForm-certification"
                     id="feedbackCertification"
                     name="certification"
                     onChange={this.onFieldChange}
@@ -525,7 +528,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                     required={this.isCertificationRequired()}
                   />
                   <label
-                    className="FeedbackForm-label"
+                    className="AddonFeedbackForm-label"
                     htmlFor="feedbackCertification"
                   >
                     {i18n.gettext(`By submitting this report I certify, under
@@ -536,10 +539,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               )}
             </Card>
 
-            <div className="FeedbackForm-buttons-wrapper">
+            <div className="AddonFeedbackForm-buttons-wrapper">
               <Button
                 buttonType="action"
-                className="FeedbackForm-submit-button FeedbackForm-button"
+                className="AddonFeedbackForm-submit-button AddonFeedbackForm-button"
                 disabled={this.preventSubmit()}
                 puffy
                 type="submit"
@@ -568,10 +571,10 @@ function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
   };
 }
 
-const FeedbackForm: React.ComponentType<Props> = compose(
+const AddonFeedbackForm: React.ComponentType<Props> = compose(
   withInstallHelpers,
   connect(mapStateToProps),
   translate(),
-)(FeedbackFormBase);
+)(AddonFeedbackFormBase);
 
-export default FeedbackForm;
+export default AddonFeedbackForm;
