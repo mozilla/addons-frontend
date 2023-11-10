@@ -1,0 +1,63 @@
+@import '~amo/css/styles';
+
+$icon-size: 32px;
+
+.UserFeedback-page {
+  @include page-padding;
+}
+
+.UserFeedback-header > .Card-contents {
+  align-items: center;
+  display: grid;
+  grid-template-columns: ($icon-size + 16px) 2fr 1fr;
+}
+
+.UserFeedback-header-avatar {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  height: $icon-size;
+  width: $icon-size;
+
+  .Icon {
+    height: 100%;
+    width: 100%;
+  }
+
+  @include respond-to(large) {
+    grid-row: 1;
+  }
+}
+
+.UserFeedback-header-username {
+  font-size: $font-size-heading-xs;
+  grid-column: 2 / span 2;
+  margin: 0;
+
+  @include respond-to(large) {
+    grid-column: 2;
+  }
+}
+
+.UserFeedback-header-metadata {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+
+  @include respond-to(large) {
+    grid-row: 1;
+    grid-column: 3;
+    text-align: end;
+  }
+
+  span {
+    @include margin-end(4px);
+
+    color: $grey-50;
+    display: inline-block;
+
+    @include respond-to(large) {
+      @include margin-end(0);
+
+      display: block;
+    }
+  }
+}

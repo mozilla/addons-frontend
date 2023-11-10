@@ -3,6 +3,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import config from 'config';
 
 import {
   hideUserAbuseReportUI,
@@ -87,6 +88,17 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
       user,
     } = this.props;
 
+    let reportButtonProps: Object = {
+      onClick: this.showReportUI,
+    };
+
+    // When this feature flag is active, we link to the feedback form.
+    if (user && config.get('enableFeatureFeedbackFormLinks')) {
+      reportButtonProps = {
+        to: `/feedback/user/${user.id}/`,
+      };
+    }
+
     return (
       <div
         className={makeClassName('ReportUserAbuse', className, {
@@ -100,8 +112,8 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
             buttonType="neutral"
             className="ReportUserAbuse-show-more"
             disabled={!user}
-            onClick={this.showReportUI}
             puffy
+            {...reportButtonProps}
           >
             {i18n.gettext('Report this user for abuse')}
           </Button>

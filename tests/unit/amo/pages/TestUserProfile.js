@@ -49,6 +49,7 @@ import {
   fakeReview,
   getElement,
   getElements,
+  getMockConfig,
   loadAddonsByAuthors,
   renderPage as defaultRender,
   screen,
@@ -72,6 +73,8 @@ jest.mock('amo/localState', () =>
   }),
 );
 
+jest.mock('config');
+
 describe(__filename, () => {
   const lang = 'fr';
   const clientApp = CLIENT_APP_FIREFOX;
@@ -81,6 +84,10 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
+    const fakeConfig = getMockConfig({ enableFeatureFeedbackFormLinks: false });
+    config.get.mockImplementation((key) => {
+      return fakeConfig[key];
+    });
   });
 
   afterEach(() => {
@@ -1214,6 +1221,21 @@ describe(__filename, () => {
 
   describe('Tests for ReportUserAbuse', () => {
     const errorHandlerId = 'ReportUserAbuse';
+
+    it('renders a button that links to the user feedback form when enableFeatureFeedbackFormLinks is set', () => {
+      const fakeConfig = getMockConfig({
+        enableFeatureFeedbackFormLinks: true,
+      });
+      config.get.mockImplementation((key) => {
+        return fakeConfig[key];
+      });
+
+      renderForOtherThanSignedInUser();
+
+      expect(
+        screen.getByRole('link', { name: 'Report this user for abuse' }),
+      ).toBeInTheDocument();
+    });
 
     it('renders a disabled button if no user exists', () => {
       renderUserProfile();

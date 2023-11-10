@@ -54,10 +54,6 @@ export class AddonFeedbackBase extends React.Component<InternalProps, State> {
     this.loadDataIfNeeded();
   }
 
-  componentWillUnmount() {
-    this.props.errorHandler.clear();
-  }
-
   loadDataIfNeeded() {
     const { addon, addonIsLoading, dispatch, errorHandler, match } = this.props;
 

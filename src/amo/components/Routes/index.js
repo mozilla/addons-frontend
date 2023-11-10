@@ -17,6 +17,7 @@ import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
 import AddonFeedback from 'amo/pages/AddonFeedback';
+import UserFeedback from 'amo/pages/UserFeedback';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
@@ -175,13 +176,20 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       component={TagPage}
     />
 
-    {config.get('enableFeatureFeedbackForm') && (
+    {config.get('enableFeatureFeedbackForm') && [
       <Route
+        key="addon-feedback"
         exact
         path="/:lang/:application(firefox|android)/feedback/addon/:addonIdentifier/"
         component={AddonFeedback}
-      />
-    )}
+      />,
+      <Route
+        key="user-feedback"
+        exact
+        path="/:lang/:application(firefox|android)/feedback/user/:userId/"
+        component={UserFeedback}
+      />,
+    ]}
 
     {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
     <Route
