@@ -3,6 +3,7 @@ import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 import defaultUserEvent, {
   PointerEventsCheckLevel,
 } from '@testing-library/user-event';
+import config from 'config';
 
 import {
   SAVED_RATING,
@@ -42,10 +43,13 @@ import {
   fakeAddon,
   fakeI18n,
   fakeReview,
+  getMockConfig,
   render as defaultRender,
   screen,
   within,
 } from 'tests/unit/helpers';
+
+jest.mock('config');
 
 describe(__filename, () => {
   let i18n;
@@ -68,6 +72,17 @@ describe(__filename, () => {
       // pointer events not being available.
       pointerEventsCheck: PointerEventsCheckLevel.Never,
     });
+
+    const fakeConfig = getMockConfig({
+      enableFeatureFeedbackFormLinks: false,
+    });
+    config.get.mockImplementation((key) => {
+      return fakeConfig[key];
+    });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks().resetModules();
   });
 
   const render = ({
@@ -1458,6 +1473,27 @@ describe(__filename, () => {
     });
 
     describe('Tests for FlagReviewMenu', () => {
+      it('changes the "inappropriate language" menu item to a link pointing to the rating feedback form when enableFeatureFeedbackFormLinks is set', async () => {
+        const fakeConfig = getMockConfig({
+          enableFeatureFeedbackFormLinks: true,
+        });
+        config.get.mockImplementation((key) => {
+          return fakeConfig[key];
+        });
+        const review = createReviewAndSignInAsUnrelatedUser();
+        render({ review });
+
+        await openFlagMenu();
+
+        expect(
+          // It would have to be a 'button' if `enableFeatureFeedbackFormLinks`
+          // was set to `false`.
+          screen.getByRole('link', {
+            name: 'This contains inappropriate language',
+          }),
+        ).toBeInTheDocument();
+      });
+
       it('can be configured with an openerClass', () => {
         const review = createReviewAndSignInAsUnrelatedUser();
         render({ review });

@@ -3,12 +3,14 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import config from 'config';
 
 import {
   REVIEW_FLAG_REASON_BUG_SUPPORT,
   REVIEW_FLAG_REASON_LANGUAGE,
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
+import Link from 'amo/components/Link';
 import FlagReview from 'amo/components/FlagReview';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
 import { getCurrentUser } from 'amo/reducers/users';
@@ -91,12 +93,20 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
           className="FlagReviewMenu-flag-language-item"
           key="flag-language"
         >
-          <FlagReview
-            reason={REVIEW_FLAG_REASON_LANGUAGE}
-            review={review}
-            buttonText={i18n.gettext('This contains inappropriate language')}
-            wasFlaggedText={i18n.gettext('Flagged for inappropriate language')}
-          />
+          {config.get('enableFeatureFeedbackFormLinks') ? (
+            <Link to={`/feedback/review/${review.id}/`}>
+              {i18n.gettext('This contains inappropriate language')}
+            </Link>
+          ) : (
+            <FlagReview
+              reason={REVIEW_FLAG_REASON_LANGUAGE}
+              review={review}
+              buttonText={i18n.gettext('This contains inappropriate language')}
+              wasFlaggedText={i18n.gettext(
+                'Flagged for inappropriate language',
+              )}
+            />
+          )}
         </ListItem>,
         // Only reviews (not developer responses) can be flagged as
         // misplaced bug reports or support requests.

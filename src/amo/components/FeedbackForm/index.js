@@ -257,34 +257,47 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     return ['illegal'].includes(this.state.category);
   }
 
-  renderCategories(categories: Array<Reason>): React.Node {
-    return categories
-      .filter((category) => this.props.categories.includes(category.value))
-      .map((category) => (
-        <li
-          className="FeedbackForm-checkbox-wrapper"
-          key={`FeedbackForm-category-${category.value}`}
-        >
-          <input
-            type="radio"
-            className="FeedbackForm-catgeory"
-            id={`feedbackCategory${category.value}`}
-            name="category"
-            onChange={this.onFieldChange}
-            value={category.value}
-            selected={this.state.category === category.value}
-          />
-          <label
-            className="FeedbackForm-label"
-            htmlFor={`feedbackCategory${category.value}`}
-          >
-            {category.label}
-          </label>
-          {category.help && (
-            <p className="FeedbackForm--help">{category.help}</p>
-          )}
-        </li>
-      ));
+  renderCategories(title: string, categories: Array<Reason>): React.Node {
+    const filteredCategories = categories.filter((category) =>
+      this.props.categories.includes(category.value),
+    );
+
+    if (!filteredCategories.length) {
+      return null;
+    }
+
+    return (
+      <>
+        <h3>{title}</h3>
+        <ul>
+          {filteredCategories.map((category) => (
+            <li
+              className="FeedbackForm-checkbox-wrapper"
+              key={`FeedbackForm-category-${category.value}`}
+            >
+              <input
+                type="radio"
+                className="FeedbackForm-catgeory"
+                id={`feedbackCategory${category.value}`}
+                name="category"
+                onChange={this.onFieldChange}
+                value={category.value}
+                selected={this.state.category === category.value}
+              />
+              <label
+                className="FeedbackForm-label"
+                htmlFor={`feedbackCategory${category.value}`}
+              >
+                {category.label}
+              </label>
+              {category.help && (
+                <p className="FeedbackForm--help">{category.help}</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </>
+    );
   }
 
   render(): React.Node {
@@ -326,11 +339,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
             <div className="FeedbackForm-form-messages">{errorMessage}</div>
 
             <Card className="FeedbackForm--Card" header={categoryHeader}>
-              <h3>{feedbackTitle}</h3>
-              <ul>{this.renderCategories(feedback)}</ul>
-
-              <h3>{reportTitle}</h3>
-              <ul>{this.renderCategories(report)}</ul>
+              {this.renderCategories(feedbackTitle, feedback)}
+              {this.renderCategories(reportTitle, report)}
             </Card>
 
             <Card
