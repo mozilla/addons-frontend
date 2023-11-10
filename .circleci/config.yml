@@ -230,7 +230,7 @@ jobs:
           command: sudo apt-get update; sudo apt-get install pigz
       - run:
           name: "Set Python Version"
-          command: pyenv global 3.11
+          command: pyenv global 3.10.2
       - run:
           name: "Install Tox"
           command: pip install tox
@@ -296,7 +296,7 @@ jobs:
           command: sudo apt-get update; sudo apt-get install pigz
       - run:
           name: "Set Python Version"
-          command: pyenv global 3.11
+          command: pyenv global 3.10.2
       - run:
           name: "Install Tox"
           command: pip install tox
