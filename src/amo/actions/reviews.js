@@ -7,6 +7,7 @@ import type {
   ExternalReviewType,
 } from 'amo/api/reviews';
 import type { UserId } from 'amo/reducers/users';
+import { selectLocalizedContent } from 'amo/reducers/utils';
 
 export const CREATE_ADDON_REVIEW: 'CREATE_ADDON_REVIEW' = 'CREATE_ADDON_REVIEW';
 export const SHOW_EDIT_REVIEW_FORM: 'SHOW_EDIT_REVIEW_FORM' =
@@ -77,12 +78,13 @@ export type UserReviewType = {|
 
 export function createInternalReview(
   review: ExternalReviewType | ExternalReviewReplyType,
+  lang: string,
 ): UserReviewType {
   return {
     reviewAddon: {
       iconUrl: review.addon.icon_url,
       id: review.addon.id,
-      name: review.addon.name,
+      name: selectLocalizedContent(review.addon.name, lang),
       slug: review.addon.slug,
     },
     body: review.body,
@@ -92,7 +94,7 @@ export function createInternalReview(
     isDeveloperReply: review.is_developer_reply,
     isLatest: review.is_latest,
     score: review.score || null,
-    reply: review.reply ? createInternalReview(review.reply) : null,
+    reply: review.reply ? createInternalReview(review.reply, lang) : null,
     userId: review.user.id,
     userName: review.user.name,
     userUrl: review.user.url,

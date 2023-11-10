@@ -1846,9 +1846,10 @@ describe(__filename, () => {
     describe('extractId', () => {
       it('extracts an ID from the review', () => {
         const id = 551224;
+        const lang = 'en-US';
         expect(
           addonReviewManagerExtractId({
-            review: createInternalReview({ ...fakeReview, id }),
+            review: createInternalReview({ ...fakeReview, id }, lang),
           }),
         ).toEqual(id.toString());
       });

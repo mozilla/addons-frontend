@@ -7,13 +7,13 @@ import { callApi } from 'amo/api';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { ApiState } from 'amo/reducers/api';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
-import type { PaginatedApiResponse } from 'amo/types/api';
+import type { LocalizedString, PaginatedApiResponse } from 'amo/types/api';
 
 type ExternalReviewTypeBase = {|
   addon: {|
     icon_url: string,
     id: number,
-    name: string,
+    name: LocalizedString,
     slug: string,
   |},
   body: string,

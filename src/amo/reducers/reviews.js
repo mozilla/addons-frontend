@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import { LOCATION_CHANGE } from 'redux-first-history';
 
+import { SET_LANG } from 'amo/reducers/api';
 import {
   BEGIN_DELETE_ADDON_REVIEW,
   CANCEL_DELETE_ADDON_REVIEW,
@@ -141,6 +142,7 @@ type ReviewPermissions = {|
 |};
 
 export type ReviewsState = {|
+  lang: string,
   permissions: {
     [addonIdAndUserId: string]: ReviewPermissions | void,
   },
@@ -163,6 +165,9 @@ export type ReviewsState = {|
 |};
 
 export const initialState: ReviewsState = {
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   permissions: {},
   byAddon: {},
   byId: {},
@@ -438,6 +443,11 @@ export default function reviewsReducer(
   }: { _addReviewToState: typeof addReviewToState } = {},
 ): ReviewsState {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
     case BEGIN_DELETE_ADDON_REVIEW:
       return changeViewState({
         state,
@@ -517,7 +527,7 @@ export default function reviewsReducer(
     }
     case SET_REVIEW: {
       const { payload } = action;
-      const review = createInternalReview(payload);
+      const review = createInternalReview(payload, state.lang);
 
       const newState = _addReviewToState({ state, review });
       return changeViewState({
@@ -544,7 +554,7 @@ export default function reviewsReducer(
           ...state.byId,
           [review.id]: {
             ...review,
-            reply: createInternalReview(action.payload.reply),
+            reply: createInternalReview(action.payload.reply, state.lang),
           },
         },
       };
@@ -592,7 +602,7 @@ export default function reviewsReducer(
     case SET_ADDON_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
-        createInternalReview(review),
+        createInternalReview(review, state.lang),
       );
 
       return {
@@ -619,7 +629,7 @@ export default function reviewsReducer(
     case SET_USER_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
-        createInternalReview(review),
+        createInternalReview(review, state.lang),
       );
 
       return {

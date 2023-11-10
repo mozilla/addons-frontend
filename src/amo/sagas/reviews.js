@@ -307,7 +307,10 @@ function* manageAddonReview(
         updateRatingCounts({
           addonId: reviewFromResponse.addon.id,
           oldReview,
-          newReview: createInternalReview(reviewFromResponse),
+          newReview: createInternalReview(
+            reviewFromResponse,
+            state.reviews.lang,
+          ),
         }),
       );
     }
