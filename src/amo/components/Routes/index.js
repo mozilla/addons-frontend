@@ -16,7 +16,7 @@ import CategoryPage from 'amo/pages/CategoryPage';
 import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
-import Feedback from 'amo/pages/Feedback';
+import AddonFeedback from 'amo/pages/AddonFeedback';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
@@ -179,7 +179,7 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       <Route
         exact
         path="/:lang/:application(firefox|android)/feedback/addon/:addonIdentifier/"
-        component={Feedback}
+        component={AddonFeedback}
       />
     )}
 
