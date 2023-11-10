@@ -11,7 +11,6 @@ import {
   STARTED_SAVE_REVIEW,
   unloadAddonReviews,
   createAddonReview,
-  createInternalReview,
   deleteAddonReview,
   fetchLatestUserReview,
   fetchReview,
@@ -43,6 +42,7 @@ import reviewsSaga, { FLASH_SAVED_MESSAGE_DURATION } from 'amo/sagas/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
 import apiReducer from 'amo/reducers/api';
 import {
+  createInternalReviewWithLang,
   apiResponsePage,
   createExternalReview,
   createStubErrorHandler,
@@ -565,7 +565,7 @@ describe(__filename, () => {
       const expectedAction = updateRatingCounts({
         addonId,
         oldReview: undefined,
-        newReview: createInternalReview(submittedReview),
+        newReview: createInternalReviewWithLang(submittedReview),
       });
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
@@ -635,8 +635,8 @@ describe(__filename, () => {
 
       const expectedAction = updateRatingCounts({
         addonId,
-        oldReview: createInternalReview(oldReview),
-        newReview: createInternalReview(newReview),
+        oldReview: createInternalReviewWithLang(oldReview),
+        newReview: createInternalReviewWithLang(newReview),
       });
       const action = await sagaTester.waitFor(expectedAction.type);
 

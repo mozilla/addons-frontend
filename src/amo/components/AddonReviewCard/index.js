@@ -67,6 +67,7 @@ type Props = {|
   isReplyToReviewId?: number,
   review?: UserReviewType | null,
   siteUserCanReply: ?boolean,
+  isUserProfile?: boolean,
 |};
 
 type PropsFromState = {|
@@ -358,6 +359,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     } = this.props;
 
     let byLine;
+    const addonIconURL = review?.reviewAddon?.iconUrl || null;
+    const addonName = review?.reviewAddon?.name || null;
     const noAuthor = shortByLine || this.isReply();
     const showUserProfileLink = !noAuthor && hasUsersEditPermission;
 
@@ -545,6 +548,29 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       >
         <div className="AddonReviewCard-container">
           {errorHandler.renderErrorIfPresent()}
+          {/* Div to display Addon's name and icon */}
+          {this.props.isUserProfile &&
+            addonName &&
+            addonIconURL &&
+            !this.isReply() && (
+              <div className="AddonReviewCard-addonInfo">
+                <img
+                  src={addonIconURL}
+                  alt={i18n.sprintf(i18n.gettext('Icon for %1$s'), {
+                    '%1$s': addonName,
+                  })}
+                />
+                <span>
+                  <span className="AddonReviewCard-addonReviewLabel">
+                    {i18n.sprintf(i18n.gettext('Review of %1$s'), {
+                      '%1$s': addonName,
+                    })}
+                  </span>
+                  <span className="AddonReviewCard-addonName">{addonName}</span>
+                </span>
+              </div>
+            )}
+
           {review && review.isDeleted && (
             <Notice type="error" className="AddonReviewCard-non-public-notice">
               {i18n.gettext(

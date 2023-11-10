@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import { LOCATION_CHANGE } from 'redux-first-history';
 
+import { SET_LANG } from 'amo/reducers/api';
 import {
   BEGIN_DELETE_ADDON_REVIEW,
   CANCEL_DELETE_ADDON_REVIEW,
@@ -160,6 +161,7 @@ export type ReviewsState = {|
   loadingForSlug: {
     [slug: string]: boolean,
   },
+  lang: string,
 |};
 
 export const initialState: ReviewsState = {
@@ -172,6 +174,7 @@ export const initialState: ReviewsState = {
   view: {},
   flashMessage: undefined,
   loadingForSlug: {},
+  lang: '',
 };
 
 export function selectReviews({
@@ -517,7 +520,7 @@ export default function reviewsReducer(
     }
     case SET_REVIEW: {
       const { payload } = action;
-      const review = createInternalReview(payload);
+      const review = createInternalReview(payload, state.lang);
 
       const newState = _addReviewToState({ state, review });
       return changeViewState({
@@ -544,7 +547,7 @@ export default function reviewsReducer(
           ...state.byId,
           [review.id]: {
             ...review,
-            reply: createInternalReview(action.payload.reply),
+            reply: createInternalReview(action.payload.reply, state.lang),
           },
         },
       };
@@ -592,7 +595,7 @@ export default function reviewsReducer(
     case SET_ADDON_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
-        createInternalReview(review),
+        createInternalReview(review, state.lang),
       );
 
       return {
@@ -619,7 +622,7 @@ export default function reviewsReducer(
     case SET_USER_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
-        createInternalReview(review),
+        createInternalReview(review, state.lang),
       );
 
       return {
@@ -721,6 +724,11 @@ export default function reviewsReducer(
         },
       };
     }
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
     default:
       return state;
   }

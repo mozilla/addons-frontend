@@ -3,6 +3,8 @@
 .AddonReviewCard {
   .Rating {
     height: $font-size-l;
+    margin-top: auto;
+    padding: auto;
   }
 
   &:not(.AddonReviewCard-slim) .UserReview-body {
@@ -21,6 +23,26 @@
     margin: 0;
     padding: 12px 0;
   }
+}
+
+.AddonReviewCard-addonReviewLabel {
+  font-weight: normal;
+  margin-left: 3px;
+}
+
+.AddonReviewCard-addonName {
+  font-weight: bold;
+}
+
+.AddonReviewCard-addonInfo {
+  display: flex;
+  align-items: center;
+  padding: auto;
+}
+
+.AddonReviewCard-addonInfo img {
+  max-width: 20px;
+  max-height: 20px;
 }
 
 .AddonReviewCard-authorByLine {
