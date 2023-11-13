@@ -126,6 +126,8 @@ describe(__filename, () => {
     // Add-on header.
     expect(screen.getByText('some add-on name')).toBeInTheDocument();
     expect(screen.getByText(authors[0].name)).toBeInTheDocument();
+    // We should render the `Rating` component too.
+    expect(screen.getByClassName('Rating')).toBeInTheDocument();
 
     expect(screen.getByText('Submit report')).toBeInTheDocument();
     expect(
@@ -145,6 +147,30 @@ describe(__filename, () => {
       screen.queryByClassName('ReportAbuseButton-first-paragraph'),
     ).not.toBeInTheDocument();
   });
+
+  it.each([
+    [0, '0 users'],
+    [1, '1 user'],
+    [123, '123 users'],
+  ])(
+    'renders the average daily users - average_daily_users=%d',
+    (averageDailyUsers, expectedText) => {
+      render({ average_daily_users: averageDailyUsers });
+
+      expect(screen.getByText(expectedText)).toBeInTheDocument();
+    },
+  );
+
+  it.each([{ is_disabled: true }, { status: 'unknown-non-public' }])(
+    'does not render metadata for a non-public add-on - %o',
+    (addonProps) => {
+      render(addonProps);
+
+      expect(
+        screen.queryByClassName('AddonFeedbackForm-header-metadata'),
+      ).not.toBeInTheDocument();
+    },
+  );
 
   it('renders feedback form for logged in user with disabled but prefilled name and email', () => {
     signInUserWithProps();

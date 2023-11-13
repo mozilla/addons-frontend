@@ -3,6 +3,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import makeClassName from 'classnames';
 
 import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import FeedbackForm, {
@@ -18,6 +19,9 @@ import { sendAddonAbuseReport } from 'amo/reducers/abuse';
 import translate from 'amo/i18n/translate';
 import Card from 'amo/components/Card';
 import AddonTitle from 'amo/components/AddonTitle';
+import Icon from 'amo/components/Icon';
+import Rating from 'amo/components/Rating';
+import LoadingText from 'amo/components/LoadingText';
 import { getAddonIconUrl } from 'amo/imageUtils';
 import type { AddonAbuseState } from 'amo/reducers/abuse';
 import type { AppState } from 'amo/store';
@@ -114,7 +118,11 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
     }
 
     return (
-      <div className="AddonFeedbackForm">
+      <div
+        className={makeClassName('AddonFeedbackForm', {
+          'AddonFeedbackForm--no-metadata': this.isAddonNonPublic(),
+        })}
+      >
         <FeedbackForm
           errorHandler={errorHandler}
           contentHeader={
@@ -130,6 +138,37 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
               </div>
 
               <AddonTitle addon={addon} />
+
+              {!this.isAddonNonPublic() && (
+                <div className="AddonFeedbackForm-header-metadata">
+                  <p className="AddonFeedbackForm-header-metadata-adu">
+                    <Icon name="user-fill" />
+                    {addon ? (
+                      i18n.sprintf(
+                        i18n.ngettext(
+                          '%(total)s user',
+                          '%(total)s users',
+                          addon.average_daily_users,
+                        ),
+                        { total: i18n.formatNumber(addon.average_daily_users) },
+                      )
+                    ) : (
+                      <LoadingText />
+                    )}
+                  </p>
+                  <p className="AddonFeedbackForm-header-metadata-rating">
+                    {addon ? (
+                      <Rating
+                        rating={addon.ratings.average}
+                        readOnly
+                        styleSize="small"
+                      />
+                    ) : (
+                      <LoadingText />
+                    )}
+                  </p>
+                </div>
+              )}
             </Card>
           }
           abuseIsLoading={loading}
