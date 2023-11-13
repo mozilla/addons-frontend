@@ -14,11 +14,14 @@ import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { DispatchFunc } from 'amo/types/redux';
 
+import './styles.scss';
+
 type Props = {|
   buttonText: string,
   reason: FlagReviewReasonType,
   review: UserReviewType,
   wasFlaggedText: string,
+  disabled?: boolean,
 |};
 
 type PropsFromState = {|
@@ -47,7 +50,8 @@ export class FlagReviewBase extends React.Component<InternalProps> {
   };
 
   renderControls(): React.Node {
-    const { errorHandler, flagState, buttonText, wasFlaggedText } = this.props;
+    const { disabled, errorHandler, flagState, buttonText, wasFlaggedText } =
+      this.props;
 
     if (flagState) {
       if (flagState.inProgress && !errorHandler.hasError()) {
@@ -63,6 +67,7 @@ export class FlagReviewBase extends React.Component<InternalProps> {
         className="FlagReview-button"
         onClick={this.onClick}
         type="button"
+        disabled={!!disabled}
       >
         {buttonText}
       </button>

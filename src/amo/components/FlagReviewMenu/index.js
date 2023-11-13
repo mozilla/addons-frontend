@@ -65,8 +65,16 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
       'A user cannot flag their own review.',
     );
 
+    const enableFeatureFeedbackFormLinks = config.get(
+      'enableFeatureFeedbackFormLinks',
+    );
+
+    const disableItemsForUnauthenticatedUsers = enableFeatureFeedbackFormLinks
+      ? !siteUser
+      : false;
+
     let items;
-    if (!siteUser) {
+    if (!enableFeatureFeedbackFormLinks && !siteUser) {
       items = [
         <ListItem key="login-required">
           <AuthenticateButton
@@ -87,13 +95,14 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
             review={review}
             buttonText={i18n.gettext('This is spam')}
             wasFlaggedText={i18n.gettext('Flagged as spam')}
+            disabled={disableItemsForUnauthenticatedUsers}
           />
         </ListItem>,
         <ListItem
           className="FlagReviewMenu-flag-language-item"
           key="flag-language"
         >
-          {config.get('enableFeatureFeedbackFormLinks') ? (
+          {enableFeatureFeedbackFormLinks ? (
             <Link to={`/feedback/review/${review.id}/`}>
               {i18n.gettext('This contains inappropriate language')}
             </Link>
@@ -124,6 +133,7 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
               wasFlaggedText={i18n.gettext(
                 'Flagged as a bug report or support request',
               )}
+              disabled={disableItemsForUnauthenticatedUsers}
             />
           </ListItem>
         ),
