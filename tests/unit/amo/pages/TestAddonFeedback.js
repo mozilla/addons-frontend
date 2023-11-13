@@ -10,6 +10,10 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
 } from 'amo/constants';
+import {
+  CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
+  CATEGORY_ILLEGAL,
+} from 'amo/components/FeedbackForm';
 import { extractId } from 'amo/pages/AddonFeedback';
 import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
 import { loadAddon, fetchAddon } from 'amo/reducers/addons';
@@ -35,14 +39,12 @@ describe(__filename, () => {
   const lang = 'en-US';
   const defaultUser = { ...fakeAuthors[0], email: 'some-email@example.org' };
   const defaultAddonGUID = '@guid';
-  const hatefulReason = 'hateful_violent_deceptive';
-  const hatefulReasonLabel = oneLine`It contains hateful, violent, deceptive,
-    or other inappropriate content`;
-  const illegalReason = 'illegal';
-  const illegalReasonLabel = oneLine`It violates the law or contains content
-    that violates the law`;
   const defaultMessage = 'its bad';
   const defaultLocation = 'both';
+  const hatefulReasonLabel = oneLine`It contains hateful, violent, deceptive,
+    or other inappropriate content`;
+  const illegalReasonLabel = oneLine`It violates the law or contains content
+    that violates the law`;
   const defaultLocationLabel = 'Both locations';
   const certificationLabel = oneLine`By submitting this report I certify, under
     penalty of perjury, that the allegations it contains are complete and
@@ -290,7 +292,7 @@ describe(__filename, () => {
         reporterEmail: '',
         reporterName: '',
         message: defaultMessage,
-        reason: illegalReason,
+        reason: CATEGORY_ILLEGAL,
         location: defaultLocation,
         auth: true,
       }),
@@ -394,7 +396,7 @@ describe(__filename, () => {
           reporterEmail: '',
           reporterName: '',
           message: '',
-          reason: illegalReason,
+          reason: CATEGORY_ILLEGAL,
           location: 'addon',
           auth: true,
         }),
@@ -457,7 +459,7 @@ describe(__filename, () => {
         reporterEmail: '',
         reporterName: '',
         message: defaultMessage,
-        reason: hatefulReason,
+        reason: CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
         location: defaultLocation,
         addonVersion: version,
         auth: true,
@@ -545,7 +547,7 @@ describe(__filename, () => {
     // We do not call `scroll()` here because we mount the component and
     // `componentDidUpdate()` is not called. It is valid because we only mount
     // the component when the server processes the request OR the user
-    // navigates to the edit profile page and, in both cases, the scroll will
+    // navigates to the feedback form page and, in both cases, the scroll will
     // be at the top of the page.
     expect(window.scroll).not.toHaveBeenCalled();
   });
