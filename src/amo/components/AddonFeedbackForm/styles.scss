@@ -5,7 +5,7 @@ $icon-size: 32px;
 .AddonFeedbackForm-header > .Card-contents {
   align-items: center;
   display: grid;
-  grid-template-columns: ($icon-size + 16px) 1fr;
+  grid-template-columns: ($icon-size + 16px) 2fr 1fr;
 
   .AddonFeedbackForm-header-icon {
     grid-column: 1;
@@ -24,8 +24,12 @@ $icon-size: 32px;
 
   .AddonTitle {
     font-size: $font-size-heading-xs;
-    grid-column: 2;
+    grid-column: 2 / span 2;
     margin-bottom: 0;
+
+    @include respond-to(large) {
+      grid-column: 2;
+    }
 
     .AddonTitle-author {
       &,
@@ -34,5 +38,40 @@ $icon-size: 32px;
         font-size: $font-size-l;
       }
     }
+  }
+
+  .AddonFeedbackForm-header-metadata {
+    color: $grey-50;
+    grid-column: 2 / span 2;
+    grid-row: 2;
+
+    @include respond-to(large) {
+      grid-row: 1;
+      grid-column: 3;
+    }
+  }
+
+  .AddonFeedbackForm-header-metadata-adu,
+  .AddonFeedbackForm-header-metadata-rating {
+    align-items: center;
+    display: flex;
+    margin: 8px 0;
+    justify-content: start;
+
+    @include respond-to(large) {
+      justify-content: end;
+    }
+  }
+
+  .AddonFeedbackForm-header-metadata-adu {
+    .Icon {
+      @include margin-end(4px);
+    }
+  }
+}
+
+.AddonFeedbackForm--no-metadata {
+  .AddonFeedbackForm-header > .Card-contents .AddonTitle {
+    grid-column: 2 / span 2;
   }
 }
