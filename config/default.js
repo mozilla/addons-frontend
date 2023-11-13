@@ -416,7 +416,7 @@ module.exports = {
 
   enableFeatureMoreAndroidExtensions: true,
 
-  enableFeatureFeedbackForm: false,
+  enableFeatureFeedbackForm: true,
   enableFeatureFeedbackFormLinks: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
