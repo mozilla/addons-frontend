@@ -40,7 +40,7 @@ export type ReportAddonResponse = {|
     id: number,
     slug: string,
   |},
-  message: string | null,
+  message: string,
   reporter: AbuseReporter | null,
   reporter_name: string | null,
   reporter_email: string | null,
@@ -94,7 +94,7 @@ export type ReportUserResponse = {|
     url: string,
     username: string,
   |},
-  message: string | null,
+  message: string,
   reporter: AbuseReporter | null,
   reporter_name: string | null,
   reporter_email: string | null,
@@ -121,13 +121,65 @@ export function reportUser({
     auth,
     endpoint: 'abuse/report/user',
     method: 'POST',
-    // Using an ID that isn't posted as a string causes a 500 error.
     body: {
-      reporter_email: reporterEmail,
-      reporter_name: reporterName,
+      user: userId,
       message,
       reason,
-      user: userId.toString(),
+      reporter_email: reporterEmail,
+      reporter_name: reporterName,
+    },
+    apiState: api,
+  });
+}
+
+export type ReportRatingParams = {|
+  api: ApiState,
+  ratingId: number,
+  message: string | null,
+  reason: string | null,
+  reporterName: string | null,
+  reporterEmail: string | null,
+  auth: boolean,
+|};
+
+export type ReportRatingResponse = {|
+  reporter: AbuseReporter | null,
+  reporter_name: string | null,
+  reporter_email: string | null,
+  rating: {|
+    id: number,
+  |},
+  message: string,
+  reason: string | null,
+|};
+
+// See: https://addons-server.readthedocs.io/en/latest/topics/api/abuse.html#submitting-a-rating-abuse-report
+export function reportRating({
+  api,
+  ratingId,
+  message,
+  reason,
+  reporterName,
+  reporterEmail,
+  auth,
+}: ReportRatingParams): Promise<ReportRatingResponse> {
+  if (!reason) {
+    invariant(
+      message?.trim(),
+      "message is required when reason isn't specified",
+    );
+  }
+
+  return callApi({
+    auth,
+    endpoint: 'abuse/report/rating',
+    method: 'POST',
+    body: {
+      rating: ratingId,
+      message,
+      reason,
+      reporter_name: reporterName,
+      reporter_email: reporterEmail,
     },
     apiState: api,
   });

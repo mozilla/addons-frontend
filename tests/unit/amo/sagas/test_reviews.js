@@ -2,6 +2,7 @@ import invariant from 'invariant';
 import SagaTester from 'redux-saga-tester';
 
 import * as reviewsApi from 'amo/api/reviews';
+import * as abuseApi from 'amo/api/abuse';
 import {
   ABORTED,
   SAVED_RATING,
@@ -19,22 +20,24 @@ import {
   fetchReviews,
   fetchUserReviews,
   flagReview,
+  flashReviewMessage,
   hideEditReviewForm,
   hideFlashedReviewMessage,
   hideReplyToReviewForm,
+  sendRatingAbuseReport,
   sendReplyToReview,
   setAddonReviews,
-  flashReviewMessage,
+  setLatestReview,
   setReview,
   setReviewPermissions,
   setReviewReply,
-  setLatestReview,
   setReviewWasFlagged,
   setUserReviews,
   updateAddonReview,
   updateRatingCounts,
 } from 'amo/actions/reviews';
 import {
+  REVIEW_FLAG_REASON_LANGUAGE,
   REVIEW_FLAG_REASON_OTHER,
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
@@ -1094,6 +1097,63 @@ describe(__filename, () => {
       const action = await sagaTester.waitFor(expectedAction.type);
 
       expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('sendRatingAbuseReport', () => {
+    let mockAbuseApi;
+
+    beforeEach(() => {
+      mockAbuseApi = sinon.mock(abuseApi);
+    });
+
+    const _sendRatingAbuseReport = (params = {}) => {
+      sagaTester.dispatch(
+        sendRatingAbuseReport({
+          ratingId: 123,
+          errorHandlerId: 'any-error-handler',
+          reason: 'other',
+          ...params,
+        }),
+      );
+    };
+
+    it('clears the error handler', async () => {
+      _sendRatingAbuseReport({ errorHandlerId: errorHandler.id });
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+      mockAbuseApi.expects('reportRating').rejects(error);
+      _sendRatingAbuseReport({ errorHandlerId: errorHandler.id });
+      const expectedAction = errorHandler.createErrorAction(error);
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+
+      expect(action).toEqual(expectedAction);
+      mockAbuseApi.verify();
+    });
+
+    it('calls the abuse API and marks the review as flagged', async () => {
+      const ratingId = 456;
+      mockAbuseApi.expects('reportRating').resolves({
+        rating: { id: ratingId },
+      });
+      _sendRatingAbuseReport({ ratingId });
+      const expectedAction = setReviewWasFlagged({
+        reviewId: ratingId,
+        reason: REVIEW_FLAG_REASON_LANGUAGE,
+      });
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+
+      expect(action).toEqual(expectedAction);
+      mockAbuseApi.verify();
     });
   });
 });

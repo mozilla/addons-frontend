@@ -181,7 +181,7 @@ describe(__filename, () => {
 
       const expectedLoadAction = loadAddonAbuseReport({
         addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
-        message: null,
+        message: '',
         reporter: null,
         reporter_name: null,
         reporter_email: null,

@@ -14,12 +14,13 @@ import {
   hideEditReviewForm,
   hideFlashedReviewMessage,
   hideReplyToReviewForm,
+  sendRatingAbuseReport,
   sendReplyToReview,
   setAddonReviews,
   setInternalReview,
   setLatestReview,
-  setReviewPermissions,
   setReview,
+  setReviewPermissions,
   setReviewReply,
   setReviewWasFlagged,
   setUserReviews,
@@ -27,7 +28,10 @@ import {
   showReplyToReviewForm,
   unloadAddonReviews,
 } from 'amo/actions/reviews';
-import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
+import {
+  REVIEW_FLAG_REASON_SPAM,
+  REVIEW_FLAG_REASON_LANGUAGE,
+} from 'amo/constants';
 import reviewsReducer, {
   addReviewToState,
   changeViewState,
@@ -1727,6 +1731,34 @@ describe(__filename, () => {
       expect(reviewListURL({ addonSlug, id, score })).toEqual(
         `/addon/${addonSlug}/reviews/${id}/?score=${score}`,
       );
+    });
+  });
+
+  describe('SEND_RATING_ABUSE_REPORT', () => {
+    it('changes the view state when a rating abuse report is sent', () => {
+      const ratingId = 123;
+
+      expect(
+        reviewsReducer(
+          undefined,
+          sendRatingAbuseReport({
+            errorHandlerId: 'error-handler-id',
+            ratingId: 123,
+          }),
+        ),
+      ).toMatchObject({
+        ...initialState,
+        view: {
+          ...initialState.view,
+          [ratingId]: {
+            flag: {
+              reason: REVIEW_FLAG_REASON_LANGUAGE,
+              inProgress: true,
+              wasFlagged: false,
+            },
+          },
+        },
+      });
     });
   });
 });
