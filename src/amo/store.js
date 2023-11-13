@@ -10,6 +10,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
+import collectionAbuseReports from 'amo/reducers/collectionAbuseReports';
 import blocks from 'amo/reducers/blocks';
 import experiments from 'amo/reducers/experiments';
 import home from 'amo/reducers/home';
@@ -38,6 +39,7 @@ import suggestions from 'amo/reducers/suggestions';
 import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
 import type { BlocksState } from 'amo/reducers/blocks';
 import type { CollectionsState } from 'amo/reducers/collections';
+import type { CollectionAbuseReportsState } from 'amo/reducers/collectionAbuseReports';
 import type { ExperimentsState } from 'amo/reducers/experiments';
 import type { HomeState } from 'amo/reducers/home';
 import type { LandingState } from 'amo/reducers/landing';
@@ -123,6 +125,7 @@ type InternalAppState = {|
   blocks: BlocksState,
   categories: CategoriesState,
   collections: CollectionsState,
+  collectionAbuseReports: CollectionAbuseReportsState,
   errorPage: ErrorPageState,
   errors: Object,
   experiments: ExperimentsState,
@@ -179,6 +182,7 @@ export const reducers: AppReducersType = {
   blocks,
   categories,
   collections,
+  collectionAbuseReports,
   errors,
   errorPage,
   experiments,
