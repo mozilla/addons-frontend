@@ -121,13 +121,12 @@ export function reportUser({
     auth,
     endpoint: 'abuse/report/user',
     method: 'POST',
-    // Using an ID that isn't posted as a string causes a 500 error.
     body: {
-      reporter_email: reporterEmail,
-      reporter_name: reporterName,
+      user: userId,
       message,
       reason,
-      user: userId.toString(),
+      reporter_email: reporterEmail,
+      reporter_name: reporterName,
     },
     apiState: api,
   });
@@ -176,8 +175,7 @@ export function reportRating({
     endpoint: 'abuse/report/rating',
     method: 'POST',
     body: {
-      // Using an ID that isn't posted as a string causes a 500 error.
-      rating: `${ratingId}`,
+      rating: ratingId,
       message,
       reason,
       reporter_name: reporterName,

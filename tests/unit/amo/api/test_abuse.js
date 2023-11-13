@@ -94,7 +94,7 @@ describe(__filename, () => {
           endpoint: 'abuse/report/user',
           method: 'POST',
           body: {
-            user: `${userId}`,
+            user: userId,
             message,
             reason: undefined,
             reporter_email: undefined,
@@ -125,7 +125,7 @@ describe(__filename, () => {
           endpoint: 'abuse/report/user',
           method: 'POST',
           body: {
-            user: `${userId}`,
+            user: userId,
             message: undefined,
             reason,
             reporter_email: reporterEmail,
@@ -168,7 +168,7 @@ describe(__filename, () => {
           endpoint: 'abuse/report/user',
           method: 'POST',
           body: {
-            user: `${userId}`,
+            user: userId,
             message,
             reason: undefined,
             reporter_email: undefined,
@@ -233,7 +233,7 @@ describe(__filename, () => {
           endpoint: 'abuse/report/rating',
           method: 'POST',
           body: {
-            rating: `${ratingId}`,
+            rating: ratingId,
             message: undefined,
             reason,
             reporter_email: reporterEmail,
@@ -268,7 +268,7 @@ describe(__filename, () => {
           endpoint: 'abuse/report/rating',
           method: 'POST',
           body: {
-            rating: `${ratingId}`,
+            rating: ratingId,
             message,
             reason: undefined,
             reporter_email: undefined,
