@@ -18,6 +18,7 @@ import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
 import AddonFeedback from 'amo/pages/AddonFeedback';
 import UserFeedback from 'amo/pages/UserFeedback';
+import RatingFeedback from 'amo/pages/RatingFeedback';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
@@ -188,6 +189,12 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
         exact
         path="/:lang/:application(firefox|android)/feedback/user/:userId/"
         component={UserFeedback}
+      />,
+      <Route
+        key="rating-feedback"
+        exact
+        path="/:lang/:application(firefox|android)/feedback/review/:ratingId/"
+        component={RatingFeedback}
       />,
     ]}
 

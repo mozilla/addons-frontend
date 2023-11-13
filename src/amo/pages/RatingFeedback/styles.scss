@@ -1,0 +1,50 @@
+@import '~amo/css/styles';
+
+$icon-size: 16px;
+
+.RatingFeedback-page {
+  @include page-padding;
+}
+
+.RatingFeedback-header > .Card-contents {
+  align-items: center;
+  display: grid;
+  grid-template-columns: ($icon-size + 8px) 1fr;
+
+  .RatingFeedback-header-icon {
+    grid-column: 1;
+  }
+
+  .RatingFeedback-header-icon-wrapper {
+    height: $icon-size;
+    width: $icon-size;
+  }
+
+  .RatingFeedback-header-icon-image {
+    height: auto;
+    width: 100%;
+  }
+
+  .RatingFeedback-header-title {
+    font-size: $font-size-default;
+    grid-column: 2;
+    margin: 0;
+  }
+
+  .UserReview {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
+
+  .UserReview-body {
+    margin-bottom: 0;
+  }
+
+  .Rating {
+    display: none;
+
+    @include respond-to(medium) {
+      display: inherit;
+    }
+  }
+}
