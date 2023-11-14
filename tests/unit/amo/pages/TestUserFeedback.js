@@ -7,7 +7,10 @@ import {
   sendUserAbuseReport,
   loadUserAbuseReport,
 } from 'amo/reducers/userAbuseReports';
-import { CATEGORY_FEEDBACK_SPAM } from 'amo/components/FeedbackForm';
+import {
+  CATEGORY_FEEDBACK_SPAM,
+  CATEGORY_OTHER,
+} from 'amo/components/FeedbackForm';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
   FETCH_USER_ACCOUNT,
@@ -208,14 +211,10 @@ describe(__filename, () => {
     expect(screen.getByText(`Report this user to Mozilla`)).toBeInTheDocument();
     expect(screen.getByText('Submit report')).toBeInTheDocument();
 
-    expect(screen.getByLabelText('Your name(optional)')).not.toBeDisabled();
-    expect(screen.getByLabelText('Your name(optional)').value).toBeEmpty();
-    expect(
-      screen.getByLabelText('Your email address(optional)'),
-    ).not.toBeDisabled();
-    expect(
-      screen.getByLabelText('Your email address(optional)').value,
-    ).toBeEmpty();
+    expect(screen.getByLabelText('Your name')).not.toBeDisabled();
+    expect(screen.getByLabelText('Your name').value).toBeEmpty();
+    expect(screen.getByLabelText('Your email address')).not.toBeDisabled();
+    expect(screen.getByLabelText('Your email address').value).toBeEmpty();
 
     // This should never be shown for users.
     expect(
@@ -315,10 +314,14 @@ describe(__filename, () => {
     const userId = 9999;
     const { store } = dispatchClientMetadata();
     const dispatch = jest.spyOn(store, 'dispatch');
-
     render({ id: userId }, store);
 
     await userEvent.click(screen.getByRole('radio', { name: 'It’s spam' }));
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
     await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
     );
@@ -331,7 +334,74 @@ describe(__filename, () => {
         reporterName: '',
         message: '',
         reason: CATEGORY_FEEDBACK_SPAM,
+        auth: false,
+      }),
+    );
+  });
+
+  it('dispatches sendUserAbuseReport action with all fields on submit for a signed-in user', async () => {
+    const signedInName = 'signed-in-username';
+    const signedInEmail = 'signed-in-email';
+    const store = signInUserWithProps({
+      display_name: signedInName,
+      email: signedInEmail,
+    });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const userId = 10;
+    render({ id: userId }, store);
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: 'Something else' }),
+    );
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendUserAbuseReport({
+        userId,
+        errorHandlerId: getErrorHandlerId(userId),
+        reporterEmail: signedInEmail,
+        reporterName: signedInName,
+        message: '',
+        reason: CATEGORY_OTHER,
         auth: true,
+      }),
+    );
+  });
+
+  it('dispatches sendUserAbuseReport action with all fields on submit for a signed-in user who files the report anonymously', async () => {
+    const signedInName = 'signed-in-username';
+    const signedInEmail = 'signed-in-email';
+    const store = signInUserWithProps({
+      display_name: signedInName,
+      email: signedInEmail,
+    });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const userId = 10;
+    render({ id: userId }, store);
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: 'Something else' }),
+    );
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendUserAbuseReport({
+        userId,
+        errorHandlerId: getErrorHandlerId(userId),
+        reporterEmail: '',
+        reporterName: '',
+        message: '',
+        reason: CATEGORY_OTHER,
+        auth: false,
       }),
     );
   });
@@ -397,6 +467,11 @@ describe(__filename, () => {
     render();
 
     await userEvent.click(screen.getByRole('radio', { name: 'It’s spam' }));
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
 
     expect(
       screen.getByRole('button', { name: 'Submit report' }),
