@@ -13,6 +13,7 @@ import {
 import {
   CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
   CATEGORY_ILLEGAL,
+  CATEGORY_OTHER,
 } from 'amo/components/FeedbackForm';
 import { extractId } from 'amo/pages/AddonFeedback';
 import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
@@ -134,14 +135,10 @@ describe(__filename, () => {
       screen.getByText(`Report this add-on to Mozilla`),
     ).toBeInTheDocument();
 
-    expect(screen.getByLabelText('Your name(optional)')).not.toBeDisabled();
-    expect(screen.getByLabelText('Your name(optional)').value).toBeEmpty();
-    expect(
-      screen.getByLabelText('Your email address(optional)'),
-    ).not.toBeDisabled();
-    expect(
-      screen.getByLabelText('Your email address(optional)').value,
-    ).toBeEmpty();
+    expect(screen.getByLabelText('Your name')).not.toBeDisabled();
+    expect(screen.getByLabelText('Your name').value).toBeEmpty();
+    expect(screen.getByLabelText('Your email address')).not.toBeDisabled();
+    expect(screen.getByLabelText('Your email address').value).toBeEmpty();
 
     expect(
       screen.queryByClassName('ReportAbuseButton-first-paragraph'),
@@ -308,6 +305,11 @@ describe(__filename, () => {
       }),
     );
     await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
     );
 
@@ -320,7 +322,77 @@ describe(__filename, () => {
         message: defaultMessage,
         reason: CATEGORY_ILLEGAL,
         location: defaultLocation,
+        auth: false,
+      }),
+    );
+  });
+
+  it('dispatches sendAddonAbuseReport action with all fields on submit for a signed-in user', async () => {
+    const name = 'some user name';
+    const email = 'some user email';
+    signInUserWithProps({ display_name: name, email });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: 'Something else' }),
+    );
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendAddonAbuseReport({
+        errorHandlerId: getErrorHandlerId(defaultAddonGUID),
+        addonId: defaultAddonGUID,
+        reporterEmail: email,
+        reporterName: name,
+        message: '',
+        reason: CATEGORY_OTHER,
+        location: null,
         auth: true,
+      }),
+    );
+  });
+
+  it('dispatches sendAddonAbuseReport action with all fields on submit for a signed-in user who files the report anonymously', async () => {
+    signInUserWithProps();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: illegalReasonLabel }),
+    );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Place of the violation (optional)',
+      }),
+      defaultLocationLabel,
+    );
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: certificationLabel,
+      }),
+    );
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendAddonAbuseReport({
+        errorHandlerId: getErrorHandlerId(defaultAddonGUID),
+        addonId: defaultAddonGUID,
+        reporterEmail: '',
+        reporterName: '',
+        message: '',
+        reason: CATEGORY_ILLEGAL,
+        location: defaultLocation,
+        auth: false,
       }),
     );
   });
@@ -358,6 +430,11 @@ describe(__filename, () => {
       }),
     );
     await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
     );
 
@@ -370,7 +447,7 @@ describe(__filename, () => {
         message: '',
         reason: 'does_not_work',
         location: 'addon',
-        auth: true,
+        auth: false,
       }),
     );
   });
@@ -412,6 +489,11 @@ describe(__filename, () => {
         }),
       );
       await userEvent.click(
+        screen.getByRole('checkbox', {
+          name: 'File report anonymously',
+        }),
+      );
+      await userEvent.click(
         screen.getByRole('button', { name: 'Submit report' }),
       );
 
@@ -424,7 +506,7 @@ describe(__filename, () => {
           message: '',
           reason: CATEGORY_ILLEGAL,
           location: 'addon',
-          auth: true,
+          auth: false,
         }),
       );
     },
@@ -475,6 +557,11 @@ describe(__filename, () => {
       defaultLocationLabel,
     );
     await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
     );
 
@@ -488,7 +575,7 @@ describe(__filename, () => {
         reason: CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
         location: defaultLocation,
         addonVersion: version,
-        auth: true,
+        auth: false,
       }),
     );
   });
@@ -527,6 +614,11 @@ describe(__filename, () => {
         name: 'Provide more details (optional)',
       }),
       defaultMessage,
+    );
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
     );
 
     expect(

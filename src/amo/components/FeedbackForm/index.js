@@ -226,12 +226,13 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
   preventSubmit(): boolean {
     const { abuseIsLoading } = this.props;
-    const { category, certification } = this.state;
+    const { anonymous, category, certification, name, email } = this.state;
 
     return (
       abuseIsLoading ||
       !category ||
-      (this.isCertificationRequired() && !certification)
+      (this.isCertificationRequired() && !certification) ||
+      (!anonymous && (!name.trim().length || !email.trim().length))
     );
   }
 
@@ -431,7 +432,6 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 htmlFor="feedbackName"
               >
                 {i18n.gettext('Your name')}
-                {!currentUser && <span>({i18n.gettext('optional')})</span>}
               </label>
               <input
                 className={makeClassName('FeedbackForm-name', {
@@ -455,7 +455,6 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 htmlFor="feedbackEmail"
               >
                 {i18n.gettext('Your email address')}
-                {!currentUser && <span>({i18n.gettext('optional')})</span>}
               </label>
               <input
                 className={makeClassName('FeedbackForm-email', {
