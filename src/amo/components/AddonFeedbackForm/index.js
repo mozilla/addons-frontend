@@ -141,7 +141,7 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
 
               {!this.isAddonNonPublic() && (
                 <div className="AddonFeedbackForm-header-metadata">
-                  <p className="AddonFeedbackForm-header-metadata-adu">
+                  <div className="AddonFeedbackForm-header-metadata-adu">
                     <Icon name="user-fill" />
                     {addon ? (
                       i18n.sprintf(
@@ -155,8 +155,8 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
                     ) : (
                       <LoadingText />
                     )}
-                  </p>
-                  <p className="AddonFeedbackForm-header-metadata-rating">
+                  </div>
+                  <div className="AddonFeedbackForm-header-metadata-rating">
                     {addon ? (
                       <Rating
                         rating={addon.ratings.average}
@@ -166,7 +166,7 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
                     ) : (
                       <LoadingText />
                     )}
-                  </p>
+                  </div>
                 </div>
               )}
             </Card>
