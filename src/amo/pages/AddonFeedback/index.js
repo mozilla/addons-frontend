@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Helmet } from 'react-helmet';
 
+import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
 import Page from 'amo/components/Page';
 import {
@@ -47,6 +48,12 @@ type State = {||};
 export class AddonFeedbackBase extends React.Component<InternalProps, State> {
   constructor(props: InternalProps) {
     super(props);
+
+    if (props.errorHandler.hasError()) {
+      log.warn('Not loading data because of an error.');
+      return;
+    }
+
     this.loadDataIfNeeded();
   }
 

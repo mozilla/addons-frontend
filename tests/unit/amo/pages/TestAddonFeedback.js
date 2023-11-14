@@ -16,7 +16,7 @@ import {
 } from 'amo/components/FeedbackForm';
 import { extractId } from 'amo/pages/AddonFeedback';
 import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
-import { loadAddon, fetchAddon } from 'amo/reducers/addons';
+import { FETCH_ADDON, loadAddon, fetchAddon } from 'amo/reducers/addons';
 import { clearError } from 'amo/reducers/errors';
 import { setInstallState } from 'amo/reducers/installations';
 import {
@@ -576,6 +576,18 @@ describe(__filename, () => {
     // navigates to the feedback form page and, in both cases, the scroll will
     // be at the top of the page.
     expect(window.scroll).not.toHaveBeenCalled();
+  });
+
+  it('does not fetch the user when there is an error', () => {
+    const addonIdentifier = 'some-addon-id';
+    createFailedErrorHandler({ id: getErrorHandlerId(addonIdentifier), store });
+    const dispatch = jest.spyOn(store, 'dispatch');
+
+    renderWithoutLoadingAddon(addonIdentifier);
+
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_ADDON }),
+    );
   });
 
   describe('errorHandler - extractId', () => {

@@ -62,6 +62,7 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
+      return;
     }
 
     if (!review && !reviewIsLoading) {
