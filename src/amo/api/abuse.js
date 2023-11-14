@@ -184,3 +184,56 @@ export function reportRating({
     apiState: api,
   });
 }
+
+export type ReportCollectionParams = {|
+  api: ApiState,
+  collectionId: number,
+  message: string | null,
+  reason: string | null,
+  reporterName: string | null,
+  reporterEmail: string | null,
+  auth: boolean,
+|};
+
+export type ReportCollectionResponse = {|
+  reporter: AbuseReporter | null,
+  reporter_name: string | null,
+  reporter_email: string | null,
+  collection: {|
+    id: number,
+  |},
+  message: string,
+  reason: string | null,
+|};
+
+// See: https://addons-server.readthedocs.io/en/latest/topics/api/abuse.html#submitting-a-collection-abuse-report
+export function reportCollection({
+  api,
+  collectionId,
+  message,
+  reason,
+  reporterName,
+  reporterEmail,
+  auth,
+}: ReportCollectionParams): Promise<ReportCollectionResponse> {
+  if (!reason) {
+    invariant(
+      message?.trim(),
+      "message is required when reason isn't specified",
+    );
+  }
+
+  return callApi({
+    auth,
+    endpoint: 'abuse/report/collection',
+    method: 'POST',
+    body: {
+      collection: collectionId,
+      message,
+      reason,
+      reporter_name: reporterName,
+      reporter_email: reporterEmail,
+    },
+    apiState: api,
+  });
+}

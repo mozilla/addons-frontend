@@ -336,7 +336,7 @@
   "bundlewatch": [
     {
       "path": "./dist/static/amo-!(i18n-)*.js",
-      "maxSize": "355 kB"
+      "maxSize": "356 kB"
     },
     {
       "path": "./dist/static/amo-i18n-*.js",

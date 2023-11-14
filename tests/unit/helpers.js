@@ -1018,6 +1018,25 @@ export function createFakeUserAbuseReport({
   };
 }
 
+export function createFakeCollectionAbuseReport({
+  collectionId,
+  message = '',
+  reason = 'other',
+  reporter = null,
+  reporterName = null,
+  reporterEmail = null,
+} = {}) {
+  return {
+    message,
+    reason,
+    reporter,
+    reporter_name: reporterName,
+    reporter_email: reporterEmail,
+    collection: {
+      id: collectionId,
+    },
+  };
+}
 export const getFakeConfig = getFakeConfigNode;
 
 export const getMockConfig = (overrides = {}) => {

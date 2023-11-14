@@ -1,5 +1,10 @@
 import * as api from 'amo/api';
-import { reportAddon, reportUser, reportRating } from 'amo/api/abuse';
+import {
+  reportAddon,
+  reportUser,
+  reportRating,
+  reportCollection,
+} from 'amo/api/abuse';
 import {
   createApiResponse,
   createFakeAddonAbuseReport,
@@ -291,6 +296,105 @@ describe(__filename, () => {
 
         await expect(() =>
           reportRating({ api: apiState, ratingId: 123, message }),
+        ).toThrow(/message is required when reason isn't specified/);
+      },
+    );
+  });
+
+  describe('reportCollection', () => {
+    const mockResponse = ({ collectionId = 123, ...otherProps } = {}) => {
+      return createApiResponse({
+        jsonData: {
+          reporter: null,
+          reporter_name: 'some reporter name',
+          reporter_email: 'some reporter email',
+          collection: {
+            id: collectionId,
+          },
+          message: '',
+          reason: 'illegal',
+          ...otherProps,
+        },
+      });
+    };
+
+    it('calls the collection abuse report API', async () => {
+      const apiState = dispatchClientMetadata().store.getState().api;
+      const reason = 'other';
+      const reporterEmail = 'some-reporter-email';
+      const reporterName = 'some-reporter-name';
+      const collectionId = 1234;
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: 'abuse/report/collection',
+          method: 'POST',
+          body: {
+            collection: collectionId,
+            message: undefined,
+            reason,
+            reporter_email: reporterEmail,
+            reporter_name: reporterName,
+          },
+          apiState,
+        })
+        .once()
+        .returns(mockResponse());
+
+      await reportCollection({
+        api: apiState,
+        auth: true,
+        collectionId,
+        reason,
+        reporterEmail,
+        reporterName,
+      });
+
+      mockApi.verify();
+    });
+
+    it('allows the collection abuse report API to be called anonymously', async () => {
+      const apiState = dispatchClientMetadata().store.getState().api;
+      const collectionId = 1234;
+      const message = 'not a great collection';
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: false,
+          endpoint: 'abuse/report/collection',
+          method: 'POST',
+          body: {
+            collection: collectionId,
+            message,
+            reason: undefined,
+            reporter_email: undefined,
+            reporter_name: undefined,
+          },
+          apiState,
+        })
+        .once()
+        .returns(mockResponse());
+
+      await reportCollection({
+        api: apiState,
+        auth: false,
+        message,
+        collectionId,
+      });
+
+      mockApi.verify();
+    });
+
+    it.each([undefined, '', null, ' '])(
+      'throws when reason is not supplied and message is %s',
+      async (message) => {
+        const apiState = dispatchClientMetadata().store.getState().api;
+
+        await expect(() =>
+          reportCollection({ api: apiState, collectionId: 123, message }),
         ).toThrow(/message is required when reason isn't specified/);
       },
     );
