@@ -1,7 +1,7 @@
 import { LOCATION_CHANGE } from 'redux-first-history';
 import config from 'config';
 import serialize from 'serialize-javascript';
-import { cleanup, waitFor } from '@testing-library/react';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { createAddonReview, setLatestReview } from 'amo/actions/reviews';
@@ -1994,35 +1994,37 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
-    it('returns a single host permission for all urls', () => {
-      const permissions = [
-        '*://*.mozilla.com/*',
-        '*://developer.mozilla.org/*',
-      ];
-      for (const allUrlsPermission of ['<all_urls>', '*://*/']) {
+    it.each(['<all_urls>', '*://*/'])(
+      'returns a single host permission for all urls',
+      (allUrlsPermission) => {
+        const permissions = [
+          '*://*.mozilla.com/*',
+          '*://developer.mozilla.org/*',
+        ];
         addon.current_version = createVersionWithPermissions({
           required: [...permissions, allUrlsPermission],
           host: [...permissions, allUrlsPermission],
         });
         renderWithAddon();
 
-        // The all URLs permission will be displayed in both required and optional permissions.
+        // The all URLs permission will be displayed in both required and
+        // optional permissions.
         expect(
           screen.getAllByClassName('Icon-permission-hostPermission'),
         ).toHaveLength(2);
         expect(
           screen.getAllByText('Access your data for all websites'),
         ).toHaveLength(2);
-        cleanup();
-      }
-    });
+      },
+    );
 
-    it('returns a single optional host permission for all urls', () => {
-      const permissions = [
-        '*://*.mozilla.com/*',
-        '*://developer.mozilla.org/*',
-      ];
-      for (const allUrlsPermission of ['<all_urls>', '*://*/']) {
+    it.each(['<all_urls>', '*://*/'])(
+      'returns a single optional host permission for all urls',
+      (allUrlsPermission) => {
+        const permissions = [
+          '*://*.mozilla.com/*',
+          '*://developer.mozilla.org/*',
+        ];
         addon.current_version = createVersionWithPermissions({
           host: [...permissions, allUrlsPermission],
         });
@@ -2034,9 +2036,8 @@ describe(__filename, () => {
         expect(
           screen.getByText('Access your data for all websites'),
         ).toBeInTheDocument();
-        cleanup();
-      }
-    });
+      },
+    );
 
     it('does not return a host permission for moz-extension: urls', () => {
       addon.current_version = createVersionWithPermissions({

@@ -1,3 +1,6 @@
+// We shouldn't use `cleanup()` but this test file uses it anyway in
+// `testWithFilters()`, which should be refactored eventually...
+// eslint-disable-next-line testing-library/no-manual-cleanup
 import { cleanup, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import config from 'config';

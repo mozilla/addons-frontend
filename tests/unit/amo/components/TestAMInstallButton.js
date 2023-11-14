@@ -119,7 +119,7 @@ describe(__filename, () => {
     expect(button).not.toHaveAttribute('href');
   });
 
-  it('calls the `install` helper to install an extension', async () => {
+  it('calls the `install` helper to install an extension', () => {
     const addon = createInternalAddonWithLang(fakeAddon);
     const enable = jest.fn();
     const install = jest.fn();
@@ -132,7 +132,7 @@ describe(__filename, () => {
     const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
     const stopPropagationWatcher = jest.spyOn(clickEvent, 'stopPropagation');
 
-    await fireEvent(button, clickEvent);
+    fireEvent(button, clickEvent);
 
     expect(install).toHaveBeenCalledTimes(1);
     expect(enable).not.toHaveBeenCalled();
@@ -140,7 +140,7 @@ describe(__filename, () => {
     expect(stopPropagationWatcher).toHaveBeenCalled();
   });
 
-  it('calls the `install` helper to install a static theme', async () => {
+  it('calls the `install` helper to install a static theme', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
@@ -160,7 +160,7 @@ describe(__filename, () => {
     const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
     const stopPropagationWatcher = jest.spyOn(clickEvent, 'stopPropagation');
 
-    await fireEvent(button, clickEvent);
+    fireEvent(button, clickEvent);
 
     expect(install).toHaveBeenCalledTimes(1);
     expect(enable).not.toHaveBeenCalled();
