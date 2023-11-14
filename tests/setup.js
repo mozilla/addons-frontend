@@ -7,7 +7,7 @@ import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
 import * as matchers from 'jest-extended';
 
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 import 'amo/polyfill';
 
