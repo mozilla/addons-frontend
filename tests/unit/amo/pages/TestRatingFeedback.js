@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 
 import {
+  FETCH_REVIEW,
   fetchReview,
   sendRatingAbuseReport,
   setReview,
@@ -44,8 +45,8 @@ describe(__filename, () => {
     jest.clearAllMocks().resetModules();
   });
 
-  const getErrorHandlerId = (addonId) =>
-    `src/amo/pages/RatingFeedback/index.js-${addonId}`;
+  const getErrorHandlerId = (ratingId) =>
+    `src/amo/pages/RatingFeedback/index.js-${ratingId}`;
 
   const signInRatingWithProps = (
     props = {},
@@ -121,6 +122,21 @@ describe(__filename, () => {
 
       expect(dispatch).toHaveBeenCalledWith(
         clearError(getErrorHandlerId(ratingId)),
+      );
+    });
+
+    it('does not fetch the review when there is an error', () => {
+      const ratingId = 1234;
+      const { store } = dispatchClientMetadata();
+      createFailedErrorHandler({ id: getErrorHandlerId(ratingId), store });
+      const dispatch = jest.spyOn(store, 'dispatch');
+
+      renderWithoutLoading({ ratingId, store });
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({
+          type: FETCH_REVIEW,
+        }),
       );
     });
 
@@ -278,7 +294,7 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it('renders the different categories for a user', () => {
+  it('renders the different categories for a review', () => {
     render();
 
     // A
@@ -394,7 +410,7 @@ describe(__filename, () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.queryByText('Report this add-on to Mozilla'),
+      screen.queryByText('Report this review to Mozilla'),
     ).not.toBeInTheDocument();
 
     expect(window.scrollTo).toHaveBeenCalledWith(0, 0);

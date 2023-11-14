@@ -9,7 +9,11 @@ import {
 } from 'amo/reducers/userAbuseReports';
 import { CATEGORY_FEEDBACK_SPAM } from 'amo/components/FeedbackForm';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
-import { fetchUserAccount, loadUserAccount } from 'amo/reducers/users';
+import {
+  FETCH_USER_ACCOUNT,
+  fetchUserAccount,
+  loadUserAccount,
+} from 'amo/reducers/users';
 import { extractId } from 'amo/pages/UserFeedback';
 import { clearError } from 'amo/reducers/errors';
 import { createApiError } from 'amo/api';
@@ -42,8 +46,8 @@ describe(__filename, () => {
     jest.clearAllMocks().resetModules();
   });
 
-  const getErrorHandlerId = (addonId) =>
-    `src/amo/pages/UserFeedback/index.js-${addonId}`;
+  const getErrorHandlerId = (userId) =>
+    `src/amo/pages/UserFeedback/index.js-${userId}`;
 
   const signInUserWithProps = (
     props = {},
@@ -119,6 +123,21 @@ describe(__filename, () => {
 
       expect(dispatch).toHaveBeenCalledWith(
         clearError(getErrorHandlerId(userId)),
+      );
+    });
+
+    it('does not fetch the user when there is an error', () => {
+      const userId = 1234;
+      const { store } = dispatchClientMetadata();
+      createFailedErrorHandler({ id: getErrorHandlerId(userId), store });
+      const dispatch = jest.spyOn(store, 'dispatch');
+
+      renderWithoutLoading({ userId, store });
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({
+          type: FETCH_USER_ACCOUNT,
+        }),
       );
     });
 
@@ -368,7 +387,7 @@ describe(__filename, () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.queryByText('Report this add-on to Mozilla'),
+      screen.queryByText('Report this user to Mozilla'),
     ).not.toBeInTheDocument();
 
     expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
