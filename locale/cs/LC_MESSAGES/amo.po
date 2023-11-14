@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-13 09:31+0000\n"
-"PO-Revision-Date: 2023-11-13 19:29+0000\n"
-"Last-Translator: Pavel Cvrček <jasnapaka@jasnapaka.com>\n"
+"PO-Revision-Date: 2023-11-14 17:39+0000\n"
+"Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -2808,7 +2808,7 @@ msgstr "Poslat zpětnou vazbu o uživateli"
 
 #: src/amo/pages/UserFeedback/index.js:146
 msgid "Report the user because they are illegal or incompliant"
-msgstr "Nahlaste uživateli jejich nelegální obsah nebo nekompatibilitu"
+msgstr "Nahlásit uživatele za nelegální obsah nebo neplnění pravidel"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
