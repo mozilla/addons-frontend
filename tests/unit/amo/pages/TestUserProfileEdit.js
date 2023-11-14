@@ -922,7 +922,7 @@ describe(__filename, () => {
     const clickEvent = createEvent.click(button);
     const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    await fireEvent(button, clickEvent);
+    fireEvent(button, clickEvent);
 
     expect(preventDefaultWatcher).toHaveBeenCalled();
     expect(
