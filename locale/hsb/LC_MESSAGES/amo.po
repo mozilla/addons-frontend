@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-13 09:31+0000\n"
-"PO-Revision-Date: 2023-11-13 10:17+0000\n"
+"PO-Revision-Date: 2023-11-14 17:19+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2072,7 +2072,7 @@ msgstr "<span class=\"visually-hidden\">Pokazać</span> Wjace čitać"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr "Je jako %(username)s přizjewjeny"
+msgstr "Jako %(username)s přizjewjeny"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
