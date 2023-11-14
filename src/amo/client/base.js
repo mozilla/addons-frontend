@@ -3,7 +3,7 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 import { createBrowserHistory } from 'history';
 import * as React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom';
 
 import Root from 'amo/components/Root';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'amo/i18n/utils';
@@ -92,11 +92,11 @@ export default async function createClient(
   const i18n = makeI18n(i18nData, lang);
 
   const renderApp = (App) => {
-    render(
+    const root = createRoot(document.getElementById('react-view'));
+    root.render(
       <Root history={connectedHistory} i18n={i18n} store={store}>
         <App />
       </Root>,
-      document.getElementById('react-view'),
     );
   };
 
