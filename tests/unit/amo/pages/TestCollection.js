@@ -38,6 +38,7 @@ import {
   updateCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
+import { loadCollectionAbuseReport } from 'amo/reducers/collectionAbuseReports';
 import {
   SEND_SERVER_REDIRECT,
   sendServerRedirect,
@@ -62,6 +63,7 @@ import {
   fakeI18n,
   fakePreview,
   getElement,
+  getMockConfig,
   renderPage as defaultRender,
   screen,
   within,
@@ -77,9 +79,7 @@ jest.mock('amo/localState', () =>
   }),
 );
 
-afterEach(() => {
-  jest.useRealTimers();
-});
+jest.mock('config');
 
 describe(__filename, () => {
   let history;
@@ -100,7 +100,7 @@ describe(__filename, () => {
   const editableCollectionAddonErrorHandlerId =
     'src/amo/components/EditableCollectionAddon/index.js-editable-collection-addon-1234';
   const lang = 'en-US';
-  const mozillaUserId = config.get('mozillaUserId');
+  const mozillaUserId = 4757633;
 
   const getLocation = ({
     editing = false,
@@ -121,6 +121,14 @@ describe(__filename, () => {
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
     userEvent = defaultUserEvent.setup({ delay: null });
+    const fakeConfig = getMockConfig({
+      // This is needed by some of the tests below.
+      mozillaUserId,
+      enableFeatureFeedbackFormLinks: false,
+    });
+    config.get.mockImplementation((key) => {
+      return fakeConfig[key];
+    });
   });
 
   afterEach(() => {
@@ -2384,6 +2392,75 @@ describe(__filename, () => {
       expect(
         screen.queryByRole('link', { name: 'Edit this collection' }),
       ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('with enableFeatureFeedbackFormLinks=false', () => {
+    it('does not show an abuse report button', () => {
+      renderWithCollection();
+
+      expect(
+        screen.queryByRole('link', {
+          name: 'Report this collection for abuse',
+        }),
+      ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('with enableFeatureFeedbackFormLinks=true', () => {
+    beforeEach(() => {
+      const fakeConfig = getMockConfig({
+        enableFeatureFeedbackFormLinks: true,
+      });
+      config.get.mockImplementation((key) => {
+        return fakeConfig[key];
+      });
+    });
+
+    it('shows an abuse report button', () => {
+      renderWithCollection();
+
+      expect(
+        screen.getByRole('link', {
+          name: 'Report this collection for abuse',
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('does not show an abuse report button when the collection is not loaded yet', () => {
+      render();
+
+      expect(
+        screen.queryByRole('link', {
+          name: 'Report this collection for abuse',
+        }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not show an abuse report button for a owner', () => {
+      renderWithCollectionForSignedInUser();
+
+      expect(
+        screen.queryByRole('link', {
+          name: 'Report this collection for abuse',
+        }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders a confirmation message when the collection has been reported', () => {
+      const collectionId = 222222;
+      store.dispatch(loadCollectionAbuseReport({ collectionId }));
+
+      renderWithCollection({ detailProps: { id: collectionId } });
+
+      expect(
+        screen.queryByRole('link', {
+          name: 'Report this collection for abuse',
+        }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByText('You reported this collection'),
+      ).toBeInTheDocument();
     });
   });
 });

@@ -5,8 +5,10 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import config from 'config';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import Button from 'amo/components/Button';
 import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionControls from 'amo/components/CollectionControls';
 import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
@@ -74,6 +76,7 @@ type PropsFromState = {|
   isOwner: boolean,
   lang: string,
   loading: boolean,
+  isReported: boolean,
 |};
 
 type InternalProps = {|
@@ -405,6 +408,44 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   }
 
+  renderAbuseReportButton(): null | React.Node {
+    if (!config.get('enableFeatureFeedbackFormLinks')) {
+      return null;
+    }
+
+    const { collection, i18n, isOwner, isReported } = this.props;
+
+    if (!collection || isOwner) {
+      return null;
+    }
+
+    if (isReported) {
+      return (
+        <div className="Collection-report-sent">
+          <h3 className="ReportUserAbuse-header">
+            {i18n.gettext('You reported this collection')}
+          </h3>
+
+          <p>
+            {i18n.gettext(`We have received your report. Thanks for letting us
+              know about your concerns with this collection.`)}
+          </p>
+        </div>
+      );
+    }
+
+    return (
+      <Button
+        buttonType="neutral"
+        className="Collection-report-button"
+        puffy
+        to={`/feedback/collection/${collection.authorId}/${collection.slug}/`}
+      >
+        {i18n.gettext('Report this collection for abuse')}
+      </Button>
+    );
+  }
+
   renderCollection(): React.Node {
     const {
       collection,
@@ -473,6 +514,7 @@ export class CollectionBase extends React.Component<InternalProps> {
               filters={filters}
             />
             {this.renderDeleteButton()}
+            {this.renderAbuseReportButton()}
           </Card>
           {!creating && (
             <CollectionControls
@@ -563,7 +605,7 @@ export const mapStateToProps = (
   state: AppState,
   ownProps: InternalProps,
 ): PropsFromState => {
-  const { api, collections } = state;
+  const { api, collections, collectionAbuseReports } = state;
 
   const { loading } = collections.current;
   const { creating, location } = ownProps;
@@ -581,6 +623,10 @@ export const mapStateToProps = (
     collection && currentUser && collection.authorId === currentUser.id,
   );
 
+  const abuseReport =
+    (collection && collectionAbuseReports.byCollectionId[collection.id]) ||
+    null;
+
   return {
     clientApp: api.clientApp,
     collection,
@@ -589,6 +635,7 @@ export const mapStateToProps = (
     isOwner,
     lang: api.lang,
     loading,
+    isReported: abuseReport?.hasSubmitted || false,
   };
 };
 

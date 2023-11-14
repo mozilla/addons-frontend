@@ -59,9 +59,13 @@
   }
 }
 
-.Collection-delete-button {
+.Collection-delete-button,
+.Collection-report-button {
   margin-top: 24px;
+  width: 100%;
+}
 
+.Collection-delete-button {
   .ConfirmButton-default-button {
     width: 100%;
   }

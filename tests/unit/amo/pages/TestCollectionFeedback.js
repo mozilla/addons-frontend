@@ -12,7 +12,10 @@ import {
   sendCollectionAbuseReport,
   loadCollectionAbuseReport,
 } from 'amo/reducers/collectionAbuseReports';
-import { CATEGORY_FEEDBACK_SPAM } from 'amo/components/FeedbackForm';
+import {
+  CATEGORY_FEEDBACK_SPAM,
+  CATEGORY_OTHER,
+} from 'amo/components/FeedbackForm';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import { extractId } from 'amo/pages/CollectionFeedback';
 import { clearError } from 'amo/reducers/errors';
@@ -294,6 +297,77 @@ describe(__filename, () => {
     expect(
       screen.queryByClassName('FeedbackForm-success-first-paragraph'),
     ).not.toBeInTheDocument();
+  });
+
+  it('dispatches sendCollectionAbuseReport action with all fields on submit for a signed-in user', async () => {
+    const signedInName = 'signed-in-username';
+    const signedInEmail = 'signed-in-email';
+    const store = signInUserWithProps({
+      display_name: signedInName,
+      email: signedInEmail,
+    });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const authorId = 1234;
+    const collectionId = 98765;
+    const collectionSlug = 'some-collection-slug';
+    render({ authorId, slug: collectionSlug, id: collectionId }, store);
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: 'Something else' }),
+    );
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendCollectionAbuseReport({
+        collectionId,
+        errorHandlerId: getErrorHandlerId(authorId, collectionSlug),
+        reporterEmail: signedInEmail,
+        reporterName: signedInName,
+        message: '',
+        reason: CATEGORY_OTHER,
+        auth: true,
+      }),
+    );
+  });
+
+  it('dispatches sendCollectionAbuseReport action with all fields on submit for a signed-in user who files the report anonymously', async () => {
+    const signedInName = 'signed-in-username';
+    const signedInEmail = 'signed-in-email';
+    const store = signInUserWithProps({
+      display_name: signedInName,
+      email: signedInEmail,
+    });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const authorId = 1234;
+    const collectionId = 98765;
+    const collectionSlug = 'some-collection-slug';
+    render({ authorId, slug: collectionSlug, id: collectionId }, store);
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: 'Something else' }),
+    );
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendCollectionAbuseReport({
+        collectionId,
+        errorHandlerId: getErrorHandlerId(authorId, collectionSlug),
+        reporterEmail: '',
+        reporterName: '',
+        message: '',
+        reason: CATEGORY_OTHER,
+        auth: false,
+      }),
+    );
   });
 
   it('restores the name when the user toggles the anonymous checkbox', async () => {
