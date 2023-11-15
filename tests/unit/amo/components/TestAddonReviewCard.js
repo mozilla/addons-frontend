@@ -1473,37 +1473,6 @@ describe(__filename, () => {
     });
 
     describe('Tests for FlagReviewMenu', () => {
-      it('changes the "inappropriate language" menu item to a link pointing to the rating feedback form when enableFeatureFeedbackFormLinks is set', async () => {
-        const fakeConfig = getMockConfig({
-          enableFeatureFeedbackFormLinks: true,
-        });
-        config.get.mockImplementation((key) => {
-          return fakeConfig[key];
-        });
-        const review = createReviewAndSignInAsUnrelatedUser();
-        render({ review });
-
-        await openFlagMenu();
-
-        expect(
-          screen.getByRole('button', {
-            name: 'This is spam',
-          }),
-        ).not.toBeDisabled();
-        expect(
-          // It would have to be a 'button' if `enableFeatureFeedbackFormLinks`
-          // was set to `false`.
-          screen.getByRole('link', {
-            name: 'This contains inappropriate language',
-          }),
-        ).toBeInTheDocument();
-        expect(
-          screen.getByRole('button', {
-            name: 'This is a bug report or support request',
-          }),
-        ).not.toBeDisabled();
-      });
-
       it('can be configured with an openerClass', () => {
         const review = createReviewAndSignInAsUnrelatedUser();
         render({ review });
@@ -1535,6 +1504,27 @@ describe(__filename, () => {
         ).toBeInTheDocument();
       });
 
+      it('shows the menu for signed-in users', async () => {
+        dispatchSignInActionsWithStore({ store, userId: 999 });
+        render({ review: _setReview() });
+
+        await openFlagMenu();
+
+        expect(
+          screen.getByRole('button', { name: 'This is spam' }),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByRole('button', {
+            name: 'This is a bug report or support request',
+          }),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByRole('button', {
+            name: 'This contains inappropriate language',
+          }),
+        ).toBeInTheDocument();
+      });
+
       describe('when enableFeatureFeedbackFormLinks is enabled', () => {
         beforeEach(() => {
           const fakeConfig = getMockConfig({
@@ -1555,19 +1545,24 @@ describe(__filename, () => {
           ).not.toBeInTheDocument();
           expect(
             screen.getByRole('button', {
-              name: 'This is spam',
+              name: 'Spam',
             }),
           ).toBeDisabled();
-          expect(
-            screen.getByRole('link', {
-              name: 'This contains inappropriate language',
-            }),
-          ).toBeInTheDocument();
           expect(
             screen.getByRole('button', {
-              name: 'This is a bug report or support request',
+              name: 'Spam',
+            }),
+          ).toHaveAttribute('title', 'Login required');
+          expect(
+            screen.getByRole('button', {
+              name: 'Misplaced bug report or support request',
             }),
           ).toBeDisabled();
+          expect(
+            screen.getByRole('button', {
+              name: 'Misplaced bug report or support request',
+            }),
+          ).toHaveAttribute('title', 'Login required');
         });
 
         it('shows the menu for signed-in users', async () => {
@@ -1578,14 +1573,24 @@ describe(__filename, () => {
 
           expect(
             screen.getByRole('button', {
-              name: 'This is spam',
+              name: 'Spam',
             }),
           ).not.toBeDisabled();
           expect(
             screen.getByRole('button', {
-              name: 'This is a bug report or support request',
+              name: 'Spam',
+            }),
+          ).not.toHaveAttribute('title');
+          expect(
+            screen.getByRole('button', {
+              name: 'Misplaced bug report or support request',
             }),
           ).not.toBeDisabled();
+          expect(
+            screen.getByRole('button', {
+              name: 'Misplaced bug report or support request',
+            }),
+          ).not.toHaveAttribute('title');
         });
       });
 
