@@ -1371,11 +1371,53 @@ describe(__filename, () => {
 
       expect(
         screen.getByRole('heading', {
-          name: 'You reported this user for abuse',
+          name: 'You reported this user',
         }),
       ).toBeInTheDocument();
       expect(
+        screen.getByText(/^We can't respond to every abuse report/),
+      ).toBeInTheDocument();
+      expect(
         screen.queryByRole('button', { name: 'Report this user for abuse' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('shows a different success message when enableFeatureFeedbackFormLinks is enabled', () => {
+      const fakeConfig = getMockConfig({
+        enableFeatureFeedbackFormLinks: true,
+      });
+      config.get.mockImplementation((key) => {
+        return fakeConfig[key];
+      });
+
+      const userId = signInUserWithProps();
+
+      // Create a user with another userId.
+      const anotherUserId = userId + 1;
+      const user = createUserAccountResponse({ id: anotherUserId });
+      store.dispatch(loadUserAccount({ user }));
+
+      const abuseResponse = createFakeUserAbuseReport({
+        message: 'Seriously, where is my money?!',
+        user,
+      });
+      store.dispatch(
+        loadUserAbuseReport({
+          message: abuseResponse.message,
+          reporter: abuseResponse.reporter,
+          userId: user.id,
+        }),
+      );
+
+      renderUserProfile({ userId: anotherUserId });
+
+      expect(
+        screen.getByRole('heading', {
+          name: 'You reported this user',
+        }),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByText(/^We can't respond to every abuse report/),
       ).not.toBeInTheDocument();
     });
 

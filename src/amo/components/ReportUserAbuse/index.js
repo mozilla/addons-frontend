@@ -92,8 +92,12 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
       onClick: this.showReportUI,
     };
 
+    const enableFeatureFeedbackFormLinks = config.get(
+      'enableFeatureFeedbackFormLinks',
+    );
+
     // When this feature flag is active, we link to the feedback form.
-    if (user && config.get('enableFeatureFeedbackFormLinks')) {
+    if (user && enableFeatureFeedbackFormLinks) {
       reportButtonProps = {
         to: `/feedback/user/${user.id}/`,
       };
@@ -171,22 +175,20 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
         {hasSubmitted && (
           <div className="ReportUserAbuse--report-sent">
             <h3 className="ReportUserAbuse-header">
-              {i18n.gettext('You reported this user for abuse')}
+              {i18n.gettext('You reported this user')}
             </h3>
 
             <p>
-              {i18n.gettext(
-                `We have received your report. Thanks for letting us know about
-                your concerns with this user.`,
-              )}
+              {i18n.gettext(`We have received your report. Thanks for letting
+                us know about your concerns with this user.`)}
             </p>
 
-            <p>
-              {i18n.gettext(
-                `We can't respond to every abuse report but we'll look into
-                this issue.`,
-              )}
-            </p>
+            {!enableFeatureFeedbackFormLinks && (
+              <p>
+                {i18n.gettext(`We can't respond to every abuse report but we'll
+                  look into this issue.`)}
+              </p>
+            )}
           </div>
         )}
       </div>
