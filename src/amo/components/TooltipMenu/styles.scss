@@ -90,7 +90,7 @@
     a,
     a:link,
     button {
-      &:not(.Button) {
+      &:not(.Button):not([disabled]) {
         @include font-medium;
 
         cursor: pointer;

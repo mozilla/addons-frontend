@@ -1486,12 +1486,22 @@ describe(__filename, () => {
         await openFlagMenu();
 
         expect(
+          screen.getByRole('button', {
+            name: 'This is spam',
+          }),
+        ).not.toBeDisabled();
+        expect(
           // It would have to be a 'button' if `enableFeatureFeedbackFormLinks`
           // was set to `false`.
           screen.getByRole('link', {
             name: 'This contains inappropriate language',
           }),
         ).toBeInTheDocument();
+        expect(
+          screen.getByRole('button', {
+            name: 'This is a bug report or support request',
+          }),
+        ).not.toBeDisabled();
       });
 
       it('can be configured with an openerClass', () => {
@@ -1523,6 +1533,60 @@ describe(__filename, () => {
         expect(
           screen.getByRole('link', { name: 'Log in to flag this review' }),
         ).toBeInTheDocument();
+      });
+
+      describe('when enableFeatureFeedbackFormLinks is enabled', () => {
+        beforeEach(() => {
+          const fakeConfig = getMockConfig({
+            enableFeatureFeedbackFormLinks: true,
+          });
+          config.get.mockImplementation((key) => {
+            return fakeConfig[key];
+          });
+        });
+
+        it('shows the menu for signed-out users', async () => {
+          render({ review: _setReview() });
+
+          await openFlagMenu();
+
+          expect(
+            screen.queryByRole('link', { name: 'Log in to flag this review' }),
+          ).not.toBeInTheDocument();
+          expect(
+            screen.getByRole('button', {
+              name: 'This is spam',
+            }),
+          ).toBeDisabled();
+          expect(
+            screen.getByRole('link', {
+              name: 'This contains inappropriate language',
+            }),
+          ).toBeInTheDocument();
+          expect(
+            screen.getByRole('button', {
+              name: 'This is a bug report or support request',
+            }),
+          ).toBeDisabled();
+        });
+
+        it('shows the menu for signed-in users', async () => {
+          dispatchSignInActionsWithStore({ store, userId: 999 });
+          render({ review: _setReview() });
+
+          await openFlagMenu();
+
+          expect(
+            screen.getByRole('button', {
+              name: 'This is spam',
+            }),
+          ).not.toBeDisabled();
+          expect(
+            screen.getByRole('button', {
+              name: 'This is a bug report or support request',
+            }),
+          ).not.toBeDisabled();
+        });
       });
 
       it('prompts you to flag a developer response after login', async () => {

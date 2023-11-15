@@ -1,0 +1,11 @@
+@import '~amo/css/styles';
+
+.FlagReview-button[disabled] {
+  @include disabled;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: initial !important;
+  }
+}
