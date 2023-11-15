@@ -686,8 +686,11 @@ describe(__filename, () => {
 
       expect(
         screen.getByRole('heading', {
-          name: 'You reported this add-on for abuse',
+          name: 'You reported this add-on',
         }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(/^We can't respond to every abuse report/),
       ).toBeInTheDocument();
       expect(
         screen.queryByRole('button', {
@@ -709,7 +712,7 @@ describe(__filename, () => {
 
       expect(
         screen.getByRole('heading', {
-          name: 'You reported this add-on for abuse',
+          name: 'You reported this add-on',
         }),
       ).toBeInTheDocument();
       expect(
@@ -792,14 +795,16 @@ describe(__filename, () => {
   });
 
   describe('Tests for ReportAbuseButton with enableFeatureFeedbackFormLinks set', () => {
-    it('allows a user to report an add-on for abuse', async () => {
+    beforeEach(() => {
       const fakeConfig = getMockConfig({
         enableFeatureFeedbackFormLinks: true,
       });
       config.get.mockImplementation((key) => {
         return fakeConfig[key];
       });
+    });
 
+    it('allows a user to report an add-on for abuse', async () => {
       render();
 
       expect(
@@ -807,6 +812,26 @@ describe(__filename, () => {
           name: 'Report this add-on for abuse',
         }),
       ).toBeInTheDocument();
+    });
+
+    it('shows a different success message', () => {
+      const addon = fakeAddon;
+      const abuseResponse = createFakeAddonAbuseReport({
+        addon,
+        message: 'some report message',
+      });
+
+      store.dispatch(loadAddonAbuseReport(abuseResponse));
+      render({ addon });
+
+      expect(
+        screen.getByRole('heading', {
+          name: 'You reported this add-on',
+        }),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByText(/^We can't respond to every abuse report/),
+      ).not.toBeInTheDocument();
     });
   });
 

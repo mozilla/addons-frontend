@@ -108,26 +108,28 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
 
     invariant(addon, 'An add-on is required');
 
+    const enableFeatureFeedbackFormLinks = config.get(
+      'enableFeatureFeedbackFormLinks',
+    );
+
     if (abuseReport && abuseReport.message !== undefined) {
       return (
         <div className="ReportAbuseButton ReportAbuseButton--report-sent">
           <h3 className="ReportAbuseButton-header">
-            {i18n.gettext('You reported this add-on for abuse')}
+            {i18n.gettext('You reported this add-on')}
           </h3>
 
           <p className="ReportAbuseButton-first-paragraph">
-            {i18n.gettext(
-              `We have received your report. Thanks for letting us know about
-              your concerns with this add-on.`,
-            )}
+            {i18n.gettext(`We have received your report. Thanks for letting us
+              know about your concerns with this add-on.`)}
           </p>
 
-          <p>
-            {i18n.gettext(
-              `We can't respond to every abuse report but we'll look into
-              this issue.`,
-            )}
-          </p>
+          {!enableFeatureFeedbackFormLinks && (
+            <p>
+              {i18n.gettext(`We can't respond to every abuse report but we'll
+                look into this issue.`)}
+            </p>
+          )}
         </div>
       );
     }
@@ -156,7 +158,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     };
 
     // When this feature flag is active, we link to the feedback form.
-    if (config.get('enableFeatureFeedbackFormLinks')) {
+    if (enableFeatureFeedbackFormLinks) {
       reportButtonProps = {
         to: `/feedback/addon/${addon.slug}/`,
       };
