@@ -1,0 +1,74 @@
+@import '~amo/css/styles';
+
+.CollectionFeedback-page {
+  @include page-padding;
+}
+
+.CollectionFeedback-header > .Card-contents {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.CollectionFeedback-header-name {
+  @include font-regular;
+
+  color: $black;
+  font-size: $font-size-heading-xs;
+  grid-column: 1 / span 2;
+  margin: 0;
+
+  @include respond-to(large) {
+    grid-column: 1;
+  }
+}
+
+.CollectionFeedback-header-creator {
+  @include font-light;
+
+  display: block;
+  padding-top: 3px;
+
+  &,
+  a,
+  a:link {
+    font-size: $font-size-l;
+  }
+}
+
+.CollectionFeedback-header-metadata {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  text-align: start;
+
+  .CollectionFeedback-header-metadata-addons {
+    margin: 8px 0 0;
+  }
+
+  .CollectionFeedback-header-metadata-last-updated {
+    margin: 0;
+  }
+
+  span {
+    @include margin-end(4px);
+
+    color: $grey-50;
+    display: inline-block;
+
+    @include respond-to(large) {
+      @include margin-end(0);
+
+      display: block;
+    }
+  }
+
+  @include respond-to(large) {
+    grid-row: 1;
+    grid-column: 2;
+    text-align: end;
+
+    .CollectionFeedback-header-metadata-addons {
+      margin-top: 0;
+    }
+  }
+}

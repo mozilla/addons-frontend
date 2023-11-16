@@ -4,25 +4,25 @@ import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 
 import {
-  sendUserAbuseReport,
-  loadUserAbuseReport,
-} from 'amo/reducers/userAbuseReports';
+  FETCH_CURRENT_COLLECTION,
+  fetchCurrentCollection,
+  loadCurrentCollection,
+} from 'amo/reducers/collections';
+import {
+  sendCollectionAbuseReport,
+  loadCollectionAbuseReport,
+} from 'amo/reducers/collectionAbuseReports';
 import {
   CATEGORY_FEEDBACK_SPAM,
   CATEGORY_OTHER,
 } from 'amo/components/FeedbackForm';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
-import {
-  FETCH_USER_ACCOUNT,
-  fetchUserAccount,
-  loadUserAccount,
-} from 'amo/reducers/users';
-import { extractId } from 'amo/pages/UserFeedback';
+import { extractId } from 'amo/pages/CollectionFeedback';
 import { clearError } from 'amo/reducers/errors';
 import { createApiError } from 'amo/api';
 import {
-  createUserAccountResponse,
   createFailedErrorHandler,
+  createFakeCollectionDetail,
   createFakeErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
@@ -49,50 +49,58 @@ describe(__filename, () => {
     jest.clearAllMocks().resetModules();
   });
 
-  const getErrorHandlerId = (userId) =>
-    `src/amo/pages/UserFeedback/index.js-${userId}`;
+  const getErrorHandlerId = (authorId, collectionSlug) =>
+    `src/amo/pages/CollectionFeedback/index.js-${authorId}-${collectionSlug}`;
 
   const signInUserWithProps = (
     props = {},
     store = dispatchClientMetadata().store,
   ) => {
-    const { id, ...userProps } = props;
+    const { id: userId, ...userProps } = props;
 
-    return dispatchSignInActionsWithStore({ userId: id, userProps, store });
+    return dispatchSignInActionsWithStore({ userId, userProps, store });
   };
 
   const renderWithoutLoading = ({
-    userId,
+    authorId,
+    slug,
     lang = 'en-US',
     clientApp = CLIENT_APP_FIREFOX,
     store = dispatchClientMetadata({ lang, clientApp }).store,
   }) => {
     const renderOptions = {
-      initialEntries: [`/${lang}/${clientApp}/feedback/user/${userId}/`],
+      initialEntries: [
+        `/${lang}/${clientApp}/feedback/collection/${authorId}/${slug}/`,
+      ],
       store,
     };
     return defaultRender(renderOptions);
   };
 
-  const render = (userProps = {}, store = dispatchClientMetadata().store) => {
-    const user = createUserAccountResponse(userProps);
-    store.dispatch(loadUserAccount({ user }));
+  const render = (detailProps = {}, store = dispatchClientMetadata().store) => {
+    const detail = createFakeCollectionDetail(detailProps);
+    store.dispatch(loadCurrentCollection({ detail }));
 
-    return renderWithoutLoading({ userId: user.id, store });
+    return renderWithoutLoading({
+      authorId: detail.author.id,
+      slug: detail.slug,
+      store,
+    });
   };
 
   describe('error handling', () => {
     it('renders errors', () => {
-      const userId = 1234;
+      const authorId = 1234;
+      const collectionSlug = 'some-collection-slug';
       const message = 'Some error message';
       const { store } = dispatchClientMetadata();
       createFailedErrorHandler({
-        id: getErrorHandlerId(userId),
+        id: getErrorHandlerId(authorId, collectionSlug),
         message,
         store,
       });
 
-      render({ id: userId }, store);
+      render({ authorId, slug: collectionSlug }, store);
 
       expect(screen.getByText(message)).toBeInTheDocument();
 
@@ -105,49 +113,61 @@ describe(__filename, () => {
     });
 
     it('scrolls to the top of the page when an error is rendered', async () => {
-      const userId = 1234;
+      const authorId = 1234;
+      const collectionSlug = 'some-collection-slug';
       const { store } = dispatchClientMetadata();
 
-      render({ id: userId }, store);
+      render({ authorId, slug: collectionSlug }, store);
 
-      createFailedErrorHandler({ id: getErrorHandlerId(userId), store });
+      createFailedErrorHandler({
+        id: getErrorHandlerId(authorId, collectionSlug),
+        store,
+      });
 
       await waitFor(() => expect(window.scroll).toHaveBeenCalledWith(0, 0));
     });
 
     it('clears the error handler when unmounting', () => {
-      const userId = 1234;
+      const authorId = 1234;
+      const collectionSlug = 'some-collection-slug';
       const { store } = dispatchClientMetadata();
       const dispatch = jest.spyOn(store, 'dispatch');
-      createFailedErrorHandler({ id: getErrorHandlerId(userId), store });
-      const { unmount } = render({ id: userId }, store);
+      const errorHandlerId = getErrorHandlerId(authorId, collectionSlug);
+      createFailedErrorHandler({ id: errorHandlerId, store });
+      const { unmount } = render({ authorId, slug: collectionSlug }, store);
 
       unmount();
 
-      expect(dispatch).toHaveBeenCalledWith(
-        clearError(getErrorHandlerId(userId)),
-      );
+      expect(dispatch).toHaveBeenCalledWith(clearError(errorHandlerId));
     });
 
-    it('does not fetch the user when there is an error', () => {
-      const userId = 1234;
+    it('does not fetch the current collection when there is an error', () => {
+      const authorId = 1234;
+      const collectionSlug = 'some-collection-slug';
       const { store } = dispatchClientMetadata();
-      createFailedErrorHandler({ id: getErrorHandlerId(userId), store });
+      createFailedErrorHandler({
+        id: getErrorHandlerId(authorId, collectionSlug),
+        store,
+      });
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      renderWithoutLoading({ userId, store });
+      renderWithoutLoading({ authorId, slug: collectionSlug, store });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({
-          type: FETCH_USER_ACCOUNT,
+          type: FETCH_CURRENT_COLLECTION,
         }),
       );
     });
 
     describe('extractId', () => {
       it('returns a unique ID based on params', () => {
-        const userId = 8;
-        expect(extractId({ match: { params: { userId } } })).toEqual('8');
+        const authorId = 8;
+        const collectionSlug = 'some-collection-slug';
+
+        expect(
+          extractId({ match: { params: { authorId, collectionSlug } } }),
+        ).toEqual('8-some-collection-slug');
       });
     });
   });
@@ -163,7 +183,8 @@ describe(__filename, () => {
   });
 
   it('renders a 404 page when the API returned a 404', () => {
-    const userId = 1234;
+    const authorId = 1234;
+    const collectionSlug = 'some-collection-slug';
     const { store } = dispatchClientMetadata();
     createFailedErrorHandler({
       error: createApiError({
@@ -171,44 +192,48 @@ describe(__filename, () => {
         apiURL: 'https://some/api/endpoint',
         jsonResponse: { message: 'not found' },
       }),
-      id: getErrorHandlerId(userId),
+      id: getErrorHandlerId(authorId, collectionSlug),
       store,
     });
 
-    render({ id: userId }, store);
+    render({ authorId, slug: collectionSlug }, store);
 
     expect(
       screen.getByText('Oops! We can’t find that page'),
     ).toBeInTheDocument();
   });
 
-  it('dispatches fetchUserAccount when the user is not loaded yet', () => {
-    const userId = 1234;
+  it('dispatches fetchCurrentCollection when the collection is not loaded yet', () => {
+    const authorId = 1234;
+    const collectionSlug = 'some-slug';
     const { store } = dispatchClientMetadata();
     const dispatch = jest.spyOn(store, 'dispatch');
     const errorHandler = createFakeErrorHandler({
-      id: getErrorHandlerId(userId),
+      id: getErrorHandlerId(authorId, collectionSlug),
     });
 
-    renderWithoutLoading({ userId, store });
+    renderWithoutLoading({ authorId, slug: collectionSlug, store });
 
     expect(dispatch).toHaveBeenCalledWith(
-      fetchUserAccount({
+      fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
-        userId: `${userId}`,
+        userId: `${authorId}`,
+        slug: collectionSlug,
       }),
     );
   });
 
   it('renders the feedback form for a signed out user', () => {
-    const username = 'some user name';
+    const name = 'some collection name';
 
-    render({ username });
+    render({ name });
 
     // Header.
-    expect(screen.getByText(username)).toBeInTheDocument();
+    expect(screen.getByText(name)).toBeInTheDocument();
 
-    expect(screen.getByText(`Report this user to Mozilla`)).toBeInTheDocument();
+    expect(
+      screen.getByText(`Report this collection to Mozilla`),
+    ).toBeInTheDocument();
     expect(screen.getByText('Submit report')).toBeInTheDocument();
 
     expect(screen.getByLabelText('Your name')).not.toBeDisabled();
@@ -216,7 +241,7 @@ describe(__filename, () => {
     expect(screen.getByLabelText('Your email address')).not.toBeDisabled();
     expect(screen.getByLabelText('Your email address').value).toBeEmpty();
 
-    // This should never be shown for users.
+    // This should never be shown for collections.
     expect(
       screen.queryByRole('combobox', {
         name: 'Place of the violation (optional)',
@@ -230,40 +255,42 @@ describe(__filename, () => {
   });
 
   it('renders the feedback form for a signed in user', () => {
-    const signedInUsername = 'signed-in-username';
+    const signedInCollectionname = 'signed-in-username';
     const signedInEmail = 'signed-in-email';
     const store = signInUserWithProps({
-      display_name: signedInUsername,
+      username: signedInCollectionname,
       email: signedInEmail,
     });
-    const username = 'some user name';
+    const name = 'some collection name';
 
-    render({ username }, store);
+    render({ name }, store);
 
     // Header.
-    expect(screen.getByText(username)).toBeInTheDocument();
+    expect(screen.getByText(name)).toBeInTheDocument();
 
-    expect(screen.getByText(`Report this user to Mozilla`)).toBeInTheDocument();
+    expect(
+      screen.getByText(`Report this collection to Mozilla`),
+    ).toBeInTheDocument();
     expect(screen.getByText('Submit report')).toBeInTheDocument();
 
     const nameInput = screen.getByLabelText('Your name');
     expect(nameInput).toBeDisabled();
-    expect(nameInput).toHaveValue(signedInUsername);
+    expect(nameInput).toHaveValue(signedInCollectionname);
 
     const emailInput = screen.getByLabelText('Your email address');
     expect(emailInput).toBeDisabled();
     expect(emailInput).toHaveValue(signedInEmail);
 
-    // This should never be shown for users.
+    // This should never be shown for collections.
     expect(
       screen.queryByRole('combobox', {
         name: 'Place of the violation (optional)',
       }),
     ).not.toBeInTheDocument();
 
-    // SignedInUser component should be visible.
+    // SignedInCollection component should be visible.
     expect(
-      screen.getByText(`Signed in as ${signedInUsername}`),
+      screen.getByText(`Signed in as ${signedInCollectionname}`),
     ).toBeInTheDocument();
 
     // We shouldn't show the confirmation message.
@@ -272,7 +299,132 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it('renders the different categories for a user', () => {
+  it('dispatches sendCollectionAbuseReport action with all fields on submit for a signed-in user', async () => {
+    const signedInName = 'signed-in-username';
+    const signedInEmail = 'signed-in-email';
+    const store = signInUserWithProps({
+      display_name: signedInName,
+      email: signedInEmail,
+    });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const authorId = 1234;
+    const collectionId = 98765;
+    const collectionSlug = 'some-collection-slug';
+    render({ authorId, slug: collectionSlug, id: collectionId }, store);
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: 'Something else' }),
+    );
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendCollectionAbuseReport({
+        collectionId,
+        errorHandlerId: getErrorHandlerId(authorId, collectionSlug),
+        reporterEmail: signedInEmail,
+        reporterName: signedInName,
+        message: '',
+        reason: CATEGORY_OTHER,
+        auth: true,
+      }),
+    );
+  });
+
+  it('dispatches sendCollectionAbuseReport action with all fields on submit for a signed-in user who files the report anonymously', async () => {
+    const signedInName = 'signed-in-username';
+    const signedInEmail = 'signed-in-email';
+    const store = signInUserWithProps({
+      display_name: signedInName,
+      email: signedInEmail,
+    });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const authorId = 1234;
+    const collectionId = 98765;
+    const collectionSlug = 'some-collection-slug';
+    render({ authorId, slug: collectionSlug, id: collectionId }, store);
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: 'Something else' }),
+    );
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      sendCollectionAbuseReport({
+        collectionId,
+        errorHandlerId: getErrorHandlerId(authorId, collectionSlug),
+        reporterEmail: '',
+        reporterName: '',
+        message: '',
+        reason: CATEGORY_OTHER,
+        auth: false,
+      }),
+    );
+  });
+
+  it('restores the name when the user toggles the anonymous checkbox', async () => {
+    const reporterName = 'some reporter name';
+    render();
+
+    await userEvent.type(
+      screen.getByRole('textbox', { name: 'Your name' }),
+      reporterName,
+    );
+
+    const nameInput = screen.getByLabelText('Your name');
+    expect(nameInput).toHaveValue(reporterName);
+
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    expect(nameInput).toHaveValue('');
+
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    expect(nameInput).toHaveValue(reporterName);
+  });
+
+  it('restores the email when the user toggles the anonymous checkbox', async () => {
+    const reporterEmail = 'reporter@example.com';
+    render();
+
+    await userEvent.type(
+      screen.getByRole('textbox', { name: 'Your email address' }),
+      reporterEmail,
+    );
+
+    const emailInput = screen.getByLabelText('Your email address');
+    expect(emailInput).toHaveValue(reporterEmail);
+
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        email: 'File report anonymously',
+      }),
+    );
+    expect(emailInput).toHaveValue('');
+
+    await userEvent.click(
+      screen.getByRole('checkbox', {
+        name: 'File report anonymously',
+      }),
+    );
+    expect(emailInput).toHaveValue(reporterEmail);
+  });
+
+  it('renders the different categories for a collection', () => {
     render();
 
     // A
@@ -310,11 +462,14 @@ describe(__filename, () => {
     expect(screen.getByText(/^Anything that doesn’t/)).toBeInTheDocument();
   });
 
-  it('dispatches sendUserAbuseReport with all fields on submit', async () => {
-    const userId = 9999;
+  it('dispatches sendCollectionAbuseReport with all fields on submit', async () => {
+    const authorId = 1234;
+    const collectionId = 98765;
+    const collectionSlug = 'some-collection-slug';
     const { store } = dispatchClientMetadata();
     const dispatch = jest.spyOn(store, 'dispatch');
-    render({ id: userId }, store);
+
+    render({ authorId, slug: collectionSlug, id: collectionId }, store);
 
     await userEvent.click(screen.getByRole('radio', { name: 'It’s spam' }));
     await userEvent.click(
@@ -327,80 +482,13 @@ describe(__filename, () => {
     );
 
     expect(dispatch).toHaveBeenCalledWith(
-      sendUserAbuseReport({
-        userId,
-        errorHandlerId: getErrorHandlerId(userId),
+      sendCollectionAbuseReport({
+        collectionId,
+        errorHandlerId: getErrorHandlerId(authorId, collectionSlug),
         reporterEmail: '',
         reporterName: '',
         message: '',
         reason: CATEGORY_FEEDBACK_SPAM,
-        auth: false,
-      }),
-    );
-  });
-
-  it('dispatches sendUserAbuseReport action with all fields on submit for a signed-in user', async () => {
-    const signedInName = 'signed-in-username';
-    const signedInEmail = 'signed-in-email';
-    const store = signInUserWithProps({
-      display_name: signedInName,
-      email: signedInEmail,
-    });
-    const dispatch = jest.spyOn(store, 'dispatch');
-    const userId = 10;
-    render({ id: userId }, store);
-
-    await userEvent.click(
-      screen.getByRole('radio', { name: 'Something else' }),
-    );
-    await userEvent.click(
-      screen.getByRole('button', { name: 'Submit report' }),
-    );
-
-    expect(dispatch).toHaveBeenCalledWith(
-      sendUserAbuseReport({
-        userId,
-        errorHandlerId: getErrorHandlerId(userId),
-        reporterEmail: signedInEmail,
-        reporterName: signedInName,
-        message: '',
-        reason: CATEGORY_OTHER,
-        auth: true,
-      }),
-    );
-  });
-
-  it('dispatches sendUserAbuseReport action with all fields on submit for a signed-in user who files the report anonymously', async () => {
-    const signedInName = 'signed-in-username';
-    const signedInEmail = 'signed-in-email';
-    const store = signInUserWithProps({
-      display_name: signedInName,
-      email: signedInEmail,
-    });
-    const dispatch = jest.spyOn(store, 'dispatch');
-    const userId = 10;
-    render({ id: userId }, store);
-
-    await userEvent.click(
-      screen.getByRole('radio', { name: 'Something else' }),
-    );
-    await userEvent.click(
-      screen.getByRole('checkbox', {
-        name: 'File report anonymously',
-      }),
-    );
-    await userEvent.click(
-      screen.getByRole('button', { name: 'Submit report' }),
-    );
-
-    expect(dispatch).toHaveBeenCalledWith(
-      sendUserAbuseReport({
-        userId,
-        errorHandlerId: getErrorHandlerId(userId),
-        reporterEmail: '',
-        reporterName: '',
-        message: '',
-        reason: CATEGORY_OTHER,
         auth: false,
       }),
     );
@@ -441,14 +529,12 @@ describe(__filename, () => {
   });
 
   it('shows success message after submission', async () => {
-    const userId = 456;
+    const collectionId = 456;
     const { store } = dispatchClientMetadata();
 
-    render({ id: userId }, store);
+    render({ id: collectionId }, store);
 
-    store.dispatch(
-      loadUserAbuseReport({ userId, message: 'some message', reporter: null }),
-    );
+    store.dispatch(loadCollectionAbuseReport({ collectionId }));
 
     expect(
       await screen.findByText(
@@ -457,7 +543,7 @@ describe(__filename, () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.queryByText('Report this user to Mozilla'),
+      screen.queryByText('Report this collection to Mozilla'),
     ).not.toBeInTheDocument();
 
     expect(window.scrollTo).toHaveBeenCalledWith(0, 0);

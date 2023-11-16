@@ -17,6 +17,7 @@ import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
 import AddonFeedback from 'amo/pages/AddonFeedback';
+import CollectionFeedback from 'amo/pages/CollectionFeedback';
 import UserFeedback from 'amo/pages/UserFeedback';
 import RatingFeedback from 'amo/pages/RatingFeedback';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
@@ -183,6 +184,12 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
         exact
         path="/:lang/:application(firefox|android)/feedback/addon/:addonIdentifier/"
         component={AddonFeedback}
+      />,
+      <Route
+        key="collection-feedback"
+        exact
+        path="/:lang/:application(firefox|android)/feedback/collection/:authorId/:collectionSlug/"
+        component={CollectionFeedback}
       />,
       <Route
         key="user-feedback"
