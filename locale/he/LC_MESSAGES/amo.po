@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 16:32+0000\n"
+"PO-Revision-Date: 2023-11-16 16:38+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -103,7 +103,7 @@ msgstr "שליחת משוב על התוספת"
 
 #: src/amo/components/AddonFeedbackForm/index.js:178
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr "דיווח על התוספת מכיוון שהיא לא חוקית או לא מצייתת לחוקים"
+msgstr "דיווח על התוספת מכיוון שאינה חוקית או שאינה מצייתת לחוקים"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -1106,7 +1106,7 @@ msgstr "סומן כדיווח על תקלה או בקשת תמיכה"
 
 #: src/amo/components/FlagReviewMenu/index.js:138
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "תוכן שאינו חוקי או שמפר את מדיניות התוכן של AMO"
 
 #: src/amo/components/FlagReviewMenu/index.js:145
 msgid "This contains inappropriate language"
@@ -1142,7 +1142,7 @@ msgstr "יש להיכנס כדי לסמן בדגל סקירה זו"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Spam"
-msgstr ""
+msgstr "ספאם"
 
 #: src/amo/components/FlagReviewMenu/index.js:99
 msgid "This is spam"
@@ -1618,7 +1618,7 @@ msgstr[1] "קריאת כל %(total)s הסקירות בדירוג 3 כוכבים"
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "You reported this add-on"
-msgstr ""
+msgstr "דיווחת על תוספת זו"
 
 #: src/amo/components/ReportAbuseButton/index.js:123
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1674,7 +1674,7 @@ msgstr "נא לפרט כיצד משתמש זה מפר את המדיניות של
 
 #: src/amo/components/ReportUserAbuse/index.js:178
 msgid "You reported this user"
-msgstr ""
+msgstr "דיווחת על משתמש זה"
 
 #: src/amo/components/ReportUserAbuse/index.js:182
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -2186,7 +2186,7 @@ msgstr "צילומי מסך"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "שליחת משוב או דיווח על תוספת ל־Mozilla"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2334,15 +2334,15 @@ msgstr "מחיקת אוסף זה"
 
 #: src/amo/pages/Collection/index.js:426
 msgid "You reported this collection"
-msgstr ""
+msgstr "דיווחת על אוסף זה"
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "קיבלנו את הדיווח שלך. תודה שהודעת לנו על החששות שלך בנוגע לאוסף זה."
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection for abuse"
-msgstr ""
+msgstr "דיווח אוסף זה על שימוש לרעה"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
@@ -2370,23 +2370,23 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "שליחת משוב או דיווח על אוסף ל־Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "מאת %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "דיווח על אוסף זה ל־Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "שליחת משוב על האוסף"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "דיווח על האוסף מכיוון שאינו חוקי או שאינו מציית לחוקים"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2538,19 +2538,19 @@ msgstr "מילונים"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "שליחת משוב או דיווח על סקירה ל־Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "מאת %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "דיווח על סקירה זו ל־Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "דיווח על הסקירה מכיוון שאינה חוקית או שאינה מצייתת לחוקים"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2806,7 +2806,7 @@ msgstr "תוספות עם התגית %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "שליחת משוב או דיווח על משתמש ל־Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
