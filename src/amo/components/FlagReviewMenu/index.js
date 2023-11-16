@@ -93,29 +93,15 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
           <FlagReview
             reason={REVIEW_FLAG_REASON_SPAM}
             review={review}
-            buttonText={i18n.gettext('This is spam')}
+            buttonText={
+              enableFeatureFeedbackFormLinks
+                ? i18n.gettext('Spam')
+                : i18n.gettext('This is spam')
+            }
             wasFlaggedText={i18n.gettext('Flagged as spam')}
             disabled={disableItemsForUnauthenticatedUsers}
+            disabledTitle={i18n.gettext('Login required')}
           />
-        </ListItem>,
-        <ListItem
-          className="FlagReviewMenu-flag-language-item"
-          key="flag-language"
-        >
-          {enableFeatureFeedbackFormLinks ? (
-            <Link to={`/feedback/review/${review.id}/`}>
-              {i18n.gettext('This contains inappropriate language')}
-            </Link>
-          ) : (
-            <FlagReview
-              reason={REVIEW_FLAG_REASON_LANGUAGE}
-              review={review}
-              buttonText={i18n.gettext('This contains inappropriate language')}
-              wasFlaggedText={i18n.gettext(
-                'Flagged for inappropriate language',
-              )}
-            />
-          )}
         </ListItem>,
         // Only reviews (not developer responses) can be flagged as
         // misplaced bug reports or support requests.
@@ -127,16 +113,43 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
             <FlagReview
               reason={REVIEW_FLAG_REASON_BUG_SUPPORT}
               review={review}
-              buttonText={i18n.gettext(
-                'This is a bug report or support request',
-              )}
-              wasFlaggedText={i18n.gettext(
-                'Flagged as a bug report or support request',
-              )}
+              buttonText={
+                enableFeatureFeedbackFormLinks
+                  ? i18n.gettext('Misplaced bug report or support request')
+                  : i18n.gettext('This is a bug report or support request')
+              }
+              wasFlaggedText={
+                enableFeatureFeedbackFormLinks
+                  ? i18n.gettext(`Flagged as misplaced bug report or support
+                      request`)
+                  : i18n.gettext('Flagged as a bug report or support request')
+              }
               disabled={disableItemsForUnauthenticatedUsers}
+              disabledTitle={i18n.gettext('Login required')}
             />
           </ListItem>
         ),
+        <ListItem
+          className="FlagReviewMenu-flag-language-item"
+          key="flag-language"
+        >
+          {enableFeatureFeedbackFormLinks ? (
+            <Link to={`/feedback/review/${review.id}/`}>
+              {i18n.gettext(`Content that is illegal or that violates AMO's
+                content policies`)}
+            </Link>
+          ) : (
+            <FlagReview
+              reason={REVIEW_FLAG_REASON_LANGUAGE}
+              review={review}
+              buttonText={i18n.gettext('This contains inappropriate language')}
+              wasFlaggedText={i18n.gettext(
+                'Flagged for inappropriate language',
+              )}
+              disabledTitle={i18n.gettext('Login required')}
+            />
+          )}
+        </ListItem>,
       ];
     }
 

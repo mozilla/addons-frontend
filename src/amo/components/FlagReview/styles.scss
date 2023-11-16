@@ -1,5 +1,9 @@
 @import '~amo/css/styles';
 
+.FlagReview-button {
+  padding: 0;
+}
+
 .FlagReview-button[disabled] {
   @include disabled;
 

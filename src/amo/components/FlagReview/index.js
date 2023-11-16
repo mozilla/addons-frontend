@@ -22,6 +22,7 @@ type Props = {|
   review: UserReviewType,
   wasFlaggedText: string,
   disabled?: boolean,
+  disabledTitle: string,
 |};
 
 type PropsFromState = {|
@@ -50,8 +51,14 @@ export class FlagReviewBase extends React.Component<InternalProps> {
   };
 
   renderControls(): React.Node {
-    const { disabled, errorHandler, flagState, buttonText, wasFlaggedText } =
-      this.props;
+    const {
+      disabled,
+      disabledTitle,
+      errorHandler,
+      flagState,
+      buttonText,
+      wasFlaggedText,
+    } = this.props;
 
     if (flagState) {
       if (flagState.inProgress && !errorHandler.hasError()) {
@@ -68,6 +75,7 @@ export class FlagReviewBase extends React.Component<InternalProps> {
         onClick={this.onClick}
         type="button"
         disabled={!!disabled}
+        title={disabled ? disabledTitle : null}
       >
         {buttonText}
       </button>
