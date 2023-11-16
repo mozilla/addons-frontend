@@ -215,7 +215,9 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       location: null,
     };
 
-    const { email, display_name: name } = currentUser || {};
+    // `name` is either the `display_name` when set or `Firefox user XYZ`
+    // (auto-generated) when the user hasn't chosen a display name yet.
+    const { email, name } = currentUser || {};
 
     return {
       ...defaultFormValues,
