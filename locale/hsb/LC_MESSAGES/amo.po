@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 20:01+0000\n"
+"PO-Revision-Date: 2023-11-16 20:05+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1090,7 +1090,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:96
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr ""
+msgstr "Njefunguje, zawinuje problemy z websydłami abo spomaluje Firefox"
 
 #: src/amo/components/FeedbackForm/index.js:99
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
@@ -1114,7 +1114,7 @@ msgstr "To je zmylkowa rozprawa abo próstwa wo podpěru"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Jako njepřihódna zmylkowa rozprawa abo próstwa wo pomoc woznamjenjeny"
 
 #: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flagged as a bug report or support request"
@@ -1122,7 +1122,7 @@ msgstr "Jako zmylkowa rozprawa abo próstwa wo pomoc woznamjenjeny"
 
 #: src/amo/components/FlagReviewMenu/index.js:138
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "Wobsah, kotryž je ilegalny abo so přećiwo wobsahowym prawidłam AMO přeńdźe"
 
 #: src/amo/components/FlagReviewMenu/index.js:145
 msgid "This contains inappropriate language"
