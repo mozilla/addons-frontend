@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 20:24+0000\n"
+"PO-Revision-Date: 2023-11-16 20:32+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -994,7 +994,7 @@ msgstr "Pśikład: Wopśimujo rasistisku symboliku."
 
 #: src/amo/components/FeedbackForm/index.js:126
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Pśejźo se pśeśiwo kaznjam abo wopśimujo wopśimjeśe, kótarež se pśeśiwo kaznjam pśejźo"
 
 #: src/amo/components/FeedbackForm/index.js:129
 msgid "Example: Copyright or Trademark Infringement, Fraud."
@@ -1006,7 +1006,7 @@ msgstr "Něco druge"
 
 #: src/amo/components/FeedbackForm/index.js:136
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "Wšykno, což se do drugich kategorijow njegóźi."
 
 #: src/amo/components/FeedbackForm/index.js:148
 msgid "Select place"
@@ -1046,7 +1046,7 @@ msgstr "Stajśo dalšne informacije k dispoziciji"
 
 #: src/amo/components/FeedbackForm/index.js:360
 msgid "Place of the violation"
-msgstr ""
+msgstr "Městno pśejźenja"
 
 #: src/amo/components/FeedbackForm/index.js:361 src/amo/components/FeedbackForm/index.js:379
 msgid "optional"
@@ -1061,6 +1061,8 @@ msgid ""
 "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to "
 "include it may prevent us from addressing the reported content."
 msgstr ""
+"Pódajśo pšosym pśidatne informacije, kótarež mógu nam pomagaś, wašu rozpšawu rozměś (mjazy nimi, kótare pšawidła maśo za pśestupjone). Lěcrownož toś te informacije njejsu trjebne, njamóžomy snaź k "
+"wěsći dane wopśimjeśe wobźěłaś, jolic je njepódawaśo."
 
 #: src/amo/components/FeedbackForm/index.js:399
 msgid "Contact information"
@@ -1072,7 +1074,7 @@ msgstr "Rozpšawu anonymnje zapódaś"
 
 #: src/amo/components/FeedbackForm/index.js:417
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Jolic anonymnu rozpšawu zapódawaśo, njamóžomy se z was wó statusu rozpšawy do zwiska stajiś abo wam móžnosći k wěsći daś, kak móžośo pśeśiwjenje zapódaś."
 
 #: src/amo/components/FeedbackForm/index.js:436
 msgid "Your name"
