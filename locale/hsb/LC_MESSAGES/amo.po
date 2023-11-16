@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 18:54+0000\n"
+"PO-Revision-Date: 2023-11-16 20:01+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1061,6 +1061,8 @@ msgid ""
 "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to "
 "include it may prevent us from addressing the reported content."
 msgstr ""
+"Podajće prošu přidatne informacije, kotrež móža nam pomhać, wašu rozprawu rozumić (mjez nimi, kotre prawidła maće za zranjene). Hačrunjež tute informacije trěbne njejsu, njemóžemy snano zdźěleny "
+"wobsah wobdźěłać, jeli je njepodawaće."
 
 #: src/amo/components/FeedbackForm/index.js:399
 msgid "Contact information"
@@ -1072,7 +1074,7 @@ msgstr "Rozprawu anonymnje zapódać"
 
 #: src/amo/components/FeedbackForm/index.js:417
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Jeli anonymnu rozprawu zapodawaće, njemóžemy so z was wo statusu rozprawa do zwiska stajić abo wam móžnosće zdźělić, kak móžeće přećiwjenje zapodać."
 
 #: src/amo/components/FeedbackForm/index.js:436
 msgid "Your name"
