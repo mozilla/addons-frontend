@@ -330,7 +330,7 @@ describe(__filename, () => {
   it('dispatches sendAddonAbuseReport action with all fields on submit for a signed-in user', async () => {
     const name = 'some user name';
     const email = 'some user email';
-    signInUserWithProps({ display_name: name, email });
+    signInUserWithProps({ name, email });
     const dispatch = jest.spyOn(store, 'dispatch');
     render();
 
