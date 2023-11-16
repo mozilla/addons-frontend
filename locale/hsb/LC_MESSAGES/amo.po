@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 18:23+0000\n"
+"PO-Revision-Date: 2023-11-16 18:25+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -105,7 +105,7 @@ msgstr "Sćelće swoje měnjenje wo přidatku"
 
 #: src/amo/components/AddonFeedbackForm/index.js:178
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "Zdźělće tutón přidatk, dokelž je ilegalny abo njekonformny"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -974,7 +974,7 @@ msgstr "Je spam"
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "Example: The listing advertises unrelated products or services."
-msgstr ""
+msgstr "Přikład: Lisćinowy zapisk za njezwisowace produkty abo słužby wabi."
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It violates Add-on Policies"
