@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 20:42+0000\n"
+"PO-Revision-Date: 2023-11-16 20:49+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1702,7 +1702,7 @@ msgstr "Wujasniśo, w kakem nastupanju se toś ten wužywaŕ pśeśiwo našym p�
 
 #: src/amo/components/ReportUserAbuse/index.js:178
 msgid "You reported this user"
-msgstr ""
+msgstr "Sćo dał toś togo wužywarja k wěsći"
 
 #: src/amo/components/ReportUserAbuse/index.js:182
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -2258,7 +2258,7 @@ msgstr "Fota wobrazowki"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Sćelśo swójo měnjenje abo dajśo Mozilla dodank k wěsći"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2410,15 +2410,15 @@ msgstr "Toś tu zběrku wulašowaś"
 
 #: src/amo/pages/Collection/index.js:426
 msgid "You reported this collection"
-msgstr ""
+msgstr "Sćo dał toś tu zběrku k wěsći"
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Smy dostali wašu rozpšawu. Źěkujomy se, až sćo nam swóje wobmyslenja nastupajucy toś tu zběrku k wěsći dał."
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection for abuse"
-msgstr ""
+msgstr "Toś tu zběrku znjewužywanja dla k wěsći daś"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
@@ -2446,23 +2446,23 @@ msgstr "Ześěgniśo a napórajśo zběrki Firefox, aby pśeglěd wó nejlubše 
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Sćelśo swójo měnjenje abo dajśo Mozilla zběrku k wěsći"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "wót %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Mozilla toś tu zběrku k wěsći daś"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Sćelśo swójo měnjenje wó zběrce"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Dajśo toś tu zběrku k wěsći, dokulaž jo ilegalna abo njekonformna"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2615,19 +2615,19 @@ msgstr "Słowniki"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Sćelśo swójo měnjenje abo dajśo Mozilla pógódnośenje k wěsći"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "wót %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Mozilla toś to pógódnośenje k wěsći daś"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Dajśo toś to pógódnośenje k wěsći, dokulaž jo ilegalne abo njekonformne"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2896,7 +2896,7 @@ msgstr "Dodanki z wobznamjenim %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Sćelśo swójo měnjenje abo dajśo Mozilla wužywarja k wěsći"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2908,11 +2908,11 @@ msgstr "Mozilla toś togo wužywarja k wěsći daś"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user"
-msgstr ""
+msgstr "Sćelśo swójo měnjenje wó wužywarju"
 
 #: src/amo/pages/UserFeedback/index.js:146
 msgid "Report the user because they are illegal or incompliant"
-msgstr ""
+msgstr "Dajśo toś togo wužywarja k wěsći, dokulaž jo ilegalny abo njekonformny"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
