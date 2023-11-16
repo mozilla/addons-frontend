@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 16:13+0000\n"
+"PO-Revision-Date: 2023-11-16 16:15+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1094,7 +1094,7 @@ msgstr "Inloggning krävs"
 
 #: src/amo/components/FlagReviewMenu/index.js:118
 msgid "Misplaced bug report or support request"
-msgstr ""
+msgstr "Felrapport eller supportförfrågan på fel plats"
 
 #: src/amo/components/FlagReviewMenu/index.js:119
 msgid "This is a bug report or support request"
@@ -1102,7 +1102,7 @@ msgstr "Det här är en felrapport eller supportförfrågan"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Flaggad som felplacerad felrapport eller supportbegäran"
 
 #: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flagged as a bug report or support request"
@@ -1110,7 +1110,7 @@ msgstr "Flaggad som en felrapport eller supportförfrågan"
 
 #: src/amo/components/FlagReviewMenu/index.js:138
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "Innehåll som är olagligt eller som bryter mot AMO:s innehållspolicy"
 
 #: src/amo/components/FlagReviewMenu/index.js:145
 msgid "This contains inappropriate language"
@@ -1680,7 +1680,7 @@ msgstr "Förklara hur denna användare bryter mot våra policyer."
 
 #: src/amo/components/ReportUserAbuse/index.js:178
 msgid "You reported this user"
-msgstr ""
+msgstr "Du rapporterade den här användaren"
 
 #: src/amo/components/ReportUserAbuse/index.js:182
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -2340,15 +2340,15 @@ msgstr "Ta bort denna samling"
 
 #: src/amo/pages/Collection/index.js:426
 msgid "You reported this collection"
-msgstr ""
+msgstr "Du rapporterade den här samlingen"
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Vi har tagit emot din anmälan. Tack för att du informerade oss om dina problem med den här samlingen."
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection for abuse"
-msgstr ""
+msgstr "Rapportera den här samlingen för missbruk"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
@@ -2376,23 +2376,23 @@ msgstr "Hämta och skapa Firefox-samlingar för att hålla reda på favoritutök
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Skicka in feedback eller rapportera en samling till Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "av %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Rapportera denna samling till Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Skicka in lite feedback om samlingen"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Rapportera samlingen eftersom den är olaglig eller inkompatibel"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2544,19 +2544,19 @@ msgstr "Ordlistor"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Skicka feedback eller rapportera en recension till Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "av %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Rapportera denna recension till Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Rapportera recensionen eftersom den är olaglig eller inkompatibel"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
