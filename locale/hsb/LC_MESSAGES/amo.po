@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 18:52+0000\n"
+"PO-Revision-Date: 2023-11-16 18:54+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2621,11 +2621,11 @@ msgstr "wot %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Mozilla tute pohódnoćenje zdźělić"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Zdźělće tute pohódnoćenje, dokelž je ilegalne abo njekonformne"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2895,7 +2895,7 @@ msgstr "Přidatki ze značku %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Sćelće swoje měnjenje abo zdźělće Mozilla wužiwarja"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2907,11 +2907,11 @@ msgstr "Mozilla tutoho wužiwarja zdźělić"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user"
-msgstr ""
+msgstr "Sćelće swoje měnjenje wo wužiwarju"
 
 #: src/amo/pages/UserFeedback/index.js:146
 msgid "Report the user because they are illegal or incompliant"
-msgstr ""
+msgstr "Zdźělće wužiwarja, dokelž je ilegalny abo njekonformny"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
