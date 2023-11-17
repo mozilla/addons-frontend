@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-17 09:12+0000\n"
+"PO-Revision-Date: 2023-11-17 09:15+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2381,19 +2381,19 @@ msgstr "Mande une opinion o segnale une racuelte a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "di %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Segnale cheste racuelte a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Mande cualchi opinion in merit ae racuelte"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Segnale la racuelte par vie che e je ilegâl o no conformi"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2548,19 +2548,19 @@ msgstr "Dizionaris"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Mande une opinion o segnale une recension a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "di %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Segnale cheste recension a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Segnale la recension parcè che e je ilegâl o no conformi"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2833,7 +2833,7 @@ msgstr "Components adizionâi cun etichete %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Mande une opinion o segnale un utent a Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2841,15 +2841,15 @@ msgstr "Utent di"
 
 #: src/amo/pages/UserFeedback/index.js:144
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Segnale chest utent a Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user"
-msgstr ""
+msgstr "Mande cualchi opinion sul utent"
 
 #: src/amo/pages/UserFeedback/index.js:146
 msgid "Report the user because they are illegal or incompliant"
-msgstr ""
+msgstr "Segnale l'utent parcè che al è ilegâl o no conformi"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
