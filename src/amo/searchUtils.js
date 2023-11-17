@@ -1,12 +1,10 @@
 import { oneLine } from 'common-tags';
-import config from 'config';
 import invariant from 'invariant';
 
 import {
   ADDON_TYPE_EXTENSION,
   APPVERSION_FOR_ANDROID,
   CLIENT_APP_ANDROID,
-  RECOMMENDED,
 } from 'amo/constants';
 import log from 'amo/logger';
 import { USER_AGENT_OS_ANDROID, USER_AGENT_OS_IOS } from 'amo/reducers/api';
@@ -42,7 +40,6 @@ export const paramsToFilter = {
 };
 
 export function addVersionCompatibilityToFilters({
-  _config = config,
   filters,
   userAgentInfo,
 } = {}) {
@@ -74,27 +71,20 @@ export function addVersionCompatibilityToFilters({
     log.debug(oneLine`Setting "addonType" to "extension" for Android.`);
     newFilters.addonType = ADDON_TYPE_EXTENSION;
 
-    if (_config.get('enableFeatureMoreAndroidExtensions')) {
-      // If the browser is not Firefox for Android, we want to filter out
-      // extensions to only the limited set, so we force-set the value of
-      // `compatibleWithVersion`. This should be removed after General
-      // Avaibility.
-      //
-      // This will apply even to Firefox Desktop browsing Android pages.
-      if (
-        userAgentInfo.browser.name !== 'Firefox' ||
-        userAgentInfo.os.name !== USER_AGENT_OS_ANDROID
-      ) {
-        log.debug(oneLine`Setting "compatibleWithVersion" to
+    // If the browser is not Firefox for Android, we want to filter out
+    // extensions to only the limited set, so we force-set the value of
+    // `compatibleWithVersion`. This should be removed after General
+    // Avaibility.
+    //
+    // This will apply even to Firefox Desktop browsing Android pages.
+    if (
+      userAgentInfo.browser.name !== 'Firefox' ||
+      userAgentInfo.os.name !== USER_AGENT_OS_ANDROID
+    ) {
+      log.debug(oneLine`Setting "compatibleWithVersion" to
           "${APPVERSION_FOR_ANDROID}" for Android because the browser is not
           Firefox for Android.`);
-        newFilters.compatibleWithVersion = APPVERSION_FOR_ANDROID;
-      }
-    } else {
-      // Otherwise, we only want recommended extensions.
-      log.debug(oneLine`Setting "promoted" to "recommended" for Android because
-        enableFeatureMoreAndroidExtensions is disabled.`);
-      newFilters.promoted = RECOMMENDED;
+      newFilters.compatibleWithVersion = APPVERSION_FOR_ANDROID;
     }
   }
 

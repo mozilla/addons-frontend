@@ -6,7 +6,6 @@ import {
   APPVERSION_FOR_ANDROID,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  RECOMMENDED,
 } from 'amo/constants';
 import {
   addVersionCompatibilityToFilters,
@@ -19,7 +18,6 @@ import {
 } from 'amo/searchUtils';
 import {
   dispatchClientMetadata,
-  getFakeConfig,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
@@ -104,39 +102,12 @@ describe(__filename, () => {
     });
 
     describe('when clientApp is CLIENT_APP_ANDROID', () => {
-      it('adds addonType, compatibleWithVersion and promoted', () => {
-        const _config = getFakeConfig({
-          enableFeatureMoreAndroidExtensions: false,
-        });
+      it('does not set promoted and does not override compatibleWithVersion when browser is Firefox for Android', () => {
         const { state } = dispatchClientMetadata({
           userAgent: userAgentsByPlatform.android.firefox70,
         });
 
         const newFilters = addVersionCompatibilityToFilters({
-          _config,
-          filters: { clientApp: CLIENT_APP_ANDROID, query: 'foo' },
-          userAgentInfo: state.api.userAgentInfo,
-        });
-
-        expect(newFilters).toEqual({
-          addonType: ADDON_TYPE_EXTENSION,
-          clientApp: CLIENT_APP_ANDROID,
-          compatibleWithVersion: '70.0',
-          promoted: RECOMMENDED,
-          query: 'foo',
-        });
-      });
-
-      it('does not set promoted and does not override compatibleWithVersion when enableFeatureMoreAndroidExtensions is enabled and browser is Firefox for Android', () => {
-        const _config = getFakeConfig({
-          enableFeatureMoreAndroidExtensions: true,
-        });
-        const { state } = dispatchClientMetadata({
-          userAgent: userAgentsByPlatform.android.firefox70,
-        });
-
-        const newFilters = addVersionCompatibilityToFilters({
-          _config,
           filters: { clientApp: CLIENT_APP_ANDROID, query: 'foo' },
           userAgentInfo: state.api.userAgentInfo,
         });
@@ -154,15 +125,11 @@ describe(__filename, () => {
         userAgentsByPlatform.windows.firefox40,
         userAgentsByPlatform.mac.chrome41,
       ])(
-        'does not set promoted but overrides compatibleWithVersion when enableFeatureMoreAndroidExtensions is enabled and browser is not Firefox for Android - userAgent: %s',
+        'does not set promoted but overrides compatibleWithVersion when browser is not Firefox for Android - userAgent: %s',
         (userAgent) => {
-          const _config = getFakeConfig({
-            enableFeatureMoreAndroidExtensions: true,
-          });
           const { state } = dispatchClientMetadata({ userAgent });
 
           const newFilters = addVersionCompatibilityToFilters({
-            _config,
             filters: { clientApp: CLIENT_APP_ANDROID, query: 'foo' },
             userAgentInfo: state.api.userAgentInfo,
           });

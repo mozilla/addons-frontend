@@ -4,7 +4,6 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
-import config from 'config';
 
 import {
   ADDON_TYPE_EXTENSION,
@@ -49,14 +48,9 @@ type PropsFromState = {|
   lang: string,
 |};
 
-type DefaultProps = {|
-  _config: typeof config,
-|};
-
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  ...DefaultProps,
   history: ReactRouterHistoryType,
   i18n: I18nType,
 |};
@@ -64,10 +58,6 @@ type InternalProps = {|
 type SelectOption = {| children: string, value: string |};
 
 export class SearchFiltersBase extends React.Component<InternalProps> {
-  static defaultProps: {| ...DefaultProps |} = {
-    _config: config,
-  };
-
   onSelectElementChange: (event: SelectEvent) => boolean = (
     event: SelectEvent,
   ) => {
@@ -204,7 +194,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { _config, clientApp, filters, i18n } = this.props;
+    const { clientApp, filters, i18n } = this.props;
 
     const expandableCardName = 'SearchFilters';
     const selectedSortFields = filters.sort
@@ -213,15 +203,6 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
           .filter((field) => field !== SEARCH_SORT_RECOMMENDED)
       : [''];
     const selectedSort = selectedSortFields[0];
-
-    // When we'll work on https://github.com/mozilla/addons-frontend/issues/12401,
-    // we won't need the variable anymore because we'll want to show the Badging
-    // filter unconditionally.
-    const hideBadgingFilterOnAndroid = _config.get(
-      'enableFeatureMoreAndroidExtensions',
-    )
-      ? false
-      : clientApp === CLIENT_APP_ANDROID;
 
     return (
       <ExpandableCard
@@ -269,28 +250,25 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
             </div>
           )}
 
-          {/* Hide the badging filter on Android. */}
-          {!hideBadgingFilterOnAndroid && (
-            <div>
-              <label
-                className="SearchFilters-Badging-label SearchFilters-label"
-                htmlFor="SearchFilters-Badging"
-              >
-                {i18n.gettext('Badging')}
-              </label>
-              <Select
-                className="SearchFilters-Badging SearchFilters-select"
-                id="SearchFilters-Badging"
-                name="promoted"
-                onChange={this.onSelectElementChange}
-                value={filters.promoted || NO_FILTER}
-              >
-                {this.promotedOptions().map((option) => {
-                  return <option key={option.value} {...option} />;
-                })}
-              </Select>
-            </div>
-          )}
+          <div>
+            <label
+              className="SearchFilters-Badging-label SearchFilters-label"
+              htmlFor="SearchFilters-Badging"
+            >
+              {i18n.gettext('Badging')}
+            </label>
+            <Select
+              className="SearchFilters-Badging SearchFilters-select"
+              id="SearchFilters-Badging"
+              name="promoted"
+              onChange={this.onSelectElementChange}
+              value={filters.promoted || NO_FILTER}
+            >
+              {this.promotedOptions().map((option) => {
+                return <option key={option.value} {...option} />;
+              })}
+            </Select>
+          </div>
         </form>
       </ExpandableCard>
     );

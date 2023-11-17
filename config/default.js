@@ -85,7 +85,6 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'enableDevTools',
-    'enableFeatureMoreAndroidExtensions',
     'enableFeatureVPNPromo',
     'enableFeatureFeedbackForm',
     'enableFeatureFeedbackFormLinks',
@@ -413,8 +412,6 @@ module.exports = {
   // https://github.com/mozilla/addons-frontend/issues/6362.
 
   enableFeatureVPNPromo: true,
-
-  enableFeatureMoreAndroidExtensions: true,
 
   enableFeatureFeedbackForm: true,
   enableFeatureFeedbackFormLinks: false,

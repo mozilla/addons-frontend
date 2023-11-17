@@ -42,7 +42,5 @@ module.exports = {
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 
-  enableFeatureMoreAndroidExtensions: true,
-
   enableFeatureFeedbackFormLinks: true,
 };
