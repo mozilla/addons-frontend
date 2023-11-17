@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-17 06:12+0000\n"
+"PO-Revision-Date: 2023-11-17 06:30+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -103,7 +103,7 @@ msgstr "Inviar alcun commentario re le additivo"
 
 #: src/amo/components/AddonFeedbackForm/index.js:178
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "Reportar le additivo perque illo es illegal o non conforme"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -971,7 +971,7 @@ msgstr "Illo viola Criterios pro le additivos"
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr ""
+msgstr "Exemplo: Illo compromitteva mi datos sin informar me o demandar me, o illo cambiava mi motor de recerca o pagina initial sin informar me o demandar me."
 
 #: src/amo/components/FeedbackForm/index.js:120
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
@@ -1081,7 +1081,7 @@ msgstr "Illo non functiona, corrumpe sitos web, o relenta Firefox"
 
 #: src/amo/components/FeedbackForm/index.js:99
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
-msgstr ""
+msgstr "Exemplo: le functiones es lente, difficile a usar, o non functiona; partes de sitos web non cargara o apparera inusual."
 
 #: src/amo/components/FlagReviewMenu/index.js:101
 msgid "Flagged as spam"
@@ -2348,7 +2348,7 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection for abuse"
-msgstr ""
+msgstr "Reportar iste collection pro abuso"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
@@ -2384,15 +2384,15 @@ msgstr "per %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Reportar iste collection a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Inviar alcun commentario re le collection"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Reportar un collection perque illo es illegal o non conforme"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2551,11 +2551,11 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "per %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Reportar iste revision a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
@@ -2835,11 +2835,11 @@ msgstr "Usator desde"
 
 #: src/amo/pages/UserFeedback/index.js:144
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Reportar iste usator a Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user"
-msgstr ""
+msgstr "Inviar alcun commentario re le usator"
 
 #: src/amo/pages/UserFeedback/index.js:146
 msgid "Report the user because they are illegal or incompliant"
