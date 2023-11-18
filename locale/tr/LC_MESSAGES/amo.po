@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-17 13:35+0000\n"
+"PO-Revision-Date: 2023-11-18 11:28+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -103,7 +103,7 @@ msgstr "Eklentiyle ilgili geri bildirim gönder"
 
 #: src/amo/components/AddonFeedbackForm/index.js:178
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "Eklentinin yasa dışı veya uygunsuz olduğunu bildir"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -1051,7 +1051,7 @@ msgstr "İletişim bilgileri"
 
 #: src/amo/components/FeedbackForm/index.js:414
 msgid "File report anonymously"
-msgstr ""
+msgstr "Anonim olarak bildir"
 
 #: src/amo/components/FeedbackForm/index.js:417
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
@@ -1095,7 +1095,7 @@ msgstr "Bu bir hata raporu veya destek isteği"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Yanlış yere konmuş hata raporu veya destek isteği olarak işaretlendi"
 
 #: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flagged as a bug report or support request"
@@ -2373,7 +2373,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "yazan: %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
@@ -2385,7 +2385,7 @@ msgstr "Koleksiyonla ilgili geri bildirim gönder"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Koleksiyonun yasa dışı veya uygunsuz olduğunu bildir"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2549,7 +2549,7 @@ msgstr "%(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Bu incelemeyi Mozilla’ya bildir"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
