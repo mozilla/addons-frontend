@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-19 05:30+0000\n"
+"PO-Revision-Date: 2023-11-19 05:41+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2292,11 +2292,11 @@ msgstr "您已举报此收藏集"
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "我们已收到您的报告。感谢您对此的关注。"
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection for abuse"
-msgstr ""
+msgstr "举报此收藏集的滥用行为"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
