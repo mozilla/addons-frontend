@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 16:08+0000\n"
-"Last-Translator: Google Translate <pontoon-gt@example.com>\n"
+"PO-Revision-Date: 2023-11-19 15:41+0000\n"
+"Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1083,7 +1083,7 @@ msgstr "Sinalizado como spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:103 src/amo/components/FlagReviewMenu/index.js:128 src/amo/components/FlagReviewMenu/index.js:149
 msgid "Login required"
-msgstr "É necessário uma conta"
+msgstr "É necessário entrar na conta"
 
 #: src/amo/components/FlagReviewMenu/index.js:118
 msgid "Misplaced bug report or support request"
@@ -2370,7 +2370,7 @@ msgstr "Baixe e crie coleções do Firefox para acompanhar suas extensões e tem
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr "Envie sua opinião ou informe uma coleção para a Mozilla"
+msgstr "Envie sua opinião ou denuncie uma coleção para a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
@@ -2378,11 +2378,11 @@ msgstr "por %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr "Denunciar essa coleção para a Mozilla"
+msgstr "Denunciar esta coleção para a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr "Envie alguns comentários sobre a coleção"
+msgstr "Enviar alguns comentários sobre a coleção"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
@@ -2538,7 +2538,7 @@ msgstr "Dicionários"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr "Envie sua opinião ou informe uma análise para a Mozilla"
+msgstr "Enviar opinião ou denunciar uma análise para a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
@@ -2546,7 +2546,7 @@ msgstr "de %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr "Denunciar essa análise para a Mozilla"
+msgstr "Denunciar esta análise para a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
