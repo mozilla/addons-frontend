@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-19 05:46+0000\n"
+"PO-Revision-Date: 2023-11-19 06:40+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1033,7 +1033,7 @@ msgstr "提供更多详情"
 msgid ""
 "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to "
 "include it may prevent us from addressing the reported content."
-msgstr ""
+msgstr "请提供任何其他可帮助我们理解举报内容的信息，包括您认为违反了哪些政策。尽管此信息不是必需的，但未能提供可能会妨碍我们处理被举报的内容。"
 
 #: src/amo/components/FeedbackForm/index.js:399
 msgid "Contact information"
@@ -1045,7 +1045,7 @@ msgstr "匿名提交举报"
 
 #: src/amo/components/FeedbackForm/index.js:417
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "若匿名提交举报，我们将无法向您告知举报的处理进展，您也无法再对处理结果提出申诉。"
 
 #: src/amo/components/FeedbackForm/index.js:436
 msgid "Your name"
