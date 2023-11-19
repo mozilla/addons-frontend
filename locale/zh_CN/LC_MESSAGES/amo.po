@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-19 05:41+0000\n"
+"PO-Revision-Date: 2023-11-19 05:46+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2144,7 +2144,7 @@ msgstr "屏幕截图"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr "向 Mozilla 提交反馈或者举报附加组件"
+msgstr "向 Mozilla 提交反馈或举报附加组件"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2492,19 +2492,19 @@ msgstr "字典"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "向 Mozilla 提交反馈或举报评论"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "%(userName)s 发表于 %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "向 Mozilla 举报此评论"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "举报此评论违法或违规"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2750,7 +2750,7 @@ msgstr "带有 %(tag)s 标签的附加组件"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "向 Mozilla 提交反馈或举报用户"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2762,11 +2762,11 @@ msgstr "向 Mozilla 报告此用户"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user"
-msgstr ""
+msgstr "发送用户相关反馈"
 
 #: src/amo/pages/UserFeedback/index.js:146
 msgid "Report the user because they are illegal or incompliant"
-msgstr ""
+msgstr "向 Mozilla 举报此用户违法或违规"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
