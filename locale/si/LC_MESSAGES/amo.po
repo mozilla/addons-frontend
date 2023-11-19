@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-19 04:17+0000\n"
+"PO-Revision-Date: 2023-11-19 05:12+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -913,8 +913,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
-"අපට උපකාර වන අතිරේක තොරතුරු තිබේ නම් ඔබට <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">ගැටලුවක් ගොනු කළ හැකිය</a>. දෝෂයට තුඩු දෙන තෙක් ඔබ ගත් පියවර මොනවාදැයි අපට කියන්න, අපි එය "
-"ඉක්මනින් නිරාකරණයට උත්සාහ කරන්නෙමු."
+"අපට උපකාර වන අතිරේක තොරතුරු තිබේ නම් ඔබට <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">ගැටලුවක් ගොනු කිරීමට හැකිය</a>. දෝෂයට තුඩු දෙන තෙක් ඔබ ගත් පියවර මොනවාදැයි අපට කියන්න, අපි"
+" එය ඉක්මනින් නිරාකරණයට උත්සාහ කරන්නෙමු."
 
 #: src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
@@ -2590,7 +2590,7 @@ msgstr "ෆයර්ෆොක්ස් එක්කහු ගැන"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr "ඔබට වියමන අඩවියෙහි ගැටළු හමු වුවහොත්, අපට ඒවා දන්වන්න. කරුණාකර %(startIssueLink)sගැටළුවක්%(endIssueLink)s ගොනු කර හැකිතාක් විස්තර ඇතුළත් කරන්න."
+msgstr "ඔබට වියමන අඩවියෙහි ගැටලු හමු වුවහොත්, අපට ඒවා දන්වන්න. කරුණාකර %(startIssueLink)sගැටලුවකට%(endIssueLink)s බොහෝ විස්තර ඇතුළත් කරන්න."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
