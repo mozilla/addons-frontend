@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-18 00:04+0000\n"
+"PO-Revision-Date: 2023-11-17 23:54+0000\n"
 "Last-Translator: wxie <xiewensheng@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1041,7 +1041,7 @@ msgstr "联系方式"
 
 #: src/amo/components/FeedbackForm/index.js:414
 msgid "File report anonymously"
-msgstr ""
+msgstr "匿名提交举报"
 
 #: src/amo/components/FeedbackForm/index.js:417
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
