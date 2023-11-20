@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-20 17:52+0000\n"
+"PO-Revision-Date: 2023-11-20 17:53+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -2580,15 +2580,15 @@ msgstr "Odoslať spätnú väzbu alebo nahlásiť recenziu Mozille"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "autor: %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Nahlásiť túto recenziu Mozille"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Nahlásiť recenziu, pretože je nezákonná alebo nevyhovujúca"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
