@@ -3,7 +3,6 @@
 import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import { mozCompare } from 'addons-moz-compare';
-import config from 'config';
 
 import {
   USER_AGENT_BROWSER_FIREFOX,
@@ -20,10 +19,8 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-  RECOMMENDED,
 } from 'amo/constants';
 import log from 'amo/logger';
-import { getPromotedCategory } from 'amo/utils/addons';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';
@@ -112,27 +109,11 @@ export const isFirefoxForIOS = (userAgentInfo: UserAgentInfoType): boolean => {
 };
 
 export const isAndroidInstallable = ({
-  _config = config,
   addon,
 }: {
-  _config?: typeof config,
   addon: AddonType | null,
 }): boolean => {
-  if (!addon || addon.type !== ADDON_TYPE_EXTENSION) {
-    return false;
-  }
-
-  // When we enable this feature, extensions should be installable on Android.
-  if (_config.get('enableFeatureMoreAndroidExtensions')) {
-    return true;
-  }
-
-  // Otherwise, only extensions that are recommended on android are considered
-  // compatible, see: https://github.com/mozilla/addons-frontend/issues/9713.
-  return (
-    getPromotedCategory({ addon, clientApp: CLIENT_APP_ANDROID }) ===
-    RECOMMENDED
-  );
+  return addon?.type === ADDON_TYPE_EXTENSION;
 };
 
 export type IsCompatibleWithUserAgentParams = {|
