@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-19 15:41+0000\n"
+"PO-Revision-Date: 2023-11-20 03:17+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1087,7 +1087,7 @@ msgstr "É necessário entrar na conta"
 
 #: src/amo/components/FlagReviewMenu/index.js:118
 msgid "Misplaced bug report or support request"
-msgstr "Pedido de suporte ou relato de bug no local errado"
+msgstr "Pedido de suporte ou relato de bug no local incorreto"
 
 #: src/amo/components/FlagReviewMenu/index.js:119
 msgid "This is a bug report or support request"
@@ -1095,7 +1095,7 @@ msgstr "Isso é um relatório de erro ou solicitação de suporte"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flagged as misplaced bug report or support request"
-msgstr "Sinalizado como relatório de bug ou solicitação de suporte em local inadequado"
+msgstr "Sinalizado como relatório de bug ou solicitação de suporte em local incorreto"
 
 #: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flagged as a bug report or support request"
@@ -1103,7 +1103,7 @@ msgstr "Sinalizado como um relatório de erro ou solicitação de suporte"
 
 #: src/amo/components/FlagReviewMenu/index.js:138
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr "Conteúdo que é ilegal ou que viola as políticas de conteúdo da AMO"
+msgstr "Conteúdo que é ilegal ou que viola as diretivas de conteúdo do AMO"
 
 #: src/amo/components/FlagReviewMenu/index.js:145
 msgid "This contains inappropriate language"
