@@ -152,7 +152,7 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
                       <LoadingText />
                     )
                   }
-                  showRating
+                  showRating={!review?.isDeveloperReply}
                 />
               </Card>
             }

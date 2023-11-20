@@ -508,4 +508,10 @@ describe(__filename, () => {
       screen.getByRole('button', { name: 'Submitting your report…' }),
     ).toBeInTheDocument();
   });
+
+  it('does not render the stars when the review is a developer reply', () => {
+    render({ is_developer_reply: true });
+
+    expect(screen.queryByClassName('Rating')).not.toBeInTheDocument();
+  });
 });
