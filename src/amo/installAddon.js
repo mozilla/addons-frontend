@@ -190,20 +190,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       return Promise.resolve();
     }
 
-    if (!currentVersion) {
-      _log.debug('no currentVersion, aborting setCurrentStatus()');
-      return Promise.resolve();
-    }
-
     const { guid, type } = addon;
-    const { file } = currentVersion;
-
-    if (!file) {
-      _log.debug('no file, aborting setCurrentStatus()');
-      return Promise.resolve();
-    }
-
-    const payload = { guid, url: file.url };
+    const payload = { guid, url: currentVersion?.file?.url };
 
     _log.info('Setting add-on status');
     return _addonManager

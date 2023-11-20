@@ -950,19 +950,6 @@ describe(__filename, () => {
         );
       });
 
-      it('does nothing when currentVersion is `null`', () => {
-        const _log = getFakeLogger();
-
-        const dispatch = jest.spyOn(store, 'dispatch');
-
-        render({ _log });
-
-        expect(dispatch).not.toHaveBeenCalled();
-        expect(_log.debug).toHaveBeenCalledWith(
-          'no currentVersion, aborting setCurrentStatus()',
-        );
-      });
-
       it('sets the canUninstall prop', async () => {
         const installURL = addon.current_version.file.url;
         const canUninstall = false;
