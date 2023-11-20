@@ -30,6 +30,7 @@ describe(__filename, () => {
   it('adds an add-on to state', () => {
     const guid = 'my-addon@me.com';
     const version = '1.2.3.4';
+    const name = 'some name';
     expect(
       installations(
         undefined,
@@ -39,6 +40,7 @@ describe(__filename, () => {
           url: 'https://addons.cdn.mozilla.net/download/my-addon.xpi',
           status: UNINSTALLED,
           version,
+          name,
         }),
       ),
     ).toEqual({
@@ -51,6 +53,7 @@ describe(__filename, () => {
         status: UNINSTALLED,
         url: 'https://addons.cdn.mozilla.net/download/my-addon.xpi',
         version,
+        name,
       },
     });
   });

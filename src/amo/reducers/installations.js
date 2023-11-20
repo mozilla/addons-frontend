@@ -39,6 +39,7 @@ export type InstalledAddon = {
   status: InstalledAddonStatus,
   url?: $PropertyType<AddonType, 'url'>,
   version?: string,
+  name?: string,
 };
 
 export type InstallationsState = {
@@ -121,6 +122,7 @@ export default function installations(
           status: payload.status,
           url: payload.url,
           version: payload.version,
+          name: payload.name,
         },
       };
     case START_DOWNLOAD:
