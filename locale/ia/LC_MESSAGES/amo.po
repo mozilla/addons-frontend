@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-20 22:54+0000\n"
+"PO-Revision-Date: 2023-11-20 23:07+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1101,7 +1101,7 @@ msgstr "Isto es un reporto de defecto o requesta de supporto"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Signalate como reporto de error o requesta de supporto mal ponite"
 
 #: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flagged as a bug report or support request"
@@ -1109,7 +1109,7 @@ msgstr "Signalate como un reporto de defecto o requesta de supporto"
 
 #: src/amo/components/FlagReviewMenu/index.js:138
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "Contento illegal o que viola le criterios de contento de AMO"
 
 #: src/amo/components/FlagReviewMenu/index.js:145
 msgid "This contains inappropriate language"
@@ -1622,7 +1622,7 @@ msgstr[1] "Leger tote le %(total)s recensiones a tres stellas"
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "You reported this add-on"
-msgstr ""
+msgstr "Tu reportava iste additivo pro abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:123
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -2827,7 +2827,7 @@ msgstr "Additivos etiquettate con %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Inviar commentario o reportar un usator a Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2843,7 +2843,7 @@ msgstr "Inviar alcun commentario re le usator"
 
 #: src/amo/pages/UserFeedback/index.js:146
 msgid "Report the user because they are illegal or incompliant"
-msgstr ""
+msgstr "Reportar le usator perque illes es illegal o non conforme"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
