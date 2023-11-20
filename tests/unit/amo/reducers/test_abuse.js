@@ -27,7 +27,7 @@ describe(__filename, () => {
       store.dispatch(
         loadAddonAbuseReport(
           createFakeAddonAbuseReport({
-            addon: { ...fakeAddon, slug: 'some-addon', guid: 'some@guid' },
+            addon: { ...fakeAddon, guid: 'some@guid' },
             message: 'This add-on is malwaré.',
             reporter: null,
           }),
@@ -38,7 +38,6 @@ describe(__filename, () => {
           createFakeAddonAbuseReport({
             addon: {
               ...fakeAddon,
-              slug: 'another-addon',
               guid: 'another@guid',
             },
             message: 'The add-on is boring',
@@ -48,11 +47,11 @@ describe(__filename, () => {
       );
 
       expect(store.getState().abuse).toMatchObject({
-        bySlug: {
-          'another-addon': {
+        byGUID: {
+          'another@guid': {
             message: 'The add-on is boring',
           },
-          'some-addon': {
+          'some@guid': {
             message: 'This add-on is malwaré.',
           },
         },
@@ -67,8 +66,8 @@ describe(__filename, () => {
         );
 
         expect(state).toEqual({
-          bySlug: {
-            [fakeAddon.slug]: { uiVisible: false },
+          byGUID: {
+            [fakeAddon.guid]: { uiVisible: false },
           },
           loading: false,
         });
@@ -83,8 +82,8 @@ describe(__filename, () => {
         );
 
         expect(state).toEqual({
-          bySlug: {
-            [fakeAddon.slug]: { uiVisible: true },
+          byGUID: {
+            [fakeAddon.guid]: { uiVisible: true },
           },
           loading: false,
         });
@@ -138,7 +137,7 @@ describe(__filename, () => {
 
       beforeEach(() => {
         response = createFakeAddonAbuseReport({
-          addon: { ...fakeAddon, slug: 'Ego' },
+          addon: { ...fakeAddon, guid: 'some-guid' },
           message: 'I am Groot!',
         });
       });
@@ -149,7 +148,7 @@ describe(__filename, () => {
           loadAddonAbuseReport(response),
         );
 
-        expect(state.bySlug.Ego.message).toEqual('I am Groot!');
+        expect(state.byGUID['some-guid'].message).toEqual('I am Groot!');
       });
 
       it('requires a defined reporter', () => {

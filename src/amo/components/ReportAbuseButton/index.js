@@ -226,8 +226,8 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
 
   return {
     abuseReport:
-      addon && state.abuse.bySlug[addon.slug]
-        ? state.abuse.bySlug[addon.slug]
+      addon && state.abuse.byGUID[addon.guid]
+        ? state.abuse.byGUID[addon.guid]
         : null,
     loading: state.abuse.loading,
   };
