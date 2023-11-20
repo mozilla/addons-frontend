@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-18 11:28+0000\n"
+"PO-Revision-Date: 2023-11-20 18:48+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1107,7 +1107,7 @@ msgstr "Yasa dışı veya AMO’nun içerik politikalarını ihlal eden içerik"
 
 #: src/amo/components/FlagReviewMenu/index.js:145
 msgid "This contains inappropriate language"
-msgstr "Bu uygunsuz bir dil içeriyor"
+msgstr "Uygunsuz bir dil içeriyor"
 
 #: src/amo/components/FlagReviewMenu/index.js:146
 msgid "Flagged for inappropriate language"
@@ -1123,19 +1123,19 @@ msgstr "Rapor et"
 
 #: src/amo/components/FlagReviewMenu/index.js:165
 msgid "Flag this developer response"
-msgstr "Bu geliştirici yanıtını işaretle"
+msgstr "Bu geliştirici yanıtını rapor et"
 
 #: src/amo/components/FlagReviewMenu/index.js:166
 msgid "Flag this review"
-msgstr "Bu incelemeyi işaretle"
+msgstr "Bu incelemeyi rapor et"
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "Log in to flag this response"
-msgstr "Bu yanıtı işaretlemek için giriş yapın"
+msgstr "Bu yanıtı rapor etmek için giriş yapın"
 
 #: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Log in to flag this review"
-msgstr "Bu incelemeyi işaretlemek için giriş yapın"
+msgstr "Bu incelemeyi rapor etmek için giriş yapın"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Spam"
@@ -2553,7 +2553,7 @@ msgstr "Bu incelemeyi Mozilla’ya bildir"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Yasa dışı veya uygunsuz olduğu için incelemeyi rapor et"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2703,7 +2703,7 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
-"Lütfen şüpheli incelemeleri \"Bu incelemeyi bildir\"e tıklayarak işaretleyin. Bu incelemeler denetlenmesi için bize gönderilir. Kontrol ekibimiz, inceleme yönergelerimize bağlı kalarak incelemeyi "
+"Lütfen şüpheli incelemeleri \"Bu incelemeyi rapor et\"e tıklayarak işaretleyin. Bu incelemeler denetlenmesi için bize gönderilir. Kontrol ekibimiz, inceleme yönergelerimize bağlı kalarak incelemeyi "
 "değerlendirecek ve silinmesine ya da siteye geri konulmasına karar verecektir."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
