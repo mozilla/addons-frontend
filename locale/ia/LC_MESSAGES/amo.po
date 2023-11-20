@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-17 06:30+0000\n"
+"PO-Revision-Date: 2023-11-20 22:28+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -963,7 +963,7 @@ msgstr "Il es SPAM"
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "Example: The listing advertises unrelated products or services."
-msgstr ""
+msgstr "Exemplo: le lista de presentation avisa productos o servicios extranee."
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It violates Add-on Policies"
