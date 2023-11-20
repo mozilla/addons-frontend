@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-16 21:01+0000\n"
-"Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
+"PO-Revision-Date: 2023-11-20 19:23+0000\n"
+"Last-Translator: George kitsoukakis <norhorn@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -1097,7 +1097,7 @@ msgstr "Είναι αναφορά σφάλματος ή αίτημα υποστ�
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Αναφέρθηκε ως λανθασμένη αναφορά σφάλματος ή αίτημα υποστήριξης"
 
 #: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flagged as a bug report or support request"
@@ -1141,7 +1141,7 @@ msgstr "Συνδεθείτε για αναφορά κριτικής"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Spam"
-msgstr ""
+msgstr "Ανεπιθύμητο"
 
 #: src/amo/components/FlagReviewMenu/index.js:99
 msgid "This is spam"
@@ -1617,7 +1617,7 @@ msgstr[1] "Ανάγνωση και των %(total)s κριτικών τριών 
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "You reported this add-on"
-msgstr ""
+msgstr "Έχετε αναφέρει αυτό το πρόσθετο"
 
 #: src/amo/components/ReportAbuseButton/index.js:123
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -2340,11 +2340,11 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Λάβαμε την αναφορά σας. Ευχαριστούμε που μας ενημερώσατε σχετικά με τις ανησυχίες σας για αυτήν τη συλλογή."
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection for abuse"
-msgstr ""
+msgstr "Αναφορά συλλογής για κατάχρηση"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
@@ -2372,7 +2372,7 @@ msgstr "Κάντε λήψη και δημιουργία συλλογών του 
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Υποβάλετε σχόλια ή αναφέρετε μια συλλογή στη Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
@@ -2380,11 +2380,11 @@ msgstr "από %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Αναφορά συλλογής στη Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Υποβάλετε σχόλια σχετικά με την συλλογή"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
