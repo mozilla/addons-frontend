@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-16 15:49+0000\n"
-"PO-Revision-Date: 2023-11-20 22:46+0000\n"
+"PO-Revision-Date: 2023-11-20 22:54+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1680,7 +1680,7 @@ msgstr "Explica como iste usator viola nostre politicas."
 
 #: src/amo/components/ReportUserAbuse/index.js:178
 msgid "You reported this user"
-msgstr ""
+msgstr "Tu reportava iste usator"
 
 #: src/amo/components/ReportUserAbuse/index.js:182
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -2032,7 +2032,7 @@ msgstr "<span class=\"visually-hidden\">Expander a</span> Leger plus"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "Authenticate como %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2344,7 +2344,7 @@ msgstr "Tu reportava iste collection"
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Nos ha recipite tu reporto. Gratias pro facer nos saper circa tu problemas con iste collection."
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection for abuse"
@@ -2376,7 +2376,7 @@ msgstr "Discarga e crea collectiones de Firefox pro sequer tu extensiones e them
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Inviar commentario o reportar un collection a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
@@ -2547,7 +2547,7 @@ msgstr "Dictionarios"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Inviar commentario o reportar un recension a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
@@ -2559,7 +2559,7 @@ msgstr "Reportar iste revision a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Reportar le recension perque illo es illegal o non conforme"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
