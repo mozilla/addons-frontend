@@ -581,11 +581,12 @@ describe(__filename, () => {
   });
 
   it('shows success message after submission', async () => {
-    render();
+    const guid = 'some-addon@guid';
+    render({ guid });
 
     store.dispatch(
       loadAddonAbuseReport({
-        addon: fakeAddon,
+        addon: { ...fakeAddon, guid },
         message: defaultMessage,
         reporter: null,
       }),

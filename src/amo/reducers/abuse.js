@@ -46,14 +46,14 @@ export type AddonAbuseState = {|
 |};
 
 export type AbuseState = {|
-  bySlug: {
+  byGUID: {
     [addonId: string]: AddonAbuseState,
   },
   loading: boolean,
 |};
 
 export const initialState: AbuseState = {
-  bySlug: {},
+  byGUID: {},
   loading: false,
 };
 
@@ -227,9 +227,9 @@ export default function abuseReducer(
 
       return {
         ...state,
-        bySlug: {
-          ...state.bySlug,
-          [addon.slug]: { ...state.bySlug[addon.slug], uiVisible: false },
+        byGUID: {
+          ...state.byGUID,
+          [addon.guid]: { ...state.byGUID[addon.guid], uiVisible: false },
         },
       };
     }
@@ -237,9 +237,9 @@ export default function abuseReducer(
       const { addon, message, reporter } = action.payload;
       return {
         ...state,
-        bySlug: {
-          ...state.bySlug,
-          [addon.slug]: { message, reporter, uiVisible: false },
+        byGUID: {
+          ...state.byGUID,
+          [addon.guid]: { message, reporter, uiVisible: false },
         },
         loading: false,
       };
@@ -251,9 +251,9 @@ export default function abuseReducer(
 
       return {
         ...state,
-        bySlug: {
-          ...state.bySlug,
-          [addon.slug]: { ...state.bySlug[addon.slug], uiVisible: true },
+        byGUID: {
+          ...state.byGUID,
+          [addon.guid]: { ...state.byGUID[addon.guid], uiVisible: true },
         },
       };
     }

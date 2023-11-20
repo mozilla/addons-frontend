@@ -193,7 +193,7 @@ function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
     (addon?.guid && state.installations[addon.guid]) || null;
 
   return {
-    abuseReport: (addon?.slug && state.abuse.bySlug[addon.slug]) || null,
+    abuseReport: (addon?.guid && state.abuse.byGUID[addon.guid]) || null,
     loading: state.abuse.loading,
     installedAddon,
   };
