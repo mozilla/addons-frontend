@@ -211,10 +211,13 @@ describe(__filename, () => {
     expect(screen.getByText(`Report this user to Mozilla`)).toBeInTheDocument();
     expect(screen.getByText('Submit report')).toBeInTheDocument();
 
-    expect(screen.getByLabelText('Your name')).not.toBeDisabled();
-    expect(screen.getByLabelText('Your name').value).toBeEmpty();
-    expect(screen.getByLabelText('Your email address')).not.toBeDisabled();
-    expect(screen.getByLabelText('Your email address').value).toBeEmpty();
+    const nameInput = screen.getByLabelText('Your name(required)');
+    expect(nameInput).not.toBeDisabled();
+    expect(nameInput.value).toBeEmpty();
+
+    const emailInput = screen.getByLabelText('Your email address(required)');
+    expect(emailInput).not.toBeDisabled();
+    expect(emailInput.value).toBeEmpty();
 
     // This should never be shown for users.
     expect(
@@ -246,11 +249,11 @@ describe(__filename, () => {
     expect(screen.getByText(`Report this user to Mozilla`)).toBeInTheDocument();
     expect(screen.getByText('Submit report')).toBeInTheDocument();
 
-    const nameInput = screen.getByLabelText('Your name');
+    const nameInput = screen.getByLabelText('Your name(required)');
     expect(nameInput).toBeDisabled();
     expect(nameInput).toHaveValue(signedInUsername);
 
-    const emailInput = screen.getByLabelText('Your email address');
+    const emailInput = screen.getByLabelText('Your email address(required)');
     expect(emailInput).toBeDisabled();
     expect(emailInput).toHaveValue(signedInEmail);
 
@@ -283,6 +286,7 @@ describe(__filename, () => {
 
     // B
     expect(screen.getByLabelText('It’s spam')).toBeInTheDocument();
+    expect(screen.getByLabelText('It’s spam')).toBeRequired();
     expect(
       screen.getByText(/^Example: The listing advertises/),
     ).toBeInTheDocument();
@@ -297,16 +301,19 @@ describe(__filename, () => {
 
     // D
     expect(screen.getByLabelText(/^It contains hateful/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^It contains hateful/)).toBeRequired();
     expect(
       screen.getByText(/^Example: It contains racist/),
     ).toBeInTheDocument();
 
     // E
     expect(screen.getByLabelText(/^It violates the law /)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^It violates the law /)).toBeRequired();
     expect(screen.getByText(/^Example: Copyright/)).toBeInTheDocument();
 
     // F
     expect(screen.getByLabelText('Something else')).toBeInTheDocument();
+    expect(screen.getByLabelText('Something else')).toBeRequired();
     expect(screen.getByText(/^Anything that doesn’t/)).toBeInTheDocument();
   });
 

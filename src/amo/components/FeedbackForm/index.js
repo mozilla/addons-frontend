@@ -257,7 +257,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
   }
 
   isCertificationRequired(): boolean {
-    return ['illegal'].includes(this.state.category);
+    return [CATEGORY_ILLEGAL].includes(this.state.category);
   }
 
   renderCategories(title: string, categories: Array<Reason>): React.Node {
@@ -286,6 +286,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 onChange={this.onFieldChange}
                 value={category.value}
                 selected={this.state.category === category.value}
+                aria-describedby={`feedbackCategory${category.value}-help`}
+                required
               />
               <label
                 className="FeedbackForm-label"
@@ -294,7 +296,12 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 {category.label}
               </label>
               {category.help && (
-                <p className="FeedbackForm--help">{category.help}</p>
+                <p
+                  className="FeedbackForm--help"
+                  id={`feedbackCategory${category.value}-help`}
+                >
+                  {category.help}
+                </p>
               )}
             </li>
           ))}
@@ -384,8 +391,9 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 name="text"
                 onChange={this.onFieldChange}
                 value={this.state.text}
+                aria-describedby="feedbackText-help"
               />
-              <p className="FeedbackForm--help">
+              <p className="FeedbackForm--help" id="feedbackText-help">
                 {i18n.gettext(`Please provide any additional information that
                   may help us to understand your report (including which policy
                   you believe has been violated). While this information is not
@@ -406,6 +414,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                   name="anonymous"
                   onChange={this.onFieldChange}
                   checked={!!this.state.anonymous}
+                  aria-describedby="feedbackAnonymous-help"
                 />
                 <label
                   className="FeedbackForm-label"
@@ -413,7 +422,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 >
                   {i18n.gettext('File report anonymously')}
                 </label>
-                <p className="FeedbackForm--help">
+                <p className="FeedbackForm--help" id="feedbackAnonymous-help">
                   {i18n.gettext(`Filing an anonymous report will prevent us
                     from communicating with you about the report’s status, or
                     about any options for appeal.`)}
@@ -434,6 +443,11 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 htmlFor="feedbackName"
               >
                 {i18n.gettext('Your name')}
+                <span className="visually-hidden">
+                  {this.state.anonymous
+                    ? i18n.gettext('(optional)')
+                    : i18n.gettext('(required)')}
+                </span>
               </label>
               <input
                 className={makeClassName('FeedbackForm-name', {
@@ -441,13 +455,15 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 })}
                 id="feedbackName"
                 name="name"
-                disabled={!!currentUser}
+                disabled={!!currentUser || this.state.anonymous}
                 onChange={this.onFieldChange}
                 value={
                   this.state.anonymous
                     ? ''
                     : this.state.name || (currentUser && currentUser.name)
                 }
+                required={!this.state.anonymous}
+                autoComplete="name"
               />
 
               <label
@@ -457,6 +473,11 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 htmlFor="feedbackEmail"
               >
                 {i18n.gettext('Your email address')}
+                <span className="visually-hidden">
+                  {this.state.anonymous
+                    ? i18n.gettext('(optional)')
+                    : i18n.gettext('(required)')}
+                </span>
               </label>
               <input
                 className={makeClassName('FeedbackForm-email', {
@@ -464,13 +485,15 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 })}
                 id="feedbackEmail"
                 name="email"
-                disabled={!!currentUser}
+                disabled={!!currentUser || this.state.anonymous}
                 onChange={this.onFieldChange}
                 value={
                   this.state.anonymous
                     ? ''
                     : this.state.email || (currentUser && currentUser.email)
                 }
+                required={!this.state.anonymous}
+                autoComplete="email"
               />
 
               {this.isCertificationRequired() && (

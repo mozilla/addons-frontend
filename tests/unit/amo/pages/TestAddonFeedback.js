@@ -136,10 +136,13 @@ describe(__filename, () => {
       screen.getByText(`Report this add-on to Mozilla`),
     ).toBeInTheDocument();
 
-    expect(screen.getByLabelText('Your name')).not.toBeDisabled();
-    expect(screen.getByLabelText('Your name').value).toBeEmpty();
-    expect(screen.getByLabelText('Your email address')).not.toBeDisabled();
-    expect(screen.getByLabelText('Your email address').value).toBeEmpty();
+    const nameInput = screen.getByLabelText('Your name(required)');
+    expect(nameInput).not.toBeDisabled();
+    expect(nameInput.value).toBeEmpty();
+
+    const emailInput = screen.getByLabelText('Your email address(required)');
+    expect(emailInput).not.toBeDisabled();
+    expect(emailInput.value).toBeEmpty();
 
     expect(
       screen.queryByClassName('ReportAbuseButton-first-paragraph'),
@@ -179,11 +182,11 @@ describe(__filename, () => {
       screen.getByText('Report this add-on to Mozilla'),
     ).toBeInTheDocument();
 
-    const nameInput = screen.getByLabelText('Your name');
+    const nameInput = screen.getByLabelText('Your name(required)');
     expect(nameInput).toBeDisabled();
     expect(nameInput).toHaveValue(defaultUser.name);
 
-    const emailInput = screen.getByLabelText('Your email address');
+    const emailInput = screen.getByLabelText('Your email address(required)');
     expect(emailInput).toBeDisabled();
     expect(emailInput).toHaveValue(defaultUser.email);
 
@@ -206,6 +209,7 @@ describe(__filename, () => {
 
     // B
     expect(screen.getByLabelText('It’s spam')).toBeInTheDocument();
+    expect(screen.getByLabelText('It’s spam')).toBeRequired();
     expect(
       screen.getByText(/^Example: The listing advertises/),
     ).toBeInTheDocument();
@@ -214,20 +218,24 @@ describe(__filename, () => {
     expect(
       screen.getByLabelText('It violates Add-on Policies'),
     ).toBeInTheDocument();
+    expect(screen.getByLabelText('It violates Add-on Policies')).toBeRequired();
     expect(screen.getByText(/^Example: It compromised/)).toBeInTheDocument();
 
     // D
     expect(screen.getByLabelText(/^It contains hateful/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^It contains hateful/)).toBeRequired();
     expect(
       screen.getByText(/^Example: It contains racist/),
     ).toBeInTheDocument();
 
     // E
     expect(screen.getByLabelText(/^It violates the law /)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^It violates the law /)).toBeRequired();
     expect(screen.getByText(/^Example: Copyright/)).toBeInTheDocument();
 
     // F
     expect(screen.getByLabelText('Something else')).toBeInTheDocument();
+    expect(screen.getByLabelText('Something else')).toBeRequired();
     expect(screen.getByText(/^Anything that doesn’t/)).toBeInTheDocument();
   });
 
@@ -757,4 +765,55 @@ describe(__filename, () => {
       screen.getByClassName('AddonFeedbackForm-header'),
     ).toBeInTheDocument();
   });
+
+  it.each([true, false])(
+    'marks the name and email fields as required or optional depending on the anonymous flag - withSignedInUser=%s',
+    async (withSignedInUser) => {
+      if (withSignedInUser) {
+        signInUserWithProps();
+      }
+      render();
+
+      // By default, name/email fields are required and marked as such (for
+      // accessibility reasons). These fields can be disabled when the current
+      // user is signed-in.
+      let nameInput = screen.getByLabelText('Your name(required)');
+      expect(nameInput).toBeInTheDocument();
+      expect(nameInput.disabled).toEqual(withSignedInUser);
+
+      let emailInput = screen.getByLabelText('Your email address(required)');
+      expect(emailInput).toBeInTheDocument();
+      expect(emailInput.disabled).toEqual(withSignedInUser);
+
+      expect(
+        screen.queryByLabelText('Your name(optional)'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByLabelText('Your email address(optional)'),
+      ).not.toBeInTheDocument();
+
+      await userEvent.click(
+        screen.getByRole('checkbox', {
+          name: 'File report anonymously',
+        }),
+      );
+
+      // When the user wants to file a report anonymously, we disable the
+      // name/email fields and mark them as optional for accessibility reasons.
+      expect(
+        screen.queryByLabelText('Your name(required)'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByLabelText('Your email address(required)'),
+      ).not.toBeInTheDocument();
+
+      nameInput = screen.getByLabelText('Your name(optional)');
+      expect(nameInput).toBeInTheDocument();
+      expect(nameInput).toBeDisabled();
+
+      emailInput = screen.getByLabelText('Your email address(optional)');
+      expect(emailInput).toBeInTheDocument();
+      expect(emailInput).toBeDisabled();
+    },
+  );
 });
