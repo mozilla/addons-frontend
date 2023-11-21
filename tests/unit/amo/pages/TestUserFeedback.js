@@ -211,11 +211,11 @@ describe(__filename, () => {
     expect(screen.getByText(`Report this user to Mozilla`)).toBeInTheDocument();
     expect(screen.getByText('Submit report')).toBeInTheDocument();
 
-    const nameInput = screen.getByLabelText('Your name(required)');
+    const nameInput = screen.getByLabelText('Your name (required)');
     expect(nameInput).not.toBeDisabled();
     expect(nameInput.value).toBeEmpty();
 
-    const emailInput = screen.getByLabelText('Your email address(required)');
+    const emailInput = screen.getByLabelText('Your email address (required)');
     expect(emailInput).not.toBeDisabled();
     expect(emailInput.value).toBeEmpty();
 
@@ -249,11 +249,11 @@ describe(__filename, () => {
     expect(screen.getByText(`Report this user to Mozilla`)).toBeInTheDocument();
     expect(screen.getByText('Submit report')).toBeInTheDocument();
 
-    const nameInput = screen.getByLabelText('Your name(required)');
+    const nameInput = screen.getByLabelText('Your name (required)');
     expect(nameInput).toBeDisabled();
     expect(nameInput).toHaveValue(signedInUsername);
 
-    const emailInput = screen.getByLabelText('Your email address(required)');
+    const emailInput = screen.getByLabelText('Your email address (required)');
     expect(emailInput).toBeDisabled();
     expect(emailInput).toHaveValue(signedInEmail);
 
