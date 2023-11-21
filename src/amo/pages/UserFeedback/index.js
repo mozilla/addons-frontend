@@ -142,9 +142,11 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
             abuseIsLoading={isSubmitting}
             abuseSubmitted={hasSubmitted}
             categoryHeader={i18n.gettext('Report this user to Mozilla')}
-            feedbackTitle={i18n.gettext('Send some feedback about the user')}
+            feedbackTitle={i18n.gettext(
+              'Send some feedback about the user profile',
+            )}
             reportTitle={i18n.gettext(
-              'Report the user because they are illegal or incompliant',
+              "Report the user profile because it's illegal or incompliant",
             )}
             categories={[
               CATEGORY_FEEDBACK_SPAM,
