@@ -15,6 +15,7 @@ import FeedbackForm, {
   CATEGORY_POLICY_VIOLATION,
 } from 'amo/components/FeedbackForm';
 import { withInstallHelpers } from 'amo/installAddon';
+import { ADDON_STATUS_UNKNOWN_NON_PUBLIC } from 'amo/sagas/addons';
 import { sendAddonAbuseReport } from 'amo/reducers/abuse';
 import translate from 'amo/i18n/translate';
 import Card from 'amo/components/Card';
@@ -95,6 +96,72 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
     );
   };
 
+  renderHeader(): React.Node {
+    const { addon, installedAddon, i18n } = this.props;
+
+    // When we don't have much information about the add-on because it is a
+    // non-public one, and the add-on is not installed, then we hide the header.
+    if (!installedAddon && addon?.status === ADDON_STATUS_UNKNOWN_NON_PUBLIC) {
+      return null;
+    }
+
+    // When the add-on is installed, we use the name from the installed add-on.
+    // Otherwise, we'll use the name from the loaded add-on.
+    let addonName = addon?.name;
+    if (installedAddon?.name) {
+      addonName = installedAddon.name;
+    }
+
+    return (
+      <Card className="AddonFeedbackForm-header">
+        <div className="AddonFeedbackForm-header-icon">
+          <div className="AddonFeedbackForm-header-icon-wrapper">
+            <img
+              className="AddonFeedbackForm-header-icon-image"
+              src={getAddonIconUrl(addon)}
+              alt=""
+            />
+          </div>
+        </div>
+
+        <AddonTitle
+          addon={addon ? { ...addon, name: addonName || '' } : addon}
+        />
+
+        {!this.isAddonNonPublic() && (
+          <div className="AddonFeedbackForm-header-metadata">
+            <div className="AddonFeedbackForm-header-metadata-adu">
+              <Icon name="user-fill" />
+              {addon ? (
+                i18n.sprintf(
+                  i18n.ngettext(
+                    '%(total)s user',
+                    '%(total)s users',
+                    addon.average_daily_users,
+                  ),
+                  { total: i18n.formatNumber(addon.average_daily_users) },
+                )
+              ) : (
+                <LoadingText />
+              )}
+            </div>
+            <div className="AddonFeedbackForm-header-metadata-rating">
+              {addon ? (
+                <Rating
+                  rating={addon.ratings.average}
+                  readOnly
+                  styleSize="small"
+                />
+              ) : (
+                <LoadingText />
+              )}
+            </div>
+          </div>
+        )}
+      </Card>
+    );
+  }
+
   render(): React.Node {
     const { abuseReport, addon, errorHandler, i18n, loading } = this.props;
     const abuseSubmitted = abuseReport && abuseReport.message !== undefined;
@@ -125,52 +192,7 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
       >
         <FeedbackForm
           errorHandler={errorHandler}
-          contentHeader={
-            <Card className="AddonFeedbackForm-header">
-              <div className="AddonFeedbackForm-header-icon">
-                <div className="AddonFeedbackForm-header-icon-wrapper">
-                  <img
-                    className="AddonFeedbackForm-header-icon-image"
-                    src={getAddonIconUrl(addon)}
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <AddonTitle addon={addon} />
-
-              {!this.isAddonNonPublic() && (
-                <div className="AddonFeedbackForm-header-metadata">
-                  <div className="AddonFeedbackForm-header-metadata-adu">
-                    <Icon name="user-fill" />
-                    {addon ? (
-                      i18n.sprintf(
-                        i18n.ngettext(
-                          '%(total)s user',
-                          '%(total)s users',
-                          addon.average_daily_users,
-                        ),
-                        { total: i18n.formatNumber(addon.average_daily_users) },
-                      )
-                    ) : (
-                      <LoadingText />
-                    )}
-                  </div>
-                  <div className="AddonFeedbackForm-header-metadata-rating">
-                    {addon ? (
-                      <Rating
-                        rating={addon.ratings.average}
-                        readOnly
-                        styleSize="small"
-                      />
-                    ) : (
-                      <LoadingText />
-                    )}
-                  </div>
-                </div>
-              )}
-            </Card>
-          }
+          contentHeader={this.renderHeader()}
           abuseIsLoading={loading}
           abuseSubmitted={!!abuseSubmitted}
           categoryHeader={i18n.gettext('Report this add-on to Mozilla')}

@@ -17,7 +17,8 @@ import {
 } from 'amo/components/FeedbackForm';
 import { extractId } from 'amo/pages/AddonFeedback';
 import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
-import { FETCH_ADDON, loadAddon, fetchAddon } from 'amo/reducers/addons';
+import { FETCH_ADDON, fetchAddon, loadAddon } from 'amo/reducers/addons';
+import { makeNonPublicAddon } from 'amo/sagas/addons';
 import { clearError } from 'amo/reducers/errors';
 import { setInstallState } from 'amo/reducers/installations';
 import {
@@ -715,5 +716,45 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(
       clearError(getErrorHandlerId(defaultAddonGUID)),
     );
+  });
+
+  it('renders a header with the installed add-on name', () => {
+    const name = createLocalizedString('some add-on name');
+    const installedAddonName = 'installed add-on name';
+    store.dispatch(
+      setInstallState({ guid: defaultAddonGUID, name: installedAddonName }),
+    );
+    render({ name });
+
+    expect(screen.queryByText('some add-on name')).not.toBeInTheDocument();
+    expect(screen.getByText(installedAddonName)).toBeInTheDocument();
+  });
+
+  it("renders a header with the add-on name when the installed add-on doesn't have one", () => {
+    const name = createLocalizedString('some add-on name');
+    store.dispatch(setInstallState({ guid: defaultAddonGUID, name: null }));
+    render({ name });
+
+    expect(screen.getByText('some add-on name')).toBeInTheDocument();
+  });
+
+  it('does not render a header when the add-on is non-public and not installed', () => {
+    const slug = 'some-non-public-addon@guid';
+    store.dispatch(loadAddon({ addon: makeNonPublicAddon(slug), slug }));
+    renderWithoutLoadingAddon(slug);
+
+    expect(
+      screen.queryByClassName('AddonFeedbackForm-header'),
+    ).not.toBeInTheDocument();
+  });
+
+  it('renders a header with the add-on name that looks like a GUID', () => {
+    const name = createLocalizedString(defaultAddonGUID);
+    render({ name });
+
+    expect(screen.getByText(defaultAddonGUID)).toBeInTheDocument();
+    expect(
+      screen.getByClassName('AddonFeedbackForm-header'),
+    ).toBeInTheDocument();
   });
 });

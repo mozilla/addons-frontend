@@ -24,6 +24,50 @@ import type {
   FetchAddonInfoAction,
 } from 'amo/reducers/addons';
 import type { Saga } from 'amo/types/sagas';
+import type { ExternalAddonType } from 'amo/types/addons';
+
+export const ADDON_STATUS_UNKNOWN_NON_PUBLIC = 'unknown-non-public';
+
+export const makeNonPublicAddon = (slug: string): ExternalAddonType => {
+  const defaultLocale = config.get('defaultLang');
+  return {
+    slug,
+    // This isn't going to be a numeric ID but that should still be fine.
+    id: (slug: any),
+    guid: slug,
+    name: {
+      [defaultLocale]: slug,
+    },
+    default_locale: defaultLocale,
+    homepage: null,
+    contributions_url: null,
+    url: '',
+    average_daily_users: 0,
+    weekly_downloads: 0,
+    tags: [],
+    support_url: null,
+    ratings: {
+      average: 0,
+      bayesian_average: 0,
+      count: 0,
+      grouped_counts: {
+        '1': 0,
+        '2': 0,
+        '3': 0,
+        '4': 0,
+        '5': 0,
+      },
+      text_count: 0,
+    },
+    // Assume extension.
+    type: ADDON_TYPE_EXTENSION,
+    promoted: null,
+    created: new Date(0),
+    last_updated: null,
+    // Mark the add-on as non-public.
+    status: ADDON_STATUS_UNKNOWN_NON_PUBLIC,
+  };
+};
 
 export function* fetchAddon({
   payload: { errorHandlerId, showGroupedRatings, slug, assumeNonPublic },
@@ -47,45 +91,7 @@ export function* fetchAddon({
 
     if ([401, 403, 404].includes(error.response?.status) && assumeNonPublic) {
       log.warn('Assuming we attempted to fetch a non-public add-on');
-      const defaultLocale = config.get('defaultLang');
-      const addon = {
-        slug,
-        // This isn't going to be a numeric ID but that should still be fine.
-        id: (slug: any),
-        guid: slug,
-        name: {
-          [defaultLocale]: slug,
-        },
-        default_locale: defaultLocale,
-        homepage: null,
-        contributions_url: null,
-        url: '',
-        average_daily_users: 0,
-        weekly_downloads: 0,
-        tags: [],
-        support_url: null,
-        ratings: {
-          average: 0,
-          bayesian_average: 0,
-          count: 0,
-          grouped_counts: {
-            '1': 0,
-            '2': 0,
-            '3': 0,
-            '4': 0,
-            '5': 0,
-          },
-          text_count: 0,
-        },
-        // Assume extension.
-        type: ADDON_TYPE_EXTENSION,
-        promoted: null,
-        created: new Date(0),
-        last_updated: null,
-        // Mark the add-on as non-public.
-        status: 'unknown-non-public',
-      };
-      yield put(loadAddon({ addon, slug }));
+      yield put(loadAddon({ addon: makeNonPublicAddon(slug), slug }));
     } else {
       yield put(errorHandler.createErrorAction(error));
     }
