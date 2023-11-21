@@ -119,14 +119,14 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
             puffy
             {...reportButtonProps}
           >
-            {i18n.gettext('Report this user for abuse')}
+            {i18n.gettext('Report this user')}
           </Button>
         )}
 
         {!hasSubmitted && (
           <div className="ReportUserAbuse-form">
             <h2 className="ReportUserAbuse-header">
-              {i18n.gettext('Report this user for abuse')}
+              {i18n.gettext('Report this user')}
             </h2>
 
             <p

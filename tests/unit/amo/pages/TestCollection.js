@@ -2401,7 +2401,7 @@ describe(__filename, () => {
 
       expect(
         screen.queryByRole('link', {
-          name: 'Report this collection for abuse',
+          name: 'Report this collection',
         }),
       ).not.toBeInTheDocument();
     });
@@ -2422,7 +2422,7 @@ describe(__filename, () => {
 
       expect(
         screen.getByRole('link', {
-          name: 'Report this collection for abuse',
+          name: 'Report this collection',
         }),
       ).toBeInTheDocument();
     });
@@ -2432,7 +2432,7 @@ describe(__filename, () => {
 
       expect(
         screen.queryByRole('link', {
-          name: 'Report this collection for abuse',
+          name: 'Report this collection',
         }),
       ).not.toBeInTheDocument();
     });
@@ -2442,7 +2442,7 @@ describe(__filename, () => {
 
       expect(
         screen.queryByRole('link', {
-          name: 'Report this collection for abuse',
+          name: 'Report this collection',
         }),
       ).not.toBeInTheDocument();
     });
@@ -2455,7 +2455,7 @@ describe(__filename, () => {
 
       expect(
         screen.queryByRole('link', {
-          name: 'Report this collection for abuse',
+          name: 'Report this collection',
         }),
       ).not.toBeInTheDocument();
       expect(

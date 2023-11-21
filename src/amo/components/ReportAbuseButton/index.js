@@ -148,10 +148,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
       },
     );
 
-    // The button prompt mentions abuse to make it clear that you can't
-    // use it to report general issues (like bugs) about the add-on.
-    // See https://github.com/mozilla/addons-frontend/issues/4025#issuecomment-349103373
-    const prompt = i18n.gettext('Report this add-on for abuse');
+    const prompt = i18n.gettext('Report this add-on');
 
     let reportButtonProps: Object = {
       onClick: this.onReportButtonClick,

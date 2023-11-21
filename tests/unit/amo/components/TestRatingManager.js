@@ -542,7 +542,7 @@ describe(__filename, () => {
       );
 
       const button = screen.getByRole('button', {
-        name: 'Report this add-on for abuse',
+        name: 'Report this add-on',
       });
       const clickEvent = createEvent.click(button);
       const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
@@ -587,7 +587,7 @@ describe(__filename, () => {
       render();
 
       await userEvent.click(
-        screen.getByRole('button', { name: 'Report this add-on for abuse' }),
+        screen.getByRole('button', { name: 'Report this add-on' }),
       );
 
       expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
@@ -615,7 +615,7 @@ describe(__filename, () => {
         render({ addon });
 
         const button = screen.getByRole('button', {
-          name: 'Report this add-on for abuse',
+          name: 'Report this add-on',
         });
         const clickEvent = createEvent.click(button);
         const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
@@ -647,7 +647,7 @@ describe(__filename, () => {
 
         await userEvent.click(
           screen.getByRole('button', {
-            name: 'Report this add-on for abuse',
+            name: 'Report this add-on',
           }),
         );
 
@@ -694,7 +694,7 @@ describe(__filename, () => {
       ).toBeInTheDocument();
       expect(
         screen.queryByRole('button', {
-          name: 'Report this add-on for abuse',
+          name: 'Report this add-on',
         }),
       ).not.toBeInTheDocument();
     });
@@ -717,19 +717,19 @@ describe(__filename, () => {
       ).toBeInTheDocument();
       expect(
         screen.queryByRole('button', {
-          name: 'Report this add-on for abuse',
+          name: 'Report this add-on',
         }),
       ).not.toBeInTheDocument();
     });
 
-    it('does not disable the "Report this add-on for abuse" button if a report is in progress', () => {
+    it('does not disable the "Report this add-on" button if a report is in progress', () => {
       // See https://github.com/mozilla/addons-frontend/issues/9086.
       store.dispatch(initiateAddonAbuseReportViaFirefox({ addon: fakeAddon }));
       render();
 
       expect(
         screen.queryByRole('button', {
-          name: 'Report this add-on for abuse',
+          name: 'Report this add-on',
         }),
       ).not.toHaveClass('Button--disabled');
     });
@@ -739,7 +739,7 @@ describe(__filename, () => {
       render();
 
       await userEvent.click(
-        screen.getByRole('button', { name: 'Report this add-on for abuse' }),
+        screen.getByRole('button', { name: 'Report this add-on' }),
       );
 
       await userEvent.click(
@@ -759,7 +759,7 @@ describe(__filename, () => {
       render();
 
       await userEvent.click(
-        screen.getByRole('button', { name: 'Report this add-on for abuse' }),
+        screen.getByRole('button', { name: 'Report this add-on' }),
       );
 
       await userEvent.type(
@@ -809,7 +809,7 @@ describe(__filename, () => {
 
       expect(
         screen.getByRole('link', {
-          name: 'Report this add-on for abuse',
+          name: 'Report this add-on',
         }),
       ).toBeInTheDocument();
     });

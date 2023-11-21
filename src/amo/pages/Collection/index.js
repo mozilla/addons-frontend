@@ -441,7 +441,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         puffy
         to={`/feedback/collection/${collection.authorId}/${collection.slug}/`}
       >
-        {i18n.gettext('Report this collection for abuse')}
+        {i18n.gettext('Report this collection')}
       </Button>
     );
   }
