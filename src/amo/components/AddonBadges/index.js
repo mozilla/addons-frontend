@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getPromotedCategory } from 'amo/utils/addons';
 import Badge from 'amo/components/Badge';
@@ -64,6 +65,12 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
             label={i18n.gettext('Some features may require payment')}
           />
         ) : null}
+        {clientApp === CLIENT_APP_FIREFOX && addon.isAndroidCompatible && (
+          <Badge
+            type="android-compatible"
+            label={i18n.gettext('Available on Firefox for Android™')}
+          />
+        )}
       </div>
     );
   }

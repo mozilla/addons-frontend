@@ -14,6 +14,7 @@ import './styles.scss';
 
 type Props = {|
   noLangPicker?: boolean,
+  includeGoogleDisclaimer?: boolean,
 |};
 
 type DefaultProps = {|
@@ -33,7 +34,7 @@ export class FooterBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { _config, i18n, noLangPicker } = this.props;
+    const { _config, includeGoogleDisclaimer, i18n, noLangPicker } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
     return (
@@ -295,9 +296,18 @@ export class FooterBase extends React.Component<InternalProps> {
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={sanitizeHTML(
               i18n.sprintf(
-                i18n.gettext(`Except where otherwise %(startNotedLink)snoted%(endNotedLink)s,
-                  content on this site is licensed under the %(startLicenseLink)sCreative Commons
-                  Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version.`),
+                includeGoogleDisclaimer
+                  ? i18n.gettext(`Except where otherwise
+                      %(startNotedLink)snoted%(endNotedLink)s, content on this
+                      site is licensed under the %(startLicenseLink)sCreative
+                      Commons Attribution Share-Alike License
+                      v3.0%(endLicenseLink)s or any later version. Android is a
+                      trademark of Google LLC.`)
+                  : i18n.gettext(`Except where otherwise
+                      %(startNotedLink)snoted%(endNotedLink)s, content on this
+                      site is licensed under the %(startLicenseLink)sCreative
+                      Commons Attribution Share-Alike License
+                      v3.0%(endLicenseLink)s or any later version.`),
                 {
                   startNotedLink:
                     '<a href="https://www.mozilla.org/en-US/about/legal/">',

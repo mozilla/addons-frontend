@@ -1,6 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
 
+import { CLIENT_APP_ANDROID, ADDON_TYPE_EXTENSION } from 'amo/constants';
 import {
   UNLOAD_ADDON_REVIEWS,
   UPDATE_RATING_COUNTS,
@@ -255,6 +256,7 @@ export function createInternalAddon(
       ? apiAddon.current_version.id
       : null,
     isMozillaSignedExtension: false,
+    isAndroidCompatible: false,
   };
 
   const currentVersion = apiAddon.current_version;
@@ -262,6 +264,9 @@ export function createInternalAddon(
   if (currentVersion) {
     addon.isMozillaSignedExtension =
       currentVersion.file.is_mozilla_signed_extension;
+    addon.isAndroidCompatible =
+      addon.type === ADDON_TYPE_EXTENSION &&
+      !!currentVersion.compatibility[CLIENT_APP_ANDROID];
   }
 
   return addon;

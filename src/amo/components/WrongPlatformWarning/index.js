@@ -10,7 +10,6 @@ import { sanitizeHTML } from 'amo/utils';
 import {
   correctedLocationForPlatform,
   getMobileHomepageLink,
-  isAndroidInstallable,
   isFirefoxForAndroid,
   isFirefoxForIOS,
 } from 'amo/utils/compatibility';
@@ -37,7 +36,6 @@ type PropsFromState = {|
 
 type DefaultProps = {|
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
-  _isAndroidInstallable: typeof isAndroidInstallable,
   _isFirefoxForAndroid: typeof isFirefoxForAndroid,
   _isFirefoxForIOS: typeof isFirefoxForIOS,
   isHomePage?: boolean,
@@ -54,7 +52,6 @@ type InternalProps = {|
 export class WrongPlatformWarningBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
-    _isAndroidInstallable: isAndroidInstallable,
     _isFirefoxForAndroid: isFirefoxForAndroid,
     _isFirefoxForIOS: isFirefoxForIOS,
     isHomePage: false,
@@ -63,7 +60,6 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
   render(): null | React.Node {
     const {
       _correctedLocationForPlatform,
-      _isAndroidInstallable,
       _isFirefoxForAndroid,
       _isFirefoxForIOS,
       addon,
@@ -92,9 +88,8 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
         `Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop.`,
       );
     } else if (
-      addon &&
       _isFirefoxForAndroid(userAgentInfo) &&
-      _isAndroidInstallable({ addon })
+      addon?.isAndroidCompatible
     ) {
       // Compatible with Fenix add-on detail page. No notice required.
       message = null;

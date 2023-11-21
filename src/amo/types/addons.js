@@ -177,6 +177,7 @@ export type AddonType = {|
   // Here are some custom properties for our internal representation.
   currentVersionId: VersionIdType | null,
   isMozillaSignedExtension: boolean,
+  isAndroidCompatible: boolean,
 |};
 
 export type CollectionAddonType = {|

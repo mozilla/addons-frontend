@@ -84,15 +84,6 @@ describe(__filename, () => {
     );
   });
 
-  it('calls _isAndroidInstallable to check for Android compatibility', () => {
-    const addon = createInternalAddonWithLang(fakeAddon);
-    _isFirefoxForAndroid.mockReturnValue(true);
-
-    render({ addon: createInternalAddonWithLang(fakeAddon) });
-
-    expect(_isAndroidInstallable).toHaveBeenCalledWith({ addon });
-  });
-
   it('calls _correctedLocationForPlatform with clientApp, isHomePage, lang, location and userAgentInfo', () => {
     const clientApp = CLIENT_APP_ANDROID;
     const isHomePage = true;

@@ -2987,6 +2987,15 @@ describe(__filename, () => {
     });
 
     it('displays no badges when none are called for', () => {
+      addon = {
+        ...addon,
+        current_version: {
+          ...addon.current_version,
+          compatibility: {
+            firefox: addon.current_version.compatibility.firefox,
+          },
+        },
+      };
       renderWithAddon();
 
       expect(
@@ -3011,6 +3020,44 @@ describe(__filename, () => {
       expect(screen.getByClassName('Badge-requires-payment')).toHaveTextContent(
         'Some features may require payment',
       );
+    });
+
+    it('displays a badge when the add-on is compatible with Android on Desktop', () => {
+      renderWithAddon();
+
+      expect(
+        screen.getByClassName('Badge-android-compatible'),
+      ).toBeInTheDocument();
+      // The footer should also be updated when we show this badge.
+      expect(
+        screen.getByText(/Android is a trademark of Google LLC/),
+      ).toBeInTheDocument();
+    });
+
+    it('does not display a badge when the add-on is compatible with Android but it is not an extension', () => {
+      // That cannot possibly work at the moment, i.e. only extensions are
+      // compatible with Firefox for Android.
+      addon = { ...addon, type: ADDON_TYPE_STATIC_THEME };
+      renderWithAddon();
+
+      expect(
+        screen.queryByClassName('Badge-android-compatible'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/Android is a trademark of Google LLC/),
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not display a badge when the add-on is compatible with Android on Android', () => {
+      store.dispatch(setClientApp(CLIENT_APP_ANDROID));
+      renderWithAddon();
+
+      expect(
+        screen.queryByClassName('Badge-android-compatible'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/Android is a trademark of Google LLC/),
+      ).not.toBeInTheDocument();
     });
   });
 
