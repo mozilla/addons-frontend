@@ -397,7 +397,7 @@ describe(__filename, () => {
     signInUserAndRenderUserProfile();
 
     expect(
-      screen.queryByRole('button', { name: 'Report this user for abuse' }),
+      screen.queryByRole('button', { name: 'Report this user' }),
     ).not.toBeInTheDocument();
   });
 
@@ -407,7 +407,7 @@ describe(__filename, () => {
     renderUserProfile();
 
     expect(
-      screen.getByRole('button', { name: 'Report this user for abuse' }),
+      screen.getByRole('button', { name: 'Report this user' }),
     ).toBeInTheDocument();
   });
 
@@ -415,7 +415,7 @@ describe(__filename, () => {
     renderForOtherThanSignedInUser();
 
     expect(
-      screen.getByRole('button', { name: 'Report this user for abuse' }),
+      screen.getByRole('button', { name: 'Report this user' }),
     ).toBeInTheDocument();
   });
 
@@ -423,7 +423,7 @@ describe(__filename, () => {
     renderUserProfile();
 
     expect(
-      screen.getByRole('button', { name: 'Report this user for abuse' }),
+      screen.getByRole('button', { name: 'Report this user' }),
     ).toBeInTheDocument();
   });
 
@@ -1233,7 +1233,7 @@ describe(__filename, () => {
       renderForOtherThanSignedInUser();
 
       expect(
-        screen.getByRole('link', { name: 'Report this user for abuse' }),
+        screen.getByRole('link', { name: 'Report this user' }),
       ).toBeInTheDocument();
     });
 
@@ -1241,7 +1241,7 @@ describe(__filename, () => {
       renderUserProfile();
 
       expect(
-        screen.getByRole('button', { name: 'Report this user for abuse' }),
+        screen.getByRole('button', { name: 'Report this user' }),
       ).toBeDisabled();
     });
 
@@ -1252,7 +1252,7 @@ describe(__filename, () => {
         'ReportUserAbuse--is-expanded',
       );
       expect(
-        screen.getByRole('button', { name: 'Report this user for abuse' }),
+        screen.getByRole('button', { name: 'Report this user' }),
       ).toBeInTheDocument();
     });
 
@@ -1261,7 +1261,7 @@ describe(__filename, () => {
       const userId = renderForOtherThanSignedInUser();
 
       await userEvent.click(
-        screen.getByRole('button', { name: 'Report this user for abuse' }),
+        screen.getByRole('button', { name: 'Report this user' }),
       );
 
       expect(dispatch).toHaveBeenCalledWith(
@@ -1276,7 +1276,7 @@ describe(__filename, () => {
 
       // The initial button should no longer be visible.
       expect(
-        screen.queryByRole('button', { name: 'Report this user for abuse' }),
+        screen.queryByRole('button', { name: 'Report this user' }),
       ).not.toBeInTheDocument();
     });
 
@@ -1284,11 +1284,11 @@ describe(__filename, () => {
       renderForOtherThanSignedInUser();
 
       await userEvent.click(
-        screen.getByRole('button', { name: 'Report this user for abuse' }),
+        screen.getByRole('button', { name: 'Report this user' }),
       );
 
       expect(
-        screen.getByRole('heading', { name: 'Report this user for abuse' }),
+        screen.getByRole('heading', { name: 'Report this user' }),
       ).toBeInTheDocument();
       expect(
         screen.getByRole('button', { name: 'Send abuse report' }),
@@ -1300,7 +1300,7 @@ describe(__filename, () => {
       const userId = renderForOtherThanSignedInUser();
 
       await userEvent.click(
-        screen.getByRole('button', { name: 'Report this user for abuse' }),
+        screen.getByRole('button', { name: 'Report this user' }),
       );
 
       await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
@@ -1321,7 +1321,7 @@ describe(__filename, () => {
       const userId = renderForOtherThanSignedInUser();
 
       await userEvent.click(
-        screen.getByRole('button', { name: 'Report this user for abuse' }),
+        screen.getByRole('button', { name: 'Report this user' }),
       );
 
       await userEvent.type(
@@ -1378,7 +1378,7 @@ describe(__filename, () => {
         screen.getByText(/^We can't respond to every abuse report/),
       ).toBeInTheDocument();
       expect(
-        screen.queryByRole('button', { name: 'Report this user for abuse' }),
+        screen.queryByRole('button', { name: 'Report this user' }),
       ).not.toBeInTheDocument();
     });
 
@@ -1443,7 +1443,7 @@ describe(__filename, () => {
       renderForOtherThanSignedInUser();
 
       expect(
-        screen.getByRole('button', { name: 'Report this user for abuse' }),
+        screen.getByRole('button', { name: 'Report this user' }),
       ).not.toBeDisabled();
     });
 
