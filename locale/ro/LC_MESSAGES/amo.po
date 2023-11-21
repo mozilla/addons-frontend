@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-16 15:49+0000\n"
+"POT-Creation-Date: 2023-11-21 16:36+0000\n"
 "PO-Revision-Date: 2022-06-25 13:19+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -90,7 +90,7 @@ msgstr "Acest supliment nu este compatibil cu versiunea ta de Firefox."
 msgid "This add-on is not available on your platform."
 msgstr "Acest supliment nu este disponibil pe platforma ta."
 
-#: src/amo/components/AddonFeedbackForm/index.js:148
+#: src/amo/components/AddonFeedbackForm/index.js:137
 #: src/amo/components/SearchResult/index.js:248
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
@@ -98,15 +98,15 @@ msgstr[0] "%(total)s utilizator"
 msgstr[1] "%(total)s utilizatori"
 msgstr[2] "%(total)s de utilizatori"
 
-#: src/amo/components/AddonFeedbackForm/index.js:176
+#: src/amo/components/AddonFeedbackForm/index.js:198
 msgid "Report this add-on to Mozilla"
 msgstr ""
 
-#: src/amo/components/AddonFeedbackForm/index.js:177
+#: src/amo/components/AddonFeedbackForm/index.js:199
 msgid "Send some feedback about the add-on"
 msgstr ""
 
-#: src/amo/components/AddonFeedbackForm/index.js:178
+#: src/amo/components/AddonFeedbackForm/index.js:200
 msgid "Report the add-on because it's illegal or incompliant"
 msgstr ""
 
@@ -1153,32 +1153,32 @@ msgstr ""
 msgid "We have received your report. Thanks for letting us know."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:331
+#: src/amo/components/FeedbackForm/index.js:338
 msgid "Submitting your report…"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:332
+#: src/amo/components/FeedbackForm/index.js:339
 msgid "Submit report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:351
+#: src/amo/components/FeedbackForm/index.js:358
 msgid "Provide more information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:360
+#: src/amo/components/FeedbackForm/index.js:367
 msgid "Place of the violation"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:361
-#: src/amo/components/FeedbackForm/index.js:379
+#: src/amo/components/FeedbackForm/index.js:368
+#: src/amo/components/FeedbackForm/index.js:386
 msgid "optional"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:378
+#: src/amo/components/FeedbackForm/index.js:385
 msgid "Provide more details"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:389
+#: src/amo/components/FeedbackForm/index.js:397
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1186,29 +1186,39 @@ msgid ""
 "addressing the reported content."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:399
+#: src/amo/components/FeedbackForm/index.js:407
 msgid "Contact information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:414
+#: src/amo/components/FeedbackForm/index.js:423
 msgid "File report anonymously"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:417
+#: src/amo/components/FeedbackForm/index.js:426
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:436
+#: src/amo/components/FeedbackForm/index.js:445
 msgid "Your name"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:459
+#: src/amo/components/FeedbackForm/index.js:448
+#: src/amo/components/FeedbackForm/index.js:478
+msgid "(optional)"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:449
+#: src/amo/components/FeedbackForm/index.js:479
+msgid "(required)"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:475
 msgid "Your email address"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:491
+#: src/amo/components/FeedbackForm/index.js:514
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -1509,19 +1519,19 @@ msgstr "Să îți acceseze datele pentru %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:192
+#: src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
 msgstr "De Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Recommended"
 msgstr "Recomandate"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:196
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr "Verificat"
 
@@ -1856,11 +1866,11 @@ msgstr ""
 "sau de confidențialitate, te rugăm să ne raportezi aceste probleme "
 "completând acest formular."
 
-#: src/amo/components/ReportAbuseButton/index.js:154
-msgid "Report this add-on for abuse"
-msgstr "Raportează acest supliment pentru abuz"
+#: src/amo/components/ReportAbuseButton/index.js:151
+msgid "Report this add-on"
+msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:196
+#: src/amo/components/ReportAbuseButton/index.js:193
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1869,28 +1879,28 @@ msgstr ""
 "soliciți funcționalități de suplimente; acest raport va fi transmis către "
 "Mozilla și nu către dezvoltatorul suplimentului."
 
-#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportAbuseButton/index.js:206
 #: src/amo/components/ReportUserAbuse/index.js:169
 msgid "Send abuse report"
 msgstr "Trimite raportul de abuz"
 
-#: src/amo/components/ReportAbuseButton/index.js:210
+#: src/amo/components/ReportAbuseButton/index.js:207
 #: src/amo/components/ReportUserAbuse/index.js:170
 msgid "Sending abuse report"
 msgstr "Se trimite raportul de abuz"
 
-#: src/amo/components/ReportAbuseButton/index.js:212
+#: src/amo/components/ReportAbuseButton/index.js:209
 msgid "Dismiss"
 msgstr "Înlătură"
 
-#: src/amo/components/ReportAbuseButton/index.js:213
+#: src/amo/components/ReportAbuseButton/index.js:210
 msgid "Explain how this add-on is violating our policies."
 msgstr "Explică-ne cum ne violează acest supliment politicile."
 
 #: src/amo/components/ReportUserAbuse/index.js:122
 #: src/amo/components/ReportUserAbuse/index.js:129
-msgid "Report this user for abuse"
-msgstr "Raportează acest utilizator pentru abuz"
+msgid "Report this user"
+msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:136
 msgid ""
@@ -2198,60 +2208,60 @@ msgstr[0] "%(count)s extensie găsită pentru „%(query)s” în %(categoryName
 msgstr[1] "%(count)s extensii găsite pentru „%(query)s” în %(categoryName)s"
 msgstr[2] "%(count)s de extensii găsite pentru „%(query)s” în %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:148
 msgid "All"
 msgstr "Toate"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
 msgstr "Extensie"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
 msgstr "Temă"
 
-#: src/amo/components/SearchFilters/index.js:174
+#: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
 msgstr "Relevanță"
 
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
 msgstr "Actualizate recent"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
 msgstr "Cei mai mulți utilizatori"
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Top Rated"
 msgstr "În topul evaluărilor"
 
-#: src/amo/components/SearchFilters/index.js:181
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Trending"
 msgstr "În tendințe"
 
-#: src/amo/components/SearchFilters/index.js:189
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:190
 #, fuzzy
 msgid "All Reviewed"
 msgstr "recenzie"
 
-#: src/amo/components/SearchFilters/index.js:229
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
 msgstr "Filtrează rezultatele"
 
-#: src/amo/components/SearchFilters/index.js:234
+#: src/amo/components/SearchFilters/index.js:215
 msgid "Sort by"
 msgstr "Sortează după"
 
-#: src/amo/components/SearchFilters/index.js:256
+#: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
 msgstr "Tipul suplimentului"
 
-#: src/amo/components/SearchFilters/index.js:279
+#: src/amo/components/SearchFilters/index.js:258
 msgid "Badging"
 msgstr "Insigne"
 
@@ -2696,7 +2706,7 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Collection/index.js:444
-msgid "Report this collection for abuse"
+msgid "Report this collection"
 msgstr ""
 
 #: src/amo/pages/Collection/index.js:463
@@ -3372,11 +3382,11 @@ msgid "Report this user to Mozilla"
 msgstr ""
 
 #: src/amo/pages/UserFeedback/index.js:145
-msgid "Send some feedback about the user"
+msgid "Send some feedback about the user profile"
 msgstr ""
 
-#: src/amo/pages/UserFeedback/index.js:146
-msgid "Report the user because they are illegal or incompliant"
+#: src/amo/pages/UserFeedback/index.js:148
+msgid "Report the user profile because it's illegal or incompliant"
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:242
@@ -3809,6 +3819,12 @@ msgstr "compatibilitatea suplimentului meu nu poate fi actualizată"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
+
+#~ msgid "Report this add-on for abuse"
+#~ msgstr "Raportează acest supliment pentru abuz"
+
+#~ msgid "Report this user for abuse"
+#~ msgstr "Raportează acest utilizator pentru abuz"
 
 #~ msgid "You reported this add-on for abuse"
 #~ msgstr "Ai raportat acest supliment pentru abuz"
