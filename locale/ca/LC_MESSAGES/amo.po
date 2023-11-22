@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-16 15:49+0000\n"
+"POT-Creation-Date: 2023-11-22 12:32+0000\n"
 "PO-Revision-Date: 2023-03-04 22:33+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -89,22 +89,22 @@ msgstr "Aquest complement no és compatible amb la versió del Firefox."
 msgid "This add-on is not available on your platform."
 msgstr "Aquest complement no està disponible a la vostra plataforma."
 
-#: src/amo/components/AddonFeedbackForm/index.js:148
+#: src/amo/components/AddonFeedbackForm/index.js:137
 #: src/amo/components/SearchResult/index.js:248
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s usuari"
 msgstr[1] "%(total)s usuaris"
 
-#: src/amo/components/AddonFeedbackForm/index.js:176
+#: src/amo/components/AddonFeedbackForm/index.js:198
 msgid "Report this add-on to Mozilla"
 msgstr ""
 
-#: src/amo/components/AddonFeedbackForm/index.js:177
+#: src/amo/components/AddonFeedbackForm/index.js:199
 msgid "Send some feedback about the add-on"
 msgstr ""
 
-#: src/amo/components/AddonFeedbackForm/index.js:178
+#: src/amo/components/AddonFeedbackForm/index.js:200
 msgid "Report the add-on because it's illegal or incompliant"
 msgstr ""
 
@@ -1091,98 +1091,99 @@ msgstr "Ressenya de: %(userName)s"
 msgid "The review was not found."
 msgstr "No s'ha trobat la ressenya."
 
-#: src/amo/components/FeedbackForm/index.js:104
-msgid "It’s spam"
+#: src/amo/components/FeedbackForm/index.js:100
+msgid ""
+"Example: Features are slow, hard to use, or don’t work; parts of websites "
+"won't load or look unusual."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:105
+msgid "It’s spam"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:106
 msgid "Example: The listing advertises unrelated products or services."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:113
+#: src/amo/components/FeedbackForm/index.js:114
 msgid "It violates Add-on Policies"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:114
+#: src/amo/components/FeedbackForm/index.js:115
 msgid ""
 "Example: It compromised my data without informing or asking me, or it "
 "changed my search engine or home page without informing or asking me."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:120
+#: src/amo/components/FeedbackForm/index.js:121
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:122
+#: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It contains racist imagery."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:126
+#: src/amo/components/FeedbackForm/index.js:127
 msgid "It violates the law or contains content that violates the law"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:129
+#: src/amo/components/FeedbackForm/index.js:130
 msgid "Example: Copyright or Trademark Infringement, Fraud."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:135
+#: src/amo/components/FeedbackForm/index.js:136
 msgid "Something else"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:136
+#: src/amo/components/FeedbackForm/index.js:137
 msgid "Anything that doesn’t fit into the other categories."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:148
+#: src/amo/components/FeedbackForm/index.js:149
 msgid "Select place"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:150
+#: src/amo/components/FeedbackForm/index.js:151
 msgid "On the add-on's page on this website"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:153
+#: src/amo/components/FeedbackForm/index.js:154
 msgid "Inside the add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:154
+#: src/amo/components/FeedbackForm/index.js:155
 msgid "Both locations"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:249
+#: src/amo/components/FeedbackForm/index.js:250
 msgid "Report submitted"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:251
+#: src/amo/components/FeedbackForm/index.js:252
 msgid "We have received your report. Thanks for letting us know."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:331
+#: src/amo/components/FeedbackForm/index.js:339
 msgid "Submitting your report…"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:332
+#: src/amo/components/FeedbackForm/index.js:340
 msgid "Submit report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:351
+#: src/amo/components/FeedbackForm/index.js:359
 msgid "Provide more information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:360
-msgid "Place of the violation"
+#: src/amo/components/FeedbackForm/index.js:369
+msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:361
-#: src/amo/components/FeedbackForm/index.js:379
-msgid "optional"
+#: src/amo/components/FeedbackForm/index.js:397
+msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:378
-msgid "Provide more details"
-msgstr ""
-
-#: src/amo/components/FeedbackForm/index.js:389
+#: src/amo/components/FeedbackForm/index.js:414
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1190,43 +1191,45 @@ msgid ""
 "addressing the reported content."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:399
+#: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:414
+#: src/amo/components/FeedbackForm/index.js:440
 msgid "File report anonymously"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:417
+#: src/amo/components/FeedbackForm/index.js:443
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:436
-msgid "Your name"
+#: src/amo/components/FeedbackForm/index.js:464
+msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:459
-msgid "Your email address"
+#: src/amo/components/FeedbackForm/index.js:467
+msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:491
+#: src/amo/components/FeedbackForm/index.js:504
+msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:507
+msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:551
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
 "knowledge."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:96
+#: src/amo/components/FeedbackForm/index.js:97
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr ""
-
-#: src/amo/components/FeedbackForm/index.js:99
-msgid ""
-"Example: Features are slow, hard to use, or don’t work; parts of websites "
-"won't load or look unusual."
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:101
@@ -1515,19 +1518,19 @@ msgstr "Accediu a les dades de %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:192
+#: src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
 msgstr "Del Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Recommended"
 msgstr "Recomanat"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:196
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr "Verificat"
 
@@ -1856,11 +1859,11 @@ msgstr ""
 "privadesa, informeu d’aquests problemes a Mozilla mitjançant aquest "
 "formulari."
 
-#: src/amo/components/ReportAbuseButton/index.js:154
-msgid "Report this add-on for abuse"
-msgstr "Informeu d'aquest complement per abús"
+#: src/amo/components/ReportAbuseButton/index.js:151
+msgid "Report this add-on"
+msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:196
+#: src/amo/components/ReportAbuseButton/index.js:193
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1869,28 +1872,28 @@ msgstr ""
 "addicionals; aquest informe s’enviarà a Mozilla i no al desenvolupador del "
 "complement."
 
-#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportAbuseButton/index.js:206
 #: src/amo/components/ReportUserAbuse/index.js:169
 msgid "Send abuse report"
 msgstr "Envia l'informe d'abús"
 
-#: src/amo/components/ReportAbuseButton/index.js:210
+#: src/amo/components/ReportAbuseButton/index.js:207
 #: src/amo/components/ReportUserAbuse/index.js:170
 msgid "Sending abuse report"
 msgstr "S'està enviant l'informe d'abús"
 
-#: src/amo/components/ReportAbuseButton/index.js:212
+#: src/amo/components/ReportAbuseButton/index.js:209
 msgid "Dismiss"
 msgstr "Descarta"
 
-#: src/amo/components/ReportAbuseButton/index.js:213
+#: src/amo/components/ReportAbuseButton/index.js:210
 msgid "Explain how this add-on is violating our policies."
 msgstr "Expliqueu com aquest complement incompleix les nostres polítiques."
 
 #: src/amo/components/ReportUserAbuse/index.js:122
 #: src/amo/components/ReportUserAbuse/index.js:129
-msgid "Report this user for abuse"
-msgstr "Denuncia aquest usuari per abús"
+msgid "Report this user"
+msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:136
 msgid ""
@@ -2170,59 +2173,59 @@ msgstr[0] "S'ha trobat %(count)s extensió per «%(query)s» a %(categoryName)s"
 msgstr[1] ""
 "S'han trobat %(count)s extensions per «%(query)s» a %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:148
 msgid "All"
 msgstr "Tot"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
 msgstr "Extensió"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:174
+#: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
 msgstr "Rellevància"
 
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
 msgstr "Actualitzat recentment"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
 msgstr "Amb més usuaris"
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Top Rated"
 msgstr "Millor valorat"
 
-#: src/amo/components/SearchFilters/index.js:181
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Trending"
 msgstr "Tendències"
 
-#: src/amo/components/SearchFilters/index.js:189
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
 msgstr "Qualsevol"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:190
 msgid "All Reviewed"
 msgstr "Tots els revisats"
 
-#: src/amo/components/SearchFilters/index.js:229
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
 msgstr "Filtrar els resultats"
 
-#: src/amo/components/SearchFilters/index.js:234
+#: src/amo/components/SearchFilters/index.js:215
 msgid "Sort by"
 msgstr "Ordena per"
 
-#: src/amo/components/SearchFilters/index.js:256
+#: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
 msgstr "Tipus de complement"
 
-#: src/amo/components/SearchFilters/index.js:279
+#: src/amo/components/SearchFilters/index.js:258
 msgid "Badging"
 msgstr "Distintiu"
 
@@ -2658,7 +2661,7 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Collection/index.js:444
-msgid "Report this collection for abuse"
+msgid "Report this collection"
 msgstr ""
 
 #: src/amo/pages/Collection/index.js:463
@@ -3330,11 +3333,11 @@ msgid "Report this user to Mozilla"
 msgstr ""
 
 #: src/amo/pages/UserFeedback/index.js:145
-msgid "Send some feedback about the user"
+msgid "Send some feedback about the user profile"
 msgstr ""
 
-#: src/amo/pages/UserFeedback/index.js:146
-msgid "Report the user because they are illegal or incompliant"
+#: src/amo/pages/UserFeedback/index.js:148
+msgid "Report the user profile because it's illegal or incompliant"
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:242
@@ -3770,6 +3773,12 @@ msgstr "la compatibilitat del meu complement no es pot actualitzar"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "la compatibilitat del meu complement s'ha actualitzat correctament"
+
+#~ msgid "Report this add-on for abuse"
+#~ msgstr "Informeu d'aquest complement per abús"
+
+#~ msgid "Report this user for abuse"
+#~ msgstr "Denuncia aquest usuari per abús"
 
 #~ msgid "You reported this add-on for abuse"
 #~ msgstr "Heu informat d'aquest complement per abús"
