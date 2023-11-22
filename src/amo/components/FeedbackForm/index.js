@@ -12,6 +12,7 @@ import Button from 'amo/components/Button';
 import Card from 'amo/components/Card';
 import Select from 'amo/components/Select';
 import SignedInUser from 'amo/components/SignedInUser';
+import { replaceStringsWithJSX } from 'amo/i18n/utils';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
@@ -364,8 +365,18 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                       className="FeedbackForm-label"
                       htmlFor="feedbackLocation"
                     >
-                      {i18n.gettext('Place of the violation')}
-                      <span>({i18n.gettext('optional')})</span>
+                      {replaceStringsWithJSX({
+                        text: i18n.gettext(
+                          'Place of the violation %(spanStart)s(optional)%(spanEnd)s',
+                        ),
+                        replacements: [
+                          [
+                            'spanStart',
+                            'spanEnd',
+                            (text) => <span>{text}</span>,
+                          ],
+                        ],
+                      })}
                     </label>
                     <Select
                       className="FeedbackForm-location"
@@ -382,8 +393,14 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 )}
 
               <label className="FeedbackForm-label" htmlFor="feedbackText">
-                {i18n.gettext('Provide more details')}
-                <span>({i18n.gettext('optional')})</span>
+                {replaceStringsWithJSX({
+                  text: i18n.gettext(
+                    'Provide more details %(spanStart)s(optional)%(spanEnd)s',
+                  ),
+                  replacements: [
+                    ['spanStart', 'spanEnd', (text) => <span>{text}</span>],
+                  ],
+                })}
               </label>
               <Textarea
                 className="FeedbackForm-text"
@@ -442,12 +459,22 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 })}
                 htmlFor="feedbackName"
               >
-                {i18n.gettext('Your name')}
-                <span className="visually-hidden">
-                  {this.state.anonymous
-                    ? i18n.gettext('(optional)')
-                    : i18n.gettext('(required)')}
-                </span>
+                {replaceStringsWithJSX({
+                  text: this.state.anonymous
+                    ? i18n.gettext(
+                        'Your name %(spanStart)s(optional)%(spanEnd)s',
+                      )
+                    : i18n.gettext(
+                        'Your name %(spanStart)s(required)%(spanEnd)s',
+                      ),
+                  replacements: [
+                    [
+                      'spanStart',
+                      'spanEnd',
+                      (text) => <span className="visually-hidden">{text}</span>,
+                    ],
+                  ],
+                })}
               </label>
               <input
                 className={makeClassName('FeedbackForm-name', {
@@ -472,12 +499,22 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 })}
                 htmlFor="feedbackEmail"
               >
-                {i18n.gettext('Your email address')}
-                <span className="visually-hidden">
-                  {this.state.anonymous
-                    ? i18n.gettext('(optional)')
-                    : i18n.gettext('(required)')}
-                </span>
+                {replaceStringsWithJSX({
+                  text: this.state.anonymous
+                    ? i18n.gettext(
+                        'Your email address %(spanStart)s(optional)%(spanEnd)s',
+                      )
+                    : i18n.gettext(
+                        'Your email address %(spanStart)s(required)%(spanEnd)s',
+                      ),
+                  replacements: [
+                    [
+                      'spanStart',
+                      'spanEnd',
+                      (text) => <span className="visually-hidden">{text}</span>,
+                    ],
+                  ],
+                })}
               </label>
               <input
                 className={makeClassName('FeedbackForm-email', {

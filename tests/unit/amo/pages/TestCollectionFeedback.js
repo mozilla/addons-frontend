@@ -236,11 +236,11 @@ describe(__filename, () => {
     ).toBeInTheDocument();
     expect(screen.getByText('Submit report')).toBeInTheDocument();
 
-    const nameInput = screen.getByLabelText('Your name(required)');
+    const nameInput = screen.getByLabelText('Your name (required)');
     expect(nameInput).not.toBeDisabled();
     expect(nameInput.value).toBeEmpty();
 
-    const emailInput = screen.getByLabelText('Your email address(required)');
+    const emailInput = screen.getByLabelText('Your email address (required)');
     expect(emailInput).not.toBeDisabled();
     expect(emailInput.value).toBeEmpty();
 
@@ -276,11 +276,11 @@ describe(__filename, () => {
     ).toBeInTheDocument();
     expect(screen.getByText('Submit report')).toBeInTheDocument();
 
-    const nameInput = screen.getByLabelText('Your name(required)');
+    const nameInput = screen.getByLabelText('Your name (required)');
     expect(nameInput).toBeDisabled();
     expect(nameInput).toHaveValue(signedInCollectionname);
 
-    const emailInput = screen.getByLabelText('Your email address(required)');
+    const emailInput = screen.getByLabelText('Your email address (required)');
     expect(emailInput).toBeDisabled();
     expect(emailInput).toHaveValue(signedInEmail);
 
@@ -382,7 +382,7 @@ describe(__filename, () => {
       reporterName,
     );
 
-    const nameInput = screen.getByLabelText('Your name(required)');
+    const nameInput = screen.getByLabelText('Your name (required)');
     expect(nameInput).toHaveValue(reporterName);
 
     await userEvent.click(
@@ -409,7 +409,7 @@ describe(__filename, () => {
       reporterEmail,
     );
 
-    const emailInput = screen.getByLabelText('Your email address(required)');
+    const emailInput = screen.getByLabelText('Your email address (required)');
     expect(emailInput).toHaveValue(reporterEmail);
 
     await userEvent.click(
