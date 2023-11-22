@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-22 12:32+0000\n"
-"PO-Revision-Date: 2023-11-22 23:12+0000\n"
+"PO-Revision-Date: 2023-11-22 23:13+0000\n"
 "Last-Translator: pdehaan <pdehaan@mozilla.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en_CA\n"
@@ -2434,7 +2434,7 @@ msgstr "Firefox for Android extensions"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "Personalize Firefox for Android with powerful extensions."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2442,7 +2442,7 @@ msgstr "See more recommended extensions"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Explore all Android extensions"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2546,19 +2546,19 @@ msgstr "Dictionaries"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Submit feedback or report a review to Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "by %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Report this review to Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Report the review because it is illegal or incompliant"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2826,7 +2826,7 @@ msgstr "Add-ons tagged with %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Submit feedback or report a user to Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2834,15 +2834,15 @@ msgstr "User since"
 
 #: src/amo/pages/UserFeedback/index.js:144
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Report this user to Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "Send some feedback about the user profile"
 
 #: src/amo/pages/UserFeedback/index.js:148
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "Report the user profile because it’s illegal or incompliant"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
