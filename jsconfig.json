@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "amo/*": ["src/amo/*"]
+    }
+  },
+  "include": ["**/*"]
+}
