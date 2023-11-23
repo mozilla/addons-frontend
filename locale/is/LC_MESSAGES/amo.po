@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-22 12:32+0000\n"
-"PO-Revision-Date: 2023-11-23 17:48+0000\n"
+"PO-Revision-Date: 2023-11-23 17:53+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -1049,6 +1049,8 @@ msgid ""
 "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to "
 "include it may prevent us from addressing the reported content."
 msgstr ""
+"Gefðu upp allar viðbótarupplýsingar sem gætu hjálpað okkur að skilja skýrsluna þína (þar á meðal hvaða skilmála þú telur að hafi verið brotnar). Þó að þessar upplýsingar séu ekki bráðnauðsynlegar, "
+"getur það komið í veg fyrir að við tökum til ráðstafana varðandi tilkynnt efni, séu þær ekki fyrir hendi."
 
 #: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
@@ -1080,7 +1082,7 @@ msgstr "Tölvupóstfangið þitt %(spanStart)s(nauðsynlegt)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:551
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
-msgstr ""
+msgstr "Með því að leggja fram þessa kæru, þá votta ég eftir bestu vitund, að ásakanirnar sem hún hefur að geyma eru tæmandi og nákvæmar."
 
 #: src/amo/components/FeedbackForm/index.js:97
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
