@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-22 12:32+0000\n"
-"PO-Revision-Date: 2023-11-23 17:42+0000\n"
+"PO-Revision-Date: 2023-11-23 17:48+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -974,7 +974,7 @@ msgstr "Hún brýtur í bága við reglur um viðbætur"
 
 #: src/amo/components/FeedbackForm/index.js:115
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr ""
+msgstr "Dæmi: Það opinberaði eða stal gögnunum mínum án þess að upplýsa mig eða spyrja mig, eða það breytti leitarvélinni minni eða heimasíðunni án þess að upplýsa eða spyrja mig."
 
 #: src/amo/components/FeedbackForm/index.js:121
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
@@ -982,15 +982,15 @@ msgstr "Hún inniheldur hatursfullt, ofbeldisfullt, villandi eða annað óviðe
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It contains racist imagery."
-msgstr ""
+msgstr "Dæmi: Það inniheldur myndefni sem sýnir kynþáttafordóma."
 
 #: src/amo/components/FeedbackForm/index.js:127
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Þetta brýtur í bága við lög eða inniheldur efni sem brýtur lög"
 
 #: src/amo/components/FeedbackForm/index.js:130
 msgid "Example: Copyright or Trademark Infringement, Fraud."
-msgstr ""
+msgstr "Dæmi: Höfundarréttar eða vörumerkjabrot, svik."
 
 #: src/amo/components/FeedbackForm/index.js:136
 msgid "Something else"
@@ -1006,43 +1006,43 @@ msgstr "Veldu stað"
 
 #: src/amo/components/FeedbackForm/index.js:151
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "Á síðu viðbótarinnar á þessu vefsvæði"
 
 #: src/amo/components/FeedbackForm/index.js:154
 msgid "Inside the add-on"
-msgstr ""
+msgstr "Inni í viðbótinni"
 
 #: src/amo/components/FeedbackForm/index.js:155
 msgid "Both locations"
-msgstr ""
+msgstr "Á báðum stöðum"
 
 #: src/amo/components/FeedbackForm/index.js:250
 msgid "Report submitted"
-msgstr ""
+msgstr "Kæra lögð fram"
 
 #: src/amo/components/FeedbackForm/index.js:252
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "Við höfum fengið skýrsluna þína. Takk fyrir að láta okkur vita."
 
 #: src/amo/components/FeedbackForm/index.js:339
 msgid "Submitting your report…"
-msgstr ""
+msgstr "Sendi skýrslu…"
 
 #: src/amo/components/FeedbackForm/index.js:340
 msgid "Submit report"
-msgstr ""
+msgstr "Senda inn skýrslu"
 
 #: src/amo/components/FeedbackForm/index.js:359
 msgid "Provide more information"
-msgstr ""
+msgstr "Gefðu frekari upplýsingar"
 
 #: src/amo/components/FeedbackForm/index.js:369
 msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Staðsetning brotsins %(spanStart)s(valfrjálst)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:397
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Gefðu frekari upplýsingar %(spanStart)s(valfrjálst)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:414
 msgid ""
@@ -1052,7 +1052,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
-msgstr ""
+msgstr "Samskiptaupplýsingar"
 
 #: src/amo/components/FeedbackForm/index.js:440
 msgid "File report anonymously"
@@ -1060,7 +1060,7 @@ msgstr "Skrá skýrslu nafnlaust"
 
 #: src/amo/components/FeedbackForm/index.js:443
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Að leggja fram nafnlausa skýrslu kemur í veg fyrir að við getum haft samskipti við þig um stöðu skýrslunnar eða um möguleika til áfrýjunar."
 
 #: src/amo/components/FeedbackForm/index.js:464
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
