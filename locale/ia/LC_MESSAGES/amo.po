@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-22 12:32+0000\n"
-"PO-Revision-Date: 2023-11-23 22:20+0000\n"
+"PO-Revision-Date: 2023-11-24 21:58+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1050,6 +1050,8 @@ msgid ""
 "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to "
 "include it may prevent us from addressing the reported content."
 msgstr ""
+"Forni alcun information additional que pote adjutar nos a comprender tu reporto (includite ille regulamento que tu crede ha essite violate). Ben que iste information non es obligatori, le insuccesso"
+" a includer lo pote impedir nos de adressar le contento reportate."
 
 #: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
@@ -1081,7 +1083,7 @@ msgstr "Tu adresse email %(spanStart)s(obligatori)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:551
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
-msgstr ""
+msgstr "Per le invio de iste reporto io certifica, sub penalitate de perjurio, que le accusationes que illo contine es complete e correcte, al melio de mi cognoscentia."
 
 #: src/amo/components/FeedbackForm/index.js:97
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
