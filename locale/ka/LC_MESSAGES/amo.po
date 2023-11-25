@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-22 12:32+0000\n"
-"PO-Revision-Date: 2023-11-25 19:47+0000\n"
+"PO-Revision-Date: 2023-11-25 19:59+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -374,11 +374,11 @@ msgstr "თარიღი %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:371
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "შემქმნელი %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "მიმომხილველი %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "ავტორი %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "მიმომხილველი %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:489
 msgid "Deleting…"
