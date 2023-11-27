@@ -414,7 +414,7 @@ module.exports = {
   enableFeatureVPNPromo: true,
 
   enableFeatureFeedbackForm: true,
-  enableFeatureFeedbackFormLinks: false,
+  enableFeatureFeedbackFormLinks: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

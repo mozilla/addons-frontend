@@ -79,6 +79,4 @@ module.exports = {
   ga4DebugMode: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
-
-  enableFeatureFeedbackFormLinks: true,
 };
