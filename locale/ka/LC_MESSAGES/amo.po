@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-22 12:32+0000\n"
-"PO-Revision-Date: 2023-11-27 11:20+0000\n"
+"PO-Revision-Date: 2023-11-27 11:32+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1046,7 +1046,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:397
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "უფრო დაწვრილებით აღწერა %(spanStart)s(არასავალდებულო)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:414
 msgid ""
