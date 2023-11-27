@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-22 12:32+0000\n"
-"PO-Revision-Date: 2023-11-25 19:59+0000\n"
+"PO-Revision-Date: 2023-11-27 11:12+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -97,11 +97,11 @@ msgstr[1] "%(total)s მომხმარებელი"
 
 #: src/amo/components/AddonFeedbackForm/index.js:198
 msgid "Report this add-on to Mozilla"
-msgstr ""
+msgstr "საჩივარი დამატების შესახებ Mozilla-ს"
 
 #: src/amo/components/AddonFeedbackForm/index.js:199
 msgid "Send some feedback about the add-on"
-msgstr ""
+msgstr "გამოხმაურება დამატების შესახებ"
 
 #: src/amo/components/AddonFeedbackForm/index.js:200
 msgid "Report the add-on because it's illegal or incompliant"
