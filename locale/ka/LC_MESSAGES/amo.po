@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-22 12:32+0000\n"
-"PO-Revision-Date: 2023-11-27 11:12+0000\n"
+"PO-Revision-Date: 2023-11-27 11:20+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -105,7 +105,7 @@ msgstr "გამოხმაურება დამატების შე�
 
 #: src/amo/components/AddonFeedbackForm/index.js:200
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "საჩივარი დამატების შესახებ სამართალდარღვევის ან შეუსაბამობის გამო"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -962,15 +962,15 @@ msgstr "მიმოხილვა ვერ მოიძებნა."
 
 #: src/amo/components/FeedbackForm/index.js:100
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
-msgstr ""
+msgstr "მაგალითად: ზოგი შესაძლებლობა შენელდა, ძნელი გამოსაყენებელი გახდა ან არ მუშაობს; საიტების ნაწილი არ იტვირთება ან უჩვეულოდ გამოიყურება."
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It’s spam"
-msgstr ""
+msgstr "უსარგებლოა"
 
 #: src/amo/components/FeedbackForm/index.js:106
 msgid "Example: The listing advertises unrelated products or services."
-msgstr ""
+msgstr "მაგალითად: არეკლამებს შეუფერებელ ნაწარმსა თუ მომსახურებებს."
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "It violates Add-on Policies"
@@ -978,7 +978,7 @@ msgstr "არღვევს დამატებების დებულ�
 
 #: src/amo/components/FeedbackForm/index.js:115
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr ""
+msgstr "მაგალითად: დაუკითხავად ხელყო ჩემი მონაცემები, ანდა თვითნებურად შეცვალა საძიებო სისტემა და საწყისი გვერდი."
 
 #: src/amo/components/FeedbackForm/index.js:121
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
@@ -986,7 +986,7 @@ msgstr "სიძულვილის, ძალადობის, თაღ�
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It contains racist imagery."
-msgstr ""
+msgstr "მაგალითად: შეიცავს კანის ფერით დამცირების ამსახველ სურათებს."
 
 #: src/amo/components/FeedbackForm/index.js:127
 msgid "It violates the law or contains content that violates the law"
@@ -994,7 +994,7 @@ msgstr "სამართალდარღვევაა ან შეიც�
 
 #: src/amo/components/FeedbackForm/index.js:130
 msgid "Example: Copyright or Trademark Infringement, Fraud."
-msgstr ""
+msgstr "მაგალითად: საკუთრების უფლების ან სასაქონლო ნიშნის მითვისება, გაყალბება."
 
 #: src/amo/components/FeedbackForm/index.js:136
 msgid "Something else"
@@ -1002,7 +1002,7 @@ msgstr "სხვა"
 
 #: src/amo/components/FeedbackForm/index.js:137
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "ყველაფერი, რასაც სხვა ჯგუფები არ მოიცავს."
 
 #: src/amo/components/FeedbackForm/index.js:149
 msgid "Select place"
@@ -1022,7 +1022,7 @@ msgstr "ორივე ადგილას"
 
 #: src/amo/components/FeedbackForm/index.js:250
 msgid "Report submitted"
-msgstr ""
+msgstr "მოხსენება გაგზავნილია"
 
 #: src/amo/components/FeedbackForm/index.js:252
 msgid "We have received your report. Thanks for letting us know."
@@ -1038,7 +1038,7 @@ msgstr "საჩივრის გაგზავნა"
 
 #: src/amo/components/FeedbackForm/index.js:359
 msgid "Provide more information"
-msgstr ""
+msgstr "დაწვრილებითი მონაცემები"
 
 #: src/amo/components/FeedbackForm/index.js:369
 msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
