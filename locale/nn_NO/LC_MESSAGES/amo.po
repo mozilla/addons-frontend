@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-22 12:32+0000\n"
+"POT-Creation-Date: 2023-11-28 19:17+0000\n"
 "PO-Revision-Date: 2023-10-27 09:01+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,13 +73,17 @@ msgstr "Administrer tillegg"
 msgid "Author Links"
 msgstr "Forfattarlenker"
 
-#: src/amo/components/AddonBadges/index.js:59
+#: src/amo/components/AddonBadges/index.js:60
 msgid "Experimental"
 msgstr "Eksperimentell"
 
-#: src/amo/components/AddonBadges/index.js:64
+#: src/amo/components/AddonBadges/index.js:65
 msgid "Some features may require payment"
 msgstr "Nokre funskjonar kan krevje betaling"
+
+#: src/amo/components/AddonBadges/index.js:71
+msgid "Available on Firefox for Android™"
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -741,7 +745,7 @@ msgid "Back to collection"
 msgstr "Tilbake til samlinga"
 
 #: src/amo/components/CollectionDetails/index.js:77
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:59
 #: src/amo/pages/CollectionFeedback/index.js:145
 msgid "Add-ons"
 msgstr "Utvidingar"
@@ -1282,47 +1286,55 @@ msgstr ""
 msgid "This is spam"
 msgstr "Dette er spam (søppel)"
 
-#: src/amo/components/Footer/index.js:101
+#: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
 msgstr "Utviklarpraksis"
 
-#: src/amo/components/Footer/index.js:115
+#: src/amo/components/Footer/index.js:116
 msgid "Community Blog"
 msgstr "Fellesskaps-blogg"
 
-#: src/amo/components/Footer/index.js:120
+#: src/amo/components/Footer/index.js:121
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:128
+#: src/amo/components/Footer/index.js:129
 msgid "Report a bug"
 msgstr "Rapporter ein feil"
 
-#: src/amo/components/Footer/index.js:133
+#: src/amo/components/Footer/index.js:134
 msgid "Review Guide"
 msgstr "Vurderingsguide"
 
-#: src/amo/components/Footer/index.js:140
+#: src/amo/components/Footer/index.js:141
 msgid "Browsers"
 msgstr "Nettlesar"
 
-#: src/amo/components/Footer/index.js:185
+#: src/amo/components/Footer/index.js:186
 msgid "Products"
 msgstr "Produkt"
 
-#: src/amo/components/Footer/index.js:272
+#: src/amo/components/Footer/index.js:273
 msgid "Privacy"
 msgstr "Personvern"
 
-#: src/amo/components/Footer/index.js:280
+#: src/amo/components/Footer/index.js:281
 msgid "Cookies"
 msgstr "Infokapslar"
 
-#: src/amo/components/Footer/index.js:288
+#: src/amo/components/Footer/index.js:289
 msgid "Legal"
 msgstr "Juridisk"
 
-#: src/amo/components/Footer/index.js:298
+#: src/amo/components/Footer/index.js:300
+msgid ""
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. "
+"Android is a trademark of Google LLC."
+msgstr ""
+
+#: src/amo/components/Footer/index.js:306
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1333,23 +1345,23 @@ msgstr ""
 "Commons Attribution Share-Alike License v3.0%(endLicenseLink)s eller ein "
 "seinare versjon."
 
-#: src/amo/components/Footer/index.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Go to Mozilla's homepage"
 msgstr "Gå til Mozilla-heimesida"
 
-#: src/amo/components/Footer/index.js:63
+#: src/amo/components/Footer/index.js:64
 msgid "About"
 msgstr "Om"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:200
+#: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
 msgid "Firefox Add-ons Blog"
 msgstr "Firefox tilleggsblogg"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
 msgstr "Utvidingsverkstad"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:226
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr "Utviklarsenter"
 
@@ -2339,21 +2351,21 @@ msgstr ""
 msgid "Get Mozilla VPN"
 msgstr "Få Mozilla VPN"
 
-#: src/amo/components/WrongPlatformWarning/index.js:104
-msgid ""
-"To find add-ons compatible with Firefox for Android, <a "
-"href=\"%(newLocation)s\">click here</a>."
-msgstr ""
-"For å finne tillegg som er kompatible med Firefox for Android, <a "
-"href=\"%(newLocation)s\">klikk her</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:91
+#: src/amo/components/WrongPlatformWarning/index.js:87
 msgid ""
 "Add-ons are not compatible with Firefox for iOS. Try installing them on "
 "Firefox for desktop."
 msgstr ""
 "Tillegg er ikkje kompatible med Firefox for iOS. Prøv å installere dei på "
 "Firefox for datamaskiner."
+
+#: src/amo/components/WrongPlatformWarning/index.js:99
+msgid ""
+"To find add-ons compatible with Firefox for Android, <a "
+"href=\"%(newLocation)s\">click here</a>."
+msgstr ""
+"For å finne tillegg som er kompatible med Firefox for Android, <a "
+"href=\"%(newLocation)s\">klikk her</a>."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -2422,7 +2434,7 @@ msgstr "Utviklarkommentarar"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Versjonsnotat for %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:497
+#: src/amo/pages/Addon/index.js:506
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2430,11 +2442,11 @@ msgstr ""
 "Dette er ikkje ei offentleg liste. Du ser det berre på grunn av forhøgde "
 "løyve."
 
-#: src/amo/pages/Addon/index.js:521
+#: src/amo/pages/Addon/index.js:530
 msgid "Extension Metadata"
 msgstr "Metadata for utvidingar"
 
-#: src/amo/pages/Addon/index.js:546
+#: src/amo/pages/Addon/index.js:555
 msgid "Screenshots"
 msgstr "Skjermbilde"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-22 12:32+0000\n"
+"POT-Creation-Date: 2023-11-28 19:17+0000\n"
 "PO-Revision-Date: 2022-06-25 13:19+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -74,13 +74,17 @@ msgstr "Administrează suplimentul"
 msgid "Author Links"
 msgstr "Link-uri de autor"
 
-#: src/amo/components/AddonBadges/index.js:59
+#: src/amo/components/AddonBadges/index.js:60
 msgid "Experimental"
 msgstr "Experimental"
 
-#: src/amo/components/AddonBadges/index.js:64
+#: src/amo/components/AddonBadges/index.js:65
 msgid "Some features may require payment"
 msgstr "Unele funcționalități pot fi cu plată"
+
+#: src/amo/components/AddonBadges/index.js:71
+msgid "Available on Firefox for Android™"
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -753,7 +757,7 @@ msgid "Back to collection"
 msgstr "Înapoi la colecție"
 
 #: src/amo/components/CollectionDetails/index.js:77
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:59
 #: src/amo/pages/CollectionFeedback/index.js:145
 msgid "Add-ons"
 msgstr "Suplimente"
@@ -1298,47 +1302,55 @@ msgstr ""
 msgid "This is spam"
 msgstr "Aceasta este spam"
 
-#: src/amo/components/Footer/index.js:101
+#: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
 msgstr "Politicile dezvoltatorilor"
 
-#: src/amo/components/Footer/index.js:115
+#: src/amo/components/Footer/index.js:116
 msgid "Community Blog"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:120
+#: src/amo/components/Footer/index.js:121
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:128
+#: src/amo/components/Footer/index.js:129
 msgid "Report a bug"
 msgstr "Raportează o defecțiune"
 
-#: src/amo/components/Footer/index.js:133
+#: src/amo/components/Footer/index.js:134
 msgid "Review Guide"
 msgstr "Ghid pentru recenzii"
 
-#: src/amo/components/Footer/index.js:140
+#: src/amo/components/Footer/index.js:141
 msgid "Browsers"
 msgstr "Browsere"
 
-#: src/amo/components/Footer/index.js:185
+#: src/amo/components/Footer/index.js:186
 msgid "Products"
 msgstr "Produse"
 
-#: src/amo/components/Footer/index.js:272
+#: src/amo/components/Footer/index.js:273
 msgid "Privacy"
 msgstr "Confidențialitate"
 
-#: src/amo/components/Footer/index.js:280
+#: src/amo/components/Footer/index.js:281
 msgid "Cookies"
 msgstr "Cookie-uri"
 
-#: src/amo/components/Footer/index.js:288
+#: src/amo/components/Footer/index.js:289
 msgid "Legal"
 msgstr "Mențiuni legale"
 
-#: src/amo/components/Footer/index.js:298
+#: src/amo/components/Footer/index.js:300
+msgid ""
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. "
+"Android is a trademark of Google LLC."
+msgstr ""
+
+#: src/amo/components/Footer/index.js:306
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1349,24 +1361,24 @@ msgstr ""
 "%(startLicenseLink)sCreative Commons cu atribuire și distribuire în condiții "
 "identice v3.0%(endLicenseLink)s sau orice versiune ulterioară."
 
-#: src/amo/components/Footer/index.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Go to Mozilla's homepage"
 msgstr "Du-te pe pagina de start Mozilla"
 
-#: src/amo/components/Footer/index.js:63
+#: src/amo/components/Footer/index.js:64
 msgid "About"
 msgstr "Despre"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:200
+#: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
 #, fuzzy
 msgid "Firefox Add-ons Blog"
 msgstr "Suplimente Firefox"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
 msgstr "Atelier de lucru pentru extensii"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:226
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr "Hubul dezvoltatorilor"
 
@@ -2412,7 +2424,15 @@ msgstr ""
 msgid "Get Mozilla VPN"
 msgstr ""
 
-#: src/amo/components/WrongPlatformWarning/index.js:104
+#: src/amo/components/WrongPlatformWarning/index.js:87
+msgid ""
+"Add-ons are not compatible with Firefox for iOS. Try installing them on "
+"Firefox for desktop."
+msgstr ""
+"Suplimentele nu sunt compatibile cu Firefox pentru iOS. Încearcă să le "
+"instalezi pe Firefox pentru desktop."
+
+#: src/amo/components/WrongPlatformWarning/index.js:99
 #, fuzzy
 msgid ""
 "To find add-ons compatible with Firefox for Android, <a "
@@ -2420,14 +2440,6 @@ msgid ""
 msgstr ""
 "Pentru a afla mai multe despre suplimentele compatibile cu Firefox pentru "
 "Android, <a href=\"%(newLocation)s\">dă clic aici</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:91
-msgid ""
-"Add-ons are not compatible with Firefox for iOS. Try installing them on "
-"Firefox for desktop."
-msgstr ""
-"Suplimentele nu sunt compatibile cu Firefox pentru iOS. Încearcă să le "
-"instalezi pe Firefox pentru desktop."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -2497,7 +2509,7 @@ msgstr "Comentarii de la dezvoltator"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Note privind versiunea %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:497
+#: src/amo/pages/Addon/index.js:506
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2505,11 +2517,11 @@ msgstr ""
 "Aceasta nu este o listare publică. O vezi numai pentru că ai permisiuni de "
 "nivel ridicat."
 
-#: src/amo/pages/Addon/index.js:521
+#: src/amo/pages/Addon/index.js:530
 msgid "Extension Metadata"
 msgstr "Metadate extensie"
 
-#: src/amo/pages/Addon/index.js:546
+#: src/amo/pages/Addon/index.js:555
 msgid "Screenshots"
 msgstr "Capturi de ecran"
 
