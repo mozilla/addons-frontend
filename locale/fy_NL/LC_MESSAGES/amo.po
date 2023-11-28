@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-11-22 12:32+0000\n"
-"PO-Revision-Date: 2023-11-28 13:50+0000\n"
+"PO-Revision-Date: 2023-11-28 15:54+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1047,6 +1047,8 @@ msgid ""
 "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to "
 "include it may prevent us from addressing the reported content."
 msgstr ""
+"Jou alle oanfoljende ynformaasje dy’t ús helpe kin om jo rapport te begripen (ynklusyf hokker belied jo tinke oertrêden is). Hoewol dizze ynformaasje net fereaske is, kin it net opnimmen fan dizze "
+"ynformaasje foarkomme dat wy de rapportearre ynhâld oanpakke."
 
 #: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
@@ -1058,7 +1060,7 @@ msgstr "Rapport anonym yntsjinje"
 
 #: src/amo/components/FeedbackForm/index.js:443
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "As jo anonym melde, kinne wy net mei jo kommunisearje oer de steat fan de melding of oer eventuele beropsmooglikheden."
 
 #: src/amo/components/FeedbackForm/index.js:464
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
@@ -1078,7 +1080,7 @@ msgstr "Jo e-mailadres %(spanStart)s(ferplicht)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:551
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
-msgstr ""
+msgstr "Troch dit rapport yn te tsjinjen, ferklearje ik, op straffe fan meineed, dat de bewearingen dy’t it befettet folslein en sekuer binne, foar safier my bekend."
 
 #: src/amo/components/FeedbackForm/index.js:97
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
@@ -2192,7 +2194,7 @@ msgstr "Skermôfbyldingen"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Kommentaar yntsjinje of in add-on rapportearje by Mozilla"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2341,15 +2343,15 @@ msgstr "Dizze kolleksje fuortsmite"
 
 #: src/amo/pages/Collection/index.js:426
 msgid "You reported this collection"
-msgstr ""
+msgstr "Jo hawwe dizze kolleksje rapportearre"
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Wy hawwe jo melding ûntfongen. Tank dat jo ús op de hichte brocht hawwe fan jo soargen oer dizze kolleksje."
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection"
-msgstr ""
+msgstr "Dizze kolleksje rapportearje"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
@@ -2377,23 +2379,23 @@ msgstr "Download en meitsje Firefox-kolleksjes om favorite útwreidingen en tema
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Kommentaar yntsjinje of in kolleksje rapportearje by Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "troch %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Dizze kolleksje oan Mozilla rapportearje"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Kommentaar oer de kolleksje ferstjoere"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "De kolleksje melde omdat it yllegaal of net-kompliant is"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2547,19 +2549,19 @@ msgstr "Wurdboeken"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Kommentaar yntsjinje of in beoardieling rapportearje oan Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "troch %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Dizze beoardieling rapportearje oan Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "De beoardieling melde, omdat dizze yllegaal of net-kompliant is"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2827,7 +2829,7 @@ msgstr "Add-ons labele mei %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Kommentaar yntsjinje of in brûker rapportearje by Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2835,15 +2837,15 @@ msgstr "Brûker sûnt"
 
 #: src/amo/pages/UserFeedback/index.js:144
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Dizze brûker rapportearje by Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "Kommentaar oer it brûkersprofyl ferstjoere"
 
 #: src/amo/pages/UserFeedback/index.js:148
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "It brûkersprofyl melde, omdat dizze yllegaal of net-kompliant is"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
