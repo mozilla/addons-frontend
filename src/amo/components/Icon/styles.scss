@@ -257,3 +257,7 @@
 .Icon-line {
   @include icon($name: 'line');
 }
+
+.Icon-android {
+  @include icon($name: 'android');
+}

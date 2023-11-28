@@ -1056,4 +1056,20 @@ describe(__filename, () => {
       expect(window.location.reload).toHaveBeenCalled();
     });
   });
+
+  it('does not show a Google disclaimer in footer by default', () => {
+    render();
+
+    expect(
+      screen.queryByText(/Android is a trademark of Google LLC/),
+    ).not.toBeInTheDocument();
+  });
+
+  it('can show a Google disclaimer in footer', () => {
+    render({ includeGoogleDisclaimerInFooter: true });
+
+    expect(
+      screen.getByText(/Android is a trademark of Google LLC/),
+    ).toBeInTheDocument();
+  });
 });

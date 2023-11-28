@@ -28,6 +28,7 @@ import './styles.scss';
 type Props = {|
   children: React.Node,
   errorHandler?: ErrorHandlerType,
+  includeGoogleDisclaimerInFooter?: boolean,
   isAddonInstallPage?: boolean,
   isHomePage?: boolean,
   showVPNPromo?: boolean,
@@ -53,6 +54,7 @@ export const PageBase = ({
   children,
   clientApp,
   errorHandler,
+  includeGoogleDisclaimerInFooter,
   isAddonInstallPage = false,
   isHomePage = false,
   location,
@@ -123,7 +125,7 @@ export const PageBase = ({
         </div>
       </div>
 
-      <Footer />
+      <Footer includeGoogleDisclaimer={includeGoogleDisclaimerInFooter} />
     </div>
   );
 };
