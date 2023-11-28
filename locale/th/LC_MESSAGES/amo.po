@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-22 12:32+0000\n"
+"POT-Creation-Date: 2023-11-28 19:17+0000\n"
 "PO-Revision-Date: 2019-04-04 17:57+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,13 +73,17 @@ msgstr "ส่วนเสริมผู้ดูแล"
 msgid "Author Links"
 msgstr "ลิงก์ผู้สร้าง"
 
-#: src/amo/components/AddonBadges/index.js:59
+#: src/amo/components/AddonBadges/index.js:60
 msgid "Experimental"
 msgstr "ทดลอง"
 
-#: src/amo/components/AddonBadges/index.js:64
+#: src/amo/components/AddonBadges/index.js:65
 msgid "Some features may require payment"
 msgstr "คุณลักษณะบางอย่างอาจต้องมีการชำระเงิน"
+
+#: src/amo/components/AddonBadges/index.js:71
+msgid "Available on Firefox for Android™"
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -723,7 +727,7 @@ msgid "Back to collection"
 msgstr "กลับไปที่ชุดสะสม"
 
 #: src/amo/components/CollectionDetails/index.js:77
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:59
 #: src/amo/pages/CollectionFeedback/index.js:145
 msgid "Add-ons"
 msgstr "ส่วนเสริม"
@@ -1234,47 +1238,55 @@ msgstr ""
 msgid "This is spam"
 msgstr "นี่เป็นสแปม"
 
-#: src/amo/components/Footer/index.js:101
+#: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
 msgstr "นโยบายนักพัฒนา"
 
-#: src/amo/components/Footer/index.js:115
+#: src/amo/components/Footer/index.js:116
 msgid "Community Blog"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:120
+#: src/amo/components/Footer/index.js:121
 msgid "Forum"
 msgstr "กระดานสนทนา"
 
-#: src/amo/components/Footer/index.js:128
+#: src/amo/components/Footer/index.js:129
 msgid "Report a bug"
 msgstr "รายงานข้อบกพร่อง"
 
-#: src/amo/components/Footer/index.js:133
+#: src/amo/components/Footer/index.js:134
 msgid "Review Guide"
 msgstr "คู่มือบทวิจารณ์"
 
-#: src/amo/components/Footer/index.js:140
+#: src/amo/components/Footer/index.js:141
 msgid "Browsers"
 msgstr "เบราว์เซอร์"
 
-#: src/amo/components/Footer/index.js:185
+#: src/amo/components/Footer/index.js:186
 msgid "Products"
 msgstr "ผลิตภัณฑ์"
 
-#: src/amo/components/Footer/index.js:272
+#: src/amo/components/Footer/index.js:273
 msgid "Privacy"
 msgstr "ความเป็นส่วนตัว"
 
-#: src/amo/components/Footer/index.js:280
+#: src/amo/components/Footer/index.js:281
 msgid "Cookies"
 msgstr "คุกกี้"
 
-#: src/amo/components/Footer/index.js:288
+#: src/amo/components/Footer/index.js:289
 msgid "Legal"
 msgstr "ข้อกฎหมาย"
 
-#: src/amo/components/Footer/index.js:298
+#: src/amo/components/Footer/index.js:300
+msgid ""
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. "
+"Android is a trademark of Google LLC."
+msgstr ""
+
+#: src/amo/components/Footer/index.js:306
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1284,24 +1296,24 @@ msgstr ""
 "%(startLicenseLink)sสัญญาอนุญาต Creative Commons แบบแสดงที่มา อนุญาตแบบเดียวกัน "
 "v3.0%(endLicenseLink)s หรือรุ่นใดก็ตามหลังจากนั้น"
 
-#: src/amo/components/Footer/index.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Go to Mozilla's homepage"
 msgstr "ไปยังหน้าแรกของ Mozilla"
 
-#: src/amo/components/Footer/index.js:63
+#: src/amo/components/Footer/index.js:64
 msgid "About"
 msgstr "เกี่ยวกับ"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:200
+#: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
 #, fuzzy
 msgid "Firefox Add-ons Blog"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
 msgstr "Extension Workshop"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:226
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr "ศูนย์กลางนักพัฒนา"
 
@@ -2248,19 +2260,19 @@ msgstr ""
 msgid "Get Mozilla VPN"
 msgstr "รับ Mozilla VPN"
 
-#: src/amo/components/WrongPlatformWarning/index.js:104
+#: src/amo/components/WrongPlatformWarning/index.js:87
+msgid ""
+"Add-ons are not compatible with Firefox for iOS. Try installing them on "
+"Firefox for desktop."
+msgstr "ส่วนเสริมนี้เข้ากันไม่ได้กับ iOS โปรดลองติดตั้งบน Firefox สำหรับเดสก์ท็อป"
+
+#: src/amo/components/WrongPlatformWarning/index.js:99
 msgid ""
 "To find add-ons compatible with Firefox for Android, <a "
 "href=\"%(newLocation)s\">click here</a>."
 msgstr ""
 "เพื่อค้นหาส่วนเสริมที่เข้ากันได้กับ Firefox สำหรับ Android ให้<a "
 "href=\"%(newLocation)s\">คลิกที่นี่</a>"
-
-#: src/amo/components/WrongPlatformWarning/index.js:91
-msgid ""
-"Add-ons are not compatible with Firefox for iOS. Try installing them on "
-"Firefox for desktop."
-msgstr "ส่วนเสริมนี้เข้ากันไม่ได้กับ iOS โปรดลองติดตั้งบน Firefox สำหรับเดสก์ท็อป"
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -2327,17 +2339,17 @@ msgstr "ความคิดเห็นของนักพัฒนา"
 msgid "Release notes for %(addonVersion)s"
 msgstr "บันทึกประจำรุ่นสำหรับ %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:497
+#: src/amo/pages/Addon/index.js:506
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:521
+#: src/amo/pages/Addon/index.js:530
 msgid "Extension Metadata"
 msgstr "Metadata ส่วนขยาย"
 
-#: src/amo/pages/Addon/index.js:546
+#: src/amo/pages/Addon/index.js:555
 msgid "Screenshots"
 msgstr "ภาพหน้าจอ"
 

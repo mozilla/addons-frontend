@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-22 12:32+0000\n"
+"POT-Creation-Date: 2023-11-28 19:17+0000\n"
 "PO-Revision-Date: 2023-11-19 05:12+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,13 +80,17 @@ msgstr "පරිපාලක එක්කහු"
 msgid "Author Links"
 msgstr "කර්තෘ සබැඳි"
 
-#: src/amo/components/AddonBadges/index.js:59
+#: src/amo/components/AddonBadges/index.js:60
 msgid "Experimental"
 msgstr "පරීක්‍ෂාත්මක"
 
-#: src/amo/components/AddonBadges/index.js:64
+#: src/amo/components/AddonBadges/index.js:65
 msgid "Some features may require payment"
 msgstr "ගෙවන විශේෂාංග අඩංගුය"
+
+#: src/amo/components/AddonBadges/index.js:71
+msgid "Available on Firefox for Android™"
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -733,7 +737,7 @@ msgid "Back to collection"
 msgstr "එකතුව වෙත ආපසු"
 
 #: src/amo/components/CollectionDetails/index.js:77
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:59
 #: src/amo/pages/CollectionFeedback/index.js:145
 msgid "Add-ons"
 msgstr "එක්කහු"
@@ -1261,47 +1265,55 @@ msgstr ""
 msgid "This is spam"
 msgstr "මෙය අයාචිතයකි"
 
-#: src/amo/components/Footer/index.js:101
+#: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
 msgstr "සංවර්ධක ප්‍රතිපත්ති"
 
-#: src/amo/components/Footer/index.js:115
+#: src/amo/components/Footer/index.js:116
 msgid "Community Blog"
 msgstr "ප්‍රජා ලිපිපෙළ"
 
-#: src/amo/components/Footer/index.js:120
+#: src/amo/components/Footer/index.js:121
 msgid "Forum"
 msgstr "සංසදය"
 
-#: src/amo/components/Footer/index.js:128
+#: src/amo/components/Footer/index.js:129
 msgid "Report a bug"
 msgstr "දෝෂ වාර්තා"
 
-#: src/amo/components/Footer/index.js:133
+#: src/amo/components/Footer/index.js:134
 msgid "Review Guide"
 msgstr "සමාලෝචන මාර්ගෝපදේශය"
 
-#: src/amo/components/Footer/index.js:140
+#: src/amo/components/Footer/index.js:141
 msgid "Browsers"
 msgstr "අතිරික්සු"
 
-#: src/amo/components/Footer/index.js:185
+#: src/amo/components/Footer/index.js:186
 msgid "Products"
 msgstr "නිෂ්පාදන"
 
-#: src/amo/components/Footer/index.js:272
+#: src/amo/components/Footer/index.js:273
 msgid "Privacy"
 msgstr "රහස්‍යතාව"
 
-#: src/amo/components/Footer/index.js:280
+#: src/amo/components/Footer/index.js:281
 msgid "Cookies"
 msgstr "දත්තකඩ"
 
-#: src/amo/components/Footer/index.js:288
+#: src/amo/components/Footer/index.js:289
 msgid "Legal"
 msgstr "නීතිමය"
 
-#: src/amo/components/Footer/index.js:298
+#: src/amo/components/Footer/index.js:300
+msgid ""
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. "
+"Android is a trademark of Google LLC."
+msgstr ""
+
+#: src/amo/components/Footer/index.js:306
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1311,23 +1323,23 @@ msgstr ""
 "%(startLicenseLink)sක්‍රියේටිව් කොමන්ස් ඇට්‍රිබියුෂන් ෂෙයාර්-අලයික් බලපත්‍රය "
 "අනු.3.0%(endLicenseLink)s හෝ වෙනත් නවතම බලපත්‍ර සඳහා යටත් වේ."
 
-#: src/amo/components/Footer/index.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Go to Mozilla's homepage"
 msgstr "මොසිල්ලා මුල් පිටුවට යන්න"
 
-#: src/amo/components/Footer/index.js:63
+#: src/amo/components/Footer/index.js:64
 msgid "About"
 msgstr "පිළිබඳව"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:200
+#: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
 msgid "Firefox Add-ons Blog"
 msgstr "එක්කහු ලිපිපෙළ"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
 msgstr "දිගු වැඩපොළ"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:226
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr "සංවර්ධක නැබ"
 
@@ -2292,20 +2304,20 @@ msgstr "ඔබගේ මාර්ගගත දත්ත රැකගන්න �
 msgid "Get Mozilla VPN"
 msgstr "මොසිල්ලා වීපීඑන් ගන්න"
 
-#: src/amo/components/WrongPlatformWarning/index.js:104
+#: src/amo/components/WrongPlatformWarning/index.js:87
+msgid ""
+"Add-ons are not compatible with Firefox for iOS. Try installing them on "
+"Firefox for desktop."
+msgstr ""
+"අයිඕඑස් සඳහා ෆයර්ෆොක්ස් සමඟ එක්කහු නොගැළපෙයි. ඒවා වැඩතලය සඳහා ෆයර්ෆොක්ස් හි ස්ථාපනය කරන්න."
+
+#: src/amo/components/WrongPlatformWarning/index.js:99
 msgid ""
 "To find add-ons compatible with Firefox for Android, <a "
 "href=\"%(newLocation)s\">click here</a>."
 msgstr ""
 "ඇන්ඩ්‍රොයිඩ් සඳහා ෆයර්ෆොක්ස් සමඟ ගැළපෙන එක්කහු සොයා ගැනීමට, <a "
 "href=\"%(newLocation)s\">මෙතැන ඔබන්න</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:91
-msgid ""
-"Add-ons are not compatible with Firefox for iOS. Try installing them on "
-"Firefox for desktop."
-msgstr ""
-"අයිඕඑස් සඳහා ෆයර්ෆොක්ස් සමඟ එක්කහු නොගැළපෙයි. ඒවා වැඩතලය සඳහා ෆයර්ෆොක්ස් හි ස්ථාපනය කරන්න."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -2373,17 +2385,17 @@ msgstr "සංවර්ධකයාගේ අදහස්"
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s සඳහා නිකුතු සටහන්"
 
-#: src/amo/pages/Addon/index.js:497
+#: src/amo/pages/Addon/index.js:506
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "මෙය ප්‍රසිද්ධ ලේඛනගත කිරීමක් නොවේ. ඉහළ අවසර තිබෙන නිසා ඔබ පමණක් දකියි."
 
-#: src/amo/pages/Addon/index.js:521
+#: src/amo/pages/Addon/index.js:530
 msgid "Extension Metadata"
 msgstr "දිගුවේ පාරදත්ත"
 
-#: src/amo/pages/Addon/index.js:546
+#: src/amo/pages/Addon/index.js:555
 msgid "Screenshots"
 msgstr "තිර සේයා"
 
