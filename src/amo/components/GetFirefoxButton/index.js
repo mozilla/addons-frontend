@@ -9,8 +9,10 @@ import { encode } from 'universal-base64url';
 import Button from 'amo/components/Button';
 import {
   ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_FOR_ANDROID_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -69,6 +71,7 @@ export type GetDownloadLinkParams = {|
   _encode?: typeof encode,
   _getDownloadCampaign?: typeof getDownloadCampaign,
   addon?: AddonType,
+  clientApp?: string,
   overrideQueryParams?: {| [name: string]: string | null |},
   variant?: string | null,
 |};
@@ -77,8 +80,13 @@ export const getDownloadLink = ({
   _encode = encode,
   _getDownloadCampaign = getDownloadCampaign,
   addon,
+  clientApp,
   overrideQueryParams = {},
 }: GetDownloadLinkParams): string => {
+  if (clientApp === CLIENT_APP_ANDROID) {
+    return DOWNLOAD_FIREFOX_FOR_ANDROID_URL;
+  }
+
   return `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
     utm_campaign: _getDownloadCampaign({ addonId: addon && addon.id }),
     utm_content: addon && addon.guid ? `rta:${_encode(addon.guid)}` : '',

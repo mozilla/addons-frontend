@@ -25,6 +25,8 @@ export const DOWNLOAD_FIREFOX_BASE_URL =
   'https://www.mozilla.org/firefox/download/thanks/';
 export const PROMOTED_ADDONS_SUMO_URL =
   'https://support.mozilla.org/kb/add-on-badges';
+export const DOWNLOAD_FIREFOX_FOR_ANDROID_URL =
+  'https://play.google.com/store/apps/details?id=org.mozilla.firefox';
 
 // Addon States.
 export const DISABLED = 'DISABLED';

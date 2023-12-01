@@ -5,14 +5,16 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import Link from 'amo/components/Link';
+import { replaceStringsWithJSX } from 'amo/i18n/utils';
 import translate from 'amo/i18n/translate';
-import { sanitizeHTML } from 'amo/utils';
 import {
   correctedLocationForPlatform,
   getMobileHomepageLink,
   isFirefoxForAndroid,
   isFirefoxForIOS,
 } from 'amo/utils/compatibility';
+import { getDownloadLink } from 'amo/components/GetFirefoxButton';
 import Notice, { warningInfoType } from 'amo/components/Notice';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
@@ -84,9 +86,8 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
 
     if (_isFirefoxForIOS(userAgentInfo)) {
       // Firefox for iOS.
-      message = i18n.gettext(
-        `Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop.`,
-      );
+      message = i18n.gettext(`Add-ons are not compatible with Firefox for iOS.
+        Try installing them on Firefox for desktop.`);
     } else if (
       _isFirefoxForAndroid(userAgentInfo) &&
       addon?.isAndroidCompatible
@@ -95,37 +96,88 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
       message = null;
     } else if (newLocation === getMobileHomepageLink(lang)) {
       // Redirecting to mobile home page.
-      message = i18n.sprintf(
-        i18n.gettext(
-          `To find add-ons compatible with Firefox for Android,
-               <a href="%(newLocation)s">click here</a>.`,
-        ),
-        { newLocation },
-      );
+      message = replaceStringsWithJSX({
+        text: i18n.gettext(`To find extensions compatible with Firefox for
+          Android, %(linkStart)sclick here%(linkEnd)s.`),
+        replacements: [
+          [
+            'linkStart',
+            'linkEnd',
+            (text) => (
+              <Link
+                to={newLocation}
+                prependClientApp={false}
+                prependLang={false}
+              >
+                {text}
+              </Link>
+            ),
+          ],
+        ],
+      });
     } else if (addon && newLocation) {
       // User with desktop browser looking at detail page on mobile site.
-      message = i18n.sprintf(
-        `This listing is not intended for this platform.
-        <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
-        { newLocation },
-      );
+      message = replaceStringsWithJSX({
+        text: i18n.gettext(`This listing is not intended for this platform.
+          %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s.`),
+        replacements: [
+          [
+            'linkStart',
+            'linkEnd',
+            (text) => (
+              <Link
+                to={newLocation}
+                prependClientApp={false}
+                prependLang={false}
+              >
+                {text}
+              </Link>
+            ),
+          ],
+        ],
+      });
     } else if (newLocation) {
       // Redirecting to new page on the desktop site.
-      message = i18n.sprintf(
-        `To find add-ons compatible with Firefox on desktop,
-               <a href="%(newLocation)s">visit our desktop site</a>.`,
-        { newLocation },
-      );
+      message = replaceStringsWithJSX({
+        text: i18n.gettext(`To use Android extensions, you'll need
+          %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To
+          explore Firefox for desktop add-ons, please %(linkStart)svisit our
+          desktop site%(linkEnd)s.`),
+        replacements: [
+          [
+            'downloadLinkStart',
+            'downloadLinkEnd',
+            (text) => (
+              <Link
+                href={getDownloadLink({ clientApp })}
+                prependClientApp={false}
+                prependLang={false}
+              >
+                {text}
+              </Link>
+            ),
+          ],
+          [
+            'linkStart',
+            'linkEnd',
+            (text) => (
+              <Link
+                to={newLocation}
+                prependClientApp={false}
+                prependLang={false}
+              >
+                {text}
+              </Link>
+            ),
+          ],
+        ],
+      });
     }
 
     return message ? (
       <div className={makeClassName('WrongPlatformWarning', className)}>
         <Notice id="WrongPlatformWarning-Notice" type={warningInfoType}>
-          <span
-            className="WrongPlatformWarning-message"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])}
-          />
+          <span className="WrongPlatformWarning-message">{message}</span>
         </Notice>
       </div>
     ) : null;

@@ -103,7 +103,7 @@ jest.mock('amo/utils/compatibility', () => ({
   ...jest.requireActual('amo/utils/compatibility'),
   correctedLocationForPlatform: jest
     .fn()
-    .mockReturnValue('a/different/location/'),
+    .mockReturnValue('/a/different/location/'),
   getClientCompatibility: jest.fn().mockReturnValue({
     compatible: true,
     reason: null,
@@ -358,9 +358,9 @@ describe(__filename, () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole('link', {
-        name: 'Browse add-ons for Firefox on desktop',
+        name: 'Browse add-ons for Firefox for desktop',
       }),
-    ).toHaveAttribute('href', 'a/different/location/');
+    ).toHaveAttribute('href', '/a/different/location/');
     expect(
       screen.getByText(/This listing is not intended for this platform./),
     ).toBeInTheDocument();
