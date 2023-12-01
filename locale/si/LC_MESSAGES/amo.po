@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-28 19:17+0000\n"
+"POT-Creation-Date: 2023-12-01 20:47+0000\n"
 "PO-Revision-Date: 2023-11-19 05:12+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1343,44 +1343,53 @@ msgstr "දිගු වැඩපොළ"
 msgid "Developer Hub"
 msgstr "සංවර්ධක නැබ"
 
-#: src/amo/components/GetFirefoxBanner/index.js:72
+#: src/amo/components/GetFirefoxBanner/index.js:108
 msgid ""
-"To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr "%(linkStart)sෆයර්ෆොක්ස් බාගැනීමෙන්%(linkEnd)s මෙවැනි එක්කහු භාවිතා කිරීමට හැකිය"
+"To use these add-ons, you'll need to %(downloadLinkStart)sdownload "
+"Firefox%(downloadLinkEnd)s."
+msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:121
+#: src/amo/components/GetFirefoxBanner/index.js:110
+#: src/amo/components/WrongPlatformWarning/index.js:142
+msgid ""
+"To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
+"Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
+"%(linkStart)svisit our desktop site%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
 msgstr "ෆයර්ෆොක්ස් බාගැනීමෙන් තේමාව ගන්න"
 
-#: src/amo/components/GetFirefoxButton/index.js:122
+#: src/amo/components/GetFirefoxButton/index.js:130
 msgid "Download Firefox and get the extension"
 msgstr "ෆයර්ෆොක්ස් බාගැනීමෙන් දිගුව ගන්න"
 
-#: src/amo/components/GetFirefoxButton/index.js:126
+#: src/amo/components/GetFirefoxButton/index.js:134
 msgid "Download the new Firefox and get the theme"
 msgstr "නව ෆයර්ෆොක්ස් බාගැනීමෙන් තේමාව ගන්න"
 
-#: src/amo/components/GetFirefoxButton/index.js:127
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download the new Firefox and get the extension"
 msgstr "නව ෆයර්ෆොක්ස් බාගැනීමෙන් දිගුව ගන්න"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "Download Firefox"
 msgstr "ෆයර්ෆොක්ස් බාගන්න"
 
-#: src/amo/components/GetFirefoxButton/index.js:134
+#: src/amo/components/GetFirefoxButton/index.js:142
 msgid "You'll need Firefox to use this theme"
 msgstr "තේමාව භාවිතයට ෆයර්ෆොක්ස් අවශ්‍යයි"
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:143
 msgid "You'll need Firefox to use this extension"
 msgstr "දිගුව භාවිතයට ෆයර්ෆොක්ස් අවශ්‍යයි"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "You need an updated version of Firefox for this theme"
 msgstr "තේමාවට යාවත්කාලීන වූ ෆයර්ෆොක්ස් අනුවාදයක් අවශ්‍යයි"
 
-#: src/amo/components/GetFirefoxButton/index.js:140
+#: src/amo/components/GetFirefoxButton/index.js:148
 msgid "You need an updated version of Firefox for this extension"
 msgstr "දිගුවට යාවත්කාලීන වූ ෆයර්ෆොක්ස් අනුවාදයක් අවශ්‍යයි"
 
@@ -2304,20 +2313,24 @@ msgstr "ඔබගේ මාර්ගගත දත්ත රැකගන්න �
 msgid "Get Mozilla VPN"
 msgstr "මොසිල්ලා වීපීඑන් ගන්න"
 
-#: src/amo/components/WrongPlatformWarning/index.js:87
+#: src/amo/components/WrongPlatformWarning/index.js:100
+msgid ""
+"To find extensions compatible with Firefox for Android, %(linkStart)sclick "
+"here%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:121
+msgid ""
+"This listing is not intended for this platform. %(linkStart)sBrowse add-ons "
+"for Firefox for desktop%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:89
 msgid ""
 "Add-ons are not compatible with Firefox for iOS. Try installing them on "
 "Firefox for desktop."
 msgstr ""
 "අයිඕඑස් සඳහා ෆයර්ෆොක්ස් සමඟ එක්කහු නොගැළපෙයි. ඒවා වැඩතලය සඳහා ෆයර්ෆොක්ස් හි ස්ථාපනය කරන්න."
-
-#: src/amo/components/WrongPlatformWarning/index.js:99
-msgid ""
-"To find add-ons compatible with Firefox for Android, <a "
-"href=\"%(newLocation)s\">click here</a>."
-msgstr ""
-"ඇන්ඩ්‍රොයිඩ් සඳහා ෆයර්ෆොක්ස් සමඟ ගැළපෙන එක්කහු සොයා ගැනීමට, <a "
-"href=\"%(newLocation)s\">මෙතැන ඔබන්න</a>."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -3617,6 +3630,18 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid ""
+#~ "To use these add-ons, you'll need to %(linkStart)sdownload "
+#~ "Firefox%(linkEnd)s"
+#~ msgstr "%(linkStart)sෆයර්ෆොක්ස් බාගැනීමෙන්%(linkEnd)s මෙවැනි එක්කහු භාවිතා කිරීමට හැකිය"
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox for Android, <a "
+#~ "href=\"%(newLocation)s\">click here</a>."
+#~ msgstr ""
+#~ "ඇන්ඩ්‍රොයිඩ් සඳහා ෆයර්ෆොක්ස් සමඟ ගැළපෙන එක්කහු සොයා ගැනීමට, <a "
+#~ "href=\"%(newLocation)s\">මෙතැන ඔබන්න</a>."
 
 #~ msgid "Report this add-on for abuse"
 #~ msgstr "එක්කහුව අනිසි යැයි වාර්තා කරන්න"

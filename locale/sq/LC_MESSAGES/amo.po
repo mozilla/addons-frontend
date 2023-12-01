@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-28 19:17+0000\n"
+"POT-Creation-Date: 2023-12-01 20:47+0000\n"
 "PO-Revision-Date: 2023-11-28 19:03+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -1393,46 +1393,53 @@ msgstr "Praktikë Mbi Zgjerime"
 msgid "Developer Hub"
 msgstr "Qendër Zhvilluesish"
 
-#: src/amo/components/GetFirefoxBanner/index.js:72
+#: src/amo/components/GetFirefoxBanner/index.js:108
 msgid ""
-"To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
+"To use these add-ons, you'll need to %(downloadLinkStart)sdownload "
+"Firefox%(downloadLinkEnd)s."
 msgstr ""
-"Që të përdorni këto shtesa, do t’ju duhet të %(linkStart)sshkarkoni Firefox-"
-"in%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:121
+#: src/amo/components/GetFirefoxBanner/index.js:110
+#: src/amo/components/WrongPlatformWarning/index.js:142
+msgid ""
+"To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
+"Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
+"%(linkStart)svisit our desktop site%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
 msgstr "Shkarkoni Firefox-in dhe merrni temën"
 
-#: src/amo/components/GetFirefoxButton/index.js:122
+#: src/amo/components/GetFirefoxButton/index.js:130
 msgid "Download Firefox and get the extension"
 msgstr "Shkarkoni Firefox-in dhe merrni zgjerimin"
 
-#: src/amo/components/GetFirefoxButton/index.js:126
+#: src/amo/components/GetFirefoxButton/index.js:134
 msgid "Download the new Firefox and get the theme"
 msgstr "Shkarkoni Firefox-in e ri dhe merrni temën"
 
-#: src/amo/components/GetFirefoxButton/index.js:127
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download the new Firefox and get the extension"
 msgstr "Shkarkoni Firefox-in e ri dhe merrni zgjerimin"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "Download Firefox"
 msgstr "Shkarkoni Firefox-in"
 
-#: src/amo/components/GetFirefoxButton/index.js:134
+#: src/amo/components/GetFirefoxButton/index.js:142
 msgid "You'll need Firefox to use this theme"
 msgstr "Që të përdorni këtë temë, ju duhet Firefox-i"
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:143
 msgid "You'll need Firefox to use this extension"
 msgstr "Që të përdorni këtë zgjerim, ju duhet Firefox-i"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Për këtë temë ju duhet një version i përditësuar i Firefox-it"
 
-#: src/amo/components/GetFirefoxButton/index.js:140
+#: src/amo/components/GetFirefoxButton/index.js:148
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Për këtë zgjerim ju duhet një version i përditësuar i Firefox-it"
 
@@ -2381,21 +2388,25 @@ msgstr ""
 msgid "Get Mozilla VPN"
 msgstr "Merrni Mozilla VPN"
 
-#: src/amo/components/WrongPlatformWarning/index.js:87
+#: src/amo/components/WrongPlatformWarning/index.js:100
+msgid ""
+"To find extensions compatible with Firefox for Android, %(linkStart)sclick "
+"here%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:121
+msgid ""
+"This listing is not intended for this platform. %(linkStart)sBrowse add-ons "
+"for Firefox for desktop%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:89
 msgid ""
 "Add-ons are not compatible with Firefox for iOS. Try installing them on "
 "Firefox for desktop."
 msgstr ""
 "Shtesat s’janë të përputhshme me Firefox-in për iOS. Provoni t’i instaloni "
 "te Firefox-i për desktop."
-
-#: src/amo/components/WrongPlatformWarning/index.js:99
-msgid ""
-"To find add-ons compatible with Firefox for Android, <a "
-"href=\"%(newLocation)s\">click here</a>."
-msgstr ""
-"Për të gjetur shtesa të përputhshme me Firefox-in për Android, <a "
-"href=\"%(newLocation)s\">klikoni këtu</a>."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -3790,6 +3801,20 @@ msgstr "përputhshmëria e shtesës sime s’mund të përmirësohet"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "përputhshmëria e shtesës sime është përmirësuar me sukses"
+
+#~ msgid ""
+#~ "To use these add-ons, you'll need to %(linkStart)sdownload "
+#~ "Firefox%(linkEnd)s"
+#~ msgstr ""
+#~ "Që të përdorni këto shtesa, do t’ju duhet të %(linkStart)sshkarkoni "
+#~ "Firefox-in%(linkEnd)s"
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox for Android, <a "
+#~ "href=\"%(newLocation)s\">click here</a>."
+#~ msgstr ""
+#~ "Për të gjetur shtesa të përputhshme me Firefox-in për Android, <a "
+#~ "href=\"%(newLocation)s\">klikoni këtu</a>."
 
 #~ msgid "Place of the violation"
 #~ msgstr "Vendi i shkeljes"
