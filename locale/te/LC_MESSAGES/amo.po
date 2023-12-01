@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-28 19:17+0000\n"
+"POT-Creation-Date: 2023-12-01 20:47+0000\n"
 "PO-Revision-Date: 2022-09-12 13:33+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1321,44 +1321,53 @@ msgstr "పొడగింతల కార్యశాల"
 msgid "Developer Hub"
 msgstr "డెవలపర్ కేంద్రం"
 
-#: src/amo/components/GetFirefoxBanner/index.js:72
+#: src/amo/components/GetFirefoxBanner/index.js:108
 msgid ""
-"To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
+"To use these add-ons, you'll need to %(downloadLinkStart)sdownload "
+"Firefox%(downloadLinkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:121
+#: src/amo/components/GetFirefoxBanner/index.js:110
+#: src/amo/components/WrongPlatformWarning/index.js:142
+msgid ""
+"To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
+"Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
+"%(linkStart)svisit our desktop site%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
 msgstr "Firefoxను దింపుకొని, అలంకారాన్ని పొందండి"
 
-#: src/amo/components/GetFirefoxButton/index.js:122
+#: src/amo/components/GetFirefoxButton/index.js:130
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:126
+#: src/amo/components/GetFirefoxButton/index.js:134
 msgid "Download the new Firefox and get the theme"
 msgstr "కొత్త Firefoxను దింపుకొని, ఈ అలంకారాన్ని పొందండి"
 
-#: src/amo/components/GetFirefoxButton/index.js:127
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download the new Firefox and get the extension"
 msgstr "కొత్త Firefoxను దింపుకొని, ఈ పొడగింతను పొందండి"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "Download Firefox"
 msgstr "Firefoxను దింపుకోండి"
 
-#: src/amo/components/GetFirefoxButton/index.js:134
+#: src/amo/components/GetFirefoxButton/index.js:142
 msgid "You'll need Firefox to use this theme"
 msgstr "ఈ అలంకారాన్ని వాడుకోడానికి మీకు Firefox ఉండాలి"
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:143
 msgid "You'll need Firefox to use this extension"
 msgstr "ఈ పొడగింతను వాడుకోడానికి మీకు Firefox ఉండాలి"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "You need an updated version of Firefox for this theme"
 msgstr "ఈ అలంకారాన్ని వాడుకోడానికి మీరు Firefoxను తాజాకరించుకోవాలి"
 
-#: src/amo/components/GetFirefoxButton/index.js:140
+#: src/amo/components/GetFirefoxButton/index.js:148
 msgid "You need an updated version of Firefox for this extension"
 msgstr "ఈ పొడగింతను వాడుకోడానికి మీరు Firefoxను తాజాకరించుకోవాలి"
 
@@ -2291,16 +2300,22 @@ msgstr ""
 msgid "Get Mozilla VPN"
 msgstr ""
 
-#: src/amo/components/WrongPlatformWarning/index.js:87
+#: src/amo/components/WrongPlatformWarning/index.js:100
+msgid ""
+"To find extensions compatible with Firefox for Android, %(linkStart)sclick "
+"here%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:121
+msgid ""
+"This listing is not intended for this platform. %(linkStart)sBrowse add-ons "
+"for Firefox for desktop%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:89
 msgid ""
 "Add-ons are not compatible with Firefox for iOS. Try installing them on "
 "Firefox for desktop."
-msgstr ""
-
-#: src/amo/components/WrongPlatformWarning/index.js:99
-msgid ""
-"To find add-ons compatible with Firefox for Android, <a "
-"href=\"%(newLocation)s\">click here</a>."
 msgstr ""
 
 #: src/amo/i18n/utils.js:263

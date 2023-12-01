@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-28 19:17+0000\n"
+"POT-Creation-Date: 2023-12-01 20:47+0000\n"
 "PO-Revision-Date: 2022-11-13 20:57+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -1339,46 +1339,53 @@ msgstr "확장 기능 워크샵"
 msgid "Developer Hub"
 msgstr "개발자 허브"
 
-#: src/amo/components/GetFirefoxBanner/index.js:72
+#: src/amo/components/GetFirefoxBanner/index.js:108
 msgid ""
-"To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
+"To use these add-ons, you'll need to %(downloadLinkStart)sdownload "
+"Firefox%(downloadLinkEnd)s."
 msgstr ""
-"이 부가 기능들을 사용하시려면, Firefox를 %(linkStart)s다운로드%(linkEnd)s하세"
-"요"
 
-#: src/amo/components/GetFirefoxButton/index.js:121
+#: src/amo/components/GetFirefoxBanner/index.js:110
+#: src/amo/components/WrongPlatformWarning/index.js:142
+msgid ""
+"To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
+"Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
+"%(linkStart)svisit our desktop site%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
 msgstr "Firefox 다운로드 및 테마 설치"
 
-#: src/amo/components/GetFirefoxButton/index.js:122
+#: src/amo/components/GetFirefoxButton/index.js:130
 msgid "Download Firefox and get the extension"
 msgstr "Firefox를 다운로드하고 확장 기능을 받으세요"
 
-#: src/amo/components/GetFirefoxButton/index.js:126
+#: src/amo/components/GetFirefoxButton/index.js:134
 msgid "Download the new Firefox and get the theme"
 msgstr "새로운 Firefox를 다운로드하고 테마를 받으세요"
 
-#: src/amo/components/GetFirefoxButton/index.js:127
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download the new Firefox and get the extension"
 msgstr "새로운 Firefox를 다운로드하고 확장 프로그램을 받으세요"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "Download Firefox"
 msgstr "Firefox 다운로드"
 
-#: src/amo/components/GetFirefoxButton/index.js:134
+#: src/amo/components/GetFirefoxButton/index.js:142
 msgid "You'll need Firefox to use this theme"
 msgstr "이 테마를 사용하려면 Firefox가 필요함"
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:143
 msgid "You'll need Firefox to use this extension"
 msgstr "이 확장 기능을 사용하려면 Firefox가 필요함"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "You need an updated version of Firefox for this theme"
 msgstr "이 테마를 사용하려면 업데이트된 버전의 Firefox가 필요합니다."
 
-#: src/amo/components/GetFirefoxButton/index.js:140
+#: src/amo/components/GetFirefoxButton/index.js:148
 msgid "You need an updated version of Firefox for this extension"
 msgstr "이 확장 기능을 사용하려면 업데이트된 버전의 Firefox가 필요합니다."
 
@@ -2300,21 +2307,25 @@ msgstr ""
 msgid "Get Mozilla VPN"
 msgstr "Mozilla VPN 받기"
 
-#: src/amo/components/WrongPlatformWarning/index.js:87
+#: src/amo/components/WrongPlatformWarning/index.js:100
+msgid ""
+"To find extensions compatible with Firefox for Android, %(linkStart)sclick "
+"here%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:121
+msgid ""
+"This listing is not intended for this platform. %(linkStart)sBrowse add-ons "
+"for Firefox for desktop%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:89
 msgid ""
 "Add-ons are not compatible with Firefox for iOS. Try installing them on "
 "Firefox for desktop."
 msgstr ""
 "부가 기능은 iOS 용 Firefox와 호환되지 않습니다. 데스크톱용 Firefox에 설치해보"
 "세요."
-
-#: src/amo/components/WrongPlatformWarning/index.js:99
-msgid ""
-"To find add-ons compatible with Firefox for Android, <a "
-"href=\"%(newLocation)s\">click here</a>."
-msgstr ""
-"Android 용 Firefox와 호환되는 부가 기능을 찾으려면 <a "
-"href=\"%(newLocation)s\">여기를 클릭</a>하세요."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -3599,6 +3610,20 @@ msgstr "부가 기능 호환성을 업그레이드 할 수 없습니다"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "부가 기능 호환성이 업그레이드 되었습니다"
+
+#~ msgid ""
+#~ "To use these add-ons, you'll need to %(linkStart)sdownload "
+#~ "Firefox%(linkEnd)s"
+#~ msgstr ""
+#~ "이 부가 기능들을 사용하시려면, Firefox를 %(linkStart)s다운로드%(linkEnd)s"
+#~ "하세요"
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox for Android, <a "
+#~ "href=\"%(newLocation)s\">click here</a>."
+#~ msgstr ""
+#~ "Android 용 Firefox와 호환되는 부가 기능을 찾으려면 <a "
+#~ "href=\"%(newLocation)s\">여기를 클릭</a>하세요."
 
 #~ msgid "Report this add-on for abuse"
 #~ msgstr "이 부가 기능 신고하기"
