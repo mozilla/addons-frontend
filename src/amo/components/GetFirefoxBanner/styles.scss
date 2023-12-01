@@ -4,6 +4,10 @@
   @include respond-to(extraLarge) {
     border-radius: 0 0 $border-radius-m $border-radius-m;
     width: 890px;
+
+    .Notice-content {
+      max-width: 590px;
+    }
   }
 
   border-radius: 0;

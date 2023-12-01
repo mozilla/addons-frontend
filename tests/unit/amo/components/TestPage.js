@@ -23,6 +23,7 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_FOR_ANDROID_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'amo/constants';
@@ -281,9 +282,84 @@ describe(__filename, () => {
     // banner to appear.
     const props = { isAddonInstallPage: false };
 
-    describe('Not firefox', () => {
+    describe('Not firefox - /android/ pages', () => {
       beforeEach(() => {
-        _dispatchClientMetadata({ userAgent: userAgents.chrome[0] });
+        _dispatchClientMetadata({
+          clientApp: CLIENT_APP_ANDROID,
+          userAgent: userAgents.chrome[0],
+        });
+      });
+
+      it('renders a GetFirefoxBanner if the browser is not Firefox', () => {
+        render(props);
+
+        expect(
+          screen.getByRole('link', { name: 'Firefox for Android' }),
+        ).toHaveClass('GetFirefoxBanner-button');
+      });
+
+      it('renders a dismissable warning Notice', () => {
+        render(props);
+
+        expect(screen.getByClassName('GetFirefoxBanner')).toHaveClass(
+          'Notice-warning',
+        );
+        expect(screen.getByClassName('GetFirefoxBanner')).toHaveClass(
+          'Notice-dismissible',
+        );
+      });
+
+      it('has the expected text', () => {
+        render(props);
+
+        expect(
+          screen.getByText(/To use Android extensions, you'll need/),
+        ).toBeInTheDocument();
+      });
+
+      it('sets the href on the button with the expected utm params', () => {
+        render(props);
+
+        expect(
+          screen.getByRole('link', { name: 'Firefox for Android' }),
+        ).toHaveAttribute('href', DOWNLOAD_FIREFOX_FOR_ANDROID_URL);
+      });
+
+      it('sends a tracking event when the button is clicked', async () => {
+        render(props);
+
+        await userEvent.click(
+          screen.getByRole('link', { name: 'Firefox for Android' }),
+        );
+
+        expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          action: GET_FIREFOX_BANNER_CLICK_ACTION,
+          category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+        });
+      });
+
+      it('sends a tracking event when the banner is dismissed', async () => {
+        render(props);
+
+        await userEvent.click(
+          screen.getByRole('button', { name: 'Dismiss this notice' }),
+        );
+
+        expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          action: GET_FIREFOX_BANNER_DISMISS_ACTION,
+          category: GET_FIREFOX_BANNER_DISMISS_CATEGORY,
+        });
+      });
+    });
+
+    describe('Not firefox - /firefox/ pages', () => {
+      beforeEach(() => {
+        _dispatchClientMetadata({
+          clientApp: CLIENT_APP_FIREFOX,
+          userAgent: userAgents.chrome[0],
+        });
       });
 
       it('renders a GetFirefoxBanner if the browser is not Firefox', () => {
@@ -310,7 +386,7 @@ describe(__filename, () => {
 
         expect(
           screen.getByTextAcrossTags(
-            `To use these add-ons, you'll need to download Firefox`,
+            `To use these add-ons, you'll need to download Firefox.`,
           ),
         ).toBeInTheDocument();
       });
@@ -403,7 +479,7 @@ describe(__filename, () => {
 
       render({ isAddonInstallPage: false });
 
-      expect(screen.getByText('download Firefox')).toBeInTheDocument();
+      expect(screen.getByClassName('GetFirefoxBanner')).toBeInTheDocument();
     });
 
     it('does not render a download banner Banner when isAddonInstallPage is true', () => {
@@ -411,7 +487,9 @@ describe(__filename, () => {
 
       render({ isAddonInstallPage: true });
 
-      expect(screen.queryByText('download Firefox')).not.toBeInTheDocument();
+      expect(
+        screen.queryByClassName('GetFirefoxBanner'),
+      ).not.toBeInTheDocument();
     });
 
     it('always renders a link in the header when not on homepage', () => {

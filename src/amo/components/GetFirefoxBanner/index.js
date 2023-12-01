@@ -3,12 +3,14 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import Button from 'amo/components/Button';
 import {
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
   getDownloadLink,
 } from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
+import Link from 'amo/components/Link';
 import tracking from 'amo/tracking';
 import { isFirefox } from 'amo/utils/compatibility';
 import translate from 'amo/i18n/translate';
@@ -33,6 +35,7 @@ export type DefaultProps = {|
 |};
 
 type PropsFromState = {|
+  clientApp: string,
   userAgentInfo: UserAgentInfoType,
 |};
 
@@ -45,6 +48,7 @@ type InternalProps = {|
 
 export const GetFirefoxBannerBase = ({
   _tracking = tracking,
+  clientApp,
   i18n,
   userAgentInfo,
 }: InternalProps): null | React.Node => {
@@ -68,30 +72,46 @@ export const GetFirefoxBannerBase = ({
 
   const overrideQueryParams = { utm_content: GET_FIREFOX_BANNER_UTM_CONTENT };
 
-  const bannerContent = replaceStringsWithJSX({
-    text: i18n.gettext(
-      `To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s`,
-    ),
-    replacements: [
-      [
-        'linkStart',
-        'linkEnd',
-        (text) => (
-          <>
-            <br />
-            <Button
-              buttonType="none"
-              className="GetFirefoxBanner-button"
-              href={getDownloadLink({ overrideQueryParams })}
-              key="GetFirefoxBanner-button"
-              onClick={onButtonClick}
-            >
-              {text}
-            </Button>
-          </>
-        ),
-      ],
+  const replacements = [
+    [
+      'downloadLinkStart',
+      'downloadLinkEnd',
+      (text) => (
+        <Button
+          buttonType="none"
+          className="GetFirefoxBanner-button"
+          href={getDownloadLink({ clientApp, overrideQueryParams })}
+          key="GetFirefoxBanner-button"
+          onClick={onButtonClick}
+        >
+          {text}
+        </Button>
+      ),
     ],
+  ];
+
+  if (clientApp === CLIENT_APP_ANDROID) {
+    replacements.push([
+      'linkStart',
+      'linkEnd',
+      (text) => (
+        <Link to={`/${CLIENT_APP_FIREFOX}/`} prependClientApp={false}>
+          {text}
+        </Link>
+      ),
+    ]);
+  }
+
+  const bannerContent = replaceStringsWithJSX({
+    text:
+      clientApp === CLIENT_APP_FIREFOX
+        ? i18n.gettext(`To use these add-ons, you'll need to
+            %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s.`)
+        : i18n.gettext(`To use Android extensions, you'll need
+            %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To
+            explore Firefox for desktop add-ons, please %(linkStart)svisit our
+            desktop site%(linkEnd)s.`),
+    replacements,
   });
 
   return (
@@ -109,6 +129,7 @@ export const GetFirefoxBannerBase = ({
 
 function mapStateToProps(state: AppState): PropsFromState {
   return {
+    clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };
 }

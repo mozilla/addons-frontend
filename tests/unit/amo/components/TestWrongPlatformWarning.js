@@ -155,7 +155,9 @@ describe(__filename, () => {
       mobileLink,
     );
     expect(
-      screen.getByText(/To find add-ons compatible with Firefox for Android,/),
+      screen.getByText(
+        /To find extensions compatible with Firefox for Android,/,
+      ),
     ).toBeInTheDocument();
   });
 
@@ -176,7 +178,7 @@ describe(__filename, () => {
 
     expect(
       screen.getByRole('link', {
-        name: 'Browse add-ons for Firefox on desktop',
+        name: 'Browse add-ons for Firefox for desktop',
       }),
     ).toHaveAttribute('href', newLocation);
     expect(
@@ -195,7 +197,7 @@ describe(__filename, () => {
       }),
     ).toHaveAttribute('href', newLocation);
     expect(
-      screen.getByText(/To find add-ons compatible with Firefox on desktop,/),
+      screen.getByText(/To explore Firefox for desktop add-ons, please/),
     ).toBeInTheDocument();
   });
 
