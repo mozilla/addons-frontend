@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-01 21:44+0000\n"
+"PO-Revision-Date: 2023-12-02 12:47+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1256,6 +1256,8 @@ msgstr "Zo byšće tute přidatki wužiwał, dyrbiće %(downloadLinkStart)sFiref
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Zo byšće rozšěrjenja Android wužiwał, trjebaće %(downloadLinkStart)sFirefox za Android%(downloadLinkEnd)s. Zo byšće přidatki za Firefox za desktop wuslědźił, %(linkStart)swopytajće prošu naše "
+"desktopowe websydło%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2191,7 +2193,7 @@ msgstr "Mozilla VPN wobstarać"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Zo byšće rozšěrjenja namakał, kotrež su kompatibelne z Firefox za Android, %(linkStart)sklikńće tu%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
