@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-02 06:31+0000\n"
+"PO-Revision-Date: 2023-12-02 06:32+0000\n"
 "Last-Translator: Francesco Lodolo [:flod] <flod+pontoon@mozilla.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1246,6 +1246,8 @@ msgstr "Per utilizzare questi componenti aggiuntivi è necessario %(downloadLink
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Per utilizzare le estensioni su Android hai bisogno di %(downloadLinkStart)sFirefox per Android%(downloadLinkEnd)s. Per esplorare i componenti aggiuntivi per Firefox desktop, %(linkStart)svisita la "
+"version desktop del sito%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
