@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-01 21:07+0000\n"
-"Last-Translator: Google Translate <pontoon-gt@example.com>\n"
+"PO-Revision-Date: 2023-12-02 20:00+0000\n"
+"Last-Translator: Pavel Cvrček <jasnapaka@jasnapaka.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -1245,8 +1245,8 @@ msgstr "Pro používání těchto doplňků si %(downloadLinkStart)sstáhněte F
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
-"K používání rozšíření pro Android budete potřebovat %(downloadLinkStart)sFirefox pro Android%(downloadLinkEnd)s. Abyste si mohli prohlédnout doplňky Firefoxu pro počítač, %(linkStart)snavštivte naši"
-" počítačovou verzi%(linkEnd)s."
+"K používání rozšíření pro Android budete potřebovat %(downloadLinkStart)sFirefox pro Android%(downloadLinkEnd)s. Abyste si mohli prohlédnout doplňky Firefoxu pro desktop, %(linkStart)snavštivte "
+"verzi pro desktop%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2160,7 +2160,7 @@ msgstr "Chcete-li najít rozšíření kompatibilní s Firefoxem pro Android, %(
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
-msgstr "Tento seznam není určen pro tuto platformu. %(linkStart)sProhlédněte si doplňky do Firefoxu pro počítač%(linkEnd)s."
+msgstr "Tento seznam není určen pro tuto platformu. %(linkStart)sProhlédněte si doplňky do Firefoxu pro desktop%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
