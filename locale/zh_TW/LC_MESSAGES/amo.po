@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-02 08:12+0000\n"
+"PO-Revision-Date: 2023-12-02 08:19+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1222,7 +1222,7 @@ msgstr "必須%(downloadLinkStart)s下載 Firefox%(downloadLinkEnd)s 才能使�
 #: src/amo/components/GetFirefoxBanner/index.js:110 src/amo/components/WrongPlatformWarning/index.js:142
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
-msgstr ""
+msgstr "必須安裝 %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s 才可以使用 Android 擴充套件。若要尋找 Firefox 桌面版的附加元件，請到我們的 %(linkStart)s桌面版網站%(linkEnd)s。"
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2078,11 +2078,11 @@ msgstr "下載 Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "若要尋找相容於 Firefox for Android 的擴充套件，請%(linkStart)s點擊此處%(linkEnd)s。"
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
-msgstr ""
+msgstr "此上架項目並非提供予本平台使用。%(linkStart)s瀏覽 Firefox 桌面版的附加元件%(linkEnd)s。"
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
