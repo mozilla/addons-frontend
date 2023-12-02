@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-02 10:01+0000\n"
+"PO-Revision-Date: 2023-12-02 10:05+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -1244,6 +1244,8 @@ msgstr "Til að geta notað þessar viðbætur, þarftu að %(downloadLinkStart)
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Til að nota Android forritsauka þarftu %(downloadLinkStart)sFirefox fyrir Android%(downloadLinkEnd)s. Til að kanna viðbætur fyrir Firefox á borðtölvum, skaltu skoða %(linkStart)ssíðuna okkar fyrir "
+"borðtölvuútgáfur%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2126,11 +2128,11 @@ msgstr "Fáðu þér Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Til að finna forritsauka sem eru samhæfðir við Firefox fyrir Android, skaltu %(linkStart)smella hér%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
-msgstr ""
+msgstr "Þessi listi er ekki ætlaður fyrir þetta stýrikerfi. %(linkStart)sSkoðaðu viðbætur fyrir Firefox á borðtölvum%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
