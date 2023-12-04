@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-01 21:08+0000\n"
-"Last-Translator: Google Translate <pontoon-gt@example.com>\n"
+"PO-Revision-Date: 2023-12-04 11:41+0000\n"
+"Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1067,15 +1067,15 @@ msgstr "Seu nome %(spanStart)s(opcional)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:467
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
-msgstr "Seu nome %(spanStart)s(required)%(spanEnd)s"
+msgstr "Seu nome %(spanStart)s(obrigatório)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:504
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
-msgstr "Seu endereço de e-mail %(spanStart)s(opcional)%(spanEnd)s"
+msgstr "Seu endereço de email %(spanStart)s(opcional)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:507
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
-msgstr "Seu endereço de e-mail %(spanStart)s(required)%(spanEnd)s"
+msgstr "Seu endereço de email %(spanStart)s(obrigatório)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:551
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
@@ -1198,8 +1198,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
-"Exceto onde de outra forma %(startNotedLink)snotado%(endNotedLink)s, o conteúdo deste site está licenciado sob a %(startLicenseLink)s Creative Commons Licença de Atribuição Compartilha-Igual v3.0 "
-"%(endLicenseLink)s ou qualquer versão posterior. Android é uma marca registada da Google DLL."
+"Exceto onde de outra forma %(startNotedLink)sindicado%(endNotedLink)s, o conteúdo deste site está licenciado sob a %(startLicenseLink)sCreative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s ou qualquer versão posterior. Android é uma marca registrada da Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1231,14 +1231,14 @@ msgstr "Central do desenvolvedor"
 
 #: src/amo/components/GetFirefoxBanner/index.js:108
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr "Para usar estas extensões, você precisa %(downloadLinkStart)sbaixar o Firefox%(downloadLinkEnd)s."
+msgstr "Para usar estas extensões, você precisa %(downloadLinkStart)sinstalar o Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:110 src/amo/components/WrongPlatformWarning/index.js:142
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
-"Para usar extensões para Android, você precisa do %(downloadLinkStart)sFirefox para Android%(downloadLinkEnd)s. Para explorar as extensões do Firefox para computadores, %(linkStart)svisite nosso "
-"site para computadores%(linkEnd)s."
+"Para usar extensões para Android, você precisa do %(downloadLinkStart)sFirefox para Android%(downloadLinkEnd)s. Para ver extensões do Firefox de computador, %(linkStart)svisite nosso site de "
+"extensões para computadores%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2369,7 +2369,7 @@ msgstr "Recebemos sua denúncia. Obrigado por nos informar sobre suas preocupaç
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection"
-msgstr "Relatar essa coleção"
+msgstr "Denunciar esta coleção"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
