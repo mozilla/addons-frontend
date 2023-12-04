@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-04 11:41+0000\n"
+"PO-Revision-Date: 2023-12-04 11:42+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -2860,11 +2860,11 @@ msgstr "Denunciar este usuário para a Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
-msgstr "Enviar alguns comentários sobre o perfil de usuário"
+msgstr "Enviar alguns comentários sobre o perfil do usuário"
 
 #: src/amo/pages/UserFeedback/index.js:148
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr "Reportar o perfil do usuário porque é ilegal ou não está em conformidade"
+msgstr "Denunciar o perfil do usuário por ser ilegal ou não estar em conformidade"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
