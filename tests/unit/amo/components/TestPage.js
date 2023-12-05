@@ -11,20 +11,19 @@ import {
   GET_FIREFOX_BANNER_CLICK_ACTION,
   GET_FIREFOX_BANNER_DISMISS_ACTION,
   GET_FIREFOX_BANNER_DISMISS_CATEGORY,
-  GET_FIREFOX_BANNER_UTM_CONTENT,
 } from 'amo/components/GetFirefoxBanner';
 import { GET_FIREFOX_BUTTON_CLICK_CATEGORY } from 'amo/components/GetFirefoxButton';
 import {
   ADDONS_REVIEW,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  API_ERROR_AUTHENTICATION_EXPIRED,
   API_ERRORS_SESSION_EXPIRY,
+  API_ERROR_AUTHENTICATION_EXPIRED,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
-  DOWNLOAD_FIREFOX_FOR_ANDROID_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+  GET_FIREFOX_BANNER_UTM_CONTENT,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'amo/constants';
 import { setClientApp } from 'amo/reducers/api';
@@ -309,7 +308,7 @@ describe(__filename, () => {
         );
       });
 
-      it('has the expected text', () => {
+      it('has the expected text and link', () => {
         render(props);
 
         expect(
@@ -322,7 +321,34 @@ describe(__filename, () => {
 
         expect(
           screen.getByRole('link', { name: 'Firefox for Android' }),
-        ).toHaveAttribute('href', DOWNLOAD_FIREFOX_FOR_ANDROID_URL);
+        ).toHaveAttribute(
+          'href',
+          `https://play.google.com/store/apps/details?${[
+            'id=org.mozilla.firefox',
+            'utm_campaign=amo-fx-cta',
+            'utm_content=banner-download-button',
+            'utm_medium=referral',
+            'utm_source=addons.mozilla.org',
+          ].join('&')}`,
+        );
+      });
+
+      it('passes utm_campaign to the Play Store link when available', () => {
+        const campaign = 'some-campaign';
+        render({ ...props, location: `/?utm_campaign=${campaign}` });
+
+        expect(
+          screen.getByRole('link', { name: 'Firefox for Android' }),
+        ).toHaveAttribute(
+          'href',
+          `https://play.google.com/store/apps/details?${[
+            'id=org.mozilla.firefox',
+            `utm_campaign=${campaign}`,
+            'utm_content=banner-download-button',
+            'utm_medium=referral',
+            'utm_source=addons.mozilla.org',
+          ].join('&')}`,
+        );
       });
 
       it('sends a tracking event when the button is clicked', async () => {

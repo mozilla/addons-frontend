@@ -12,8 +12,9 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
-  DOWNLOAD_FIREFOX_FOR_ANDROID_URL,
+  DOWNLOAD_FIREFOX_FOR_ANDROID_BASE_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+  GET_FIREFOX_BANNER_UTM_CONTENT,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import tracking from 'amo/tracking';
@@ -33,7 +34,7 @@ export type Props = {|
   addon: AddonType,
   className?: string,
   forIncompatibleAddon?: boolean,
-  overrideQueryParams?: {| [name: string]: string | null |},
+  overrideQueryParams?: {| [name: string]: string | null | typeof undefined |},
 |};
 
 export type DefaultProps = {|
@@ -72,7 +73,9 @@ export type GetDownloadLinkParams = {|
   _getDownloadCampaign?: typeof getDownloadCampaign,
   addon?: AddonType,
   clientApp?: string,
-  overrideQueryParams?: {| [name: string]: string | null |},
+  // Use `undefined` to force the fallback value, and `null` to remove the
+  // query param in the query string.
+  overrideQueryParams?: {| [name: string]: string | null | typeof undefined |},
   variant?: string | null,
 |};
 
@@ -84,7 +87,13 @@ export const getDownloadLink = ({
   overrideQueryParams = {},
 }: GetDownloadLinkParams): string => {
   if (clientApp === CLIENT_APP_ANDROID) {
-    return DOWNLOAD_FIREFOX_FOR_ANDROID_URL;
+    return `${DOWNLOAD_FIREFOX_FOR_ANDROID_BASE_URL}${makeQueryStringWithUTM({
+      id: 'org.mozilla.firefox',
+      // By default for Android, we want this `utm_content` value.
+      utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
+      utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+      ...overrideQueryParams,
+    })}`;
   }
 
   return `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({

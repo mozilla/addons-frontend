@@ -2,8 +2,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
+import {
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+  GET_FIREFOX_BANNER_UTM_CONTENT,
+} from 'amo/constants';
 import Button from 'amo/components/Button';
 import {
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
@@ -18,6 +23,7 @@ import { replaceStringsWithJSX } from 'amo/i18n/utils';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 
@@ -26,7 +32,6 @@ export const GET_FIREFOX_BANNER_DISMISS_ACTION =
   'download-firefox-banner-dismiss';
 export const GET_FIREFOX_BANNER_DISMISS_CATEGORY =
   'AMO Download Firefox Banner';
-export const GET_FIREFOX_BANNER_UTM_CONTENT = 'banner-download-button';
 
 export type Props = {||};
 
@@ -44,12 +49,14 @@ type InternalProps = {|
   ...DefaultProps,
   ...PropsFromState,
   i18n: I18nType,
+  location: ReactRouterLocationType,
 |};
 
 export const GetFirefoxBannerBase = ({
   _tracking = tracking,
   clientApp,
   i18n,
+  location,
   userAgentInfo,
 }: InternalProps): null | React.Node => {
   const onButtonClick = () => {
@@ -70,7 +77,15 @@ export const GetFirefoxBannerBase = ({
     return null;
   }
 
-  const overrideQueryParams = { utm_content: GET_FIREFOX_BANNER_UTM_CONTENT };
+  let overrideQueryParams = { utm_content: GET_FIREFOX_BANNER_UTM_CONTENT };
+  if (clientApp === CLIENT_APP_ANDROID) {
+    overrideQueryParams = {
+      ...overrideQueryParams,
+      // If there is a UTM campaign set on the visited AMO URL, pass it to
+      // the Play Store link. Otherwise, we use the fallback value.
+      utm_campaign: location.query.utm_campaign || undefined,
+    };
+  }
 
   const replacements = [
     [
@@ -135,6 +150,7 @@ function mapStateToProps(state: AppState): PropsFromState {
 }
 
 const GetFirefoxBanner: React.ComponentType<Props> = compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
 )(GetFirefoxBannerBase);
