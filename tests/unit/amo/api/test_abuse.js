@@ -6,6 +6,7 @@ import {
   reportCollection,
 } from 'amo/api/abuse';
 import {
+  DEFAULT_LANG_IN_TESTS,
   createApiResponse,
   createFakeAddonAbuseReport,
   createFakeUserAbuseReport,
@@ -52,6 +53,7 @@ describe(__filename, () => {
             reporter_name: reporterName,
             location,
             addon_version: addonVersion,
+            lang: DEFAULT_LANG_IN_TESTS,
           },
           apiState,
         })
@@ -104,6 +106,7 @@ describe(__filename, () => {
             reason: undefined,
             reporter_email: undefined,
             reporter_name: undefined,
+            lang: DEFAULT_LANG_IN_TESTS,
           },
           apiState,
         })
@@ -135,6 +138,7 @@ describe(__filename, () => {
             reason,
             reporter_email: reporterEmail,
             reporter_name: reporterName,
+            lang: DEFAULT_LANG_IN_TESTS,
           },
           apiState,
         })
@@ -178,6 +182,7 @@ describe(__filename, () => {
             reason: undefined,
             reporter_email: undefined,
             reporter_name: undefined,
+            lang: DEFAULT_LANG_IN_TESTS,
           },
           apiState,
         })
@@ -243,6 +248,7 @@ describe(__filename, () => {
             reason,
             reporter_email: reporterEmail,
             reporter_name: reporterName,
+            lang: DEFAULT_LANG_IN_TESTS,
           },
           apiState,
         })
@@ -278,6 +284,7 @@ describe(__filename, () => {
             reason: undefined,
             reporter_email: undefined,
             reporter_name: undefined,
+            lang: DEFAULT_LANG_IN_TESTS,
           },
           apiState,
         })
@@ -337,6 +344,7 @@ describe(__filename, () => {
             reason,
             reporter_email: reporterEmail,
             reporter_name: reporterName,
+            lang: DEFAULT_LANG_IN_TESTS,
           },
           apiState,
         })
@@ -372,6 +380,7 @@ describe(__filename, () => {
             reason: undefined,
             reporter_email: undefined,
             reporter_name: undefined,
+            lang: DEFAULT_LANG_IN_TESTS,
           },
           apiState,
         })
