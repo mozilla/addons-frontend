@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-05 16:41+0000\n"
+"PO-Revision-Date: 2023-12-05 16:44+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1249,6 +1249,8 @@ msgstr "ამ დამატებების გამოსაყენე�
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Android-ის გაფართოებების გამოსაყენებლად, დაგჭირდებათ %(downloadLinkStart)sFirefox Android%(downloadLinkEnd)s. Firefox-ის დამატებები სამაგიდო კომპიუტერისთვის იხილეთ %(linkStart)sსრულ "
+"საიტზე%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2137,11 +2139,11 @@ msgstr "გამოიყენეთ Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "გაფართოებებისთვის, რომლებიც თავსებადია Firefox-თან Android-ზე, %(linkStart)s დაწკაპეთ%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
-msgstr ""
+msgstr "ეს ჩამონათვალი არ არის განკუთვნილი ამ პლატფორმისთვის. %(linkStart)sმონახეთ დამატებები სამაგიდო Firefox-ისთვის%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
