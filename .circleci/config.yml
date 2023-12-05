@@ -14,7 +14,7 @@ references:
     working_directory: ~/addons-frontend
     docker:
       # This is the NodeJS version we run in production.
-      - image: cimg/node:18.18
+      - image: cimg/node:18.19
 
   defaults-next: &defaults-next
     working_directory: ~/addons-frontend
