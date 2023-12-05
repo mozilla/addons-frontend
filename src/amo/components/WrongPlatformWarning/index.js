@@ -137,6 +137,12 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
         ],
       });
     } else if (newLocation) {
+      const overrideQueryParams = {
+        // If there is a UTM campaign set on the visited AMO URL, pass it to
+        // the Play Store link. Otherwise, we use the fallback value.
+        utm_campaign: location.query.utm_campaign || undefined,
+      };
+
       // Redirecting to new page on the desktop site.
       message = replaceStringsWithJSX({
         text: i18n.gettext(`To use Android extensions, you'll need
@@ -149,7 +155,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
             'downloadLinkEnd',
             (text) => (
               <Link
-                href={getDownloadLink({ clientApp })}
+                href={getDownloadLink({ clientApp, overrideQueryParams })}
                 prependClientApp={false}
                 prependLang={false}
               >

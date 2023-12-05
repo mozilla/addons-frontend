@@ -25,8 +25,8 @@ export const DOWNLOAD_FIREFOX_BASE_URL =
   'https://www.mozilla.org/firefox/download/thanks/';
 export const PROMOTED_ADDONS_SUMO_URL =
   'https://support.mozilla.org/kb/add-on-badges';
-export const DOWNLOAD_FIREFOX_FOR_ANDROID_URL =
-  'https://play.google.com/store/apps/details?id=org.mozilla.firefox';
+export const DOWNLOAD_FIREFOX_FOR_ANDROID_BASE_URL =
+  'https://play.google.com/store/apps/details';
 
 // Addon States.
 export const DISABLED = 'DISABLED';
@@ -319,6 +319,7 @@ export const AMO_REQUEST_ID_HEADER = 'amo-request-id';
 export const DEFAULT_UTM_SOURCE = 'addons.mozilla.org';
 export const DEFAULT_UTM_MEDIUM = 'referral';
 export const DOWNLOAD_FIREFOX_UTM_CAMPAIGN = 'amo-fx-cta';
+export const GET_FIREFOX_BANNER_UTM_CONTENT = 'banner-download-button';
 
 // Promoted categories
 export const LINE = 'line';

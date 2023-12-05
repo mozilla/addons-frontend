@@ -193,12 +193,50 @@ describe(__filename, () => {
 
     expect(
       screen.getByRole('link', {
+        name: 'Firefox for Android',
+      }),
+    ).toHaveAttribute(
+      'href',
+      `https://play.google.com/store/apps/details?${[
+        'id=org.mozilla.firefox',
+        'utm_campaign=amo-fx-cta',
+        'utm_content=banner-download-button',
+        'utm_medium=referral',
+        'utm_source=addons.mozilla.org',
+      ].join('&')}`,
+    );
+    expect(screen.getByText(/To use Android extensions/)).toBeInTheDocument();
+
+    expect(
+      screen.getByRole('link', {
         name: 'visit our desktop site',
       }),
     ).toHaveAttribute('href', newLocation);
     expect(
       screen.getByText(/To explore Firefox for desktop add-ons, please/),
     ).toBeInTheDocument();
+  });
+
+  it('passes the utm_campaign value to the Play Store link when available', () => {
+    const newLocation = '/some/location/';
+    _correctedLocationForPlatform.mockReturnValue(newLocation);
+    const campaign = 'some-utm-campaign';
+    render({ location: `/some/page/?utm_campaign=${campaign}` });
+
+    expect(
+      screen.getByRole('link', {
+        name: 'Firefox for Android',
+      }),
+    ).toHaveAttribute(
+      'href',
+      `https://play.google.com/store/apps/details?${[
+        'id=org.mozilla.firefox',
+        `utm_campaign=${campaign}`,
+        'utm_content=banner-download-button',
+        'utm_medium=referral',
+        'utm_source=addons.mozilla.org',
+      ].join('&')}`,
+    );
   });
 
   it('returns nothing if not Firefox for Android, not Firefox for iOS, and no location correction is required', () => {
