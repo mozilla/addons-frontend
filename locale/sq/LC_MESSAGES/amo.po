@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-06 13:20+0000\n"
+"PO-Revision-Date: 2023-12-06 14:26+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -1205,6 +1205,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Hiq atje ku %(startNotedLink)sthuhet%(endNotedLink)s ndryshe, lënda në këtë sajt licencohet sipas %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s ose "
+"çfarëdo versioni të mëvonshëm. Android është një shenjë tregtare e Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1236,12 +1238,14 @@ msgstr "Qendër Zhvilluesish"
 
 #: src/amo/components/GetFirefoxBanner/index.js:108
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "Që të përdorni këto shtesa, do t’ju duhet të %(downloadLinkStart)sshkarkoni Firefox-in%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:110 src/amo/components/WrongPlatformWarning/index.js:142
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Që të përdorni zgjerime për Android, do t’ju duhet %(downloadLinkStart)sFirefox-i për Android%(downloadLinkEnd)s. Që të eksploroni shtesa Firefox-i për desktop, ju lutemi, %(linkStart)svizitoni "
+"sajtin tonë për desktop%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2125,11 +2129,11 @@ msgstr "Merrni Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Për të gjetur zgjerime të përputhshme me Firefox për Android, %(linkStart)sklikoni këtu%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
-msgstr ""
+msgstr "Kjo listë s’është e menduar për këtë platformë. %(linkStart)sShfletoni shtesa për Firefox-in në desktop%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
