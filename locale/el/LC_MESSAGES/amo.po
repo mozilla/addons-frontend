@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-04 11:45+0000\n"
+"PO-Revision-Date: 2023-12-07 14:32+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -2471,7 +2471,7 @@ msgstr "Περισσότερες δημοφιλείς επεκτάσεις"
 
 #: src/amo/pages/Home/index.js:199
 msgid "Change the way Firefox looks with themes."
-msgstr "Αλλάξτε τον τρόπο εμφάνισης του Firefox με θέματα."
+msgstr "Αλλάξτε την εμφάνιση του Firefox με τα θέματα."
 
 #: src/amo/pages/Home/index.js:208
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
@@ -3046,7 +3046,7 @@ msgstr "Μπορείτε να αλλάξετε τη διεύθυνση email τ�
 
 #: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Manage Mozilla accounts…"
-msgstr "Διαχείριση λογαριασμών Mozilla…"
+msgstr "Διαχείριση λογαριασμού Mozilla…"
 
 #: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
