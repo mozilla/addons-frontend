@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-07 19:02+0000\n"
+"PO-Revision-Date: 2023-12-07 19:13+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1235,7 +1235,7 @@ msgstr "새로운 Firefox를 다운로드하고 테마를 받으세요"
 
 #: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download the new Firefox and get the extension"
-msgstr "새로운 Firefox를 다운로드하고 확장 프로그램을 받으세요"
+msgstr "새로운 Firefox를 다운로드하고 확장 기능을 받으세요"
 
 #: src/amo/components/GetFirefoxButton/index.js:139
 msgid "Download Firefox"
@@ -1457,7 +1457,7 @@ msgstr "확장 기능 사용 확인과 테마 관리"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Exchange messages with programs other than Firefox"
-msgstr "Firefox 이외의 프로그램과 메시지를 주고 받음"
+msgstr "Firefox 이외의 프로그램과 메시지 교환"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Display notifications to you"
@@ -2353,7 +2353,7 @@ msgstr "확장 기능과 테마를 검색하여 모음집에 추가하세요."
 
 #: src/amo/pages/Collection/index.js:562
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr "Firefox를 다운로드하고, 즐겨 사용하는 확장 프로그램과 테마를 모음집으로 만들어 보세요. %(collectionName)s — %(collectionDescription)s 을 탐색합니다."
+msgstr "좋아하는 확장 기능과 테마를 추적하려면 Firefox 모음집을 다운로드하고 생성하세요. %(collectionName)s—%(collectionDescription)s을 탐색합니다."
 
 #: src/amo/pages/Collection/index.js:565
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
@@ -2425,7 +2425,7 @@ msgstr "추천 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "모든 Android 확장 기능 살펴보기"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2489,7 +2489,7 @@ msgstr "Firefox를 나만의 맞춤형 브라우저를 만들 수 있는 강력�
 
 #: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
-msgstr "모든 카테고리 탐색"
+msgstr "모든 카테고리 살펴보기"
 
 #: src/amo/pages/LanguageTools/index.js:118
 msgid "Available for your locale"
