@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-07 14:32+0000\n"
+"PO-Revision-Date: 2023-12-07 14:51+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -3078,13 +3078,12 @@ msgstr "Ειδοποιήσεις"
 
 #: src/amo/pages/UserProfileEdit/index.js:805
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr "Η Mozilla ενδέχεται να στέλνει περιστασιακά email σχετικά με ανερχόμενες κυκλοφορίες και εκδηλώσεις προσθέτων. Παρακαλούμε επιλέξτε τα θέματα που σας ενδιαφέρουν."
+msgstr "Η Mozilla ενδέχεται να στέλνει περιστασιακά email σχετικά με επερχόμενες κυκλοφορίες και εκδηλώσεις προσθέτων. Επιλέξτε τα θέματα που σας ενδιαφέρουν."
 
 #: src/amo/pages/UserProfileEdit/index.js:810
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
-"Η Mozilla ενδέχεται να στέλνει, περιστασιακά, σε αυτόν τον χρήστη email σχετικά με ανερχόμενες κυκλοφορίες και εκδηλώσεις προσθέτων. Παρακαλούμε επιλέξτε τα θέματα που ίσως ενδιαφέρουν αυτόν τον "
-"χρήστη."
+"Η Mozilla ενδέχεται να στέλνει περιστασιακά email σε αυτόν τον χρήστη, σχετικά με επερχόμενες κυκλοφορίες και εκδηλώσεις προσθέτων. Επιλέξτε τα θέματα που ενδέχεται να ενδιαφέρουν αυτόν τον χρήστη."
 
 #: src/amo/pages/UserProfileEdit/index.js:825
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
@@ -3211,7 +3210,7 @@ msgstr "Η Mozilla πρέπει να επικοινωνεί μαζί μου σχ
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr "νέα πρόσθετα ή λειτουργίες γίνονται διαθέσιμα για το Firefox"
+msgstr "Όταν διατίθενται νέα πρόσθετα ή λειτουργίες στο Firefox"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
@@ -3219,7 +3218,7 @@ msgstr "κάποιος γράφει μια κριτική για το πρόσθ
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
-msgstr "ένας προγραμματιστής προσθέτου απαντά στην κριτική μου"
+msgstr "Όταν ένας προγραμματιστής προσθέτου απαντά στην κριτική μου"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
