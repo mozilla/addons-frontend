@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-07 19:13+0000\n"
+"PO-Revision-Date: 2023-12-07 19:17+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1185,6 +1185,7 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"특별한 %(startNotedLink)s고지%(endNotedLink)s가 없는 한, 본 사이트의 콘텐츠는 %(startLicenseLink)sCommons Attribution Share-Alike License v3.0%(endLicenseLink)s 또는 그 이후 버전에 따라 사용이 허가됩니다. Android는 Google LLC의 상표입니다."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1219,7 +1220,7 @@ msgstr ""
 #: src/amo/components/GetFirefoxBanner/index.js:110 src/amo/components/WrongPlatformWarning/index.js:142
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
-msgstr ""
+msgstr "Android 확장 기능을 사용하려면 %(downloadLinkStart)sAndroid용 Firefox%(downloadLinkEnd)s가 필요합니다. 데스크톱용 Firefox 부가 기능을 살펴보려면 %(linkStart)s데스크톱 사이트를 방문%(linkEnd)s하세요."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2357,7 +2358,7 @@ msgstr "좋아하는 확장 기능과 테마를 추적하려면 Firefox 모음�
 
 #: src/amo/pages/Collection/index.js:565
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "Firefox를 다운로드하고, 즐겨 사용하는 확장 프로그램과 테마를 모음집으로 만들어 보세요. %(collectionName)s 을 탐색합니다."
+msgstr "좋아하는 확장 기능과 테마를 추적하려면 Firefox 모음집을 다운로드하고 생성하세요. %(collectionName)s을 탐색합니다."
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
@@ -2417,7 +2418,7 @@ msgstr "Android용 Firefox 확장 기능"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "강력한 확장 기능으로 Android용 Firefox를 개인화하세요."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
