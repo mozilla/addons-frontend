@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-07 19:17+0000\n"
+"PO-Revision-Date: 2023-12-08 19:51+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2982,7 +2982,7 @@ msgstr "표시 이름 *"
 
 #: src/amo/pages/UserProfileEdit/index.js:720
 msgid "This URL will only be visible for users who are developers."
-msgstr "이 URL은 개발자인 사용자에게만 표시됩니다."
+msgstr "이 URL은 개발자인 사용자만 표시됩니다."
 
 #: src/amo/pages/UserProfileEdit/index.js:777
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
