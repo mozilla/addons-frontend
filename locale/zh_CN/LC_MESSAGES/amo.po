@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-08 04:17+0000\n"
+"PO-Revision-Date: 2023-12-08 04:26+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1222,7 +1222,7 @@ msgstr "需要%(downloadLinkStart)s下载 Firefox%(downloadLinkEnd)s 才能使�
 #: src/amo/components/GetFirefoxBanner/index.js:110 src/amo/components/WrongPlatformWarning/index.js:142
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
-msgstr "需要使用 %(downloadLinkStart)sAndroid 版 Firefox%(downloadLinkEnd)s才能使用 Android 版扩展。若要探索桌面版 Firefox 附加组件，请%(linkStart)s访问桌面版网站%(linkEnd)s。"
+msgstr "Android 版扩展只能在 %(downloadLinkStart)sAndroid 版 Firefox%(downloadLinkEnd)s 上使用。若要探索桌面版 Firefox 附加组件，请%(linkStart)s访问桌面版网站%(linkEnd)s。"
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
