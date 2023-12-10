@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-10 15:52+0000\n"
+"PO-Revision-Date: 2023-12-10 16:01+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1088,7 +1088,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:97
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr ""
+msgstr "Nie działa, powoduje nieprawidłowe działanie stron lub spowalnia Firefoksa"
 
 #: src/amo/components/FlagReviewMenu/index.js:101
 msgid "Flagged as spam"
@@ -1242,6 +1242,8 @@ msgstr "Aby używać tych dodatków, potrzebujesz %(downloadLinkStart)spobrać F
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Aby używać rozszerzeń na Androida, potrzebujesz %(downloadLinkStart)sFirefoksa na Androida%(downloadLinkEnd)s. Aby przeglądać dodatki do Firefoksa na komputery, %(linkStart)sprzejdź do tej "
+"strony%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2150,7 +2152,7 @@ msgstr "Wypróbuj Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Aby znaleźć rozszerzenia zgodne z Firefoksem na Androida, %(linkStart)skliknij tutaj%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
@@ -2241,7 +2243,7 @@ msgstr "Zrzuty ekranu"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Prześlij opinię lub zgłoś dodatek do Mozilli"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2427,23 +2429,23 @@ msgstr "Pobieraj i twórz kolekcje Firefoksa, aby być na bieżąco ze swoimi u
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Prześlij opinię lub zgłoś kolekcję do Mozilli"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "Autor: %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Zgłoś tę kolekcję do Mozilli"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Prześlij opinię na temat kolekcji"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Zgłoś kolekcję, ponieważ łamie prawo lub zasady"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2597,19 +2599,19 @@ msgstr "Słowniki"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Prześlij opinię lub zgłoś recenzję do Mozilli"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "Autor: %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Zgłoś tę recenzję do Mozilli"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Zgłoś recenzję, ponieważ łamie prawo lub zasady"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2877,7 +2879,7 @@ msgstr "Dodatki oznaczone etykietą „%(tag)s”"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Prześlij opinię lub zgłoś użytkownika do Mozilli"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2885,15 +2887,15 @@ msgstr "Data założenia konta"
 
 #: src/amo/pages/UserFeedback/index.js:144
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Zgłoś tego użytkownika do Mozilli"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "Prześlij opinię na temat profilu użytkownika"
 
 #: src/amo/pages/UserFeedback/index.js:148
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "Zgłoś profil użytkownika, ponieważ łamie prawo lub zasady"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
