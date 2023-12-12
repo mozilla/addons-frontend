@@ -325,10 +325,14 @@ describe(__filename, () => {
           'href',
           `https://play.google.com/store/apps/details?${[
             'id=org.mozilla.firefox',
-            'utm_campaign=amo-fx-cta',
-            'utm_content=banner-download-button',
-            'utm_medium=referral',
-            'utm_source=addons.mozilla.org',
+            `referrer=${encodeURIComponent(
+              [
+                'utm_campaign=amo-fx-cta',
+                'utm_content=banner-download-button',
+                'utm_medium=referral',
+                'utm_source=addons.mozilla.org',
+              ].join('&'),
+            )}`,
           ].join('&')}`,
         );
       });
@@ -343,10 +347,14 @@ describe(__filename, () => {
           'href',
           `https://play.google.com/store/apps/details?${[
             'id=org.mozilla.firefox',
-            `utm_campaign=${campaign}`,
-            'utm_content=banner-download-button',
-            'utm_medium=referral',
-            'utm_source=addons.mozilla.org',
+            `referrer=${encodeURIComponent(
+              [
+                `utm_campaign=${campaign}`,
+                'utm_content=banner-download-button',
+                'utm_medium=referral',
+                'utm_source=addons.mozilla.org',
+              ].join('&'),
+            )}`,
           ].join('&')}`,
         );
       });
