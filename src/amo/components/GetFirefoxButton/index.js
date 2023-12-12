@@ -20,6 +20,7 @@ import translate from 'amo/i18n/translate';
 import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { isFirefox } from 'amo/utils/compatibility';
+import { makeQueryString } from 'amo/api';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
@@ -87,12 +88,19 @@ export const getDownloadLink = ({
   overrideQueryParams = {},
 }: GetDownloadLinkParams): string => {
   if (clientApp === CLIENT_APP_ANDROID) {
-    return `${DOWNLOAD_FIREFOX_FOR_ANDROID_BASE_URL}${makeQueryStringWithUTM({
-      id: 'org.mozilla.firefox',
+    // We compute the query string for the UTM params only first and we remove
+    // the leading `?` because we need to pass all the UTM params into a single
+    // query parameter named `referrer` to the Play Store.
+    const utmParams = makeQueryStringWithUTM({
       // By default for Android, we want this `utm_content` value.
       utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
       utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
       ...overrideQueryParams,
+    }).substring(1);
+
+    return `${DOWNLOAD_FIREFOX_FOR_ANDROID_BASE_URL}${makeQueryString({
+      id: 'org.mozilla.firefox',
+      referrer: utmParams,
     })}`;
   }
 
