@@ -72,6 +72,7 @@ export function reportAddon({
       reason,
       location,
       addon_version: addonVersion,
+      lang: api.lang,
     },
     apiState: api,
   });
@@ -127,6 +128,7 @@ export function reportUser({
       reason,
       reporter_email: reporterEmail,
       reporter_name: reporterName,
+      lang: api.lang,
     },
     apiState: api,
   });
@@ -180,6 +182,7 @@ export function reportRating({
       reason,
       reporter_name: reporterName,
       reporter_email: reporterEmail,
+      lang: api.lang,
     },
     apiState: api,
   });
@@ -233,6 +236,7 @@ export function reportCollection({
       reason,
       reporter_name: reporterName,
       reporter_email: reporterEmail,
+      lang: api.lang,
     },
     apiState: api,
   });
