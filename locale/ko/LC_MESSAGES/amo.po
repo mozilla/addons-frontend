@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-08 19:57+0000\n"
+"PO-Revision-Date: 2023-12-13 21:36+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -98,7 +98,7 @@ msgstr[0] "사용자 %(total)s명"
 
 #: src/amo/components/AddonFeedbackForm/index.js:198
 msgid "Report this add-on to Mozilla"
-msgstr ""
+msgstr "이 부가 기능을 Mozilla에 신고"
 
 #: src/amo/components/AddonFeedbackForm/index.js:199
 msgid "Send some feedback about the add-on"
@@ -1620,7 +1620,7 @@ msgstr[0] "3 별점 리뷰 모두 보기"
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "You reported this add-on"
-msgstr ""
+msgstr "이 부가 기능을 신고했습니다"
 
 #: src/amo/components/ReportAbuseButton/index.js:123
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1636,7 +1636,7 @@ msgstr "이 부가 기능이 %(linkTagStart)sMozilla의 부가 기능 정책%(li
 
 #: src/amo/components/ReportAbuseButton/index.js:151
 msgid "Report this add-on"
-msgstr ""
+msgstr "이 부가 기능 신고"
 
 #: src/amo/components/ReportAbuseButton/index.js:193
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1660,7 +1660,7 @@ msgstr "이 부가 기능이 어떻게 정책을 위반하는지 알려주세요
 
 #: src/amo/components/ReportUserAbuse/index.js:122 src/amo/components/ReportUserAbuse/index.js:129
 msgid "Report this user"
-msgstr ""
+msgstr "이 사용자 신고"
 
 #: src/amo/components/ReportUserAbuse/index.js:136
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
@@ -1676,7 +1676,7 @@ msgstr "이 사용자가 정책을 어떻게 위반하는지 설명해주십시�
 
 #: src/amo/components/ReportUserAbuse/index.js:178
 msgid "You reported this user"
-msgstr ""
+msgstr "이 사용자를 신고했습니다"
 
 #: src/amo/components/ReportUserAbuse/index.js:182
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -2326,7 +2326,7 @@ msgstr "현재 모음집 삭제"
 
 #: src/amo/pages/Collection/index.js:426
 msgid "You reported this collection"
-msgstr ""
+msgstr "이 모음집을 신고했습니다"
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
@@ -2334,7 +2334,7 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection"
-msgstr ""
+msgstr "이 모음집 신고"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
@@ -2370,7 +2370,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "이 모음집을 Mozilla에 신고"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
@@ -2538,7 +2538,7 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "이 리뷰를 Mozilla에 신고"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
@@ -2794,7 +2794,7 @@ msgstr "가입한 날짜"
 
 #: src/amo/pages/UserFeedback/index.js:144
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "이 사용자를 Mozilla에 신고"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
