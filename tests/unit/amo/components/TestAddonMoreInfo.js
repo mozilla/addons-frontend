@@ -148,6 +148,7 @@ describe(__filename, () => {
       'https://outgoing.mozilla.org/hamster',
     );
     expect(link).toHaveAttribute('title', 'http://hamsterdance.com/');
+    expect(link).toHaveAttribute('rel', 'nofollow');
   });
 
   it('does not render a support link if none exists', () => {
@@ -174,6 +175,7 @@ describe(__filename, () => {
       'https://outgoing.mozilla.org/hamster',
     );
     expect(link).toHaveAttribute('title', 'http://support.hamsterdance.com/');
+    expect(link).toHaveAttribute('rel', 'nofollow');
   });
 
   it('renders the email link of an add-on', () => {

@@ -297,10 +297,9 @@ describe(__filename, () => {
     const homepage = 'http://hamsterdance.com/';
     signInUserAndRenderUserProfile({ homepage });
 
-    expect(screen.getByRole('link', { name: 'Homepage' })).toHaveAttribute(
-      'href',
-      homepage,
-    );
+    const link = screen.getByRole('link', { name: 'Homepage' });
+    expect(link).toHaveAttribute('href', homepage);
+    expect(link).toHaveAttribute('rel', 'nofollow');
   });
 
   it("omits homepage if the user doesn't have one set", () => {
