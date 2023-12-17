@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-17 01:51+0000\n"
+"PO-Revision-Date: 2023-12-17 02:02+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1148,7 +1148,7 @@ msgstr "Logg inn for å rapportere denne omtalen"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:99
 msgid "This is spam"
@@ -1199,6 +1199,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Med mindre annet er %(startNotedLink)sspesifisert%(endNotedLink)s, er innholdet på dette nettstedet lisensiert under %(startLicenseLink)sCreative Commons Navngivelse-del-på-samme-vilkår-lisens "
+"v3.0%(endLicenseLink)s eller en senere versjon. Android er et varemerke for Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1230,12 +1232,14 @@ msgstr "Utvikler-knutepunkt"
 
 #: src/amo/components/GetFirefoxBanner/index.js:108
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "For å bruke disse tilleggene, må du %(downloadLinkStart)slaste ned Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:110 src/amo/components/WrongPlatformWarning/index.js:142
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"For å bruke Android-utvidelser trenger du %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. For å utforske Firefox for datamaskiner-tillegg, %(linkStart)sbesøk vårt "
+"datamaskinernettsted%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -1635,7 +1639,7 @@ msgstr[1] "Les alle %(total)s omtaler med tre stjerner"
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "You reported this add-on"
-msgstr ""
+msgstr "Du rapporterte dette tillegget"
 
 #: src/amo/components/ReportAbuseButton/index.js:123
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1653,7 +1657,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:151
 msgid "Report this add-on"
-msgstr ""
+msgstr "Rapporter dette tillegget"
 
 #: src/amo/components/ReportAbuseButton/index.js:193
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1677,7 +1681,7 @@ msgstr "Forklar hvordan denne utvidelsen krenker våre retningslinjer."
 
 #: src/amo/components/ReportUserAbuse/index.js:122 src/amo/components/ReportUserAbuse/index.js:129
 msgid "Report this user"
-msgstr ""
+msgstr "Rapporter denne brukeren"
 
 #: src/amo/components/ReportUserAbuse/index.js:136
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
@@ -1693,7 +1697,7 @@ msgstr "Forklar hvordan denne brukeren krenker våre retningslinjer."
 
 #: src/amo/components/ReportUserAbuse/index.js:178
 msgid "You reported this user"
-msgstr ""
+msgstr "Du rapporterte denne brukeren"
 
 #: src/amo/components/ReportUserAbuse/index.js:182
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -2045,7 +2049,7 @@ msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese mer"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "Logget inn som %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2119,11 +2123,11 @@ msgstr "Få Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "For å finne utvidelser som er kompatible med Firefox for Android, %(linkStart)sklikk her%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
-msgstr ""
+msgstr "Denne oppføringen er ikke beregnet for denne plattformen. %(linkStart)sSe gjennom tillegg for Firefox for datamaskiner%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
@@ -2209,7 +2213,7 @@ msgstr "Skjermbilder"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Send tilbakemelding eller rapporter et tillegg til Mozilla"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2293,7 +2297,7 @@ msgstr "Versjoner blokkerte: alle versjoner."
 
 #: src/amo/pages/Block/index.js:124
 msgid "Versions blocked: %(versions)s."
-msgstr ""
+msgstr "Versjoner blokkerte: %(versions)s."
 
 #: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
@@ -2358,15 +2362,15 @@ msgstr "Slett denne samlingen"
 
 #: src/amo/pages/Collection/index.js:426
 msgid "You reported this collection"
-msgstr ""
+msgstr "Du rapporterte denne samlingen"
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Vi har mottatt din rapport. Takk fordi du deler dine bekymringer vedrørende denne samlingen med oss."
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection"
-msgstr ""
+msgstr "Rapporter denne samlingen"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
@@ -2394,23 +2398,23 @@ msgstr "Last ned og opprett samlinger for Firefox, og hold styr på dine favorit
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Send tilbakemelding eller rapporter en samling til Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "av %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Rapporter denne samlingen til Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Send noen tilbakemeldinger om samlingen"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Rapporter samlingen fordi den er ulovlig eller inkompatibel"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2446,11 +2450,11 @@ msgstr "Sesongbestemt"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "Firefox for Android-utvidelser"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "Tilpass Firefox for Android med kraftige utvidelser."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2458,7 +2462,7 @@ msgstr "Se flere anbefalte utvidelser"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Utforsk alle Android-utvidelser"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2562,19 +2566,19 @@ msgstr "Ordbøker"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Send tilbakemelding eller rapporter en vurdering til Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "av %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Rapporter denne vurderingen til Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Rapporter vurderingen fordi den er ulovlig eller inkompatibel"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2844,7 +2848,7 @@ msgstr "Tillegg merket med etiketten %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Send tilbakemelding eller rapporter en bruker til Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2852,15 +2856,15 @@ msgstr "Bruker siden"
 
 #: src/amo/pages/UserFeedback/index.js:144
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Rapporter denne brukeren til Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "Send noen tilbakemeldinger om brukerprofilen"
 
 #: src/amo/pages/UserFeedback/index.js:148
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "Rapporter brukerprofilen fordi den er ulovlig eller inkompatibel"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
@@ -2976,15 +2980,15 @@ msgstr "Oppdater profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:546
 msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "Firefox-kontoer byttet navn til Mozilla-kontoer den 1. november"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr ""
+msgstr "Firefox-kontoer vil bytte navn til Mozilla-kontoer den 1. november"
 
 #: src/amo/pages/UserProfileEdit/index.js:569
 msgid "You will still sign in with the same username and password, and there are no other changes to the products that you use."
-msgstr ""
+msgstr "Du vil fortsatt logge inn med samme brukernavn og passord, og det er ingen andre endringer i produktene du bruker."
 
 #: src/amo/pages/UserProfileEdit/index.js:591
 msgid "View user's profile"
@@ -3012,7 +3016,7 @@ msgstr "E-postadressen kan ikke endres her"
 
 #: src/amo/pages/UserProfileEdit/index.js:643
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Du kan endre e-postadressen din på Mozilla-kontoer. %(startLink)sTrenger du hjelp?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:645
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -3020,7 +3024,7 @@ msgstr "Du kan forandre din e-postadresse på din Firefox-konto. %(startLink)sTr
 
 #: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Behandle Mozilla-kontoer…"
 
 #: src/amo/pages/UserProfileEdit/index.js:666
 msgid "Manage Firefox Accounts…"
