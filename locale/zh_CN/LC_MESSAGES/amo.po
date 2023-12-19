@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-19 12:31+0000\n"
+"PO-Revision-Date: 2023-12-19 12:38+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1003,7 +1003,7 @@ msgstr "附加组件内部"
 
 #: src/amo/components/FeedbackForm/index.js:155
 msgid "Both locations"
-msgstr "两个位置"
+msgstr "两处皆有"
 
 #: src/amo/components/FeedbackForm/index.js:250
 msgid "Report submitted"
@@ -1037,7 +1037,7 @@ msgstr "详细信息%(spanStart)s（选填）%(spanEnd)s"
 msgid ""
 "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to "
 "include it may prevent us from addressing the reported content."
-msgstr "请提供任何其他可帮助我们理解举报内容的信息，包括您认为违反了哪些政策。尽管此信息不是必需的，但未能提供可能会妨碍我们处理被举报的内容。"
+msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
