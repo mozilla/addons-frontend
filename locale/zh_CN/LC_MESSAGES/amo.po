@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-08 04:26+0000\n"
+"PO-Revision-Date: 2023-12-19 12:31+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -963,7 +963,7 @@ msgstr "违反附加组件政策"
 
 #: src/amo/components/FeedbackForm/index.js:115
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr "例如：它未预先询问就泄露了我的数据，或者未预先询问就更改了我的搜索引擎或主页。"
+msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:121
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
@@ -987,7 +987,7 @@ msgstr "其他情形"
 
 #: src/amo/components/FeedbackForm/index.js:137
 msgid "Anything that doesn’t fit into the other categories."
-msgstr "任何不适合其他分类的。"
+msgstr "任何不适合其他分类的情形。"
 
 #: src/amo/components/FeedbackForm/index.js:149
 msgid "Select place"
