@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-22 16:30+0000\n"
+"PO-Revision-Date: 2023-12-22 16:36+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -1206,6 +1206,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Gjavât dulà che al ven %(startNotedLink)sindicât%(endNotedLink)s in mût diviers, i contignûts su chest sît a son distribuîts cun licence%(startLicenseLink)sCreative Commons Atribuzion Condivît te "
+"stesse maniere v3.0%(endLicenseLink)s o versions sucessivis. Android e je une marche regjistrade di Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1237,12 +1239,14 @@ msgstr "Centri di svilup"
 
 #: src/amo/components/GetFirefoxBanner/index.js:108
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "Par doprâ chescj components adizionâi tu scugnis %(downloadLinkStart)sdiscjariâ Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:110 src/amo/components/WrongPlatformWarning/index.js:142
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Par doprâ lis estensions su Android ti covente %(downloadLinkStart)sFirefox par Android%(downloadLinkEnd)s. Par esplorâ i components adizionâi par Firefox par scritori, %(linkStart)svisite la "
+"version par scritori dal sît%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -2125,11 +2129,11 @@ msgstr "Oten Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Par cjatâ estensions compatibilis cun Firefox par Android, %(linkStart)sfâs clic achì%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
-msgstr ""
+msgstr "Chest element nol è fat pe plateforme che tu stâs doprant. %(linkStart)sEsplore i components adizionâi compatibii cu la version par scritori di Firefox%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
