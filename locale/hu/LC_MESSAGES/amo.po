@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-30 14:41+0000\n"
+"PO-Revision-Date: 2023-12-30 14:49+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1108,7 +1108,7 @@ msgstr "Ez egy hibajelentés vagy támogatási kérés"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Rossz helyre küldött hibajelentés vagy támogatási kérésként megjelölve"
 
 #: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flagged as a bug report or support request"
@@ -1116,7 +1116,7 @@ msgstr "Hibajelentésként vagy támogatási kérésként jelölt"
 
 #: src/amo/components/FlagReviewMenu/index.js:138
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "Illegális vagy az AMO tartalmi irányelveit sértő tartalom"
 
 #: src/amo/components/FlagReviewMenu/index.js:145
 msgid "This contains inappropriate language"
@@ -1152,7 +1152,7 @@ msgstr "Jelentkezzen be az értékelés megjelöléséhez"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Spam"
-msgstr ""
+msgstr "Kéretlen tartalom"
 
 #: src/amo/components/FlagReviewMenu/index.js:99
 msgid "This is spam"
@@ -1203,6 +1203,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Kivéve, ahol másként %(startNotedLink)svan jelölve%(endNotedLink)s, az oldal tartalma %(startLicenseLink)sCreative Commons Nevezd meg! – Így add tovább! licenc v3.0%(endLicenseLink)s vagy bármelyik "
+"újabb verziója alatt érhető el. Az Android a Google LLC védjegye."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1234,12 +1236,14 @@ msgstr "Fejlesztőközpont"
 
 #: src/amo/components/GetFirefoxBanner/index.js:108
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "A kiegészítők használatához le kell %(downloadLinkStart)stöltenie a Firefoxot%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:110 src/amo/components/WrongPlatformWarning/index.js:142
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Az androidos kiegészítők használatához szüksége lesz a %(downloadLinkStart)sFirefox for Androidra%(downloadLinkEnd)s. Az asztali kiegészítőkhöz készült Firefox felfedezéséhez %(linkStart)skeresse "
+"fel az asztali oldalunkat%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:129
 msgid "Download Firefox and get the theme"
@@ -1639,7 +1643,7 @@ msgstr[1] "%(total)s háromcsillagos értékelés elolvasása"
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "You reported this add-on"
-msgstr ""
+msgstr "Jelentette ezt a kiegészítőt"
 
 #: src/amo/components/ReportAbuseButton/index.js:123
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1657,7 +1661,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:151
 msgid "Report this add-on"
-msgstr ""
+msgstr "Kiegészítő jelentése"
 
 #: src/amo/components/ReportAbuseButton/index.js:193
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1681,7 +1685,7 @@ msgstr "Magyarázza el, hogyan sérti meg a kiegészítő az irányelveinket."
 
 #: src/amo/components/ReportUserAbuse/index.js:122 src/amo/components/ReportUserAbuse/index.js:129
 msgid "Report this user"
-msgstr ""
+msgstr "Felhasználó jelentése"
 
 #: src/amo/components/ReportUserAbuse/index.js:136
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
@@ -1697,7 +1701,7 @@ msgstr "Magyarázza el, hogyan sérti meg a felhasználó az irányelveinket."
 
 #: src/amo/components/ReportUserAbuse/index.js:178
 msgid "You reported this user"
-msgstr ""
+msgstr "Jelentette ezt a felhasználót"
 
 #: src/amo/components/ReportUserAbuse/index.js:182
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -2049,7 +2053,7 @@ msgstr "<span class=\"visually-hidden\">Kibontás,</span> Tudjon meg többet"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "Bejelentkezve mint %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2123,11 +2127,11 @@ msgstr "Mozilla VPN beszerzése"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "A Firefox for Androiddal kompatibilis kiegészítők megtalálásához %(linkStart)skattintson ide%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:121
 msgid "This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s."
-msgstr ""
+msgstr "Ez a felsorolás nem erre a platformra szól. %(linkStart)sBöngéssze az asztali Firefox kiegészítőit%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
