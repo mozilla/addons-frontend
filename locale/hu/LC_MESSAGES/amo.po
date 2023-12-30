@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-30 14:49+0000\n"
+"PO-Revision-Date: 2023-12-30 16:39+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -966,7 +966,7 @@ msgstr "Példa: A funkciók lassúk, nehezen kezelhetők, vagy nem működnek; a
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It’s spam"
-msgstr ""
+msgstr "Kéretlen tartalom"
 
 #: src/amo/components/FeedbackForm/index.js:106
 msgid "Example: The listing advertises unrelated products or services."
@@ -1042,17 +1042,19 @@ msgstr "Adjon meg további információkat"
 
 #: src/amo/components/FeedbackForm/index.js:369
 msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "A szabálysértés helye %(spanStart)s(nem kötelező)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:397
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "További részletek megadása %(spanStart)s(nem kötelező)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:414
 msgid ""
 "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to "
 "include it may prevent us from addressing the reported content."
 msgstr ""
+"Adjon meg minden további információt, amely segíthet nekünk a bejelentése megértésében (beleértve, hogy melyik irányelvről gondolja, hogy megsértették). Bár ez az információ nem kötelező, a hiánya "
+"megakadályozhat minket a jelentett tartalom kezelésében."
 
 #: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
@@ -1064,7 +1066,7 @@ msgstr "Névtelen jelentés beküldése"
 
 #: src/amo/components/FeedbackForm/index.js:443
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Ha névtelen jelentést küld, akkor megakadályozza, hogy tájékoztassuk a bejelentés állapotáról, vagy az esetleges fellebbezési lehetőségekről."
 
 #: src/amo/components/FeedbackForm/index.js:464
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
@@ -2217,7 +2219,7 @@ msgstr "Képernyőképek"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Visszajelzés küldése vagy a kiegészítő jelentése a Mozillának"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2366,15 +2368,15 @@ msgstr "Ezen gyűjtemény törlése"
 
 #: src/amo/pages/Collection/index.js:426
 msgid "You reported this collection"
-msgstr ""
+msgstr "Jelentette ezt a gyűjteményt"
 
 #: src/amo/pages/Collection/index.js:430
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Megkaptuk a jelentését. Köszönjük, hogy megosztotta aggályait a gyűjteménnyel kapcsolatban."
 
 #: src/amo/pages/Collection/index.js:444
 msgid "Report this collection"
-msgstr ""
+msgstr "E gyűjtemény jelentése"
 
 #: src/amo/pages/Collection/index.js:463
 msgid "Log in to create a collection"
@@ -2402,23 +2404,23 @@ msgstr "Töltsön le és hozzon létre Firefox gyűjteményeket, amellyel követ
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Visszajelzés küldése vagy a gyűjtemény jelentése a Mozillának"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "készítette: %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Gyűjtemény jelentése a Mozillának"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Visszajelzés küldése a gyűjteménnyel kapcsolatban"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "A gyűjtemény jelentése, mert az illegális vagy szabálysértő"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2574,7 +2576,7 @@ msgstr "Szótárak"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Visszajelzés küldése vagy a gyűjtemény jelentése a Mozillának"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
@@ -2856,7 +2858,7 @@ msgstr "%(tag)s címkével ellátott kiegészítők"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Visszajelzés küldése vagy a felhasználó jelentése a Mozillának"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:379
 msgid "User since"
@@ -2868,11 +2870,11 @@ msgstr "Felhasználó jelentése a Mozillának"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "Visszajelzés küldése a felhasználói profillal kapcsolatban"
 
 #: src/amo/pages/UserFeedback/index.js:148
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "A felhasználó profiljának jelentése, mert az illegális vagy szabálysértő"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
