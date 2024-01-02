@@ -10,5 +10,5 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   let { t } = useTranslation();
-  return <h1>{t("greeting")}</h1>;
+  return <h1>{t('%(total)s user', {count: 2})}</h1>;
 }
