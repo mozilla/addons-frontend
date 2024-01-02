@@ -15,14 +15,22 @@
     "@remix-run/node": "^2.4.1",
     "@remix-run/react": "^2.4.1",
     "@remix-run/serve": "^2.4.1",
+    "i18next": "23.7.13",
+    "i18next-browser-languagedetector": "7.2.0",
+    "i18next-fs-backend": "2.3.1",
+    "i18next-http-backend": "2.4.2",
     "isbot": "^3.6.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "14.0.0",
+    "remix-i18next": "5.5.0",
+    "uuid": "9.0.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.4.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
+    "@types/uuid": "9.0.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^9.0.0",
