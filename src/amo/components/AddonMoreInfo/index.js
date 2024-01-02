@@ -98,6 +98,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             className="AddonMoreInfo-homepage-link"
             href={homepage}
             title={addon.homepage && addon.homepage.url}
+            rel="nofollow"
           >
             {i18n.gettext('Homepage')}
           </a>
@@ -114,6 +115,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             className="AddonMoreInfo-support-link"
             href={supportUrl}
             title={addon.support_url && addon.support_url.url}
+            rel="nofollow"
           >
             {i18n.gettext('Support site')}
           </a>
