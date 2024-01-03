@@ -1,0 +1,13 @@
+{
+  "name": "po-to-json",
+  "version": "1.0.0",
+  "description": "A Babel plugin to convert .po files to .json",
+  "main": "src/plugin.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "gettext-parser": "7.0.1",
+    "po2json": "0.4.5"
+  }
+}
