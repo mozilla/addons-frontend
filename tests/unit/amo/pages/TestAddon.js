@@ -3034,6 +3034,30 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
+    it('does not display a badge when the add-on is compatible with a max version other than "*"', () => {
+      addon = {
+        ...addon,
+        current_version: {
+          ...addon.current_version,
+          compatibility: {
+            ...addon.current_version.compatibility,
+            [CLIENT_APP_ANDROID]: {
+              ...addon.current_version.compatibility[CLIENT_APP_ANDROID],
+              max: '68.*',
+            },
+          },
+        },
+      };
+      renderWithAddon();
+
+      expect(
+        screen.queryByClassName('Badge-android-compatible'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/Android is a trademark of Google LLC/),
+      ).not.toBeInTheDocument();
+    });
+
     it('does not display a badge when the add-on is compatible with Android but it is not an extension', () => {
       // That cannot possibly work at the moment, i.e. only extensions are
       // compatible with Firefox for Android.
