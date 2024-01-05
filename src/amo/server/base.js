@@ -16,6 +16,10 @@ import NestedStatus from 'react-nested-status';
 import { END } from 'redux-saga';
 import cookiesMiddleware from 'universal-cookie-express';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
+import i18next from 'i18next';
+import { withSSR } from 'react-i18next';
+import i18nHttpMiddleware from 'i18next-http-middleware';
+import I18NexFsBackend from 'i18next-fs-backend';
 
 import log from 'amo/logger';
 import { REGION_CODE_HEADER, createApiError } from 'amo/api';
@@ -38,12 +42,7 @@ import {
   setRequestId,
   setUserAgent,
 } from 'amo/reducers/api';
-import {
-  getDirection,
-  isValidLang,
-  langToLocale,
-  makeI18n,
-} from 'amo/i18n/utils';
+import { getDirection, isValidLang } from 'amo/i18n/utils';
 import { fetchSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
@@ -166,7 +165,32 @@ function baseServer(
     config = defaultConfig,
   } = {},
 ) {
+  const loadPath = path.join(__dirname, '../../locale/{{lng}}/{{ns}}.json');
+  i18next
+    .use(i18nHttpMiddleware.LanguageDetector)
+    .use(I18NexFsBackend)
+    .init({
+      debug: true,
+      preload: ['en_US'],
+      lng: 'en_US',
+      fallbackLng: 'en_US',
+      fallbackNs: 'amo',
+      ns: 'amo',
+      backend: {
+        loadPath,
+      },
+    });
+
+  console.log({ loadPath });
+
   const app = new Express();
+
+  app.use(
+    i18nHttpMiddleware.handle(i18next, {
+      removeLngFromUrl: false, // removes the language from the url when language detected in path
+    }),
+  );
+
   app.disable('x-powered-by');
 
   if (config.get('enableRequestID')) {
@@ -202,6 +226,18 @@ function baseServer(
 
   // This middleware adds `universalCookies` to the Express request.
   app.use(cookiesMiddleware());
+
+  app.get('/locale/:lng/:ns.json', (req, res) => {
+    const { lng, ns } = req.params;
+    const filePath = path.join(__dirname, `../../locale/${lng}/${ns}.json`);
+
+    if (!filePath) {
+      res.status(404).end('Not found');
+    }
+
+    const translations = require(filePath); // eslint-disable-line global-require, import/no-dynamic-require
+    res.json(translations);
+  });
 
   // Following the ops monitoring Dockerflow convention, return version info at
   // this URL. See: https://github.com/mozilla-services/Dockerflow
@@ -330,34 +366,17 @@ function baseServer(
         _log.error(`Caught an error before rendering: ${preLoadError}`);
         return next(preLoadError);
       }
-
-      let i18nData = {};
-      const { htmlLang } = pageProps;
-      const locale = langToLocale(htmlLang);
-
-      try {
-        if (locale !== langToLocale(config.get('defaultLang'))) {
-          // eslint-disable-next-line global-require, import/no-dynamic-require
-          i18nData = require(`../../locale/${locale}/amo.js`);
-        }
-      } catch (e) {
-        _log.info(`Locale JSON not found or required for locale: "${locale}"`);
-        _log.info(
-          `Falling back to default lang: "${config.get('defaultLang')}"`,
-        );
-      }
-
-      const i18n = makeI18n(i18nData, htmlLang);
+      const ExtendedApp = withSSR()(App);
 
       const props = {
         component: (
           <Root
             cookies={req.universalCookies}
             history={connectedHistory}
-            i18n={i18n}
+            i18n={i18next}
             store={store}
           >
-            <App />
+            <ExtendedApp />
           </Root>
         ),
       };

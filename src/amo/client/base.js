@@ -4,9 +4,12 @@ import config from 'config';
 import { createBrowserHistory } from 'history';
 import * as React from 'react';
 import { createRoot } from 'react-dom';
+import i18next from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import Backend from 'i18next-http-backend';
 
 import Root from 'amo/components/Root';
-import { langToLocale, makeI18n, sanitizeLanguage } from 'amo/i18n/utils';
+import { langToLocale, sanitizeLanguage } from 'amo/i18n/utils';
 import log from 'amo/logger';
 import { addQueryParamsToHistory } from 'amo/utils';
 import tracking from 'amo/tracking';
@@ -77,24 +80,31 @@ export default async function createClient(
     log.warn(`sagas not found`);
   }
 
-  let i18nData = {};
-  try {
-    if (locale !== langToLocale(_config.get('defaultLang'))) {
-      i18nData = await import(
-        /* webpackChunkName: "amo-i18n-[request]" */
-        `../../locale/${locale}/amo.js`
-      );
-    }
-  } catch (e) {
-    log.info(oneLine`Locale not found or required for locale: "${locale}".
-      Falling back to default lang: "${_config.get('defaultLang')}"`);
-  }
-  const i18n = makeI18n(i18nData, lang);
+  // initialize i18next
+  await i18next
+    .use(initReactI18next)
+    .use(Backend)
+    .init({
+      debug: true,
+      fallbackLng: 'en_US',
+      fallbackNS: 'amo',
+      ns: 'amo',
+      lng: locale,
+      react: { useSuspense: false },
+      backend: { loadPath: '/locale/{{lng}}/{{ns}}.json' },
+      detection: {
+        order: ['htmlTag'],
+        caches: [],
+      },
+    });
 
+  if (typeof window !== 'undefined') {
+    window.i18next = i18next;
+  }
   const renderApp = (App) => {
     const root = createRoot(document.getElementById('react-view'));
     root.render(
-      <Root history={connectedHistory} i18n={i18n} store={store}>
+      <Root history={connectedHistory} i18n={i18next} store={store}>
         <App />
       </Root>,
     );
