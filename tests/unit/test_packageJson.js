@@ -18,7 +18,10 @@ const packageJson = JSON.parse(
 
 // po2json: we're using an unreleased git commit because there hasn't been a
 // release with the fixes to its dependencies.
+
+// babel-gettext-extractor: kinda the same as po2json
 const skipDevDeps = [
+  'babel-gettext-extractor',
   'prettier',
   'pretty-quick',
   'html-webpack-plugin',

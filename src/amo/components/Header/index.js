@@ -182,7 +182,7 @@ export class HeaderBase extends React.Component {
       >
         <span className="visually-hidden">
           {
-            // translators: "Firefox" should not be translated. :-)
+            // L10n: "Firefox" should not be translated. :-)
             i18n.gettext('Firefox Browser Add-ons')
           }
         </span>

@@ -47,7 +47,7 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
         >
           {
             // eslint-disable-next-line max-len
-            // translators: This action allows the add-on developer to edit an add-on's properties.
+            // L10n: This action allows the add-on developer to edit an add-on's properties.
             i18n.gettext('Edit add-on')
           }
         </a>
@@ -58,7 +58,7 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
       <DefinitionList className="AddonAuthorLinks">
         <Definition
           term={
-            // translators: This is a list of links to Developer functions.
+            // L10n: This is a list of links to Developer functions.
             i18n.gettext('Author Links')
           }
         >

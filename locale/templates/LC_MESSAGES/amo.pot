@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-01 20:47+0000\n"
+"POT-Creation-Date: 2024-01-05 16:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,8 +32,8 @@ msgstr ""
 msgid "Added to %(collectionName)s"
 msgstr ""
 
-# This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
+#. This is a header for a list meaning Add to [some collection name]
 msgid "Add to…"
 msgstr ""
 
@@ -42,39 +42,39 @@ msgstr ""
 msgid "Add to collection"
 msgstr ""
 
-# This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:104
+#. This action allows a reviewer to perform a content review of an add-on.
 msgid "Content review add-on"
 msgstr ""
 
-# This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:112
+#. This action allows a reviewer to perform a review of a theme.
 msgid "Review theme"
 msgstr ""
 
-# This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:114
+#. This action allows a reviewer to perform a review of an add-on's code.
 msgid "Review add-on code"
 msgstr ""
 
-# This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:134
+#. This is a list of links to administrative functions.
 msgid "Admin Links"
 msgstr ""
 
-# This action allows the add-on developer to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 msgid "Edit add-on"
 msgstr ""
 
-# This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:90
+#. This action allows an admin to maintain an add-on.
 msgid "Admin add-on"
 msgstr ""
 
-# This is a list of links to Developer functions.
 #: src/amo/components/AddonAuthorLinks/index.js:62
+#. This is a list of links to Developer functions.
 msgid "Author Links"
 msgstr ""
 
@@ -118,18 +118,22 @@ msgid "Report the add-on because it's illegal or incompliant"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:102
+#. please keep the fox emoji next to "Firefox".
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:107
+#. please keep the fox emoji next to "Firefox".
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:112
+#. please keep the fox emoji next to "Firefox".
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:117
+#. please keep the fox emoji next to "Firefox".
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
@@ -138,26 +142,32 @@ msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:69
+#. please keep the fox emoji next to "Firefox Android".
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:74
+#. please keep the fox emoji next to "Firefox Android".
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:79
+#. please keep the fox emoji next to "Firefox Android".
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:84
+#. please keep the fox emoji next to "Firefox Android".
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:90
+#. please keep the fox emoji next to "Firefox Android".
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:97
+#. please keep the fox emoji next to "Firefox".
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
@@ -203,93 +213,93 @@ msgstr ""
 msgid "Used by"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:102
+#: src/amo/components/AddonMoreInfo/index.js:103
 #: src/amo/pages/UserProfile/index.js:356
-#: src/amo/pages/UserProfile/index.js:358
+#: src/amo/pages/UserProfile/index.js:359
 #: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Homepage"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:118
+#: src/amo/components/AddonMoreInfo/index.js:120
 msgid "Support site"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:132
+#: src/amo/components/AddonMoreInfo/index.js:134
 msgid "Support Email"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:150
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:171
 msgid "Custom License"
 msgstr ""
 
-# This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:214
+#: src/amo/components/AddonMoreInfo/index.js:215
+#. This will output, in English: "2 months ago (Dec 12 2016)"
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:231
 msgid "Read the privacy policy for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:241
+#: src/amo/components/AddonMoreInfo/index.js:242
 msgid "Read the license agreement for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:254
+#: src/amo/components/AddonMoreInfo/index.js:255
 msgid "See all versions"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:301
+#: src/amo/components/AddonMoreInfo/index.js:302
 msgid "Add-on Links"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:313
+#: src/amo/components/AddonMoreInfo/index.js:314
 msgid "Version"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:321
+#: src/amo/components/AddonMoreInfo/index.js:322
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:329
+#: src/amo/components/AddonMoreInfo/index.js:330
 #: src/amo/components/CollectionDetails/index.js:87
 #: src/amo/pages/CollectionFeedback/index.js:149
 msgid "Last updated"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:337
+#: src/amo/components/AddonMoreInfo/index.js:338
 msgid "Related Categories"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:347
+#: src/amo/components/AddonMoreInfo/index.js:348
 msgid "License"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:355
+#: src/amo/components/AddonMoreInfo/index.js:356
 msgid "Privacy Policy"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:363
+#: src/amo/components/AddonMoreInfo/index.js:364
 msgid "End-User License Agreement"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:371
+#: src/amo/components/AddonMoreInfo/index.js:372
 msgid "Version History"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:381
+#: src/amo/components/AddonMoreInfo/index.js:382
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:389
+#: src/amo/components/AddonMoreInfo/index.js:390
 msgid "Tags"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:405
+#: src/amo/components/AddonMoreInfo/index.js:406
 msgid "More information"
 msgstr ""
 
@@ -382,36 +392,38 @@ msgstr ""
 msgid "Publishing reply"
 msgstr ""
 
-# Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:368
+#. Example in English: "posted last week"
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:371
+#. Example in English: "by UserName123, last week"
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:374
+#: src/amo/components/AddonReviewCard/index.js:375
+#. Example in English: "by UserName123, last week"
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:489
+#: src/amo/components/AddonReviewCard/index.js:490
 msgid "Deleting…"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:520
+#: src/amo/components/AddonReviewCard/index.js:521
 msgid "Reply to this review"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:550
+#: src/amo/components/AddonReviewCard/index.js:551
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:596
+#: src/amo/components/AddonReviewCard/index.js:597
 msgid "Write a review"
 msgstr ""
 
@@ -568,21 +580,21 @@ msgstr ""
 msgid "Add-on icon"
 msgstr ""
 
-# roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:78
+#. roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] ""
 msgstr[1] ""
 
-# A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
+#. A comma, used in a list of authors: a1, a2, a3.
 msgid ","
 msgstr ""
 
-# Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93
 #: src/amo/components/AddonTitle/index.js:98
+#. Example: add-on "by" some authors
 msgid "by"
 msgstr ""
 
@@ -1305,53 +1317,53 @@ msgstr ""
 msgid "Developer Hub"
 msgstr ""
 
-#: src/amo/components/GetFirefoxBanner/index.js:108
+#: src/amo/components/GetFirefoxBanner/index.js:123
 msgid ""
 "To use these add-ons, you'll need to %(downloadLinkStart)sdownload "
 "Firefox%(downloadLinkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxBanner/index.js:110
-#: src/amo/components/WrongPlatformWarning/index.js:142
+#: src/amo/components/GetFirefoxBanner/index.js:125
+#: src/amo/components/WrongPlatformWarning/index.js:148
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
 "Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
 "%(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:129
+#: src/amo/components/GetFirefoxButton/index.js:146
 msgid "Download Firefox and get the theme"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:134
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Download the new Firefox and get the theme"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:152
 msgid "Download the new Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:142
+#: src/amo/components/GetFirefoxButton/index.js:159
 msgid "You'll need Firefox to use this theme"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:143
+#: src/amo/components/GetFirefoxButton/index.js:160
 msgid "You'll need Firefox to use this extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:147
+#: src/amo/components/GetFirefoxButton/index.js:164
 msgid "You need an updated version of Firefox for this theme"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:148
+#: src/amo/components/GetFirefoxButton/index.js:165
 msgid "You need an updated version of Firefox for this extension"
 msgstr ""
 
@@ -1375,8 +1387,8 @@ msgstr ""
 msgid "Reviewer Tools"
 msgstr ""
 
-# "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:186
+#. "Firefox" should not be translated. :-)
 msgid "Firefox Browser Add-ons"
 msgstr ""
 
@@ -1410,19 +1422,21 @@ msgstr ""
 msgid "Get the extension"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:233
+#: src/amo/components/HeroRecommendation/index.js:231
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 msgid "RECOMMENDED"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:237
+#: src/amo/components/HeroRecommendation/index.js:234
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 msgid "BY FIREFOX"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:239
+#: src/amo/components/HeroRecommendation/index.js:236
 msgid "SPONSORED"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:256
+#: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -3069,7 +3083,7 @@ msgid "Submit feedback or report a user to Mozilla"
 msgstr ""
 
 #: src/amo/pages/UserFeedback/index.js:133
-#: src/amo/pages/UserProfile/index.js:379
+#: src/amo/pages/UserProfile/index.js:381
 msgid "User since"
 msgstr ""
 
@@ -3131,35 +3145,35 @@ msgstr ""
 msgid "User Profile"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:364
+#: src/amo/pages/UserProfile/index.js:366
 #: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Location"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:372
+#: src/amo/pages/UserProfile/index.js:374
 #: src/amo/pages/UserProfileEdit/index.js:740
 msgid "Occupation"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:389
+#: src/amo/pages/UserProfile/index.js:391
 msgid "Number of add-ons"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:395
+#: src/amo/pages/UserProfile/index.js:397
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:410
+#: src/amo/pages/UserProfile/index.js:412
 #: src/amo/pages/UserProfileEdit/index.js:762
 msgid "Biography"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:434
+#: src/amo/pages/UserProfile/index.js:436
 msgid "Edit profile"
 msgstr ""
 
-# This action allows an admin to maintain a user.
-#: src/amo/pages/UserProfile/index.js:447
+#: src/amo/pages/UserProfile/index.js:449
+#. This action allows an admin to maintain a user.
 msgid "Admin user"
 msgstr ""
 
@@ -3281,8 +3295,8 @@ msgstr ""
 msgid "This field is required"
 msgstr ""
 
-# the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:687
+#. the star is used to indicate a required field
 msgid "Display Name *"
 msgstr ""
 
@@ -3378,8 +3392,8 @@ msgstr ""
 msgid "You are successfully unsubscribed!"
 msgstr ""
 
-# a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
+#. a list of notifications will be displayed under this prompt.
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
@@ -3395,18 +3409,18 @@ msgstr ""
 msgid "(no name)"
 msgstr ""
 
-# This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
+#. This is application compatibility information, such as "firefox 41 and later"
 msgid "%(application)s %(minVersion)s and later"
 msgstr ""
 
-# This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:309
+#. This is application compatibility information, such as "firefox 41 to 45"
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr ""
 
-# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:329
+#. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
 

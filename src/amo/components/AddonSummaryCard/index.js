@@ -74,7 +74,7 @@ export const AddonSummaryCardBase = ({
     const roundedAverage = roundToOneDigit(addon.ratings.average);
     addonAverage = i18n.sprintf(
       // eslint-disable-next-line max-len
-      // translators: roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
+      // L10n: roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
       i18n.ngettext(
         '%(rating)s Star out of 5',
         '%(rating)s Stars out of 5',

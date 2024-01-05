@@ -265,7 +265,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
       });
     }
 
-    // translators: This is a header for a list meaning Add to [some collection name]
+    // L10n: This is a header for a list meaning Add to [some collection name]
     const collectionOptLabel = i18n.gettext('Add to…');
 
     return (

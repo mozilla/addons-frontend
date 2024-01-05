@@ -216,8 +216,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     }
 
     const renderHeroTitle = () => {
-      // translators: If uppercase does not work in your locale,
-      // change it to lowercase. This is used as a secondary heading.
+      // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
       let titleText = null;
 
       const promotedCategory = _getPromotedCategory({
@@ -228,12 +227,10 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
       if (!loading) {
         if (promotedCategory === RECOMMENDED) {
-          // translators: If uppercase does not work in your locale,
-          // change it to lowercase. This is used as a secondary heading.
+          // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
           titleText = i18n.gettext('RECOMMENDED');
         } else if (promotedCategory === LINE) {
-          // translators: If uppercase does not work in your locale,
-          // change it to lowercase. This is used as a secondary heading.
+          // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
           titleText = i18n.gettext('BY FIREFOX');
         } else {
           titleText = i18n.gettext('SPONSORED');
