@@ -1,11 +1,9 @@
 import userAbuseReportsReducer, {
   SEND_USER_ABUSE_REPORT,
   abortUserAbuseReport,
-  hideUserAbuseReportUI,
   initialState,
   loadUserAbuseReport,
   sendUserAbuseReport,
-  showUserAbuseReportUI,
 } from 'amo/reducers/userAbuseReports';
 import {
   createFakeUserAbuseReport,
@@ -25,15 +23,7 @@ describe(__filename, () => {
       it('resets the state of this abuse report', () => {
         const userId = createUserAccountResponse({ id: 501 }).id;
         let state = userAbuseReportsReducer(
-          initialState,
-          showUserAbuseReportUI({ userId }),
-        );
-        state = userAbuseReportsReducer(
-          state,
-          showUserAbuseReportUI({ userId }),
-        );
-        state = userAbuseReportsReducer(
-          state,
+          undefined,
           sendUserAbuseReport({
             errorHandlerId: 'some-error-handler',
             message: 'foo',
@@ -50,40 +40,7 @@ describe(__filename, () => {
             [userId]: {
               hasSubmitted: false,
               isSubmitting: false,
-              uiVisible: false,
             },
-          },
-        });
-      });
-    });
-
-    describe('hideUserAbuseReportUI', () => {
-      it('sets the uiVisible state to false', () => {
-        const userId = createUserAccountResponse();
-        const state = userAbuseReportsReducer(
-          initialState,
-          hideUserAbuseReportUI({ userId }),
-        );
-
-        expect(state).toMatchObject({
-          byUserId: {
-            [userId]: { uiVisible: false },
-          },
-        });
-      });
-    });
-
-    describe('showUserAbuseReportUI', () => {
-      it('sets the uiVisible state to true', () => {
-        const userId = createUserAccountResponse().id;
-        const state = userAbuseReportsReducer(
-          initialState,
-          showUserAbuseReportUI({ userId }),
-        );
-
-        expect(state).toMatchObject({
-          byUserId: {
-            [userId]: { uiVisible: true },
           },
         });
       });

@@ -3,16 +3,13 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import config from 'config';
 
 import {
   REVIEW_FLAG_REASON_BUG_SUPPORT,
-  REVIEW_FLAG_REASON_LANGUAGE,
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import Link from 'amo/components/Link';
 import FlagReview from 'amo/components/FlagReview';
-import AuthenticateButton from 'amo/components/AuthenticateButton';
 import { getCurrentUser } from 'amo/reducers/users';
 import translate from 'amo/i18n/translate';
 import ListItem from 'amo/components/ListItem';
@@ -65,93 +62,46 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
       'A user cannot flag their own review.',
     );
 
-    const enableFeatureFeedbackFormLinks = config.get(
-      'enableFeatureFeedbackFormLinks',
-    );
-
-    const disableItemsForUnauthenticatedUsers = enableFeatureFeedbackFormLinks
-      ? !siteUser
-      : false;
-
-    let items;
-    if (!enableFeatureFeedbackFormLinks && !siteUser) {
-      items = [
-        <ListItem key="login-required">
-          <AuthenticateButton
-            noIcon
-            logInText={
-              isDeveloperReply
-                ? i18n.gettext('Log in to flag this response')
-                : i18n.gettext('Log in to flag this review')
-            }
-          />
-        </ListItem>,
-      ];
-    } else {
-      items = [
-        <ListItem className="FlagReviewMenu-flag-spam-item" key="flag-spam">
+    const items = [
+      <ListItem className="FlagReviewMenu-flag-spam-item" key="flag-spam">
+        <FlagReview
+          reason={REVIEW_FLAG_REASON_SPAM}
+          review={review}
+          buttonText={i18n.gettext('Spam')}
+          wasFlaggedText={i18n.gettext('Flagged as spam')}
+          disabled={!siteUser}
+          disabledTitle={i18n.gettext('Login required')}
+        />
+      </ListItem>,
+      // Only reviews (not developer responses) can be flagged as
+      // misplaced bug reports or support requests.
+      isDeveloperReply ? null : (
+        <ListItem
+          className="FlagReviewMenu-flag-bug-support-item"
+          key="flag-bug-support"
+        >
           <FlagReview
-            reason={REVIEW_FLAG_REASON_SPAM}
+            reason={REVIEW_FLAG_REASON_BUG_SUPPORT}
             review={review}
-            buttonText={
-              enableFeatureFeedbackFormLinks
-                ? i18n.gettext('Spam')
-                : i18n.gettext('This is spam')
-            }
-            wasFlaggedText={i18n.gettext('Flagged as spam')}
-            disabled={disableItemsForUnauthenticatedUsers}
+            buttonText={i18n.gettext('Misplaced bug report or support request')}
+            wasFlaggedText={i18n.gettext(
+              `Flagged as misplaced bug report or support request`,
+            )}
+            disabled={!siteUser}
             disabledTitle={i18n.gettext('Login required')}
           />
-        </ListItem>,
-        // Only reviews (not developer responses) can be flagged as
-        // misplaced bug reports or support requests.
-        isDeveloperReply ? null : (
-          <ListItem
-            className="FlagReviewMenu-flag-bug-support-item"
-            key="flag-bug-support"
-          >
-            <FlagReview
-              reason={REVIEW_FLAG_REASON_BUG_SUPPORT}
-              review={review}
-              buttonText={
-                enableFeatureFeedbackFormLinks
-                  ? i18n.gettext('Misplaced bug report or support request')
-                  : i18n.gettext('This is a bug report or support request')
-              }
-              wasFlaggedText={
-                enableFeatureFeedbackFormLinks
-                  ? i18n.gettext(`Flagged as misplaced bug report or support
-                      request`)
-                  : i18n.gettext('Flagged as a bug report or support request')
-              }
-              disabled={disableItemsForUnauthenticatedUsers}
-              disabledTitle={i18n.gettext('Login required')}
-            />
-          </ListItem>
-        ),
-        <ListItem
-          className="FlagReviewMenu-flag-language-item"
-          key="flag-language"
-        >
-          {enableFeatureFeedbackFormLinks ? (
-            <Link to={`/feedback/review/${review.id}/`}>
-              {i18n.gettext(`Content that is illegal or that violates AMO's
-                content policies`)}
-            </Link>
-          ) : (
-            <FlagReview
-              reason={REVIEW_FLAG_REASON_LANGUAGE}
-              review={review}
-              buttonText={i18n.gettext('This contains inappropriate language')}
-              wasFlaggedText={i18n.gettext(
-                'Flagged for inappropriate language',
-              )}
-              disabledTitle={i18n.gettext('Login required')}
-            />
-          )}
-        </ListItem>,
-      ];
-    }
+        </ListItem>
+      ),
+      <ListItem
+        className="FlagReviewMenu-flag-language-item"
+        key="flag-language"
+      >
+        <Link to={`/feedback/review/${review.id}/`}>
+          {i18n.gettext(`Content that is illegal or that violates AMO's content
+            policies`)}
+        </Link>
+      </ListItem>,
+    ];
 
     return (
       <TooltipMenu

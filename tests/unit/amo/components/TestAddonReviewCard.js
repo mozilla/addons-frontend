@@ -3,7 +3,6 @@ import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 import defaultUserEvent, {
   PointerEventsCheckLevel,
 } from '@testing-library/user-event';
-import config from 'config';
 
 import {
   SAVED_RATING,
@@ -13,26 +12,19 @@ import {
   cancelDeleteAddonReview,
   createInternalReview,
   deleteAddonReview,
-  flagReview,
   flashReviewMessage,
   hideEditReviewForm,
   hideFlashedReviewMessage,
   hideReplyToReviewForm,
   sendReplyToReview,
   setReview,
-  setReviewWasFlagged,
   showEditReviewForm,
   showReplyToReviewForm,
   updateAddonReview,
 } from 'amo/actions/reviews';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import { extractId as addonReviewManagerExtractId } from 'amo/components/AddonReviewManager';
-import {
-  ALL_SUPER_POWERS,
-  REVIEW_FLAG_REASON_BUG_SUPPORT,
-  REVIEW_FLAG_REASON_LANGUAGE,
-  REVIEW_FLAG_REASON_SPAM,
-} from 'amo/constants';
+import { ALL_SUPER_POWERS } from 'amo/constants';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
 import {
@@ -43,13 +35,10 @@ import {
   fakeAddon,
   fakeI18n,
   fakeReview,
-  getMockConfig,
   render as defaultRender,
   screen,
   within,
 } from 'tests/unit/helpers';
-
-jest.mock('config');
 
 describe(__filename, () => {
   let i18n;
@@ -71,13 +60,6 @@ describe(__filename, () => {
       // This is needed for one test which was triggering a library error about
       // pointer events not being available.
       pointerEventsCheck: PointerEventsCheckLevel.Never,
-    });
-
-    const fakeConfig = getMockConfig({
-      enableFeatureFeedbackFormLinks: false,
-    });
-    config.get.mockImplementation((key) => {
-      return fakeConfig[key];
     });
   });
 
@@ -271,15 +253,6 @@ describe(__filename, () => {
       slim,
     });
   };
-
-  const openFlagMenu = async ({ isReply = false } = {}) =>
-    userEvent.click(
-      screen.getByRole('button', {
-        description: isReply
-          ? 'Flag this developer response'
-          : 'Flag this review',
-      }),
-    );
 
   const clickDeleteRating = async () =>
     userEvent.click(screen.getByRole('button', { name: 'Delete rating' }));
@@ -1381,255 +1354,6 @@ describe(__filename, () => {
       expect(
         screen.queryByClassName('Rating--yellowStars'),
       ).not.toBeInTheDocument();
-    });
-  });
-
-  describe('Tests for FlagReview and FlagReviewMenu', () => {
-    const getErrorHandlerId = (reviewId) => `FlagReview-${reviewId}`;
-
-    it.each([
-      [
-        REVIEW_FLAG_REASON_BUG_SUPPORT,
-        'This is a bug report or support request',
-        'Flagged as a bug report or support request',
-      ],
-      [
-        REVIEW_FLAG_REASON_LANGUAGE,
-        'This contains inappropriate language',
-        'Flagged for inappropriate language',
-      ],
-      [REVIEW_FLAG_REASON_SPAM, 'This is spam', 'Flagged as spam'],
-    ])('can flag a review for %s', async (reason, prompt, postText) => {
-      const dispatch = jest.spyOn(store, 'dispatch');
-      const review = createReviewAndSignInAsUnrelatedUser();
-      render({ review });
-
-      await openFlagMenu();
-
-      const button = screen.getByRole('button', {
-        name: prompt,
-      });
-      const clickEvent = createEvent.click(button);
-      const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
-
-      fireEvent(button, clickEvent);
-
-      expect(preventDefaultWatcher).toHaveBeenCalled();
-      expect(dispatch).toHaveBeenCalledWith(
-        flagReview({
-          errorHandlerId: getErrorHandlerId(review.id),
-          reason,
-          reviewId: review.id,
-        }),
-      );
-
-      store.dispatch(setReviewWasFlagged({ reason, reviewId: review.id }));
-
-      expect(await screen.findByText(postText)).toBeInTheDocument();
-
-      expect(
-        screen.getByRole('button', { name: 'Flagged' }),
-      ).toBeInTheDocument();
-    });
-
-    it('renders loading text while in progress', async () => {
-      const review = createReviewAndSignInAsUnrelatedUser();
-      render({ review });
-
-      await openFlagMenu();
-      await userEvent.click(
-        screen.getByRole('button', {
-          name: 'This is a bug report or support request',
-        }),
-      );
-
-      expect(
-        within(screen.getByRole('tooltip')).getByRole('alert'),
-      ).toBeInTheDocument();
-    });
-
-    it('renders an error', async () => {
-      const message = 'Some error message';
-      const review = createReviewAndSignInAsUnrelatedUser();
-      render({ review });
-
-      await openFlagMenu();
-
-      createFailedErrorHandler({
-        id: getErrorHandlerId(review.id),
-        message,
-        store,
-      });
-
-      // A message is displayed for each instance of FlagReview.
-      await waitFor(() => expect(screen.getAllByText(message)).toHaveLength(3));
-
-      // It should still display a button so they can try again.
-      expect(
-        screen.getByRole('button', {
-          name: 'This is a bug report or support request',
-        }),
-      ).toBeInTheDocument();
-    });
-
-    describe('Tests for FlagReviewMenu', () => {
-      it('can be configured with an openerClass', () => {
-        const review = createReviewAndSignInAsUnrelatedUser();
-        render({ review });
-
-        // AddonReviewCard passes 'AddonReviewCard-control' as the openerClass to
-        // FlagReviewMenu.
-        const flagButton = screen.getByRole('button', {
-          description: 'Flag this review',
-        });
-        expect(flagButton).toHaveClass('AddonReviewCard-control');
-
-        // This tests the `className` prop of TooltipMenu.
-        expect(flagButton).toHaveClass('FlagReviewMenu-menu');
-      });
-
-      it('requires you to be signed in', async () => {
-        render({ review: _setReview() });
-
-        await openFlagMenu();
-
-        // Only the button item should be rendered.
-        expect(
-          screen.queryByRole('button', {
-            name: 'This is a bug report or support request',
-          }),
-        ).not.toBeInTheDocument();
-        expect(
-          screen.getByRole('link', { name: 'Log in to flag this review' }),
-        ).toBeInTheDocument();
-      });
-
-      it('shows the menu for signed-in users', async () => {
-        dispatchSignInActionsWithStore({ store, userId: 999 });
-        render({ review: _setReview() });
-
-        await openFlagMenu();
-
-        expect(
-          screen.getByRole('button', { name: 'This is spam' }),
-        ).toBeInTheDocument();
-        expect(
-          screen.getByRole('button', {
-            name: 'This is a bug report or support request',
-          }),
-        ).toBeInTheDocument();
-        expect(
-          screen.getByRole('button', {
-            name: 'This contains inappropriate language',
-          }),
-        ).toBeInTheDocument();
-      });
-
-      describe('when enableFeatureFeedbackFormLinks is enabled', () => {
-        beforeEach(() => {
-          const fakeConfig = getMockConfig({
-            enableFeatureFeedbackFormLinks: true,
-          });
-          config.get.mockImplementation((key) => {
-            return fakeConfig[key];
-          });
-        });
-
-        it('shows the menu for signed-out users', async () => {
-          render({ review: _setReview() });
-
-          await openFlagMenu();
-
-          expect(
-            screen.queryByRole('link', { name: 'Log in to flag this review' }),
-          ).not.toBeInTheDocument();
-          expect(
-            screen.getByRole('button', {
-              name: 'Spam',
-            }),
-          ).toBeDisabled();
-          expect(
-            screen.getByRole('button', {
-              name: 'Spam',
-            }),
-          ).toHaveAttribute('title', 'Login required');
-          expect(
-            screen.getByRole('button', {
-              name: 'Misplaced bug report or support request',
-            }),
-          ).toBeDisabled();
-          expect(
-            screen.getByRole('button', {
-              name: 'Misplaced bug report or support request',
-            }),
-          ).toHaveAttribute('title', 'Login required');
-        });
-
-        it('shows the menu for signed-in users', async () => {
-          dispatchSignInActionsWithStore({ store, userId: 999 });
-          render({ review: _setReview() });
-
-          await openFlagMenu();
-
-          expect(
-            screen.getByRole('button', {
-              name: 'Spam',
-            }),
-          ).not.toBeDisabled();
-          expect(
-            screen.getByRole('button', {
-              name: 'Spam',
-            }),
-          ).not.toHaveAttribute('title');
-          expect(
-            screen.getByRole('button', {
-              name: 'Misplaced bug report or support request',
-            }),
-          ).not.toBeDisabled();
-          expect(
-            screen.getByRole('button', {
-              name: 'Misplaced bug report or support request',
-            }),
-          ).not.toHaveAttribute('title');
-        });
-      });
-
-      it('prompts you to flag a developer response after login', async () => {
-        renderNestedReply();
-
-        await openFlagMenu({ isReply: true });
-
-        expect(
-          screen.getByRole('link', { name: 'Log in to flag this response' }),
-        ).toBeInTheDocument();
-      });
-
-      it('does not prompt you to flag a response as a bug/support', async () => {
-        dispatchSignInActionsWithStore({ store, userId: 999 });
-        renderNestedReply();
-
-        await openFlagMenu({ isReply: true });
-
-        expect(
-          screen.getByRole('button', { name: 'This is spam' }),
-        ).toBeInTheDocument();
-        expect(
-          screen.queryByRole('button', {
-            name: 'This is a bug report or support request',
-          }),
-        ).not.toBeInTheDocument();
-      });
-
-      it('does not change Flag prompt for other view state changes', () => {
-        const review = createReviewAndSignInAsUnrelatedUser();
-        // This initializes the flag view state which was triggering a bug.
-        store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-        render({ review });
-
-        expect(
-          screen.getByRole('button', { description: 'Flag this review' }),
-        ).toHaveTextContent('Flag');
-      });
     });
   });
 

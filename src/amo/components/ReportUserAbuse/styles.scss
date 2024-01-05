@@ -5,11 +5,3 @@
 .ReportUserAbuse p:first-of-type {
   margin-top: 6px;
 }
-
-.ReportUserAbuse-form {
-  display: none;
-
-  .ReportUserAbuse--is-expanded & {
-    display: block;
-  }
-}

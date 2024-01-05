@@ -1,5 +1,4 @@
 /* global window */
-import config from 'config';
 import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 
@@ -22,22 +21,12 @@ import {
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
   fakeReview,
-  getMockConfig,
   renderPage as defaultRender,
   screen,
 } from 'tests/unit/helpers';
 
-jest.mock('config');
-
 describe(__filename, () => {
-  let fakeConfig;
-
   beforeEach(() => {
-    fakeConfig = getMockConfig({ enableFeatureFeedbackForm: true });
-    config.get.mockImplementation((key) => {
-      return fakeConfig[key];
-    });
-
     window.scroll = jest.fn();
   });
 
@@ -146,16 +135,6 @@ describe(__filename, () => {
         expect(extractId({ match: { params: { ratingId } } })).toEqual('8');
       });
     });
-  });
-
-  it('renders a 404 page when enableFeatureFeedbackForm is false', () => {
-    fakeConfig = { ...fakeConfig, enableFeatureFeedbackForm: false };
-
-    render();
-
-    expect(
-      screen.getByText('Oops! We can’t find that page'),
-    ).toBeInTheDocument();
   });
 
   it('renders a 404 page when the API returned a 404', () => {

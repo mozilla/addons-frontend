@@ -15,32 +15,8 @@
 .ReportAbuseButton--preview {
   display: inline-block;
   width: 100%;
-
-  .ReportAbuseButton--is-expanded & {
-    display: none;
-  }
-}
-
-.ReportAbuseButton--expanded {
-  display: none;
-
-  .ReportAbuseButton--is-expanded & {
-    display: block;
-  }
 }
 
 .ReportAbuseButton-show-more {
   width: 100%;
-}
-
-.DismissibleTextForm-dismiss,
-.DismissibleTextForm-submit {
-  flex-wrap: wrap;
-  font-size: $font-size-s;
-  padding: 0 10px;
-  text-align: center;
-}
-
-.DismissibleTextForm-delete-submit-buttons {
-  padding-left: 5px;
 }

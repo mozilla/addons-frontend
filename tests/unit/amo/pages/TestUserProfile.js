@@ -7,7 +7,6 @@ import {
   setUserReviews,
   FETCH_USER_REVIEWS,
 } from 'amo/actions/reviews';
-import createLocalState from 'amo/localState';
 import { extractId } from 'amo/pages/UserProfile';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -15,12 +14,6 @@ import {
   THEMES_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
-import {
-  hideUserAbuseReportUI,
-  loadUserAbuseReport,
-  sendUserAbuseReport,
-  showUserAbuseReportUI,
-} from 'amo/reducers/userAbuseReports';
 import {
   fetchUserAccount,
   getCurrentUser,
@@ -41,7 +34,6 @@ import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   changeLocation,
   createFailedErrorHandler,
-  createFakeUserAbuseReport,
   createUserAccountResponse,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
@@ -49,7 +41,6 @@ import {
   fakeReview,
   getElement,
   getElements,
-  getMockConfig,
   loadAddonsByAuthors,
   renderPage as defaultRender,
   screen,
@@ -73,8 +64,6 @@ jest.mock('amo/localState', () =>
   }),
 );
 
-jest.mock('config');
-
 describe(__filename, () => {
   const lang = 'fr';
   const clientApp = CLIENT_APP_FIREFOX;
@@ -84,10 +73,6 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
-    const fakeConfig = getMockConfig({ enableFeatureFeedbackFormLinks: false });
-    config.get.mockImplementation((key) => {
-      return fakeConfig[key];
-    });
   });
 
   afterEach(() => {
@@ -396,7 +381,7 @@ describe(__filename, () => {
     signInUserAndRenderUserProfile();
 
     expect(
-      screen.queryByRole('button', { name: 'Report this user' }),
+      screen.queryByRole('link', { name: 'Report this user' }),
     ).not.toBeInTheDocument();
   });
 
@@ -406,7 +391,7 @@ describe(__filename, () => {
     renderUserProfile();
 
     expect(
-      screen.getByRole('button', { name: 'Report this user' }),
+      screen.getByRole('link', { name: 'Report this user' }),
     ).toBeInTheDocument();
   });
 
@@ -414,16 +399,15 @@ describe(__filename, () => {
     renderForOtherThanSignedInUser();
 
     expect(
-      screen.getByRole('button', { name: 'Report this user' }),
+      screen.getByRole('link', { name: 'Report this user' }),
     ).toBeInTheDocument();
   });
 
   it('still renders a report abuse component if user is not loaded', () => {
     renderUserProfile();
 
-    expect(
-      screen.getByRole('button', { name: 'Report this user' }),
-    ).toBeInTheDocument();
+    // This is a disabled link so we cannot use `getByRole('link')` here.
+    expect(screen.getByText('Report this user')).toBeInTheDocument();
   });
 
   it('renders two AddonsByAuthorsCard', () => {
@@ -1219,272 +1203,12 @@ describe(__filename, () => {
   });
 
   describe('Tests for ReportUserAbuse', () => {
-    const errorHandlerId = 'ReportUserAbuse';
-
-    it('renders a button that links to the user feedback form when enableFeatureFeedbackFormLinks is set', () => {
-      const fakeConfig = getMockConfig({
-        enableFeatureFeedbackFormLinks: true,
-      });
-      config.get.mockImplementation((key) => {
-        return fakeConfig[key];
-      });
-
+    it('renders a button that links to the user feedback form', () => {
       renderForOtherThanSignedInUser();
 
       expect(
         screen.getByRole('link', { name: 'Report this user' }),
       ).toBeInTheDocument();
-    });
-
-    it('renders a disabled button if no user exists', () => {
-      renderUserProfile();
-
-      expect(
-        screen.getByRole('button', { name: 'Report this user' }),
-      ).toBeDisabled();
-    });
-
-    it('shows the preview content when first rendered', () => {
-      renderUserProfile();
-
-      expect(screen.getByClassName('ReportUserAbuse')).not.toHaveClass(
-        'ReportUserAbuse--is-expanded',
-      );
-      expect(
-        screen.getByRole('button', { name: 'Report this user' }),
-      ).toBeInTheDocument();
-    });
-
-    it('shows more content when the button is clicked', async () => {
-      const dispatch = jest.spyOn(store, 'dispatch');
-      const userId = renderForOtherThanSignedInUser();
-
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Report this user' }),
-      );
-
-      expect(dispatch).toHaveBeenCalledWith(
-        showUserAbuseReportUI({
-          userId,
-        }),
-      );
-
-      expect(screen.getByClassName('ReportUserAbuse')).toHaveClass(
-        'ReportUserAbuse--is-expanded',
-      );
-
-      // The initial button should no longer be visible.
-      expect(
-        screen.queryByRole('button', { name: 'Report this user' }),
-      ).not.toBeInTheDocument();
-    });
-
-    it('renders the form in a pre-submitted state', async () => {
-      renderForOtherThanSignedInUser();
-
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Report this user' }),
-      );
-
-      expect(
-        screen.getByRole('heading', { name: 'Report this user' }),
-      ).toBeInTheDocument();
-      expect(
-        screen.getByRole('button', { name: 'Send abuse report' }),
-      ).toBeInTheDocument();
-    });
-
-    it('hides more content when the cancel button is clicked', async () => {
-      const dispatch = jest.spyOn(store, 'dispatch');
-      const userId = renderForOtherThanSignedInUser();
-
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Report this user' }),
-      );
-
-      await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
-
-      expect(dispatch).toHaveBeenCalledWith(
-        hideUserAbuseReportUI({
-          userId,
-        }),
-      );
-      expect(screen.getByClassName('ReportUserAbuse')).not.toHaveClass(
-        'ReportUserAbuse--is-expanded',
-      );
-    });
-
-    it('dispatches the send abuse report action', async () => {
-      const dispatch = jest.spyOn(store, 'dispatch');
-      const message = 'This user is funny';
-      const userId = renderForOtherThanSignedInUser();
-
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Report this user' }),
-      );
-
-      await userEvent.type(
-        screen.getByPlaceholderText(
-          'Explain how this user is violating our policies.',
-        ),
-        message,
-      );
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Send abuse report' }),
-      );
-
-      expect(dispatch).toHaveBeenCalledWith(
-        sendUserAbuseReport({
-          errorHandlerId,
-          message,
-          userId,
-        }),
-      );
-
-      expect(
-        screen.getByRole('button', { name: 'Sending abuse report' }),
-      ).toBeDisabled();
-    });
-
-    it('shows a success message and hides the button if report was sent', () => {
-      const userId = signInUserWithProps();
-
-      // Create a user with another userId.
-      const anotherUserId = userId + 1;
-      const user = createUserAccountResponse({ id: anotherUserId });
-      store.dispatch(loadUserAccount({ user }));
-
-      const abuseResponse = createFakeUserAbuseReport({
-        message: 'Seriously, where is my money?!',
-        user,
-      });
-      store.dispatch(
-        loadUserAbuseReport({
-          message: abuseResponse.message,
-          reporter: abuseResponse.reporter,
-          userId: user.id,
-        }),
-      );
-
-      renderUserProfile({ userId: anotherUserId });
-
-      expect(
-        screen.getByRole('heading', {
-          name: 'You reported this user',
-        }),
-      ).toBeInTheDocument();
-      expect(
-        screen.getByText(/^We can't respond to every abuse report/),
-      ).toBeInTheDocument();
-      expect(
-        screen.queryByRole('button', { name: 'Report this user' }),
-      ).not.toBeInTheDocument();
-    });
-
-    it('shows a different success message when enableFeatureFeedbackFormLinks is enabled', () => {
-      const fakeConfig = getMockConfig({
-        enableFeatureFeedbackFormLinks: true,
-      });
-      config.get.mockImplementation((key) => {
-        return fakeConfig[key];
-      });
-
-      const userId = signInUserWithProps();
-
-      // Create a user with another userId.
-      const anotherUserId = userId + 1;
-      const user = createUserAccountResponse({ id: anotherUserId });
-      store.dispatch(loadUserAccount({ user }));
-
-      const abuseResponse = createFakeUserAbuseReport({
-        message: 'Seriously, where is my money?!',
-        user,
-      });
-      store.dispatch(
-        loadUserAbuseReport({
-          message: abuseResponse.message,
-          reporter: abuseResponse.reporter,
-          userId: user.id,
-        }),
-      );
-
-      renderUserProfile({ userId: anotherUserId });
-
-      expect(
-        screen.getByRole('heading', {
-          name: 'You reported this user',
-        }),
-      ).toBeInTheDocument();
-      expect(
-        screen.queryByText(/^We can't respond to every abuse report/),
-      ).not.toBeInTheDocument();
-    });
-
-    it('renders an error if one exists', () => {
-      const message = 'Some error message';
-      createFailedErrorHandler({
-        id: errorHandlerId,
-        message,
-        store,
-      });
-
-      renderForOtherThanSignedInUser();
-
-      expect(screen.getByText(message)).toBeInTheDocument();
-    });
-
-    it('allows user to submit again if an error occurred', () => {
-      createFailedErrorHandler({
-        id: errorHandlerId,
-        store,
-      });
-
-      renderForOtherThanSignedInUser();
-
-      expect(
-        screen.getByRole('button', { name: 'Report this user' }),
-      ).not.toBeDisabled();
-    });
-
-    describe('Tests for DismissibleTextForm', () => {
-      const getLocalStateId = (id) =>
-        `src/amo/components/ReportUserAbuse/index.js-${id}`;
-
-      it('recreates LocalState on update when the ID changes', async () => {
-        const userId = renderForOtherThanSignedInUser();
-        const anotherUserId = userId + 1;
-
-        expect(createLocalState).toHaveBeenCalledWith(getLocalStateId(userId));
-
-        store.dispatch(
-          loadUserAccount({
-            user: createUserAccountResponse({ id: anotherUserId }),
-          }),
-        );
-
-        await changeLocation({
-          history,
-          pathname: getLocation({ userId: anotherUserId }),
-        });
-
-        expect(createLocalState).toHaveBeenCalledTimes(2);
-        expect(createLocalState).toHaveBeenCalledWith(
-          getLocalStateId(anotherUserId),
-        );
-      });
-
-      it('does not recreate LocalState on update when ID does not change', async () => {
-        const userId = renderForOtherThanSignedInUser();
-
-        expect(createLocalState).toHaveBeenCalledWith(getLocalStateId(userId));
-
-        await changeLocation({
-          history,
-          pathname: getLocation({ userId }),
-        });
-
-        expect(createLocalState).toHaveBeenCalledTimes(1);
-      });
     });
   });
 });

@@ -86,8 +86,6 @@ module.exports = {
     'defaultLang',
     'enableDevTools',
     'enableFeatureVPNPromo',
-    'enableFeatureFeedbackForm',
-    'enableFeatureFeedbackFormLinks',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -412,9 +410,6 @@ module.exports = {
   // https://github.com/mozilla/addons-frontend/issues/6362.
 
   enableFeatureVPNPromo: true,
-
-  enableFeatureFeedbackForm: true,
-  enableFeatureFeedbackFormLinks: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

@@ -1,22 +1,13 @@
 /* @flow */
 import invariant from 'invariant';
 
-import type { AddonType } from 'amo/types/addons';
 import type { AbuseReporter, ReportAddonResponse } from 'amo/api/abuse';
 
 export const ABORT_ABUSE_REPORT: 'ABORT_ABUSE_REPORT' = 'ABORT_ABUSE_REPORT';
-export const HIDE_ADDON_ABUSE_REPORT_UI: 'HIDE_ADDON_ABUSE_REPORT_UI' =
-  'HIDE_ADDON_ABUSE_REPORT_UI';
 export const LOAD_ADDON_ABUSE_REPORT: 'LOAD_ADDON_ABUSE_REPORT' =
   'LOAD_ADDON_ABUSE_REPORT';
 export const SEND_ADDON_ABUSE_REPORT: 'SEND_ADDON_ABUSE_REPORT' =
   'SEND_ADDON_ABUSE_REPORT';
-export const SHOW_ADDON_ABUSE_REPORT_UI: 'SHOW_ADDON_ABUSE_REPORT_UI' =
-  'SHOW_ADDON_ABUSE_REPORT_UI';
-export const INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX' =
-  'INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX';
-export const FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX' =
-  'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX';
 
 type AbortAbuseReportParams = {|
   addonId: string,
@@ -42,7 +33,6 @@ export type AddonAbuseState = {|
   buttonEnabled?: boolean,
   message: string | null,
   reporter: AbuseReporter | null,
-  uiVisible?: boolean,
 |};
 
 export type AbuseState = {|
@@ -56,24 +46,6 @@ export const initialState: AbuseState = {
   byGUID: {},
   loading: false,
 };
-
-type HideAddonAbuseReportUIParams = {| addon: AddonType |};
-
-type HideAddonAbuseReportUIAction = {|
-  type: typeof HIDE_ADDON_ABUSE_REPORT_UI,
-  payload: HideAddonAbuseReportUIParams,
-|};
-
-export function hideAddonAbuseReportUI({
-  addon,
-}: HideAddonAbuseReportUIParams): HideAddonAbuseReportUIAction {
-  invariant(addon, 'addon is required');
-
-  return {
-    type: HIDE_ADDON_ABUSE_REPORT_UI,
-    payload: { addon },
-  };
-}
 
 type LoadAddonAbuseReportAction = {|
   type: typeof LOAD_ADDON_ABUSE_REPORT,
@@ -156,59 +128,7 @@ export function sendAddonAbuseReport({
   };
 }
 
-type ShowAddonAbuseReportUIParams = {| addon: AddonType |};
-
-type ShowAddonAbuseReportUIAction = {|
-  type: typeof SHOW_ADDON_ABUSE_REPORT_UI,
-  payload: ShowAddonAbuseReportUIParams,
-|};
-
-export function showAddonAbuseReportUI({
-  addon,
-}: ShowAddonAbuseReportUIParams): ShowAddonAbuseReportUIAction {
-  invariant(addon, 'addon is required');
-
-  return {
-    type: SHOW_ADDON_ABUSE_REPORT_UI,
-    payload: { addon },
-  };
-}
-
-type InitiateAddonAbuseReportViaFirefoxParams = {| addon: AddonType |};
-
-export type InitiateAddonAbuseReportViaFirefoxAction = {|
-  type: typeof INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
-  payload: InitiateAddonAbuseReportViaFirefoxParams,
-|};
-
-export function initiateAddonAbuseReportViaFirefox({
-  addon,
-}: InitiateAddonAbuseReportViaFirefoxParams): InitiateAddonAbuseReportViaFirefoxAction {
-  invariant(addon, 'addon is required');
-
-  return {
-    type: INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
-    payload: { addon },
-  };
-}
-
-export type FinishAddonAbuseReportViaFirefoxAction = {|
-  type: typeof FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX,
-|};
-
-export function finishAddonAbuseReportViaFirefox(): FinishAddonAbuseReportViaFirefoxAction {
-  return {
-    type: FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX,
-  };
-}
-
-type Action =
-  | FinishAddonAbuseReportViaFirefoxAction
-  | HideAddonAbuseReportUIAction
-  | InitiateAddonAbuseReportViaFirefoxAction
-  | LoadAddonAbuseReportAction
-  | SendAddonAbuseReportAction
-  | ShowAddonAbuseReportUIAction;
+type Action = LoadAddonAbuseReportAction | SendAddonAbuseReportAction;
 
 export default function abuseReducer(
   // eslint-disable-next-line default-param-last
@@ -222,43 +142,19 @@ export default function abuseReducer(
         loading: false,
       };
     }
-    case HIDE_ADDON_ABUSE_REPORT_UI: {
-      const { addon } = action.payload;
-
-      return {
-        ...state,
-        byGUID: {
-          ...state.byGUID,
-          [addon.guid]: { ...state.byGUID[addon.guid], uiVisible: false },
-        },
-      };
-    }
     case LOAD_ADDON_ABUSE_REPORT: {
       const { addon, message, reporter } = action.payload;
       return {
         ...state,
         byGUID: {
           ...state.byGUID,
-          [addon.guid]: { message, reporter, uiVisible: false },
+          [addon.guid]: { message, reporter },
         },
         loading: false,
       };
     }
     case SEND_ADDON_ABUSE_REPORT:
       return { ...state, loading: true };
-    case SHOW_ADDON_ABUSE_REPORT_UI: {
-      const { addon } = action.payload;
-
-      return {
-        ...state,
-        byGUID: {
-          ...state.byGUID,
-          [addon.guid]: { ...state.byGUID[addon.guid], uiVisible: true },
-        },
-      };
-    }
-    case FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX:
-      return { ...state, loading: false };
     default:
       return state;
   }

@@ -1,5 +1,4 @@
 /* global window */
-import config from 'config';
 import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 import { oneLine } from 'common-tags';
@@ -29,12 +28,9 @@ import {
   dispatchSignInActionsWithStore,
   fakeAddon,
   fakeAuthors,
-  getMockConfig,
   renderPage as defaultRender,
   screen,
 } from 'tests/unit/helpers';
-
-jest.mock('config');
 
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
@@ -53,15 +49,9 @@ describe(__filename, () => {
     accurate, to the best of my knowledge.`;
 
   let store;
-  let fakeConfig;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
-    fakeConfig = getMockConfig({ enableFeatureFeedbackForm: true });
-    config.get.mockImplementation((key) => {
-      return fakeConfig[key];
-    });
-
     window.scroll = jest.fn();
   });
 
@@ -649,15 +639,6 @@ describe(__filename, () => {
     expect(
       screen.getByRole('button', { name: 'Submit report' }),
     ).toBeDisabled();
-  });
-
-  it('renders a Not Found page when enableFeatureFeedbackForm is false', () => {
-    fakeConfig = { ...fakeConfig, enableFeatureFeedbackForm: false };
-    render();
-
-    expect(
-      screen.getByText('Oops! We can’t find that page'),
-    ).toBeInTheDocument();
   });
 
   it('renders errors', () => {

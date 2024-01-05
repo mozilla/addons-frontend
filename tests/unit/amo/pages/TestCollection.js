@@ -124,7 +124,6 @@ describe(__filename, () => {
     const fakeConfig = getMockConfig({
       // This is needed by some of the tests below.
       mozillaUserId,
-      enableFeatureFeedbackFormLinks: false,
     });
     config.get.mockImplementation((key) => {
       return fakeConfig[key];
@@ -2395,72 +2394,49 @@ describe(__filename, () => {
     });
   });
 
-  describe('with enableFeatureFeedbackFormLinks=false', () => {
-    it('does not show an abuse report button', () => {
-      renderWithCollection();
+  it('shows an abuse report button', () => {
+    renderWithCollection();
 
-      expect(
-        screen.queryByRole('link', {
-          name: 'Report this collection',
-        }),
-      ).not.toBeInTheDocument();
-    });
+    expect(
+      screen.getByRole('link', {
+        name: 'Report this collection',
+      }),
+    ).toBeInTheDocument();
   });
 
-  describe('with enableFeatureFeedbackFormLinks=true', () => {
-    beforeEach(() => {
-      const fakeConfig = getMockConfig({
-        enableFeatureFeedbackFormLinks: true,
-      });
-      config.get.mockImplementation((key) => {
-        return fakeConfig[key];
-      });
-    });
+  it('does not show an abuse report button when the collection is not loaded yet', () => {
+    render();
 
-    it('shows an abuse report button', () => {
-      renderWithCollection();
+    expect(
+      screen.queryByRole('link', {
+        name: 'Report this collection',
+      }),
+    ).not.toBeInTheDocument();
+  });
 
-      expect(
-        screen.getByRole('link', {
-          name: 'Report this collection',
-        }),
-      ).toBeInTheDocument();
-    });
+  it('does not show an abuse report button for a owner', () => {
+    renderWithCollectionForSignedInUser();
 
-    it('does not show an abuse report button when the collection is not loaded yet', () => {
-      render();
+    expect(
+      screen.queryByRole('link', {
+        name: 'Report this collection',
+      }),
+    ).not.toBeInTheDocument();
+  });
 
-      expect(
-        screen.queryByRole('link', {
-          name: 'Report this collection',
-        }),
-      ).not.toBeInTheDocument();
-    });
+  it('renders a confirmation message when the collection has been reported', () => {
+    const collectionId = 222222;
+    store.dispatch(loadCollectionAbuseReport({ collectionId }));
 
-    it('does not show an abuse report button for a owner', () => {
-      renderWithCollectionForSignedInUser();
+    renderWithCollection({ detailProps: { id: collectionId } });
 
-      expect(
-        screen.queryByRole('link', {
-          name: 'Report this collection',
-        }),
-      ).not.toBeInTheDocument();
-    });
-
-    it('renders a confirmation message when the collection has been reported', () => {
-      const collectionId = 222222;
-      store.dispatch(loadCollectionAbuseReport({ collectionId }));
-
-      renderWithCollection({ detailProps: { id: collectionId } });
-
-      expect(
-        screen.queryByRole('link', {
-          name: 'Report this collection',
-        }),
-      ).not.toBeInTheDocument();
-      expect(
-        screen.getByText('You reported this collection'),
-      ).toBeInTheDocument();
-    });
+    expect(
+      screen.queryByRole('link', {
+        name: 'Report this collection',
+      }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByText('You reported this collection'),
+    ).toBeInTheDocument();
   });
 });

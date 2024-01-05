@@ -1,12 +1,8 @@
 import abuseReducer, {
   SEND_ADDON_ABUSE_REPORT,
-  finishAddonAbuseReportViaFirefox,
-  hideAddonAbuseReportUI,
-  initiateAddonAbuseReportViaFirefox,
   initialState,
   loadAddonAbuseReport,
   sendAddonAbuseReport,
-  showAddonAbuseReportUI,
 } from 'amo/reducers/abuse';
 import {
   dispatchClientMetadata,
@@ -55,38 +51,6 @@ describe(__filename, () => {
             message: 'This add-on is malwaré.',
           },
         },
-      });
-    });
-
-    describe('hideAddonAbuseReportUI', () => {
-      it('sets the uiVisible state to false', () => {
-        const state = abuseReducer(
-          initialState,
-          hideAddonAbuseReportUI({ addon: fakeAddon }),
-        );
-
-        expect(state).toEqual({
-          byGUID: {
-            [fakeAddon.guid]: { uiVisible: false },
-          },
-          loading: false,
-        });
-      });
-    });
-
-    describe('showAddonAbuseReportUI', () => {
-      it('sets the uiVisible state to true', () => {
-        const state = abuseReducer(
-          initialState,
-          showAddonAbuseReportUI({ addon: fakeAddon }),
-        );
-
-        expect(state).toEqual({
-          byGUID: {
-            [fakeAddon.guid]: { uiVisible: true },
-          },
-          loading: false,
-        });
       });
     });
 
@@ -166,35 +130,6 @@ describe(__filename, () => {
 
           loadAddonAbuseReport(paramsWithNull);
         }).not.toThrow();
-      });
-    });
-  });
-
-  describe('initiateAddonAbuseReportViaFirefox', () => {
-    it('does not set the loading state to true', () => {
-      // See https://github.com/mozilla/addons-frontend/issues/9086.
-      const state = abuseReducer(
-        initialState,
-        initiateAddonAbuseReportViaFirefox({ addon: fakeAddon }),
-      );
-
-      expect(state).toEqual(initialState);
-    });
-  });
-
-  describe('finishAddonAbuseReportViaFirefox', () => {
-    it('sets the loading state to false', () => {
-      // Set loading to true by initiating the abuse report via Firefox.
-      let state = abuseReducer(
-        initialState,
-        initiateAddonAbuseReportViaFirefox({ addon: fakeAddon }),
-      );
-
-      state = abuseReducer(state, finishAddonAbuseReportViaFirefox());
-
-      expect(state).toEqual({
-        ...initialState,
-        loading: false,
       });
     });
   });

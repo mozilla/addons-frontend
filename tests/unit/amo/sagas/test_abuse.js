@@ -1,10 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as addonManager from 'amo/addonManager';
 import * as api from 'amo/api/abuse';
 import abuseReducer, {
-  finishAddonAbuseReportViaFirefox,
-  initiateAddonAbuseReportViaFirefox,
   loadAddonAbuseReport,
   sendAddonAbuseReport,
 } from 'amo/reducers/abuse';
@@ -20,13 +17,11 @@ import {
 
 describe(__filename, () => {
   let errorHandler;
-  let mockAddonManager;
   let mockApi;
   let sagaTester;
 
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
-    mockAddonManager = sinon.mock(addonManager);
     mockApi = sinon.mock(api);
     const initialState = dispatchSignInActions().state;
     sagaTester = new SagaTester({
@@ -145,91 +140,6 @@ describe(__filename, () => {
       expect(sagaTester.getCalledActions()[1]).toEqual(
         errorHandler.createClearingAction(),
       );
-    });
-  });
-
-  describe('initiateAddonAbuseReportViaFirefox', () => {
-    function _initiateAddonAbuseReportViaFirefox(params) {
-      sagaTester.dispatch(
-        initiateAddonAbuseReportViaFirefox({
-          addon: fakeAddon,
-          ...params,
-        }),
-      );
-    }
-
-    it('calls reportAbuse Firefox API', async () => {
-      const addon = { ...fakeAddon, guid: 'some-guid' };
-
-      mockAddonManager
-        .expects('reportAbuse')
-        .withArgs(addon.guid)
-        .resolves(false);
-
-      _initiateAddonAbuseReportViaFirefox({ addon });
-
-      await sagaTester.waitFor(finishAddonAbuseReportViaFirefox().type);
-      mockAddonManager.verify();
-    });
-
-    it('dispatches loadAddonAbuseReport after a successful report', async () => {
-      const addon = { ...fakeAddon, guid: 'some-guid' };
-
-      mockAddonManager.expects('reportAbuse').resolves(true);
-
-      _initiateAddonAbuseReportViaFirefox({ addon });
-
-      const expectedLoadAction = loadAddonAbuseReport({
-        addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
-        message: '',
-        reporter: null,
-        reporter_name: null,
-        reporter_email: null,
-        reason: null,
-        location: null,
-        addon_version: null,
-      });
-
-      const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
-      expect(loadAction).toEqual(expectedLoadAction);
-    });
-
-    it('dispatches finishAddonAbuseReportViaFirefox after a successful report', async () => {
-      mockAddonManager.expects('reportAbuse').resolves(true);
-
-      _initiateAddonAbuseReportViaFirefox();
-
-      const expectedAction = finishAddonAbuseReportViaFirefox();
-      const finishAction = await sagaTester.waitFor(expectedAction.type);
-      expect(finishAction).toEqual(expectedAction);
-    });
-
-    it('does not dispatch loadAddonAbuseReport after a cancelled report', async () => {
-      const addon = { ...fakeAddon, guid: 'some-guid' };
-
-      mockAddonManager.expects('reportAbuse').resolves(false);
-
-      _initiateAddonAbuseReportViaFirefox({ addon });
-
-      await sagaTester.waitFor(finishAddonAbuseReportViaFirefox().type);
-
-      const unexpectedAction = loadAddonAbuseReport({
-        addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
-        message: 'Abuse report via Firefox',
-        reporter: null,
-      });
-      expect(sagaTester.numCalled(unexpectedAction.type)).toEqual(0);
-    });
-
-    it('dispatches finishAddonAbuseReportViaFirefox on error', async () => {
-      const error = new Error('An error from reportAbuse');
-      mockAddonManager.expects('reportAbuse').rejects(error);
-
-      _initiateAddonAbuseReportViaFirefox();
-
-      const expectedAction = finishAddonAbuseReportViaFirefox();
-      const finishAction = await sagaTester.waitFor(expectedAction.type);
-      expect(finishAction).toEqual(expectedAction);
     });
   });
 });
