@@ -1,0 +1,15 @@
+{
+  "name": "jed-to-i18n",
+  "version": "1.0.0",
+  "main": "plugin.js",
+  "license": "MIT",
+  "description": "Babel plugin to migrate from Jed syntax to React-i18next",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "babel-plugin-tester": "^10.0.0",
+    "jest": "^26.0.0"
+  }
+}
