@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-12-01 20:47+0000\n"
-"PO-Revision-Date: 2023-12-26 10:50+0000\n"
+"PO-Revision-Date: 2024-01-02 20:43+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -2857,7 +2857,7 @@ msgstr "הסקירות שלי"
 
 #: src/amo/pages/UserProfile/index.js:270
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "הפרופיל של %(user)s, יוצר/ת הרחבות וערכות נושא ל־Firefox. ניתן למצוא יישומים אחרים מאת %(user)s, לרבות דירוג ממוצע, קביעוּת והאפשרות לדווח על תקלות."
 
 #: src/amo/pages/UserProfile/index.js:274
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
