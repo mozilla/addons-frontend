@@ -45,7 +45,6 @@ describe(__filename, () => {
       createInstall: sinon.stub().returns(Promise.resolve(fakeInstallObj)),
       getAddonByID: sinon.stub(),
       addEventListener: sinon.stub(),
-      reportAbuse: sinon.stub(),
     };
   });
 
@@ -58,32 +57,6 @@ describe(__filename, () => {
 
     it('is false if mozAddonManager is not in navigator', () => {
       expect(addonManager.hasAddonManager()).toEqual(false);
-    });
-  });
-
-  describe('hasAbuseReportPanelEnabled', () => {
-    it('returns false if mozAddonManager is not available', () => {
-      expect(addonManager.hasAbuseReportPanelEnabled()).toEqual(false);
-    });
-
-    it('returns false if abuseReportPanelEnabled is undefined', () => {
-      expect(addonManager.hasAbuseReportPanelEnabled({})).toEqual(false);
-    });
-
-    it('returns false if abuseReportPanelEnabled is false', () => {
-      expect(
-        addonManager.hasAbuseReportPanelEnabled({
-          abuseReportPanelEnabled: false,
-        }),
-      ).toEqual(false);
-    });
-
-    it('returns true if abuseReportPanelEnabled is true', () => {
-      expect(
-        addonManager.hasAbuseReportPanelEnabled({
-          abuseReportPanelEnabled: true,
-        }),
-      ).toEqual(true);
     });
   });
 
@@ -114,58 +87,6 @@ describe(__filename, () => {
         .getAddon('foo')
         .then(unexpectedSuccess, (err) =>
           expect(err.message).toEqual('Cannot check add-on status'),
-        );
-    });
-  });
-
-  describe('reportAbuse()', () => {
-    it('calls mozAddonManager.reportAbuse() with an id', async () => {
-      await addonManager.reportAbuse('test-id', {
-        _mozAddonManager: {
-          ...fakeMozAddonManager,
-          abuseReportPanelEnabled: true,
-        },
-      });
-
-      sinon.assert.calledWith(fakeMozAddonManager.reportAbuse, 'test-id');
-    });
-
-    it('returns the result of mozAddonManager.reportAbuse()', async () => {
-      const reportAbuseResult = true;
-      fakeMozAddonManager.reportAbuse.returns(
-        Promise.resolve(reportAbuseResult),
-      );
-
-      const result = await addonManager.reportAbuse('test-id', {
-        _mozAddonManager: {
-          ...fakeMozAddonManager,
-          abuseReportPanelEnabled: true,
-        },
-      });
-
-      expect(result).toEqual(reportAbuseResult);
-    });
-
-    it('rejects if there is no addon manager', () => {
-      sinon.stub(addonManager, 'hasAddonManager').returns(false);
-      return addonManager
-        .reportAbuse('test-id')
-        .then(unexpectedSuccess, (err) =>
-          expect(err.message).toEqual('Cannot report abuse via Firefox'),
-        );
-    });
-
-    it('rejects if abuseReportPanelEnabled is false', () => {
-      fakeMozAddonManager.reportAbuse.returns(Promise.resolve(true));
-      return addonManager
-        .reportAbuse('test-id', {
-          _mozAddonManager: {
-            ...fakeMozAddonManager,
-            abuseReportPanelEnabled: false,
-          },
-        })
-        .then(unexpectedSuccess, (err) =>
-          expect(err.message).toEqual('Cannot report abuse via Firefox'),
         );
     });
   });

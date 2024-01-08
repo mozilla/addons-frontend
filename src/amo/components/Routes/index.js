@@ -51,25 +51,21 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
     <Route exact path="/:lang/about" component={About} />
     {/* TODO: Post launch update this URL and redirect see #3374/ */}
     <Route exact path="/:lang/review_guide" component={ReviewGuide} />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/"
       component={Home}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/addon/:slug/"
       component={Addon}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/blocked-addon/:guid/:versionId?/"
       component={Block}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/addon/:addonSlug/reviews/:reviewId"
@@ -80,7 +76,6 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       path="/:lang/:application(firefox|android)/addon/:addonSlug/reviews/"
       component={AddonReviewList}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/addon/:slug/privacy/"
@@ -88,7 +83,6 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_PRIVACY_POLICY} />
       )}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/addon/:slug/eula/"
@@ -96,7 +90,6 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_EULA} />
       )}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/addon/:slug/license/"
@@ -104,13 +97,11 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_CUSTOM_LICENSE} />
       )}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/addon/:slug/versions/"
       component={AddonVersions}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/users/edit"
@@ -126,7 +117,6 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       path="/:lang/:application(firefox|android)/user/:userId/"
       component={UserProfile}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/collections/:userId/:slug/"
@@ -147,7 +137,6 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       path="/:lang/:application(firefox|android)/collections/:userId/:slug/edit/"
       component={CollectionEdit}
     />
-
     {/* Only show category pages for both extensions and themes on Desktop. For
         Android, we only allow category pages for extensions since Firefox for
         Android doesn't support themes. */}
@@ -171,41 +160,39 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       path="/:lang/:application(firefox)/:visibleAddonType(themes)/category/:categorySlug/"
       component={CategoryPage}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/tag/:tag/"
       component={TagPage}
     />
-
-    {config.get('enableFeatureFeedbackForm') && [
-      <Route
-        key="addon-feedback"
-        exact
-        path="/:lang/:application(firefox|android)/feedback/addon/:addonIdentifier/"
-        component={AddonFeedback}
-      />,
-      <Route
-        key="collection-feedback"
-        exact
-        path="/:lang/:application(firefox|android)/feedback/collection/:authorId/:collectionSlug/"
-        component={CollectionFeedback}
-      />,
-      <Route
-        key="user-feedback"
-        exact
-        path="/:lang/:application(firefox|android)/feedback/user/:userId/"
-        component={UserFeedback}
-      />,
-      <Route
-        key="rating-feedback"
-        exact
-        path="/:lang/:application(firefox|android)/feedback/review/:ratingId/"
-        component={RatingFeedback}
-      />,
-    ]}
-
-    {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
+    <Route
+      key="addon-feedback"
+      exact
+      path="/:lang/:application(firefox|android)/feedback/addon/:addonIdentifier/"
+      component={AddonFeedback}
+    />
+    ,
+    <Route
+      key="collection-feedback"
+      exact
+      path="/:lang/:application(firefox|android)/feedback/collection/:authorId/:collectionSlug/"
+      component={CollectionFeedback}
+    />
+    ,
+    <Route
+      key="user-feedback"
+      exact
+      path="/:lang/:application(firefox|android)/feedback/user/:userId/"
+      component={UserFeedback}
+    />
+    ,
+    <Route
+      key="rating-feedback"
+      exact
+      path="/:lang/:application(firefox|android)/feedback/review/:ratingId/"
+      component={RatingFeedback}
+    />
+    ,{/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
     <Route
       exact
       path="/:lang/android/language-tools/"
@@ -226,7 +213,6 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       path="/:lang/:application(firefox|android)/search/"
       component={SearchPage}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/401/"
@@ -249,7 +235,6 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       path="/:lang/:application(firefox|android)/500/"
       component={_config.get('isDevelopment') ? ServerErrorPage : NotFoundPage}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/simulate-async-error/"
@@ -268,7 +253,6 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
         </Page>
       )}
     />
-
     {/* Only show category pages for both extensions and themes on Desktop. For
         Android, we only allow category pages for extensions since Firefox for
         Android doesn't support themes. */}
@@ -282,13 +266,11 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       path="/:lang/:application(firefox)/:visibleAddonType(themes)/"
       component={LandingPage}
     />
-
     <Route
       exact
       path="/:lang/:application(firefox|android)/users/unsubscribe/:token/:hash/:notificationName/"
       component={UsersUnsubscribe}
     />
-
     <Route component={NotFoundPage} />
   </Switch>
 );

@@ -99,30 +99,6 @@ export function getAddon(
   return Promise.reject(new Error('Cannot check add-on status'));
 }
 
-export function hasAbuseReportPanelEnabled(
-  _mozAddonManager?: MozAddonManagerType = window.navigator.mozAddonManager,
-): boolean {
-  if (_mozAddonManager || hasAddonManager()) {
-    return _mozAddonManager.abuseReportPanelEnabled || false;
-  }
-  return false;
-}
-
-export function reportAbuse(
-  addonId: string,
-  { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
-): Promise<boolean> {
-  if (
-    hasAbuseReportPanelEnabled(_mozAddonManager) &&
-    _mozAddonManager.reportAbuse
-  ) {
-    return (
-      _mozAddonManager.reportAbuse && _mozAddonManager.reportAbuse(addonId)
-    );
-  }
-  return Promise.reject(new Error('Cannot report abuse via Firefox'));
-}
-
 type OptionalInstallParams = {
   ...OptionalParams,
   _log?: typeof log,

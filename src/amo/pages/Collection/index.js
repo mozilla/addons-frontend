@@ -5,7 +5,6 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import config from 'config';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import Button from 'amo/components/Button';
@@ -409,10 +408,6 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 
   renderAbuseReportButton(): null | React.Node {
-    if (!config.get('enableFeatureFeedbackFormLinks')) {
-      return null;
-    }
-
     const { collection, i18n, isOwner, isReported } = this.props;
 
     if (!collection || isOwner) {
