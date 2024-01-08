@@ -12,6 +12,7 @@ import isbot from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { createInstance } from "i18next";
 import Backend from "i18next-fs-backend";
+import Fluent from "i18next-fluent";
 import { I18nextProvider, initReactI18next } from "react-i18next";
 
 import i18next from "./i18next.server";
@@ -34,13 +35,14 @@ export default async function handleRequest(
   let ns = i18next.getRouteNamespaces(remixContext);
 
   await instance
+    .use(Fluent)
     .use(initReactI18next) // Tell our instance to use react-i18next
     .use(Backend) // Setup our backend
     .init({
       ...i18n, // spread the configuration
       lng, // The locale we detected above
       ns, // The namespaces the routes about to render wants to use
-      backend: { loadPath: resolve("./public/locales/{{lng}}/{{ns}}.json") },
+      backend: { loadPath: resolve("./public/locales/{{lng}}/{{ns}}.ftl") },
     });
 
   return new Promise((resolve, reject) => {

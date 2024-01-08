@@ -571,6 +571,16 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.56.0.tgz#ef20350fec605a7f7035a01764731b2de0f3782b"
   integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
+"@fluent/bundle@^0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.13.0.tgz#9efe0d0cfee5de725be47013d32d1aa3bae63ea8"
+  integrity sha512-Q3XQSoeCvptsWXdu4H3pJZLp45FX8JnhQ7A9OV9w6dU+czKJnuKJkC5xLv19N0OG/NRnVFKqhcQBrx+IWAk09g==
+
+"@fluent/syntax@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@fluent/syntax/-/syntax-0.19.0.tgz#43f882faba6908b0f1013f6a94e009d0dfbdcb77"
+  integrity sha512-5D2qVpZrgpjtqU4eNOcWGp1gnUCgjfM+vKGE2y03kKN6z5EBhtx0qdRFbg8QuNNj8wXNoX93KJoYb+NqoxswmQ==
+
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.13.tgz#075dc9684f40a531d9b26b0822153c1e832ee297"
@@ -2593,6 +2603,13 @@ flatted@^3.2.9:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.9.tgz#7eb4c67ca1ba34232ca9d2d93e9886e611ad7daf"
   integrity sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==
 
+fluent_conv@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/fluent_conv/-/fluent_conv-3.2.0.tgz#ef75de5b737a8a5b1d697d9008cb9a52f18b57c3"
+  integrity sha512-EhVRTpoeAk+vchaGXgpQT+cv+89kujnRPn7wBzouNDoNG8Fv2q00mon3l/S2a1g5pM/4/8B35fIchi0mG7WexA==
+  dependencies:
+    "@fluent/syntax" "0.19.0"
+
 for-each@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/for-each/-/for-each-0.3.3.tgz#69b447e88a0a5d32c3e7084f3f1710034b21376e"
@@ -2976,6 +2993,14 @@ i18next-conv@14.0.0:
     gettext-parser "^7.0.0"
     node-gettext "^3.0.0"
     p-from-callback "^1.0.1"
+
+i18next-fluent@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/i18next-fluent/-/i18next-fluent-2.0.0.tgz#a926756f9734bb40fdd463a6d83a733e791ba87e"
+  integrity sha512-k69kvftj02YNMtls1oy5TkbsjEDUlkfXcApBIv3gCnQTTDPTNVekweIGC6V5m/yC2ce6SNqkzlPpdB24OgEEgg==
+  dependencies:
+    "@fluent/bundle" "^0.13.0"
+    fluent_conv "^3.1.0"
 
 i18next-fs-backend@2.3.1:
   version "2.3.1"
