@@ -266,7 +266,8 @@ export function createInternalAddon(
       currentVersion.file.is_mozilla_signed_extension;
     addon.isAndroidCompatible =
       addon.type === ADDON_TYPE_EXTENSION &&
-      !!currentVersion.compatibility[CLIENT_APP_ANDROID];
+      !!currentVersion.compatibility[CLIENT_APP_ANDROID] &&
+      currentVersion.compatibility[CLIENT_APP_ANDROID].max === '*';
   }
 
   return addon;
