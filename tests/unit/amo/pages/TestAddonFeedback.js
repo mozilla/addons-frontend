@@ -13,7 +13,7 @@ import {
 import {
   CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
   CATEGORY_ILLEGAL,
-  CATEGORY_OTHER,
+  CATEGORY_SOMETHING_ELSE,
 } from 'amo/components/FeedbackForm';
 import { extractId } from 'amo/pages/AddonFeedback';
 import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
@@ -357,7 +357,7 @@ describe(__filename, () => {
         reporterEmail: email,
         reporterName: name,
         message: '',
-        reason: CATEGORY_OTHER,
+        reason: CATEGORY_SOMETHING_ELSE,
         location: null,
         auth: true,
       }),

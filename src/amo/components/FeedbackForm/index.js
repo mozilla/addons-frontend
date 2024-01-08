@@ -82,7 +82,9 @@ export const CATEGORY_HATEFUL_VIOLENT_DECEPTIVE = 'hateful_violent_deceptive';
 // E
 export const CATEGORY_ILLEGAL = 'illegal';
 // F
-export const CATEGORY_OTHER = 'other';
+// Note that `other` category technically exists but only for add-ons, it's for
+// the previous abuse reporting mechanism.
+export const CATEGORY_SOMETHING_ELSE = 'something_else';
 
 export const getCategories = (
   i18n: I18nType,
@@ -132,7 +134,7 @@ export const getCategories = (
         ),
       },
       {
-        value: CATEGORY_OTHER,
+        value: CATEGORY_SOMETHING_ELSE,
         label: i18n.gettext('Something else'),
         help: i18n.gettext(
           'Anything that doesn’t fit into the other categories.',
