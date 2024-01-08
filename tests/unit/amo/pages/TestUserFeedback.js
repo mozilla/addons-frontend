@@ -9,7 +9,7 @@ import {
 } from 'amo/reducers/userAbuseReports';
 import {
   CATEGORY_FEEDBACK_SPAM,
-  CATEGORY_OTHER,
+  CATEGORY_SOMETHING_ELSE,
 } from 'amo/components/FeedbackForm';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
@@ -371,7 +371,7 @@ describe(__filename, () => {
         reporterEmail: signedInEmail,
         reporterName: signedInName,
         message: '',
-        reason: CATEGORY_OTHER,
+        reason: CATEGORY_SOMETHING_ELSE,
         auth: true,
       }),
     );
@@ -407,7 +407,7 @@ describe(__filename, () => {
         reporterEmail: '',
         reporterName: '',
         message: '',
-        reason: CATEGORY_OTHER,
+        reason: CATEGORY_SOMETHING_ELSE,
         auth: false,
       }),
     );

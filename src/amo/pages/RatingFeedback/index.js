@@ -10,7 +10,7 @@ import { selectReview } from 'amo/reducers/reviews';
 import FeedbackForm, {
   CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
   CATEGORY_ILLEGAL,
-  CATEGORY_OTHER,
+  CATEGORY_SOMETHING_ELSE,
 } from 'amo/components/FeedbackForm';
 import LoadingText from 'amo/components/LoadingText';
 import Card from 'amo/components/Card';
@@ -168,7 +168,7 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
             categories={[
               CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
               CATEGORY_ILLEGAL,
-              CATEGORY_OTHER,
+              CATEGORY_SOMETHING_ELSE,
             ]}
             showLocation={false}
             onSubmit={this.onFormSubmitted}

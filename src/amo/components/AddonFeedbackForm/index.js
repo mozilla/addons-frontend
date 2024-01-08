@@ -11,7 +11,7 @@ import FeedbackForm, {
   CATEGORY_FEEDBACK_SPAM,
   CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
   CATEGORY_ILLEGAL,
-  CATEGORY_OTHER,
+  CATEGORY_SOMETHING_ELSE,
   CATEGORY_POLICY_VIOLATION,
 } from 'amo/components/FeedbackForm';
 import { withInstallHelpers } from 'amo/installAddon';
@@ -173,7 +173,7 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
       CATEGORY_POLICY_VIOLATION,
       CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
       CATEGORY_ILLEGAL,
-      CATEGORY_OTHER,
+      CATEGORY_SOMETHING_ELSE,
     ];
     if (addonType !== ADDON_TYPE_EXTENSION) {
       categories = categories.filter(

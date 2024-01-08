@@ -10,7 +10,7 @@ import {
   setReview,
   setReviewWasFlagged,
 } from 'amo/actions/reviews';
-import { CATEGORY_OTHER } from 'amo/components/FeedbackForm';
+import { CATEGORY_SOMETHING_ELSE } from 'amo/components/FeedbackForm';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import { extractId } from 'amo/pages/RatingFeedback';
 import { clearError } from 'amo/reducers/errors';
@@ -360,7 +360,7 @@ describe(__filename, () => {
         reporterEmail: '',
         reporterName: '',
         message: '',
-        reason: CATEGORY_OTHER,
+        reason: CATEGORY_SOMETHING_ELSE,
         auth: false,
       }),
     );
@@ -391,7 +391,7 @@ describe(__filename, () => {
         reporterEmail: signedInEmail,
         reporterName: signedInName,
         message: '',
-        reason: CATEGORY_OTHER,
+        reason: CATEGORY_SOMETHING_ELSE,
         auth: true,
       }),
     );
@@ -427,7 +427,7 @@ describe(__filename, () => {
         reporterEmail: '',
         reporterName: '',
         message: '',
-        reason: CATEGORY_OTHER,
+        reason: CATEGORY_SOMETHING_ELSE,
         auth: false,
       }),
     );
@@ -474,7 +474,10 @@ describe(__filename, () => {
     render({ id: ratingId }, store);
 
     store.dispatch(
-      setReviewWasFlagged({ reviewId: ratingId, reason: CATEGORY_OTHER }),
+      setReviewWasFlagged({
+        reviewId: ratingId,
+        reason: CATEGORY_SOMETHING_ELSE,
+      }),
     );
 
     expect(
