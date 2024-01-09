@@ -6,6 +6,7 @@ FROM node:18.19-slim AS builder
 WORKDIR /srv/node
 COPY package.json yarn.lock /srv/node/
 
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates git && rm -rf /var/lib/apt/lists/
 RUN yarn install --pure-lockfile
 
 #

@@ -143,6 +143,14 @@ jobs:
       - *save_build_cache
       - run: yarn build-ci
 
+  build-docker-image:
+    <<: *defaults-release
+    steps:
+      - checkout
+      - run:
+          name: Build the docker image
+          command: docker build --pull .
+
   build-blog-utils:
     <<: *defaults
     steps:
@@ -356,6 +364,12 @@ workflows:
   default-workflow:
     jobs:
       - build
+      - build-docker-image:
+          filters:
+            branches:
+              ignore: master
+            tags:
+              ignore: /.*/
       - test
       - build-next
       - test-next
