@@ -5053,7 +5053,12 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
 
-fsevents@2.3.2, fsevents@^2.3.2, fsevents@~2.3.2:
+fsevents@2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
+  integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
+
+fsevents@^2.3.2, fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
@@ -8048,10 +8053,10 @@ pino-abstract-transport@^1.0.0, pino-abstract-transport@v1.1.0:
     readable-stream "^4.0.0"
     split2 "^4.0.0"
 
-pino-devtools@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/pino-devtools/-/pino-devtools-2.7.0.tgz#1895802715413003918114b9ef7c9c62e54481da"
-  integrity sha512-a3T+ktBy1riAUy+w7hBkXqzoNBBCDq7WyBPFG4iBaMLUt4ZL6lncABqKtZGQziCP//t3qjlG1tIb4CGCoUXUFg==
+pino-devtools@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/pino-devtools/-/pino-devtools-2.8.0.tgz#32cc5c9b2686bf78d3365ba35142da00bb52f7bb"
+  integrity sha512-uHDVLWLJuCbJKp7QAO+5nETVhv+TmP2VEFe6c+zZmaX+aZn4eLB8hDmH9dR+zS1IfKiwwV6MTg/c1pR0q9uknA==
   dependencies:
     minimist "^1.2.0"
     open "^8.4.0"
@@ -8060,7 +8065,7 @@ pino-devtools@^2.7.0:
     through2 "^4.0.2"
     ws "^8.4.2"
   optionalDependencies:
-    fsevents "2.3.2"
+    fsevents "2.3.3"
 
 pino-pretty@^10.3.1:
   version "10.3.1"
