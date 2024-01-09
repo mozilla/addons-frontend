@@ -10,5 +10,6 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   let { t } = useTranslation();
-  return <h1>{t('Added to {{collectionName}}', {collectionName: 'Banana'})}</h1>;
+  const text = t('hello-user', {userName: 'Banana'});
+  return <h1>{text}</h1>;
 }

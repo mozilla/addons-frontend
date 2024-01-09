@@ -13,36 +13,37 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 
-import i18next from "~/i18next.server";
+import i18next from "~/i18n/i18next-json.server";
+import { NAMESPACES } from "./i18n/config";
+import { useState } from "react";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
 export async function loader({ request }: LoaderFunctionArgs) {
+  const url = new URL(request.url);
+  const jsEnabled = !!url.searchParams.get("jsEnabled");
   let locale = await i18next.getLocale(request);
-  return json({ locale });
+  return json({ locale, jsEnabled});
 }
 
 export let handle = {
-  // In the handle export, we can add a i18n key with namespaces our route
-  // will need to load. This key can be a single string or an array of strings.
-  // TIP: In most cases, you should set this to your defaultNS from your i18n config
-  // or if you did not set one, set it to the i18next default namespace "translation"
-  i18n: "amo",
+  i18n: NAMESPACES.amo,
 };
 
 export default function Root() {
-  // Get the locale from the loader
-  let { locale } = useLoaderData<typeof loader>();
+  const [count, setCount] = useState(0);
+  let { locale, jsEnabled } = useLoaderData<typeof loader>();
 
   let { i18n } = useTranslation();
 
-  // This hook will change the i18n instance language to the current locale
-  // detected by the loader, this way, when we do something to change the
-  // language, this locale will change and i18next will load the correct
-  // translation files
   useChangeLanguage(locale);
+
+  function increment() {
+    console.log("increment");
+    setCount((c) => c + 1);
+  }
 
   return (
     <html lang={locale} dir={i18n.dir()}>
@@ -53,9 +54,12 @@ export default function Root() {
         <Links />
       </head>
       <body>
+        <div>
+          <button onClick={increment}>Count {count}</button>
+        </div>
         <Outlet />
         <ScrollRestoration />
-        <Scripts />
+        {jsEnabled && <Scripts />}
         <LiveReload />
       </body>
     </html>
