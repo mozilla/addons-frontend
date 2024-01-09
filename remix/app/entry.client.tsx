@@ -10,7 +10,7 @@ import { hydrateRoot } from "react-dom/client";
 import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
 
-import { init } from "./i18n/i18next-json.client";
+import { init } from "./i18n/i18next-ftl.client";
 
 async function hydrate() {
   // initialize i18next

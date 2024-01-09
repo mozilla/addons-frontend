@@ -2603,7 +2603,7 @@ flatted@^3.2.9:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.9.tgz#7eb4c67ca1ba34232ca9d2d93e9886e611ad7daf"
   integrity sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==
 
-fluent_conv@^3.1.0:
+fluent_conv@3.2.0, fluent_conv@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/fluent_conv/-/fluent_conv-3.2.0.tgz#ef75de5b737a8a5b1d697d9008cb9a52f18b57c3"
   integrity sha512-EhVRTpoeAk+vchaGXgpQT+cv+89kujnRPn7wBzouNDoNG8Fv2q00mon3l/S2a1g5pM/4/8B35fIchi0mG7WexA==

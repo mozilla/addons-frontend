@@ -12,7 +12,7 @@ import { renderToPipeableStream } from "react-dom/server";
 import { I18nextProvider } from "react-i18next";
 import { createInstance } from "i18next";
 
-import i18next, {init} from "./i18n/i18next-json.server";
+import i18next, {init} from "./i18n/i18next-ftl.server";
 
 const ABORT_DELAY = 5000;
 

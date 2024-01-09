@@ -13,7 +13,7 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 
-import i18next from "~/i18n/i18next-json.server";
+import i18next from "~/i18n/i18next-ftl.server";
 import { NAMESPACES } from "./i18n/config";
 import { useState } from "react";
 
