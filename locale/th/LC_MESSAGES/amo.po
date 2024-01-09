@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-01 20:47+0000\n"
+"POT-Creation-Date: 2024-01-09 16:55+0000\n"
 "PO-Revision-Date: 2019-04-04 17:57+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,6 +35,7 @@ msgid "Added to %(collectionName)s"
 msgstr "เพิ่มไปยัง %(collectionName)s แล้ว"
 
 # This is a header for a list meaning Add to [some collection name]
+#. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
 msgid "Add to…"
 msgstr "เพิ่มไปยัง…"
@@ -44,31 +45,38 @@ msgstr "เพิ่มไปยัง…"
 msgid "Add to collection"
 msgstr "เพิ่มไปยังชุดสะสม"
 
+#. This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:104
 msgid "Content review add-on"
 msgstr "ส่วนเสริมบทวิจารณ์เนื้อหา"
 
+#. This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:112
 msgid "Review theme"
 msgstr "ตรวจทานชุดรูปแบบ"
 
+#. This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:114
 msgid "Review add-on code"
 msgstr "ตรวจทานโค้ดส่วนเสริม"
 
+#. This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:134
 msgid "Admin Links"
 msgstr "ลิงก์ผู้ดูแล"
 
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
 msgstr "แก้ไขส่วนเสริม"
 
+#. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:90
 msgid "Admin add-on"
 msgstr "ส่วนเสริมผู้ดูแล"
 
+#. This is a list of links to Developer functions.
 #: src/amo/components/AddonAuthorLinks/index.js:62
 msgid "Author Links"
 msgstr "ลิงก์ผู้สร้าง"
@@ -112,21 +120,25 @@ msgid "Report the add-on because it's illegal or incompliant"
 msgstr ""
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับส่วนขยายนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับชุดภาษานี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับชุดรูปแบบนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับส่วนเสริมนี้สำหรับ 🦊 Firefox (%(locale)s)"
@@ -135,28 +147,34 @@ msgstr "%(addonName)s – รับส่วนเสริมนี้สำห
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "ดาวน์โหลด %(addonName)s สำหรับ Firefox %(summary)s"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับพจนานุกรมนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับส่วนขยายนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
 msgid ""
 "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับชุดภาษานี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับชุดรูปแบบนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับส่วนเสริมนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับพจนานุกรมนี้สำหรับ 🦊 Firefox (%(locale)s)"
@@ -200,92 +218,93 @@ msgstr "ไม่มีบทวิจารณ์"
 msgid "Used by"
 msgstr "ใช้โดย"
 
-#: src/amo/components/AddonMoreInfo/index.js:102
+#: src/amo/components/AddonMoreInfo/index.js:103
 #: src/amo/pages/UserProfile/index.js:356
-#: src/amo/pages/UserProfile/index.js:358
+#: src/amo/pages/UserProfile/index.js:359
 #: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Homepage"
 msgstr "หน้าแรก"
 
-#: src/amo/components/AddonMoreInfo/index.js:118
+#: src/amo/components/AddonMoreInfo/index.js:120
 msgid "Support site"
 msgstr "ไซต์สนับสนุน"
 
-#: src/amo/components/AddonMoreInfo/index.js:132
+#: src/amo/components/AddonMoreInfo/index.js:134
 msgid "Support Email"
 msgstr "อีเมลสนับสนุน"
 
-#: src/amo/components/AddonMoreInfo/index.js:150
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "Visit stats dashboard"
 msgstr "เยี่ยมชมแดชบอร์ดสถิติ"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:171
 msgid "Custom License"
 msgstr "สัญญาอนุญาตที่กำหนดเอง"
 
-#: src/amo/components/AddonMoreInfo/index.js:214
+#. This will output, in English: "2 months ago (Dec 12 2016)"
+#: src/amo/components/AddonMoreInfo/index.js:215
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:231
 msgid "Read the privacy policy for this add-on"
 msgstr "อ่านนโยบายความเป็นส่วนตัวสำหรับส่วนเสริมนี้"
 
-#: src/amo/components/AddonMoreInfo/index.js:241
+#: src/amo/components/AddonMoreInfo/index.js:242
 msgid "Read the license agreement for this add-on"
 msgstr "อ่านข้อตกลงสัญญาอนุญาตสำหรับส่วนเสริมนี้"
 
-#: src/amo/components/AddonMoreInfo/index.js:254
+#: src/amo/components/AddonMoreInfo/index.js:255
 msgid "See all versions"
 msgstr "ดูรุ่นทั้งหมด"
 
-#: src/amo/components/AddonMoreInfo/index.js:301
+#: src/amo/components/AddonMoreInfo/index.js:302
 msgid "Add-on Links"
 msgstr "ลิงก์ส่วนเสริม"
 
-#: src/amo/components/AddonMoreInfo/index.js:313
+#: src/amo/components/AddonMoreInfo/index.js:314
 msgid "Version"
 msgstr "รุ่น"
 
-#: src/amo/components/AddonMoreInfo/index.js:321
+#: src/amo/components/AddonMoreInfo/index.js:322
 msgid "Size"
 msgstr "ขนาด"
 
-#: src/amo/components/AddonMoreInfo/index.js:329
+#: src/amo/components/AddonMoreInfo/index.js:330
 #: src/amo/components/CollectionDetails/index.js:87
 #: src/amo/pages/CollectionFeedback/index.js:149
 msgid "Last updated"
 msgstr "อัปเดตล่าสุด"
 
-#: src/amo/components/AddonMoreInfo/index.js:337
+#: src/amo/components/AddonMoreInfo/index.js:338
 msgid "Related Categories"
 msgstr "หมวดหมู่ที่เกี่ยวข้อง"
 
-#: src/amo/components/AddonMoreInfo/index.js:347
+#: src/amo/components/AddonMoreInfo/index.js:348
 msgid "License"
 msgstr "สัญญาอนุญาต"
 
-#: src/amo/components/AddonMoreInfo/index.js:355
+#: src/amo/components/AddonMoreInfo/index.js:356
 msgid "Privacy Policy"
 msgstr "นโยบายความเป็นส่วนตัว"
 
-#: src/amo/components/AddonMoreInfo/index.js:363
+#: src/amo/components/AddonMoreInfo/index.js:364
 msgid "End-User License Agreement"
 msgstr "ข้อตกลงสัญญาอนุญาตผู้ใช้"
 
-#: src/amo/components/AddonMoreInfo/index.js:371
+#: src/amo/components/AddonMoreInfo/index.js:372
 msgid "Version History"
 msgstr "ประวัติรุ่น"
 
-#: src/amo/components/AddonMoreInfo/index.js:381
+#: src/amo/components/AddonMoreInfo/index.js:382
 msgid "Usage Statistics"
 msgstr "สถิติการใช้งาน"
 
-#: src/amo/components/AddonMoreInfo/index.js:389
+#: src/amo/components/AddonMoreInfo/index.js:390
 msgid "Tags"
 msgstr "ป้ายกำกับ"
 
-#: src/amo/components/AddonMoreInfo/index.js:405
+#: src/amo/components/AddonMoreInfo/index.js:406
 msgid "More information"
 msgstr "ข้อมูลเพิ่มเติม"
 
@@ -378,10 +397,12 @@ msgstr "กำลังอัปเดตการตอบกลับ"
 msgid "Publishing reply"
 msgstr "กำลังเผยแพร่การตอบกลับ"
 
+#. Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "โพสต์เมื่อ %(linkStart)s%(timestamp)s%(linkEnd)s"
 
+#. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:371
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
@@ -390,25 +411,26 @@ msgstr ""
 "โดย %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:374
+#. Example in English: "by UserName123, last week"
+#: src/amo/components/AddonReviewCard/index.js:375
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "โดย %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:489
+#: src/amo/components/AddonReviewCard/index.js:490
 msgid "Deleting…"
 msgstr "กำลังลบ…"
 
-#: src/amo/components/AddonReviewCard/index.js:520
+#: src/amo/components/AddonReviewCard/index.js:521
 msgid "Reply to this review"
 msgstr "ตอบกลับบทวิจารณ์นี้"
 
-#: src/amo/components/AddonReviewCard/index.js:550
+#: src/amo/components/AddonReviewCard/index.js:551
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr "ลบการจัดอันดับหรือบทวิจารณ์นี้แล้ว คุณเห็นได้เนื่องจากมีสิทธิอนุญาตระดับสูง"
 
-#: src/amo/components/AddonReviewCard/index.js:596
+#: src/amo/components/AddonReviewCard/index.js:597
 msgid "Write a review"
 msgstr "เขียนบทวิจารณ์"
 
@@ -565,17 +587,20 @@ msgstr ""
 msgid "Add-on icon"
 msgstr "ไอคอนส่วนเสริม"
 
+#. roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:78
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "%(rating)s ดาวจาก 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
+#. A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
 msgstr ","
 
 # Example: add-on "by" some authors
+#. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93
 #: src/amo/components/AddonTitle/index.js:98
 msgid "by"
@@ -1027,99 +1052,99 @@ msgstr "บทวิจารณ์โดย %(userName)s"
 msgid "The review was not found."
 msgstr "ไม่พบบทวิจารณ์"
 
-#: src/amo/components/FeedbackForm/index.js:100
+#: src/amo/components/FeedbackForm/index.js:102
 msgid ""
 "Example: Features are slow, hard to use, or don’t work; parts of websites "
 "won't load or look unusual."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:105
+#: src/amo/components/FeedbackForm/index.js:107
 msgid "It’s spam"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:106
+#: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: The listing advertises unrelated products or services."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:114
+#: src/amo/components/FeedbackForm/index.js:116
 msgid "It violates Add-on Policies"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:115
+#: src/amo/components/FeedbackForm/index.js:117
 msgid ""
 "Example: It compromised my data without informing or asking me, or it "
 "changed my search engine or home page without informing or asking me."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:121
+#: src/amo/components/FeedbackForm/index.js:123
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:123
+#: src/amo/components/FeedbackForm/index.js:125
 msgid "Example: It contains racist imagery."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:127
+#: src/amo/components/FeedbackForm/index.js:129
 msgid "It violates the law or contains content that violates the law"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:130
+#: src/amo/components/FeedbackForm/index.js:132
 msgid "Example: Copyright or Trademark Infringement, Fraud."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:136
+#: src/amo/components/FeedbackForm/index.js:138
 msgid "Something else"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:137
+#: src/amo/components/FeedbackForm/index.js:139
 msgid "Anything that doesn’t fit into the other categories."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:149
+#: src/amo/components/FeedbackForm/index.js:151
 msgid "Select place"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:151
+#: src/amo/components/FeedbackForm/index.js:153
 msgid "On the add-on's page on this website"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:154
+#: src/amo/components/FeedbackForm/index.js:156
 msgid "Inside the add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:155
+#: src/amo/components/FeedbackForm/index.js:157
 msgid "Both locations"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:250
+#: src/amo/components/FeedbackForm/index.js:252
 msgid "Report submitted"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:252
+#: src/amo/components/FeedbackForm/index.js:254
 msgid "We have received your report. Thanks for letting us know."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:339
+#: src/amo/components/FeedbackForm/index.js:341
 msgid "Submitting your report…"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:340
+#: src/amo/components/FeedbackForm/index.js:342
 msgid "Submit report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:359
+#: src/amo/components/FeedbackForm/index.js:361
 msgid "Provide more information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:369
+#: src/amo/components/FeedbackForm/index.js:371
 msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:397
+#: src/amo/components/FeedbackForm/index.js:399
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:414
+#: src/amo/components/FeedbackForm/index.js:416
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1127,116 +1152,87 @@ msgid ""
 "addressing the reported content."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:424
+#: src/amo/components/FeedbackForm/index.js:426
 msgid "Contact information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:440
+#: src/amo/components/FeedbackForm/index.js:442
 msgid "File report anonymously"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:443
+#: src/amo/components/FeedbackForm/index.js:445
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:464
+#: src/amo/components/FeedbackForm/index.js:466
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:467
+#: src/amo/components/FeedbackForm/index.js:469
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:504
+#: src/amo/components/FeedbackForm/index.js:506
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:507
+#: src/amo/components/FeedbackForm/index.js:509
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:551
+#: src/amo/components/FeedbackForm/index.js:553
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
 "knowledge."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:97
+#: src/amo/components/FeedbackForm/index.js:99
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:101
-msgid "Flagged as spam"
-msgstr "ตั้งค่าสถานะเป็นสแปมแล้ว"
-
-#: src/amo/components/FlagReviewMenu/index.js:103
-#: src/amo/components/FlagReviewMenu/index.js:128
-#: src/amo/components/FlagReviewMenu/index.js:149
-msgid "Login required"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:118
-msgid "Misplaced bug report or support request"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:119
-msgid "This is a bug report or support request"
-msgstr "นี่คือการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
-
-#: src/amo/components/FlagReviewMenu/index.js:123
-msgid "Flagged as misplaced bug report or support request"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:125
-msgid "Flagged as a bug report or support request"
-msgstr "ตั้งค่าสถานะว่าเป็นการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
-
-#: src/amo/components/FlagReviewMenu/index.js:138
+#: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:145
-msgid "This contains inappropriate language"
-msgstr "นี่ประกอบด้วยภาษาที่ไม่เหมาะสม"
-
-#: src/amo/components/FlagReviewMenu/index.js:146
-msgid "Flagged for inappropriate language"
-msgstr "ตั้งค่าสถานะว่ามีภาษาที่ไม่เหมาะสมแล้ว"
-
-#: src/amo/components/FlagReviewMenu/index.js:162
+#: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flagged"
 msgstr "ตั้งค่าสถานะแล้ว"
 
-#: src/amo/components/FlagReviewMenu/index.js:162
+#: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flag"
 msgstr "ตั้งค่าสถานะ"
 
-#: src/amo/components/FlagReviewMenu/index.js:165
+#: src/amo/components/FlagReviewMenu/index.js:115
 msgid "Flag this developer response"
 msgstr "ตั้งค่าสถานะการตอบกลับของนักพัฒนา"
 
-#: src/amo/components/FlagReviewMenu/index.js:166
+#: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flag this review"
 msgstr "ตั้งค่าสถานะบทวิจารณ์นี้"
 
-#: src/amo/components/FlagReviewMenu/index.js:84
-msgid "Log in to flag this response"
-msgstr "เข้าสู่ระบบเพื่อตั้งค่าสถานะการตอบกลับนี้"
-
-#: src/amo/components/FlagReviewMenu/index.js:85
-msgid "Log in to flag this review"
-msgstr "เข้าสู่ระบบเพื่อตั้งค่าสถานะบทวิจารณ์นี้"
-
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:99
-msgid "This is spam"
-msgstr "นี่เป็นสแปม"
+#: src/amo/components/FlagReviewMenu/index.js:71
+msgid "Flagged as spam"
+msgstr "ตั้งค่าสถานะเป็นสแปมแล้ว"
+
+#: src/amo/components/FlagReviewMenu/index.js:73
+#: src/amo/components/FlagReviewMenu/index.js:91
+msgid "Login required"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:86
+msgid "Misplaced bug report or support request"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:87
+msgid "Flagged as misplaced bug report or support request"
+msgstr ""
 
 #: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
@@ -1317,53 +1313,53 @@ msgstr "Extension Workshop"
 msgid "Developer Hub"
 msgstr "ศูนย์กลางนักพัฒนา"
 
-#: src/amo/components/GetFirefoxBanner/index.js:108
+#: src/amo/components/GetFirefoxBanner/index.js:123
 msgid ""
 "To use these add-ons, you'll need to %(downloadLinkStart)sdownload "
 "Firefox%(downloadLinkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxBanner/index.js:110
-#: src/amo/components/WrongPlatformWarning/index.js:142
+#: src/amo/components/GetFirefoxBanner/index.js:125
+#: src/amo/components/WrongPlatformWarning/index.js:148
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
 "Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
 "%(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:129
+#: src/amo/components/GetFirefoxButton/index.js:146
 msgid "Download Firefox and get the theme"
 msgstr "ดาวน์โหลด Firefox และรับชุดรูปแบบ"
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "Download Firefox and get the extension"
 msgstr "ดาวน์โหลด Firefox และรับส่วนขยาย"
 
-#: src/amo/components/GetFirefoxButton/index.js:134
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Download the new Firefox and get the theme"
 msgstr "ดาวน์โหลด Firefox ใหม่และรับชุดรูปแบบ"
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:152
 msgid "Download the new Firefox and get the extension"
 msgstr "ดาวน์โหลด Firefox ใหม่และรับส่วนขยาย"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox"
 msgstr "ดาวน์โหลด Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:142
+#: src/amo/components/GetFirefoxButton/index.js:159
 msgid "You'll need Firefox to use this theme"
 msgstr "คุณต้องมี Firefox เพื่อใช้ชุดตกแต่งนี้"
 
-#: src/amo/components/GetFirefoxButton/index.js:143
+#: src/amo/components/GetFirefoxButton/index.js:160
 msgid "You'll need Firefox to use this extension"
 msgstr "คุณต้องมี Firefox เพื่อใช้ส่วนขยายนี้"
 
-#: src/amo/components/GetFirefoxButton/index.js:147
+#: src/amo/components/GetFirefoxButton/index.js:164
 msgid "You need an updated version of Firefox for this theme"
 msgstr "คุณต้องมี Firefox รุ่นที่ปรับปรุงแล้วเพื่อใช้ชุดตกแต่งนี้"
 
-#: src/amo/components/GetFirefoxButton/index.js:148
+#: src/amo/components/GetFirefoxButton/index.js:165
 msgid "You need an updated version of Firefox for this extension"
 msgstr "คุณต้องมี Firefox รุ่นที่ปรับปรุงแล้วเพื่อใช้ส่วนขยายนี้"
 
@@ -1387,6 +1383,7 @@ msgstr "จัดการการส่งของฉัน"
 msgid "Reviewer Tools"
 msgstr "เครื่องมือผู้วิจารณ์"
 
+#. "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:186
 msgid "Firefox Browser Add-ons"
 msgstr "ส่วนเสริมเบราว์เซอร์ Firefox"
@@ -1422,20 +1419,22 @@ msgid "Get the extension"
 msgstr "รับส่วนขยาย"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:233
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
+#: src/amo/components/HeroRecommendation/index.js:231
 msgid "RECOMMENDED"
 msgstr "แนะนำ"
 
-#: src/amo/components/HeroRecommendation/index.js:237
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
+#: src/amo/components/HeroRecommendation/index.js:234
 msgid "BY FIREFOX"
 msgstr "โดย FIREFOX"
 
 # If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:239
+#: src/amo/components/HeroRecommendation/index.js:236
 msgid "SPONSORED"
 msgstr "สปอนเซอร์"
 
-#: src/amo/components/HeroRecommendation/index.js:256
+#: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1748,95 +1747,33 @@ msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "อ่าน %(total)s บทวิจารณ์สามดาวทั้งหมด"
 
-#: src/amo/components/ReportAbuseButton/index.js:119
+#: src/amo/components/ReportAbuseButton/index.js:44
 msgid "You reported this add-on"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:123
+#: src/amo/components/ReportAbuseButton/index.js:48
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr "เราได้รับรายงานของคุณแล้ว ขอบคุณที่ทำให้เรารู้เกี่ยวกับความกังวลของคุณเกี่ยวกับส่วนเสริมนี้"
 
-#: src/amo/components/ReportAbuseButton/index.js:129
-#: src/amo/components/ReportUserAbuse/index.js:188
-msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr "เราไม่สามารถตอบสนองต่อรายงานการละเมิดทั้งหมด แต่เราจะตรวจสอบปัญหานี้"
-
-#: src/amo/components/ReportAbuseButton/index.js:138
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on "
-"policies%(linkTagEnd)s or has security or privacy issues, please report "
-"these issues to Mozilla using this form."
-msgstr ""
-"หากคุณคิดว่าส่วนเสริมนี้ละเมิด%(linkTagStart)sนโยบายส่วนเสริมของ Mozilla%(linkTagEnd)s "
-"หรือมีปัญหาด้านความปลอดภัยหรือความเป็นส่วนตัว โปรดรายงานปัญหาเหล่านี้กับ Mozilla "
-"โดยใช้แบบฟอร์มนี้"
-
-#: src/amo/components/ReportAbuseButton/index.js:151
+#: src/amo/components/ReportAbuseButton/index.js:70
 msgid "Report this add-on"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:193
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
-"โปรดอย่าใช้แบบฟอร์มนี้เพื่อรายงานบั๊กหรือขอคุณลักษณะของส่วนเสริม รายงานนี้จะถูกส่งไปยัง Mozilla "
-"และไม่ใช่ไปยังผู้พัฒนาส่วนเสริม"
-
-#: src/amo/components/ReportAbuseButton/index.js:206
-#: src/amo/components/ReportUserAbuse/index.js:169
-msgid "Send abuse report"
-msgstr "ส่งรายงานการละเมิด"
-
-#: src/amo/components/ReportAbuseButton/index.js:207
-#: src/amo/components/ReportUserAbuse/index.js:170
-msgid "Sending abuse report"
-msgstr "กำลังส่งรายงานการละเมิด"
-
-#: src/amo/components/ReportAbuseButton/index.js:209
-msgid "Dismiss"
-msgstr "ยกเลิก"
-
-#: src/amo/components/ReportAbuseButton/index.js:210
-msgid "Explain how this add-on is violating our policies."
-msgstr "อธิบายทำไมส่วนเสริมนี้ละเมิดนโยบายของเรา"
-
-#: src/amo/components/ReportUserAbuse/index.js:122
-#: src/amo/components/ReportUserAbuse/index.js:129
-msgid "Report this user"
-msgstr ""
-
-#: src/amo/components/ReportUserAbuse/index.js:136
-msgid ""
-"If you think this user is violating %(linkTagStart)sMozilla's Add-on "
-"Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"หากคุณคิดว่าผู้ใช้นี้ละเมิด%(linkTagStart)sนโยบายส่วนเสริมของ Mozilla%(linkTagEnd)s "
-"โปรดรายงานผู้ใช้นี้กับ Mozilla"
-
-#: src/amo/components/ReportUserAbuse/index.js:152
-msgid ""
-"Please don't use this form to report bugs or contact this user; your report "
-"will only be sent to Mozilla and not to this user."
-msgstr ""
-"โปรดอย่าใช้แบบฟอร์มนี้เพื่อรายงานบั๊กหรือติดต่อผู้ใช้นี้ รายงานของคุณจะถูกส่งไปยัง Mozilla "
-"เท่านั้นและไม่ใช่ไปยังผู้พัฒนาส่วนเสริม"
-
-#: src/amo/components/ReportUserAbuse/index.js:166
-msgid "Explain how this user is violating our policies."
-msgstr "อธิบายว่าทำไมผู้ใช้คนนี้ฝ่าฝืนนโยบายของเรา"
-
-#: src/amo/components/ReportUserAbuse/index.js:178
+#: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
 msgstr ""
 
-#: src/amo/components/ReportUserAbuse/index.js:182
+#: src/amo/components/ReportUserAbuse/index.js:52
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this user."
 msgstr "เราได้รับรายงานของคุณแล้ว ขอบคุณที่ทำให้เรารู้เกี่ยวกับความกังวลของคุณเกี่ยวกับผู้ใช้นี้"
+
+#: src/amo/components/ReportUserAbuse/index.js:64
+msgid "Report this user"
+msgstr ""
 
 #: src/amo/components/Search/index.js:139
 #: src/amo/components/SearchResults/index.js:71
@@ -2516,45 +2453,45 @@ msgstr "%(categoryName)s"
 msgid "Extensions in %(categoryName)s"
 msgstr "พบ %(count)s ส่วนขยายใน %(categoryName)s"
 
-#: src/amo/pages/Collection/index.js:403
+#: src/amo/pages/Collection/index.js:402
 msgid "Do you really want to delete this collection?"
 msgstr "คุณต้องการลบชุดสะสมนี้หรือไม่?"
 
-#: src/amo/pages/Collection/index.js:406
+#: src/amo/pages/Collection/index.js:405
 msgid "Delete this collection"
 msgstr "ลบชุดสะสมนี้"
 
-#: src/amo/pages/Collection/index.js:426
+#: src/amo/pages/Collection/index.js:421
 msgid "You reported this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:430
+#: src/amo/pages/Collection/index.js:425
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:444
+#: src/amo/pages/Collection/index.js:439
 msgid "Report this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:463
+#: src/amo/pages/Collection/index.js:458
 msgid "Log in to create a collection"
 msgstr "เข้าสู่ระบบเพื่อสร้างชุดสะสม"
 
-#: src/amo/pages/Collection/index.js:464
+#: src/amo/pages/Collection/index.js:459
 msgid "Log in to edit this collection"
 msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/pages/Collection/index.js:498
+#: src/amo/pages/Collection/index.js:493
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "ขั้นแรก สร้างชุดสะสมของคุณ จากนั้นคุณสามารถเพิ่มส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/pages/Collection/index.js:501
+#: src/amo/pages/Collection/index.js:496
 msgid "Search for extensions and themes to add to your collection."
 msgstr "ค้นหาส่วนขยายและชุดตกแต่งที่จะเพิ่มไปยังชุดสะสมของคุณ"
 
-#: src/amo/pages/Collection/index.js:562
+#: src/amo/pages/Collection/index.js:557
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2562,7 +2499,7 @@ msgstr ""
 "ดาวน์โหลดและสร้างคอลเลกชัน Firefox เพื่อติดตามส่วนขยายและชุดตกแต่งที่ชื่นชอบ สำรวจ "
 "%(collectionName)s—%(collectionDescription)s"
 
-#: src/amo/pages/Collection/index.js:565
+#: src/amo/pages/Collection/index.js:560
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -3163,7 +3100,7 @@ msgid "Submit feedback or report a user to Mozilla"
 msgstr ""
 
 #: src/amo/pages/UserFeedback/index.js:133
-#: src/amo/pages/UserProfile/index.js:379
+#: src/amo/pages/UserProfile/index.js:381
 msgid "User since"
 msgstr "ผู้ใช้ตั้งแต่"
 
@@ -3223,34 +3160,35 @@ msgstr "โปรไฟล์ผู้ใช้สำหรับ %(user)s"
 msgid "User Profile"
 msgstr "โปรไฟล์ผู้ใช้"
 
-#: src/amo/pages/UserProfile/index.js:364
+#: src/amo/pages/UserProfile/index.js:366
 #: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Location"
 msgstr "ตำแหน่งที่ตั้ง"
 
-#: src/amo/pages/UserProfile/index.js:372
+#: src/amo/pages/UserProfile/index.js:374
 #: src/amo/pages/UserProfileEdit/index.js:740
 msgid "Occupation"
 msgstr "อาชีพ"
 
-#: src/amo/pages/UserProfile/index.js:389
+#: src/amo/pages/UserProfile/index.js:391
 msgid "Number of add-ons"
 msgstr "จำนวนส่วนเสริม"
 
-#: src/amo/pages/UserProfile/index.js:395
+#: src/amo/pages/UserProfile/index.js:397
 msgid "Average rating of developer’s add-ons"
 msgstr "การจัดอันดับเฉลี่ยของส่วนเสริมของนักพัฒนา"
 
-#: src/amo/pages/UserProfile/index.js:410
+#: src/amo/pages/UserProfile/index.js:412
 #: src/amo/pages/UserProfileEdit/index.js:762
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
-#: src/amo/pages/UserProfile/index.js:434
+#: src/amo/pages/UserProfile/index.js:436
 msgid "Edit profile"
 msgstr "แก้ไขโปรไฟล์"
 
-#: src/amo/pages/UserProfile/index.js:447
+#. This action allows an admin to maintain a user.
+#: src/amo/pages/UserProfile/index.js:449
 msgid "Admin user"
 msgstr "ผู้ใช้ที่เป็นผู้ดูแล"
 
@@ -3376,6 +3314,7 @@ msgstr "โปรไฟล์"
 msgid "This field is required"
 msgstr "จำเป็นต้องกรอกข้อมูลในช่องนี้"
 
+#. the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:687
 msgid "Display Name *"
 msgstr "ชื่อที่แสดง *"
@@ -3482,6 +3421,7 @@ msgid "You are successfully unsubscribed!"
 msgstr "คุณยกเลิกการสมัครสำเร็จแล้ว!"
 
 # a list of notifications will be displayed under this prompt.
+#. a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
@@ -3499,16 +3439,19 @@ msgid "(no name)"
 msgstr "(ไม่มีชื่อ)"
 
 # This is application compatibility information, such as "firefox 41 and later"
+#. This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s และใหม่กว่า"
 
 # This is application compatibility information, such as "firefox 41 to 45"
+#. This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:309
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s ถึง %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:329
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "ใช้งานได้กับ %(listOfApplicatonsAndVersions)s"
@@ -3571,6 +3514,76 @@ msgstr "ไม่สามารถอัปเกรดความเข้า
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "อัปเกรดความเข้ากันได้ของส่วนเสริมของฉันสำเร็จ"
+
+#~ msgid "This is a bug report or support request"
+#~ msgstr "นี่คือการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
+
+#~ msgid "Flagged as a bug report or support request"
+#~ msgstr "ตั้งค่าสถานะว่าเป็นการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
+
+#~ msgid "This contains inappropriate language"
+#~ msgstr "นี่ประกอบด้วยภาษาที่ไม่เหมาะสม"
+
+#~ msgid "Flagged for inappropriate language"
+#~ msgstr "ตั้งค่าสถานะว่ามีภาษาที่ไม่เหมาะสมแล้ว"
+
+#~ msgid "Log in to flag this response"
+#~ msgstr "เข้าสู่ระบบเพื่อตั้งค่าสถานะการตอบกลับนี้"
+
+#~ msgid "Log in to flag this review"
+#~ msgstr "เข้าสู่ระบบเพื่อตั้งค่าสถานะบทวิจารณ์นี้"
+
+#~ msgid "This is spam"
+#~ msgstr "นี่เป็นสแปม"
+
+#~ msgid ""
+#~ "We can't respond to every abuse report but we'll look into this issue."
+#~ msgstr "เราไม่สามารถตอบสนองต่อรายงานการละเมิดทั้งหมด แต่เราจะตรวจสอบปัญหานี้"
+
+#~ msgid ""
+#~ "If you think this add-on violates %(linkTagStart)sMozilla's add-on "
+#~ "policies%(linkTagEnd)s or has security or privacy issues, please report "
+#~ "these issues to Mozilla using this form."
+#~ msgstr ""
+#~ "หากคุณคิดว่าส่วนเสริมนี้ละเมิด%(linkTagStart)sนโยบายส่วนเสริมของ "
+#~ "Mozilla%(linkTagEnd)s หรือมีปัญหาด้านความปลอดภัยหรือความเป็นส่วนตัว "
+#~ "โปรดรายงานปัญหาเหล่านี้กับ Mozilla โดยใช้แบบฟอร์มนี้"
+
+#~ msgid ""
+#~ "Please don't use this form to report bugs or request add-on features; "
+#~ "this report will be sent to Mozilla and not to the add-on developer."
+#~ msgstr ""
+#~ "โปรดอย่าใช้แบบฟอร์มนี้เพื่อรายงานบั๊กหรือขอคุณลักษณะของส่วนเสริม รายงานนี้จะถูกส่งไปยัง "
+#~ "Mozilla และไม่ใช่ไปยังผู้พัฒนาส่วนเสริม"
+
+#~ msgid "Send abuse report"
+#~ msgstr "ส่งรายงานการละเมิด"
+
+#~ msgid "Sending abuse report"
+#~ msgstr "กำลังส่งรายงานการละเมิด"
+
+#~ msgid "Dismiss"
+#~ msgstr "ยกเลิก"
+
+#~ msgid "Explain how this add-on is violating our policies."
+#~ msgstr "อธิบายทำไมส่วนเสริมนี้ละเมิดนโยบายของเรา"
+
+#~ msgid ""
+#~ "If you think this user is violating %(linkTagStart)sMozilla's Add-on "
+#~ "Policies%(linkTagEnd)s, please report this user to Mozilla."
+#~ msgstr ""
+#~ "หากคุณคิดว่าผู้ใช้นี้ละเมิด%(linkTagStart)sนโยบายส่วนเสริมของ Mozilla%(linkTagEnd)s "
+#~ "โปรดรายงานผู้ใช้นี้กับ Mozilla"
+
+#~ msgid ""
+#~ "Please don't use this form to report bugs or contact this user; your "
+#~ "report will only be sent to Mozilla and not to this user."
+#~ msgstr ""
+#~ "โปรดอย่าใช้แบบฟอร์มนี้เพื่อรายงานบั๊กหรือติดต่อผู้ใช้นี้ รายงานของคุณจะถูกส่งไปยัง Mozilla "
+#~ "เท่านั้นและไม่ใช่ไปยังผู้พัฒนาส่วนเสริม"
+
+#~ msgid "Explain how this user is violating our policies."
+#~ msgstr "อธิบายว่าทำไมผู้ใช้คนนี้ฝ่าฝืนนโยบายของเรา"
 
 #~ msgid ""
 #~ "To use these add-ons, you'll need to %(linkStart)sdownload "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-01 20:47+0000\n"
+"POT-Creation-Date: 2024-01-09 16:55+0000\n"
 "PO-Revision-Date: 2023-11-28 14:42+0000\n"
 "Last-Translator: Bogomil Shopov - Бого <shopov.bogomil@gmail.com>\n"
 "Language-Team: none\n"
@@ -35,6 +35,7 @@ msgid "Added to %(collectionName)s"
 msgstr "Добавено към %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
+#. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
 msgid "Add to…"
 msgstr "Добавяне към…"
@@ -44,31 +45,38 @@ msgstr "Добавяне към…"
 msgid "Add to collection"
 msgstr "Добавяне към списък"
 
+#. This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:104
 msgid "Content review add-on"
 msgstr ""
 
+#. This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:112
 msgid "Review theme"
 msgstr "Преглед на темата"
 
+#. This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:114
 msgid "Review add-on code"
 msgstr ""
 
+#. This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:134
 msgid "Admin Links"
 msgstr "Администраторски препратки"
 
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
 msgstr "Промяна на добавката"
 
+#. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:90
 msgid "Admin add-on"
 msgstr ""
 
+#. This is a list of links to Developer functions.
 #: src/amo/components/AddonAuthorLinks/index.js:62
 msgid "Author Links"
 msgstr "Препратки за автора"
@@ -113,21 +121,25 @@ msgid "Report the add-on because it's illegal or incompliant"
 msgstr ""
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Вземете разширението за 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Вземете този езиков пакет за 🦊Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
 msgstr ""
@@ -136,30 +148,36 @@ msgstr ""
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "Изтеглете %(addonName)s за Firefox. %(summary)s"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Вземете речника за 🦊 Firefox Android (%(locale)s)"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr ""
 "%(addonName)s - Вземете разширението за 🦊 Firefox Android (%(locale)s)"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
 msgid ""
 "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr ""
 "%(addonName)s – Вземете този езиков пакет за 🦊 Firefox Android (%(locale)s)"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Вземете тема за 🦊 Firefox Android (%(locale)s)"
 
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Вземете добавката за 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Вземете разширението за 🦊 Firefox (%(locale)s)"
@@ -206,92 +224,93 @@ msgstr "Няма отзиви"
 msgid "Used by"
 msgstr "Ползвател"
 
-#: src/amo/components/AddonMoreInfo/index.js:102
+#: src/amo/components/AddonMoreInfo/index.js:103
 #: src/amo/pages/UserProfile/index.js:356
-#: src/amo/pages/UserProfile/index.js:358
+#: src/amo/pages/UserProfile/index.js:359
 #: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Homepage"
 msgstr "Страница"
 
-#: src/amo/components/AddonMoreInfo/index.js:118
+#: src/amo/components/AddonMoreInfo/index.js:120
 msgid "Support site"
 msgstr "Страница за поддръжка"
 
-#: src/amo/components/AddonMoreInfo/index.js:132
+#: src/amo/components/AddonMoreInfo/index.js:134
 msgid "Support Email"
 msgstr "Ел. поща за поддръжка"
 
-#: src/amo/components/AddonMoreInfo/index.js:150
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "Visit stats dashboard"
 msgstr "Табло със статистика"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:171
 msgid "Custom License"
 msgstr "Потребителски лиценз"
 
-#: src/amo/components/AddonMoreInfo/index.js:214
+#. This will output, in English: "2 months ago (Dec 12 2016)"
+#: src/amo/components/AddonMoreInfo/index.js:215
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:231
 msgid "Read the privacy policy for this add-on"
 msgstr "Прочетете декларацията за поверителност на добавката"
 
-#: src/amo/components/AddonMoreInfo/index.js:241
+#: src/amo/components/AddonMoreInfo/index.js:242
 msgid "Read the license agreement for this add-on"
 msgstr "Прочетете лицензното споразумение на добавката"
 
-#: src/amo/components/AddonMoreInfo/index.js:254
+#: src/amo/components/AddonMoreInfo/index.js:255
 msgid "See all versions"
 msgstr "Всички издания"
 
-#: src/amo/components/AddonMoreInfo/index.js:301
+#: src/amo/components/AddonMoreInfo/index.js:302
 msgid "Add-on Links"
 msgstr "Препратки"
 
-#: src/amo/components/AddonMoreInfo/index.js:313
+#: src/amo/components/AddonMoreInfo/index.js:314
 msgid "Version"
 msgstr "Издание"
 
-#: src/amo/components/AddonMoreInfo/index.js:321
+#: src/amo/components/AddonMoreInfo/index.js:322
 msgid "Size"
 msgstr "Размер"
 
-#: src/amo/components/AddonMoreInfo/index.js:329
+#: src/amo/components/AddonMoreInfo/index.js:330
 #: src/amo/components/CollectionDetails/index.js:87
 #: src/amo/pages/CollectionFeedback/index.js:149
 msgid "Last updated"
 msgstr "Последно обновяване"
 
-#: src/amo/components/AddonMoreInfo/index.js:337
+#: src/amo/components/AddonMoreInfo/index.js:338
 msgid "Related Categories"
 msgstr "Подобни категории"
 
-#: src/amo/components/AddonMoreInfo/index.js:347
+#: src/amo/components/AddonMoreInfo/index.js:348
 msgid "License"
 msgstr "Лиценз"
 
-#: src/amo/components/AddonMoreInfo/index.js:355
+#: src/amo/components/AddonMoreInfo/index.js:356
 msgid "Privacy Policy"
 msgstr "Политика на поверителност"
 
-#: src/amo/components/AddonMoreInfo/index.js:363
+#: src/amo/components/AddonMoreInfo/index.js:364
 msgid "End-User License Agreement"
 msgstr "Лицензно споразумение на крайния потребител"
 
-#: src/amo/components/AddonMoreInfo/index.js:371
+#: src/amo/components/AddonMoreInfo/index.js:372
 msgid "Version History"
 msgstr "Хронология на изданията"
 
-#: src/amo/components/AddonMoreInfo/index.js:381
+#: src/amo/components/AddonMoreInfo/index.js:382
 msgid "Usage Statistics"
 msgstr "Статистика на използване"
 
-#: src/amo/components/AddonMoreInfo/index.js:389
+#: src/amo/components/AddonMoreInfo/index.js:390
 msgid "Tags"
 msgstr "Етикети"
 
-#: src/amo/components/AddonMoreInfo/index.js:405
+#: src/amo/components/AddonMoreInfo/index.js:406
 msgid "More information"
 msgstr "Повече информация"
 
@@ -384,10 +403,12 @@ msgstr "Обновяване на отговора"
 msgid "Publishing reply"
 msgstr "Публикуване на отговора"
 
+#. Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "публикувано на %(linkStart)s%(timestamp)s%(linkEnd)s"
 
+#. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:371
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
@@ -396,19 +417,20 @@ msgstr ""
 "от %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:374
+#. Example in English: "by UserName123, last week"
+#: src/amo/components/AddonReviewCard/index.js:375
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "от %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:489
+#: src/amo/components/AddonReviewCard/index.js:490
 msgid "Deleting…"
 msgstr "Изтриване…"
 
-#: src/amo/components/AddonReviewCard/index.js:520
+#: src/amo/components/AddonReviewCard/index.js:521
 msgid "Reply to this review"
 msgstr "Отговаряне на отзива"
 
-#: src/amo/components/AddonReviewCard/index.js:550
+#: src/amo/components/AddonReviewCard/index.js:551
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
@@ -416,7 +438,7 @@ msgstr ""
 "Този отзив или тази оценка са изтрити. Виждате го само поради това, че "
 "раполагате с повишени разрешения."
 
-#: src/amo/components/AddonReviewCard/index.js:596
+#: src/amo/components/AddonReviewCard/index.js:597
 msgid "Write a review"
 msgstr "Писане на отзив"
 
@@ -573,6 +595,7 @@ msgstr ""
 msgid "Add-on icon"
 msgstr "Пиктограма на добавката"
 
+#. roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:78
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
@@ -580,11 +603,13 @@ msgstr[0] "Оценена с %(rating)s звезда от 5 възможни"
 msgstr[1] "Оценена с %(rating)s звезди от 5 възможни"
 
 # A comma, used in a list of authors: a1, a2, a3.
+#. A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
 msgstr ","
 
 # Example: add-on "by" some authors
+#. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93
 #: src/amo/components/AddonTitle/index.js:98
 msgid "by"
@@ -1053,99 +1078,99 @@ msgstr "Отзив от %(userName)s"
 msgid "The review was not found."
 msgstr "Отзивът не е намерен."
 
-#: src/amo/components/FeedbackForm/index.js:100
+#: src/amo/components/FeedbackForm/index.js:102
 msgid ""
 "Example: Features are slow, hard to use, or don’t work; parts of websites "
 "won't load or look unusual."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:105
+#: src/amo/components/FeedbackForm/index.js:107
 msgid "It’s spam"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:106
+#: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: The listing advertises unrelated products or services."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:114
+#: src/amo/components/FeedbackForm/index.js:116
 msgid "It violates Add-on Policies"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:115
+#: src/amo/components/FeedbackForm/index.js:117
 msgid ""
 "Example: It compromised my data without informing or asking me, or it "
 "changed my search engine or home page without informing or asking me."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:121
+#: src/amo/components/FeedbackForm/index.js:123
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:123
+#: src/amo/components/FeedbackForm/index.js:125
 msgid "Example: It contains racist imagery."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:127
+#: src/amo/components/FeedbackForm/index.js:129
 msgid "It violates the law or contains content that violates the law"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:130
+#: src/amo/components/FeedbackForm/index.js:132
 msgid "Example: Copyright or Trademark Infringement, Fraud."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:136
+#: src/amo/components/FeedbackForm/index.js:138
 msgid "Something else"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:137
+#: src/amo/components/FeedbackForm/index.js:139
 msgid "Anything that doesn’t fit into the other categories."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:149
+#: src/amo/components/FeedbackForm/index.js:151
 msgid "Select place"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:151
+#: src/amo/components/FeedbackForm/index.js:153
 msgid "On the add-on's page on this website"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:154
+#: src/amo/components/FeedbackForm/index.js:156
 msgid "Inside the add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:155
+#: src/amo/components/FeedbackForm/index.js:157
 msgid "Both locations"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:250
+#: src/amo/components/FeedbackForm/index.js:252
 msgid "Report submitted"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:252
+#: src/amo/components/FeedbackForm/index.js:254
 msgid "We have received your report. Thanks for letting us know."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:339
+#: src/amo/components/FeedbackForm/index.js:341
 msgid "Submitting your report…"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:340
+#: src/amo/components/FeedbackForm/index.js:342
 msgid "Submit report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:359
+#: src/amo/components/FeedbackForm/index.js:361
 msgid "Provide more information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:369
+#: src/amo/components/FeedbackForm/index.js:371
 msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:397
+#: src/amo/components/FeedbackForm/index.js:399
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:414
+#: src/amo/components/FeedbackForm/index.js:416
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1153,116 +1178,87 @@ msgid ""
 "addressing the reported content."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:424
+#: src/amo/components/FeedbackForm/index.js:426
 msgid "Contact information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:440
+#: src/amo/components/FeedbackForm/index.js:442
 msgid "File report anonymously"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:443
+#: src/amo/components/FeedbackForm/index.js:445
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:464
+#: src/amo/components/FeedbackForm/index.js:466
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:467
+#: src/amo/components/FeedbackForm/index.js:469
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:504
+#: src/amo/components/FeedbackForm/index.js:506
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:507
+#: src/amo/components/FeedbackForm/index.js:509
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:551
+#: src/amo/components/FeedbackForm/index.js:553
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
 "knowledge."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:97
+#: src/amo/components/FeedbackForm/index.js:99
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:101
-msgid "Flagged as spam"
-msgstr "Сигнализиран за странично съдържание"
-
-#: src/amo/components/FlagReviewMenu/index.js:103
-#: src/amo/components/FlagReviewMenu/index.js:128
-#: src/amo/components/FlagReviewMenu/index.js:149
-msgid "Login required"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:118
-msgid "Misplaced bug report or support request"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:119
-msgid "This is a bug report or support request"
-msgstr "Доклад за проблем или заявка за поддръжка"
-
-#: src/amo/components/FlagReviewMenu/index.js:123
-msgid "Flagged as misplaced bug report or support request"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:125
-msgid "Flagged as a bug report or support request"
-msgstr "Сигнализиран като доклад за дефект или заявка за поддръжка"
-
-#: src/amo/components/FlagReviewMenu/index.js:138
+#: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:145
-msgid "This contains inappropriate language"
-msgstr "Съдържа груби изрази"
-
-#: src/amo/components/FlagReviewMenu/index.js:146
-msgid "Flagged for inappropriate language"
-msgstr "Сигнализиран за груби изрази"
-
-#: src/amo/components/FlagReviewMenu/index.js:162
+#: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flagged"
 msgstr "Сигнализиран"
 
-#: src/amo/components/FlagReviewMenu/index.js:162
+#: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flag"
 msgstr "Сигнализиране"
 
-#: src/amo/components/FlagReviewMenu/index.js:165
+#: src/amo/components/FlagReviewMenu/index.js:115
 msgid "Flag this developer response"
 msgstr "Сигнализирайте за този отговор от разработчика"
 
-#: src/amo/components/FlagReviewMenu/index.js:166
+#: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flag this review"
 msgstr "Сигнализирайте за този отзив"
 
-#: src/amo/components/FlagReviewMenu/index.js:84
-msgid "Log in to flag this response"
-msgstr "Впишете се, за да сигнализирате за този отговор"
-
-#: src/amo/components/FlagReviewMenu/index.js:85
-msgid "Log in to flag this review"
-msgstr "Впишете се, за да сигнализирате за този отзив"
-
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:99
-msgid "This is spam"
-msgstr "Това е странично съдържание"
+#: src/amo/components/FlagReviewMenu/index.js:71
+msgid "Flagged as spam"
+msgstr "Сигнализиран за странично съдържание"
+
+#: src/amo/components/FlagReviewMenu/index.js:73
+#: src/amo/components/FlagReviewMenu/index.js:91
+msgid "Login required"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:86
+msgid "Misplaced bug report or support request"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:87
+msgid "Flagged as misplaced bug report or support request"
+msgstr ""
 
 #: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
@@ -1343,53 +1339,53 @@ msgstr "Работилница за разширения"
 msgid "Developer Hub"
 msgstr "Център за разработчици"
 
-#: src/amo/components/GetFirefoxBanner/index.js:108
+#: src/amo/components/GetFirefoxBanner/index.js:123
 msgid ""
 "To use these add-ons, you'll need to %(downloadLinkStart)sdownload "
 "Firefox%(downloadLinkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxBanner/index.js:110
-#: src/amo/components/WrongPlatformWarning/index.js:142
+#: src/amo/components/GetFirefoxBanner/index.js:125
+#: src/amo/components/WrongPlatformWarning/index.js:148
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
 "Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
 "%(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:129
+#: src/amo/components/GetFirefoxButton/index.js:146
 msgid "Download Firefox and get the theme"
 msgstr "Изтеглете Firefox и вземете темата"
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "Download Firefox and get the extension"
 msgstr "Изтеглете Firefox и вземете разширението"
 
-#: src/amo/components/GetFirefoxButton/index.js:134
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Download the new Firefox and get the theme"
 msgstr "Изтеглете новия Firefox и вземете темата"
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:152
 msgid "Download the new Firefox and get the extension"
 msgstr "Изтеглете новия Firefox и вземете разширението"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox"
 msgstr "Изтегляне на Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:142
+#: src/amo/components/GetFirefoxButton/index.js:159
 msgid "You'll need Firefox to use this theme"
 msgstr "За да използвате тази тема, ще ви е необходим Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:143
+#: src/amo/components/GetFirefoxButton/index.js:160
 msgid "You'll need Firefox to use this extension"
 msgstr "За да използвате това разширение, ще ви е необходим Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:147
+#: src/amo/components/GetFirefoxButton/index.js:164
 msgid "You need an updated version of Firefox for this theme"
 msgstr "За да използвате тази тема, ще ви е необходимо по-ново издание Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:148
+#: src/amo/components/GetFirefoxButton/index.js:165
 msgid "You need an updated version of Firefox for this extension"
 msgstr ""
 "За да използвате това разширение, ще ви е необходимо по-ново издание Firefox"
@@ -1414,6 +1410,7 @@ msgstr "Управление на качените"
 msgid "Reviewer Tools"
 msgstr "Инструменти за рецензенти"
 
+#. "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:186
 msgid "Firefox Browser Add-ons"
 msgstr "Добавки за Firefox Browser"
@@ -1449,20 +1446,22 @@ msgid "Get the extension"
 msgstr "Вземете разширението"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:233
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
+#: src/amo/components/HeroRecommendation/index.js:231
 msgid "RECOMMENDED"
 msgstr "ПРЕПОРЪЧИТЕЛНО"
 
-#: src/amo/components/HeroRecommendation/index.js:237
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
+#: src/amo/components/HeroRecommendation/index.js:234
 msgid "BY FIREFOX"
 msgstr ""
 
 # If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:239
+#: src/amo/components/HeroRecommendation/index.js:236
 msgid "SPONSORED"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:256
+#: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1785,11 +1784,11 @@ msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "Прочетете всички отзиви с три звезди"
 msgstr[1] "Прочетете всички отзиви с три звезди"
 
-#: src/amo/components/ReportAbuseButton/index.js:119
+#: src/amo/components/ReportAbuseButton/index.js:44
 msgid "You reported this add-on"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:123
+#: src/amo/components/ReportAbuseButton/index.js:48
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
@@ -1797,90 +1796,25 @@ msgstr ""
 "Получихме вашия доклад. Благодаря, че ни информирате за вашите проблеми с "
 "тази добавка."
 
-#: src/amo/components/ReportAbuseButton/index.js:129
-#: src/amo/components/ReportUserAbuse/index.js:188
-msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr "Не можем да отговорим на всеки доклад, но ще разгледаме въпроса."
-
-#: src/amo/components/ReportAbuseButton/index.js:138
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on "
-"policies%(linkTagEnd)s or has security or privacy issues, please report "
-"these issues to Mozilla using this form."
-msgstr ""
-"Ако смятате, че добавката е в нарушение на %(linkTagStart)sполитиката "
-"Mozilla за добавките%(linkTagEnd)s или има преблем със сигурността и "
-"поверителността, моля, докладвайте тези проблеми на Mozilla чрез този "
-"формуляр."
-
-#: src/amo/components/ReportAbuseButton/index.js:151
+#: src/amo/components/ReportAbuseButton/index.js:70
 msgid "Report this add-on"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:193
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
-"Моля не използвайте формуляра да докладвате за дефекти или да изпращате "
-"желания за нови възможности на добавката, защото този доклад ще бъде "
-"изпратен към Mozilla, а не към разработчика на добавката."
-
-#: src/amo/components/ReportAbuseButton/index.js:206
-#: src/amo/components/ReportUserAbuse/index.js:169
-msgid "Send abuse report"
-msgstr "Изпращане"
-
-#: src/amo/components/ReportAbuseButton/index.js:207
-#: src/amo/components/ReportUserAbuse/index.js:170
-msgid "Sending abuse report"
-msgstr "Изпращане на доклад за нарушение"
-
-#: src/amo/components/ReportAbuseButton/index.js:209
-msgid "Dismiss"
-msgstr "Прекратяване"
-
-#: src/amo/components/ReportAbuseButton/index.js:210
-msgid "Explain how this add-on is violating our policies."
-msgstr "Обяснете как добавката нарушава нашите правила."
-
-#: src/amo/components/ReportUserAbuse/index.js:122
-#: src/amo/components/ReportUserAbuse/index.js:129
-msgid "Report this user"
-msgstr ""
-
-#: src/amo/components/ReportUserAbuse/index.js:136
-msgid ""
-"If you think this user is violating %(linkTagStart)sMozilla's Add-on "
-"Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Ако смятате, че потребителят е в нарушение на %(linkTagStart)sполитиката на "
-"Mozilla за добавките%(linkTagEnd)s, моля, докладвайте този потребител на "
-"Mozilla."
-
-#: src/amo/components/ReportUserAbuse/index.js:152
-msgid ""
-"Please don't use this form to report bugs or contact this user; your report "
-"will only be sent to Mozilla and not to this user."
-msgstr ""
-"Моля не използвайте формуляра да докладвате за дефекти или за връзка с "
-"потребителя, защото този доклад ще бъде изпратен към Mozilla, а не към него."
-
-#: src/amo/components/ReportUserAbuse/index.js:166
-msgid "Explain how this user is violating our policies."
-msgstr "Обяснете как потребителя е в нарушение на нашите правила."
-
-#: src/amo/components/ReportUserAbuse/index.js:178
+#: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
 msgstr ""
 
-#: src/amo/components/ReportUserAbuse/index.js:182
+#: src/amo/components/ReportUserAbuse/index.js:52
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this user."
 msgstr ""
 "Получихме вашия доклад. Благодаря, че ни информирате за проблемите с този "
 "потребител."
+
+#: src/amo/components/ReportUserAbuse/index.js:64
+msgid "Report this user"
+msgstr ""
 
 #: src/amo/components/Search/index.js:139
 #: src/amo/components/SearchResults/index.js:71
@@ -2609,51 +2543,51 @@ msgstr "Категории"
 msgid "Extensions in %(categoryName)s"
 msgstr "Намерена е %(count)s добавка при в %(categoryName)s"
 
-#: src/amo/pages/Collection/index.js:403
+#: src/amo/pages/Collection/index.js:402
 msgid "Do you really want to delete this collection?"
 msgstr "Наистина ли искате да изтриете списъка?"
 
-#: src/amo/pages/Collection/index.js:406
+#: src/amo/pages/Collection/index.js:405
 msgid "Delete this collection"
 msgstr "Изтриване на списъка"
 
-#: src/amo/pages/Collection/index.js:426
+#: src/amo/pages/Collection/index.js:421
 msgid "You reported this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:430
+#: src/amo/pages/Collection/index.js:425
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:444
+#: src/amo/pages/Collection/index.js:439
 msgid "Report this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:463
+#: src/amo/pages/Collection/index.js:458
 msgid "Log in to create a collection"
 msgstr "Впишете се, за да създавате списъци"
 
-#: src/amo/pages/Collection/index.js:464
+#: src/amo/pages/Collection/index.js:459
 msgid "Log in to edit this collection"
 msgstr "Впишете се, за да промените списъка"
 
-#: src/amo/pages/Collection/index.js:498
+#: src/amo/pages/Collection/index.js:493
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:501
+#: src/amo/pages/Collection/index.js:496
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:562
+#: src/amo/pages/Collection/index.js:557
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:565
+#: src/amo/pages/Collection/index.js:560
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -3215,7 +3149,7 @@ msgid "Submit feedback or report a user to Mozilla"
 msgstr ""
 
 #: src/amo/pages/UserFeedback/index.js:133
-#: src/amo/pages/UserProfile/index.js:379
+#: src/amo/pages/UserProfile/index.js:381
 msgid "User since"
 msgstr "Потребител от"
 
@@ -3275,34 +3209,35 @@ msgstr "Профил на %(user)s"
 msgid "User Profile"
 msgstr "Потребителски профил"
 
-#: src/amo/pages/UserProfile/index.js:364
+#: src/amo/pages/UserProfile/index.js:366
 #: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Location"
 msgstr "Местоположение"
 
-#: src/amo/pages/UserProfile/index.js:372
+#: src/amo/pages/UserProfile/index.js:374
 #: src/amo/pages/UserProfileEdit/index.js:740
 msgid "Occupation"
 msgstr "Професия"
 
-#: src/amo/pages/UserProfile/index.js:389
+#: src/amo/pages/UserProfile/index.js:391
 msgid "Number of add-ons"
 msgstr "Брой добавки"
 
-#: src/amo/pages/UserProfile/index.js:395
+#: src/amo/pages/UserProfile/index.js:397
 msgid "Average rating of developer’s add-ons"
 msgstr "Средна оценка на разширенията"
 
-#: src/amo/pages/UserProfile/index.js:410
+#: src/amo/pages/UserProfile/index.js:412
 #: src/amo/pages/UserProfileEdit/index.js:762
 msgid "Biography"
 msgstr "Биография"
 
-#: src/amo/pages/UserProfile/index.js:434
+#: src/amo/pages/UserProfile/index.js:436
 msgid "Edit profile"
 msgstr "Промяна на профила"
 
-#: src/amo/pages/UserProfile/index.js:447
+#. This action allows an admin to maintain a user.
+#: src/amo/pages/UserProfile/index.js:449
 msgid "Admin user"
 msgstr "Администратор"
 
@@ -3426,6 +3361,7 @@ msgstr "Профил"
 msgid "This field is required"
 msgstr ""
 
+#. the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:687
 msgid "Display Name *"
 msgstr "Показвано име *"
@@ -3522,6 +3458,7 @@ msgid "You are successfully unsubscribed!"
 msgstr ""
 
 # a list of notifications will be displayed under this prompt.
+#. a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
@@ -3539,16 +3476,19 @@ msgid "(no name)"
 msgstr ""
 
 # This is application compatibility information, such as "firefox 41 and later"
+#. This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
 msgid "%(application)s %(minVersion)s and later"
 msgstr ""
 
 # This is application compatibility information, such as "firefox 41 to 45"
+#. This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:309
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr ""
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:329
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
@@ -3612,6 +3552,80 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid "This is a bug report or support request"
+#~ msgstr "Доклад за проблем или заявка за поддръжка"
+
+#~ msgid "Flagged as a bug report or support request"
+#~ msgstr "Сигнализиран като доклад за дефект или заявка за поддръжка"
+
+#~ msgid "This contains inappropriate language"
+#~ msgstr "Съдържа груби изрази"
+
+#~ msgid "Flagged for inappropriate language"
+#~ msgstr "Сигнализиран за груби изрази"
+
+#~ msgid "Log in to flag this response"
+#~ msgstr "Впишете се, за да сигнализирате за този отговор"
+
+#~ msgid "Log in to flag this review"
+#~ msgstr "Впишете се, за да сигнализирате за този отзив"
+
+#~ msgid "This is spam"
+#~ msgstr "Това е странично съдържание"
+
+#~ msgid ""
+#~ "We can't respond to every abuse report but we'll look into this issue."
+#~ msgstr "Не можем да отговорим на всеки доклад, но ще разгледаме въпроса."
+
+#~ msgid ""
+#~ "If you think this add-on violates %(linkTagStart)sMozilla's add-on "
+#~ "policies%(linkTagEnd)s or has security or privacy issues, please report "
+#~ "these issues to Mozilla using this form."
+#~ msgstr ""
+#~ "Ако смятате, че добавката е в нарушение на %(linkTagStart)sполитиката "
+#~ "Mozilla за добавките%(linkTagEnd)s или има преблем със сигурността и "
+#~ "поверителността, моля, докладвайте тези проблеми на Mozilla чрез този "
+#~ "формуляр."
+
+#~ msgid ""
+#~ "Please don't use this form to report bugs or request add-on features; "
+#~ "this report will be sent to Mozilla and not to the add-on developer."
+#~ msgstr ""
+#~ "Моля не използвайте формуляра да докладвате за дефекти или да изпращате "
+#~ "желания за нови възможности на добавката, защото този доклад ще бъде "
+#~ "изпратен към Mozilla, а не към разработчика на добавката."
+
+#~ msgid "Send abuse report"
+#~ msgstr "Изпращане"
+
+#~ msgid "Sending abuse report"
+#~ msgstr "Изпращане на доклад за нарушение"
+
+#~ msgid "Dismiss"
+#~ msgstr "Прекратяване"
+
+#~ msgid "Explain how this add-on is violating our policies."
+#~ msgstr "Обяснете как добавката нарушава нашите правила."
+
+#~ msgid ""
+#~ "If you think this user is violating %(linkTagStart)sMozilla's Add-on "
+#~ "Policies%(linkTagEnd)s, please report this user to Mozilla."
+#~ msgstr ""
+#~ "Ако смятате, че потребителят е в нарушение на %(linkTagStart)sполитиката "
+#~ "на Mozilla за добавките%(linkTagEnd)s, моля, докладвайте този потребител "
+#~ "на Mozilla."
+
+#~ msgid ""
+#~ "Please don't use this form to report bugs or contact this user; your "
+#~ "report will only be sent to Mozilla and not to this user."
+#~ msgstr ""
+#~ "Моля не използвайте формуляра да докладвате за дефекти или за връзка с "
+#~ "потребителя, защото този доклад ще бъде изпратен към Mozilla, а не към "
+#~ "него."
+
+#~ msgid "Explain how this user is violating our policies."
+#~ msgstr "Обяснете как потребителя е в нарушение на нашите правила."
 
 #, fuzzy
 #~ msgid ""
