@@ -72,7 +72,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
         >
           {
             // eslint-disable-next-line max-len
-            // translators: This action allows the add-on developer or an admin to edit an add-on's properties.
+            // L10n: This action allows the add-on developer or an admin to edit an add-on's properties.
             i18n.gettext('Edit add-on')
           }
         </a>
@@ -86,7 +86,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           href={`/admin/models/addons/addon/${addon.id}`}
         >
           {
-            // translators: This action allows an admin to maintain an add-on.
+            // L10n: This action allows an admin to maintain an add-on.
             i18n.gettext('Admin add-on')
           }
         </a>
@@ -100,7 +100,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           href={`/reviewers/review-content/${addon.id}`}
         >
           {
-            // translators: This action allows a reviewer to perform a content review of an add-on.
+            // L10n: This action allows a reviewer to perform a content review of an add-on.
             i18n.gettext('Content review add-on')
           }
         </a>
@@ -108,9 +108,9 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
     ) : null;
 
     const codeReviewLinkText = isTheme
-      ? // translators: This action allows a reviewer to perform a review of a theme.
+      ? // L10n: This action allows a reviewer to perform a review of a theme.
         i18n.gettext('Review theme')
-      : // translators: This action allows a reviewer to perform a review of an add-on's code.
+      : // L10n: This action allows a reviewer to perform a review of an add-on's code.
         i18n.gettext('Review add-on code');
     const codeReviewLink =
       showCodeReviewLink || showStaticThemeReviewLink ? (
@@ -130,7 +130,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       <DefinitionList className="AddonAdminLinks">
         <Definition
           term={
-            // translators: This is a list of links to administrative functions.
+            // L10n: This is a list of links to administrative functions.
             i18n.gettext('Admin Links')
           }
         >

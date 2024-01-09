@@ -683,7 +683,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                     title={i18n.gettext('This field is required')}
                   >
                     {
-                      // translators: the star is used to indicate a required field
+                      // L10n: the star is used to indicate a required field
                       i18n.gettext('Display Name *')
                     }
                   </label>

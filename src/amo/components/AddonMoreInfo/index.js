@@ -211,8 +211,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       filesize: versionInfo && versionInfo.filesize,
       versionLastUpdated: lastUpdated
         ? i18n.sprintf(
-            // translators: This will output, in English:
-            // "2 months ago (Dec 12 2016)"
+            // L10n: This will output, in English: "2 months ago (Dec 12 2016)"
             i18n.gettext('%(timeFromNow)s (%(date)s)'),
             {
               timeFromNow: i18n.moment(lastUpdated).fromNow(),

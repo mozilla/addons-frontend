@@ -45,7 +45,7 @@ export const AddonTitleBase = ({
   if (addon && addon.authors) {
     const addonAuthors = addon.authors;
 
-    // translators: A comma, used in a list of authors: a1, a2, a3.
+    // L10n: A comma, used in a list of authors: a1, a2, a3.
     const comma = i18n.gettext(',');
     const separator = isRTL ? ` ${comma}` : `${comma} `;
 
@@ -89,7 +89,7 @@ export const AddonTitleBase = ({
                 <>
                   {authors}{' '}
                   {
-                    // translators: Example: add-on "by" some authors
+                    // L10n: Example: add-on "by" some authors
                     i18n.gettext('by')
                   }
                 </>

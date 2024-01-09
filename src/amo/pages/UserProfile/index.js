@@ -445,7 +445,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   puffy
                 >
                   {
-                    // translators: This action allows an admin to maintain a user.
+                    // L10n: This action allows an admin to maintain a user.
                     i18n.gettext('Admin user')
                   }
                 </Button>

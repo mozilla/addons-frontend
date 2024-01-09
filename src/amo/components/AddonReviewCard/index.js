@@ -364,14 +364,15 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     if (review) {
       // eslint-disable-next-line no-nested-ternary
       const byLineString = noAuthor
-        ? // translators: Example in English: "posted last week"
+        ? // L10n: Example in English: "posted last week"
           i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
-        : // translators: Example in English: "by UserName123, last week"
-        showUserProfileLink
-        ? i18n.gettext(
+        : showUserProfileLink
+        ? // L10n: Example in English: "by UserName123, last week"
+          i18n.gettext(
             'by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
           )
-        : i18n.gettext(
+        : // L10n: Example in English: "by UserName123, last week"
+          i18n.gettext(
             'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
           );
 

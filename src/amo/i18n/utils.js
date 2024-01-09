@@ -259,15 +259,15 @@ export const formatFilesize = ({
     // These are the expected values for the unit of measure returned by
     // filesize. Realistically we shouldn't get anything back larger than TB.
     /* eslint-disable max-len */
-    // translators: B is an abbreviation of Bytes in English. Localize it if necessary but use a short abbreviation.
+    // L10n: B is an abbreviation of Bytes in English. Localize it if necessary but use a short abbreviation.
     B: i18n.gettext('%(localizedSize)s B'),
-    // translators: KB is an abbreviation of Kilobytes in English. Localize it if necessary but use a short abbreviation.
+    // L10n: KB is an abbreviation of Kilobytes in English. Localize it if necessary but use a short abbreviation.
     KB: i18n.gettext('%(localizedSize)s KB'),
-    // translators: MB is an abbreviation of Megabytes in English. Localize it if necessary but use a short abbreviation.
+    // L10n: MB is an abbreviation of Megabytes in English. Localize it if necessary but use a short abbreviation.
     MB: i18n.gettext('%(localizedSize)s MB'),
-    // translators: GB is an abbreviation of Gigabytes in English. Localize it if necessary but use a short abbreviation.
+    // L10n: GB is an abbreviation of Gigabytes in English. Localize it if necessary but use a short abbreviation.
     GB: i18n.gettext('%(localizedSize)s GB'),
-    // translators: TB is an abbreviation of Terabytes in English. Localize it if necessary but use a short abbreviation.
+    // L10n: TB is an abbreviation of Terabytes in English. Localize it if necessary but use a short abbreviation.
     TB: i18n.gettext('%(localizedSize)s TB'),
     /* eslint-enable max-len */
   };

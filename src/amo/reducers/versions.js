@@ -301,11 +301,11 @@ export const getVersionInfo = ({
   if (version) {
     const { file } = version;
 
-    // translators: This is application compatibility information, such as "firefox 41 and later"
+    // L10n: This is application compatibility information, such as "firefox 41 and later"
     const noMaxString = i18n.gettext(
       '%(application)s %(minVersion)s and later',
     );
-    // translators: This is application compatibility information, such as "firefox 41 to 45"
+    // L10n: This is application compatibility information, such as "firefox 41 to 45"
     const maxAndMinString = i18n.gettext(
       '%(application)s %(minVersion)s to %(maxVersion)s',
     );
@@ -325,7 +325,7 @@ export const getVersionInfo = ({
 
     const compatibilityString = i18n.sprintf(
       // eslint-disable-next-line max-len
-      // translators: This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+      // L10n: This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
       i18n.gettext('Works with %(listOfApplicatonsAndVersions)s'),
       { listOfApplicatonsAndVersions: appInfo },
     );
