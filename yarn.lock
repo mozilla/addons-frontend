@@ -2426,6 +2426,11 @@ are-we-there-yet@^3.0.0:
     delegates "^1.0.0"
     readable-stream "^3.6.0"
 
+arg@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/arg/-/arg-5.0.2.tgz#c81433cc427c92c4dcf4865142dbca6f15acd59c"
+  integrity sha512-PYjyFOLKQ9y57JvQ6QLo8dAgNqswh8M1RMJYdQduT6xbWSgK36P/Z/v+p888pM69jMMfS8Xd8F6I1kQ/I9HUGg==
+
 argparse@^1.0.7:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
@@ -5064,11 +5069,6 @@ fs-minipass@^2.0.0, fs-minipass@^2.1.0:
   dependencies:
     minipass "^3.0.0"
 
-fs-monkey@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/fs-monkey/-/fs-monkey-1.0.3.tgz#ae3ac92d53bb328efe0e9a1d9541f6ad8d48e2d3"
-  integrity sha512-cybjIfiiE+pTWicSCLFHSrXZ6EilF30oh91FDP9S2B051prEa7QWfrVTQm10/dDpswBDXZugPa1Ogu8Yh+HV0Q==
-
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
@@ -5688,6 +5688,11 @@ humanize-ms@^1.2.1:
   integrity sha512-Fl70vYtsAFb/C06PTS9dZBo7ihau+Tu/DNCk/OyHhea07S+aeMWpFFkUaXRa8fI+ScZbEI8dfSxwY7gxZ9SAVQ==
   dependencies:
     ms "^2.0.0"
+
+hyperdyperid@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/hyperdyperid/-/hyperdyperid-1.2.0.tgz#59668d323ada92228d2a869d3e474d5a33b69e6b"
+  integrity sha512-Y93lCzHYgGWdrJ66yIktxiaGULYc6oGiABxhcO5AufBeOyoIdZF7bIfLaOrbM0iGIOXQQgxxRrFEnb+Y6w1n4A==
 
 iconv-lite@0.4.24:
   version "0.4.24"
@@ -6802,6 +6807,14 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==
 
+json-joy@^9.2.0:
+  version "9.9.1"
+  resolved "https://registry.yarnpkg.com/json-joy/-/json-joy-9.9.1.tgz#add8f8bdf4f7066894f5ec4817a5a43066a3757f"
+  integrity sha512-/d7th2nbQRBQ/nqTkBe6KjjvDciSwn9UICmndwk3Ed/Bk9AqkTRm4PnLVfXG4DKbT0rEY0nKnwE7NqZlqKE6kg==
+  dependencies:
+    arg "^5.0.2"
+    hyperdyperid "^1.2.0"
+
 json-parse-even-better-errors@^2.3.0, json-parse-even-better-errors@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
@@ -7191,12 +7204,13 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==
 
-memfs@^3.4.12:
-  version "3.4.12"
-  resolved "https://registry.yarnpkg.com/memfs/-/memfs-3.4.12.tgz#d00f8ad8dab132dc277c659dc85bfd14b07d03bd"
-  integrity sha512-BcjuQn6vfqP+k100e0E9m61Hyqa//Brp+I3f0OBmN0ATHlFA8vx3Lt8z57R3u2bPqe3WGDBC+nF72fTH7isyEw==
+memfs@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/memfs/-/memfs-4.6.0.tgz#e812d438f73482a7110420d13d381c730b9a4de5"
+  integrity sha512-I6mhA1//KEZfKRQT9LujyW6lRbX7RkC24xKododIDO3AGShcaFAMKElv1yFGWX8fD4UaSiwasr3NeQ5TdtHY1A==
   dependencies:
-    fs-monkey "^1.0.3"
+    json-joy "^9.2.0"
+    thingies "^1.11.1"
 
 meow@^10.1.5:
   version "10.1.5"
@@ -10301,6 +10315,11 @@ then-request@^2.0.1:
     promise "^7.1.1"
     qs "^6.1.0"
 
+thingies@^1.11.1:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/thingies/-/thingies-1.15.0.tgz#bd186213bed5105b11eda0ce749fa475c5d4d6e3"
+  integrity sha512-ZSJlvEpD8QllYim0VSGlbAoob/iPrTWNlV/m8ltizMvMmzzU2gVJvHfH9ijLstyciWF70ZiQXqz+BCXWJq+ZQw==
+
 thread-stream@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/thread-stream/-/thread-stream-2.2.0.tgz#310c03a253f729094ce5d4638ef5186dfa80a9e8"
@@ -10889,13 +10908,13 @@ webpack-cli@^4.0.0:
     rechoir "^0.7.0"
     webpack-merge "^5.7.3"
 
-webpack-dev-middleware@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-6.1.1.tgz#6bbc257ec83ae15522de7a62f995630efde7cc3d"
-  integrity sha512-y51HrHaFeeWir0YO4f0g+9GwZawuigzcAdRNon6jErXy/SqV/+O6eaVAzDqE6t3e3NpGeR5CS+cCDaTC+V3yEQ==
+webpack-dev-middleware@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-7.0.0.tgz#13595dc038a400e3ac9c76f0c9a8c75a59a7d4da"
+  integrity sha512-tZ5hqsWwww/8DislmrzXE3x+4f+v10H1z57mA2dWFrILb4i3xX+dPhTkcdR0DLyQztrhF2AUmO5nN085UYjd/Q==
   dependencies:
     colorette "^2.0.10"
-    memfs "^3.4.12"
+    memfs "^4.6.0"
     mime-types "^2.1.31"
     range-parser "^1.2.1"
     schema-utils "^4.0.0"
