@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# fix husky/yarn on windows
+# https://typicode.github.io/husky/troubleshooting.html#yarn-on-windows
+. "$(dirname -- "$0")/common.sh"
+
+info() {
+  local message="$1"
+
+  echo ""
+  echo "INFO: $message"
+  echo ""
+}
+
+info "Extracting locales (this can take several minutes)"
+bin/extract-locales
+
+info "Merging locales"
+bin/merge-locales
+
+# stage any changes to locale files
+git add locale
+
