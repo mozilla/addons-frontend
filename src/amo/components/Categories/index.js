@@ -96,19 +96,19 @@ export class CategoriesBase extends React.Component<InternalProps> {
       return (
         <Card className={classNameProp}>
           <p className="Categories-none-loaded-message">
-            {i18n.gettext('No categories found.')}
+            {i18n.t('No categories found.')}
           </p>
         </Card>
       );
     }
 
     return (
-      <Card className={classNameProp} header={i18n.gettext('Categories')}>
+      <Card className={classNameProp} header={i18n.t('Categories')}>
         {errorHandler.renderErrorIfPresent()}
         {loading ? (
           <div className="Categories-loading">
             <span className="Categories-loading-info visually-hidden">
-              {i18n.gettext('Loading categories.')}
+              {i18n.t('Loading categories.')}
             </span>
             {Array(8)
               .fill(0)

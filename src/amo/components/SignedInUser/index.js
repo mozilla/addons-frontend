@@ -28,7 +28,7 @@ const SignedInUserBase = (props: InternalProps) => (
   >
     <Icon name="user-fill" />
     <span className="SignedInUser-text">
-      {props.i18n.sprintf(props.i18n.gettext('Signed in as %(username)s'), {
+      {props.i18n.t('Signed in as %(username)s', {
         username: props.user.name,
       })}
     </span>

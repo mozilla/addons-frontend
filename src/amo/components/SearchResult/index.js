@@ -192,7 +192,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
               />
             ) : (
               <p className="SearchResult-notheme">
-                {i18n.gettext('No theme preview available')}
+                {i18n.t('No theme preview available')}
               </p>
             )}
           </div>
@@ -227,7 +227,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
               <div className="SearchResult-note">
                 <h4 className="SearchResult-note-header">
                   <Icon name="comments-blue" />
-                  {i18n.gettext('Add-on note')}
+                  {i18n.t('Add-on note')}
                 </h4>
                 <p
                   className="SearchResult-note-content"
@@ -244,13 +244,15 @@ export class SearchResultBase extends React.Component<InternalProps> {
             <Icon className="SearchResult-users-icon" name="user-fill" />
             <span className="SearchResult-users-text">
               {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
-                i18n.sprintf(
-                  i18n.ngettext(
-                    '%(total)s user',
-                    '%(total)s users',
-                    averageDailyUsers,
-                  ),
-                  { total: i18n.formatNumber(averageDailyUsers) },
+                /* manual-change: merge keys 
+              '%(total)s user' -> '%(total)s user_one'
+              '%(total)s users' -> '%(total)s user_other' */ i18n.t(
+                  '%(total)s user',
+                  {
+                    count: averageDailyUsers,
+
+                    total: i18n.formatNumber(averageDailyUsers),
+                  },
                 )
               ) : (
                 <LoadingText width={80} />

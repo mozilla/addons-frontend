@@ -90,7 +90,7 @@ export class BlockBase extends React.Component<InternalProps> {
     }
 
     const content: Array<React.Node | string> = [
-      i18n.sprintf(i18n.gettext('Blocked on %(date)s.'), {
+      i18n.t('Blocked on %(date)s.', {
         date: i18n.moment(block.created).format('ll'),
       }),
     ];
@@ -99,7 +99,7 @@ export class BlockBase extends React.Component<InternalProps> {
       content.push(
         ' ',
         <a key={block.url.url} href={block.url.outgoing} title={block.url.url}>
-          {i18n.gettext('View block request')}
+          {i18n.t('View block request')}
         </a>,
         '.',
       );
@@ -116,12 +116,12 @@ export class BlockBase extends React.Component<InternalProps> {
     }
 
     if (block.is_all_versions) {
-      return i18n.gettext('Versions blocked: all versions.');
+      return i18n.t('Versions blocked: all versions.');
     }
 
     const versions = block.versions.join(', ');
 
-    return i18n.sprintf(i18n.gettext('Versions blocked: %(versions)s.'), {
+    return i18n.t('Versions blocked: %(versions)s.', {
       versions,
     });
   }
@@ -141,13 +141,14 @@ export class BlockBase extends React.Component<InternalProps> {
 
     const title =
       block && block.name
-        ? i18n.sprintf(
-            i18n.gettext(`%(addonName)s has been blocked for your protection.`),
+        ? i18n.t(
+            '%(addonName)s has been blocked for your protection.',
+
             {
               addonName: block.name,
             },
           )
-        : i18n.gettext(`This add-on has been blocked for your protection.`);
+        : i18n.t('This add-on has been blocked for your protection.');
 
     return (
       <Page>
@@ -158,13 +159,13 @@ export class BlockBase extends React.Component<InternalProps> {
           </Helmet>
 
           <Card className="Block-content" header={title}>
-            <h2>{i18n.gettext('Why was it blocked?')}</h2>
+            <h2>{i18n.t('Why was it blocked?')}</h2>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`This add-on violates %(startLink)sMozilla's
-                    Add-on Policies%(endLink)s.`),
+                i18n.t(
+                  "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s.",
+
                   {
                     startLink: `<a href="${POLICIES_URL}">`,
                     endLink: '</a>',
@@ -173,24 +174,21 @@ export class BlockBase extends React.Component<InternalProps> {
                 ['a'],
               )}
             />
+
             {this.renderReason()}
 
-            <h2>{i18n.gettext('What does this mean?')}</h2>
+            <h2>{i18n.t('What does this mean?')}</h2>
             <p>
-              {i18n.gettext(`The problematic add-on or plugin will be
-                automatically disabled and no longer usable.`)}
+              {i18n.t(
+                'The problematic add-on or plugin will be automatically disabled and no longer usable.',
+              )}
             </p>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`When Mozilla becomes aware of add-ons, plugins,
-                    or other third-party software that seriously compromises
-                    Firefox security, stability, or performance and meets
-                    %(criteriaStartLink)scertain criteria%(criteriaEndLink)s,
-                    the software may be blocked from general use. For more
-                    information, please read %(supportStartLink)sthis support
-                    article%(supportEndLink)s.`),
+                i18n.t(
+                  'When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s.',
+
                   {
                     criteriaStartLink: `<a href="${CRITERIA_URL}">`,
                     criteriaEndLink: '</a>',
@@ -201,6 +199,7 @@ export class BlockBase extends React.Component<InternalProps> {
                 ['a'],
               )}
             />
+
             <p className="Block-metadata">
               {this.renderVersions()}
               <br />

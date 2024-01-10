@@ -83,17 +83,20 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
 
       i18nTitle =
         clientApp === CLIENT_APP_ANDROID
-          ? i18n.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)')
-          : i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)');
+          ? i18n.t('%(title)s – Add-ons for Firefox Android (%(locale)s)')
+          : i18n.t('%(title)s – Add-ons for Firefox (%(locale)s)');
       i18nValues = { ...i18nValues, title };
     } else {
       i18nTitle =
         clientApp === CLIENT_APP_ANDROID
-          ? i18n.gettext('Add-ons for Firefox Android (%(locale)s)')
-          : i18n.gettext('Add-ons for Firefox (%(locale)s)');
+          ? i18n.t('Add-ons for Firefox Android (%(locale)s)')
+          : i18n.t('Add-ons for Firefox (%(locale)s)');
     }
 
-    return i18n.sprintf(i18nTitle, i18nValues);
+    return i18n.t(
+      /* manual-change: static key required */ i18nTitle,
+      i18nValues,
+    );
   }
 
   renderOpenGraph(): Array<React.Node> {

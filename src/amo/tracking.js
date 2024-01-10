@@ -151,9 +151,9 @@ export class Tracking {
     if (this.trackingEnabled) {
       // Create a Flow typed variable for `ga`.
       declare var ga: {|
-        (string, string, ?string): void,
         q: Array<string>,
         l: number,
+        (string, string, ?string): void,
       |};
 
       /* eslint-disable */

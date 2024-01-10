@@ -179,7 +179,7 @@ export class AddonBase extends React.Component {
     }
 
     const label = addon
-      ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+      ? i18n.t('Preview of %(title)s', {
           title: addon.name,
         })
       : null;
@@ -208,8 +208,9 @@ export class AddonBase extends React.Component {
     } else {
       ratingManager = (
         <p className="Addon-no-rating-manager">
-          {i18n.gettext(`This add-on cannot be rated because no versions
-            have been published.`)}
+          {i18n.t(
+            'This add-on cannot be rated because no versions have been published.',
+          )}
         </p>
       );
     }
@@ -218,13 +219,15 @@ export class AddonBase extends React.Component {
       content = <LoadingText width={100} />;
     } else if (addon.ratings && addon.ratings.count) {
       const { count } = addon.ratings;
-      const linkText = i18n.sprintf(
-        i18n.ngettext(
-          'Read %(count)s review',
-          'Read all %(count)s reviews',
-          count,
-        ),
-        { count: i18n.formatNumber(count) },
+      const linkText = /* manual-change: merge keys 
+      'Read %(count)s review' -> 'Read %(count)s review_one'
+      'Read all %(count)s reviews' -> 'Read %(count)s review_other' */ i18n.t(
+        'Read %(count)s review',
+        {
+          count: count,
+
+          count_prop: i18n.formatNumber(count),
+        },
       );
 
       footerPropName = 'footerLink';
@@ -240,7 +243,7 @@ export class AddonBase extends React.Component {
         </Link>
       );
     } else {
-      content = i18n.gettext('No reviews yet');
+      content = i18n.t('No reviews yet');
     }
 
     const props = {
@@ -250,7 +253,7 @@ export class AddonBase extends React.Component {
     };
     return (
       <Card
-        header={i18n.gettext('Rate your experience')}
+        header={i18n.t('Rate your experience')}
         className="Addon-overall-rating"
         {...props}
       >
@@ -269,19 +272,19 @@ export class AddonBase extends React.Component {
     if (addon) {
       switch (addon.type) {
         case ADDON_TYPE_DICT:
-          title = i18n.gettext('About this dictionary');
+          title = i18n.t('About this dictionary');
           break;
         case ADDON_TYPE_EXTENSION:
-          title = i18n.gettext('About this extension');
+          title = i18n.t('About this extension');
           break;
         case ADDON_TYPE_LANG:
-          title = i18n.gettext('About this language pack');
+          title = i18n.t('About this language pack');
           break;
         case ADDON_TYPE_STATIC_THEME:
-          title = i18n.gettext('About this theme');
+          title = i18n.t('About this theme');
           break;
         default:
-          title = i18n.gettext('About this add-on');
+          title = i18n.t('About this add-on');
       }
 
       const description = addon.description ? addon.description : addon.summary;
@@ -325,7 +328,7 @@ export class AddonBase extends React.Component {
       <ShowMoreCard
         contentId={addon.id}
         className={showMoreCardName}
-        header={i18n.gettext('Developer comments')}
+        header={i18n.t('Developer comments')}
         id={showMoreCardName}
       >
         <div
@@ -334,6 +337,7 @@ export class AddonBase extends React.Component {
         />
       </ShowMoreCard>
     );
+
     /* eslint-enable react/no-danger */
   };
 
@@ -347,10 +351,9 @@ export class AddonBase extends React.Component {
       return null;
     }
 
-    const header = i18n.sprintf(
-      i18n.gettext('Release notes for %(addonVersion)s'),
-      { addonVersion: currentVersion.version },
-    );
+    const header = i18n.t('Release notes for %(addonVersion)s', {
+      addonVersion: currentVersion.version,
+    });
     const releaseNotes = sanitizeUserHTML(currentVersion.releaseNotes);
 
     const showMoreCardNotesName = 'AddonDescription-version-notes';
@@ -366,6 +369,7 @@ export class AddonBase extends React.Component {
         <div dangerouslySetInnerHTML={releaseNotes} />
       </ShowMoreCard>
     );
+
     /* eslint-enable react/no-danger */
   }
 
@@ -503,7 +507,7 @@ export class AddonBase extends React.Component {
               {addon &&
               (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
                 <Notice type="error" className="Addon-non-public-notice">
-                  {i18n.gettext(
+                  {i18n.t(
                     'This is not a public listing. You are only seeing it because of elevated permissions.',
                   )}
                 </Notice>
@@ -527,7 +531,7 @@ export class AddonBase extends React.Component {
                 </div>
 
                 <h2 className="visually-hidden">
-                  {i18n.gettext('Extension Metadata')}
+                  {i18n.t('Extension Metadata')}
                 </h2>
               </header>
               {addon ? (
@@ -552,7 +556,7 @@ export class AddonBase extends React.Component {
               {addonPreviews.length > 0 && !isThemeType ? (
                 <Card
                   className="Addon-screenshots"
-                  header={i18n.gettext('Screenshots')}
+                  header={i18n.t('Screenshots')}
                 >
                   <ScreenShots previews={addonPreviews} />
                 </Card>
@@ -582,6 +586,7 @@ export class AddonBase extends React.Component {
         </div>
       </Page>
     );
+
     // eslint-enable react/no-danger
   }
 }

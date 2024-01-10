@@ -74,20 +74,21 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
           metadata={[
             {
               content: collection ? collection.numberOfAddons : null,
-              title: i18n.gettext('Add-ons'),
+              title: i18n.t('Add-ons'),
             },
             {
               content: collection ? collection.authorName : null,
-              title: i18n.gettext('Creator'),
+              title: i18n.t('Creator'),
             },
             {
               content: collection
                 ? i18n.moment(collection.lastUpdatedDate).format('ll')
                 : null,
-              title: i18n.gettext('Last updated'),
+              title: i18n.t('Last updated'),
             },
           ]}
         />
+
         {collection && showEditButton && !editing && (
           <Button
             buttonType="neutral"
@@ -98,9 +99,10 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
               query: convertFiltersToQueryParams(filters),
             }}
           >
-            {i18n.gettext('Edit this collection')}
+            {i18n.t('Edit this collection')}
           </Button>
         )}
+
         {collection && editing && hasEditPermission && (
           <Button
             buttonType="neutral"
@@ -109,9 +111,10 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
             href="#editdetails"
             onClick={this.onEditDetails}
           >
-            {i18n.gettext('Edit collection details')}
+            {i18n.t('Edit collection details')}
           </Button>
         )}
+
         {collection && editing && (
           <Button
             buttonType="cancel"
@@ -121,7 +124,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
               query: convertFiltersToQueryParams(filters),
             }}
           >
-            {i18n.gettext('Back to collection')}
+            {i18n.t('Back to collection')}
           </Button>
         )}
       </div>

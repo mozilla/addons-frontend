@@ -26,10 +26,12 @@ type Props = {|
     ConfirmationDialogProps,
     'confirmButtonText',
   >,
+
   confirmButtonType?: $PropertyType<
     ConfirmationDialogProps,
     'confirmButtonType',
   >,
+
   id: string,
   message?: $PropertyType<ConfirmationDialogProps, 'message'>,
   onConfirm: $PropertyType<ConfirmationDialogProps, 'onConfirm'>,

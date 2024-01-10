@@ -42,18 +42,17 @@ export class SearchResultsBase extends React.Component<InternalProps> {
 
     if (loading) {
       loadingMessage = (
-        <div className="visually-hidden">{i18n.gettext('Searching…')}</div>
+        <div className="visually-hidden">{i18n.t('Searching…')}</div>
       );
     } else if (count === 0) {
       if (query) {
-        messageText = i18n.sprintf(
-          i18n.gettext('No results were found for "%(query)s".'),
-          { query },
-        );
+        messageText = i18n.t('No results were found for "%(query)s".', {
+          query,
+        });
       } else {
         // TODO: Add the extension type, if available, so it says
         // "no extensions" found that match your search or something.
-        messageText = i18n.gettext('No results were found.');
+        messageText = i18n.t('No results were found.');
       }
     }
 
@@ -68,7 +67,7 @@ export class SearchResultsBase extends React.Component<InternalProps> {
           addonInstallSource={addonInstallSource}
           addons={results}
           footer={paginator}
-          header={i18n.gettext('Search results')}
+          header={i18n.t('Search results')}
           loading={loading}
           showFullSizePreview
         >

@@ -89,6 +89,7 @@ export const validAddonTypes = [
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
 ];
+
 // Mapping of the add-on types we show in URLs, etc. and what they map
 // to in the API (and how they're represented internally in the app).
 //
@@ -278,6 +279,7 @@ export const API_ERRORS_SESSION_EXPIRY = [
   API_ERROR_DECODING_SIGNATURE,
   API_ERROR_SIGNATURE_EXPIRED,
 ];
+
 // Interpreted error codes.
 export const ERROR_ADDON_DISABLED_BY_DEV = 'ERROR_ADDON_DISABLED_BY_DEV';
 export const ERROR_ADDON_DISABLED_BY_ADMIN = 'ERROR_ADDON_DISABLED_BY_ADMIN';
@@ -337,6 +339,7 @@ export const ALL_PROMOTED_CATEGORIES = [
   STRATEGIC,
   VERIFIED,
 ];
+
 export const BADGE_CATEGORIES = [LINE, RECOMMENDED, VERIFIED];
 export const EXCLUDE_WARNING_CATEGORIES = [
   LINE,
@@ -345,6 +348,7 @@ export const EXCLUDE_WARNING_CATEGORIES = [
   SPOTLIGHT,
   VERIFIED,
 ];
+
 export const REVIEWED_FILTER = 'badged';
 export const VERIFIED_FILTER = `${SPONSORED},${VERIFIED}`;
 

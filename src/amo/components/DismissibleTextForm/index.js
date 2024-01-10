@@ -196,10 +196,10 @@ export class DismissibleTextFormBase extends React.Component<
     const deleteButtonIsDisabled = !this.state.text.trim();
 
     const text = {
-      placeholder: placeholder || i18n.gettext('Enter text.'),
-      submitButtonText: submitButtonText || i18n.gettext('Submit'),
+      placeholder: placeholder || i18n.t('Enter text.'),
+      submitButtonText: submitButtonText || i18n.t('Submit'),
       submitButtonInProgressText:
-        submitButtonInProgressText || i18n.gettext('Submitting'),
+        submitButtonInProgressText || i18n.t('Submitting'),
     };
 
     invariant(
@@ -218,7 +218,7 @@ export class DismissibleTextFormBase extends React.Component<
         puffy={puffyButtons}
         type="cancel"
       >
-        {dismissButtonText || i18n.gettext('Cancel')}
+        {dismissButtonText || i18n.t('Cancel')}
       </Button>
     ) : null;
 
@@ -233,7 +233,7 @@ export class DismissibleTextFormBase extends React.Component<
         puffy={puffyButtons}
         type="button"
       >
-        {i18n.gettext('Delete')}
+        {i18n.t('Delete')}
       </Button>
     ) : null;
 
@@ -286,9 +286,11 @@ export class DismissibleTextFormBase extends React.Component<
           placeholder={text.placeholder}
           value={this.state.text}
         />
+
         {formFooter && (
           <div className="DismissibleTextForm-formFooter">{formFooter}</div>
         )}
+
         <div className="DismissibleTextForm-buttons">{allButtons}</div>
       </form>
     );

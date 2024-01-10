@@ -85,7 +85,7 @@ export class AddonFeedbackBase extends React.Component<InternalProps, State> {
         <div className="AddonFeedback-page">
           <Helmet>
             <title>
-              {i18n.gettext('Submit feedback or report an add-on to Mozilla')}
+              {i18n.t('Submit feedback or report an add-on to Mozilla')}
             </title>
             <meta name="robots" content="noindex, follow" />
           </Helmet>

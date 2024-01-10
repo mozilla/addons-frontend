@@ -46,24 +46,30 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     let userTitle;
     if (!addon) {
       userCount = null;
-      userTitle = i18n.gettext('Users');
+      userTitle = i18n.t('Users');
     } else if (averageDailyUsers) {
       userCount = i18n.formatNumber(averageDailyUsers);
-      userTitle = i18n.ngettext('User', 'Users', averageDailyUsers);
+      userTitle = /* manual-change: merge keys 
+      'User' -> 'User_one'
+      'Users' -> 'User_other' */ i18n.t('User', { count: averageDailyUsers });
     } else {
-      userTitle = i18n.gettext('No Users');
+      userTitle = i18n.t('No Users');
     }
 
     let reviewCount: null | string = '';
     let reviewTitle;
     if (!addon) {
       reviewCount = null;
-      reviewTitle = i18n.gettext('Reviews');
+      reviewTitle = i18n.t('Reviews');
     } else if (addonRatingCount) {
       reviewCount = i18n.formatNumber(addonRatingCount);
-      reviewTitle = i18n.ngettext('Review', 'Reviews', addonRatingCount);
+      reviewTitle = /* manual-change: merge keys 
+      'Review' -> 'Review_one'
+      'Reviews' -> 'Review_other' */ i18n.t('Review', {
+        count: addonRatingCount,
+      });
     } else {
-      reviewTitle = i18n.gettext('No Reviews');
+      reviewTitle = i18n.t('No Reviews');
     }
 
     const reviewsLink =
@@ -89,7 +95,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
 
     return (
       <div className="AddonMeta">
-        <h3 className="visually-hidden">{i18n.gettext('Used by')}</h3>
+        <h3 className="visually-hidden">{i18n.t('Used by')}</h3>
         <MetadataCard
           className="AddonMeta-overallRating"
           metadata={[
@@ -112,25 +118,27 @@ export class AddonMetaBase extends React.Component<InternalProps> {
                   />
                 </div>
               ),
+
               title: (
                 <div className="AddonMeta-rating-title">
                   {addonRatingCount
-                    ? i18n.sprintf(
-                        i18n.ngettext(
-                          '%(total)s Star',
-                          '%(total)s Stars',
-                          roundedAverage,
-                        ),
+                    ? /* manual-change: merge keys 
+              '%(total)s Star' -> '%(total)s Star_one'
+              '%(total)s Stars' -> '%(total)s Star_other' */ i18n.t(
+                        '%(total)s Star',
                         {
+                          count: roundedAverage,
+
                           total: i18n.formatNumber(roundedAverage),
                         },
                       )
-                    : i18n.gettext('Not rated yet')}
+                    : i18n.t('Not rated yet')}
                 </div>
               ),
             },
           ]}
         />
+
         <RatingsByStar addon={addon} />
       </div>
     );

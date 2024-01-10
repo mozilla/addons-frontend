@@ -21,21 +21,21 @@ export class SuggestedPagesBase extends React.Component<InternalProps> {
 
     return (
       <section className="SuggestedPages">
-        <h2>{i18n.gettext('Suggested Pages')}</h2>
+        <h2>{i18n.t('Suggested Pages')}</h2>
 
         <ul>
           <li>
             <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}>
-              {i18n.gettext('Browse all extensions')}
+              {i18n.t('Browse all extensions')}
             </Link>
           </li>
           <li className="SuggestedPages-link-themes">
             <Link to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}>
-              {i18n.gettext('Browse all themes')}
+              {i18n.t('Browse all themes')}
             </Link>
           </li>
           <li>
-            <Link to="/">{i18n.gettext('Add-ons Home Page')}</Link>
+            <Link to="/">{i18n.t('Add-ons Home Page')}</Link>
           </li>
         </ul>
       </section>

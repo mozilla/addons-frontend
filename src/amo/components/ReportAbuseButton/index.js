@@ -41,12 +41,13 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
       return (
         <div className="ReportAbuseButton ReportAbuseButton--report-sent">
           <h3 className="ReportAbuseButton-header">
-            {i18n.gettext('You reported this add-on')}
+            {i18n.t('You reported this add-on')}
           </h3>
 
           <p className="ReportAbuseButton-first-paragraph">
-            {i18n.gettext(`We have received your report. Thanks for letting us
-              know about your concerns with this add-on.`)}
+            {i18n.t(
+              'We have received your report. Thanks for letting us know about your concerns with this add-on.',
+            )}
           </p>
         </div>
       );
@@ -67,11 +68,12 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
             puffy
             {...reportButtonProps}
           >
-            {i18n.gettext('Report this add-on')}
+            {i18n.t('Report this add-on')}
           </Button>
         </div>
       </div>
     );
+
     /* eslint-enable react/no-danger */
   }
 }

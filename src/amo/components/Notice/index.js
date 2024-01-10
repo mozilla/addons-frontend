@@ -151,7 +151,7 @@ export class NoticeBase extends React.Component<InternalProps> {
             >
               <IconXMark
                 className="Notice-dismisser-icon"
-                alt={i18n.gettext('Dismiss this notice')}
+                alt={i18n.t('Dismiss this notice')}
               />
             </Button>
           </div>

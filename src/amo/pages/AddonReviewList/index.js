@@ -194,9 +194,9 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
     invariant(addon, 'addon is required');
 
-    return i18n.sprintf(
-      i18n.gettext(`Reviews and ratings for %(addonName)s. Find out what other
-        users think about %(addonName)s and add it to your Firefox Browser.`),
+    return i18n.t(
+      'Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser.',
+
       { addonName: addon.name },
     );
   }
@@ -229,16 +229,12 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         onChange={this.onSelectOption}
         value={location.query.score || SHOW_ALL_REVIEWS}
       >
-        <option value={SHOW_ALL_REVIEWS}>
-          {i18n.gettext('Show all reviews')}
-        </option>
-        <option value={5}>{i18n.gettext('Show only five-star reviews')}</option>
-        <option value={4}>{i18n.gettext('Show only four-star reviews')}</option>
-        <option value={3}>
-          {i18n.gettext('Show only three-star reviews')}
-        </option>
-        <option value={2}>{i18n.gettext('Show only two-star reviews')}</option>
-        <option value={1}>{i18n.gettext('Show only one-star reviews')}</option>
+        <option value={SHOW_ALL_REVIEWS}>{i18n.t('Show all reviews')}</option>
+        <option value={5}>{i18n.t('Show only five-star reviews')}</option>
+        <option value={4}>{i18n.t('Show only four-star reviews')}</option>
+        <option value={3}>{i18n.t('Show only three-star reviews')}</option>
+        <option value={2}>{i18n.t('Show only two-star reviews')}</option>
+        <option value={1}>{i18n.t('Show only one-star reviews')}</option>
       </Select>
     );
   }
@@ -259,7 +255,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     } = this.props;
 
     const header = addon
-      ? i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
+      ? i18n.t('Reviews for %(addonName)s', {
           addonName: addon.name,
         })
       : '';
@@ -268,9 +264,13 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     if (reviewCount !== null) {
       reviewCountText =
         reviewCount > 0 &&
-        i18n.sprintf(
-          i18n.ngettext('%(total)s review', '%(total)s reviews', reviewCount),
+        /* manual-change: merge keys 
+      '%(total)s review' -> '%(total)s review_one'
+      '%(total)s reviews' -> '%(total)s review_other' */ i18n.t(
+          '%(total)s review',
           {
+            count: reviewCount,
+
             total: i18n.formatNumber(reviewCount),
           },
         );
@@ -345,6 +345,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
                 siteUserCanReply={siteUserCanReplyToReviews}
               />
             )}
+
             {allReviews.length ? (
               <CardList
                 className="AddonReviewList-reviews-listing"
@@ -363,6 +364,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
                         />
                       </li>
                     );
+
                     /* eslint-enable react/no-array-index-key */
                   })}
                 </ul>
@@ -370,7 +372,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
             ) : (
               <Card header={reviewCountHTML}>
                 <p className="AddonReviewList-noReviews">
-                  {i18n.gettext('There are no reviews')}
+                  {i18n.t('There are no reviews')}
                 </p>
               </Card>
             )}

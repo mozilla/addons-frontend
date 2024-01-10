@@ -65,9 +65,9 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
           type="warning"
           key="amo-site-read-only"
         >
-          {i18n.gettext(`Some features are temporarily disabled while we
-            perform website maintenance. We'll be back to full capacity
-            shortly.`)}
+          {i18n.t(
+            "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly.",
+          )}
         </Notice>,
       );
     }
@@ -80,7 +80,7 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
           type="warning"
           key="user-was-logged-out"
         >
-          {i18n.gettext('You have been logged out.')}
+          {i18n.t('You have been logged out.')}
         </Notice>,
       );
     }

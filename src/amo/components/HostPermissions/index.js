@@ -47,14 +47,13 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
     // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
     switch (messageType) {
       case allUrlsMessageType:
-        return i18n.gettext('Access your data for all websites');
+        return i18n.t('Access your data for all websites');
       case domainMessageType:
-        return i18n.sprintf(
-          i18n.gettext('Access your data for sites in the %(param)s domain'),
-          { param },
-        );
+        return i18n.t('Access your data for sites in the %(param)s domain', {
+          param,
+        });
       case siteMessageType:
-        return i18n.sprintf(i18n.gettext('Access your data for %(param)s'), {
+        return i18n.t('Access your data for %(param)s', {
           param,
         });
       default:

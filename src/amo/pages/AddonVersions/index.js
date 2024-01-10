@@ -127,13 +127,13 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
 
     let header = '';
     if (addon && versions) {
-      header = i18n.sprintf(
-        i18n.ngettext(
-          '%(addonName)s version history - %(total)s version',
-          '%(addonName)s version history - %(total)s versions',
-          versions.length,
-        ),
+      header = /* manual-change: merge keys 
+      '%(addonName)s version history - %(total)s version' -> '%(addonName)s version history - %(total)s version_one'
+      '%(addonName)s version history - %(total)s versions' -> '%(addonName)s version history - %(total)s version_other' */ i18n.t(
+        '%(addonName)s version history - %(total)s version',
         {
+          count: versions.length,
+
           addonName: addon.name,
           total: i18n.formatNumber(versions.length),
         },
@@ -162,12 +162,12 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
                 <li>
                   <Notice type="warning">
                     <span className="AddonVersions-warning-text">
-                      {i18n.gettext(
+                      {i18n.t(
                         'Be careful with old versions! These versions are displayed for testing and reference purposes.',
                       )}
                     </span>
                     <span className="AddonVersions-warning-text">
-                      {i18n.gettext(
+                      {i18n.t(
                         'You should always use the latest version of an add-on.',
                       )}
                     </span>
@@ -176,18 +176,17 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
 
                 <AddonVersionCard
                   addon={addon}
-                  headerText={i18n.gettext('Latest version')}
+                  headerText={i18n.t('Latest version')}
                   isCurrentVersion
                   key="latestVersion"
                   version={latestVersion}
                 />
+
                 {olderVersions.map((version, index) => {
                   return (
                     <AddonVersionCard
                       addon={addon}
-                      headerText={
-                        index === 0 ? i18n.gettext('Older versions') : null
-                      }
+                      headerText={index === 0 ? i18n.t('Older versions') : null}
                       key={version.id}
                       version={version}
                     />

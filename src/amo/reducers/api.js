@@ -24,6 +24,7 @@ export type UserAgentInfoType = {|
     name?: string,
     version?: string,
   },
+
   device: { model?: string, type?: string, vendor?: string },
   os: {
     // This is not a complete enumeration. They're just the ones

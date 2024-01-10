@@ -399,10 +399,10 @@ export class CollectionBase extends React.Component<InternalProps> {
         buttonType="cancel"
         className={confirmButtonClassName}
         id={confirmButtonClassName}
-        message={i18n.gettext('Do you really want to delete this collection?')}
+        message={i18n.t('Do you really want to delete this collection?')}
         onConfirm={this.onDelete}
       >
-        {i18n.gettext('Delete this collection')}
+        {i18n.t('Delete this collection')}
       </ConfirmButton>
     );
   }
@@ -418,12 +418,13 @@ export class CollectionBase extends React.Component<InternalProps> {
       return (
         <div className="Collection-report-sent">
           <h3 className="ReportUserAbuse-header">
-            {i18n.gettext('You reported this collection')}
+            {i18n.t('You reported this collection')}
           </h3>
 
           <p>
-            {i18n.gettext(`We have received your report. Thanks for letting us
-              know about your concerns with this collection.`)}
+            {i18n.t(
+              'We have received your report. Thanks for letting us know about your concerns with this collection.',
+            )}
           </p>
         </div>
       );
@@ -436,7 +437,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         puffy
         to={`/feedback/collection/${collection.authorId}/${collection.slug}/`}
       >
-        {i18n.gettext('Report this collection')}
+        {i18n.t('Report this collection')}
       </Button>
     );
   }
@@ -455,8 +456,8 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     if ((creating || editing) && !isLoggedIn) {
       const logInText = creating
-        ? i18n.gettext('Log in to create a collection')
-        : i18n.gettext('Log in to edit this collection');
+        ? i18n.t('Log in to create a collection')
+        : i18n.t('Log in to edit this collection');
 
       return (
         <Card className="Collection-login">
@@ -490,12 +491,10 @@ export class CollectionBase extends React.Component<InternalProps> {
     let placeholderText;
     if (isLoggedIn && (creating || (!loading && addons.length === 0))) {
       placeholderText = creating
-        ? i18n.gettext(
+        ? i18n.t(
             'First, create your collection. Then you can add extensions and themes.',
           )
-        : i18n.gettext(
-            'Search for extensions and themes to add to your collection.',
-          );
+        : i18n.t('Search for extensions and themes to add to your collection.');
     }
 
     return (
@@ -508,6 +507,7 @@ export class CollectionBase extends React.Component<InternalProps> {
               editing={editing}
               filters={filters}
             />
+
             {this.renderDeleteButton()}
             {this.renderAbuseReportButton()}
           </Card>
@@ -523,6 +523,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           {editing && (
             <CollectionAddAddon collection={collection} filters={filters} />
           )}
+
           {!creating && (
             <AddonsCard
               addonInstallSource={
@@ -539,6 +540,7 @@ export class CollectionBase extends React.Component<InternalProps> {
               showFullSizePreview
             />
           )}
+
           {placeholderText && (
             <p className="Collection-placeholder">{placeholderText}</p>
           )}
@@ -552,13 +554,14 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     invariant(collection, 'collection is required');
 
-    return i18n.sprintf(
+    return i18n.t(
       collection.description
-        ? i18n.gettext(`Download and create Firefox collections to keep track
-          of favorite extensions and themes. Explore the
-          %(collectionName)s—%(collectionDescription)s.`)
-        : i18n.gettext(`Download and create Firefox collections to keep track
-          of favorite extensions and themes. Explore the %(collectionName)s.`),
+        ? i18n.t(
+            'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s\u2014%(collectionDescription)s.',
+          )
+        : i18n.t(
+            'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s.',
+          ),
       {
         collectionName: collectionName({ name: collection.name, i18n }),
         collectionDescription: collection.description,

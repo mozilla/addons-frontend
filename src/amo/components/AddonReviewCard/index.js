@@ -207,74 +207,74 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     const { i18n } = this.props;
 
     if (this.isReply()) {
-      return i18n.gettext('Edit reply');
+      return i18n.t('Edit reply');
     }
 
-    return i18n.gettext('Edit review');
+    return i18n.t('Edit review');
   }
 
   deletePrompt(): string {
     const { i18n } = this.props;
 
     if (this.isReply()) {
-      return i18n.gettext('Delete reply');
+      return i18n.t('Delete reply');
     }
 
     if (this.isRatingOnly()) {
-      return i18n.gettext('Delete rating');
+      return i18n.t('Delete rating');
     }
 
-    return i18n.gettext('Delete review');
+    return i18n.t('Delete review');
   }
 
   confirmDeletePrompt(): string {
     const { i18n } = this.props;
 
     if (this.isReply()) {
-      return i18n.gettext('Do you really want to delete this reply?');
+      return i18n.t('Do you really want to delete this reply?');
     }
 
     if (this.isRatingOnly()) {
-      return i18n.gettext('Do you really want to delete this rating?');
+      return i18n.t('Do you really want to delete this rating?');
     }
 
-    return i18n.gettext('Do you really want to delete this review?');
+    return i18n.t('Do you really want to delete this review?');
   }
 
   confirmDeleteButtonText(): string {
     const { i18n, slim } = this.props;
 
     if (!slim) {
-      return i18n.gettext('Delete');
+      return i18n.t('Delete');
     }
 
     if (this.isReply()) {
-      return i18n.gettext('Delete reply');
+      return i18n.t('Delete reply');
     }
 
     if (this.isRatingOnly()) {
-      return i18n.gettext('Delete rating');
+      return i18n.t('Delete rating');
     }
 
-    return i18n.gettext('Delete review');
+    return i18n.t('Delete review');
   }
 
   cancelDeleteButtonText(): string {
     const { i18n, slim } = this.props;
 
     if (!slim) {
-      return i18n.gettext('Cancel');
+      return i18n.t('Cancel');
     }
 
     if (this.isReply()) {
-      return i18n.gettext('Keep reply');
+      return i18n.t('Keep reply');
     }
 
     if (this.isRatingOnly()) {
-      return i18n.gettext('Keep rating');
+      return i18n.t('Keep rating');
     }
 
-    return i18n.gettext('Keep review');
+    return i18n.t('Keep review');
   }
 
   renderReply(): null | React.Node {
@@ -310,16 +310,14 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             isSubmitting={submittingReply && !errorHandler.hasError()}
             onDismiss={this.onDismissReviewReply}
             onSubmit={this.onSubmitReviewReply}
-            placeholder={i18n.gettext('Write a reply to this review.')}
+            placeholder={i18n.t('Write a reply to this review.')}
             submitButtonText={
-              review.reply
-                ? i18n.gettext('Update reply')
-                : i18n.gettext('Publish reply')
+              review.reply ? i18n.t('Update reply') : i18n.t('Publish reply')
             }
             submitButtonInProgressText={
               review.reply
-                ? i18n.gettext('Updating reply')
-                : i18n.gettext('Publishing reply')
+                ? i18n.t('Updating reply')
+                : i18n.t('Publishing reply')
             }
             text={review.reply && review.reply.body}
           />
@@ -365,16 +363,14 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       // eslint-disable-next-line no-nested-ternary
       const byLineString = noAuthor
         ? // L10n: Example in English: "posted last week"
-          i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
+          i18n.t('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
         : showUserProfileLink
         ? // L10n: Example in English: "by UserName123, last week"
-          i18n.gettext(
+          i18n.t(
             'by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
           )
         : // L10n: Example in English: "by UserName123, last week"
-          i18n.gettext(
-            'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
-          );
+          i18n.t('by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s');
 
       // See https://github.com/mozilla/addons-frontend/issues/7322 for why we
       // need this code.
@@ -431,7 +427,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       }
 
       const byLineLink = replaceStringsWithJSX({
-        text: i18n.sprintf(byLineString, {
+        text: i18n.t(/* manual-change: static key required */ byLineString, {
           authorName: review.userName,
           timestamp: i18n.moment(review.created).fromNow(),
           // Keep the link placeholders so that we can use them to inject a
@@ -485,9 +481,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 {this.editPrompt()}
               </a>
             )}
+
             {deletingReview && !errorHandler.hasError() ? (
               <span className="AddonReviewCard-control AddonReviewCard-deleting">
-                {i18n.gettext('Deleting…')}
+                {i18n.t('Deleting…')}
               </span>
             ) : (
               <Button
@@ -518,7 +515,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             className="AddonReviewCard-begin-reply AddonReviewCard-control"
           >
             <Icon name="reply-arrow" />
-            {i18n.gettext('Reply to this review')}
+            {i18n.t('Reply to this review')}
           </a>
         ) : null}
 
@@ -548,11 +545,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           {errorHandler.renderErrorIfPresent()}
           {review && review.isDeleted && (
             <Notice type="error" className="AddonReviewCard-non-public-notice">
-              {i18n.gettext(
+              {i18n.t(
                 'This rating or review has been deleted. You are only seeing it because of elevated permissions.',
               )}
             </Notice>
           )}
+
           {review && editingReview ? (
             <AddonReviewManager
               onCancel={this.onCancelEditReview}
@@ -581,6 +579,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             puffyButtons={slim}
           />
         )}
+
         {this.renderReply()}
         {siteUser &&
           review &&
@@ -594,7 +593,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               buttonType="action"
               puffy={slim}
             >
-              {i18n.gettext('Write a review')}
+              {i18n.t('Write a review')}
             </Button>
           )}
       </div>

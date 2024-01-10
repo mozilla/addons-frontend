@@ -93,7 +93,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
             {...linkProps}
           >
-            {i18n.gettext('Extensions')}
+            {i18n.t('Extensions')}
           </Link>
         </li>
         <li>
@@ -109,17 +109,17 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}
             {...linkProps}
           >
-            {i18n.gettext('Themes')}
+            {i18n.t('Themes')}
           </Link>
         </li>
         <li>
           <DropdownMenu
             className="SectionLinks-link SectionLinks-dropdown"
-            text={i18n.gettext('More…')}
+            text={i18n.t('More…')}
           >
             <>
               <DropdownMenuItem className="SectionLinks-subheader">
-                {i18n.gettext('for Firefox')}
+                {i18n.t('for Firefox')}
               </DropdownMenuItem>
               <DropdownMenuItem key="dictionaries-and-language-packs">
                 <Link
@@ -129,11 +129,11 @@ export class SectionLinksBase extends React.Component<InternalProps> {
                   })}
                   to="/language-tools/"
                 >
-                  {i18n.gettext('Dictionaries & Language Packs')}
+                  {i18n.t('Dictionaries & Language Packs')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="SectionLinks-subheader">
-                {i18n.gettext('Other Browser Sites')}
+                {i18n.t('Other Browser Sites')}
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link
@@ -143,7 +143,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
                   prependClientApp={false}
                   to={`/${CLIENT_APP_ANDROID}/`}
                 >
-                  {i18n.gettext('Add-ons for Android')}
+                  {i18n.t('Add-ons for Android')}
                 </Link>
               </DropdownMenuItem>
             </>

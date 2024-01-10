@@ -166,8 +166,8 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
               >
                 <Notice type={addonAdded ? 'success' : 'generic'}>
                   {addonAdded
-                    ? i18n.gettext('Added to collection')
-                    : i18n.gettext('Removed from collection')}
+                    ? i18n.t('Added to collection')
+                    : i18n.t('Removed from collection')}
                 </Notice>
               </CSSTransition>
             )}
@@ -176,11 +176,11 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
 
         <AutoSearchInput
           inputName="collection-addon-query"
-          inputPlaceholder={i18n.gettext(
+          inputPlaceholder={i18n.t(
             'Find an add-on to include in this collection',
           )}
           onSuggestionSelected={this.onAddonSelected}
-          selectSuggestionText={i18n.gettext('Add to collection')}
+          selectSuggestionText={i18n.t('Add to collection')}
           key={collection ? collection.id : ''}
         />
       </Card>

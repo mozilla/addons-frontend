@@ -22,11 +22,8 @@ export class UnavailableForLegalReasonsBase extends React.Component<InternalProp
     const { i18n } = this.props;
 
     const paragraphWithLinks = replaceStringsWithJSX({
-      text: i18n.gettext(
-        `You may be able to find what you’re looking for in one of the available
-        %(extensionStart)sextensions%(extensionEnd)s or
-        %(themeStart)sthemes%(themeEnd)s, or by asking for help on our
-        %(communityStart)scommunity forums%(communityEnd)s.`,
+      text: i18n.t(
+        'You may be able to find what you\u2019re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s.',
       ),
       replacements: [
         [
@@ -41,6 +38,7 @@ export class UnavailableForLegalReasonsBase extends React.Component<InternalProp
             </Link>
           ),
         ],
+
         [
           'themeStart',
           'themeEnd',
@@ -53,6 +51,7 @@ export class UnavailableForLegalReasonsBase extends React.Component<InternalProp
             </Link>
           ),
         ],
+
         [
           'communityStart',
           'communityEnd',
@@ -73,10 +72,10 @@ export class UnavailableForLegalReasonsBase extends React.Component<InternalProp
     return (
       <ErrorComponent
         code={451}
-        header={i18n.gettext('That page is not available in your region')}
+        header={i18n.t('That page is not available in your region')}
       >
         <p>
-          {i18n.gettext(
+          {i18n.t(
             'The page you tried to access is not available in your region.',
           )}
         </p>

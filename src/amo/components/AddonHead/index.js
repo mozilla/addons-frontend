@@ -66,60 +66,72 @@ export class AddonHeadBase extends React.Component<InternalProps> {
       switch (addon.type) {
         case ADDON_TYPE_DICT:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Dictionary
-            for 🦊 Firefox Android (%(locale)s)`);
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Dictionary for \uD83E\uDD8A Firefox Android (%(locale)s)',
+          );
           break;
         case ADDON_TYPE_EXTENSION:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Extension for
-            🦊 Firefox Android (%(locale)s)`);
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Extension for \uD83E\uDD8A Firefox Android (%(locale)s)',
+          );
           break;
         case ADDON_TYPE_LANG:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Language Pack
-            for 🦊 Firefox Android (%(locale)s)`);
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Language Pack for \uD83E\uDD8A Firefox Android (%(locale)s)',
+          );
           break;
         case ADDON_TYPE_STATIC_THEME:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(
-            `%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)`,
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Theme for \uD83E\uDD8A Firefox Android (%(locale)s)',
           );
           break;
         default:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Add-on for 🦊
-            Firefox Android (%(locale)s)`);
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Add-on for \uD83E\uDD8A Firefox Android (%(locale)s)',
+          );
       }
     } else {
       switch (addon.type) {
         case ADDON_TYPE_DICT:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Dictionary
-            for 🦊 Firefox (%(locale)s)`);
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Dictionary for \uD83E\uDD8A Firefox (%(locale)s)',
+          );
           break;
         case ADDON_TYPE_EXTENSION:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Extension for
-            🦊 Firefox (%(locale)s)`);
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Extension for \uD83E\uDD8A Firefox (%(locale)s)',
+          );
           break;
         case ADDON_TYPE_LANG:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Language Pack
-            for 🦊 Firefox (%(locale)s)`);
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Language Pack for \uD83E\uDD8A Firefox (%(locale)s)',
+          );
           break;
         case ADDON_TYPE_STATIC_THEME:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Theme for 🦊
-            Firefox (%(locale)s)`);
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Theme for \uD83E\uDD8A Firefox (%(locale)s)',
+          );
           break;
         default:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Add-on for 🦊
-            Firefox (%(locale)s)`);
+          localizedTitle = i18n.t(
+            '%(addonName)s \u2013 Get this Add-on for \uD83E\uDD8A Firefox (%(locale)s)',
+          );
       }
     }
 
-    return i18n.sprintf(localizedTitle, i18nValues);
+    return i18n.t(
+      /* manual-change: static key required */ localizedTitle,
+      i18nValues,
+    );
   }
 
   getPageDescription(): string {
@@ -127,13 +139,10 @@ export class AddonHeadBase extends React.Component<InternalProps> {
 
     invariant(addon, 'addon is required');
 
-    return i18n.sprintf(
-      i18n.gettext('Download %(addonName)s for Firefox. %(summary)s'),
-      {
-        addonName: addon.name,
-        summary: addon.summary,
-      },
-    );
+    return i18n.t('Download %(addonName)s for Firefox. %(summary)s', {
+      addonName: addon.name,
+      summary: addon.summary,
+    });
   }
 
   render(): null | React.Node {

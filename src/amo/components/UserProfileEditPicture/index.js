@@ -48,7 +48,7 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
       this.props;
 
     const altText = user
-      ? i18n.sprintf(i18n.gettext('Profile picture for %(name)s'), {
+      ? i18n.t('Profile picture for %(name)s', {
           name: user.name,
         })
       : null;
@@ -58,7 +58,7 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
     return (
       <section className="UserProfileEditPicture">
         <label className="UserProfileEdit--label" htmlFor={name}>
-          {i18n.gettext('Profile photo')}
+          {i18n.t('Profile photo')}
         </label>
 
         <UserAvatar altText={altText} preview={preview} user={user} />
@@ -80,6 +80,7 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
             onFocus={this.onFocus}
             type="file"
           />
+
           <Button
             buttonType="action"
             className="UserProfileEditPicture-select-button"
@@ -87,7 +88,7 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
             noLink
             puffy
           >
-            {i18n.gettext('Choose Photo…')}
+            {i18n.t('Choose Photo…')}
           </Button>
         </label>
 
@@ -97,10 +98,10 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
             className={confirmButtonClassName}
             htmlType="button"
             id={confirmButtonClassName}
-            message={i18n.gettext('Do you really want to delete this picture?')}
+            message={i18n.t('Do you really want to delete this picture?')}
             onConfirm={onDelete}
           >
-            {i18n.gettext('Delete This Picture')}
+            {i18n.t('Delete This Picture')}
           </ConfirmButton>
         )}
       </section>

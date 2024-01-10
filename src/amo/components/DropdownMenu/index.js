@@ -128,6 +128,7 @@ export class DropdownMenuBase extends React.Component<InternalProps, State> {
         )}
       </div>
     );
+
     // eslint-disable-next-line max-len
     /* eslint-enable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
   }

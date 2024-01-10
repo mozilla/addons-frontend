@@ -40,6 +40,7 @@ export type ReportAddonResponse = {|
     id: number,
     slug: string,
   |},
+
   message: string,
   reporter: AbuseReporter | null,
   reporter_name: string | null,
@@ -95,6 +96,7 @@ export type ReportUserResponse = {|
     url: string,
     username: string,
   |},
+
   message: string,
   reporter: AbuseReporter | null,
   reporter_name: string | null,
@@ -151,6 +153,7 @@ export type ReportRatingResponse = {|
   rating: {|
     id: number,
   |},
+
   message: string,
   reason: string | null,
 |};
@@ -205,6 +208,7 @@ export type ReportCollectionResponse = {|
   collection: {|
     id: number,
   |},
+
   message: string,
   reason: string | null,
 |};

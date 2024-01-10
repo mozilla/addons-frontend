@@ -43,9 +43,9 @@ export const IconPromotedBadgeBase = ({
   size,
 }: InternalProps): React.Node => {
   const altTexts = {
-    line: i18n.gettext('By Firefox'),
-    recommended: i18n.gettext('Recommended'),
-    verified: i18n.gettext('Verified'),
+    line: i18n.t('By Firefox'),
+    recommended: i18n.t('Recommended'),
+    verified: i18n.t('Verified'),
   };
   const alt = altTexts[category];
 

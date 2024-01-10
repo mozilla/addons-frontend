@@ -54,16 +54,16 @@ export class CategoryPageBase extends React.Component<InternalProps> {
 
     if (addonType === ADDON_TYPE_STATIC_THEME) {
       return categoryName
-        ? i18n.sprintf(i18n.gettext('Themes in %(categoryName)s'), {
+        ? i18n.t('Themes in %(categoryName)s', {
             categoryName,
           })
-        : i18n.gettext('Themes');
+        : i18n.t('Themes');
     }
     return categoryName
-      ? i18n.sprintf(i18n.gettext('Extensions in %(categoryName)s'), {
+      ? i18n.t('Extensions in %(categoryName)s', {
           categoryName,
         })
-      : i18n.gettext('Extensions');
+      : i18n.t('Extensions');
   }
 
   constructor(props: InternalProps) {

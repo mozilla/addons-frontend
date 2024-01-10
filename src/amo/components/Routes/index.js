@@ -138,8 +138,8 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       component={CollectionEdit}
     />
     {/* Only show category pages for both extensions and themes on Desktop. For
-        Android, we only allow category pages for extensions since Firefox for
-        Android doesn't support themes. */}
+       Android, we only allow category pages for extensions since Firefox for
+       Android doesn't support themes. */}
     <Route
       exact
       path="/:lang/:application(firefox|android)/:visibleAddonType(extensions)/categories/"
@@ -254,8 +254,8 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       )}
     />
     {/* Only show category pages for both extensions and themes on Desktop. For
-        Android, we only allow category pages for extensions since Firefox for
-        Android doesn't support themes. */}
+       Android, we only allow category pages for extensions since Firefox for
+       Android doesn't support themes. */}
     <Route
       exact
       path="/:lang/:application(firefox|android)/:visibleAddonType(extensions)/"

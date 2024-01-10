@@ -145,12 +145,12 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     const { i18n } = this.props;
 
     const options = [
-      { children: i18n.gettext('All'), value: NO_FILTER },
-      { children: i18n.gettext('Extension'), value: ADDON_TYPE_EXTENSION },
+      { children: i18n.t('All'), value: NO_FILTER },
+      { children: i18n.t('Extension'), value: ADDON_TYPE_EXTENSION },
     ];
 
     options.push({
-      children: i18n.gettext('Theme'),
+      children: i18n.t('Theme'),
       value: ADDON_TYPE_STATIC_THEME,
     });
 
@@ -161,14 +161,14 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     const { i18n } = this.props;
 
     return [
-      { children: i18n.gettext('Relevance'), value: SEARCH_SORT_RELEVANCE },
+      { children: i18n.t('Relevance'), value: SEARCH_SORT_RELEVANCE },
       {
-        children: i18n.gettext('Recently Updated'),
+        children: i18n.t('Recently Updated'),
         value: SEARCH_SORT_UPDATED,
       },
-      { children: i18n.gettext('Most Users'), value: SEARCH_SORT_POPULAR },
-      { children: i18n.gettext('Top Rated'), value: SEARCH_SORT_TOP_RATED },
-      { children: i18n.gettext('Trending'), value: SEARCH_SORT_TRENDING },
+      { children: i18n.t('Most Users'), value: SEARCH_SORT_POPULAR },
+      { children: i18n.t('Top Rated'), value: SEARCH_SORT_TOP_RATED },
+      { children: i18n.t('Trending'), value: SEARCH_SORT_TRENDING },
     ];
   }
 
@@ -176,18 +176,18 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     const { i18n } = this.props;
 
     return [
-      { children: i18n.gettext('Any'), value: NO_FILTER },
-      { children: i18n.gettext('Recommended'), value: RECOMMENDED },
+      { children: i18n.t('Any'), value: NO_FILTER },
+      { children: i18n.t('Recommended'), value: RECOMMENDED },
       {
-        children: i18n.gettext('By Firefox'),
+        children: i18n.t('By Firefox'),
         value: LINE,
       },
       {
-        children: i18n.gettext('Verified'),
+        children: i18n.t('Verified'),
         value: VERIFIED_FILTER,
       },
       {
-        children: i18n.gettext('All Reviewed'),
+        children: i18n.t('All Reviewed'),
         value: REVIEWED_FILTER,
       },
     ];
@@ -207,12 +207,12 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     return (
       <ExpandableCard
         className={expandableCardName}
-        header={i18n.gettext('Filter results')}
+        header={i18n.t('Filter results')}
         id={expandableCardName}
       >
         <form autoComplete="off">
           <label className="SearchFilters-label" htmlFor="SearchFilters-Sort">
-            {i18n.gettext('Sort by')}
+            {i18n.t('Sort by')}
           </label>
           <Select
             className="SearchFilters-Sort SearchFilters-select"
@@ -227,14 +227,14 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
           </Select>
 
           {/* Categories are linked to addonType so we don't allow changing the
-            addonType if a category is set. Also, hide the addonType filter on Android. */}
+             addonType if a category is set. Also, hide the addonType filter on Android. */}
           {!filters.category && clientApp !== CLIENT_APP_ANDROID && (
             <div>
               <label
                 className="SearchFilters-AddonType-label SearchFilters-label"
                 htmlFor="SearchFilters-AddonType"
               >
-                {i18n.gettext('Add-on Type')}
+                {i18n.t('Add-on Type')}
               </label>
               <Select
                 className="SearchFilters-AddonType SearchFilters-select"
@@ -255,7 +255,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
               className="SearchFilters-Badging-label SearchFilters-label"
               htmlFor="SearchFilters-Badging"
             >
-              {i18n.gettext('Badging')}
+              {i18n.t('Badging')}
             </label>
             <Select
               className="SearchFilters-Badging SearchFilters-select"

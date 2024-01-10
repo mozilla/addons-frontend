@@ -96,9 +96,10 @@ export const UserReviewBase = (props: InternalProps): React.Node => {
         {review && isReply && (
           <h4 className="UserReview-reply-header">
             <Icon name="reply-arrow" />
-            {i18n.gettext('Developer response')}
+            {i18n.t('Developer response')}
           </h4>
         )}
+
         {byLine}
       </div>
       {body}

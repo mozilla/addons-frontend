@@ -260,15 +260,15 @@ export const formatFilesize = ({
     // filesize. Realistically we shouldn't get anything back larger than TB.
     /* eslint-disable max-len */
     // L10n: B is an abbreviation of Bytes in English. Localize it if necessary but use a short abbreviation.
-    B: i18n.gettext('%(localizedSize)s B'),
+    B: i18n.t('%(localizedSize)s B'),
     // L10n: KB is an abbreviation of Kilobytes in English. Localize it if necessary but use a short abbreviation.
-    KB: i18n.gettext('%(localizedSize)s KB'),
+    KB: i18n.t('%(localizedSize)s KB'),
     // L10n: MB is an abbreviation of Megabytes in English. Localize it if necessary but use a short abbreviation.
-    MB: i18n.gettext('%(localizedSize)s MB'),
+    MB: i18n.t('%(localizedSize)s MB'),
     // L10n: GB is an abbreviation of Gigabytes in English. Localize it if necessary but use a short abbreviation.
-    GB: i18n.gettext('%(localizedSize)s GB'),
+    GB: i18n.t('%(localizedSize)s GB'),
     // L10n: TB is an abbreviation of Terabytes in English. Localize it if necessary but use a short abbreviation.
-    TB: i18n.gettext('%(localizedSize)s TB'),
+    TB: i18n.t('%(localizedSize)s TB'),
     /* eslint-enable max-len */
   };
 
@@ -290,7 +290,9 @@ export const formatFilesize = ({
     return localizedSize;
   }
 
-  return i18n.sprintf(sizeString, { localizedSize });
+  return i18n.t(/* manual-change: static key required */ sizeString, {
+    localizedSize,
+  });
 };
 
 type I18nConfig = {|
@@ -305,9 +307,11 @@ type I18nConfig = {|
         lang: string,
         plural_forms: string,
       },
+
       [message: string]: Array<string>,
     },
   },
+
   // This is our custom configuration for moment.
   _momentDefineLocale?: Function,
 |};

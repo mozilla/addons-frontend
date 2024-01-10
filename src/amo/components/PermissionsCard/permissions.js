@@ -23,43 +23,41 @@ export class PermissionUtils {
     // which can be found in
     // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
     this.permissionStrings = {
-      bookmarks: i18n.gettext('Read and modify bookmarks'),
-      browserSettings: i18n.gettext('Read and modify browser settings'),
-      browsingData: i18n.gettext(
+      bookmarks: i18n.t('Read and modify bookmarks'),
+      browserSettings: i18n.t('Read and modify browser settings'),
+      browsingData: i18n.t(
         'Clear recent browsing history, cookies, and related data',
       ),
-      clipboardRead: i18n.gettext('Get data from the clipboard'),
-      clipboardWrite: i18n.gettext('Input data to the clipboard'),
-      declarativeNetRequest: i18n.gettext('Block content on any page'),
-      declarativeNetRequestFeedback: i18n.gettext('Read your browsing history'),
-      devtools: i18n.gettext(
+      clipboardRead: i18n.t('Get data from the clipboard'),
+      clipboardWrite: i18n.t('Input data to the clipboard'),
+      declarativeNetRequest: i18n.t('Block content on any page'),
+      declarativeNetRequestFeedback: i18n.t('Read your browsing history'),
+      devtools: i18n.t(
         'Extend developer tools to access your data in open tabs',
       ),
-      downloads: i18n.gettext(
+      downloads: i18n.t(
         'Download files and read and modify the browser’s download history',
       ),
-      'downloads.open': i18n.gettext('Open files downloaded to your computer'),
-      find: i18n.gettext('Read the text of all open tabs'),
-      geolocation: i18n.gettext('Access your location'),
-      history: i18n.gettext('Access browsing history'),
-      management: i18n.gettext('Monitor extension usage and manage themes'),
+      'downloads.open': i18n.t('Open files downloaded to your computer'),
+      find: i18n.t('Read the text of all open tabs'),
+      geolocation: i18n.t('Access your location'),
+      history: i18n.t('Access browsing history'),
+      management: i18n.t('Monitor extension usage and manage themes'),
       // In Firefox the following message replaces the name "Firefox" with the
       // current brand name, e.g., "Nightly", but we do not need to do that.
-      nativeMessaging: i18n.gettext(
+      nativeMessaging: i18n.t(
         'Exchange messages with programs other than Firefox',
       ),
-      notifications: i18n.gettext('Display notifications to you'),
-      pkcs11: i18n.gettext('Provide cryptographic authentication services'),
-      proxy: i18n.gettext('Control browser proxy settings'),
-      privacy: i18n.gettext('Read and modify privacy settings'),
-      sessions: i18n.gettext('Access recently closed tabs'),
-      tabs: i18n.gettext('Access browser tabs'),
-      tabHide: i18n.gettext('Hide and show browser tabs'),
-      topSites: i18n.gettext('Access browsing history'),
-      unlimitedStorage: i18n.gettext(
-        'Store unlimited amount of client-side data',
-      ),
-      webNavigation: i18n.gettext('Access browser activity during navigation'),
+      notifications: i18n.t('Display notifications to you'),
+      pkcs11: i18n.t('Provide cryptographic authentication services'),
+      proxy: i18n.t('Control browser proxy settings'),
+      privacy: i18n.t('Read and modify privacy settings'),
+      sessions: i18n.t('Access recently closed tabs'),
+      tabs: i18n.t('Access browser tabs'),
+      tabHide: i18n.t('Hide and show browser tabs'),
+      topSites: i18n.t('Access browsing history'),
+      unlimitedStorage: i18n.t('Store unlimited amount of client-side data'),
+      webNavigation: i18n.t('Access browser activity during navigation'),
     };
   }
 

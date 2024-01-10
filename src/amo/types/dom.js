@@ -19,6 +19,7 @@ export type InputEvent = SyntheticInputEvent<HTMLElement>;
 export type InputOrTextAreaEvent = TypedElementEvent<
   HTMLInputElement | HTMLTextAreaElement,
 >;
+
 export type SelectEvent = SyntheticEvent<HTMLSelectElement>;
 export type SelectEventWithTarget = TypedElementEvent<HTMLSelectElement>;
 

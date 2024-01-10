@@ -35,7 +35,7 @@ export class FooterBase extends React.Component<InternalProps> {
 
   render(): React.Node {
     const { _config, includeGoogleDisclaimer, i18n, noLangPicker } = this.props;
-    const homepageText = i18n.gettext("Go to Mozilla's homepage");
+    const homepageText = i18n.t("Go to Mozilla's homepage");
 
     return (
       <footer className="Footer">
@@ -56,17 +56,17 @@ export class FooterBase extends React.Component<InternalProps> {
 
           <section className="Footer-amo-links">
             <h4 className="Footer-links-header">
-              <Link href="/">{i18n.gettext('Add-ons')}</Link>
+              <Link href="/">{i18n.t('Add-ons')}</Link>
             </h4>
             <ul className="Footer-links">
               <li>
                 <Link to="/about" prependClientApp={false}>
-                  {i18n.gettext('About')}
+                  {i18n.t('About')}
                 </Link>
               </li>
               <li>
                 <a className="Footer-blog-link" href="/blog/">
-                  {i18n.gettext('Firefox Add-ons Blog')}
+                  {i18n.t('Firefox Add-ons Blog')}
                 </a>
               </li>
               <li>
@@ -79,12 +79,12 @@ export class FooterBase extends React.Component<InternalProps> {
                     utm_campaign: null,
                   })}`}
                 >
-                  {i18n.gettext('Extension Workshop')}
+                  {i18n.t('Extension Workshop')}
                 </a>
               </li>
               <li>
                 <Link href="/developers/" prependClientApp={false}>
-                  {i18n.gettext('Developer Hub')}
+                  {i18n.t('Developer Hub')}
                 </Link>
               </li>
               <li>
@@ -99,7 +99,7 @@ export class FooterBase extends React.Component<InternalProps> {
                     },
                   )}`}
                 >
-                  {i18n.gettext('Developer Policies')}
+                  {i18n.t('Developer Policies')}
                 </a>
               </li>
               <li>
@@ -113,12 +113,12 @@ export class FooterBase extends React.Component<InternalProps> {
                     },
                   )}`}
                 >
-                  {i18n.gettext('Community Blog')}
+                  {i18n.t('Community Blog')}
                 </a>
               </li>
               <li>
                 <a href="https://discourse.mozilla-community.org/c/add-ons">
-                  {i18n.gettext('Forum')}
+                  {i18n.t('Forum')}
                 </a>
               </li>
               <li>
@@ -126,19 +126,19 @@ export class FooterBase extends React.Component<InternalProps> {
                   className="Footer-bug-report-link"
                   href="https://developer.mozilla.org/docs/Mozilla/Add-ons/Contact_us"
                 >
-                  {i18n.gettext('Report a bug')}
+                  {i18n.t('Report a bug')}
                 </a>
               </li>
               <li>
                 <Link to="/review_guide" prependClientApp={false}>
-                  {i18n.gettext('Review Guide')}
+                  {i18n.t('Review Guide')}
                 </Link>
               </li>
             </ul>
           </section>
 
           <section className="Footer-browsers-links">
-            <h4 className="Footer-links-header">{i18n.gettext('Browsers')}</h4>
+            <h4 className="Footer-links-header">{i18n.t('Browsers')}</h4>
             <ul className="Footer-links">
               <li>
                 <a
@@ -183,7 +183,7 @@ export class FooterBase extends React.Component<InternalProps> {
           </section>
 
           <section className="Footer-product-links">
-            <h4 className="Footer-links-header">{i18n.gettext('Products')}</h4>
+            <h4 className="Footer-links-header">{i18n.t('Products')}</h4>
             <ul className="Footer-links">
               <li>
                 <a
@@ -270,7 +270,7 @@ export class FooterBase extends React.Component<InternalProps> {
                 className="Footer-privacy-link"
                 href="https://www.mozilla.org/privacy/websites/"
               >
-                {i18n.gettext('Privacy')}
+                {i18n.t('Privacy')}
               </a>
             </li>
             <li>
@@ -278,7 +278,7 @@ export class FooterBase extends React.Component<InternalProps> {
                 className="Footer-cookies-link"
                 href="https://www.mozilla.org/privacy/websites/"
               >
-                {i18n.gettext('Cookies')}
+                {i18n.t('Cookies')}
               </a>
             </li>
             <li>
@@ -286,7 +286,7 @@ export class FooterBase extends React.Component<InternalProps> {
                 className="Footer-legal-link"
                 href="https://www.mozilla.org/about/legal/terms/mozilla/"
               >
-                {i18n.gettext('Legal')}
+                {i18n.t('Legal')}
               </a>
             </li>
           </ul>
@@ -295,19 +295,14 @@ export class FooterBase extends React.Component<InternalProps> {
             className="Footer-copyright"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={sanitizeHTML(
-              i18n.sprintf(
+              i18n.t(
                 includeGoogleDisclaimer
-                  ? i18n.gettext(`Except where otherwise
-                      %(startNotedLink)snoted%(endNotedLink)s, content on this
-                      site is licensed under the %(startLicenseLink)sCreative
-                      Commons Attribution Share-Alike License
-                      v3.0%(endLicenseLink)s or any later version. Android is a
-                      trademark of Google LLC.`)
-                  : i18n.gettext(`Except where otherwise
-                      %(startNotedLink)snoted%(endNotedLink)s, content on this
-                      site is licensed under the %(startLicenseLink)sCreative
-                      Commons Attribution Share-Alike License
-                      v3.0%(endLicenseLink)s or any later version.`),
+                  ? i18n.t(
+                      'Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. Android is a trademark of Google LLC.',
+                    )
+                  : i18n.t(
+                      'Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version.',
+                    ),
                 {
                   startNotedLink:
                     '<a href="https://www.mozilla.org/en-US/about/legal/">',

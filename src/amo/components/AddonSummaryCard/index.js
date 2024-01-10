@@ -49,7 +49,7 @@ export const AddonSummaryCardBase = ({
     <img
       className="AddonSummaryCard-header-icon-image"
       src={iconUrl}
-      alt={i18n.gettext('Add-on icon')}
+      alt={i18n.t('Add-on icon')}
     />
   );
 
@@ -72,16 +72,15 @@ export const AddonSummaryCardBase = ({
   let addonAverage;
   if (addon && addon.ratings) {
     const roundedAverage = roundToOneDigit(addon.ratings.average);
-    addonAverage = i18n.sprintf(
-      // eslint-disable-next-line max-len
-      // L10n: roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-      i18n.ngettext(
-        '%(rating)s Star out of 5',
-        '%(rating)s Stars out of 5',
-        roundedAverage,
-      ),
-      { rating: i18n.formatNumber(roundedAverage) },
-    );
+    addonAverage = // eslint-disable-next-line max-len
+      /* manual-change: merge keys 
+    '%(rating)s Star out of 5' -> '%(rating)s Star out of 5_one'
+    '%(rating)s Stars out of 5' -> '%(rating)s Star out of 5_other' */ // L10n: roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
+      i18n.t('%(rating)s Star out of 5', {
+        count: roundedAverage,
+
+        rating: i18n.formatNumber(roundedAverage),
+      });
   }
 
   return (
@@ -92,6 +91,7 @@ export const AddonSummaryCardBase = ({
           readOnly
           yellowStars
         />
+
         <div className="AddonSummaryCard-addonAverage">
           {addon ? addonAverage : <LoadingText minWidth={20} />}
         </div>

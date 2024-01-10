@@ -104,6 +104,7 @@ export type UsersState = {
     loading: boolean,
     userId: UserId | null,
   },
+
   isUnsubscribedFor: {
     // `undefined`: no API call has been made yet
     // `null`: an error has occurred
@@ -111,6 +112,7 @@ export type UsersState = {
     // `true`: user is unsubscribed
     [key: string]: boolean | null,
   },
+
   currentUserWasLoggedOut: boolean,
   resetStateOnNextChange: boolean,
 };

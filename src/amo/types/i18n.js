@@ -7,5 +7,6 @@ export type I18nType = {|
     format: (string) => string,
     fromNow: () => string,
   |},
+
   t: (key: string, options: mixed) => string,
 |};

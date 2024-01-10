@@ -19,20 +19,17 @@ export class ServerErrorBase extends React.Component<InternalProps> {
   render(): React.Node {
     const { i18n } = this.props;
 
-    const fileAnIssueText = i18n.gettext(`
-      If you have additional information that would help us you can
-      <a href="https://github.com/mozilla/addons-frontend/issues/new/">file an
-      issue</a>. Tell us what steps you took that lead to the error and we'll
-      do our best to fix it.`);
+    const fileAnIssueText = i18n.t(
+      'If you have additional information that would help us you can <a href="https://github.com/mozilla/addons-frontend/issues/new/">file an issue</a>. Tell us what steps you took that lead to the error and we\'ll do our best to fix it.',
+    );
 
     /* eslint-disable react/no-danger */
     return (
-      <ErrorComponent code={500} header={i18n.gettext('Server Error')}>
+      <ErrorComponent code={500} header={i18n.t('Server Error')}>
         <p>
-          {i18n.gettext(`
-            Sorry, but there was an error with our server and we couldn't
-            complete your request. We have logged this error and will
-            investigate it.`)}
+          {i18n.t(
+            "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it.",
+          )}
         </p>
 
         <SuggestedPages />
@@ -40,6 +37,7 @@ export class ServerErrorBase extends React.Component<InternalProps> {
         <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
       </ErrorComponent>
     );
+
     /* eslint-enable react/no-danger */
   }
 }

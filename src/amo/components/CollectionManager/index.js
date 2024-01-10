@@ -245,8 +245,8 @@ export class CollectionManagerBase extends React.Component<
     const isSubmitDisabled =
       formIsDisabled || formIsUnchanged || isNameBlank || isSlugBlank;
     const buttonText = creating
-      ? i18n.gettext('Create collection')
-      : i18n.gettext('Save changes');
+      ? i18n.t('Create collection')
+      : i18n.t('Save changes');
 
     return (
       <form className="CollectionManager" onSubmit={this.onSubmit}>
@@ -255,7 +255,7 @@ export class CollectionManagerBase extends React.Component<
           className="CollectionManager-collectionName"
           htmlFor="collectionName"
         >
-          {i18n.gettext('Collection name')}
+          {i18n.t('Collection name')}
         </label>
         {collection || creating ? (
           <input
@@ -268,9 +268,8 @@ export class CollectionManagerBase extends React.Component<
         ) : (
           <LoadingText minWidth={60} />
         )}
-        <label htmlFor="collectionDescription">
-          {i18n.gettext('Description')}
-        </label>
+
+        <label htmlFor="collectionDescription">{i18n.t('Description')}</label>
         {collection || creating ? (
           <textarea
             value={this.state.description}
@@ -281,7 +280,8 @@ export class CollectionManagerBase extends React.Component<
         ) : (
           <LoadingText minWidth={60} />
         )}
-        <label htmlFor="collectionSlug">{i18n.gettext('Custom URL')}</label>
+
+        <label htmlFor="collectionSlug">{i18n.t('Custom URL')}</label>
         <div className="CollectionManager-slug">
           <div
             id="collectionUrlPrefix"
@@ -290,11 +290,11 @@ export class CollectionManagerBase extends React.Component<
           >
             <div className="CollectionManager-slug-url-prefix">
               {/*
-                &lrm; (left-to-right mark) is an invisible control
-                character. It's added to prevent the bi-directional
-                trailing slash character (in the URL) from getting
-                reversed when using direction: rtl.
-              */}
+                 &lrm; (left-to-right mark) is an invisible control
+                 character. It's added to prevent the bi-directional
+                 trailing slash character (in the URL) from getting
+                 reversed when using direction: rtl.
+                */}
               {collectionUrlPrefix}
               &lrm;
             </div>
@@ -310,9 +310,9 @@ export class CollectionManagerBase extends React.Component<
         </div>
         <footer className="CollectionManager-footer">
           {/*
-            type=button is necessary to override the default
-            of type=submit
-          */}
+             type=button is necessary to override the default
+             of type=submit
+            */}
           <Button
             buttonType="neutral"
             disabled={formIsDisabled}
@@ -321,7 +321,7 @@ export class CollectionManagerBase extends React.Component<
             puffy
             type="button"
           >
-            {i18n.gettext('Cancel')}
+            {i18n.t('Cancel')}
           </Button>
           <Button
             buttonType="action"

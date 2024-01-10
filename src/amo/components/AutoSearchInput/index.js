@@ -195,7 +195,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       return Array(10).fill({
         addonId: undefined,
         iconUrl: getAddonIconUrl(),
-        name: this.props.i18n.gettext('Loading'),
+        name: this.props.i18n.t('Loading'),
         promoted: null,
         url: undefined,
       });
@@ -295,7 +295,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       minLength: SEARCH_TERM_MIN_LENGTH,
       name: inputName,
       onChange: this.handleSearchChange,
-      placeholder: inputPlaceholder || i18n.gettext('Find add-ons'),
+      placeholder: inputPlaceholder || i18n.t('Find add-ons'),
       type: 'search',
       value: this.state.searchValue,
     };
@@ -320,13 +320,14 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
           })}
           htmlFor={inputProps.id}
         >
-          {inputLabelText || i18n.gettext('Search')}
+          {inputLabelText || i18n.t('Search')}
         </label>
         <div className="AutoSearchInput-search-box">
           <Icon
             className="AutoSearchInput-icon-magnifying-glass"
             name="magnifying-glass"
           />
+
           <Autosuggest
             focusInputOnSuggestionClick={false}
             getSuggestionValue={(suggestion) => suggestion.name}
@@ -343,12 +344,13 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
             suggestions={this.getSuggestions()}
             theme={theme}
           />
+
           <button
             className="AutoSearchInput-submit-button"
             onClick={this.handleSearch}
             type="submit"
           >
-            <span className="visually-hidden">{i18n.gettext('Search')}</span>
+            <span className="visually-hidden">{i18n.t('Search')}</span>
             <Icon name="arrow" />
           </button>
         </div>

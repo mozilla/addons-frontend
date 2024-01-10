@@ -30,7 +30,7 @@ export const ThemeImageBase = ({
     addon && ADDON_TYPE_STATIC_THEME === addon.type,
     'A ThemeImage can only be rendered for a static theme',
   );
-  const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+  const label = i18n.t('Preview of %(title)s', {
     title: addon.name,
   });
 

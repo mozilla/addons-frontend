@@ -18,6 +18,7 @@ type InternalProps = {|
   ...DefaultProps,
   location: ReactRouterLocationType,
 |};
+
 export class ScrollToTopBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     _window: typeof window !== 'undefined' ? window : null,

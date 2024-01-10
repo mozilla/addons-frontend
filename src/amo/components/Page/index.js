@@ -115,12 +115,14 @@ export const PageBase = ({
             // Android home page.
             (!isHomePage || clientApp === CLIENT_APP_ANDROID) && <AppBanner />
           }
+
           {showWrongPlatformWarning && (
             <WrongPlatformWarning
               className="Page-WrongPlatformWarning"
               isHomePage={isHomePage}
             />
           )}
+
           {errorContent || children}
         </div>
       </div>

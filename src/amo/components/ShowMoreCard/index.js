@@ -159,12 +159,12 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
 
     const readMoreLink = (
       <a
-        aria-label={i18n.gettext('Expand to read more')}
+        aria-label={i18n.t('Expand to read more')}
         className="ShowMoreCard-expand-link"
         href="#show-more"
         onClick={this.onClick}
         dangerouslySetInnerHTML={sanitizeHTML(
-          i18n.gettext(
+          i18n.t(
             // l10n: The "Expand to" text is for screenreaders so the link
             // makes sense out of context. The HTML makes it hidden from
             // non-screenreaders and must stay.

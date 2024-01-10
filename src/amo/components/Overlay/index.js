@@ -94,6 +94,7 @@ export class OverlayBase extends React.Component<InternalProps> {
           onClick={this.onClickBackground}
           role="presentation"
         />
+
         <div className="Overlay-contents">{children}</div>
       </div>
     );

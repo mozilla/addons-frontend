@@ -58,8 +58,9 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
           {headerText && (
             <h1 className="AddonVersionCard-header">{headerText}</h1>
           )}
+
           <h2 className="AddonVersionCard-noVersion">
-            {i18n.gettext('No version found')}
+            {i18n.t('No version found')}
           </h2>
         </div>
       </li>
@@ -67,7 +68,7 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
   }
 
   const versionNumber = version ? (
-    i18n.sprintf(i18n.gettext('Version %(versionNumber)s'), {
+    i18n.t('Version %(versionNumber)s', {
       versionNumber: version.version,
     })
   ) : (
@@ -90,10 +91,7 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
 
     return (
       <div className="AddonVersionCard-fileInfo">
-        {i18n.sprintf(
-          i18n.gettext('Released %(dateReleased)s - %(fileSize)s'),
-          i18nParams,
-        )}
+        {i18n.t('Released %(dateReleased)s - %(fileSize)s', i18nParams)}
       </div>
     );
   };
@@ -110,10 +108,9 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
           : { href: license.url, prependClientApp: false, prependLang: false };
 
         const licenseText = license.name
-          ? i18n.sprintf(
-              i18n.gettext(
-                'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
-              ),
+          ? i18n.t(
+              'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
+
               {
                 licenseName: license.name,
                 // Keep the link placeholders so that we can use them to inject a
@@ -122,7 +119,7 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
                 linkEnd: '%(linkEnd)s',
               },
             )
-          : i18n.gettext(
+          : i18n.t(
               'Source code released under %(linkStart)sCustom License%(linkEnd)s',
             );
 
@@ -148,12 +145,9 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
       } else {
         licenseSection = (
           <p className="AddonVersionCard-license">
-            {i18n.sprintf(
-              i18n.gettext('Source code released under %(licenseName)s'),
-              {
-                licenseName: license.name,
-              },
-            )}
+            {i18n.t('Source code released under %(licenseName)s', {
+              licenseName: license.name,
+            })}
           </p>
         );
       }

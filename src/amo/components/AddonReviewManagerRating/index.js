@@ -32,7 +32,7 @@ export const AddonReviewManagerRatingBase = ({
 
   return (
     <div className={makeClassName('AddonReviewManagerRating', className)}>
-      <span>{i18n.gettext('Your star rating:')}</span>
+      <span>{i18n.t('Your star rating:')}</span>
       <Rating
         onSelectRating={onSelectRating}
         rating={rating}
@@ -40,6 +40,7 @@ export const AddonReviewManagerRatingBase = ({
         styleSize="small"
         yellowStars
       />
+
       {children}
     </div>
   );

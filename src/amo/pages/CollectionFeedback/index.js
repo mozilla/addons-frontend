@@ -116,9 +116,7 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
         <div className="CollectionFeedback-page">
           <Helmet>
             <title>
-              {i18n.gettext(
-                'Submit feedback or report a collection to Mozilla',
-              )}
+              {i18n.t('Submit feedback or report a collection to Mozilla')}
             </title>
             <meta name="robots" content="noindex, follow" />
           </Helmet>
@@ -131,7 +129,7 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
                   {collection ? collection.name : <LoadingText />}
                   <span className="CollectionFeedback-header-creator">
                     {collection ? (
-                      i18n.sprintf(i18n.gettext('by %(authorName)s'), {
+                      i18n.t('by %(authorName)s', {
                         authorName: collection.authorName,
                       })
                     ) : (
@@ -142,11 +140,11 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
 
                 <div className="CollectionFeedback-header-metadata">
                   <p className="CollectionFeedback-header-metadata-addons">
-                    <span>{i18n.gettext('Add-ons')}</span>
+                    <span>{i18n.t('Add-ons')}</span>
                     {collection ? collection.numberOfAddons : <LoadingText />}
                   </p>
                   <p className="CollectionFeedback-header-metadata-last-updated">
-                    <span>{i18n.gettext('Last updated')}</span>
+                    <span>{i18n.t('Last updated')}</span>
                     {collection ? (
                       i18n.moment(collection.lastUpdatedDate).format('ll')
                     ) : (
@@ -158,11 +156,9 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
             }
             abuseIsLoading={isSubmitting}
             abuseSubmitted={hasSubmitted}
-            categoryHeader={i18n.gettext('Report this collection to Mozilla')}
-            feedbackTitle={i18n.gettext(
-              'Send some feedback about the collection',
-            )}
-            reportTitle={i18n.gettext(
+            categoryHeader={i18n.t('Report this collection to Mozilla')}
+            feedbackTitle={i18n.t('Send some feedback about the collection')}
+            reportTitle={i18n.t(
               "Report the collection because it's illegal or incompliant",
             )}
             categories={[

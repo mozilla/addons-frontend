@@ -151,10 +151,8 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     onSelect,
   }: {
     // eslint-disable-next-line react/no-unused-prop-types
-    text: string,
-    // eslint-disable-next-line react/no-unused-prop-types
-    key: string,
-    // eslint-disable-next-line react/no-unused-prop-types
+    text: string, // eslint-disable-next-line react/no-unused-prop-types
+    key: string, // eslint-disable-next-line react/no-unused-prop-types
     onSelect?: OnSelectOptionType,
   }): React.Node {
     if (onSelect) {
@@ -184,9 +182,9 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     let progressMessage;
 
     if (loadingUserCollections) {
-      progressMessage = i18n.gettext('Loading…');
+      progressMessage = i18n.t('Loading…');
     } else if (loadingAddonsInCollections) {
-      progressMessage = i18n.gettext('Adding…');
+      progressMessage = i18n.t('Adding…');
     }
     if (progressMessage) {
       // Create a disabled select box with a single option.
@@ -202,14 +200,14 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
 
     actionOptions.push(
       this.createOption({
-        text: i18n.gettext('Select a collection…'),
+        text: i18n.t('Select a collection…'),
         key: 'default',
       }),
     );
 
     actionOptions.push(
       this.createOption({
-        text: i18n.gettext('Create new collection'),
+        text: i18n.t('Create new collection'),
         key: 'create-new-collection',
         onSelect: () => {
           invariant(addon, 'addon is required');
@@ -249,10 +247,9 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     let addedNotices: Array<React.Node> = [];
     if (addonInCollections) {
       addedNotices = addonInCollections.map((collection) => {
-        const notice = i18n.sprintf(
-          i18n.gettext('Added to %(collectionName)s'),
-          { collectionName: collectionName({ name: collection.name, i18n }) },
-        );
+        const notice = i18n.t('Added to %(collectionName)s', {
+          collectionName: collectionName({ name: collection.name, i18n }),
+        });
         return (
           <Notice
             type="success"
@@ -266,12 +263,12 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     }
 
     // L10n: This is a header for a list meaning Add to [some collection name]
-    const collectionOptLabel = i18n.gettext('Add to…');
+    const collectionOptLabel = i18n.t('Add to…');
 
     return (
       <Card
         className="AddAddonToCollection"
-        header={i18n.gettext('Add to collection')}
+        header={i18n.t('Add to collection')}
       >
         {errorHandler.renderErrorIfPresent()}
         {addedNotices}

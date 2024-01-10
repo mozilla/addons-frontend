@@ -67,7 +67,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
 
   renderCollections(): React.Node {
     const { i18n, collections } = this.props;
-    const noCollectionsText = i18n.gettext('You do not have any collections.');
+    const noCollectionsText = i18n.t('You do not have any collections.');
 
     const collectionElements = [];
 
@@ -102,7 +102,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
       <CardList
         className="CollectionList-list"
         footer={footer}
-        header={i18n.gettext('My collections')}
+        header={i18n.t('My collections')}
       >
         {collectionElements.length && (
           <ul className="CollectionList-listing">{collectionElements}</ul>
@@ -120,19 +120,19 @@ export class CollectionListBase extends React.Component<InternalProps> {
           <div className="CollectionList-wrapper">
             <Card
               className="CollectionList-info"
-              header={i18n.gettext('Collections')}
+              header={i18n.t('Collections')}
             >
               {!isLoggedIn ? (
                 <AuthenticateButton
                   noIcon
-                  logInText={i18n.gettext('Log in to view your collections')}
+                  logInText={i18n.t('Log in to view your collections')}
                 />
               ) : (
                 <>
                   <p className="CollectionList-info-text">
-                    {i18n.gettext(`Collections make it easy to keep track of
-                    favorite add-ons and share your perfectly customized browser
-                    with others.`)}
+                    {i18n.t(
+                      'Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others.',
+                    )}
                   </p>
                   <Button
                     buttonType="action"
@@ -140,7 +140,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
                     puffy
                     to="/collections/add/"
                   >
-                    {i18n.gettext('Create a collection')}
+                    {i18n.t('Create a collection')}
                   </Button>
                 </>
               )}

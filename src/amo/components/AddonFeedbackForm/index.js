@@ -133,13 +133,15 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
             <div className="AddonFeedbackForm-header-metadata-adu">
               <Icon name="user-fill" />
               {addon ? (
-                i18n.sprintf(
-                  i18n.ngettext(
-                    '%(total)s user',
-                    '%(total)s users',
-                    addon.average_daily_users,
-                  ),
-                  { total: i18n.formatNumber(addon.average_daily_users) },
+                /* manual-change: merge keys 
+            '%(total)s user' -> '%(total)s user_one'
+            '%(total)s users' -> '%(total)s user_other' */ i18n.t(
+                  '%(total)s user',
+                  {
+                    count: addon.average_daily_users,
+
+                    total: i18n.formatNumber(addon.average_daily_users),
+                  },
                 )
               ) : (
                 <LoadingText />
@@ -175,6 +177,7 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
       CATEGORY_ILLEGAL,
       CATEGORY_SOMETHING_ELSE,
     ];
+
     if (addonType !== ADDON_TYPE_EXTENSION) {
       categories = categories.filter(
         (category) =>
@@ -195,9 +198,9 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
           contentHeader={this.renderHeader()}
           abuseIsLoading={loading}
           abuseSubmitted={!!abuseSubmitted}
-          categoryHeader={i18n.gettext('Report this add-on to Mozilla')}
-          feedbackTitle={i18n.gettext('Send some feedback about the add-on')}
-          reportTitle={i18n.gettext(
+          categoryHeader={i18n.t('Report this add-on to Mozilla')}
+          feedbackTitle={i18n.t('Send some feedback about the add-on')}
+          reportTitle={i18n.t(
             "Report the add-on because it's illegal or incompliant",
           )}
           categories={categories}

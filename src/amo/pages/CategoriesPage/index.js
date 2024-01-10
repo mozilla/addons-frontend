@@ -32,9 +32,9 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
 
     switch (addonType) {
       case ADDON_TYPE_EXTENSION:
-        return i18n.gettext('All extension categories');
+        return i18n.t('All extension categories');
       case ADDON_TYPE_STATIC_THEME:
-        return i18n.gettext('All theme categories');
+        return i18n.t('All theme categories');
       default:
         return null;
     }

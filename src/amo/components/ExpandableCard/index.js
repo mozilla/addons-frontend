@@ -55,7 +55,7 @@ export class ExpandableCardBase extends React.Component<InternalProps> {
         href="#toggle-content"
         onClick={this.onClick}
         role="switch"
-        title={i18n.gettext('Toggle contents')}
+        title={i18n.t('Toggle contents')}
       >
         {header}
         <Icon

@@ -87,7 +87,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
       this.props;
 
     const formFoterLink = replaceStringsWithJSX({
-      text: i18n.gettext(
+      text: i18n.t(
         'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
       ),
       replacements: [
@@ -109,15 +109,13 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
 
     const formFooter = <div>{formFoterLink}</div>;
 
-    const placeholder = i18n.gettext(
-      'Write about your experience with this add-on.',
-    );
+    const placeholder = i18n.t('Write about your experience with this add-on.');
 
-    let submitButtonText = i18n.gettext('Submit review');
-    let submitButtonInProgressText = i18n.gettext('Submitting review');
+    let submitButtonText = i18n.t('Submit review');
+    let submitButtonInProgressText = i18n.t('Submitting review');
     if (review.body) {
-      submitButtonText = i18n.gettext('Update review');
-      submitButtonInProgressText = i18n.gettext('Updating review');
+      submitButtonText = i18n.t('Update review');
+      submitButtonInProgressText = i18n.t('Updating review');
     }
 
     return (
@@ -137,13 +135,13 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
             }
             message={
               flashMessage === STARTED_SAVE_RATING
-                ? i18n.gettext('Saving')
-                : i18n.gettext('Saved')
+                ? i18n.t('Saving')
+                : i18n.t('Saved')
             }
           />
         </AddonReviewManagerRating>
         <DismissibleTextForm
-          dismissButtonText={i18n.gettext('Cancel')}
+          dismissButtonText={i18n.t('Cancel')}
           formFooter={formFooter}
           id={`${normalizeFileNameId(__filename)}-${extractId(this.props)}`}
           isSubmitting={flashMessage === STARTED_SAVE_REVIEW}

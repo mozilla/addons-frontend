@@ -96,49 +96,48 @@ export const getCategories = (
     feedback: [
       {
         value: CATEGORY_DOES_NOT_WORK,
-        label: i18n.gettext(
+        label: i18n.t(
           'It doesn’t work, breaks websites, or slows down Firefox',
         ),
-        help: i18n.gettext(`Example: Features are slow, hard to use, or don’t
-          work; parts of websites won't load or look unusual.`),
+        help: i18n.t(
+          "Example: Features are slow, hard to use, or don\u2019t work; parts of websites won't load or look unusual.",
+        ),
       },
       {
         value: CATEGORY_FEEDBACK_SPAM,
-        label: i18n.gettext('It’s spam'),
-        help: i18n.gettext(
+        label: i18n.t('It’s spam'),
+        help: i18n.t(
           'Example: The listing advertises unrelated products or services.',
         ),
       },
     ],
+
     report: [
       {
         value: CATEGORY_POLICY_VIOLATION,
-        label: i18n.gettext('It violates Add-on Policies'),
-        help: i18n.gettext(`Example: It compromised my data without informing
-          or asking me, or it changed my search engine or home page without
-          informing or asking me.`),
+        label: i18n.t('It violates Add-on Policies'),
+        help: i18n.t(
+          'Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me.',
+        ),
       },
       {
         value: CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
-        label: i18n.gettext(`It contains hateful, violent, deceptive, or other
-          inappropriate content`),
-        help: i18n.gettext('Example: It contains racist imagery.'),
+        label: i18n.t(
+          'It contains hateful, violent, deceptive, or other inappropriate content',
+        ),
+        help: i18n.t('Example: It contains racist imagery.'),
       },
       {
         value: CATEGORY_ILLEGAL,
-        label: i18n.gettext(
+        label: i18n.t(
           'It violates the law or contains content that violates the law',
         ),
-        help: i18n.gettext(
-          'Example: Copyright or Trademark Infringement, Fraud.',
-        ),
+        help: i18n.t('Example: Copyright or Trademark Infringement, Fraud.'),
       },
       {
         value: CATEGORY_SOMETHING_ELSE,
-        label: i18n.gettext('Something else'),
-        help: i18n.gettext(
-          'Anything that doesn’t fit into the other categories.',
-        ),
+        label: i18n.t('Something else'),
+        help: i18n.t('Anything that doesn’t fit into the other categories.'),
       },
     ],
   };
@@ -148,13 +147,13 @@ const getLocationOptions = (
   i18n: I18nType,
 ): Array<{| children: string, value: string |}> => {
   return [
-    { children: i18n.gettext('Select place'), value: '' },
+    { children: i18n.t('Select place'), value: '' },
     {
-      children: i18n.gettext("On the add-on's page on this website"),
+      children: i18n.t("On the add-on's page on this website"),
       value: 'amo',
     },
-    { children: i18n.gettext('Inside the add-on'), value: 'addon' },
-    { children: i18n.gettext('Both locations'), value: 'both' },
+    { children: i18n.t('Inside the add-on'), value: 'addon' },
+    { children: i18n.t('Both locations'), value: 'both' },
   ];
 };
 
@@ -249,10 +248,11 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
     return (
       <div>
-        <Card header={i18n.gettext('Report submitted')}>
+        <Card header={i18n.t('Report submitted')}>
           <p className="FeedbackForm-success-first-paragraph">
-            {i18n.gettext(`We have received your report. Thanks for letting us
-              know.`)}
+            {i18n.t(
+              'We have received your report. Thanks for letting us know.',
+            )}
           </p>
         </Card>
       </div>
@@ -292,6 +292,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 aria-describedby={`feedbackCategory${category.value}-help`}
                 required
               />
+
               <label
                 className="FeedbackForm-label"
                 htmlFor={`feedbackCategory${category.value}`}
@@ -338,8 +339,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
     const { report, feedback } = getCategories(i18n);
 
     const submitButtonText = abuseIsLoading
-      ? i18n.gettext('Submitting your report…')
-      : i18n.gettext('Submit report');
+      ? i18n.t('Submitting your report…')
+      : i18n.t('Submit report');
 
     return (
       <div className="FeedbackForm">
@@ -358,7 +359,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
             <Card
               className="FeedbackForm--Card"
-              header={i18n.gettext('Provide more information')}
+              header={i18n.t('Provide more information')}
             >
               {showLocation &&
                 this.state.category !== CATEGORY_DOES_NOT_WORK && (
@@ -368,7 +369,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                       htmlFor="feedbackLocation"
                     >
                       {replaceStringsWithJSX({
-                        text: i18n.gettext(
+                        text: i18n.t(
                           'Place of the violation %(spanStart)s(optional)%(spanEnd)s',
                         ),
                         replacements: [
@@ -396,7 +397,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
               <label className="FeedbackForm-label" htmlFor="feedbackText">
                 {replaceStringsWithJSX({
-                  text: i18n.gettext(
+                  text: i18n.t(
                     'Provide more details %(spanStart)s(optional)%(spanEnd)s',
                   ),
                   replacements: [
@@ -412,18 +413,17 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 value={this.state.text}
                 aria-describedby="feedbackText-help"
               />
+
               <p className="FeedbackForm--help" id="feedbackText-help">
-                {i18n.gettext(`Please provide any additional information that
-                  may help us to understand your report (including which policy
-                  you believe has been violated). While this information is not
-                  required, failure to include it may prevent us from
-                  addressing the reported content.`)}
+                {i18n.t(
+                  'Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to include it may prevent us from addressing the reported content.',
+                )}
               </p>
             </Card>
 
             <Card
               className="FeedbackForm--Card"
-              header={i18n.gettext('Contact information')}
+              header={i18n.t('Contact information')}
             >
               <p className="FeedbackForm-checkbox-wrapper">
                 <input
@@ -435,16 +435,17 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                   checked={!!this.state.anonymous}
                   aria-describedby="feedbackAnonymous-help"
                 />
+
                 <label
                   className="FeedbackForm-label"
                   htmlFor="feedbackAnonymous"
                 >
-                  {i18n.gettext('File report anonymously')}
+                  {i18n.t('File report anonymously')}
                 </label>
                 <p className="FeedbackForm--help" id="feedbackAnonymous-help">
-                  {i18n.gettext(`Filing an anonymous report will prevent us
-                    from communicating with you about the report’s status, or
-                    about any options for appeal.`)}
+                  {i18n.t(
+                    'Filing an anonymous report will prevent us from communicating with you about the report\u2019s status, or about any options for appeal.',
+                  )}
                 </p>
               </p>
 
@@ -463,12 +464,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               >
                 {replaceStringsWithJSX({
                   text: this.state.anonymous
-                    ? i18n.gettext(
-                        'Your name %(spanStart)s(optional)%(spanEnd)s',
-                      )
-                    : i18n.gettext(
-                        'Your name %(spanStart)s(required)%(spanEnd)s',
-                      ),
+                    ? i18n.t('Your name %(spanStart)s(optional)%(spanEnd)s')
+                    : i18n.t('Your name %(spanStart)s(required)%(spanEnd)s'),
                   replacements: [
                     [
                       'spanStart',
@@ -503,10 +500,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               >
                 {replaceStringsWithJSX({
                   text: this.state.anonymous
-                    ? i18n.gettext(
+                    ? i18n.t(
                         'Your email address %(spanStart)s(optional)%(spanEnd)s',
                       )
-                    : i18n.gettext(
+                    : i18n.t(
                         'Your email address %(spanStart)s(required)%(spanEnd)s',
                       ),
                   replacements: [
@@ -546,13 +543,14 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                     checked={!!this.state.certification}
                     required={this.isCertificationRequired()}
                   />
+
                   <label
                     className="FeedbackForm-label"
                     htmlFor="feedbackCertification"
                   >
-                    {i18n.gettext(`By submitting this report I certify, under
-                    penalty of perjury, that the allegations it contains are
-                    complete and accurate, to the best of my knowledge.`)}
+                    {i18n.t(
+                      'By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge.',
+                    )}
                   </label>
                 </p>
               )}

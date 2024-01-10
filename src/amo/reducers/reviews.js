@@ -149,6 +149,7 @@ export type ReviewsState = {|
   permissions: {
     [addonIdAndUserId: string]: ReviewPermissions | void,
   },
+
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
   byUserId: ReviewsByUserId,
@@ -157,9 +158,11 @@ export type ReviewsState = {|
     // or null if one does not exist yet.
     [userIdAddonId: string]: number | null,
   },
+
   view: {
     [reviewId: number]: ViewStateByReviewId,
   },
+
   // Short-lived messages about reviews.
   flashMessage?: FlashMessageType,
   loadingForSlug: {

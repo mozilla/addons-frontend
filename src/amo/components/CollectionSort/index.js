@@ -81,19 +81,19 @@ export class CollectionSortBase extends React.Component<InternalProps> {
 
     return [
       {
-        label: i18n.gettext('Newest first'),
+        label: i18n.t('Newest first'),
         value: COLLECTION_SORT_DATE_ADDED_DESCENDING,
       },
       {
-        label: i18n.gettext('Oldest first'),
+        label: i18n.t('Oldest first'),
         value: COLLECTION_SORT_DATE_ADDED_ASCENDING,
       },
       {
-        label: i18n.gettext('Name'),
+        label: i18n.t('Name'),
         value: COLLECTION_SORT_NAME,
       },
       {
-        label: i18n.gettext('Popularity'),
+        label: i18n.t('Popularity'),
         value: COLLECTION_SORT_POPULARITY_DESCENDING,
       },
     ];
@@ -105,7 +105,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
     return (
       <form className="CollectionSort">
         <label className="CollectionSort-label" htmlFor="CollectionSort-select">
-          {i18n.gettext('Sort add-ons by')}
+          {i18n.t('Sort add-ons by')}
         </label>
         <Select
           className="CollectionSort-select"

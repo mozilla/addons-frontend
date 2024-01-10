@@ -73,10 +73,10 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
       this.props;
 
     const featuredReviewHeader = featuredReview
-      ? i18n.sprintf(
+      ? i18n.t(
           featuredReview.isDeveloperReply
-            ? i18n.gettext('Response by %(userName)s')
-            : i18n.gettext('Review by %(userName)s'),
+            ? i18n.t('Response by %(userName)s')
+            : i18n.t('Review by %(userName)s'),
           {
             userName: featuredReview.userName,
           },
@@ -88,7 +88,7 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
       errorHandler.capturedError.responseStatusCode === 404 ? (
         <NestedStatus code={404}>
           <div className="FeaturedAddonReview-notfound">
-            {i18n.gettext('The review was not found.')}
+            {i18n.t('The review was not found.')}
           </div>
         </NestedStatus>
       ) : (

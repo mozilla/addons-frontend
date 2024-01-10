@@ -42,45 +42,57 @@ export const ContributeCardBase = ({
   let content;
   switch (addon.type) {
     case ADDON_TYPE_EXTENSION:
-      header = i18n.ngettext(
-        i18n.gettext('Support this developer'),
-        i18n.gettext('Support these developers'),
-        numberOfAuthors,
+      header = /* manual-change: merge keys 
+      'Support this developer' -> 'Support this developer_one'
+      'Support these developers' -> 'Support this developer_other' */ i18n.t(
+        'Support this developer',
+        { count: numberOfAuthors },
       );
-      content = i18n.ngettext(
-        i18n.gettext(`The developer of this extension asks that you help support
-          its continued development by making a small contribution.`),
-        i18n.gettext(`The developers of this extension ask that you help
-          support its continued development by making a small contribution.`),
-        numberOfAuthors,
+      content = /* manual-change: merge keys 
+      'The developer of this extension asks that you help support
+                its continued development by making a small contribution.' -> 'The developer of this extension asks that you help support
+                its continued development by making a small contribution._one'
+      'The developers of this extension ask that you help
+                support its continued development by making a small contribution.' -> 'The developer of this extension asks that you help support
+                its continued development by making a small contribution._other' */ i18n.t(
+        'The developer of this extension asks that you help support its continued development by making a small contribution.',
+        { count: numberOfAuthors },
       );
       break;
     case ADDON_TYPE_STATIC_THEME:
-      header = i18n.ngettext(
-        i18n.gettext('Support this artist'),
-        i18n.gettext('Support these artists'),
-        numberOfAuthors,
+      header = /* manual-change: merge keys 
+      'Support this artist' -> 'Support this artist_one'
+      'Support these artists' -> 'Support this artist_other' */ i18n.t(
+        'Support this artist',
+        { count: numberOfAuthors },
       );
-      content = i18n.ngettext(
-        i18n.gettext(`The artist of this theme asks that you help support
-          its continued creation by making a small contribution.`),
-        i18n.gettext(`The artists of this theme ask that you help support
-          its continued creation by making a small contribution.`),
-        numberOfAuthors,
+      content = /* manual-change: merge keys 
+      'The artist of this theme asks that you help support
+                its continued creation by making a small contribution.' -> 'The artist of this theme asks that you help support
+                its continued creation by making a small contribution._one'
+      'The artists of this theme ask that you help support
+                its continued creation by making a small contribution.' -> 'The artist of this theme asks that you help support
+                its continued creation by making a small contribution._other' */ i18n.t(
+        'The artist of this theme asks that you help support its continued creation by making a small contribution.',
+        { count: numberOfAuthors },
       );
       break;
     default:
-      header = i18n.ngettext(
-        i18n.gettext('Support this author'),
-        i18n.gettext('Support these authors'),
-        numberOfAuthors,
+      header = /* manual-change: merge keys 
+      'Support this author' -> 'Support this author_one'
+      'Support these authors' -> 'Support this author_other' */ i18n.t(
+        'Support this author',
+        { count: numberOfAuthors },
       );
-      content = i18n.ngettext(
-        i18n.gettext(`The author of this add-on asks that you help support
-          its continued work by making a small contribution.`),
-        i18n.gettext(`The authors of this add-on ask that you help support
-          its continued work by making a small contribution.`),
-        numberOfAuthors,
+      content = /* manual-change: merge keys 
+      'The author of this add-on asks that you help support
+                its continued work by making a small contribution.' -> 'The author of this add-on asks that you help support
+                its continued work by making a small contribution._one'
+      'The authors of this add-on ask that you help support
+                its continued work by making a small contribution.' -> 'The author of this add-on asks that you help support
+                its continued work by making a small contribution._other' */ i18n.t(
+        'The author of this add-on asks that you help support its continued work by making a small contribution.',
+        { count: numberOfAuthors },
       );
       break;
   }
@@ -109,7 +121,7 @@ export const ContributeCardBase = ({
           puffy
         >
           <Icon name="heart" />
-          {i18n.gettext('Contribute now')}
+          {i18n.t('Contribute now')}
         </Button>
       </p>
     </Card>
