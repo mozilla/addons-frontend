@@ -56,81 +56,39 @@ export class AddonHeadBase extends React.Component<InternalProps> {
 
     invariant(addon, 'addon is required');
 
-    const i18nValues = {
-      addonName: addon.name,
-      locale: lang,
-    };
+    function getAddonType() {
+      invariant(addon, 'addon is required');
 
-    let localizedTitle;
-    if (clientApp === CLIENT_APP_ANDROID) {
       switch (addon.type) {
         case ADDON_TYPE_DICT:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Dictionary for \uD83E\uDD8A Firefox Android (%(locale)s)',
-          );
-          break;
+          return i18n.t('Dictionary');
         case ADDON_TYPE_EXTENSION:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Extension for \uD83E\uDD8A Firefox Android (%(locale)s)',
-          );
-          break;
+          return i18n.t('Extension');
         case ADDON_TYPE_LANG:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Language Pack for \uD83E\uDD8A Firefox Android (%(locale)s)',
-          );
-          break;
+          return i18n.t('Language Pack');
         case ADDON_TYPE_STATIC_THEME:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Theme for \uD83E\uDD8A Firefox Android (%(locale)s)',
-          );
-          break;
+          return i18n.t('Theme');
         default:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Add-on for \uD83E\uDD8A Firefox Android (%(locale)s)',
-          );
-      }
-    } else {
-      switch (addon.type) {
-        case ADDON_TYPE_DICT:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Dictionary for \uD83E\uDD8A Firefox (%(locale)s)',
-          );
-          break;
-        case ADDON_TYPE_EXTENSION:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Extension for \uD83E\uDD8A Firefox (%(locale)s)',
-          );
-          break;
-        case ADDON_TYPE_LANG:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Language Pack for \uD83E\uDD8A Firefox (%(locale)s)',
-          );
-          break;
-        case ADDON_TYPE_STATIC_THEME:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Theme for \uD83E\uDD8A Firefox (%(locale)s)',
-          );
-          break;
-        default:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.t(
-            '%(addonName)s \u2013 Get this Add-on for \uD83E\uDD8A Firefox (%(locale)s)',
-          );
+          return i18n.t('Add-on');
       }
     }
 
+    function getClientType() {
+      if (clientApp === CLIENT_APP_ANDROID) {
+        return i18n.t('Firefox Android');
+      }
+      return i18n.t('Firefox');
+    }
+
     return i18n.t(
-      /* manual-change: static key required */ localizedTitle,
-      i18nValues,
+      '%(addonName)s \u2013 Get this %(addonType) for %(firefoxEmoji)s %(firefoxClientApp)s (%(locale)s)',
+      {
+        addonType: getAddonType(),
+        firefoxClientApp: getClientType(),
+        firefoxEmoji: '\uD83E\uDD8A',
+        addonName: addon.name,
+        locale: lang,
+      },
     );
   }
 

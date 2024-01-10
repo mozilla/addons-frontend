@@ -33,9 +33,38 @@ export class FooterBase extends React.Component<InternalProps> {
     noLangPicker: false,
   };
 
+  renderCopyRightText(): React.Node {
+    const { includeGoogleDisclaimer, i18n } = this.props;
+
+    let copyRightText = i18n.t(
+      'Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version.',
+      {
+        startNotedLink: '<a href="https://www.mozilla.org/en-US/about/legal/">',
+        endNotedLink: '</a>',
+        startLicenseLink:
+          '<a href="https://creativecommons.org/licenses/by-sa/3.0/">',
+        endLicenseLink: '</a>',
+      },
+    );
+
+    if (includeGoogleDisclaimer) {
+      copyRightText += ` ${i18n.t('Android is a trademark of Google LLC.')}`;
+    }
+
+    return (
+      <p
+        className="Footer-copyright"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={sanitizeHTML(copyRightText, ['a'])}
+      />
+    );
+  }
+
   render(): React.Node {
-    const { _config, includeGoogleDisclaimer, i18n, noLangPicker } = this.props;
+    const { _config, i18n, noLangPicker } = this.props;
     const homepageText = i18n.t("Go to Mozilla's homepage");
+
+    const copyRightText = this.renderCopyRightText();
 
     return (
       <footer className="Footer">
@@ -291,30 +320,7 @@ export class FooterBase extends React.Component<InternalProps> {
             </li>
           </ul>
 
-          <p
-            className="Footer-copyright"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeHTML(
-              i18n.t(
-                includeGoogleDisclaimer
-                  ? i18n.t(
-                      'Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. Android is a trademark of Google LLC.',
-                    )
-                  : i18n.t(
-                      'Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version.',
-                    ),
-                {
-                  startNotedLink:
-                    '<a href="https://www.mozilla.org/en-US/about/legal/">',
-                  endNotedLink: '</a>',
-                  startLicenseLink:
-                    '<a href="https://creativecommons.org/licenses/by-sa/3.0/">',
-                  endLicenseLink: '</a>',
-                },
-              ),
-              ['a'],
-            )}
-          />
+          {copyRightText}
 
           {!noLangPicker && (
             <div className="Footer-language-picker">

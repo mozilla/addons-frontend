@@ -185,6 +185,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       relatedCategories &&
       relatedCategories.length > 0
     ) {
+      // We receive translated category names from addon-server. no need to translate
       categories = relatedCategories.map((category) => {
         return (
           <li key={category.slug}>
@@ -195,7 +196,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
                 slug: category.slug,
               })}
             >
-              {i18n.t(category.name)}
+              {category.name}
             </Link>
           </li>
         );

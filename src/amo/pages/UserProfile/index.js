@@ -265,26 +265,31 @@ export class UserProfileBase extends React.Component<InternalProps> {
       return null;
     }
 
-    let description;
+    const userName = user.name;
+    let userType;
+    let findOther;
+
     if (user.is_addon_developer && user.is_artist) {
-      description = i18n.t(
-        'The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues.',
-      );
+      userType = i18n.t('extension and theme');
+      findOther = i18n.t('apps');
     } else if (user.is_addon_developer) {
-      description = i18n.t(
-        'The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues.',
-      );
+      userType = i18n.t('extension');
+      findOther = i18n.t('extensions');
     } else if (user.is_artist) {
-      description = i18n.t(
-        'The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues.',
-      );
+      userType = i18n.t('theme');
+      findOther = i18n.t('themes');
     } else {
       return null;
     }
 
-    return i18n.t(/* manual-change: static key required */ description, {
-      user: user.name,
-    });
+    return i18n.t(
+      'The profile of %(userName)s, a Firefox %(userType)s author. Find other %(findOther)s by %(userName)s, including average ratings, tenure, and the option to report issues.',
+      {
+        userName,
+        userType,
+        findOther,
+      },
+    );
   }
 
   render(): React.Node {

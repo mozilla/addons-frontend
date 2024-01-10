@@ -303,29 +303,22 @@ export const getVersionInfo = ({
   if (version) {
     const { file } = version;
 
-    // L10n: This is application compatibility information, such as "firefox 41 and later"
-    const noMaxString = i18n.t('%(application)s %(minVersion)s and later');
-    // L10n: This is application compatibility information, such as "firefox 41 to 45"
-    const maxAndMinString = i18n.t(
-      '%(application)s %(minVersion)s to %(maxVersion)s',
-    );
     const appInfo = Object.keys(version.compatibility)
       .map((application) => {
         const { max, min } = version.compatibility[application];
         if (max === '*') {
-          return i18n.t(/* manual-change: static key required */ noMaxString, {
+          // L10n: This is application compatibility information, such as "firefox 41 and later"
+          return i18n.t('%(application)s %(minVersion)s and later', {
             application,
             minVersion: min,
           });
         }
-        return i18n.t(
-          /* manual-change: static key required */ maxAndMinString,
-          {
-            application,
-            maxVersion: max,
-            minVersion: min,
-          },
-        );
+        // L10n: This is application compatibility information, such as "firefox 41 to 45"
+        return i18n.t('%(application)s %(minVersion)s to %(maxVersion)s', {
+          application,
+          maxVersion: max,
+          minVersion: min,
+        });
       })
       .join(', ');
 

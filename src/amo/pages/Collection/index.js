@@ -555,16 +555,12 @@ export class CollectionBase extends React.Component<InternalProps> {
     invariant(collection, 'collection is required');
 
     return i18n.t(
-      collection.description
-        ? i18n.t(
-            'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s\u2014%(collectionDescription)s.',
-          )
-        : i18n.t(
-            'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s.',
-          ),
+      'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s\u2014%(collectionDescription)s.',
       {
         collectionName: collectionName({ name: collection.name, i18n }),
-        collectionDescription: collection.description,
+        collectionDescription: collection.description
+          ? `\u2014${collection.description}`
+          : '',
       },
     );
   }

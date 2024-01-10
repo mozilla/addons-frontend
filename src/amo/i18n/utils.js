@@ -255,23 +255,6 @@ export const formatFilesize = ({
   i18n,
   size,
 }: FormatFilesizeParams): string | null => {
-  const sizeStrings = {
-    // These are the expected values for the unit of measure returned by
-    // filesize. Realistically we shouldn't get anything back larger than TB.
-    /* eslint-disable max-len */
-    // L10n: B is an abbreviation of Bytes in English. Localize it if necessary but use a short abbreviation.
-    B: i18n.t('%(localizedSize)s B'),
-    // L10n: KB is an abbreviation of Kilobytes in English. Localize it if necessary but use a short abbreviation.
-    KB: i18n.t('%(localizedSize)s KB'),
-    // L10n: MB is an abbreviation of Megabytes in English. Localize it if necessary but use a short abbreviation.
-    MB: i18n.t('%(localizedSize)s MB'),
-    // L10n: GB is an abbreviation of Gigabytes in English. Localize it if necessary but use a short abbreviation.
-    GB: i18n.t('%(localizedSize)s GB'),
-    // L10n: TB is an abbreviation of Terabytes in English. Localize it if necessary but use a short abbreviation.
-    TB: i18n.t('%(localizedSize)s TB'),
-    /* eslint-enable max-len */
-  };
-
   const [sizeNumber, sizeName] = _filesize(size, {
     base: 2,
     standard: 'jedec',
@@ -284,14 +267,11 @@ export const formatFilesize = ({
   }
 
   const localizedSize = i18n.formatNumber(sizeNumber);
-  const sizeString = sizeStrings[sizeName];
-  if (!sizeString) {
-    _log.error(`Filesize returned unrecognized unit: ${sizeName}`);
-    return localizedSize;
-  }
 
-  return i18n.t(/* manual-change: static key required */ sizeString, {
+  // L10n: sizeMagnitude is an abbreviation of the magnitude of localizedSize. like 12 MB or 2.3 KB
+  return i18n.t('%(localizedSize)s %(sizeMagnitude)s', {
     localizedSize,
+    sizeMagnitude: sizeName,
   });
 };
 

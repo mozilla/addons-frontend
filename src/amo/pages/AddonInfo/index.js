@@ -150,7 +150,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
 
     switch (infoType) {
       case ADDON_INFO_TYPE_CUSTOM_LICENSE:
-        title = i18n.t('Custom License for %(addonName)s');
+        title = i18n.t('Custom License');
         if (addonVersion && addonVersion.license) {
           // If license.text is null, as opposed to undefined, it means we have
           // already retrieved the licence, but that it's null on the server.
@@ -162,11 +162,11 @@ export class AddonInfoBase extends React.Component<InternalProps> {
         }
         break;
       case ADDON_INFO_TYPE_EULA:
-        title = i18n.t('End-User License Agreement for %(addonName)s');
+        title = i18n.t('End-User License Agreement');
         infoContent = addonInfo ? addonInfo.eula : null;
         break;
       case ADDON_INFO_TYPE_PRIVACY_POLICY:
-        title = i18n.t('Privacy policy for %(addonName)s');
+        title = i18n.t('Privacy policy');
         infoContent = addonInfo ? addonInfo.privacyPolicy : null;
         break;
       default:
@@ -174,7 +174,8 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
 
     if (addon) {
-      header = i18n.t(/* manual-change: static key required */ title, {
+      header = i18n.t('%(title)s for %(addonName)s', {
+        title,
         addonName: addon.name,
       });
     }

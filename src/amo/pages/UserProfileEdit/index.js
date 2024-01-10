@@ -633,14 +633,9 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                         // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={sanitizeHTML(
                           i18n.t(
-                            isMzaBranding()
-                              ? i18n.t(
-                                  'You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s',
-                                )
-                              : i18n.t(
-                                  'You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s',
-                                ),
+                            'You can change your email address on %(branding)s accounts. %(startLink)sNeed help?%(endLink)s',
                             {
+                              branding: isMzaBranding() ? 'Mozilla' : 'Firefox',
                               startLink:
                                 '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
                               endLink: '</a>',
