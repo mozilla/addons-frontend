@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 16:55+0000\n"
+"POT-Creation-Date: 2024-01-10 09:01+0000\n"
 "PO-Revision-Date: 2024-01-08 01:05+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:187
-msgid "Loading…"
-msgstr "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…"
+msgid "Banana..."
+msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 msgid "Adding…"
@@ -3629,6 +3629,9 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਕਾਮਯਾਬੀ ਅੱਪਗਰੇਡ ਹੋਈ"
+
+#~ msgid "Loading…"
+#~ msgstr "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…"
 
 #~ msgid "This is a bug report or support request"
 #~ msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
