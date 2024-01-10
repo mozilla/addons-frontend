@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 16:55+0000\n"
+"POT-Creation-Date: 2024-01-10 09:01+0000\n"
 "PO-Revision-Date: 2022-05-20 12:28+0000\n"
 "Last-Translator: bipoza <bipoza@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,8 +15,8 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:187
-msgid "Loading…"
-msgstr "Kargatzen…"
+msgid "Banana..."
+msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 msgid "Adding…"
@@ -3429,6 +3429,9 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid "Loading…"
+#~ msgstr "Kargatzen…"
 
 #, fuzzy
 #~ msgid "Get %(addonName)s for Android"
