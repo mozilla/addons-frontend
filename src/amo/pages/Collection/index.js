@@ -553,18 +553,25 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     invariant(collection, 'collection is required');
 
+    const placeholders = {
+      collectionName: collectionName({ name: collection.name, i18n }),
+      collectionDescription: collection.description,
+    };
+
+    if (collection.description) {
+      return i18n.sprintf(
+        i18n.gettext(
+          'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s.',
+        ),
+        placeholders,
+      );
+    }
+
     return i18n.sprintf(
-      collection.description
-        ? i18n.gettext(
-            'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s.',
-          )
-        : i18n.gettext(
-            'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s.',
-          ),
-      {
-        collectionName: collectionName({ name: collection.name, i18n }),
-        collectionDescription: collection.description,
-      },
+      i18n.gettext(
+        'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s.',
+      ),
+      placeholders,
     );
   }
 

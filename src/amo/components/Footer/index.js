@@ -296,13 +296,15 @@ export class FooterBase extends React.Component<InternalProps> {
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={sanitizeHTML(
               i18n.sprintf(
-                includeGoogleDisclaimer
-                  ? i18n.gettext(
-                      'Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. Android is a trademark of Google LLC.',
-                    )
-                  : i18n.gettext(
-                      'Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version.',
-                    ),
+                i18n.ngettext(
+                  i18n.gettext(
+                    'Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. Android is a trademark of Google LLC.',
+                  ),
+                  i18n.gettext(
+                    'Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version.',
+                  ),
+                  includeGoogleDisclaimer ? 1 : 2,
+                ),
                 {
                   startNotedLink:
                     '<a href="https://www.mozilla.org/en-US/about/legal/">',

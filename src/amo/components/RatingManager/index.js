@@ -179,25 +179,35 @@ export class RatingManagerBase extends React.Component<InternalProps> {
 
     const onDeleteScreen = beginningToDeleteReview || deletingReview;
     let prompt;
+    const promtHtmlPlaceholders = {
+      addonName: `<b>${addon.name}</b>`,
+    };
+
     if (userReview && onDeleteScreen) {
       if (userReview.body) {
-        prompt = i18n.gettext(
-          'Are you sure you want to delete your review of %(addonName)s?',
+        prompt = i18n.sprintf(
+          i18n.gettext(
+            'Are you sure you want to delete your review of %(addonName)s?',
+          ),
+          promtHtmlPlaceholders,
         );
       } else {
         // A review without a body is a rating.
-        prompt = i18n.gettext(
-          'Are you sure you want to delete your rating of %(addonName)s?',
+        prompt = i18n.sprintf(
+          i18n.gettext(
+            'Are you sure you want to delete your rating of %(addonName)s?',
+          ),
+          promtHtmlPlaceholders,
         );
       }
     } else {
-      prompt = i18n.gettext('How are you enjoying %(addonName)s?');
+      prompt = i18n.sprintf(
+        i18n.gettext('How are you enjoying %(addonName)s?'),
+        promtHtmlPlaceholders,
+      );
     }
 
-    const promptHTML = sanitizeHTML(
-      i18n.sprintf(prompt, { addonName: `<b>${addon.name}</b>` }),
-      ['b'],
-    );
+    const promptHtml = sanitizeHTML(prompt, ['b']);
 
     return (
       <form action="">
@@ -205,7 +215,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
           {/* eslint-disable react/no-danger */}
           <legend
             className="RatingManager-legend"
-            dangerouslySetInnerHTML={promptHTML}
+            dangerouslySetInnerHTML={promptHtml}
           />
           {/* eslint-enable react/no-danger */}
           <div className="RatingManager-ratingControl">

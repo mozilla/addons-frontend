@@ -138,50 +138,57 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
   }
 
-  render(): React.Node {
-    const { addon, addonInfo, addonVersion, errorHandler, i18n, infoType } =
-      this.props;
+  getLocalizedHeaderText(): {|
+    infoHtml: {| __html: string |} | null,
+    header: string,
+  |} {
+    const { addon, addonInfo, addonVersion, i18n, infoType } = this.props;
 
     let header = '';
-    let infoContent;
-    let infoHtml;
-    let title;
-
-    switch (infoType) {
-      case ADDON_INFO_TYPE_CUSTOM_LICENSE:
-        title = i18n.gettext('Custom License for %(addonName)s');
-        if (addonVersion && addonVersion.license) {
-          // If license.text is null, as opposed to undefined, it means we have
-          // already retrieved the licence, but that it's null on the server.
-          if (addonVersion.license.text === null) {
-            infoContent = '';
-          } else infoContent = addonVersion.license.text;
-        } else {
-          infoContent = null;
-        }
-        break;
-      case ADDON_INFO_TYPE_EULA:
-        title = i18n.gettext('End-User License Agreement for %(addonName)s');
-        infoContent = addonInfo ? addonInfo.eula : null;
-        break;
-      case ADDON_INFO_TYPE_PRIVACY_POLICY:
-        title = i18n.gettext('Privacy policy for %(addonName)s');
-        infoContent = addonInfo ? addonInfo.privacyPolicy : null;
-        break;
-      default:
-        title = '';
-    }
+    let infoContent = null;
 
     if (addon) {
-      header = i18n.sprintf(title, { addonName: addon.name });
+      const placeholders = { addonName: addon.name };
+
+      if (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE) {
+        header = i18n.sprintf(
+          i18n.gettext('Custom License for %(addonName)s'),
+          placeholders,
+        );
+        if (addonVersion && addonVersion.license) {
+          infoContent = addonVersion.license.text;
+        }
+      } else if (infoType === ADDON_INFO_TYPE_EULA) {
+        header = i18n.sprintf(
+          i18n.gettext('End-User License Agreement for %(addonName)s'),
+          placeholders,
+        );
+        if (addonInfo) {
+          infoContent = addonInfo.eula;
+        }
+      } else if (infoType === ADDON_INFO_TYPE_PRIVACY_POLICY) {
+        header = i18n.sprintf(
+          i18n.gettext('Privacy policy for %(addonName)s'),
+          placeholders,
+        );
+        if (addonInfo) {
+          infoContent = addonInfo.privacyPolicy;
+        }
+      }
     }
 
-    if (
-      infoContent ||
-      (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE && infoContent)
-    ) {
-      infoHtml = sanitizeUserHTML(infoContent);
-    }
+    const infoHtml = infoContent ? sanitizeUserHTML(infoContent) : null;
+
+    return {
+      infoHtml,
+      header,
+    };
+  }
+
+  render(): React.Node {
+    const { addon, errorHandler, infoType } = this.props;
+
+    const { header, infoHtml } = this.getLocalizedHeaderText();
 
     return (
       <Page errorHandler={errorHandler}>

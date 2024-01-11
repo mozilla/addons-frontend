@@ -639,13 +639,15 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                         // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={sanitizeHTML(
                           i18n.sprintf(
-                            isMzaBranding()
-                              ? i18n.gettext(
-                                  'You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s',
-                                )
-                              : i18n.gettext(
-                                  'You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s',
-                                ),
+                            i18n.ngettext(
+                              i18n.gettext(
+                                'You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s',
+                              ),
+                              i18n.gettext(
+                                'You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s',
+                              ),
+                              isMzaBranding() ? 1 : 2,
+                            ),
                             {
                               startLink:
                                 '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
