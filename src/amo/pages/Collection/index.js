@@ -422,8 +422,9 @@ export class CollectionBase extends React.Component<InternalProps> {
           </h3>
 
           <p>
-            {i18n.gettext(`We have received your report. Thanks for letting us
-              know about your concerns with this collection.`)}
+            {i18n.gettext(
+              'We have received your report. Thanks for letting us know about your concerns with this collection.',
+            )}
           </p>
         </div>
       );
@@ -554,11 +555,12 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     return i18n.sprintf(
       collection.description
-        ? i18n.gettext(`Download and create Firefox collections to keep track
-          of favorite extensions and themes. Explore the
-          %(collectionName)s—%(collectionDescription)s.`)
-        : i18n.gettext(`Download and create Firefox collections to keep track
-          of favorite extensions and themes. Explore the %(collectionName)s.`),
+        ? i18n.gettext(
+            'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s.',
+          )
+        : i18n.gettext(
+            'Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s.',
+          ),
       {
         collectionName: collectionName({ name: collection.name, i18n }),
         collectionDescription: collection.description,

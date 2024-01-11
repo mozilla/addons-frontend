@@ -55,7 +55,7 @@ const getCategory = (
   const starterPackBaseProps = {
     collection: 'b4d5649fb087446aa05add5f0258c3',
     heading: i18n.gettext(
-      `Explore our 'Starter Pack' to get started with extensions`,
+      "Explore our 'Starter Pack' to get started with extensions",
     ),
   };
   // This is a list of category slugs in decending order of priority, used to

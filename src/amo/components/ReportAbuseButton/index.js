@@ -45,8 +45,9 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
           </h3>
 
           <p className="ReportAbuseButton-first-paragraph">
-            {i18n.gettext(`We have received your report. Thanks for letting us
-              know about your concerns with this add-on.`)}
+            {i18n.gettext(
+              'We have received your report. Thanks for letting us know about your concerns with this add-on.',
+            )}
           </p>
         </div>
       );

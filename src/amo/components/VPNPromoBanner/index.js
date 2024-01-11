@@ -177,8 +177,7 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
 
     const headline = i18n.gettext('Save 50% with a full year subscription');
     const copy = i18n.gettext(
-      `Protect your online data—and choose a VPN subscription plan that works
-       for you.`,
+      'Protect your online data—and choose a VPN subscription plan that works for you.',
     );
 
     const ctaURL = `${VPN_URL}${makeQueryStringWithUTM({

@@ -130,9 +130,9 @@ export class CollectionListBase extends React.Component<InternalProps> {
               ) : (
                 <>
                   <p className="CollectionList-info-text">
-                    {i18n.gettext(`Collections make it easy to keep track of
-                    favorite add-ons and share your perfectly customized browser
-                    with others.`)}
+                    {i18n.gettext(
+                      'Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others.',
+                    )}
                   </p>
                   <Button
                     buttonType="action"

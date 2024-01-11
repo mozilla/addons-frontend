@@ -202,14 +202,14 @@ export class LandingPageBase extends React.Component {
     const addonType = apiAddonType(params.visibleAddonType);
 
     if (addonType === ADDON_TYPE_STATIC_THEME) {
-      return i18n.gettext(`Download themes to change how Firefox looks. Tailor
-        your experience to your tastes. Cute critters, evil robots, beautiful
-        landscapes—thousands of options.`);
+      return i18n.gettext(
+        'Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options.',
+      );
     }
 
-    return i18n.gettext(`Download Firefox Extensions to add features that
-      customize browsing. Protect passwords, find deals, enhance video, and
-      block annoying ads with browser apps.`);
+    return i18n.gettext(
+      'Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps.',
+    );
   }
 
   render() {
@@ -229,10 +229,12 @@ export class LandingPageBase extends React.Component {
       [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
     };
     const contentText = {
-      [ADDON_TYPE_STATIC_THEME]: i18n.gettext(`Change your browser's appearance.
-        Choose from thousands of themes to give Firefox the look you want.`),
-      [ADDON_TYPE_EXTENSION]: i18n.gettext(`Explore powerful tools and features
-        to customize Firefox and make the browser all your own.`),
+      [ADDON_TYPE_STATIC_THEME]: i18n.gettext(
+        "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want.",
+      ),
+      [ADDON_TYPE_EXTENSION]: i18n.gettext(
+        'Explore powerful tools and features to customize Firefox and make the browser all your own.',
+      ),
     };
 
     const isAddonTheme = ADDON_TYPE_STATIC_THEME === addonType;

@@ -93,8 +93,9 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
       : logInText || i18n.gettext('Log in');
 
     const title = siteIsReadOnly
-      ? i18n.gettext(`This action is currently unavailable. Please reload the
-        page in a moment.`)
+      ? i18n.gettext(
+          'This action is currently unavailable. Please reload the page in a moment.',
+        )
       : null;
 
     // The `href` is required because a <button> element with a :hover effect

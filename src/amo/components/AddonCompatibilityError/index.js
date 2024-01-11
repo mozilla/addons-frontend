@@ -88,8 +88,9 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
 
     const message =
       reason === INCOMPATIBLE_OVER_MAX_VERSION
-        ? i18n.gettext(`This add-on is not compatible with your
-        version of Firefox.`)
+        ? i18n.gettext(
+            'This add-on is not compatible with your version of Firefox.',
+          )
         : i18n.gettext('This add-on is not available on your platform.');
 
     return (

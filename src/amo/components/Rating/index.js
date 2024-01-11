@@ -106,13 +106,13 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       }
 
       return i18n.sprintf(
-        i18n.gettext(`Update your rating to %(starRating)s out of 5`),
+        i18n.gettext('Update your rating to %(starRating)s out of 5'),
         { starRating },
       );
     }
 
     return i18n.sprintf(
-      i18n.gettext(`Rate this add-on %(starRating)s out of 5`),
+      i18n.gettext('Rate this add-on %(starRating)s out of 5'),
       { starRating },
     );
   };

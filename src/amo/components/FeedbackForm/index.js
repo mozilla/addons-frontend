@@ -99,8 +99,9 @@ export const getCategories = (
         label: i18n.gettext(
           'It doesn’t work, breaks websites, or slows down Firefox',
         ),
-        help: i18n.gettext(`Example: Features are slow, hard to use, or don’t
-          work; parts of websites won't load or look unusual.`),
+        help: i18n.gettext(
+          "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual.",
+        ),
       },
       {
         value: CATEGORY_FEEDBACK_SPAM,
@@ -114,14 +115,15 @@ export const getCategories = (
       {
         value: CATEGORY_POLICY_VIOLATION,
         label: i18n.gettext('It violates Add-on Policies'),
-        help: i18n.gettext(`Example: It compromised my data without informing
-          or asking me, or it changed my search engine or home page without
-          informing or asking me.`),
+        help: i18n.gettext(
+          'Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me.',
+        ),
       },
       {
         value: CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
-        label: i18n.gettext(`It contains hateful, violent, deceptive, or other
-          inappropriate content`),
+        label: i18n.gettext(
+          'It contains hateful, violent, deceptive, or other inappropriate content',
+        ),
         help: i18n.gettext('Example: It contains racist imagery.'),
       },
       {
@@ -251,8 +253,9 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       <div>
         <Card header={i18n.gettext('Report submitted')}>
           <p className="FeedbackForm-success-first-paragraph">
-            {i18n.gettext(`We have received your report. Thanks for letting us
-              know.`)}
+            {i18n.gettext(
+              'We have received your report. Thanks for letting us know.',
+            )}
           </p>
         </Card>
       </div>
@@ -413,11 +416,9 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 aria-describedby="feedbackText-help"
               />
               <p className="FeedbackForm--help" id="feedbackText-help">
-                {i18n.gettext(`Please provide any additional information that
-                  may help us to understand your report (including which policy
-                  you believe has been violated). While this information is not
-                  required, failure to include it may prevent us from
-                  addressing the reported content.`)}
+                {i18n.gettext(
+                  'Please provide any additional information that may help us to understand your report (including which policy you believe has been violated). While this information is not required, failure to include it may prevent us from addressing the reported content.',
+                )}
               </p>
             </Card>
 
@@ -442,9 +443,9 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                   {i18n.gettext('File report anonymously')}
                 </label>
                 <p className="FeedbackForm--help" id="feedbackAnonymous-help">
-                  {i18n.gettext(`Filing an anonymous report will prevent us
-                    from communicating with you about the report’s status, or
-                    about any options for appeal.`)}
+                  {i18n.gettext(
+                    'Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal.',
+                  )}
                 </p>
               </p>
 
@@ -550,9 +551,9 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                     className="FeedbackForm-label"
                     htmlFor="feedbackCertification"
                   >
-                    {i18n.gettext(`By submitting this report I certify, under
-                    penalty of perjury, that the allegations it contains are
-                    complete and accurate, to the best of my knowledge.`)}
+                    {i18n.gettext(
+                      'By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge.',
+                    )}
                   </label>
                 </p>
               )}

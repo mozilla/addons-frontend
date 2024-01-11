@@ -49,8 +49,9 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
             </h3>
 
             <p>
-              {i18n.gettext(`We have received your report. Thanks for letting
-                us know about your concerns with this user.`)}
+              {i18n.gettext(
+                'We have received your report. Thanks for letting us know about your concerns with this user.',
+              )}
             </p>
           </div>
         ) : (

@@ -23,10 +23,7 @@ export class UnavailableForLegalReasonsBase extends React.Component<InternalProp
 
     const paragraphWithLinks = replaceStringsWithJSX({
       text: i18n.gettext(
-        `You may be able to find what you’re looking for in one of the available
-        %(extensionStart)sextensions%(extensionEnd)s or
-        %(themeStart)sthemes%(themeEnd)s, or by asking for help on our
-        %(communityStart)scommunity forums%(communityEnd)s.`,
+        'You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s.',
       ),
       replacements: [
         [

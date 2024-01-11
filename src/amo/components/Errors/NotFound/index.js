@@ -23,12 +23,7 @@ export class NotFoundBase extends React.Component<InternalProps> {
 
     const paragraphWithLinks = replaceStringsWithJSX({
       text: i18n.gettext(
-        `Try visiting the page later, as the theme or extension may become
-        available again. Alternatively, you may be able to find what you’re
-        looking for in one of the available
-        %(extensionStart)sextensions%(extensionEnd)s or
-        %(themeStart)sthemes%(themeEnd)s, or by asking for help on our
-        %(communityStart)scommunity forums%(communityEnd)s.`,
+        'Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s.',
       ),
       replacements: [
         [
@@ -78,22 +73,20 @@ export class NotFoundBase extends React.Component<InternalProps> {
         header={i18n.gettext('Oops! We can’t find that page')}
       >
         <p>
-          {i18n.gettext(`If you’ve followed a link from another site for an
-            extension or theme, that item is no longer available. This could
-            be because:`)}
+          {i18n.gettext(
+            'If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:',
+          )}
         </p>
         <ul>
           <li>
-            {i18n.gettext(`The developer removed it. Developers commonly do
-              this because they no longer support the extension or theme, or
-              have replaced it.`)}
+            {i18n.gettext(
+              'The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it.',
+            )}
           </li>
           <li>
-            {i18n.gettext(`Mozilla removed it. This can happen when issues
-              are found during the review of the extension or theme, or the
-              extension or theme has been abusing the terms and conditions
-              for addons.mozilla.org. The developer has the opportunity to
-              resolve the issues and make the add-on available again.`)}
+            {i18n.gettext(
+              'Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The developer has the opportunity to resolve the issues and make the add-on available again.',
+            )}
           </li>
         </ul>
         <p className="Errors-paragraph-with-links">{paragraphWithLinks}</p>

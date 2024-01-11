@@ -142,7 +142,7 @@ export class HomeBase extends React.Component {
         </h2>
         <h3 className="Home-heroHeader-subtitle">
           {i18n.gettext(
-            `Personalize Firefox for Android with powerful extensions.`,
+            'Personalize Firefox for Android with powerful extensions.',
           )}
         </h3>
       </div>
@@ -196,8 +196,9 @@ export class HomeBase extends React.Component {
     const { errorHandler, homeShelves, i18n, isDesktopSite, resultsLoaded } =
       this.props;
 
-    const themesHeader = i18n.gettext(`Change the way Firefox looks with
-      themes.`);
+    const themesHeader = i18n.gettext(
+      'Change the way Firefox looks with themes.',
+    );
 
     const loading = resultsLoaded === false;
 
@@ -205,9 +206,9 @@ export class HomeBase extends React.Component {
       <Page isHomePage showWrongPlatformWarning={!isDesktopSite}>
         <div className="Home">
           <HeadMetaTags
-            description={i18n.gettext(`Download Firefox extensions and themes.
-            They’re like apps for your browser. They can block annoying ads,
-            protect passwords, change browser appearance, and more.`)}
+            description={i18n.gettext(
+              'Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more.',
+            )}
             withTwitterMeta
           />
 

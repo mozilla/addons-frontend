@@ -122,8 +122,9 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
                   dangerouslySetInnerHTML={sanitizeHTML(
                     i18n.sprintf(
                       // L10n: a list of notifications will be displayed under this prompt.
-                      i18n.gettext(`The email address %(strongStart)s%(email)s%(strongEnd)s
-                        will no longer get messages when:`),
+                      i18n.gettext(
+                        'The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:',
+                      ),
                       {
                         strongStart: '<strong>',
                         strongEnd: '</strong>',

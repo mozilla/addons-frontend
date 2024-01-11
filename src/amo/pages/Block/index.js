@@ -142,12 +142,12 @@ export class BlockBase extends React.Component<InternalProps> {
     const title =
       block && block.name
         ? i18n.sprintf(
-            i18n.gettext(`%(addonName)s has been blocked for your protection.`),
+            i18n.gettext('%(addonName)s has been blocked for your protection.'),
             {
               addonName: block.name,
             },
           )
-        : i18n.gettext(`This add-on has been blocked for your protection.`);
+        : i18n.gettext('This add-on has been blocked for your protection.');
 
     return (
       <Page>
@@ -163,8 +163,9 @@ export class BlockBase extends React.Component<InternalProps> {
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
-                  i18n.gettext(`This add-on violates %(startLink)sMozilla's
-                    Add-on Policies%(endLink)s.`),
+                  i18n.gettext(
+                    "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s.",
+                  ),
                   {
                     startLink: `<a href="${POLICIES_URL}">`,
                     endLink: '</a>',
@@ -177,20 +178,17 @@ export class BlockBase extends React.Component<InternalProps> {
 
             <h2>{i18n.gettext('What does this mean?')}</h2>
             <p>
-              {i18n.gettext(`The problematic add-on or plugin will be
-                automatically disabled and no longer usable.`)}
+              {i18n.gettext(
+                'The problematic add-on or plugin will be automatically disabled and no longer usable.',
+              )}
             </p>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
-                  i18n.gettext(`When Mozilla becomes aware of add-ons, plugins,
-                    or other third-party software that seriously compromises
-                    Firefox security, stability, or performance and meets
-                    %(criteriaStartLink)scertain criteria%(criteriaEndLink)s,
-                    the software may be blocked from general use. For more
-                    information, please read %(supportStartLink)sthis support
-                    article%(supportEndLink)s.`),
+                  i18n.gettext(
+                    'When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s.',
+                  ),
                   {
                     criteriaStartLink: `<a href="${CRITERIA_URL}">`,
                     criteriaEndLink: '</a>',
