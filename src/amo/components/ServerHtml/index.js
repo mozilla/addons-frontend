@@ -76,6 +76,7 @@ export function getStatic({ filePath, type, index, includeSri, sriData }) {
 
 export default class ServerHtml extends Component {
   static propTypes = {
+    initialI18nStore: PropTypes.object.isRequired,
     appState: PropTypes.object.isRequired,
     assets: PropTypes.object.isRequired,
     component: PropTypes.element.isRequired,
@@ -166,7 +167,8 @@ export default class ServerHtml extends Component {
   }
 
   render() {
-    const { appState, component, htmlDir, htmlLang } = this.props;
+    const { appState, component, htmlDir, htmlLang, initialI18nStore } =
+      this.props;
 
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
@@ -201,6 +203,14 @@ export default class ServerHtml extends Component {
             }}
             type="application/json"
             id="redux-store-state"
+          />
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: serialize(initialI18nStore, { isJSON: true }),
+            }}
+            type="application/json"
+            id="initial-i18next-store"
           />
 
           {this.getAnalytics()}

@@ -34,9 +34,8 @@ import log from 'amo/logger';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
-import type { I18nType } from 'amo/types/i18n';
+import type { I18nType, i18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
-import i18next from 'amo/i18next';
 /* eslint-enable import/first */
 
 interface MozNavigator extends Navigator {
@@ -61,6 +60,7 @@ type Props = {|
   ...DefaultProps,
   handleGlobalEvent: () => void,
   jed: I18nType,
+  i18n: i18nType,
   location: ReactRouterLocationType,
   setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
@@ -113,7 +113,7 @@ export class AppBase extends React.Component<Props> {
   }
 
   render(): React.Node {
-    const { clientApp, jed, lang } = this.props;
+    const { clientApp, jed, lang, i18n } = this.props;
 
     const i18nValues = {
       locale: lang,
@@ -143,10 +143,12 @@ export class AppBase extends React.Component<Props> {
       );
     }
 
-    const test = i18next.t('translation');
+    const test = i18n.t('translation');
+
+    console.log('app:test', { test, i18n });
 
     if (typeof document !== 'undefined') {
-      window.i18next = i18next;
+      window.i18n = i18n;
     }
 
     return (

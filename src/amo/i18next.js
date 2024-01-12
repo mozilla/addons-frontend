@@ -1,27 +1,38 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { langToLocale } from 'amo/i18n/utils';
+import defaultConfig from 'config';
 
 let initialized = false;
 
-export const init = async (lng, fallbackLng) => {
+const defaultLocale = langToLocale(defaultConfig.get('defaultLang'));
+
+export const config = {
+  debug: true,
+  ns: ['amo'],
+  defaultNS: ['amo'],
+  interpolation: {
+    escapeValue: false,
+  },
+  fallbackLng: defaultLocale,
+};
+
+export const init = async (extendedConfig, middleware = []) => {
+  const finalConfig = {
+    ...config,
+    ...extendedConfig,
+  };
   if (!initialized) {
-    await i18next.use(initReactI18next).init({
-      debug: true,
-      resources: {
-        [lng]: {
-          amo: {
-            translation: 'This is a text',
-          },
-        },
-      },
-      lng,
-      fallbackLng,
-      ns: ['amo'],
-      defaultNS: ['amo'],
-      interpolation: {
-        escapeValue: false,
-      },
-    });
+    let current = i18next;
+
+    for (const item of middleware) {
+      current = current.use(item);
+    }
+
+    current.use(initReactI18next);
+
+    await current.init(finalConfig);
+
     initialized = true;
   }
 

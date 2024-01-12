@@ -4,6 +4,7 @@ import config from 'config';
 import { createBrowserHistory } from 'history';
 import * as React from 'react';
 import { createRoot } from 'react-dom';
+import { withSSR } from 'react-i18next';
 
 import Root from 'amo/components/Root';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'amo/i18n/utils';
@@ -90,10 +91,30 @@ export default async function createClient(
     log.info(oneLine`Locale not found or required for locale: "${locale}".
       Falling back to default lang: "${_config.get('defaultLang')}"`);
   }
+
+  const initialI18nStoreContainer = document.getElementById(
+    'initial-i18next-store',
+  );
+  let initialI18nStore;
+
+  if (initialI18nStoreContainer) {
+    try {
+      initialI18nStore = JSON.parse(initialI18nStoreContainer.textContent);
+    } catch (error) {
+      log.error('Could not load initial-i18next-store data');
+    }
+  }
+
+  const instance = await initI18next({
+    lng: locale,
+    fallbackLng: _config.get('defaultLang'),
+  });
+  // TODO: initialize i18next
   const jed = makeI18n(i18nData, lang);
-  const instance = await initI18next(locale, _config.get('defaultLang'));
 
   const renderApp = (App) => {
+    // TODO, need to read serialized props for withSSR from window.
+    const ExtendedApp = withSSR()(App);
     const root = createRoot(document.getElementById('react-view'));
     root.render(
       <Root
@@ -102,7 +123,10 @@ export default async function createClient(
         i18next={instance}
         store={store}
       >
-        <App />
+        <ExtendedApp
+          initialI18nStore={initialI18nStore}
+          initialLanguage={locale}
+        />
       </Root>,
     );
   };

@@ -15,6 +15,7 @@ import ReactDOM from 'react-dom/server';
 import NestedStatus from 'react-nested-status';
 import { END } from 'redux-saga';
 import cookiesMiddleware from 'universal-cookie-express';
+import i18nextMiddleware from 'i18next-http-middleware';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import log from 'amo/logger';
@@ -92,7 +93,10 @@ export function getPageProps({ store, req, res, config }) {
     log.debug(`No ${REGION_CODE_HEADER} found in request headers.`);
   }
 
+  console.log('store', req.i18n.store.data);
+
   return {
+    initialI18nStore: req.i18n.store.data,
     assets: webpackIsomorphicTools.assets(),
     htmlLang: lang,
     htmlDir: dir,
@@ -157,6 +161,7 @@ function hydrateOnClient({ res, props = {}, pageProps, store }) {
 }
 
 function baseServer(
+  app,
   App,
   createStore,
   {
@@ -167,7 +172,6 @@ function baseServer(
     config = defaultConfig,
   } = {},
 ) {
-  const app = new Express();
   app.disable('x-powered-by');
 
   if (config.get('enableRequestID')) {
@@ -224,6 +228,11 @@ function baseServer(
   if (config.get('enablePrefixMiddleware')) {
     app.use(middleware.prefixMiddleware);
   }
+
+  app.use((req, res, next) => {
+    req.i18n.changeLanguage(res.locals.lang);
+    next();
+  });
 
   // Add trailing slashes to URLs
   if (config.get('enableTrailingSlashesMiddleware')) {
@@ -349,15 +358,15 @@ function baseServer(
       }
 
       const jed = makeI18n(i18nData, htmlLang);
-      const i18next = await initI18next(locale, config.get('defaultLang'));
 
+      // TODO: language server side is still wrong.. proably the wrong instance.
       const props = {
         component: (
           <Root
             cookies={req.universalCookies}
             history={connectedHistory}
             jed={jed}
-            i18next={i18next}
+            i18next={req.i18n}
             store={store}
           >
             <App />
@@ -501,7 +510,7 @@ function baseServer(
   return app;
 }
 
-export function runServer({
+export async function runServer({
   listen = true,
   exitProcess = true,
   config = defaultConfig,
@@ -515,6 +524,34 @@ export function runServer({
     WebpackIsomorphicToolsConfig,
   );
 
+  const i18nextInstance = await initI18next(
+    {
+      preload: ['en_US', 'de'],
+      resources: {
+        'en_US': {
+          amo: {
+            translation: 'This is a server side translation',
+          },
+        },
+        'de': {
+          amo: {
+            translation: 'Dies ist eine serverseitige Übersetzung',
+          },
+        },
+      },
+    },
+    [i18nextMiddleware.LanguageDetector],
+  );
+
+  const app = new Express();
+
+  app.use(
+    i18nextMiddleware.handle(i18nextInstance, {
+      ignoreRoutes: [],
+      removeLngFromUrl: false,
+    }),
+  );
+
   return isoMorphicServer
     .server(config.get('basePath'))
     .then(() => {
@@ -526,7 +563,7 @@ export function runServer({
         const App = require('amo/components/App').default;
         const createStore = require('amo/store').default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        let server = baseServer(App, createStore);
+        let server = baseServer(app, App, createStore);
         if (listen === true) {
           if (useHttpsForDev) {
             if (host === 'example.com') {
