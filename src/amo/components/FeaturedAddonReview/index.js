@@ -37,7 +37,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
@@ -69,14 +69,14 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { addon, errorHandler, featuredReview, i18n, siteUserCanReply } =
+    const { addon, errorHandler, featuredReview, jed, siteUserCanReply } =
       this.props;
 
     const featuredReviewHeader = featuredReview
-      ? i18n.sprintf(
+      ? jed.sprintf(
           featuredReview.isDeveloperReply
-            ? i18n.gettext('Response by %(userName)s')
-            : i18n.gettext('Review by %(userName)s'),
+            ? jed.gettext('Response by %(userName)s')
+            : jed.gettext('Review by %(userName)s'),
           {
             userName: featuredReview.userName,
           },
@@ -88,7 +88,7 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
       errorHandler.capturedError.responseStatusCode === 404 ? (
         <NestedStatus code={404}>
           <div className="FeaturedAddonReview-notfound">
-            {i18n.gettext('The review was not found.')}
+            {jed.gettext('The review was not found.')}
           </div>
         </NestedStatus>
       ) : (

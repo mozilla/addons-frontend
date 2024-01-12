@@ -25,7 +25,7 @@ type Props = {|
 
 type InternalProps = {|
   _checkInternalURL: typeof checkInternalURL,
-  i18n: I18nType,
+  jed: I18nType,
   ...Props,
 |};
 
@@ -39,12 +39,7 @@ const getTagFromUrl = (apiUrl: string): string => {
 };
 
 export const HomepageShelvesBase = (props: InternalProps): React.Node => {
-  const {
-    _checkInternalURL = checkInternalURL,
-    i18n,
-    loading,
-    shelves,
-  } = props;
+  const { _checkInternalURL = checkInternalURL, jed, loading, shelves } = props;
 
   let shelvesContent;
 
@@ -72,7 +67,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
 
       const footerText = footer.text
         ? footer.text
-        : i18n.sprintf(i18n.gettext('See more %(categoryName)s'), {
+        : jed.sprintf(jed.gettext('See more %(categoryName)s'), {
             categoryName: title.toLowerCase(),
           });
 

@@ -85,7 +85,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
   match: {|
     ...ReactRouterMatchType,
@@ -386,7 +386,7 @@ export class CollectionBase extends React.Component<InternalProps> {
   };
 
   renderDeleteButton(): null | React.Node {
-    const { i18n, isOwner } = this.props;
+    const { jed, isOwner } = this.props;
 
     if (!isOwner) {
       return null;
@@ -399,16 +399,16 @@ export class CollectionBase extends React.Component<InternalProps> {
         buttonType="cancel"
         className={confirmButtonClassName}
         id={confirmButtonClassName}
-        message={i18n.gettext('Do you really want to delete this collection?')}
+        message={jed.gettext('Do you really want to delete this collection?')}
         onConfirm={this.onDelete}
       >
-        {i18n.gettext('Delete this collection')}
+        {jed.gettext('Delete this collection')}
       </ConfirmButton>
     );
   }
 
   renderAbuseReportButton(): null | React.Node {
-    const { collection, i18n, isOwner, isReported } = this.props;
+    const { collection, jed, isOwner, isReported } = this.props;
 
     if (!collection || isOwner) {
       return null;
@@ -418,11 +418,11 @@ export class CollectionBase extends React.Component<InternalProps> {
       return (
         <div className="Collection-report-sent">
           <h3 className="ReportUserAbuse-header">
-            {i18n.gettext('You reported this collection')}
+            {jed.gettext('You reported this collection')}
           </h3>
 
           <p>
-            {i18n.gettext(`We have received your report. Thanks for letting us
+            {jed.gettext(`We have received your report. Thanks for letting us
               know about your concerns with this collection.`)}
           </p>
         </div>
@@ -436,7 +436,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         puffy
         to={`/feedback/collection/${collection.authorId}/${collection.slug}/`}
       >
-        {i18n.gettext('Report this collection')}
+        {jed.gettext('Report this collection')}
       </Button>
     );
   }
@@ -447,7 +447,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       creating,
       editing,
       filters,
-      i18n,
+      jed,
       isLoggedIn,
       loading,
       location,
@@ -455,8 +455,8 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     if ((creating || editing) && !isLoggedIn) {
       const logInText = creating
-        ? i18n.gettext('Log in to create a collection')
-        : i18n.gettext('Log in to edit this collection');
+        ? jed.gettext('Log in to create a collection')
+        : jed.gettext('Log in to edit this collection');
 
       return (
         <Card className="Collection-login">
@@ -490,10 +490,10 @@ export class CollectionBase extends React.Component<InternalProps> {
     let placeholderText;
     if (isLoggedIn && (creating || (!loading && addons.length === 0))) {
       placeholderText = creating
-        ? i18n.gettext(
+        ? jed.gettext(
             'First, create your collection. Then you can add extensions and themes.',
           )
-        : i18n.gettext(
+        : jed.gettext(
             'Search for extensions and themes to add to your collection.',
           );
     }
@@ -548,26 +548,26 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 
   getPageDescription(): string {
-    const { collection, i18n } = this.props;
+    const { collection, jed } = this.props;
 
     invariant(collection, 'collection is required');
 
-    return i18n.sprintf(
+    return jed.sprintf(
       collection.description
-        ? i18n.gettext(`Download and create Firefox collections to keep track
+        ? jed.gettext(`Download and create Firefox collections to keep track
           of favorite extensions and themes. Explore the
           %(collectionName)s—%(collectionDescription)s.`)
-        : i18n.gettext(`Download and create Firefox collections to keep track
+        : jed.gettext(`Download and create Firefox collections to keep track
           of favorite extensions and themes. Explore the %(collectionName)s.`),
       {
-        collectionName: collectionName({ name: collection.name, i18n }),
+        collectionName: collectionName({ name: collection.name, jed }),
         collectionDescription: collection.description,
       },
     );
   }
 
   render(): React.Node {
-    const { collection, errorHandler, i18n } = this.props;
+    const { collection, errorHandler, jed } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
@@ -582,7 +582,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         <div className="Collection">
           {collection && (
             <Helmet>
-              <title>{collectionName({ name: collection.name, i18n })}</title>
+              <title>{collectionName({ name: collection.name, jed })}</title>
               <meta name="description" content={this.getPageDescription()} />
             </Helmet>
           )}

@@ -34,7 +34,7 @@ export type Props = {|
 type InternalProps = {|
   ...Props,
   _setState?: ($Shape<StateType>) => void,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class RatingBase extends React.Component<InternalProps, StateType> {
@@ -85,34 +85,34 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     readOnly: boolean | void,
     starRating: number | null,
   ) => {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     if (readOnly) {
       if (rating) {
-        return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'), {
-          rating: i18n.formatNumber(parseFloat(rating).toFixed(1)),
+        return jed.sprintf(jed.gettext('Rated %(rating)s out of 5'), {
+          rating: jed.formatNumber(parseFloat(rating).toFixed(1)),
         });
       }
-      return i18n.gettext('There are no ratings yet');
+      return jed.gettext('There are no ratings yet');
     }
 
     invariant(starRating, 'starRating is required when readOnly=false');
 
     if (rating) {
       if (starRating === rating) {
-        return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'), {
-          rating: i18n.formatNumber(parseFloat(rating).toFixed(1)),
+        return jed.sprintf(jed.gettext('Rated %(rating)s out of 5'), {
+          rating: jed.formatNumber(parseFloat(rating).toFixed(1)),
         });
       }
 
-      return i18n.sprintf(
-        i18n.gettext(`Update your rating to %(starRating)s out of 5`),
+      return jed.sprintf(
+        jed.gettext(`Update your rating to %(starRating)s out of 5`),
         { starRating },
       );
     }
 
-    return i18n.sprintf(
-      i18n.gettext(`Rate this add-on %(starRating)s out of 5`),
+    return jed.sprintf(
+      jed.gettext(`Rate this add-on %(starRating)s out of 5`),
       { starRating },
     );
   };

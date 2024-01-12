@@ -57,7 +57,7 @@ type InternalProps = {|
   ...PropsFromState,
   ...DefaultProps,
   dispatch: DispatchFunc,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 type State = {|
@@ -87,7 +87,7 @@ export const CATEGORY_ILLEGAL = 'illegal';
 export const CATEGORY_SOMETHING_ELSE = 'something_else';
 
 export const getCategories = (
-  i18n: I18nType,
+  jed: I18nType,
 ): {
   report: Array<Reason>,
   feedback: Array<Reason>,
@@ -96,16 +96,16 @@ export const getCategories = (
     feedback: [
       {
         value: CATEGORY_DOES_NOT_WORK,
-        label: i18n.gettext(
+        label: jed.gettext(
           'It doesn’t work, breaks websites, or slows down Firefox',
         ),
-        help: i18n.gettext(`Example: Features are slow, hard to use, or don’t
+        help: jed.gettext(`Example: Features are slow, hard to use, or don’t
           work; parts of websites won't load or look unusual.`),
       },
       {
         value: CATEGORY_FEEDBACK_SPAM,
-        label: i18n.gettext('It’s spam'),
-        help: i18n.gettext(
+        label: jed.gettext('It’s spam'),
+        help: jed.gettext(
           'Example: The listing advertises unrelated products or services.',
         ),
       },
@@ -113,30 +113,30 @@ export const getCategories = (
     report: [
       {
         value: CATEGORY_POLICY_VIOLATION,
-        label: i18n.gettext('It violates Add-on Policies'),
-        help: i18n.gettext(`Example: It compromised my data without informing
+        label: jed.gettext('It violates Add-on Policies'),
+        help: jed.gettext(`Example: It compromised my data without informing
           or asking me, or it changed my search engine or home page without
           informing or asking me.`),
       },
       {
         value: CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
-        label: i18n.gettext(`It contains hateful, violent, deceptive, or other
+        label: jed.gettext(`It contains hateful, violent, deceptive, or other
           inappropriate content`),
-        help: i18n.gettext('Example: It contains racist imagery.'),
+        help: jed.gettext('Example: It contains racist imagery.'),
       },
       {
         value: CATEGORY_ILLEGAL,
-        label: i18n.gettext(
+        label: jed.gettext(
           'It violates the law or contains content that violates the law',
         ),
-        help: i18n.gettext(
+        help: jed.gettext(
           'Example: Copyright or Trademark Infringement, Fraud.',
         ),
       },
       {
         value: CATEGORY_SOMETHING_ELSE,
-        label: i18n.gettext('Something else'),
-        help: i18n.gettext(
+        label: jed.gettext('Something else'),
+        help: jed.gettext(
           'Anything that doesn’t fit into the other categories.',
         ),
       },
@@ -145,16 +145,16 @@ export const getCategories = (
 };
 
 const getLocationOptions = (
-  i18n: I18nType,
+  jed: I18nType,
 ): Array<{| children: string, value: string |}> => {
   return [
-    { children: i18n.gettext('Select place'), value: '' },
+    { children: jed.gettext('Select place'), value: '' },
     {
-      children: i18n.gettext("On the add-on's page on this website"),
+      children: jed.gettext("On the add-on's page on this website"),
       value: 'amo',
     },
-    { children: i18n.gettext('Inside the add-on'), value: 'addon' },
-    { children: i18n.gettext('Both locations'), value: 'both' },
+    { children: jed.gettext('Inside the add-on'), value: 'addon' },
+    { children: jed.gettext('Both locations'), value: 'both' },
   ];
 };
 
@@ -242,16 +242,16 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
   }
 
   renderReportSentConfirmation(): React.Node {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     // Make sure the confirmation message is going to be visible.
     window.scrollTo(0, 0);
 
     return (
       <div>
-        <Card header={i18n.gettext('Report submitted')}>
+        <Card header={jed.gettext('Report submitted')}>
           <p className="FeedbackForm-success-first-paragraph">
-            {i18n.gettext(`We have received your report. Thanks for letting us
+            {jed.gettext(`We have received your report. Thanks for letting us
               know.`)}
           </p>
         </Card>
@@ -322,7 +322,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       currentUser,
       errorHandler,
       feedbackTitle,
-      i18n,
+      jed,
       reportTitle,
       showLocation,
     } = this.props;
@@ -335,11 +335,11 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       errorMessage = errorHandler.renderError();
     }
 
-    const { report, feedback } = getCategories(i18n);
+    const { report, feedback } = getCategories(jed);
 
     const submitButtonText = abuseIsLoading
-      ? i18n.gettext('Submitting your report…')
-      : i18n.gettext('Submit report');
+      ? jed.gettext('Submitting your report…')
+      : jed.gettext('Submit report');
 
     return (
       <div className="FeedbackForm">
@@ -358,7 +358,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
             <Card
               className="FeedbackForm--Card"
-              header={i18n.gettext('Provide more information')}
+              header={jed.gettext('Provide more information')}
             >
               {showLocation &&
                 this.state.category !== CATEGORY_DOES_NOT_WORK && (
@@ -368,7 +368,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                       htmlFor="feedbackLocation"
                     >
                       {replaceStringsWithJSX({
-                        text: i18n.gettext(
+                        text: jed.gettext(
                           'Place of the violation %(spanStart)s(optional)%(spanEnd)s',
                         ),
                         replacements: [
@@ -387,7 +387,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                       onChange={this.onFieldChange}
                       value={this.state.location}
                     >
-                      {getLocationOptions(i18n).map((option) => {
+                      {getLocationOptions(jed).map((option) => {
                         return <option key={option.value} {...option} />;
                       })}
                     </Select>
@@ -396,7 +396,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
               <label className="FeedbackForm-label" htmlFor="feedbackText">
                 {replaceStringsWithJSX({
-                  text: i18n.gettext(
+                  text: jed.gettext(
                     'Provide more details %(spanStart)s(optional)%(spanEnd)s',
                   ),
                   replacements: [
@@ -413,7 +413,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 aria-describedby="feedbackText-help"
               />
               <p className="FeedbackForm--help" id="feedbackText-help">
-                {i18n.gettext(`Please provide any additional information that
+                {jed.gettext(`Please provide any additional information that
                   may help us to understand your report (including which policy
                   you believe has been violated). While this information is not
                   required, failure to include it may prevent us from
@@ -423,7 +423,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
             <Card
               className="FeedbackForm--Card"
-              header={i18n.gettext('Contact information')}
+              header={jed.gettext('Contact information')}
             >
               <p className="FeedbackForm-checkbox-wrapper">
                 <input
@@ -439,10 +439,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                   className="FeedbackForm-label"
                   htmlFor="feedbackAnonymous"
                 >
-                  {i18n.gettext('File report anonymously')}
+                  {jed.gettext('File report anonymously')}
                 </label>
                 <p className="FeedbackForm--help" id="feedbackAnonymous-help">
-                  {i18n.gettext(`Filing an anonymous report will prevent us
+                  {jed.gettext(`Filing an anonymous report will prevent us
                     from communicating with you about the report’s status, or
                     about any options for appeal.`)}
                 </p>
@@ -463,10 +463,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               >
                 {replaceStringsWithJSX({
                   text: this.state.anonymous
-                    ? i18n.gettext(
+                    ? jed.gettext(
                         'Your name %(spanStart)s(optional)%(spanEnd)s',
                       )
-                    : i18n.gettext(
+                    : jed.gettext(
                         'Your name %(spanStart)s(required)%(spanEnd)s',
                       ),
                   replacements: [
@@ -503,10 +503,10 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               >
                 {replaceStringsWithJSX({
                   text: this.state.anonymous
-                    ? i18n.gettext(
+                    ? jed.gettext(
                         'Your email address %(spanStart)s(optional)%(spanEnd)s',
                       )
-                    : i18n.gettext(
+                    : jed.gettext(
                         'Your email address %(spanStart)s(required)%(spanEnd)s',
                       ),
                   replacements: [
@@ -550,7 +550,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                     className="FeedbackForm-label"
                     htmlFor="feedbackCertification"
                   >
-                    {i18n.gettext(`By submitting this report I certify, under
+                    {jed.gettext(`By submitting this report I certify, under
                     penalty of perjury, that the allegations it contains are
                     complete and accurate, to the best of my knowledge.`)}
                   </label>

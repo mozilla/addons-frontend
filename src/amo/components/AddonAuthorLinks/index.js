@@ -22,12 +22,12 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AddonAuthorLinksBase extends React.Component<InternalProps> {
   render(): null | React.Node {
-    const { addon, i18n, currentUserID } = this.props;
+    const { addon, jed, currentUserID } = this.props;
 
     if (addon === null) {
       return null;
@@ -48,7 +48,7 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
           {
             // eslint-disable-next-line max-len
             // L10n: This action allows the add-on developer to edit an add-on's properties.
-            i18n.gettext('Edit add-on')
+            jed.gettext('Edit add-on')
           }
         </a>
       </li>
@@ -59,7 +59,7 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
         <Definition
           term={
             // L10n: This is a list of links to Developer functions.
-            i18n.gettext('Author Links')
+            jed.gettext('Author Links')
           }
         >
           <ul className="AddonAuthorLinks-list">{editLink}</ul>

@@ -20,23 +20,23 @@ class OuterComponent extends React.Component {
 
 class InnerComponent extends React.Component {
   static propTypes = {
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
   };
 
   render() {
-    const { i18n } = this.props;
-    return <div>{i18n.gettext('hai')}</div>;
+    const { jed } = this.props;
+    return <div>{jed.gettext('hai')}</div>;
   }
 }
 
 describe(__filename, () => {
   const render = ({
     Component = translate()(InnerComponent),
-    i18n = fakeI18n(),
+    jed = fakeI18n(),
     componentProps = {},
   } = {}) => {
     return libraryRender(
-      <I18nProvider i18n={i18n}>
+      <I18nProvider jed={jed}>
         <OuterComponent>
           <Component {...componentProps} />
         </OuterComponent>
@@ -45,16 +45,16 @@ describe(__filename, () => {
     );
   };
 
-  it('pulls i18n from context', () => {
-    const i18n = fakeI18n();
-    render({ i18n });
-    expect(i18n.gettext).toHaveBeenCalled();
+  it('pulls jed from context', () => {
+    const jed = fakeI18n();
+    render({ jed });
+    expect(jed.gettext).toHaveBeenCalled();
   });
 
-  it('overrides the i18n from props', () => {
+  it('overrides the jed from props', () => {
     const contextI18n = fakeI18n();
     const propsI18n = fakeI18n();
-    render({ i18n: contextI18n, componentProps: { i18n: propsI18n } });
+    render({ jed: contextI18n, componentProps: { jed: propsI18n } });
     expect(contextI18n.gettext).not.toHaveBeenCalled();
     expect(propsI18n.gettext).toHaveBeenCalled();
   });

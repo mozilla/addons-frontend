@@ -65,7 +65,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
   setUIState: (state: $Shape<UIState>) => void,
   uiState: UIState,
 |};
@@ -94,7 +94,7 @@ export class NoticeBase extends React.Component<InternalProps> {
       children,
       className,
       dismissible,
-      i18n,
+      jed,
       light,
       type,
       uiState,
@@ -151,7 +151,7 @@ export class NoticeBase extends React.Component<InternalProps> {
             >
               <IconXMark
                 className="Notice-dismisser-icon"
-                alt={i18n.gettext('Dismiss this notice')}
+                alt={jed.gettext('Dismiss this notice')}
               />
             </Button>
           </div>

@@ -8,21 +8,21 @@ import PropTypes from 'prop-types';
 
 export default class I18nProvider extends Component {
   static propTypes = {
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
     children: PropTypes.element.isRequired,
   };
 
   static childContextTypes = {
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
   };
 
   constructor(props, context) {
     super(props, context);
-    this.i18n = props.i18n;
+    this.jed = props.jed;
   }
 
   getChildContext() {
-    return { i18n: this.i18n };
+    return { jed: this.jed };
   }
 
   render() {

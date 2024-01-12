@@ -7,17 +7,17 @@ import { sanitizeHTML } from 'amo/utils';
 import type { I18nType } from 'amo/types/i18n';
 
 type Props = {|
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class ReviewGuideBase extends React.Component<Props> {
   render(): React.Node {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     return (
       <StaticPage
-        title={i18n.gettext('Review Guidelines')}
-        metaDescription={i18n.gettext(`
+        title={jed.gettext('Review Guidelines')}
+        metaDescription={jed.gettext(`
           Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and
           themes you’ve downloaded and used on Firefox.
         `)}
@@ -25,90 +25,88 @@ export class ReviewGuideBase extends React.Component<Props> {
         <>
           <section id="review-guide">
             <p>
-              {i18n.gettext(`Add-on reviews are a way for you to share your opinions
+              {jed.gettext(`Add-on reviews are a way for you to share your opinions
                 about the add-ons you’ve installed and used. Our review moderation
                 team reserves the right to refuse or remove any review that does not
                 comply with these guidelines.`)}
             </p>
-            <h2>{i18n.gettext('Tips for writing a great review')}</h2>
-            <h3>{i18n.gettext('Do:')}</h3>
+            <h2>{jed.gettext('Tips for writing a great review')}</h2>
+            <h3>{jed.gettext('Do:')}</h3>
             <ul>
               <li>
-                {i18n.gettext(
+                {jed.gettext(
                   'Write like you are telling a friend about your experience with the add-on.',
                 )}
               </li>
               <li>
-                {i18n.gettext('Keep reviews concise and easy to understand.')}
+                {jed.gettext('Keep reviews concise and easy to understand.')}
               </li>
               <li>
-                {i18n.gettext(
-                  'Give specific and helpful details. For example:',
-                )}
+                {jed.gettext('Give specific and helpful details. For example:')}
                 <ul>
                   <li>
-                    {i18n.gettext('Did the add-on work as you expected it to?')}
+                    {jed.gettext('Did the add-on work as you expected it to?')}
                   </li>
                   <li>
-                    {i18n.gettext('What features did you like or dislike?')}
+                    {jed.gettext('What features did you like or dislike?')}
                   </li>
-                  <li>{i18n.gettext('Was it useful?')}</li>
-                  <li>{i18n.gettext('Was it easy to use?')}</li>
+                  <li>{jed.gettext('Was it useful?')}</li>
+                  <li>{jed.gettext('Was it easy to use?')}</li>
                   <li>
-                    {i18n.gettext('Will you continue to use this add-on?')}
+                    {jed.gettext('Will you continue to use this add-on?')}
                   </li>
                 </ul>
               </li>
               <li>
-                {i18n.gettext(
+                {jed.gettext(
                   'Take a moment to read your review before submitting it to minimize typos.',
                 )}
               </li>
             </ul>
-            <h3>{i18n.gettext(`Don't:`)}</h3>
+            <h3>{jed.gettext(`Don't:`)}</h3>
             <ul>
               <li>
-                {i18n.gettext(
+                {jed.gettext(
                   'Submit one-word reviews such as "Great!", "wonderful," or "bad".',
                 )}
               </li>
               <li>
-                {i18n.gettext(`Post technical issues, support requests, or feature suggestions. Use
+                {jed.gettext(`Post technical issues, support requests, or feature suggestions. Use
                 the available support options for each add-on, if available. You can find them in
                 the "More information" section in the sidebar on the add-on's detail page.`)}
               </li>
               <li>
-                {i18n.gettext(
+                {jed.gettext(
                   'Write reviews for add-ons which you have not personally used.',
                 )}
               </li>
               <li>
-                {i18n.gettext(
+                {jed.gettext(
                   'Use profanity, sexual language or language that can be construed as hateful.',
                 )}
               </li>
               <li>
-                {i18n.gettext(
+                {jed.gettext(
                   'Include HTML, links, source code or code snippets. Reviews are meant to be text only.',
                 )}
               </li>
               <li>
-                {i18n.gettext(
+                {jed.gettext(
                   'Make false statements, disparage add-on authors or personally insult them.',
                 )}
               </li>
               <li>
-                {i18n.gettext(
+                {jed.gettext(
                   'Include your own or anyone else’s email, phone number, or other personal details.',
                 )}
               </li>
               <li>
-                {i18n.gettext(
+                {jed.gettext(
                   'Post reviews for an add-on you or your organization wrote or represent.',
                 )}
               </li>
               <li>
-                {i18n.gettext(`Criticize an add-on for something it’s intended to do. For example,
+                {jed.gettext(`Criticize an add-on for something it’s intended to do. For example,
                 leaving a negative review of an add-on for displaying ads or requiring data
                 gathering, when that is the intended purpose of the add-on, or the add-on
                 requires gathering data to function.`)}
@@ -117,24 +115,24 @@ export class ReviewGuideBase extends React.Component<Props> {
           </section>
 
           <section>
-            <h2>{i18n.gettext('Frequently Asked Questions about Reviews')}</h2>
+            <h2>{jed.gettext('Frequently Asked Questions about Reviews')}</h2>
 
-            <h3>{i18n.gettext('How can I report a problematic review?')}</h3>
+            <h3>{jed.gettext('How can I report a problematic review?')}</h3>
             <p>
-              {i18n.gettext(`Please report or flag any questionable reviews by clicking the
+              {jed.gettext(`Please report or flag any questionable reviews by clicking the
               "Report this review" and it will be submitted to the site for moderation. Our
               moderation team will use the Review Guidelines to evaluate whether or not to
               delete the review or restore it back to the site.`)}
             </p>
 
             <h3>
-              {i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}
+              {jed.gettext(`I'm an add-on author, can I respond to reviews?`)}
             </h3>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`Yes, add-on authors can provide a single response to a review.
+                jed.sprintf(
+                  jed.gettext(`Yes, add-on authors can provide a single response to a review.
                       You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional
                       discussion or follow-up.`),
                   {
@@ -148,12 +146,12 @@ export class ReviewGuideBase extends React.Component<Props> {
             />
 
             <h3>
-              {i18n.gettext(
+              {jed.gettext(
                 `I'm an add-on author, can I delete unfavorable reviews or ratings?`,
               )}
             </h3>
             <p>
-              {i18n.gettext(`In general, no. But if the review did not meet the review guidelines
+              {jed.gettext(`In general, no. But if the review did not meet the review guidelines
               outlined above, you can click "Report this review" and have it moderated. If a review
               included a complaint that is no longer valid due to a new release of your add-on, we
               may consider deleting the review.`)}

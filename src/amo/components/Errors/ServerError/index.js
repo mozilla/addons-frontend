@@ -12,14 +12,14 @@ type Props = {||};
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class ServerErrorBase extends React.Component<InternalProps> {
   render(): React.Node {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
-    const fileAnIssueText = i18n.gettext(`
+    const fileAnIssueText = jed.gettext(`
       If you have additional information that would help us you can
       <a href="https://github.com/mozilla/addons-frontend/issues/new/">file an
       issue</a>. Tell us what steps you took that lead to the error and we'll
@@ -27,9 +27,9 @@ export class ServerErrorBase extends React.Component<InternalProps> {
 
     /* eslint-disable react/no-danger */
     return (
-      <ErrorComponent code={500} header={i18n.gettext('Server Error')}>
+      <ErrorComponent code={500} header={jed.gettext('Server Error')}>
         <p>
-          {i18n.gettext(`
+          {jed.gettext(`
             Sorry, but there was an error with our server and we couldn't
             complete your request. We have logged this error and will
             investigate it.`)}

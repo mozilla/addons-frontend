@@ -67,7 +67,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
@@ -195,7 +195,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       return Array(10).fill({
         addonId: undefined,
         iconUrl: getAddonIconUrl(),
-        name: this.props.i18n.gettext('Loading'),
+        name: this.props.jed.gettext('Loading'),
         promoted: null,
         url: undefined,
       });
@@ -275,7 +275,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   render(): React.Node {
     const {
       errorHandler,
-      i18n,
+      jed,
       inputLabelText,
       inputName,
       inputPlaceholder,
@@ -295,7 +295,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       minLength: SEARCH_TERM_MIN_LENGTH,
       name: inputName,
       onChange: this.handleSearchChange,
-      placeholder: inputPlaceholder || i18n.gettext('Find add-ons'),
+      placeholder: inputPlaceholder || jed.gettext('Find add-ons'),
       type: 'search',
       value: this.state.searchValue,
     };
@@ -320,7 +320,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
           })}
           htmlFor={inputProps.id}
         >
-          {inputLabelText || i18n.gettext('Search')}
+          {inputLabelText || jed.gettext('Search')}
         </label>
         <div className="AutoSearchInput-search-box">
           <Icon
@@ -348,7 +348,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
             onClick={this.handleSearch}
             type="submit"
           >
-            <span className="visually-hidden">{i18n.gettext('Search')}</span>
+            <span className="visually-hidden">{jed.gettext('Search')}</span>
             <Icon name="arrow" />
           </button>
         </div>

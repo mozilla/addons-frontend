@@ -223,7 +223,7 @@ describe(__filename, () => {
 
     expect(screen.getByText('Size')).toBeInTheDocument();
     expect(
-      screen.getByText(formatFilesize({ size, i18n: fakeI18n() })),
+      screen.getByText(formatFilesize({ size, jed: fakeI18n() })),
     ).toBeInTheDocument();
   });
 

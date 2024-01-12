@@ -166,7 +166,7 @@ type InternalProps = {|
 
 export class ConfirmButtonBase extends React.Component<InternalProps> {
   render() {
-    const prompt = this.props.prompt || this.props.i18n.gettext('Confirm');
+    const prompt = this.props.prompt || this.props.jed.gettext('Confirm');
     return <button>{prompt}</button>;
   }
 }
@@ -281,7 +281,7 @@ The env vars are:
 - `NODE_CONFIG_ENV`: the name of the configuration to load, e.g., `dev`, `stage`, `prod`
 
 | Script     | Description                                    |
-| ---------- | ---------------------------------------------- |
+|------------|------------------------------------------------|
 | yarn start | Starts the express server (requires env vars)  |
 | yarn build | Builds the libs (all apps) (requires env vars) |
 

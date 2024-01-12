@@ -52,7 +52,7 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   history: ReactRouterHistoryType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 type SelectOption = {| children: string, value: string |};
@@ -142,15 +142,15 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
   }
 
   addonTypeOptions(): Array<SelectOption> {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     const options = [
-      { children: i18n.gettext('All'), value: NO_FILTER },
-      { children: i18n.gettext('Extension'), value: ADDON_TYPE_EXTENSION },
+      { children: jed.gettext('All'), value: NO_FILTER },
+      { children: jed.gettext('Extension'), value: ADDON_TYPE_EXTENSION },
     ];
 
     options.push({
-      children: i18n.gettext('Theme'),
+      children: jed.gettext('Theme'),
       value: ADDON_TYPE_STATIC_THEME,
     });
 
@@ -158,43 +158,43 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
   }
 
   sortOptions(): Array<SelectOption> {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     return [
-      { children: i18n.gettext('Relevance'), value: SEARCH_SORT_RELEVANCE },
+      { children: jed.gettext('Relevance'), value: SEARCH_SORT_RELEVANCE },
       {
-        children: i18n.gettext('Recently Updated'),
+        children: jed.gettext('Recently Updated'),
         value: SEARCH_SORT_UPDATED,
       },
-      { children: i18n.gettext('Most Users'), value: SEARCH_SORT_POPULAR },
-      { children: i18n.gettext('Top Rated'), value: SEARCH_SORT_TOP_RATED },
-      { children: i18n.gettext('Trending'), value: SEARCH_SORT_TRENDING },
+      { children: jed.gettext('Most Users'), value: SEARCH_SORT_POPULAR },
+      { children: jed.gettext('Top Rated'), value: SEARCH_SORT_TOP_RATED },
+      { children: jed.gettext('Trending'), value: SEARCH_SORT_TRENDING },
     ];
   }
 
   promotedOptions(): Array<SelectOption> {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     return [
-      { children: i18n.gettext('Any'), value: NO_FILTER },
-      { children: i18n.gettext('Recommended'), value: RECOMMENDED },
+      { children: jed.gettext('Any'), value: NO_FILTER },
+      { children: jed.gettext('Recommended'), value: RECOMMENDED },
       {
-        children: i18n.gettext('By Firefox'),
+        children: jed.gettext('By Firefox'),
         value: LINE,
       },
       {
-        children: i18n.gettext('Verified'),
+        children: jed.gettext('Verified'),
         value: VERIFIED_FILTER,
       },
       {
-        children: i18n.gettext('All Reviewed'),
+        children: jed.gettext('All Reviewed'),
         value: REVIEWED_FILTER,
       },
     ];
   }
 
   render(): React.Node {
-    const { clientApp, filters, i18n } = this.props;
+    const { clientApp, filters, jed } = this.props;
 
     const expandableCardName = 'SearchFilters';
     const selectedSortFields = filters.sort
@@ -207,12 +207,12 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     return (
       <ExpandableCard
         className={expandableCardName}
-        header={i18n.gettext('Filter results')}
+        header={jed.gettext('Filter results')}
         id={expandableCardName}
       >
         <form autoComplete="off">
           <label className="SearchFilters-label" htmlFor="SearchFilters-Sort">
-            {i18n.gettext('Sort by')}
+            {jed.gettext('Sort by')}
           </label>
           <Select
             className="SearchFilters-Sort SearchFilters-select"
@@ -234,7 +234,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                 className="SearchFilters-AddonType-label SearchFilters-label"
                 htmlFor="SearchFilters-AddonType"
               >
-                {i18n.gettext('Add-on Type')}
+                {jed.gettext('Add-on Type')}
               </label>
               <Select
                 className="SearchFilters-AddonType SearchFilters-select"
@@ -255,7 +255,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
               className="SearchFilters-Badging-label SearchFilters-label"
               htmlFor="SearchFilters-Badging"
             >
-              {i18n.gettext('Badging')}
+              {jed.gettext('Badging')}
             </label>
             <Select
               className="SearchFilters-Badging SearchFilters-select"

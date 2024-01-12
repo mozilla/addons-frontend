@@ -32,7 +32,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class SearchContextCardBase extends React.Component<InternalProps> {
@@ -47,7 +47,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { categoryName, count, filters, i18n, loadingSearch } = this.props;
+    const { categoryName, count, filters, jed, loadingSearch } = this.props;
     const { addonType, query, tag } = filters || {};
     let searchText;
 
@@ -55,200 +55,200 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
       switch (addonType) {
         case ADDON_TYPE_EXTENSION:
           if (categoryName && query && tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s extension found for "%(query)s" with tag %(tag)s in %(categoryName)s',
                 '%(count)s extensions found for "%(query)s" with tag %(tag)s in %(categoryName)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), query, categoryName, tag },
+              { count: jed.formatNumber(count), query, categoryName, tag },
             );
           } else if (categoryName && query) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s extension found for "%(query)s" in %(categoryName)s',
                 '%(count)s extensions found for "%(query)s" in %(categoryName)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), query, categoryName },
+              { count: jed.formatNumber(count), query, categoryName },
             );
           } else if (categoryName && tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s extension found with tag %(tag)s in %(categoryName)s',
                 '%(count)s extensions found with tag %(tag)s in %(categoryName)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), categoryName, tag },
+              { count: jed.formatNumber(count), categoryName, tag },
             );
           } else if (categoryName) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s extension found in %(categoryName)s',
                 '%(count)s extensions found in %(categoryName)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), categoryName },
+              { count: jed.formatNumber(count), categoryName },
             );
           } else if (query && tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s extension found for "%(query)s" with tag %(tag)s',
                 '%(count)s extensions found for "%(query)s" with tag %(tag)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), query, tag },
+              { count: jed.formatNumber(count), query, tag },
             );
           } else if (query) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s extension found for "%(query)s"',
                 '%(count)s extensions found for "%(query)s"',
                 count,
               ),
-              { count: i18n.formatNumber(count), query },
+              { count: jed.formatNumber(count), query },
             );
           } else if (tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s extension found with tag %(tag)s',
                 '%(count)s extensions found with tag %(tag)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), tag },
+              { count: jed.formatNumber(count), tag },
             );
           } else {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s extension found',
                 '%(count)s extensions found',
                 count,
               ),
-              { count: i18n.formatNumber(count) },
+              { count: jed.formatNumber(count) },
             );
           }
           break;
         case ADDON_TYPE_STATIC_THEME:
           if (categoryName && query && tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s theme found for "%(query)s" with tag %(tag)s in %(categoryName)s',
                 '%(count)s themes found for "%(query)s" with tag %(tag)s in %(categoryName)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), query, categoryName, tag },
+              { count: jed.formatNumber(count), query, categoryName, tag },
             );
           } else if (categoryName && query) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s theme found for "%(query)s" in %(categoryName)s',
                 '%(count)s themes found for "%(query)s" in %(categoryName)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), query, categoryName },
+              { count: jed.formatNumber(count), query, categoryName },
             );
           } else if (categoryName && tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s theme found with tag %(tag)s in %(categoryName)s',
                 '%(count)s themes found with tag %(tag)s in %(categoryName)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), categoryName, tag },
+              { count: jed.formatNumber(count), categoryName, tag },
             );
           } else if (categoryName) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s theme found in %(categoryName)s',
                 '%(count)s themes found in %(categoryName)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), categoryName },
+              { count: jed.formatNumber(count), categoryName },
             );
           } else if (query && tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s theme found for "%(query)s" with tag %(tag)s',
                 '%(count)s themes found for "%(query)s" with tag %(tag)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), query, tag },
+              { count: jed.formatNumber(count), query, tag },
             );
           } else if (query) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s theme found for "%(query)s"',
                 '%(count)s themes found for "%(query)s"',
                 count,
               ),
-              { count: i18n.formatNumber(count), query },
+              { count: jed.formatNumber(count), query },
             );
           } else if (tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s theme found with tag %(tag)s',
                 '%(count)s themes found with tag %(tag)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), tag },
+              { count: jed.formatNumber(count), tag },
             );
           } else {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s theme found',
                 '%(count)s themes found',
                 count,
               ),
-              { count: i18n.formatNumber(count) },
+              { count: jed.formatNumber(count) },
             );
           }
           break;
         default:
           if (query && tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s result found for "%(query)s" with tag %(tag)s',
                 '%(count)s results found for "%(query)s" with tag %(tag)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), query, tag },
+              { count: jed.formatNumber(count), query, tag },
             );
           } else if (query) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s result found for "%(query)s"',
                 '%(count)s results found for "%(query)s"',
                 count,
               ),
-              { count: i18n.formatNumber(count), query },
+              { count: jed.formatNumber(count), query },
             );
           } else if (tag) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s result found with tag %(tag)s',
                 '%(count)s results found with tag %(tag)s',
                 count,
               ),
-              { count: i18n.formatNumber(count), tag },
+              { count: jed.formatNumber(count), tag },
             );
           } else {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
+            searchText = jed.sprintf(
+              jed.ngettext(
                 '%(count)s result found',
                 '%(count)s results found',
                 count,
               ),
-              { count: i18n.formatNumber(count) },
+              { count: jed.formatNumber(count) },
             );
           }
           break;
       }
     } else if (loadingSearch && query) {
-      searchText = i18n.sprintf(i18n.gettext('Searching for "%(query)s"'), {
+      searchText = jed.sprintf(jed.gettext('Searching for "%(query)s"'), {
         query,
       });
     } else if (loadingSearch) {
-      searchText = i18n.gettext('Searching for add-ons');
+      searchText = jed.gettext('Searching for add-ons');
     }
 
     return (

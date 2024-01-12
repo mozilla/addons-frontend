@@ -43,7 +43,7 @@ type InternalProps = {|
   ...Props,
   ...DefaultProps,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AddonHeadBase extends React.Component<InternalProps> {
@@ -52,7 +52,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   };
 
   getPageTitle(): string {
-    const { addon, clientApp, i18n, lang } = this.props;
+    const { addon, clientApp, jed, lang } = this.props;
 
     invariant(addon, 'addon is required');
 
@@ -66,69 +66,69 @@ export class AddonHeadBase extends React.Component<InternalProps> {
       switch (addon.type) {
         case ADDON_TYPE_DICT:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Dictionary
+          localizedTitle = jed.gettext(`%(addonName)s – Get this Dictionary
             for 🦊 Firefox Android (%(locale)s)`);
           break;
         case ADDON_TYPE_EXTENSION:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Extension for
+          localizedTitle = jed.gettext(`%(addonName)s – Get this Extension for
             🦊 Firefox Android (%(locale)s)`);
           break;
         case ADDON_TYPE_LANG:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Language Pack
+          localizedTitle = jed.gettext(`%(addonName)s – Get this Language Pack
             for 🦊 Firefox Android (%(locale)s)`);
           break;
         case ADDON_TYPE_STATIC_THEME:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(
+          localizedTitle = jed.gettext(
             `%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)`,
           );
           break;
         default:
           // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Add-on for 🦊
+          localizedTitle = jed.gettext(`%(addonName)s – Get this Add-on for 🦊
             Firefox Android (%(locale)s)`);
       }
     } else {
       switch (addon.type) {
         case ADDON_TYPE_DICT:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Dictionary
+          localizedTitle = jed.gettext(`%(addonName)s – Get this Dictionary
             for 🦊 Firefox (%(locale)s)`);
           break;
         case ADDON_TYPE_EXTENSION:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Extension for
+          localizedTitle = jed.gettext(`%(addonName)s – Get this Extension for
             🦊 Firefox (%(locale)s)`);
           break;
         case ADDON_TYPE_LANG:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Language Pack
+          localizedTitle = jed.gettext(`%(addonName)s – Get this Language Pack
             for 🦊 Firefox (%(locale)s)`);
           break;
         case ADDON_TYPE_STATIC_THEME:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Theme for 🦊
+          localizedTitle = jed.gettext(`%(addonName)s – Get this Theme for 🦊
             Firefox (%(locale)s)`);
           break;
         default:
           // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Add-on for 🦊
+          localizedTitle = jed.gettext(`%(addonName)s – Get this Add-on for 🦊
             Firefox (%(locale)s)`);
       }
     }
 
-    return i18n.sprintf(localizedTitle, i18nValues);
+    return jed.sprintf(localizedTitle, i18nValues);
   }
 
   getPageDescription(): string {
-    const { addon, i18n } = this.props;
+    const { addon, jed } = this.props;
 
     invariant(addon, 'addon is required');
 
-    return i18n.sprintf(
-      i18n.gettext('Download %(addonName)s for Firefox. %(summary)s'),
+    return jed.sprintf(
+      jed.gettext('Download %(addonName)s for Firefox. %(summary)s'),
       {
         addonName: addon.name,
         summary: addon.summary,
@@ -179,7 +179,7 @@ const mapStateToProps = (
   state: AppState,
   ownProps: InternalProps,
 ): PropsFromState => {
-  const { addon, i18n } = ownProps;
+  const { addon, jed } = ownProps;
   const { clientApp, lang } = state.api;
   let currentVersion = null;
   let versionInfo = null;
@@ -193,7 +193,7 @@ const mapStateToProps = (
 
   if (currentVersion) {
     versionInfo = getVersionInfo({
-      i18n,
+      jed,
       state: state.versions,
       versionId: currentVersion.id,
     });

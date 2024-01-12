@@ -15,10 +15,10 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
   });
 
-  const render = (i18n = fakeI18n()) =>
+  const render = (jed = fakeI18n()) =>
     defaultRender({
       initialEntries: ['/en-US/firefox/404/'],
-      i18n,
+      jed,
       store,
     });
 
@@ -57,11 +57,11 @@ describe(__filename, () => {
       %(communityStart)scommunity forums%(communityEnd)s or
       %(extensionStart)sextensions%(extensionEnd)s.`;
 
-    const i18n = fakeI18n();
+    const jed = fakeI18n();
     // We override the `gettext` function to inject a localized string with the
     // two links inverted. This was the issue in
     // https://github.com/mozilla/addons-frontend/issues/7597.
-    i18n.gettext = (string) => {
+    jed.gettext = (string) => {
       if (string.startsWith('Try visiting')) {
         return localizedString;
       }
@@ -70,7 +70,7 @@ describe(__filename, () => {
     };
 
     // It should not crash.
-    render(i18n);
+    render(jed);
 
     expect(screen.getByRole('link', { name: 'extensions' })).toHaveAttribute(
       'href',

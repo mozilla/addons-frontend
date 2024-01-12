@@ -25,9 +25,11 @@ describe(__filename, () => {
     if (locale === 'templates') {
       continue;
     }
+
     // eslint-disable no-loop-func
-    it(`should have a "${lang}" entry for locale dir in config.langs`, () =>
-      expect(langs).toContain(lang));
+    it(`should have a "${lang}" entry for locale dir in config.langs`, () => {
+      expect(langs).toContain(lang);
+    });
   }
 
   describe('Check Locale JS files', () => {

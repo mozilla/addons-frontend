@@ -44,7 +44,7 @@ describe(__filename, () => {
       [FATAL_ERROR, 'unexpected error occurred.'],
       ['SOME OTHER ERROR', 'unexpected error occurred.'],
     ])('returns a readable message for %s', (error, message) => {
-      expect(getErrorMessage({ i18n: fakeI18n(), error })).toMatch(
+      expect(getErrorMessage({ jed: fakeI18n(), error })).toMatch(
         new RegExp(message),
       );
     });

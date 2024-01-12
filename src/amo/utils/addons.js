@@ -23,32 +23,30 @@ import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
 
 export const getErrorMessage = ({
-  i18n,
+  jed,
   error,
 }: {|
-  i18n: I18nType,
+  jed: I18nType,
   error: string | void,
 |}): string => {
-  invariant(i18n, 'i18n is required');
+  invariant(jed, 'i18n is required');
 
   switch (error) {
     case ERROR_CORRUPT_FILE:
-      return i18n.gettext(
+      return jed.gettext(
         'Installation aborted because the add-on appears to be corrupt.',
       );
     case INSTALL_FAILED:
-      return i18n.gettext('Installation failed. Please try again.');
+      return jed.gettext('Installation failed. Please try again.');
     case DOWNLOAD_FAILED:
-      return i18n.gettext('Download failed. Please check your connection.');
+      return jed.gettext('Download failed. Please check your connection.');
     case FATAL_INSTALL_ERROR:
-      return i18n.gettext('An unexpected error occurred during installation.');
+      return jed.gettext('An unexpected error occurred during installation.');
     case FATAL_UNINSTALL_ERROR:
-      return i18n.gettext(
-        'An unexpected error occurred during uninstallation.',
-      );
+      return jed.gettext('An unexpected error occurred during uninstallation.');
     case FATAL_ERROR:
     default:
-      return i18n.gettext('An unexpected error occurred.');
+      return jed.gettext('An unexpected error occurred.');
   }
 };
 

@@ -28,7 +28,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 function reviewBody({
@@ -67,7 +67,7 @@ function reviewBody({
 }
 
 export const UserReviewBase = (props: InternalProps): React.Node => {
-  const { byLine, children, controls, i18n, isReply, review, showRating } =
+  const { byLine, children, controls, jed, isReply, review, showRating } =
     props;
 
   const showMoreCardId = review && review.id ? String(review.id) : loadingId;
@@ -96,7 +96,7 @@ export const UserReviewBase = (props: InternalProps): React.Node => {
         {review && isReply && (
           <h4 className="UserReview-reply-header">
             <Icon name="reply-arrow" />
-            {i18n.gettext('Developer response')}
+            {jed.gettext('Developer response')}
           </h4>
         )}
         {byLine}

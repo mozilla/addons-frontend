@@ -26,7 +26,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
 |};
@@ -42,7 +42,7 @@ export class ExpandableCardBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { children, className, header, id, i18n, uiState } = this.props;
+    const { children, className, header, id, jed, uiState } = this.props;
     const { expanded } = uiState;
 
     invariant(children, 'The children property is required');
@@ -55,7 +55,7 @@ export class ExpandableCardBase extends React.Component<InternalProps> {
         href="#toggle-content"
         onClick={this.onClick}
         role="switch"
-        title={i18n.gettext('Toggle contents')}
+        title={jed.gettext('Toggle contents')}
       >
         {header}
         <Icon

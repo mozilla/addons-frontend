@@ -6,7 +6,7 @@ import { getDisplayName } from 'amo/utils';
 import type { I18nType } from 'amo/types/i18n';
 
 type Context = {|
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 const translate = (): ((
@@ -14,10 +14,10 @@ const translate = (): ((
 ) => React.ComponentType<any>) => {
   return (WrappedComponent) => {
     class Translate extends React.Component<any> {
-      i18n: I18nType;
+      jed: I18nType;
 
       static contextTypes: Context = {
-        i18n: PropTypes.object,
+        jed: PropTypes.object,
       };
 
       static displayName = `Translate(${getDisplayName(WrappedComponent)})`;
@@ -25,11 +25,11 @@ const translate = (): ((
       constructor(props: Object, context: Context) {
         super(props, context);
 
-        this.i18n = context.i18n;
+        this.jed = context.jed;
       }
 
       render() {
-        return <WrappedComponent i18n={this.i18n} {...this.props} />;
+        return <WrappedComponent jed={this.jed} {...this.props} />;
       }
     }
 

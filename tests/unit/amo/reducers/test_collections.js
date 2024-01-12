@@ -1124,11 +1124,11 @@ describe(__filename, () => {
   describe('collectionName', () => {
     it('returns the collection name if it exists', () => {
       const name = 'some name';
-      expect(collectionName({ name, i18n: fakeI18n() })).toEqual(name);
+      expect(collectionName({ name, jed: fakeI18n() })).toEqual(name);
     });
 
     it('returns the expected string if name is missing', () => {
-      expect(collectionName({ name: null, i18n: fakeI18n() })).toEqual(
+      expect(collectionName({ name: null, jed: fakeI18n() })).toEqual(
         '(no name)',
       );
     });

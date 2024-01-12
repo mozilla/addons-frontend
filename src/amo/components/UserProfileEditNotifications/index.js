@@ -65,11 +65,11 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const UserProfileEditNotificationsBase = ({
-  i18n,
+  jed,
   onChange,
   user,
 }: InternalProps): React.Node => {
@@ -91,7 +91,7 @@ export const UserProfileEditNotificationsBase = ({
     notifications = user.notifications.map((notification) =>
       createNotification({
         ...notification,
-        label: getNotificationDescription(i18n, notification.name),
+        label: getNotificationDescription(jed, notification.name),
         onChange,
       }),
     );

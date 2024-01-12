@@ -180,7 +180,7 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    render({ addon, i18n: fakeI18n({ lang: 'de' }) });
+    render({ addon, jed: fakeI18n({ lang: 'de' }) });
 
     expect(screen.getByText('1.000')).toBeInTheDocument();
   });

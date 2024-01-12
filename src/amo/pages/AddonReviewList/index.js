@@ -89,7 +89,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AddonReviewListBase extends React.Component<InternalProps> {
@@ -190,12 +190,12 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   }
 
   getPageDescription(): string {
-    const { addon, i18n } = this.props;
+    const { addon, jed } = this.props;
 
     invariant(addon, 'addon is required');
 
-    return i18n.sprintf(
-      i18n.gettext(`Reviews and ratings for %(addonName)s. Find out what other
+    return jed.sprintf(
+      jed.gettext(`Reviews and ratings for %(addonName)s. Find out what other
         users think about %(addonName)s and add it to your Firefox Browser.`),
       { addonName: addon.name },
     );
@@ -220,7 +220,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   };
 
   filterByScoreSelector(): React.Node {
-    const { addon, i18n, location } = this.props;
+    const { addon, jed, location } = this.props;
 
     return (
       <Select
@@ -230,15 +230,13 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         value={location.query.score || SHOW_ALL_REVIEWS}
       >
         <option value={SHOW_ALL_REVIEWS}>
-          {i18n.gettext('Show all reviews')}
+          {jed.gettext('Show all reviews')}
         </option>
-        <option value={5}>{i18n.gettext('Show only five-star reviews')}</option>
-        <option value={4}>{i18n.gettext('Show only four-star reviews')}</option>
-        <option value={3}>
-          {i18n.gettext('Show only three-star reviews')}
-        </option>
-        <option value={2}>{i18n.gettext('Show only two-star reviews')}</option>
-        <option value={1}>{i18n.gettext('Show only one-star reviews')}</option>
+        <option value={5}>{jed.gettext('Show only five-star reviews')}</option>
+        <option value={4}>{jed.gettext('Show only four-star reviews')}</option>
+        <option value={3}>{jed.gettext('Show only three-star reviews')}</option>
+        <option value={2}>{jed.gettext('Show only two-star reviews')}</option>
+        <option value={1}>{jed.gettext('Show only one-star reviews')}</option>
       </Select>
     );
   }
@@ -247,7 +245,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     const {
       addon,
       errorHandler,
-      i18n,
+      jed,
       location,
       match: {
         params: { reviewId },
@@ -259,7 +257,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     } = this.props;
 
     const header = addon
-      ? i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
+      ? jed.sprintf(jed.gettext('Reviews for %(addonName)s'), {
           addonName: addon.name,
         })
       : '';
@@ -268,10 +266,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     if (reviewCount !== null) {
       reviewCountText =
         reviewCount > 0 &&
-        i18n.sprintf(
-          i18n.ngettext('%(total)s review', '%(total)s reviews', reviewCount),
+        jed.sprintf(
+          jed.ngettext('%(total)s review', '%(total)s reviews', reviewCount),
           {
-            total: i18n.formatNumber(reviewCount),
+            total: jed.formatNumber(reviewCount),
           },
         );
     } else {
@@ -370,7 +368,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
             ) : (
               <Card header={reviewCountHTML}>
                 <p className="AddonReviewList-noReviews">
-                  {i18n.gettext('There are no reviews')}
+                  {jed.gettext('There are no reviews')}
                 </p>
               </Card>
             )}

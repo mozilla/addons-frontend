@@ -68,7 +68,7 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   dispatch: DispatchFunc,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
@@ -224,7 +224,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
       authorIds,
       className,
       errorHandler,
-      i18n,
+      jed,
       loading,
       numberOfAddons,
       paginate,
@@ -249,63 +249,63 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     if (authorIds) {
       switch (addonType) {
         case ADDON_TYPE_DICT:
-          header = i18n.ngettext(
-            i18n.sprintf(i18n.gettext('More dictionaries by %(author)s'), {
+          header = jed.ngettext(
+            jed.sprintf(jed.gettext('More dictionaries by %(author)s'), {
               author: authorDisplayName,
             }),
-            i18n.gettext('More dictionaries by these translators'),
+            jed.gettext('More dictionaries by these translators'),
             authorIds.length,
           );
           break;
         case ADDON_TYPE_EXTENSION:
           header = showMore
-            ? i18n.ngettext(
-                i18n.sprintf(i18n.gettext('More extensions by %(author)s'), {
+            ? jed.ngettext(
+                jed.sprintf(jed.gettext('More extensions by %(author)s'), {
                   author: authorDisplayName,
                 }),
-                i18n.gettext('More extensions by these developers'),
+                jed.gettext('More extensions by these developers'),
                 authorIds.length,
               )
-            : i18n.ngettext(
-                i18n.sprintf(i18n.gettext('Extensions by %(author)s'), {
+            : jed.ngettext(
+                jed.sprintf(jed.gettext('Extensions by %(author)s'), {
                   author: authorDisplayName,
                 }),
-                i18n.gettext('Extensions by these developers'),
+                jed.gettext('Extensions by these developers'),
                 authorIds.length,
               );
           break;
         case ADDON_TYPE_LANG:
-          header = i18n.ngettext(
-            i18n.sprintf(i18n.gettext('More language packs by %(author)s'), {
+          header = jed.ngettext(
+            jed.sprintf(jed.gettext('More language packs by %(author)s'), {
               author: authorDisplayName,
             }),
-            i18n.gettext('More language packs by these translators'),
+            jed.gettext('More language packs by these translators'),
             authorIds.length,
           );
           break;
         case ADDON_TYPE_STATIC_THEME:
           header = showMore
-            ? i18n.ngettext(
-                i18n.sprintf(i18n.gettext('More themes by %(author)s'), {
+            ? jed.ngettext(
+                jed.sprintf(jed.gettext('More themes by %(author)s'), {
                   author: authorDisplayName,
                 }),
-                i18n.gettext('More themes by these artists'),
+                jed.gettext('More themes by these artists'),
                 authorIds.length,
               )
-            : i18n.ngettext(
-                i18n.sprintf(i18n.gettext('Themes by %(author)s'), {
+            : jed.ngettext(
+                jed.sprintf(jed.gettext('Themes by %(author)s'), {
                   author: authorDisplayName,
                 }),
-                i18n.gettext('Themes by these artists'),
+                jed.gettext('Themes by these artists'),
                 authorIds.length,
               );
           break;
         default:
-          header = i18n.ngettext(
-            i18n.sprintf(i18n.gettext('More add-ons by %(author)s'), {
+          header = jed.ngettext(
+            jed.sprintf(jed.gettext('More add-ons by %(author)s'), {
               author: authorDisplayName,
             }),
-            i18n.gettext('More add-ons by these developers'),
+            jed.gettext('More add-ons by these developers'),
             authorIds.length,
           );
       }

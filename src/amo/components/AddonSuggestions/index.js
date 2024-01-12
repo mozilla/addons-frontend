@@ -43,18 +43,18 @@ type Props = {|
   addon: AddonType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 const NUMBER_OF_SUGGESTIONS = 4;
 
 const getCategory = (
   addon: AddonType | null,
-  i18n: I18nType,
+  jed: I18nType,
 ): {| slug: string, collection: string, heading: string |} | null => {
   const starterPackBaseProps = {
     collection: 'b4d5649fb087446aa05add5f0258c3',
-    heading: i18n.gettext(
+    heading: jed.gettext(
       `Explore our 'Starter Pack' to get started with extensions`,
     ),
   };
@@ -66,67 +66,67 @@ const getCategory = (
     {
       slug: 'privacy-security',
       collection: 'privacy-matters',
-      heading: i18n.gettext('More powerful privacy & security extensions'),
+      heading: jed.gettext('More powerful privacy & security extensions'),
     },
     {
       slug: 'download-management',
       collection: 'download_managers',
-      heading: i18n.gettext('More incredible download managers'),
+      heading: jed.gettext('More incredible download managers'),
     },
 
     {
       slug: 'bookmarks',
       collection: 'tab_bookmark_managers',
-      heading: i18n.gettext('More fantastic tab & bookmark extensions'),
+      heading: jed.gettext('More fantastic tab & bookmark extensions'),
     },
     {
       slug: 'tabs',
       collection: 'tab_bookmark_managers',
-      heading: i18n.gettext('More fantastic tab & bookmark extensions'),
+      heading: jed.gettext('More fantastic tab & bookmark extensions'),
     },
     {
       slug: 'games-entertainment',
       collection: '22469a386e654ca487b14d789e7250',
-      heading: i18n.gettext('More great extensions for games & entertainment'),
+      heading: jed.gettext('More great extensions for games & entertainment'),
     },
     {
       slug: 'photos-music-videos',
       collection: '345d4c73b3e647a78522f385ce8ea7',
-      heading: i18n.gettext('More amazing image, photo & media extensions'),
+      heading: jed.gettext('More amazing image, photo & media extensions'),
     },
     {
       slug: 'language-support',
       collection: 'language_support',
-      heading: i18n.gettext(
+      heading: jed.gettext(
         'More powerful tools for translations, writing & grammar support',
       ),
     },
     {
       slug: 'appearance',
       collection: 'c1b874b24c184334a7e4844a2305d4',
-      heading: i18n.gettext(
+      heading: jed.gettext(
         'More amazing extensions to change the way Firefox looks',
       ),
     },
     {
       slug: 'social-communication',
       collection: 'social_media',
-      heading: i18n.gettext('More incredible social media extensions'),
+      heading: jed.gettext('More incredible social media extensions'),
     },
     {
       slug: 'search-tools',
       collection: '31c330a1d5594d06a7600288464732',
-      heading: i18n.gettext('More excellent search extensions'),
+      heading: jed.gettext('More excellent search extensions'),
     },
     {
       slug: 'feeds-news-blogging',
       collection: '9be99620f151420b91ac1fb30573d0',
-      heading: i18n.gettext('More great extensions for feeds, news & media'),
+      heading: jed.gettext('More great extensions for feeds, news & media'),
     },
     {
       slug: 'alerts-updates',
       collection: '54adf6148c9e45c28a8fa35bd03fe2',
-      heading: i18n.gettext('More great notification extensions'),
+      heading: jed.gettext('More great notification extensions'),
     },
     {
       slug: 'shopping',
@@ -135,7 +135,7 @@ const getCategory = (
     {
       slug: 'web-development',
       collection: 'webdeveloper',
-      heading: i18n.gettext('More great tools for web developers'),
+      heading: jed.gettext('More great tools for web developers'),
     },
     {
       slug: 'other',
@@ -160,21 +160,21 @@ export class AddonSuggestionsBase extends React.Component<Props> {
   };
 
   componentDidMount() {
-    const { addon, i18n, suggestions } = this.props;
+    const { addon, jed, suggestions } = this.props;
 
-    if (addon && getCategory(addon, i18n) && !suggestions) {
+    if (addon && getCategory(addon, jed) && !suggestions) {
       this.dispatchFetchSuggestions(addon);
     }
   }
 
   componentDidUpdate(prevProps: Props) {
     const { addon: oldAddon } = prevProps;
-    const { addon: newAddon, i18n } = this.props;
+    const { addon: newAddon, jed } = this.props;
 
     // Fetch suggestions when the add-on changes.
     if (
       newAddon &&
-      getCategory(newAddon, i18n) &&
+      getCategory(newAddon, jed) &&
       (!oldAddon || (oldAddon && oldAddon.guid !== newAddon.guid))
     ) {
       this.dispatchFetchSuggestions(newAddon);
@@ -182,8 +182,8 @@ export class AddonSuggestionsBase extends React.Component<Props> {
   }
 
   dispatchFetchSuggestions(addon: AddonType) {
-    const { i18n, loading } = this.props;
-    const category = getCategory(addon, i18n);
+    const { jed, loading } = this.props;
+    const category = getCategory(addon, jed);
 
     invariant(category, 'Cannot dispatch fetchSuggestions without a category');
 
@@ -221,9 +221,9 @@ export class AddonSuggestionsBase extends React.Component<Props> {
   }
 
   render(): null | React.Node {
-    const { addon, errorHandler, i18n, loading, suggestions } = this.props;
+    const { addon, errorHandler, jed, loading, suggestions } = this.props;
 
-    const category = getCategory(addon, i18n);
+    const category = getCategory(addon, jed);
 
     if (addon && addon.type !== ADDON_TYPE_EXTENSION) {
       log.debug('Not an extension, hiding the AddonSuggestions component.');
@@ -265,7 +265,7 @@ export class AddonSuggestionsBase extends React.Component<Props> {
         alwaysDisplayFooter
         className="AddonSuggestions"
         header={header}
-        footerText={i18n.gettext('See Firefox Staff Picks')}
+        footerText={jed.gettext('See Firefox Staff Picks')}
         footerLink={footerLink}
         loading={loading || !suggestions}
         onAddonClick={this.onAddonClick}
@@ -276,10 +276,10 @@ export class AddonSuggestionsBase extends React.Component<Props> {
 }
 
 const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
-  const { addon, i18n } = ownProps;
+  const { addon, jed } = ownProps;
   const { loading } = state.suggestions;
   let suggestions = null;
-  const category = getCategory(addon, i18n);
+  const category = getCategory(addon, jed);
   if (category) {
     suggestions = getSuggestionsByCollection({
       collection: category.collection,

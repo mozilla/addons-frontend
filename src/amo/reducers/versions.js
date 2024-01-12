@@ -286,13 +286,13 @@ export type VersionInfoType = {|
 |};
 
 type GetVersionInfoParams = {|
-  i18n: I18nType,
+  jed: I18nType,
   state: VersionsState,
   versionId: VersionIdType,
 |};
 
 export const getVersionInfo = ({
-  i18n,
+  jed,
   state,
   versionId,
 }: GetVersionInfoParams): VersionInfoType | null => {
@@ -302,20 +302,18 @@ export const getVersionInfo = ({
     const { file } = version;
 
     // L10n: This is application compatibility information, such as "firefox 41 and later"
-    const noMaxString = i18n.gettext(
-      '%(application)s %(minVersion)s and later',
-    );
+    const noMaxString = jed.gettext('%(application)s %(minVersion)s and later');
     // L10n: This is application compatibility information, such as "firefox 41 to 45"
-    const maxAndMinString = i18n.gettext(
+    const maxAndMinString = jed.gettext(
       '%(application)s %(minVersion)s to %(maxVersion)s',
     );
     const appInfo = Object.keys(version.compatibility)
       .map((application) => {
         const { max, min } = version.compatibility[application];
         if (max === '*') {
-          return i18n.sprintf(noMaxString, { application, minVersion: min });
+          return jed.sprintf(noMaxString, { application, minVersion: min });
         }
-        return i18n.sprintf(maxAndMinString, {
+        return jed.sprintf(maxAndMinString, {
           application,
           maxVersion: max,
           minVersion: min,
@@ -323,17 +321,17 @@ export const getVersionInfo = ({
       })
       .join(', ');
 
-    const compatibilityString = i18n.sprintf(
+    const compatibilityString = jed.sprintf(
       // eslint-disable-next-line max-len
       // L10n: This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-      i18n.gettext('Works with %(listOfApplicatonsAndVersions)s'),
+      jed.gettext('Works with %(listOfApplicatonsAndVersions)s'),
       { listOfApplicatonsAndVersions: appInfo },
     );
 
     return {
       compatibilityString,
       created: file ? file.created : null,
-      filesize: file ? formatFilesize({ i18n, size: file.size }) : null,
+      filesize: file ? formatFilesize({ jed, size: file.size }) : null,
     };
   }
 

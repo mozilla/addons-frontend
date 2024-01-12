@@ -19,7 +19,7 @@ export const CONTRIBUTE_BUTTON_CLICK_CATEGORY =
 
 type Props = {|
   addon: AddonType | null,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 type InternalProps = {|
@@ -30,7 +30,7 @@ type InternalProps = {|
 export const ContributeCardBase = ({
   _tracking = tracking,
   addon,
-  i18n,
+  jed,
 }: InternalProps): null | React.Node => {
   if (!addon || (addon && !addon.contributions_url)) {
     return null;
@@ -42,43 +42,43 @@ export const ContributeCardBase = ({
   let content;
   switch (addon.type) {
     case ADDON_TYPE_EXTENSION:
-      header = i18n.ngettext(
-        i18n.gettext('Support this developer'),
-        i18n.gettext('Support these developers'),
+      header = jed.ngettext(
+        jed.gettext('Support this developer'),
+        jed.gettext('Support these developers'),
         numberOfAuthors,
       );
-      content = i18n.ngettext(
-        i18n.gettext(`The developer of this extension asks that you help support
+      content = jed.ngettext(
+        jed.gettext(`The developer of this extension asks that you help support
           its continued development by making a small contribution.`),
-        i18n.gettext(`The developers of this extension ask that you help
+        jed.gettext(`The developers of this extension ask that you help
           support its continued development by making a small contribution.`),
         numberOfAuthors,
       );
       break;
     case ADDON_TYPE_STATIC_THEME:
-      header = i18n.ngettext(
-        i18n.gettext('Support this artist'),
-        i18n.gettext('Support these artists'),
+      header = jed.ngettext(
+        jed.gettext('Support this artist'),
+        jed.gettext('Support these artists'),
         numberOfAuthors,
       );
-      content = i18n.ngettext(
-        i18n.gettext(`The artist of this theme asks that you help support
+      content = jed.ngettext(
+        jed.gettext(`The artist of this theme asks that you help support
           its continued creation by making a small contribution.`),
-        i18n.gettext(`The artists of this theme ask that you help support
+        jed.gettext(`The artists of this theme ask that you help support
           its continued creation by making a small contribution.`),
         numberOfAuthors,
       );
       break;
     default:
-      header = i18n.ngettext(
-        i18n.gettext('Support this author'),
-        i18n.gettext('Support these authors'),
+      header = jed.ngettext(
+        jed.gettext('Support this author'),
+        jed.gettext('Support these authors'),
         numberOfAuthors,
       );
-      content = i18n.ngettext(
-        i18n.gettext(`The author of this add-on asks that you help support
+      content = jed.ngettext(
+        jed.gettext(`The author of this add-on asks that you help support
           its continued work by making a small contribution.`),
-        i18n.gettext(`The authors of this add-on ask that you help support
+        jed.gettext(`The authors of this add-on ask that you help support
           its continued work by making a small contribution.`),
         numberOfAuthors,
       );
@@ -109,7 +109,7 @@ export const ContributeCardBase = ({
           puffy
         >
           <Icon name="heart" />
-          {i18n.gettext('Contribute now')}
+          {jed.gettext('Contribute now')}
         </Button>
       </p>
     </Card>

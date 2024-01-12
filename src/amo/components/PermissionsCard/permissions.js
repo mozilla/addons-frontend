@@ -13,53 +13,53 @@ export type GetCurrentPermissionsParams = {|
 
 /* eslint-disable no-continue */
 export class PermissionUtils {
-  i18n: I18nType;
+  jed: I18nType;
 
   permissionStrings: Object;
 
-  constructor(i18n: I18nType) {
-    this.i18n = i18n;
+  constructor(jed: I18nType) {
+    this.jed = jed;
     // These should be kept in sync with Firefox's strings for webextension permissions
     // which can be found in
     // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
     this.permissionStrings = {
-      bookmarks: i18n.gettext('Read and modify bookmarks'),
-      browserSettings: i18n.gettext('Read and modify browser settings'),
-      browsingData: i18n.gettext(
+      bookmarks: jed.gettext('Read and modify bookmarks'),
+      browserSettings: jed.gettext('Read and modify browser settings'),
+      browsingData: jed.gettext(
         'Clear recent browsing history, cookies, and related data',
       ),
-      clipboardRead: i18n.gettext('Get data from the clipboard'),
-      clipboardWrite: i18n.gettext('Input data to the clipboard'),
-      declarativeNetRequest: i18n.gettext('Block content on any page'),
-      declarativeNetRequestFeedback: i18n.gettext('Read your browsing history'),
-      devtools: i18n.gettext(
+      clipboardRead: jed.gettext('Get data from the clipboard'),
+      clipboardWrite: jed.gettext('Input data to the clipboard'),
+      declarativeNetRequest: jed.gettext('Block content on any page'),
+      declarativeNetRequestFeedback: jed.gettext('Read your browsing history'),
+      devtools: jed.gettext(
         'Extend developer tools to access your data in open tabs',
       ),
-      downloads: i18n.gettext(
+      downloads: jed.gettext(
         'Download files and read and modify the browser’s download history',
       ),
-      'downloads.open': i18n.gettext('Open files downloaded to your computer'),
-      find: i18n.gettext('Read the text of all open tabs'),
-      geolocation: i18n.gettext('Access your location'),
-      history: i18n.gettext('Access browsing history'),
-      management: i18n.gettext('Monitor extension usage and manage themes'),
+      'downloads.open': jed.gettext('Open files downloaded to your computer'),
+      find: jed.gettext('Read the text of all open tabs'),
+      geolocation: jed.gettext('Access your location'),
+      history: jed.gettext('Access browsing history'),
+      management: jed.gettext('Monitor extension usage and manage themes'),
       // In Firefox the following message replaces the name "Firefox" with the
       // current brand name, e.g., "Nightly", but we do not need to do that.
-      nativeMessaging: i18n.gettext(
+      nativeMessaging: jed.gettext(
         'Exchange messages with programs other than Firefox',
       ),
-      notifications: i18n.gettext('Display notifications to you'),
-      pkcs11: i18n.gettext('Provide cryptographic authentication services'),
-      proxy: i18n.gettext('Control browser proxy settings'),
-      privacy: i18n.gettext('Read and modify privacy settings'),
-      sessions: i18n.gettext('Access recently closed tabs'),
-      tabs: i18n.gettext('Access browser tabs'),
-      tabHide: i18n.gettext('Hide and show browser tabs'),
-      topSites: i18n.gettext('Access browsing history'),
-      unlimitedStorage: i18n.gettext(
+      notifications: jed.gettext('Display notifications to you'),
+      pkcs11: jed.gettext('Provide cryptographic authentication services'),
+      proxy: jed.gettext('Control browser proxy settings'),
+      privacy: jed.gettext('Read and modify privacy settings'),
+      sessions: jed.gettext('Access recently closed tabs'),
+      tabs: jed.gettext('Access browser tabs'),
+      tabHide: jed.gettext('Hide and show browser tabs'),
+      topSites: jed.gettext('Access browsing history'),
+      unlimitedStorage: jed.gettext(
         'Store unlimited amount of client-side data',
       ),
-      webNavigation: i18n.gettext('Access browser activity during navigation'),
+      webNavigation: jed.gettext('Access browser activity during navigation'),
     };
   }
 

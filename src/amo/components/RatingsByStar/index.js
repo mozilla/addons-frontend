@@ -22,7 +22,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
@@ -51,7 +51,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { addon, i18n, location } = this.props;
+    const { addon, jed, location } = this.props;
     const loading = !addon;
 
     const getLinkTitles = (rating, total) => {
@@ -59,81 +59,81 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
         /* eslint-disable quote-props */
         case '5':
           if (total && total > 0) {
-            return i18n.sprintf(
-              i18n.ngettext(
+            return jed.sprintf(
+              jed.ngettext(
                 'Read the 1 five-star review',
                 'Read all %(total)s five-star reviews',
                 total,
               ),
               {
-                total: i18n.formatNumber(total || 0),
+                total: jed.formatNumber(total || 0),
               },
             );
           }
-          return i18n.gettext('There are no five-star reviews');
+          return jed.gettext('There are no five-star reviews');
 
         case '4':
           if (total && total > 0) {
-            return i18n.sprintf(
-              i18n.ngettext(
+            return jed.sprintf(
+              jed.ngettext(
                 'Read the 1 four-star review',
                 'Read all %(total)s four-star reviews',
                 total,
               ),
               {
-                total: i18n.formatNumber(total || 0),
+                total: jed.formatNumber(total || 0),
               },
             );
           }
-          return i18n.gettext('There are no four-star reviews');
+          return jed.gettext('There are no four-star reviews');
 
         case '3':
           if (total && total > 0) {
-            return i18n.sprintf(
-              i18n.ngettext(
+            return jed.sprintf(
+              jed.ngettext(
                 'Read the 1 three-star review',
                 'Read all %(total)s three-star reviews',
                 total,
               ),
               {
-                total: i18n.formatNumber(total || 0),
+                total: jed.formatNumber(total || 0),
               },
             );
           }
-          return i18n.gettext('There are no three-star reviews');
+          return jed.gettext('There are no three-star reviews');
 
         case '2':
           if (total && total > 0) {
-            return i18n.sprintf(
-              i18n.ngettext(
+            return jed.sprintf(
+              jed.ngettext(
                 'Read the 1 two-star review',
                 'Read all %(total)s two-star reviews',
                 total,
               ),
               {
-                total: i18n.formatNumber(total || 0),
+                total: jed.formatNumber(total || 0),
               },
             );
           }
-          return i18n.gettext('There are no two-star reviews');
+          return jed.gettext('There are no two-star reviews');
 
         case '1':
           if (total && total > 0) {
-            return i18n.sprintf(
-              i18n.ngettext(
+            return jed.sprintf(
+              jed.ngettext(
                 'Read the 1 one-star review',
                 'Read all %(total)s one-star reviews',
                 total,
               ),
               {
-                total: i18n.formatNumber(total || 0),
+                total: jed.formatNumber(total || 0),
               },
             );
           }
-          return i18n.gettext('There are no one-star reviews');
+          return jed.gettext('There are no one-star reviews');
 
         default:
-          return i18n.gettext('There are no reviews');
+          return jed.gettext('There are no reviews');
         /* eslint-enable quote-props */
       }
     };
@@ -187,7 +187,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
             const ratingsByStarRow = (
               <>
                 <div className="RatingsByStar-star">
-                  {i18n.formatNumber(star)}
+                  {jed.formatNumber(star)}
                   <Icon name="star-yellow" />
                 </div>
 
@@ -200,7 +200,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                 </div>
 
                 <div className="RatingsByStar-count">
-                  {i18n.formatNumber(starCount || 0)}
+                  {jed.formatNumber(starCount || 0)}
                 </div>
               </>
             );

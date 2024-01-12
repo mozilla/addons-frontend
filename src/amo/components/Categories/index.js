@@ -47,7 +47,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class CategoriesBase extends React.Component<InternalProps> {
@@ -81,7 +81,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
       categoriesState,
       className,
       errorHandler,
-      i18n,
+      jed,
       loading,
     } = this.props;
     invariant(addonType, 'addonType is undefined');
@@ -96,19 +96,19 @@ export class CategoriesBase extends React.Component<InternalProps> {
       return (
         <Card className={classNameProp}>
           <p className="Categories-none-loaded-message">
-            {i18n.gettext('No categories found.')}
+            {jed.gettext('No categories found.')}
           </p>
         </Card>
       );
     }
 
     return (
-      <Card className={classNameProp} header={i18n.gettext('Categories')}>
+      <Card className={classNameProp} header={jed.gettext('Categories')}>
         {errorHandler.renderErrorIfPresent()}
         {loading ? (
           <div className="Categories-loading">
             <span className="Categories-loading-info visually-hidden">
-              {i18n.gettext('Loading categories.')}
+              {jed.gettext('Loading categories.')}
             </span>
             {Array(8)
               .fill(0)

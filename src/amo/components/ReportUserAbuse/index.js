@@ -26,12 +26,12 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   dispatch: DispatchFunc,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class ReportUserAbuseBase extends React.Component<InternalProps> {
   render(): React.Node {
-    const { className, hasSubmitted, i18n, user } = this.props;
+    const { className, hasSubmitted, jed, user } = this.props;
 
     let reportButtonProps: Object = {};
     if (user) {
@@ -45,11 +45,11 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
         {hasSubmitted ? (
           <div className="ReportUserAbuse--report-sent">
             <h3 className="ReportUserAbuse-header">
-              {i18n.gettext('You reported this user')}
+              {jed.gettext('You reported this user')}
             </h3>
 
             <p>
-              {i18n.gettext(`We have received your report. Thanks for letting
+              {jed.gettext(`We have received your report. Thanks for letting
                 us know about your concerns with this user.`)}
             </p>
           </div>
@@ -61,7 +61,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
             puffy
             {...reportButtonProps}
           >
-            {i18n.gettext('Report this user')}
+            {jed.gettext('Report this user')}
           </Button>
         )}
       </div>

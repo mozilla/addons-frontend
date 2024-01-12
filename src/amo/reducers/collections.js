@@ -1014,12 +1014,12 @@ export const collectionEditUrl = ({
 };
 
 export const collectionName = ({
-  i18n,
+  jed,
   name,
 }: {|
-  i18n: I18nType,
+  jed: I18nType,
   name?: string,
-|}): string => name || i18n.gettext('(no name)');
+|}): string => name || jed.gettext('(no name)');
 
 type Action =
   | AbortFetchCurrentCollection

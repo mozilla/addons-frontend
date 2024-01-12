@@ -79,13 +79,13 @@ describe(__filename, () => {
     });
 
     it('localizes the user count', () => {
-      const i18n = fakeI18n({ lang: 'de' });
+      const jed = fakeI18n({ lang: 'de' });
       render({
         addon: createInternalAddonWithLang({
           ...fakeAddon,
           average_daily_users: 1000,
         }),
-        i18n,
+        jed,
       });
 
       const overallRating = screen.getByClassName('AddonMeta-overallRating');
@@ -168,8 +168,8 @@ describe(__filename, () => {
     });
 
     it('localizes review count', () => {
-      const i18n = fakeI18n({ lang: 'de' });
-      renderWithRatings({ count: 1000 }, { i18n });
+      const jed = fakeI18n({ lang: 'de' });
+      renderWithRatings({ count: 1000 }, { jed });
 
       expect(screen.getByRole('link', { name: '1.000' })).toBeInTheDocument();
     });

@@ -59,7 +59,7 @@ type InternalProps = {|
   ...Props,
   _createLocalState: typeof createLocalState,
   _debounce: typeof debounce,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 /*
@@ -176,7 +176,7 @@ export class DismissibleTextFormBase extends React.Component<
       className,
       dismissButtonText,
       formFooter,
-      i18n,
+      jed,
       isSubmitting,
       microButtons,
       onDelete,
@@ -196,10 +196,10 @@ export class DismissibleTextFormBase extends React.Component<
     const deleteButtonIsDisabled = !this.state.text.trim();
 
     const text = {
-      placeholder: placeholder || i18n.gettext('Enter text.'),
-      submitButtonText: submitButtonText || i18n.gettext('Submit'),
+      placeholder: placeholder || jed.gettext('Enter text.'),
+      submitButtonText: submitButtonText || jed.gettext('Submit'),
       submitButtonInProgressText:
-        submitButtonInProgressText || i18n.gettext('Submitting'),
+        submitButtonInProgressText || jed.gettext('Submitting'),
     };
 
     invariant(
@@ -218,7 +218,7 @@ export class DismissibleTextFormBase extends React.Component<
         puffy={puffyButtons}
         type="cancel"
       >
-        {dismissButtonText || i18n.gettext('Cancel')}
+        {dismissButtonText || jed.gettext('Cancel')}
       </Button>
     ) : null;
 
@@ -233,7 +233,7 @@ export class DismissibleTextFormBase extends React.Component<
         puffy={puffyButtons}
         type="button"
       >
-        {i18n.gettext('Delete')}
+        {jed.gettext('Delete')}
       </Button>
     ) : null;
 

@@ -39,7 +39,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class FlagReviewMenuBase extends React.Component<InternalProps> {
@@ -48,14 +48,8 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const {
-      i18n,
-      isDeveloperReply,
-      openerClass,
-      review,
-      siteUser,
-      wasFlagged,
-    } = this.props;
+    const { jed, isDeveloperReply, openerClass, review, siteUser, wasFlagged } =
+      this.props;
 
     invariant(
       !siteUser || siteUser.id !== review.userId,
@@ -67,10 +61,10 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
         <FlagReview
           reason={REVIEW_FLAG_REASON_SPAM}
           review={review}
-          buttonText={i18n.gettext('Spam')}
-          wasFlaggedText={i18n.gettext('Flagged as spam')}
+          buttonText={jed.gettext('Spam')}
+          wasFlaggedText={jed.gettext('Flagged as spam')}
           disabled={!siteUser}
-          disabledTitle={i18n.gettext('Login required')}
+          disabledTitle={jed.gettext('Login required')}
         />
       </ListItem>,
       // Only reviews (not developer responses) can be flagged as
@@ -83,12 +77,12 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
           <FlagReview
             reason={REVIEW_FLAG_REASON_BUG_SUPPORT}
             review={review}
-            buttonText={i18n.gettext('Misplaced bug report or support request')}
-            wasFlaggedText={i18n.gettext(
+            buttonText={jed.gettext('Misplaced bug report or support request')}
+            wasFlaggedText={jed.gettext(
               `Flagged as misplaced bug report or support request`,
             )}
             disabled={!siteUser}
-            disabledTitle={i18n.gettext('Login required')}
+            disabledTitle={jed.gettext('Login required')}
           />
         </ListItem>
       ),
@@ -97,7 +91,7 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
         key="flag-language"
       >
         <Link to={`/feedback/review/${review.id}/`}>
-          {i18n.gettext(`Content that is illegal or that violates AMO's content
+          {jed.gettext(`Content that is illegal or that violates AMO's content
             policies`)}
         </Link>
       </ListItem>,
@@ -109,11 +103,11 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
         idPrefix="flag-review-"
         items={items}
         openerClass={openerClass}
-        openerText={wasFlagged ? i18n.gettext('Flagged') : i18n.gettext('Flag')}
+        openerText={wasFlagged ? jed.gettext('Flagged') : jed.gettext('Flag')}
         openerTitle={
           isDeveloperReply
-            ? i18n.gettext('Flag this developer response')
-            : i18n.gettext('Flag this review')
+            ? jed.gettext('Flag this developer response')
+            : jed.gettext('Flag this review')
         }
       />
     );

@@ -30,14 +30,14 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
 export const AddonSummaryCardBase = ({
   addon,
   headerText,
-  i18n,
+  jed,
   location,
 }: InternalProps): React.Node => {
   const queryParamsForAttribution = getQueryParametersForAttribution(location);
@@ -49,7 +49,7 @@ export const AddonSummaryCardBase = ({
     <img
       className="AddonSummaryCard-header-icon-image"
       src={iconUrl}
-      alt={i18n.gettext('Add-on icon')}
+      alt={jed.gettext('Add-on icon')}
     />
   );
 
@@ -72,15 +72,15 @@ export const AddonSummaryCardBase = ({
   let addonAverage;
   if (addon && addon.ratings) {
     const roundedAverage = roundToOneDigit(addon.ratings.average);
-    addonAverage = i18n.sprintf(
+    addonAverage = jed.sprintf(
       // eslint-disable-next-line max-len
       // L10n: roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-      i18n.ngettext(
+      jed.ngettext(
         '%(rating)s Star out of 5',
         '%(rating)s Stars out of 5',
         roundedAverage,
       ),
-      { rating: i18n.formatNumber(roundedAverage) },
+      { rating: jed.formatNumber(roundedAverage) },
     );
   }
 

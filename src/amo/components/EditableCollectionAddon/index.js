@@ -41,7 +41,7 @@ const initialUIState: UIStateType = { editingNote: false };
 type InternalProps = {|
   ...Props,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
 |};
@@ -98,7 +98,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
   };
 
   render(): React.Node {
-    const { addon, errorHandler, i18n } = this.props;
+    const { addon, errorHandler, jed } = this.props;
     const showNotes = addon.notes || this.props.uiState.editingNote;
     const iconURL = getAddonIconUrl(addon);
 
@@ -129,7 +129,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
               micro
               onClick={this.onEditNote}
             >
-              {i18n.gettext('Leave a note')}
+              {jed.gettext('Leave a note')}
             </Button>
           </div>
           <Button
@@ -139,7 +139,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
             name={addon.id}
             onClick={this.onRemoveAddon}
           >
-            {i18n.gettext('Remove')}
+            {jed.gettext('Remove')}
           </Button>
         </div>
         {showNotes && (
@@ -147,8 +147,8 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
             <h4 className="EditableCollectionAddon-notes-header">
               <Icon name="comments-blue" />
               {this.props.uiState.editingNote
-                ? i18n.gettext('Leave a note')
-                : i18n.gettext("Collector's note")}
+                ? jed.gettext('Leave a note')
+                : jed.gettext("Collector's note")}
             </h4>
 
             {this.props.uiState.editingNote ? (
@@ -163,8 +163,8 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
                   onDelete={addon.notes ? this.onDeleteNote : null}
                   onDismiss={this.onDismissNoteForm}
                   onSubmit={this.onSaveNote}
-                  placeholder={i18n.gettext('Add a comment about this add-on.')}
-                  submitButtonText={i18n.gettext('Save')}
+                  placeholder={jed.gettext('Add a comment about this add-on.')}
+                  submitButtonText={jed.gettext('Save')}
                   text={sanitizeHTML(addon.notes || '').__html}
                 />
               </>
@@ -185,7 +185,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
                     micro
                     onClick={this.onEditNote}
                   >
-                    {i18n.gettext('Edit')}
+                    {jed.gettext('Edit')}
                   </Button>
                 </div>
               </div>

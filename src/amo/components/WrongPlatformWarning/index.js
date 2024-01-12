@@ -47,7 +47,7 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   ...DefaultProps,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
@@ -67,7 +67,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
       addon,
       className,
       clientApp,
-      i18n,
+      jed,
       isHomePage,
       lang,
       location,
@@ -86,7 +86,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
 
     if (_isFirefoxForIOS(userAgentInfo)) {
       // Firefox for iOS.
-      message = i18n.gettext(`Add-ons are not compatible with Firefox for iOS.
+      message = jed.gettext(`Add-ons are not compatible with Firefox for iOS.
         Try installing them on Firefox for desktop.`);
     } else if (
       _isFirefoxForAndroid(userAgentInfo) &&
@@ -97,7 +97,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
     } else if (newLocation === getMobileHomepageLink(lang)) {
       // Redirecting to mobile home page.
       message = replaceStringsWithJSX({
-        text: i18n.gettext(`To find extensions compatible with Firefox for
+        text: jed.gettext(`To find extensions compatible with Firefox for
           Android, %(linkStart)sclick here%(linkEnd)s.`),
         replacements: [
           [
@@ -118,7 +118,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
     } else if (addon && newLocation) {
       // User with desktop browser looking at detail page on mobile site.
       message = replaceStringsWithJSX({
-        text: i18n.gettext(`This listing is not intended for this platform.
+        text: jed.gettext(`This listing is not intended for this platform.
           %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s.`),
         replacements: [
           [
@@ -145,7 +145,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
 
       // Redirecting to new page on the desktop site.
       message = replaceStringsWithJSX({
-        text: i18n.gettext(`To use Android extensions, you'll need
+        text: jed.gettext(`To use Android extensions, you'll need
           %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To
           explore Firefox for desktop add-ons, please %(linkStart)svisit our
           desktop site%(linkEnd)s.`),

@@ -47,7 +47,7 @@ export class LandingPageBase extends React.Component {
     highlyRatedAddons: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
     trendingAddons: PropTypes.array.isRequired,
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
     match: PropTypes.shape({
       params: PropTypes.shape({
         visibleAddonType: PropTypes.string.isRequired,
@@ -114,12 +114,12 @@ export class LandingPageBase extends React.Component {
   }
 
   contentForType = (visibleAddonType) => {
-    const { i18n } = this.props;
+    const { jed } = this.props;
     const addonType = apiAddonType(visibleAddonType);
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
-        recommendedHeader: i18n.gettext('Recommended extensions'),
+        recommendedHeader: jed.gettext('Recommended extensions'),
         recommendedFooterLink: {
           pathname: '/search/',
           query: {
@@ -128,8 +128,8 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_RANDOM,
           },
         },
-        recommendedFooterText: i18n.gettext('See more recommended extensions'),
-        trendingHeader: i18n.gettext('Trending extensions'),
+        recommendedFooterText: jed.gettext('See more recommended extensions'),
+        trendingHeader: jed.gettext('Trending extensions'),
         trendingFooterLink: {
           pathname: '/search/',
           query: {
@@ -138,8 +138,8 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_TRENDING,
           },
         },
-        trendingFooterText: i18n.gettext('See more trending extensions'),
-        highlyRatedHeader: i18n.gettext('Top rated extensions'),
+        trendingFooterText: jed.gettext('See more trending extensions'),
+        highlyRatedHeader: jed.gettext('Top rated extensions'),
         highlyRatedFooterLink: {
           pathname: '/search/',
           query: {
@@ -148,10 +148,10 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
-        highlyRatedFooterText: i18n.gettext('See more top rated extensions'),
+        highlyRatedFooterText: jed.gettext('See more top rated extensions'),
       },
       [ADDON_TYPE_STATIC_THEME]: {
-        recommendedHeader: i18n.gettext('Recommended themes'),
+        recommendedHeader: jed.gettext('Recommended themes'),
         recommendedFooterLink: {
           pathname: '/search/',
           query: {
@@ -160,8 +160,8 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_RANDOM,
           },
         },
-        recommendedFooterText: i18n.gettext('See more recommended themes'),
-        trendingHeader: i18n.gettext('Trending themes'),
+        recommendedFooterText: jed.gettext('See more recommended themes'),
+        trendingHeader: jed.gettext('Trending themes'),
         trendingFooterLink: {
           pathname: '/search/',
           query: {
@@ -169,8 +169,8 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_TRENDING,
           },
         },
-        trendingFooterText: i18n.gettext('See more trending themes'),
-        highlyRatedHeader: i18n.gettext('Top rated themes'),
+        trendingFooterText: jed.gettext('See more trending themes'),
+        highlyRatedHeader: jed.gettext('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
           query: {
@@ -178,7 +178,7 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
-        highlyRatedFooterText: i18n.gettext('See more top rated themes'),
+        highlyRatedFooterText: jed.gettext('See more top rated themes'),
       },
     };
 
@@ -195,19 +195,19 @@ export class LandingPageBase extends React.Component {
 
   getPageDescription() {
     const {
-      i18n,
+      jed,
       match: { params },
     } = this.props;
 
     const addonType = apiAddonType(params.visibleAddonType);
 
     if (addonType === ADDON_TYPE_STATIC_THEME) {
-      return i18n.gettext(`Download themes to change how Firefox looks. Tailor
+      return jed.gettext(`Download themes to change how Firefox looks. Tailor
         your experience to your tastes. Cute critters, evil robots, beautiful
         landscapes—thousands of options.`);
     }
 
-    return i18n.gettext(`Download Firefox Extensions to add features that
+    return jed.gettext(`Download Firefox Extensions to add features that
       customize browsing. Protect passwords, find deals, enhance video, and
       block annoying ads with browser apps.`);
   }
@@ -217,7 +217,7 @@ export class LandingPageBase extends React.Component {
       errorHandler,
       recommendedAddons,
       highlyRatedAddons,
-      i18n,
+      jed,
       loading,
       trendingAddons,
     } = this.props;
@@ -225,13 +225,13 @@ export class LandingPageBase extends React.Component {
     const { visibleAddonType } = this.props.match.params;
     const { addonType, html } = this.contentForType(visibleAddonType);
     const headingText = {
-      [ADDON_TYPE_STATIC_THEME]: i18n.gettext('Themes'),
-      [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
+      [ADDON_TYPE_STATIC_THEME]: jed.gettext('Themes'),
+      [ADDON_TYPE_EXTENSION]: jed.gettext('Extensions'),
     };
     const contentText = {
-      [ADDON_TYPE_STATIC_THEME]: i18n.gettext(`Change your browser's appearance.
+      [ADDON_TYPE_STATIC_THEME]: jed.gettext(`Change your browser's appearance.
         Choose from thousands of themes to give Firefox the look you want.`),
-      [ADDON_TYPE_EXTENSION]: i18n.gettext(`Explore powerful tools and features
+      [ADDON_TYPE_EXTENSION]: jed.gettext(`Explore powerful tools and features
         to customize Firefox and make the browser all your own.`),
     };
 
@@ -271,7 +271,7 @@ export class LandingPageBase extends React.Component {
             className="LandingPage-button"
             to={`/${getVisibleAddonType(addonType)}/categories/`}
           >
-            {i18n.gettext('Explore all categories')}
+            {jed.gettext('Explore all categories')}
           </Button>
 
           {this.renderIfNotEmpty(

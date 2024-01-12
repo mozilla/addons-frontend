@@ -347,14 +347,14 @@ function baseServer(
         );
       }
 
-      const i18n = makeI18n(i18nData, htmlLang);
+      const jed = makeI18n(i18nData, htmlLang);
 
       const props = {
         component: (
           <Root
             cookies={req.universalCookies}
             history={connectedHistory}
-            i18n={i18n}
+            jed={jed}
             store={store}
           >
             <App />

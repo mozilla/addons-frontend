@@ -60,7 +60,7 @@ type InternalProps = {|
   ...DefaultProps,
   ...PropsFromState,
   cookies: typeof Cookies,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
   match: {|
     ...ReactRouterMatchType,
@@ -169,14 +169,14 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
   }
 
   render(): null | React.Node {
-    const { addonIdentifier, i18n } = this.props;
+    const { addonIdentifier, jed } = this.props;
 
     if (!this.shouldShowBanner()) {
       return null;
     }
 
-    const headline = i18n.gettext('Save 50% with a full year subscription');
-    const copy = i18n.gettext(
+    const headline = jed.gettext('Save 50% with a full year subscription');
+    const copy = jed.gettext(
       `Protect your online data—and choose a VPN subscription plan that works
        for you.`,
     );
@@ -203,7 +203,7 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
             href={ctaURL}
             onClick={this.onButtonClick}
           >
-            {i18n.gettext('Get Mozilla VPN')}
+            {jed.gettext('Get Mozilla VPN')}
           </a>
           <Button
             className="VPNPromoBanner-dismisser-button"

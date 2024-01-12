@@ -244,7 +244,7 @@ function oneLineTranslationString(translationKey) {
 type FormatFilesizeParams = {|
   _filesize?: typeof filesize,
   _log?: typeof log,
-  i18n: I18nType,
+  jed: I18nType,
   size: number,
 |};
 
@@ -252,7 +252,7 @@ type FormatFilesizeParams = {|
 export const formatFilesize = ({
   _filesize = filesize,
   _log = log,
-  i18n,
+  jed,
   size,
 }: FormatFilesizeParams): string | null => {
   const sizeStrings = {
@@ -260,15 +260,15 @@ export const formatFilesize = ({
     // filesize. Realistically we shouldn't get anything back larger than TB.
     /* eslint-disable max-len */
     // L10n: B is an abbreviation of Bytes in English. Localize it if necessary but use a short abbreviation.
-    B: i18n.gettext('%(localizedSize)s B'),
+    B: jed.gettext('%(localizedSize)s B'),
     // L10n: KB is an abbreviation of Kilobytes in English. Localize it if necessary but use a short abbreviation.
-    KB: i18n.gettext('%(localizedSize)s KB'),
+    KB: jed.gettext('%(localizedSize)s KB'),
     // L10n: MB is an abbreviation of Megabytes in English. Localize it if necessary but use a short abbreviation.
-    MB: i18n.gettext('%(localizedSize)s MB'),
+    MB: jed.gettext('%(localizedSize)s MB'),
     // L10n: GB is an abbreviation of Gigabytes in English. Localize it if necessary but use a short abbreviation.
-    GB: i18n.gettext('%(localizedSize)s GB'),
+    GB: jed.gettext('%(localizedSize)s GB'),
     // L10n: TB is an abbreviation of Terabytes in English. Localize it if necessary but use a short abbreviation.
-    TB: i18n.gettext('%(localizedSize)s TB'),
+    TB: jed.gettext('%(localizedSize)s TB'),
     /* eslint-enable max-len */
   };
 
@@ -280,17 +280,17 @@ export const formatFilesize = ({
     _log.error(
       `Filesize returned sizeNumber: "${sizeNumber}", sizeName: "${sizeName}" size "${size}"`,
     );
-    return i18n.formatNumber(size);
+    return jed.formatNumber(size);
   }
 
-  const localizedSize = i18n.formatNumber(sizeNumber);
+  const localizedSize = jed.formatNumber(sizeNumber);
   const sizeString = sizeStrings[sizeName];
   if (!sizeString) {
     _log.error(`Filesize returned unrecognized unit: ${sizeName}`);
     return localizedSize;
   }
 
-  return i18n.sprintf(sizeString, { localizedSize });
+  return jed.sprintf(sizeString, { localizedSize });
 };
 
 type I18nConfig = {|
@@ -330,8 +330,8 @@ export function makeI18n(
     _Intl = typeof Intl !== 'undefined' ? Intl : undefined,
   }: makeI18nOptions = {},
 ): typeof Jed {
-  const i18n = new _Jed(i18nData);
-  i18n.lang = lang;
+  const jed = new _Jed(i18nData);
+  jed.lang = lang;
 
   // TODO: move all of this to an I18n class that extends Jed so that we
   // can type-check all the components that rely on the i18n object.
@@ -342,14 +342,14 @@ export function makeI18n(
     Object.prototype.hasOwnProperty.call(_Intl, 'NumberFormat')
   ) {
     log.debug('Intl.NumberFormat exists');
-    i18n.numberFormat = new _Intl.NumberFormat(lang);
+    jed.numberFormat = new _Intl.NumberFormat(lang);
   } else {
     log.debug('Intl.NumberFormat does NOT exist');
   }
 
-  i18n.formatNumber = (number) => {
-    if (typeof i18n.numberFormat !== 'undefined') {
-      return i18n.numberFormat.format(number);
+  jed.formatNumber = (number) => {
+    if (typeof jed.numberFormat !== 'undefined') {
+      return jed.numberFormat.format(number);
     }
     // Intl is not yet supported on FF Android though it is expected to land in 54
     // See https://bugzilla.mozilla.org/show_bug.cgi?id=1215247
@@ -358,22 +358,22 @@ export function makeI18n(
 
   // This adds the correct moment locale for the active locale so we can get
   // localised dates, times, etc.
-  if (i18n.options && typeof i18n.options._momentDefineLocale === 'function') {
-    i18n.options._momentDefineLocale();
+  if (jed.options && typeof jed.options._momentDefineLocale === 'function') {
+    jed.options._momentDefineLocale();
   }
 
   // Wrap the core Jed functionality so that we can always strip leading
   // whitespace from translation keys to match the same process used in
   // extraction.
-  i18n._dcnpgettext = i18n.dcnpgettext;
-  i18n.dcnpgettext = function dcnpgettext(
+  jed._dcnpgettext = jed.dcnpgettext;
+  jed.dcnpgettext = function dcnpgettext(
     domain,
     context,
     singularKey,
     pluralKey,
     val,
   ) {
-    return i18n._dcnpgettext(
+    return jed._dcnpgettext(
       domain,
       context,
       oneLineTranslationString(singularKey),
@@ -382,11 +382,11 @@ export function makeI18n(
     );
   };
 
-  const momentLocale = makeMomentLocale(i18n.lang);
+  const momentLocale = makeMomentLocale(jed.lang);
 
   // We add a translated "moment" property to our `i18n` object to make
   // translated date/time/etc. easy.
-  i18n.moment = (...params) => {
+  jed.moment = (...params) => {
     const scopedMoment = moment(...params);
 
     // This also makes sure moment always uses the current locale.
@@ -395,7 +395,7 @@ export function makeI18n(
     return scopedMoment;
   };
 
-  return i18n;
+  return jed;
 }
 
 const getReplacementKey = (start: string, end: string): string => {

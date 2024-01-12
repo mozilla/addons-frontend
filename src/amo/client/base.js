@@ -89,12 +89,12 @@ export default async function createClient(
     log.info(oneLine`Locale not found or required for locale: "${locale}".
       Falling back to default lang: "${_config.get('defaultLang')}"`);
   }
-  const i18n = makeI18n(i18nData, lang);
+  const jed = makeI18n(i18nData, lang);
 
   const renderApp = (App) => {
     const root = createRoot(document.getElementById('react-view'));
     root.render(
-      <Root history={connectedHistory} i18n={i18n} store={store}>
+      <Root history={connectedHistory} jed={jed} store={store}>
         <App />
       </Root>,
     );

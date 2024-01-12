@@ -59,7 +59,7 @@ type Props = {|
   ...PropsFromState,
   ...DefaultProps,
   handleGlobalEvent: () => void,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
   setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
@@ -112,30 +112,30 @@ export class AppBase extends React.Component<Props> {
   }
 
   render(): React.Node {
-    const { clientApp, i18n, lang } = this.props;
+    const { clientApp, jed, lang } = this.props;
 
     const i18nValues = {
       locale: lang,
     };
 
-    let defaultTitle = i18n.sprintf(
-      i18n.gettext('Add-ons for Firefox (%(locale)s)'),
+    let defaultTitle = jed.sprintf(
+      jed.gettext('Add-ons for Firefox (%(locale)s)'),
       i18nValues,
     );
-    let titleTemplate = i18n.sprintf(
-      i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)'),
+    let titleTemplate = jed.sprintf(
+      jed.gettext('%(title)s – Add-ons for Firefox (%(locale)s)'),
       // We inject `%s` as a named argument to avoid localizer mistakes. Helmet
       // will replace `%s` by the title supplied in other pages.
       { ...i18nValues, title: '%s' },
     );
 
     if (clientApp === CLIENT_APP_ANDROID) {
-      defaultTitle = i18n.sprintf(
-        i18n.gettext('Add-ons for Firefox Android (%(locale)s)'),
+      defaultTitle = jed.sprintf(
+        jed.gettext('Add-ons for Firefox Android (%(locale)s)'),
         i18nValues,
       );
-      titleTemplate = i18n.sprintf(
-        i18n.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)'),
+      titleTemplate = jed.sprintf(
+        jed.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)'),
         // We inject `%s` as a named argument to avoid localizer mistakes.
         // Helmet will replace `%s` by the title supplied in other pages.
         { ...i18nValues, title: '%s' },

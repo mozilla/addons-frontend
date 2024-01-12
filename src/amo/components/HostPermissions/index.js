@@ -14,7 +14,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 const domainMessageType: 'domainMessageType' = 'domainMessageType';
@@ -40,21 +40,21 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
     messageType,
     param,
   }: GetPermissionStringParams): string {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     // These should be kept in sync with Firefox's strings for webextension
     // host permissions which can be found in
     // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
     switch (messageType) {
       case allUrlsMessageType:
-        return i18n.gettext('Access your data for all websites');
+        return jed.gettext('Access your data for all websites');
       case domainMessageType:
-        return i18n.sprintf(
-          i18n.gettext('Access your data for sites in the %(param)s domain'),
+        return jed.sprintf(
+          jed.gettext('Access your data for sites in the %(param)s domain'),
           { param },
         );
       case siteMessageType:
-        return i18n.sprintf(i18n.gettext('Access your data for %(param)s'), {
+        return jed.sprintf(jed.gettext('Access your data for %(param)s'), {
           param,
         });
       default:

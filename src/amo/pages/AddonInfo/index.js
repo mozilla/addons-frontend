@@ -70,7 +70,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AddonInfoBase extends React.Component<InternalProps> {
@@ -139,7 +139,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { addon, addonInfo, addonVersion, errorHandler, i18n, infoType } =
+    const { addon, addonInfo, addonVersion, errorHandler, jed, infoType } =
       this.props;
 
     let header = '';
@@ -149,7 +149,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
 
     switch (infoType) {
       case ADDON_INFO_TYPE_CUSTOM_LICENSE:
-        title = i18n.gettext('Custom License for %(addonName)s');
+        title = jed.gettext('Custom License for %(addonName)s');
         if (addonVersion && addonVersion.license) {
           // If license.text is null, as opposed to undefined, it means we have
           // already retrieved the licence, but that it's null on the server.
@@ -161,11 +161,11 @@ export class AddonInfoBase extends React.Component<InternalProps> {
         }
         break;
       case ADDON_INFO_TYPE_EULA:
-        title = i18n.gettext('End-User License Agreement for %(addonName)s');
+        title = jed.gettext('End-User License Agreement for %(addonName)s');
         infoContent = addonInfo ? addonInfo.eula : null;
         break;
       case ADDON_INFO_TYPE_PRIVACY_POLICY:
-        title = i18n.gettext('Privacy policy for %(addonName)s');
+        title = jed.gettext('Privacy policy for %(addonName)s');
         infoContent = addonInfo ? addonInfo.privacyPolicy : null;
         break;
       default:
@@ -173,7 +173,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
 
     if (addon) {
-      header = i18n.sprintf(title, { addonName: addon.name });
+      header = jed.sprintf(title, { addonName: addon.name });
     }
 
     if (

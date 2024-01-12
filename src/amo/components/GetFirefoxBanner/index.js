@@ -48,14 +48,14 @@ type InternalProps = {|
   ...Props,
   ...DefaultProps,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
 export const GetFirefoxBannerBase = ({
   _tracking = tracking,
   clientApp,
-  i18n,
+  jed,
   location,
   userAgentInfo,
 }: InternalProps): null | React.Node => {
@@ -120,9 +120,9 @@ export const GetFirefoxBannerBase = ({
   const bannerContent = replaceStringsWithJSX({
     text:
       clientApp === CLIENT_APP_FIREFOX
-        ? i18n.gettext(`To use these add-ons, you'll need to
+        ? jed.gettext(`To use these add-ons, you'll need to
             %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s.`)
-        : i18n.gettext(`To use Android extensions, you'll need
+        : jed.gettext(`To use Android extensions, you'll need
             %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To
             explore Firefox for desktop add-ons, please %(linkStart)svisit our
             desktop site%(linkEnd)s.`),

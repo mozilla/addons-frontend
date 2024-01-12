@@ -44,7 +44,7 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   ...DefaultProps,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
@@ -94,18 +94,18 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   };
 
   render(): null | React.Node {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     if (this.couldShowWarning()) {
       return (
         <Notice
           actionHref={WARNING_LINK_DESTINATION}
           actionTarget="_blank"
-          actionText={i18n.gettext('Learn more')}
+          actionText={jed.gettext('Learn more')}
           className="InstallWarning"
           type={genericWarningType}
         >
-          {i18n.gettext(
+          {jed.gettext(
             'This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing.',
           )}
         </Notice>

@@ -31,7 +31,7 @@ export class HeaderBase extends React.Component {
     api: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
     handleLogOut: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
     isAddonInstallPage: PropTypes.bool,
     isHomePage: PropTypes.bool,
     isReviewer: PropTypes.bool.isRequired,
@@ -52,13 +52,8 @@ export class HeaderBase extends React.Component {
   };
 
   renderMenuOrAuthButton() {
-    const {
-      i18n,
-      isReviewer,
-      loadedPageIsAnonymous,
-      siteIsReadOnly,
-      siteUser,
-    } = this.props;
+    const { jed, isReviewer, loadedPageIsAnonymous, siteIsReadOnly, siteUser } =
+      this.props;
 
     if (loadedPageIsAnonymous) {
       // The server has loaded a page that is marked as anonymous so we do not
@@ -72,13 +67,13 @@ export class HeaderBase extends React.Component {
         text={siteUser.name}
         className="Header-authenticate-button Header-button"
       >
-        <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
+        <DropdownMenuItem>{jed.gettext('My Account')}</DropdownMenuItem>
         <DropdownMenuItem>
           <Link
             className="Header-user-menu-collections-link"
             to="/collections/"
           >
-            {i18n.gettext('View My Collections')}
+            {jed.gettext('View My Collections')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -86,7 +81,7 @@ export class HeaderBase extends React.Component {
             className="Header-user-menu-view-profile-link"
             to={siteUser ? `/user/${siteUser.id}/` : null}
           >
-            {i18n.gettext('View My Profile')}
+            {jed.gettext('View My Profile')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -94,17 +89,17 @@ export class HeaderBase extends React.Component {
             className="Header-user-menu-edit-profile-link"
             to={siteUser ? '/users/edit' : null}
           >
-            {i18n.gettext('Edit My Profile')}
+            {jed.gettext('Edit My Profile')}
           </Link>
         </DropdownMenuItem>
 
-        <DropdownMenuItem>{i18n.gettext('Tools')}</DropdownMenuItem>
+        <DropdownMenuItem>{jed.gettext('Tools')}</DropdownMenuItem>
         <DropdownMenuItem>
           <Link
             href="/developers/addon/submit/distribution"
             prependClientApp={false}
           >
-            {i18n.gettext('Submit a New Add-on')}
+            {jed.gettext('Submit a New Add-on')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -112,7 +107,7 @@ export class HeaderBase extends React.Component {
             href="/developers/addon/submit/theme/distribution"
             prependClientApp={false}
           >
-            {i18n.gettext('Submit a New Theme')}
+            {jed.gettext('Submit a New Theme')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -121,7 +116,7 @@ export class HeaderBase extends React.Component {
             href="/developers/addons/"
             prependClientApp={false}
           >
-            {i18n.gettext('Manage My Submissions')}
+            {jed.gettext('Manage My Submissions')}
           </Link>
         </DropdownMenuItem>
         {isReviewer && (
@@ -131,7 +126,7 @@ export class HeaderBase extends React.Component {
               href="/reviewers/"
               prependClientApp={false}
             >
-              {i18n.gettext('Reviewer Tools')}
+              {jed.gettext('Reviewer Tools')}
             </Link>
           </DropdownMenuItem>
         )}
@@ -143,12 +138,12 @@ export class HeaderBase extends React.Component {
           onClick={this.handleLogOut}
           title={
             siteIsReadOnly
-              ? i18n.gettext(`This action is currently unavailable.
+              ? jed.gettext(`This action is currently unavailable.
                           Please reload the page in a moment.`)
               : null
           }
         >
-          {i18n.gettext('Log out')}
+          {jed.gettext('Log out')}
         </DropdownMenuItem>
       </DropdownMenu>
     ) : (
@@ -165,7 +160,7 @@ export class HeaderBase extends React.Component {
       _config,
       clientApp,
       forBlog,
-      i18n,
+      jed,
       isAddonInstallPage,
       isHomePage,
       loadedPageIsAnonymous,
@@ -183,7 +178,7 @@ export class HeaderBase extends React.Component {
         <span className="visually-hidden">
           {
             // L10n: "Firefox" should not be translated. :-)
-            i18n.gettext('Firefox Browser Add-ons')
+            jed.gettext('Firefox Browser Add-ons')
           }
         </span>
       </Link>
@@ -197,7 +192,7 @@ export class HeaderBase extends React.Component {
           prependClientApp={false}
           prependLang={false}
         >
-          {i18n.gettext('Firefox Add-ons Blog')}
+          {jed.gettext('Firefox Add-ons Blog')}
         </Link>
         <Link
           className="Header-extension-workshop-link Header-button"
@@ -211,9 +206,9 @@ export class HeaderBase extends React.Component {
           prependClientApp={false}
           prependLang={false}
           target="_blank"
-          title={i18n.gettext('Learn how to create extensions and themes')}
+          title={jed.gettext('Learn how to create extensions and themes')}
         >
-          {i18n.gettext('Extension Workshop')}
+          {jed.gettext('Extension Workshop')}
         </Link>
         <Link
           className="Header-developer-hub-link Header-button"
@@ -221,9 +216,9 @@ export class HeaderBase extends React.Component {
           external
           prependClientApp={false}
           target="_blank"
-          title={i18n.gettext('Submit and manage extensions and themes')}
+          title={jed.gettext('Submit and manage extensions and themes')}
         >
-          {i18n.gettext('Developer Hub')}
+          {jed.gettext('Developer Hub')}
         </Link>
       </>
     ) : null;

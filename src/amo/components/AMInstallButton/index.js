@@ -54,7 +54,7 @@ type DefaultProps = {|
 type InternalProps = {|
   ...Props,
   ...DefaultProps,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 type ButtonProps = {|
@@ -126,24 +126,24 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   }
 
   getButtonText(): string {
-    const { addon, i18n, status, defaultButtonText } = this.props;
+    const { addon, jed, status, defaultButtonText } = this.props;
 
     switch (status) {
       case DISABLED:
-        return i18n.gettext('Enable');
+        return jed.gettext('Enable');
       case ENABLED:
       case INSTALLED:
-        return i18n.gettext('Remove');
+        return jed.gettext('Remove');
       case ENABLING:
-        return i18n.gettext('Enabling');
+        return jed.gettext('Enabling');
       case DISABLING:
-        return i18n.gettext('Disabling');
+        return jed.gettext('Disabling');
       case DOWNLOADING:
-        return i18n.gettext('Downloading');
+        return jed.gettext('Downloading');
       case INSTALLING:
-        return i18n.gettext('Installing');
+        return jed.gettext('Installing');
       case UNINSTALLING:
-        return i18n.gettext('Uninstalling');
+        return jed.gettext('Uninstalling');
       case INACTIVE:
       default:
         if (defaultButtonText) {
@@ -151,8 +151,8 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
         }
 
         return ADDON_TYPE_STATIC_THEME === addon.type
-          ? i18n.gettext('Install Theme')
-          : i18n.gettext('Add to Firefox');
+          ? jed.gettext('Install Theme')
+          : jed.gettext('Add to Firefox');
     }
   }
 

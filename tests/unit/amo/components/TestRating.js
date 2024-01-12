@@ -349,8 +349,8 @@ describe(__filename, () => {
   });
 
   it('localizes the rating title', () => {
-    const i18n = fakeI18n({ lang: 'de' });
-    render({ rating: 3.5, i18n, readOnly: true });
+    const jed = fakeI18n({ lang: 'de' });
+    render({ rating: 3.5, jed, readOnly: true });
     expect(screen.getAllByTitle('Rated 3,5 out of 5')).toHaveLength(6);
   });
 

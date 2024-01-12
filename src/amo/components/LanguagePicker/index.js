@@ -22,7 +22,7 @@ export function changeLocaleURL({ currentLocale, location, newLocale }) {
 export class LanguagePickerBase extends React.Component {
   static propTypes = {
     currentLocale: PropTypes.string.isRequired,
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     _window: PropTypes.object,
   };
@@ -44,12 +44,12 @@ export class LanguagePickerBase extends React.Component {
   }
 
   render() {
-    const { currentLocale, i18n } = this.props;
+    const { currentLocale, jed } = this.props;
 
     return (
       <div className="LanguagePicker">
         <label htmlFor="lang-picker" className="LanguagePicker-header">
-          {i18n.gettext('Change language')}
+          {jed.gettext('Change language')}
         </label>
         <select
           className="LanguagePicker-selector"

@@ -27,7 +27,7 @@ type UIStateType = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
 |};
@@ -44,11 +44,11 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { i18n, name, onDelete, onSelect, preview, uiState, user } =
+    const { jed, name, onDelete, onSelect, preview, uiState, user } =
       this.props;
 
     const altText = user
-      ? i18n.sprintf(i18n.gettext('Profile picture for %(name)s'), {
+      ? jed.sprintf(jed.gettext('Profile picture for %(name)s'), {
           name: user.name,
         })
       : null;
@@ -58,7 +58,7 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
     return (
       <section className="UserProfileEditPicture">
         <label className="UserProfileEdit--label" htmlFor={name}>
-          {i18n.gettext('Profile photo')}
+          {jed.gettext('Profile photo')}
         </label>
 
         <UserAvatar altText={altText} preview={preview} user={user} />
@@ -87,7 +87,7 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
             noLink
             puffy
           >
-            {i18n.gettext('Choose Photo…')}
+            {jed.gettext('Choose Photo…')}
           </Button>
         </label>
 
@@ -97,10 +97,10 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
             className={confirmButtonClassName}
             htmlType="button"
             id={confirmButtonClassName}
-            message={i18n.gettext('Do you really want to delete this picture?')}
+            message={jed.gettext('Do you really want to delete this picture?')}
             onConfirm={onDelete}
           >
-            {i18n.gettext('Delete This Picture')}
+            {jed.gettext('Delete This Picture')}
           </ConfirmButton>
         )}
       </section>

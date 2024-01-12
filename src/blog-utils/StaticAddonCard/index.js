@@ -22,12 +22,12 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const StaticAddonCardBase = ({
   addon,
-  i18n,
+  jed,
 }: InternalProps): React.Node => {
   if (!addon) {
     return null;
@@ -74,7 +74,7 @@ export const StaticAddonCardBase = ({
         <Rating rating={addon.ratings.average} readOnly styleSize="small" />
 
         <p className="StaticAddonCard-metadata-adu">
-          Users: {i18n.formatNumber(addon.average_daily_users)}
+          Users: {jed.formatNumber(addon.average_daily_users)}
         </p>
       </div>
 

@@ -1512,7 +1512,7 @@ export const getElements = (selector) => {
 export const getElement = (selector) => getElements(selector)[0];
 
 export const render = (ui, options = {}) => {
-  const i18n = options.i18n || fakeI18n();
+  const jed = options.jed || fakeI18n();
   const history =
     options.history ||
     createHistory({
@@ -1532,7 +1532,7 @@ export const render = (ui, options = {}) => {
 
   const wrapper = ({ children }) => {
     return (
-      <I18nProvider i18n={i18n}>
+      <I18nProvider jed={jed}>
         <Provider store={store}>
           <Router history={history}>{children}</Router>
         </Provider>

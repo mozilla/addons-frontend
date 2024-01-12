@@ -38,7 +38,7 @@ export class HomeBase extends React.Component {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     homeShelves: PropTypes.object,
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
     isDesktopSite: PropTypes.bool,
     isLoading: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
@@ -76,37 +76,37 @@ export class HomeBase extends React.Component {
   }
 
   renderCuratedThemes() {
-    const { i18n } = this.props;
+    const { jed } = this.props;
     const curatedThemes = [
       {
         color: 1,
         slug: 'abstract',
-        title: i18n.gettext('Abstract'),
+        title: jed.gettext('Abstract'),
       },
       {
         color: 2,
         slug: 'nature',
-        title: i18n.gettext('Nature'),
+        title: jed.gettext('Nature'),
       },
       {
         color: 3,
         slug: 'film-and-tv',
-        title: i18n.gettext('Film & TV'),
+        title: jed.gettext('Film & TV'),
       },
       {
         color: 4,
         slug: 'scenery',
-        title: i18n.gettext('Scenery'),
+        title: jed.gettext('Scenery'),
       },
       {
         color: 5,
         slug: 'music',
-        title: i18n.gettext('Music'),
+        title: jed.gettext('Music'),
       },
       {
         color: 6,
         slug: 'seasonal',
-        title: i18n.gettext('Seasonal'),
+        title: jed.gettext('Seasonal'),
       },
     ];
 
@@ -133,15 +133,15 @@ export class HomeBase extends React.Component {
   }
 
   renderAndroidHeroHeader() {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     return (
       <div className="Home-heroHeader">
         <h2 className="Home-heroHeader-title">
-          {i18n.gettext('Firefox for Android extensions')}
+          {jed.gettext('Firefox for Android extensions')}
         </h2>
         <h3 className="Home-heroHeader-subtitle">
-          {i18n.gettext(
+          {jed.gettext(
             `Personalize Firefox for Android with powerful extensions.`,
           )}
         </h3>
@@ -150,7 +150,7 @@ export class HomeBase extends React.Component {
   }
 
   renderAndroidShelves() {
-    const { i18n, shelves, resultsLoaded } = this.props;
+    const { jed, shelves, resultsLoaded } = this.props;
     const loading = resultsLoaded === false;
 
     return [
@@ -159,8 +159,8 @@ export class HomeBase extends React.Component {
         addonInstallSource={INSTALL_SOURCE_FEATURED}
         addons={shelves.recommendedExtensions}
         className="Home-RecommendedExtensions"
-        header={i18n.gettext('Recommended extensions')}
-        footerText={i18n.gettext('See more recommended extensions')}
+        header={jed.gettext('Recommended extensions')}
+        footerText={jed.gettext('See more recommended extensions')}
         footerLink={{
           pathname: '/search/',
           query: {
@@ -177,8 +177,8 @@ export class HomeBase extends React.Component {
         addonInstallSource={INSTALL_SOURCE_FEATURED}
         addons={shelves.trendingExtensions}
         className="Home-TrendingExtensions"
-        header={i18n.gettext('Explore all Android extensions')}
-        footerText={i18n.gettext('See more trending extensions')}
+        header={jed.gettext('Explore all Android extensions')}
+        footerText={jed.gettext('See more trending extensions')}
         footerLink={{
           pathname: '/search/',
           query: {
@@ -193,10 +193,10 @@ export class HomeBase extends React.Component {
   }
 
   render() {
-    const { errorHandler, homeShelves, i18n, isDesktopSite, resultsLoaded } =
+    const { errorHandler, homeShelves, jed, isDesktopSite, resultsLoaded } =
       this.props;
 
-    const themesHeader = i18n.gettext(`Change the way Firefox looks with
+    const themesHeader = jed.gettext(`Change the way Firefox looks with
       themes.`);
 
     const loading = resultsLoaded === false;
@@ -205,7 +205,7 @@ export class HomeBase extends React.Component {
       <Page isHomePage showWrongPlatformWarning={!isDesktopSite}>
         <div className="Home">
           <HeadMetaTags
-            description={i18n.gettext(`Download Firefox extensions and themes.
+            description={jed.gettext(`Download Firefox extensions and themes.
             They’re like apps for your browser. They can block annoying ads,
             protect passwords, change browser appearance, and more.`)}
             withTwitterMeta

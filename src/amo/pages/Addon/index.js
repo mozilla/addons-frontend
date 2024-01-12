@@ -73,7 +73,7 @@ export class AddonBase extends React.Component {
     currentVersion: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
     installError: PropTypes.string,
     lang: PropTypes.string.isRequired,
     // See ReactRouterLocationType in 'amo/types/router'
@@ -172,14 +172,14 @@ export class AddonBase extends React.Component {
   }
 
   headerImage() {
-    const { addon, i18n } = this.props;
+    const { addon, jed } = this.props;
 
     if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
       return <ThemeImage addon={addon} roundedCorners />;
     }
 
     const label = addon
-      ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+      ? jed.sprintf(jed.gettext('Preview of %(title)s'), {
           title: addon.name,
         })
       : null;
@@ -198,7 +198,7 @@ export class AddonBase extends React.Component {
   }
 
   renderRatingsCard() {
-    const { RatingManager, addon, i18n, location, currentVersion } = this.props;
+    const { RatingManager, addon, jed, location, currentVersion } = this.props;
     let content;
     let footerPropName = 'footerText';
 
@@ -208,7 +208,7 @@ export class AddonBase extends React.Component {
     } else {
       ratingManager = (
         <p className="Addon-no-rating-manager">
-          {i18n.gettext(`This add-on cannot be rated because no versions
+          {jed.gettext(`This add-on cannot be rated because no versions
             have been published.`)}
         </p>
       );
@@ -218,13 +218,13 @@ export class AddonBase extends React.Component {
       content = <LoadingText width={100} />;
     } else if (addon.ratings && addon.ratings.count) {
       const { count } = addon.ratings;
-      const linkText = i18n.sprintf(
-        i18n.ngettext(
+      const linkText = jed.sprintf(
+        jed.ngettext(
           'Read %(count)s review',
           'Read all %(count)s reviews',
           count,
         ),
-        { count: i18n.formatNumber(count) },
+        { count: jed.formatNumber(count) },
       );
 
       footerPropName = 'footerLink';
@@ -240,7 +240,7 @@ export class AddonBase extends React.Component {
         </Link>
       );
     } else {
-      content = i18n.gettext('No reviews yet');
+      content = jed.gettext('No reviews yet');
     }
 
     const props = {
@@ -250,7 +250,7 @@ export class AddonBase extends React.Component {
     };
     return (
       <Card
-        header={i18n.gettext('Rate your experience')}
+        header={jed.gettext('Rate your experience')}
         className="Addon-overall-rating"
         {...props}
       >
@@ -260,7 +260,7 @@ export class AddonBase extends React.Component {
   }
 
   renderShowMoreCard() {
-    const { addon, i18n } = this.props;
+    const { addon, jed } = this.props;
 
     let title;
     const descriptionProps = {};
@@ -269,19 +269,19 @@ export class AddonBase extends React.Component {
     if (addon) {
       switch (addon.type) {
         case ADDON_TYPE_DICT:
-          title = i18n.gettext('About this dictionary');
+          title = jed.gettext('About this dictionary');
           break;
         case ADDON_TYPE_EXTENSION:
-          title = i18n.gettext('About this extension');
+          title = jed.gettext('About this extension');
           break;
         case ADDON_TYPE_LANG:
-          title = i18n.gettext('About this language pack');
+          title = jed.gettext('About this language pack');
           break;
         case ADDON_TYPE_STATIC_THEME:
-          title = i18n.gettext('About this theme');
+          title = jed.gettext('About this theme');
           break;
         default:
-          title = i18n.gettext('About this add-on');
+          title = jed.gettext('About this add-on');
       }
 
       const description = addon.description ? addon.description : addon.summary;
@@ -311,7 +311,7 @@ export class AddonBase extends React.Component {
   }
 
   renderDevCommentsCard = () => {
-    const { addon, i18n } = this.props;
+    const { addon, jed } = this.props;
 
     if (!addon || !addon.developer_comments) {
       return null;
@@ -325,7 +325,7 @@ export class AddonBase extends React.Component {
       <ShowMoreCard
         contentId={addon.id}
         className={showMoreCardName}
-        header={i18n.gettext('Developer comments')}
+        header={jed.gettext('Developer comments')}
         id={showMoreCardName}
       >
         <div
@@ -338,7 +338,7 @@ export class AddonBase extends React.Component {
   };
 
   renderVersionReleaseNotes() {
-    const { addon, i18n, currentVersion } = this.props;
+    const { addon, jed, currentVersion } = this.props;
     if (!addon) {
       return null;
     }
@@ -347,8 +347,8 @@ export class AddonBase extends React.Component {
       return null;
     }
 
-    const header = i18n.sprintf(
-      i18n.gettext('Release notes for %(addonVersion)s'),
+    const header = jed.sprintf(
+      jed.gettext('Release notes for %(addonVersion)s'),
       { addonVersion: currentVersion.version },
     );
     const releaseNotes = sanitizeUserHTML(currentVersion.releaseNotes);
@@ -433,7 +433,7 @@ export class AddonBase extends React.Component {
       clientApp,
       currentVersion,
       errorHandler,
-      i18n,
+      jed,
     } = this.props;
 
     const isThemeType = addon && addon.type === ADDON_TYPE_STATIC_THEME;
@@ -503,7 +503,7 @@ export class AddonBase extends React.Component {
               {addon &&
               (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
                 <Notice type="error" className="Addon-non-public-notice">
-                  {i18n.gettext(
+                  {jed.gettext(
                     'This is not a public listing. You are only seeing it because of elevated permissions.',
                   )}
                 </Notice>
@@ -527,7 +527,7 @@ export class AddonBase extends React.Component {
                 </div>
 
                 <h2 className="visually-hidden">
-                  {i18n.gettext('Extension Metadata')}
+                  {jed.gettext('Extension Metadata')}
                 </h2>
               </header>
               {addon ? (
@@ -552,7 +552,7 @@ export class AddonBase extends React.Component {
               {addonPreviews.length > 0 && !isThemeType ? (
                 <Card
                   className="Addon-screenshots"
-                  header={i18n.gettext('Screenshots')}
+                  header={jed.gettext('Screenshots')}
                 >
                   <ScreenShots previews={addonPreviews} />
                 </Card>

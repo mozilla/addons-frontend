@@ -17,7 +17,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 const SignedInUserBase = (props: InternalProps) => (
@@ -28,7 +28,7 @@ const SignedInUserBase = (props: InternalProps) => (
   >
     <Icon name="user-fill" />
     <span className="SignedInUser-text">
-      {props.i18n.sprintf(props.i18n.gettext('Signed in as %(username)s'), {
+      {props.jed.sprintf(props.jed.gettext('Signed in as %(username)s'), {
         username: props.user.name,
       })}
     </span>

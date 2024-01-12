@@ -23,7 +23,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class SearchResultsBase extends React.Component<InternalProps> {
@@ -34,7 +34,7 @@ export class SearchResultsBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { count, filters, i18n, loading, paginator, results } = this.props;
+    const { count, filters, jed, loading, paginator, results } = this.props;
     const { query } = filters;
 
     let loadingMessage;
@@ -42,18 +42,18 @@ export class SearchResultsBase extends React.Component<InternalProps> {
 
     if (loading) {
       loadingMessage = (
-        <div className="visually-hidden">{i18n.gettext('Searching…')}</div>
+        <div className="visually-hidden">{jed.gettext('Searching…')}</div>
       );
     } else if (count === 0) {
       if (query) {
-        messageText = i18n.sprintf(
-          i18n.gettext('No results were found for "%(query)s".'),
+        messageText = jed.sprintf(
+          jed.gettext('No results were found for "%(query)s".'),
           { query },
         );
       } else {
         // TODO: Add the extension type, if available, so it says
         // "no extensions" found that match your search or something.
-        messageText = i18n.gettext('No results were found.');
+        messageText = jed.gettext('No results were found.');
       }
     }
 
@@ -68,7 +68,7 @@ export class SearchResultsBase extends React.Component<InternalProps> {
           addonInstallSource={addonInstallSource}
           addons={results}
           footer={paginator}
-          header={i18n.gettext('Search results')}
+          header={jed.gettext('Search results')}
           loading={loading}
           showFullSizePreview
         >

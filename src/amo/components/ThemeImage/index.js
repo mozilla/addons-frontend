@@ -18,19 +18,19 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const ThemeImageBase = ({
   addon,
-  i18n,
+  jed,
   roundedCorners,
 }: InternalProps): null | React.Node => {
   invariant(
     addon && ADDON_TYPE_STATIC_THEME === addon.type,
     'A ThemeImage can only be rendered for a static theme',
   );
-  const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+  const label = jed.sprintf(jed.gettext('Preview of %(title)s'), {
     title: addon.name,
   });
 
