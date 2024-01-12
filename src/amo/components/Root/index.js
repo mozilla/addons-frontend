@@ -6,7 +6,7 @@ import { Router } from 'react-router-dom';
 import config from 'config';
 
 import I18nProvider from 'amo/i18n/Provider';
-import type { I18nType } from 'amo/types/i18n';
+import type { I18nType, I18nextType } from 'amo/types/i18n';
 import type { ReduxStore } from 'amo/types/redux';
 import type { ReactRouterHistoryType } from 'amo/types/router';
 
@@ -16,6 +16,7 @@ type Props = {|
   cookies?: typeof Cookies,
   history: ReactRouterHistoryType,
   jed: I18nType,
+  i18next: I18nextType,
   store: ReduxStore,
 |};
 
@@ -24,11 +25,12 @@ const Root = ({
   children,
   history,
   jed,
+  i18next,
   store,
   cookies = null,
 }: Props): React.Node => {
   return (
-    <I18nProvider jed={jed}>
+    <I18nProvider jed={jed} i18next={i18next}>
       <Provider store={store} key="provider">
         <Router history={history}>
           <CookiesProvider cookies={cookies}>

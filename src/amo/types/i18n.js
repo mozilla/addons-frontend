@@ -11,3 +11,7 @@ export type I18nType = {|
   |},
   sprintf: (string, { [placeholder: string]: mixed }) => string,
 |};
+
+export type I18nextType = {|
+  t(key: string, options?: { [key: string]: mixed }): string,
+|};

@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 
 import { getDisplayName } from 'amo/utils';
 import type { I18nType } from 'amo/types/i18n';
@@ -36,5 +37,7 @@ const translate = (): ((
     return Translate;
   };
 };
+
+export { withTranslation };
 
 export default translate;

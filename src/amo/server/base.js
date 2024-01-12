@@ -45,6 +45,7 @@ import {
   makeI18n,
 } from 'amo/i18n/utils';
 import { fetchSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
+import { init as initI18next } from 'amo/i18next';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
@@ -348,6 +349,7 @@ function baseServer(
       }
 
       const jed = makeI18n(i18nData, htmlLang);
+      const i18next = await initI18next(locale, config.get('defaultLang'));
 
       const props = {
         component: (
@@ -355,6 +357,7 @@ function baseServer(
             cookies={req.universalCookies}
             history={connectedHistory}
             jed={jed}
+            i18next={i18next}
             store={store}
           >
             <App />

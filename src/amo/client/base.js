@@ -10,6 +10,7 @@ import { langToLocale, makeI18n, sanitizeLanguage } from 'amo/i18n/utils';
 import log from 'amo/logger';
 import { addQueryParamsToHistory } from 'amo/utils';
 import tracking from 'amo/tracking';
+import { init as initI18next } from 'amo/i18next';
 
 export default async function createClient(
   createStore,
@@ -90,11 +91,17 @@ export default async function createClient(
       Falling back to default lang: "${_config.get('defaultLang')}"`);
   }
   const jed = makeI18n(i18nData, lang);
+  const instance = await initI18next(locale, _config.get('defaultLang'));
 
   const renderApp = (App) => {
     const root = createRoot(document.getElementById('react-view'));
     root.render(
-      <Root history={connectedHistory} jed={jed} store={store}>
+      <Root
+        history={connectedHistory}
+        jed={jed}
+        i18next={instance}
+        store={store}
+      >
         <App />
       </Root>,
     );

@@ -36,6 +36,7 @@ import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
+import i18next from 'amo/i18next';
 /* eslint-enable import/first */
 
 interface MozNavigator extends Navigator {
@@ -142,11 +143,32 @@ export class AppBase extends React.Component<Props> {
       );
     }
 
+    const test = i18next.t('translation');
+
+    if (typeof document !== 'undefined') {
+      window.i18next = i18next;
+    }
+
     return (
       <NestedStatus code={200}>
         <ScrollToTop>
           <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
           <ErrorPage>
+            <div
+              style={{
+                border: '1px solid red',
+                width: '100vw',
+                height: '20px',
+                background: 'white',
+                textAlign: 'center',
+                padding: '20px 20px',
+                alignContent: 'center',
+                verticalAlign: 'middle',
+                lineHeight: 0,
+              }}
+            >
+              {test}
+            </div>
             <Routes />
           </ErrorPage>
         </ScrollToTop>
