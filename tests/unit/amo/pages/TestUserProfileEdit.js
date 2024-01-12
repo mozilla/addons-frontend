@@ -3,7 +3,6 @@ import { createMemoryHistory } from 'history';
 import userEvent from '@testing-library/user-event';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 
-import * as MzAUtils from 'amo/utils/fxa';
 import { setViewContext } from 'amo/actions/viewContext';
 import { createApiError } from 'amo/api/index';
 import { extractId } from 'amo/pages/UserProfileEdit';
@@ -54,7 +53,6 @@ describe(__filename, () => {
   const defaultUserId = fakeAuthors[0].id;
   let history;
   let store;
-  let isMzaBrandingMock;
 
   const savedLocation = window.location;
 
@@ -65,14 +63,10 @@ describe(__filename, () => {
       assign: jest.fn(),
     });
     window.scroll = jest.fn();
-    isMzaBrandingMock = jest
-      .spyOn(MzAUtils, 'isMzaBranding')
-      .mockReturnValue(true);
   });
 
   afterEach(() => {
     window.location = savedLocation;
-    isMzaBrandingMock.mockRestore();
   });
 
   function defaultUserProps(props = {}) {
