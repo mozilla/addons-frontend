@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-01-09 16:55+0000\n"
-"PO-Revision-Date: 2024-01-13 14:35+0000\n"
+"PO-Revision-Date: 2024-01-14 13:57+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1389,7 +1389,7 @@ msgstr "ਹੋਰ ਜਾਣੋ"
 
 #: src/amo/components/InstallWarning/index.js:108
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "ਇਸ ਐਡ-ਆਨ ਨੂੰ Mozilla ਵਲੋੰ ਸੁਰੱਖਿਆ ਲਈ ਸਰਗਰਮ ਰੂਪ ਵਿੱਚ ਨਿਗਰਾਨੀ ਨਹੀੰ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ। ਇੰਸਟਾਲ ਕਰਨ ਤੋੰ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਇਸ ਉੱਤੇ ਭਰੋਸਾ ਕਰਨ ਦੀ ਲੋੜ ਹੈ।"
+msgstr "ਇਸ ਐਡ-ਆਨ ਨੂੰ Mozilla ਵਲੋਂ ਸੁਰੱਖਿਆ ਲਈ ਸਰਗਰਮ ਰੂਪ ਵਿੱਚ ਨਿਗਰਾਨੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ। ਇੰਸਟਾਲ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਇਸ ਉੱਤੇ ਭਰੋਸਾ ਕਰਨ ਦੀ ਲੋੜ ਹੈ।"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
