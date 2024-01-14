@@ -33,6 +33,7 @@ export type RecommendationsState = {|
   byGuid: {
     [guid: string]: Recommendations,
   },
+
   lang: string,
 |};
 

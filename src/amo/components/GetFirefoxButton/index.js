@@ -57,9 +57,7 @@ type InternalProps = {|
 
 export const getDownloadCampaign = ({
   addonId,
-}: {
-  addonId?: number,
-} = {}): string => {
+}: { addonId?: number } = {}): string => {
   let campaign = DOWNLOAD_FIREFOX_UTM_CAMPAIGN;
 
   if (addonId) {
@@ -143,28 +141,26 @@ export const GetFirefoxButtonBase = ({
 
   let downloadTextForRTAMO =
     addon.type === ADDON_TYPE_STATIC_THEME
-      ? i18n.gettext('Download Firefox and get the theme')
-      : i18n.gettext('Download Firefox and get the extension');
+      ? i18n.t('Download Firefox and get the theme')
+      : i18n.t('Download Firefox and get the extension');
   if (forIncompatibleAddon) {
     downloadTextForRTAMO =
       addon.type === ADDON_TYPE_STATIC_THEME
-        ? i18n.gettext('Download the new Firefox and get the theme')
-        : i18n.gettext('Download the new Firefox and get the extension');
+        ? i18n.t('Download the new Firefox and get the theme')
+        : i18n.t('Download the new Firefox and get the extension');
   }
   const buttonText = supportsRTAMO
     ? downloadTextForRTAMO
-    : i18n.gettext('Download Firefox');
+    : i18n.t('Download Firefox');
   let calloutText =
     addon.type === ADDON_TYPE_STATIC_THEME
-      ? i18n.gettext(`You'll need Firefox to use this theme`)
-      : i18n.gettext(`You'll need Firefox to use this extension`);
+      ? i18n.t("You'll need Firefox to use this theme")
+      : i18n.t("You'll need Firefox to use this extension");
   if (forIncompatibleAddon) {
     calloutText =
       addon.type === ADDON_TYPE_STATIC_THEME
-        ? i18n.gettext('You need an updated version of Firefox for this theme')
-        : i18n.gettext(
-            'You need an updated version of Firefox for this extension',
-          );
+        ? i18n.t('You need an updated version of Firefox for this theme')
+        : i18n.t('You need an updated version of Firefox for this extension');
   }
 
   const buttonContent = (

@@ -123,7 +123,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     return (
       <div className="InstallButtonWrapper-download">
         <a className="InstallButtonWrapper-download-link" href={installURL}>
-          {i18n.gettext('Download file')}
+          {i18n.t('Download file')}
         </a>
       </div>
     );
@@ -165,6 +165,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
             ) : null}
           </>
         )}
+
         {showDownloadLink || showLinkInsteadOfButton ? showFileLink() : null}
       </div>
     )

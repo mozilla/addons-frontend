@@ -104,12 +104,14 @@ export type VersionsState = {
   byId: {
     [id: number]: AddonVersionType,
   },
+
   bySlug: {
     [slug: string]: {
       versionIds: Array<VersionIdType> | null,
       loading: boolean,
     },
   },
+
   lang: string,
 };
 
@@ -301,21 +303,18 @@ export const getVersionInfo = ({
   if (version) {
     const { file } = version;
 
-    // L10n: This is application compatibility information, such as "firefox 41 and later"
-    const noMaxString = i18n.gettext(
-      '%(application)s %(minVersion)s and later',
-    );
-    // L10n: This is application compatibility information, such as "firefox 41 to 45"
-    const maxAndMinString = i18n.gettext(
-      '%(application)s %(minVersion)s to %(maxVersion)s',
-    );
     const appInfo = Object.keys(version.compatibility)
       .map((application) => {
         const { max, min } = version.compatibility[application];
         if (max === '*') {
-          return i18n.sprintf(noMaxString, { application, minVersion: min });
+          // L10n: This is application compatibility information, such as "firefox 41 and later"
+          return i18n.t('%(application)s %(minVersion)s and later', {
+            application,
+            minVersion: min,
+          });
         }
-        return i18n.sprintf(maxAndMinString, {
+        // L10n: This is application compatibility information, such as "firefox 41 to 45"
+        return i18n.t('%(application)s %(minVersion)s to %(maxVersion)s', {
           application,
           maxVersion: max,
           minVersion: min,
@@ -323,10 +322,8 @@ export const getVersionInfo = ({
       })
       .join(', ');
 
-    const compatibilityString = i18n.sprintf(
-      // eslint-disable-next-line max-len
-      // L10n: This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-      i18n.gettext('Works with %(listOfApplicatonsAndVersions)s'),
+    const compatibilityString = i18n.t(
+      'Works with %(listOfApplicatonsAndVersions)s',
       { listOfApplicatonsAndVersions: appInfo },
     );
 

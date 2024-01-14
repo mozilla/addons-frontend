@@ -80,7 +80,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
     const { token, notificationName } = match.params;
 
     const editProfileLink = replaceStringsWithJSX({
-      text: i18n.gettext(
+      text: i18n.t(
         'You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s.',
       ),
       replacements: [
@@ -100,7 +100,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
       <Page>
         <div className="UsersUnsubscribe">
           <Helmet>
-            <title>{i18n.gettext('Unsubscribe')}</title>
+            <title>{i18n.t('Unsubscribe')}</title>
           </Helmet>
 
           {errorHandler.hasError() ? (
@@ -109,7 +109,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
             <Card
               header={
                 isUnsubscribed ? (
-                  i18n.gettext('You are successfully unsubscribed!')
+                  i18n.t('You are successfully unsubscribed!')
                 ) : (
                   <LoadingText />
                 )
@@ -120,10 +120,9 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
                   className="UsersUnsubscribe-content-explanation"
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={sanitizeHTML(
-                    i18n.sprintf(
-                      // L10n: a list of notifications will be displayed under this prompt.
-                      i18n.gettext(`The email address %(strongStart)s%(email)s%(strongEnd)s
-                        will no longer get messages when:`),
+                    i18n.t(
+                      'The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:',
+
                       {
                         strongStart: '<strong>',
                         strongEnd: '</strong>',

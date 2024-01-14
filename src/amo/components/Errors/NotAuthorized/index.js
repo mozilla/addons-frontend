@@ -19,11 +19,9 @@ export class NotAuthorizedBase extends React.Component<InternalProps> {
   render(): React.Node {
     const { i18n } = this.props;
 
-    const fileAnIssueText = i18n.sprintf(
-      i18n.gettext(`
-      If you are signed in and think this message is an error, please
-      <a href="%(url)s">file an issue</a>. Tell us where you came from
-      and what you were trying to access, and we'll fix the issue.`),
+    const fileAnIssueText = i18n.t(
+      'If you are signed in and think this message is an error, please <a href="%(url)s">file an issue</a>. Tell us where you came from and what you were trying to access, and we\'ll fix the issue.',
+
       { url: 'https://github.com/mozilla/addons-frontend/issues/new/' },
     );
 
@@ -31,12 +29,11 @@ export class NotAuthorizedBase extends React.Component<InternalProps> {
     // TODO: Offer a sign in link/button inside the error page.
     /* eslint-disable react/no-danger */
     return (
-      <ErrorComponent code={401} header={i18n.gettext('Not Authorized')}>
+      <ErrorComponent code={401} header={i18n.t('Not Authorized')}>
         <p>
-          {i18n.gettext(`
-            Sorry, but you aren't authorized to access this page. If you
-            aren't signed in, try signing in using the link at the top
-            of the page.`)}
+          {i18n.t(
+            "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page.",
+          )}
         </p>
 
         <SuggestedPages />
@@ -44,6 +41,7 @@ export class NotAuthorizedBase extends React.Component<InternalProps> {
         <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
       </ErrorComponent>
     );
+
     /* eslint-enable react/no-danger */
   }
 }

@@ -141,6 +141,7 @@ export type ExternalAddonType = {|
     grouped_counts: GroupedRatingsType,
     text_count: number,
   |},
+
   requires_payment?: boolean,
   review_url?: string,
   slug: string,

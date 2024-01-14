@@ -54,8 +54,8 @@ const getCategory = (
 ): {| slug: string, collection: string, heading: string |} | null => {
   const starterPackBaseProps = {
     collection: 'b4d5649fb087446aa05add5f0258c3',
-    heading: i18n.gettext(
-      `Explore our 'Starter Pack' to get started with extensions`,
+    heading: i18n.t(
+      "Explore our 'Starter Pack' to get started with extensions",
     ),
   };
   // This is a list of category slugs in decending order of priority, used to
@@ -66,67 +66,67 @@ const getCategory = (
     {
       slug: 'privacy-security',
       collection: 'privacy-matters',
-      heading: i18n.gettext('More powerful privacy & security extensions'),
+      heading: i18n.t('More powerful privacy & security extensions'),
     },
     {
       slug: 'download-management',
       collection: 'download_managers',
-      heading: i18n.gettext('More incredible download managers'),
+      heading: i18n.t('More incredible download managers'),
     },
 
     {
       slug: 'bookmarks',
       collection: 'tab_bookmark_managers',
-      heading: i18n.gettext('More fantastic tab & bookmark extensions'),
+      heading: i18n.t('More fantastic tab & bookmark extensions'),
     },
     {
       slug: 'tabs',
       collection: 'tab_bookmark_managers',
-      heading: i18n.gettext('More fantastic tab & bookmark extensions'),
+      heading: i18n.t('More fantastic tab & bookmark extensions'),
     },
     {
       slug: 'games-entertainment',
       collection: '22469a386e654ca487b14d789e7250',
-      heading: i18n.gettext('More great extensions for games & entertainment'),
+      heading: i18n.t('More great extensions for games & entertainment'),
     },
     {
       slug: 'photos-music-videos',
       collection: '345d4c73b3e647a78522f385ce8ea7',
-      heading: i18n.gettext('More amazing image, photo & media extensions'),
+      heading: i18n.t('More amazing image, photo & media extensions'),
     },
     {
       slug: 'language-support',
       collection: 'language_support',
-      heading: i18n.gettext(
+      heading: i18n.t(
         'More powerful tools for translations, writing & grammar support',
       ),
     },
     {
       slug: 'appearance',
       collection: 'c1b874b24c184334a7e4844a2305d4',
-      heading: i18n.gettext(
+      heading: i18n.t(
         'More amazing extensions to change the way Firefox looks',
       ),
     },
     {
       slug: 'social-communication',
       collection: 'social_media',
-      heading: i18n.gettext('More incredible social media extensions'),
+      heading: i18n.t('More incredible social media extensions'),
     },
     {
       slug: 'search-tools',
       collection: '31c330a1d5594d06a7600288464732',
-      heading: i18n.gettext('More excellent search extensions'),
+      heading: i18n.t('More excellent search extensions'),
     },
     {
       slug: 'feeds-news-blogging',
       collection: '9be99620f151420b91ac1fb30573d0',
-      heading: i18n.gettext('More great extensions for feeds, news & media'),
+      heading: i18n.t('More great extensions for feeds, news & media'),
     },
     {
       slug: 'alerts-updates',
       collection: '54adf6148c9e45c28a8fa35bd03fe2',
-      heading: i18n.gettext('More great notification extensions'),
+      heading: i18n.t('More great notification extensions'),
     },
     {
       slug: 'shopping',
@@ -135,7 +135,7 @@ const getCategory = (
     {
       slug: 'web-development',
       collection: 'webdeveloper',
-      heading: i18n.gettext('More great tools for web developers'),
+      heading: i18n.t('More great tools for web developers'),
     },
     {
       slug: 'other',
@@ -265,7 +265,7 @@ export class AddonSuggestionsBase extends React.Component<Props> {
         alwaysDisplayFooter
         className="AddonSuggestions"
         header={header}
-        footerText={i18n.gettext('See Firefox Staff Picks')}
+        footerText={i18n.t('See Firefox Staff Picks')}
         footerLink={footerLink}
         loading={loading || !suggestions}
         onAddonClick={this.onAddonClick}

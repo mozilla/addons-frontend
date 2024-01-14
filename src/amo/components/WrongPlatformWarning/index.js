@@ -86,8 +86,9 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
 
     if (_isFirefoxForIOS(userAgentInfo)) {
       // Firefox for iOS.
-      message = i18n.gettext(`Add-ons are not compatible with Firefox for iOS.
-        Try installing them on Firefox for desktop.`);
+      message = i18n.t(
+        'Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop.',
+      );
     } else if (
       _isFirefoxForAndroid(userAgentInfo) &&
       addon?.isAndroidCompatible
@@ -97,8 +98,9 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
     } else if (newLocation === getMobileHomepageLink(lang)) {
       // Redirecting to mobile home page.
       message = replaceStringsWithJSX({
-        text: i18n.gettext(`To find extensions compatible with Firefox for
-          Android, %(linkStart)sclick here%(linkEnd)s.`),
+        text: i18n.t(
+          'To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s.',
+        ),
         replacements: [
           [
             'linkStart',
@@ -118,8 +120,9 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
     } else if (addon && newLocation) {
       // User with desktop browser looking at detail page on mobile site.
       message = replaceStringsWithJSX({
-        text: i18n.gettext(`This listing is not intended for this platform.
-          %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s.`),
+        text: i18n.t(
+          'This listing is not intended for this platform. %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s.',
+        ),
         replacements: [
           [
             'linkStart',
@@ -145,10 +148,9 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
 
       // Redirecting to new page on the desktop site.
       message = replaceStringsWithJSX({
-        text: i18n.gettext(`To use Android extensions, you'll need
-          %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To
-          explore Firefox for desktop add-ons, please %(linkStart)svisit our
-          desktop site%(linkEnd)s.`),
+        text: i18n.t(
+          "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s.",
+        ),
         replacements: [
           [
             'downloadLinkStart',
@@ -163,6 +165,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
               </Link>
             ),
           ],
+
           [
             'linkStart',
             'linkEnd',

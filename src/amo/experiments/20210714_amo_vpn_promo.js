@@ -26,6 +26,7 @@ export const EXPERIMENT_CONFIG: ExperimentConfig = {
     { id: VARIANT_HIDE, percentage: 0.05 },
     { id: NOT_IN_EXPERIMENT, percentage: 0.9 },
   ],
+
   shouldExcludeUser({ state }) {
     const { clientApp, regionCode } = state.api;
 

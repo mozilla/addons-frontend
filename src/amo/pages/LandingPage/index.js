@@ -119,7 +119,7 @@ export class LandingPageBase extends React.Component {
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
-        recommendedHeader: i18n.gettext('Recommended extensions'),
+        recommendedHeader: i18n.t('Recommended extensions'),
         recommendedFooterLink: {
           pathname: '/search/',
           query: {
@@ -128,8 +128,8 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_RANDOM,
           },
         },
-        recommendedFooterText: i18n.gettext('See more recommended extensions'),
-        trendingHeader: i18n.gettext('Trending extensions'),
+        recommendedFooterText: i18n.t('See more recommended extensions'),
+        trendingHeader: i18n.t('Trending extensions'),
         trendingFooterLink: {
           pathname: '/search/',
           query: {
@@ -138,8 +138,8 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_TRENDING,
           },
         },
-        trendingFooterText: i18n.gettext('See more trending extensions'),
-        highlyRatedHeader: i18n.gettext('Top rated extensions'),
+        trendingFooterText: i18n.t('See more trending extensions'),
+        highlyRatedHeader: i18n.t('Top rated extensions'),
         highlyRatedFooterLink: {
           pathname: '/search/',
           query: {
@@ -148,10 +148,10 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
-        highlyRatedFooterText: i18n.gettext('See more top rated extensions'),
+        highlyRatedFooterText: i18n.t('See more top rated extensions'),
       },
       [ADDON_TYPE_STATIC_THEME]: {
-        recommendedHeader: i18n.gettext('Recommended themes'),
+        recommendedHeader: i18n.t('Recommended themes'),
         recommendedFooterLink: {
           pathname: '/search/',
           query: {
@@ -160,8 +160,8 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_RANDOM,
           },
         },
-        recommendedFooterText: i18n.gettext('See more recommended themes'),
-        trendingHeader: i18n.gettext('Trending themes'),
+        recommendedFooterText: i18n.t('See more recommended themes'),
+        trendingHeader: i18n.t('Trending themes'),
         trendingFooterLink: {
           pathname: '/search/',
           query: {
@@ -169,8 +169,8 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_TRENDING,
           },
         },
-        trendingFooterText: i18n.gettext('See more trending themes'),
-        highlyRatedHeader: i18n.gettext('Top rated themes'),
+        trendingFooterText: i18n.t('See more trending themes'),
+        highlyRatedHeader: i18n.t('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
           query: {
@@ -178,7 +178,7 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
-        highlyRatedFooterText: i18n.gettext('See more top rated themes'),
+        highlyRatedFooterText: i18n.t('See more top rated themes'),
       },
     };
 
@@ -202,14 +202,14 @@ export class LandingPageBase extends React.Component {
     const addonType = apiAddonType(params.visibleAddonType);
 
     if (addonType === ADDON_TYPE_STATIC_THEME) {
-      return i18n.gettext(`Download themes to change how Firefox looks. Tailor
-        your experience to your tastes. Cute critters, evil robots, beautiful
-        landscapes—thousands of options.`);
+      return i18n.t(
+        'Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes\u2014thousands of options.',
+      );
     }
 
-    return i18n.gettext(`Download Firefox Extensions to add features that
-      customize browsing. Protect passwords, find deals, enhance video, and
-      block annoying ads with browser apps.`);
+    return i18n.t(
+      'Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps.',
+    );
   }
 
   render() {
@@ -225,14 +225,16 @@ export class LandingPageBase extends React.Component {
     const { visibleAddonType } = this.props.match.params;
     const { addonType, html } = this.contentForType(visibleAddonType);
     const headingText = {
-      [ADDON_TYPE_STATIC_THEME]: i18n.gettext('Themes'),
-      [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
+      [ADDON_TYPE_STATIC_THEME]: i18n.t('Themes'),
+      [ADDON_TYPE_EXTENSION]: i18n.t('Extensions'),
     };
     const contentText = {
-      [ADDON_TYPE_STATIC_THEME]: i18n.gettext(`Change your browser's appearance.
-        Choose from thousands of themes to give Firefox the look you want.`),
-      [ADDON_TYPE_EXTENSION]: i18n.gettext(`Explore powerful tools and features
-        to customize Firefox and make the browser all your own.`),
+      [ADDON_TYPE_STATIC_THEME]: i18n.t(
+        "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want.",
+      ),
+      [ADDON_TYPE_EXTENSION]: i18n.t(
+        'Explore powerful tools and features to customize Firefox and make the browser all your own.',
+      ),
     };
 
     const isAddonTheme = ADDON_TYPE_STATIC_THEME === addonType;
@@ -271,7 +273,7 @@ export class LandingPageBase extends React.Component {
             className="LandingPage-button"
             to={`/${getVisibleAddonType(addonType)}/categories/`}
           >
-            {i18n.gettext('Explore all categories')}
+            {i18n.t('Explore all categories')}
           </Button>
 
           {this.renderIfNotEmpty(

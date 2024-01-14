@@ -83,14 +83,17 @@ export type CollectionsState = {
   byId: {
     [id: CollectionId]: CollectionType,
   },
+
   bySlug: {
     [slug: string]: CollectionId,
   },
+
   // This is the collection currently visible on the detail page.
   current: {|
     id: CollectionId | null,
     loading: boolean,
   |},
+
   userCollections: {
     [userId: UserId]: {|
       // This is a list of all collections belonging to the user.
@@ -98,6 +101,7 @@ export type CollectionsState = {
       loading: boolean,
     |},
   },
+
   addonInCollections: {
     [userId: UserId]: {
       [addonId: number]: {|
@@ -108,6 +112,7 @@ export type CollectionsState = {
       |},
     },
   },
+
   isCollectionBeingModified: boolean,
   hasAddonBeenAdded: boolean,
   hasAddonBeenRemoved: boolean,
@@ -260,6 +265,7 @@ export type ExternalCollectionDetail = {|
     url: string,
     username: string,
   |},
+
   default_locale: string,
   description: LocalizedString | null,
   id: number,
@@ -1019,7 +1025,7 @@ export const collectionName = ({
 }: {|
   i18n: I18nType,
   name?: string,
-|}): string => name || i18n.gettext('(no name)');
+|}): string => name || i18n.t('(no name)');
 
 type Action =
   | AbortFetchCurrentCollection

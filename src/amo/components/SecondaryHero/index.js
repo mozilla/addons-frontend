@@ -89,6 +89,7 @@ export const SecondaryHeroBase = ({
         ) : (
           <div className="SecondaryHero-module-icon" />
         )}
+
         <div className="SecondaryHero-module-description">
           {module.description || <LoadingText width={60} />}
         </div>
@@ -102,6 +103,7 @@ export const SecondaryHeroBase = ({
             </span>
           </Link>
         )}
+
         {!module.description && (
           <div className="SecondaryHero-module-link">
             <LoadingText width={60} />
@@ -137,6 +139,7 @@ export const SecondaryHeroBase = ({
             <span className="SecondaryHero-message-linkText">{cta.text}</span>
           </Link>
         )}
+
         {!headline && (
           <div className="SecondaryHero-message-link">
             <LoadingText width={60} />

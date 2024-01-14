@@ -112,7 +112,7 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
         <div className="RatingFeedback-page">
           <Helmet>
             <title>
-              {i18n.gettext('Submit feedback or report a review to Mozilla')}
+              {i18n.t('Submit feedback or report a review to Mozilla')}
             </title>
             <meta name="robots" content="noindex, follow" />
           </Helmet>
@@ -141,13 +141,10 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
                   isReply={false}
                   byLine={
                     review ? (
-                      i18n.sprintf(
-                        i18n.gettext('by %(userName)s, %(timestamp)s'),
-                        {
-                          userName: review.userName,
-                          timestamp: i18n.moment(review.created).fromNow(),
-                        },
-                      )
+                      i18n.t('by %(userName)s, %(timestamp)s', {
+                        userName: review.userName,
+                        timestamp: i18n.moment(review.created).fromNow(),
+                      })
                     ) : (
                       <LoadingText />
                     )
@@ -158,11 +155,11 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
             }
             abuseIsLoading={isSubmitting}
             abuseSubmitted={hasSubmitted}
-            categoryHeader={i18n.gettext('Report this review to Mozilla')}
+            categoryHeader={i18n.t('Report this review to Mozilla')}
             // This title isn't used because we didn't select any of the
             // "feedback" categories.
             feedbackTitle=""
-            reportTitle={i18n.gettext(
+            reportTitle={i18n.t(
               'Report the review because it is illegal or incompliant',
             )}
             categories={[

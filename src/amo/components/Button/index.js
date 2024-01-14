@@ -84,6 +84,7 @@ export default class Button extends React.Component<Props> {
           puffy: boolean,
         |},
       >,
+
       prependClientApp?: boolean,
       prependLang?: boolean,
     |} = { ...rest };

@@ -16,6 +16,7 @@ type ExternalReviewTypeBase = {|
     name: LocalizedString,
     slug: string,
   |},
+
   body: string,
   created: Date,
   id: number,

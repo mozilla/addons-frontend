@@ -57,18 +57,18 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
           <PromotedBadge category={promotedCategory} size="large" />
         ) : null}
         {addon.is_experimental ? (
-          <Badge type="experimental" label={i18n.gettext('Experimental')} />
+          <Badge type="experimental" label={i18n.t('Experimental')} />
         ) : null}
         {addon.requires_payment ? (
           <Badge
             type="requires-payment"
-            label={i18n.gettext('Some features may require payment')}
+            label={i18n.t('Some features may require payment')}
           />
         ) : null}
         {clientApp === CLIENT_APP_FIREFOX && addon.isAndroidCompatible && (
           <Badge
             type="android-compatible"
-            label={i18n.gettext('Available on Firefox for Android™')}
+            label={i18n.t('Available on Firefox for Android™')}
           />
         )}
       </div>

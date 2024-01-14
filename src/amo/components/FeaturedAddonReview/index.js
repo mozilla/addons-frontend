@@ -72,23 +72,32 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
     const { addon, errorHandler, featuredReview, i18n, siteUserCanReply } =
       this.props;
 
-    const featuredReviewHeader = featuredReview
-      ? i18n.sprintf(
-          featuredReview.isDeveloperReply
-            ? i18n.gettext('Response by %(userName)s')
-            : i18n.gettext('Review by %(userName)s'),
-          {
-            userName: featuredReview.userName,
-          },
-        )
-      : null;
+    let featuredReviewHeader = null;
+
+    if (featuredReview) {
+      const featuredReviewPlaceholders = {
+        userName: featuredReview.userName,
+      };
+
+      if (featuredReview.isDeveloperReply) {
+        featuredReviewHeader = i18n.t(
+          'Response by %(userName)s',
+          featuredReviewPlaceholders,
+        );
+      } else {
+        featuredReviewHeader = i18n.t(
+          'Review by %(userName)s',
+          featuredReviewPlaceholders,
+        );
+      }
+    }
 
     const featuredReviewCard =
       errorHandler.hasError() &&
       errorHandler.capturedError.responseStatusCode === 404 ? (
         <NestedStatus code={404}>
           <div className="FeaturedAddonReview-notfound">
-            {i18n.gettext('The review was not found.')}
+            {i18n.t('The review was not found.')}
           </div>
         </NestedStatus>
       ) : (

@@ -81,32 +81,32 @@ export class HomeBase extends React.Component {
       {
         color: 1,
         slug: 'abstract',
-        title: i18n.gettext('Abstract'),
+        title: i18n.t('Abstract'),
       },
       {
         color: 2,
         slug: 'nature',
-        title: i18n.gettext('Nature'),
+        title: i18n.t('Nature'),
       },
       {
         color: 3,
         slug: 'film-and-tv',
-        title: i18n.gettext('Film & TV'),
+        title: i18n.t('Film & TV'),
       },
       {
         color: 4,
         slug: 'scenery',
-        title: i18n.gettext('Scenery'),
+        title: i18n.t('Scenery'),
       },
       {
         color: 5,
         slug: 'music',
-        title: i18n.gettext('Music'),
+        title: i18n.t('Music'),
       },
       {
         color: 6,
         slug: 'seasonal',
-        title: i18n.gettext('Seasonal'),
+        title: i18n.t('Seasonal'),
       },
     ];
 
@@ -138,12 +138,10 @@ export class HomeBase extends React.Component {
     return (
       <div className="Home-heroHeader">
         <h2 className="Home-heroHeader-title">
-          {i18n.gettext('Firefox for Android extensions')}
+          {i18n.t('Firefox for Android extensions')}
         </h2>
         <h3 className="Home-heroHeader-subtitle">
-          {i18n.gettext(
-            `Personalize Firefox for Android with powerful extensions.`,
-          )}
+          {i18n.t('Personalize Firefox for Android with powerful extensions.')}
         </h3>
       </div>
     );
@@ -159,8 +157,8 @@ export class HomeBase extends React.Component {
         addonInstallSource={INSTALL_SOURCE_FEATURED}
         addons={shelves.recommendedExtensions}
         className="Home-RecommendedExtensions"
-        header={i18n.gettext('Recommended extensions')}
-        footerText={i18n.gettext('See more recommended extensions')}
+        header={i18n.t('Recommended extensions')}
+        footerText={i18n.t('See more recommended extensions')}
         footerLink={{
           pathname: '/search/',
           query: {
@@ -172,13 +170,14 @@ export class HomeBase extends React.Component {
         loading={loading}
         placeholderCount={MOBILE_HOME_PAGE_RECOMMENDED_EXTENSIONS_COUNT}
       />,
+
       <LandingAddonsCard
         key="trending-extensions"
         addonInstallSource={INSTALL_SOURCE_FEATURED}
         addons={shelves.trendingExtensions}
         className="Home-TrendingExtensions"
-        header={i18n.gettext('Explore all Android extensions')}
-        footerText={i18n.gettext('See more trending extensions')}
+        header={i18n.t('Explore all Android extensions')}
+        footerText={i18n.t('See more trending extensions')}
         footerLink={{
           pathname: '/search/',
           query: {
@@ -196,8 +195,7 @@ export class HomeBase extends React.Component {
     const { errorHandler, homeShelves, i18n, isDesktopSite, resultsLoaded } =
       this.props;
 
-    const themesHeader = i18n.gettext(`Change the way Firefox looks with
-      themes.`);
+    const themesHeader = i18n.t('Change the way Firefox looks with themes.');
 
     const loading = resultsLoaded === false;
 
@@ -205,9 +203,9 @@ export class HomeBase extends React.Component {
       <Page isHomePage showWrongPlatformWarning={!isDesktopSite}>
         <div className="Home">
           <HeadMetaTags
-            description={i18n.gettext(`Download Firefox extensions and themes.
-            They’re like apps for your browser. They can block annoying ads,
-            protect passwords, change browser appearance, and more.`)}
+            description={i18n.t(
+              'Download Firefox extensions and themes. They\u2019re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more.',
+            )}
             withTwitterMeta
           />
 

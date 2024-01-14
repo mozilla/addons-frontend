@@ -45,6 +45,7 @@ export function getStatic({ filePath, type, index, includeSri, sriData }) {
             type="text/css"
           />
         );
+
       case 'js':
         return (
           <script
@@ -53,6 +54,7 @@ export function getStatic({ filePath, type, index, includeSri, sriData }) {
             {...getSriProps(leafName, includeSri, sriData)}
           />
         );
+
       case 'font':
         return (
           <link
@@ -66,6 +68,7 @@ export function getStatic({ filePath, type, index, includeSri, sriData }) {
             type="font/woff2"
           />
         );
+
       default:
         throw new Error('Unknown static type');
     }

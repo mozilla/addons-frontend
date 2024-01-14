@@ -46,7 +46,7 @@ export const AddonTitleBase = ({
     const addonAuthors = addon.authors;
 
     // L10n: A comma, used in a list of authors: a1, a2, a3.
-    const comma = i18n.gettext(',');
+    const comma = i18n.t(',');
     const separator = isRTL ? ` ${comma}` : `${comma} `;
 
     addonAuthors.forEach((author, index) => {
@@ -82,6 +82,7 @@ export const AddonTitleBase = ({
           ) : (
             addon.name
           )}
+
           {authors.length > 0 && (
             <span className="AddonTitle-author">
               {' '}
@@ -90,12 +91,12 @@ export const AddonTitleBase = ({
                   {authors}{' '}
                   {
                     // L10n: Example: add-on "by" some authors
-                    i18n.gettext('by')
+                    i18n.t('by')
                   }
                 </>
               ) : (
                 <>
-                  {i18n.gettext('by')} {authors}
+                  {i18n.t('by')} {authors}
                 </>
               )}
             </span>

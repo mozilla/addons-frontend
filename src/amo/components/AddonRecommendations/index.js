@@ -131,8 +131,8 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     if (!loading) {
       header =
         outcome === OUTCOME_RECOMMENDED
-          ? i18n.gettext('Other users with this extension also installed')
-          : i18n.gettext('Other popular extensions');
+          ? i18n.t('Other users with this extension also installed')
+          : i18n.t('Other popular extensions');
     }
 
     return (

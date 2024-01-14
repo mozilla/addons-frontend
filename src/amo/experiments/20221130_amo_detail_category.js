@@ -21,6 +21,7 @@ export const EXPERIMENT_CONFIG: ExperimentConfig = {
     { id: VARIANT_SHOW_MIDDLE, percentage: 0.1 },
     { id: VARIANT_HIDE, percentage: 0.8 },
   ],
+
   shouldExcludeUser({ state }) {
     const { clientApp } = state.api;
 

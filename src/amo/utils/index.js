@@ -54,8 +54,7 @@ export const makeQueryStringWithUTM = ({
   utm_content?: string | null,
   utm_medium?: string,
   utm_source?: string,
-  utm_term?: string | null,
-  // otherQueryParams
+  utm_term?: string | null, // otherQueryParams
   [string]: string | null,
 |}): string => {
   return makeQueryString({

@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+/* eslint-disable no-var, no-console */
+
+const fs = require('fs');
+const path = require('path');
+const { spawnSync } = require('child_process');
+
+const { globSync } = require('glob');
+const babel = require('@babel/core');
+const generate = require('@babel/generator').default;
+const traverse = require('@babel/traverse').default;
+
+const prettierPath = path.join(__dirname, '../node_modules/.bin/prettier'); // Adjust as needed
+// eslint-disable-next-line global-require
+const myPluginFunction = require('../jed-to-i18n/plugin');
+
+const applyTransformations = (ast, plugin) => {
+  const pluginVisitor = plugin({ types: babel.types }).visitor;
+  traverse(ast, pluginVisitor);
+};
+
+function transformFile(file, retainLines = true) {
+  const originalSource = fs.readFileSync(file, 'utf8');
+
+  // Second transformation (Babel formatting + plugin changes)
+  const ast = babel.parseSync(originalSource, /* parsing options */);
+  applyTransformations(ast, myPluginFunction);
+  const { code: finalCode } = generate(ast, { retainLines });
+
+  // Format, save, and optionally lint the final code
+  const prettierOutput = spawnSync(prettierPath, ['--stdin-filepath', file], {
+    input: finalCode,
+    encoding: 'utf-8',
+  });
+  fs.writeFileSync(file, prettierOutput.stdout || finalCode, 'utf8');
+  spawnSync('eslint', ['--fix', file], { stdio: 'inherit' });
+
+  console.log(`Transformed file: ${file}`);
+}
+
+const transformFiles = (pattern) => {
+  const files = globSync(pattern);
+
+  files.forEach((file) => {
+    try {
+      return transformFile(file);
+    } catch (error) {
+      if (error instanceof RangeError && error.message.includes('Invalid count value')) {
+        console.error(`Error transforming file: ${file} with retainLines: true. trying again...`);
+        return transformFile(file, false);
+      }
+      console.error(`Error transforming file: ${file}`);
+      throw error;
+    }
+
+  });
+};
+
+
+const pattern = 'src/amo/**/*.js';
+transformFiles(pattern);

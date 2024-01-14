@@ -72,13 +72,13 @@ export class HeaderBase extends React.Component {
         text={siteUser.name}
         className="Header-authenticate-button Header-button"
       >
-        <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
+        <DropdownMenuItem>{i18n.t('My Account')}</DropdownMenuItem>
         <DropdownMenuItem>
           <Link
             className="Header-user-menu-collections-link"
             to="/collections/"
           >
-            {i18n.gettext('View My Collections')}
+            {i18n.t('View My Collections')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -86,7 +86,7 @@ export class HeaderBase extends React.Component {
             className="Header-user-menu-view-profile-link"
             to={siteUser ? `/user/${siteUser.id}/` : null}
           >
-            {i18n.gettext('View My Profile')}
+            {i18n.t('View My Profile')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -94,17 +94,17 @@ export class HeaderBase extends React.Component {
             className="Header-user-menu-edit-profile-link"
             to={siteUser ? '/users/edit' : null}
           >
-            {i18n.gettext('Edit My Profile')}
+            {i18n.t('Edit My Profile')}
           </Link>
         </DropdownMenuItem>
 
-        <DropdownMenuItem>{i18n.gettext('Tools')}</DropdownMenuItem>
+        <DropdownMenuItem>{i18n.t('Tools')}</DropdownMenuItem>
         <DropdownMenuItem>
           <Link
             href="/developers/addon/submit/distribution"
             prependClientApp={false}
           >
-            {i18n.gettext('Submit a New Add-on')}
+            {i18n.t('Submit a New Add-on')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -112,7 +112,7 @@ export class HeaderBase extends React.Component {
             href="/developers/addon/submit/theme/distribution"
             prependClientApp={false}
           >
-            {i18n.gettext('Submit a New Theme')}
+            {i18n.t('Submit a New Theme')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -121,7 +121,7 @@ export class HeaderBase extends React.Component {
             href="/developers/addons/"
             prependClientApp={false}
           >
-            {i18n.gettext('Manage My Submissions')}
+            {i18n.t('Manage My Submissions')}
           </Link>
         </DropdownMenuItem>
         {isReviewer && (
@@ -131,7 +131,7 @@ export class HeaderBase extends React.Component {
               href="/reviewers/"
               prependClientApp={false}
             >
-              {i18n.gettext('Reviewer Tools')}
+              {i18n.t('Reviewer Tools')}
             </Link>
           </DropdownMenuItem>
         )}
@@ -143,12 +143,13 @@ export class HeaderBase extends React.Component {
           onClick={this.handleLogOut}
           title={
             siteIsReadOnly
-              ? i18n.gettext(`This action is currently unavailable.
-                          Please reload the page in a moment.`)
+              ? i18n.t(
+                  'This action is currently unavailable. Please reload the page in a moment.',
+                )
               : null
           }
         >
-          {i18n.gettext('Log out')}
+          {i18n.t('Log out')}
         </DropdownMenuItem>
       </DropdownMenu>
     ) : (
@@ -183,7 +184,7 @@ export class HeaderBase extends React.Component {
         <span className="visually-hidden">
           {
             // L10n: "Firefox" should not be translated. :-)
-            i18n.gettext('Firefox Browser Add-ons')
+            i18n.t('Firefox Browser Add-ons')
           }
         </span>
       </Link>
@@ -197,7 +198,7 @@ export class HeaderBase extends React.Component {
           prependClientApp={false}
           prependLang={false}
         >
-          {i18n.gettext('Firefox Add-ons Blog')}
+          {i18n.t('Firefox Add-ons Blog')}
         </Link>
         <Link
           className="Header-extension-workshop-link Header-button"
@@ -211,9 +212,9 @@ export class HeaderBase extends React.Component {
           prependClientApp={false}
           prependLang={false}
           target="_blank"
-          title={i18n.gettext('Learn how to create extensions and themes')}
+          title={i18n.t('Learn how to create extensions and themes')}
         >
-          {i18n.gettext('Extension Workshop')}
+          {i18n.t('Extension Workshop')}
         </Link>
         <Link
           className="Header-developer-hub-link Header-button"
@@ -221,9 +222,9 @@ export class HeaderBase extends React.Component {
           external
           prependClientApp={false}
           target="_blank"
-          title={i18n.gettext('Submit and manage extensions and themes')}
+          title={i18n.t('Submit and manage extensions and themes')}
         >
-          {i18n.gettext('Developer Hub')}
+          {i18n.t('Developer Hub')}
         </Link>
       </>
     ) : null;

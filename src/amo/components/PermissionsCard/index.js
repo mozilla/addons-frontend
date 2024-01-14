@@ -56,7 +56,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
 
     const header = (
       <div className="PermissionsCard-header">
-        {i18n.gettext('Permissions')}
+        {i18n.t('Permissions')}
         <Link
           className="PermissionsCard-learn-more"
           href="https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
@@ -65,7 +65,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
           prependClientApp={false}
           prependLang={false}
         >
-          {i18n.gettext('Learn more')}
+          {i18n.t('Learn more')}
         </Link>
       </div>
     );
@@ -81,7 +81,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         {requiredContent.length ? (
           <>
             <p className="PermissionsCard-subhead--required">
-              {i18n.gettext('This add-on needs to:')}
+              {i18n.t('This add-on needs to:')}
             </p>
             <ul className="PermissionsCard-list--required">
               {requiredContent}
@@ -91,7 +91,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         {optionalContent.length ? (
           <>
             <p className="PermissionsCard-subhead--optional">
-              {i18n.gettext('This add-on may also ask to:')}
+              {i18n.t('This add-on may also ask to:')}
             </p>
             <ul className="PermissionsCard-list--optional">
               {optionalContent}

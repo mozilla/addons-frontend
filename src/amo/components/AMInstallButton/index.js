@@ -130,20 +130,20 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
     switch (status) {
       case DISABLED:
-        return i18n.gettext('Enable');
+        return i18n.t('Enable');
       case ENABLED:
       case INSTALLED:
-        return i18n.gettext('Remove');
+        return i18n.t('Remove');
       case ENABLING:
-        return i18n.gettext('Enabling');
+        return i18n.t('Enabling');
       case DISABLING:
-        return i18n.gettext('Disabling');
+        return i18n.t('Disabling');
       case DOWNLOADING:
-        return i18n.gettext('Downloading');
+        return i18n.t('Downloading');
       case INSTALLING:
-        return i18n.gettext('Installing');
+        return i18n.t('Installing');
       case UNINSTALLING:
-        return i18n.gettext('Uninstalling');
+        return i18n.t('Uninstalling');
       case INACTIVE:
       default:
         if (defaultButtonText) {
@@ -151,8 +151,8 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
         }
 
         return ADDON_TYPE_STATIC_THEME === addon.type
-          ? i18n.gettext('Install Theme')
-          : i18n.gettext('Add to Firefox');
+          ? i18n.t('Install Theme')
+          : i18n.t('Add to Firefox');
     }
   }
 

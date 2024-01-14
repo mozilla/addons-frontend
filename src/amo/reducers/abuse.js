@@ -39,6 +39,7 @@ export type AbuseState = {|
   byGUID: {
     [addonId: string]: AddonAbuseState,
   },
+
   loading: boolean,
 |};
 

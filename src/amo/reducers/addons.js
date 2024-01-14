@@ -51,6 +51,7 @@ export type AddonsState = {|
   infoBySlug: {
     [slug: string]: {| info: AddonInfoType, loading: boolean |},
   },
+
   lang: string,
   loadingByIdInURL: { [id: string]: boolean },
 |};

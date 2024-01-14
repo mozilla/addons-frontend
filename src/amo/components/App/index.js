@@ -118,24 +118,21 @@ export class AppBase extends React.Component<Props> {
       locale: lang,
     };
 
-    let defaultTitle = i18n.sprintf(
-      i18n.gettext('Add-ons for Firefox (%(locale)s)'),
-      i18nValues,
-    );
-    let titleTemplate = i18n.sprintf(
-      i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)'),
+    let defaultTitle = i18n.t('Add-ons for Firefox (%(locale)s)', i18nValues);
+    let titleTemplate = i18n.t(
+      '%(title)s – Add-ons for Firefox (%(locale)s)',
       // We inject `%s` as a named argument to avoid localizer mistakes. Helmet
       // will replace `%s` by the title supplied in other pages.
       { ...i18nValues, title: '%s' },
     );
 
     if (clientApp === CLIENT_APP_ANDROID) {
-      defaultTitle = i18n.sprintf(
-        i18n.gettext('Add-ons for Firefox Android (%(locale)s)'),
+      defaultTitle = i18n.t(
+        'Add-ons for Firefox Android (%(locale)s)',
         i18nValues,
       );
-      titleTemplate = i18n.sprintf(
-        i18n.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)'),
+      titleTemplate = i18n.t(
+        '%(title)s – Add-ons for Firefox Android (%(locale)s)',
         // We inject `%s` as a named argument to avoid localizer mistakes.
         // Helmet will replace `%s` by the title supplied in other pages.
         { ...i18nValues, title: '%s' },

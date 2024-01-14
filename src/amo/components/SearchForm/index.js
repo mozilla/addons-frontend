@@ -62,8 +62,8 @@ export class SearchFormBase extends React.Component<InternalProps> {
     const { className, i18n, lang, clientApp } = this.props;
     const openSearchTitle =
       clientApp === CLIENT_APP_ANDROID
-        ? i18n.gettext('Firefox Add-ons for Android')
-        : i18n.gettext('Firefox Add-ons');
+        ? i18n.t('Firefox Add-ons for Android')
+        : i18n.t('Firefox Add-ons');
     return (
       <>
         <Helmet>
@@ -86,7 +86,7 @@ export class SearchFormBase extends React.Component<InternalProps> {
             inputName="q"
             onSearch={this.onSearch}
             onSuggestionSelected={this.onSuggestionSelected}
-            selectSuggestionText={i18n.gettext('Go to the add-on page')}
+            selectSuggestionText={i18n.t('Go to the add-on page')}
             showInputLabel={false}
           />
         </form>

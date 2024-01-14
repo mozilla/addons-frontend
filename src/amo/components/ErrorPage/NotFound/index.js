@@ -24,16 +24,14 @@ export class NotFoundBase extends React.Component {
     return (
       <NestedStatus code={status}>
         <div className="ErrorPage NotFound">
-          <h1>{i18n.gettext('Page not found')}</h1>
+          <h1>{i18n.t('Page not found')}</h1>
           <p>
-            {i18n.gettext(
+            {i18n.t(
               "Sorry, but we can't find anything at the URL you entered.",
             )}
           </p>
 
-          <p>
-            {i18n.sprintf(i18n.gettext('Error code: %(status)s.'), { status })}
-          </p>
+          <p>{i18n.t('Error code: %(status)s.', { status })}</p>
         </div>
       </NestedStatus>
     );

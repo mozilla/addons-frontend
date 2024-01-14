@@ -96,12 +96,9 @@ const withUIState = ({
   resetOnUnmount = false,
 }: {|
   // This should always be set to __filename for ID purposes.
-  fileName: string,
-  // A function that takes component props and returns a string to identify this state.
-  extractId: ExtractIdFunc,
-  // An Object that defines the initial state.
-  initialState: Object,
-  // When false (the default), every component instance will always
+  fileName: string, // A function that takes component props and returns a string to identify this state.
+  extractId: ExtractIdFunc, // An Object that defines the initial state.
+  initialState: Object, // When false (the default), every component instance will always
   // render using persistent Redux state. When true, component state will
   // be reset when it is unmounted. Set this to true to more closely
   // mimic this.setState() behavior.
@@ -110,7 +107,6 @@ const withUIState = ({
   invariant(fileName, 'fileName is required');
   invariant(extractId, 'extractId is required');
   invariant(initialState, 'initialState is required');
-
   const mapStateToProps = createUIStateMapper({
     extractId,
     fileName,

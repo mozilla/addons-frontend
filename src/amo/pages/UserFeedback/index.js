@@ -111,7 +111,7 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
         <div className="UserFeedback-page">
           <Helmet>
             <title>
-              {i18n.gettext('Submit feedback or report a user to Mozilla')}
+              {i18n.t('Submit feedback or report a user to Mozilla')}
             </title>
             <meta name="robots" content="noindex, follow" />
           </Helmet>
@@ -130,7 +130,7 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
                 </h1>
 
                 <div className="UserFeedback-header-metadata">
-                  <span>{i18n.gettext('User since')}</span>
+                  <span>{i18n.t('User since')}</span>
                   {user ? (
                     i18n.moment(user.created).format('ll')
                   ) : (
@@ -141,11 +141,9 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
             }
             abuseIsLoading={isSubmitting}
             abuseSubmitted={hasSubmitted}
-            categoryHeader={i18n.gettext('Report this user to Mozilla')}
-            feedbackTitle={i18n.gettext(
-              'Send some feedback about the user profile',
-            )}
-            reportTitle={i18n.gettext(
+            categoryHeader={i18n.t('Report this user to Mozilla')}
+            feedbackTitle={i18n.t('Send some feedback about the user profile')}
+            reportTitle={i18n.t(
               "Report the user profile because it's illegal or incompliant",
             )}
             categories={[

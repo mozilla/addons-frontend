@@ -67,10 +67,10 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
         <FlagReview
           reason={REVIEW_FLAG_REASON_SPAM}
           review={review}
-          buttonText={i18n.gettext('Spam')}
-          wasFlaggedText={i18n.gettext('Flagged as spam')}
+          buttonText={i18n.t('Spam')}
+          wasFlaggedText={i18n.t('Flagged as spam')}
           disabled={!siteUser}
-          disabledTitle={i18n.gettext('Login required')}
+          disabledTitle={i18n.t('Login required')}
         />
       </ListItem>,
       // Only reviews (not developer responses) can be flagged as
@@ -83,22 +83,24 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
           <FlagReview
             reason={REVIEW_FLAG_REASON_BUG_SUPPORT}
             review={review}
-            buttonText={i18n.gettext('Misplaced bug report or support request')}
-            wasFlaggedText={i18n.gettext(
-              `Flagged as misplaced bug report or support request`,
+            buttonText={i18n.t('Misplaced bug report or support request')}
+            wasFlaggedText={i18n.t(
+              'Flagged as misplaced bug report or support request',
             )}
             disabled={!siteUser}
-            disabledTitle={i18n.gettext('Login required')}
+            disabledTitle={i18n.t('Login required')}
           />
         </ListItem>
       ),
+
       <ListItem
         className="FlagReviewMenu-flag-language-item"
         key="flag-language"
       >
         <Link to={`/feedback/review/${review.id}/`}>
-          {i18n.gettext(`Content that is illegal or that violates AMO's content
-            policies`)}
+          {i18n.t(
+            "Content that is illegal or that violates AMO's content policies",
+          )}
         </Link>
       </ListItem>,
     ];
@@ -109,11 +111,11 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
         idPrefix="flag-review-"
         items={items}
         openerClass={openerClass}
-        openerText={wasFlagged ? i18n.gettext('Flagged') : i18n.gettext('Flag')}
+        openerText={wasFlagged ? i18n.t('Flagged') : i18n.t('Flag')}
         openerTitle={
           isDeveloperReply
-            ? i18n.gettext('Flag this developer response')
-            : i18n.gettext('Flag this review')
+            ? i18n.t('Flag this developer response')
+            : i18n.t('Flag this review')
         }
       />
     );

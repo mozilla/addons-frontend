@@ -51,6 +51,7 @@ const createNotification = ({
           onChange={onChange}
           type="checkbox"
         />
+
         <span className="UserProfileEditNotification-checkbox" />
         {label}
       </label>

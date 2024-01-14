@@ -101,11 +101,11 @@ export class InstallWarningBase extends React.Component<InternalProps> {
         <Notice
           actionHref={WARNING_LINK_DESTINATION}
           actionTarget="_blank"
-          actionText={i18n.gettext('Learn more')}
+          actionText={i18n.t('Learn more')}
           className="InstallWarning"
           type={genericWarningType}
         >
-          {i18n.gettext(
+          {i18n.t(
             'This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing.',
           )}
         </Notice>

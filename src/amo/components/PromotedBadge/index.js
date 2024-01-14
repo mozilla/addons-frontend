@@ -38,23 +38,23 @@ export const PromotedBadgeBase = ({
   });
   switch (category) {
     case 'line':
-      label = i18n.gettext('By Firefox');
-      linkTitle = i18n.gettext(
+      label = i18n.t('By Firefox');
+      linkTitle = i18n.t(
         'Official add-on built by Mozilla Firefox. Meets security and performance standards.',
       );
       break;
 
     case 'recommended':
-      label = i18n.gettext('Recommended');
-      linkTitle = i18n.gettext(
+      label = i18n.t('Recommended');
+      linkTitle = i18n.t(
         'Firefox only recommends add-ons that meet our standards for security and performance.',
       );
       break;
 
     // This is the verified badge.
     default:
-      label = i18n.gettext('Verified');
-      linkTitle = i18n.gettext(
+      label = i18n.t('Verified');
+      linkTitle = i18n.t(
         'This add-on has been reviewed to meet our standards for security and performance.',
       );
       break;

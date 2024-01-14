@@ -50,7 +50,7 @@ export const ConfirmationDialogBase = ({
           onClick={onConfirm}
           puffy={puffyButtons}
         >
-          {confirmButtonText || i18n.gettext('Confirm')}
+          {confirmButtonText || i18n.t('Confirm')}
         </Button>
         <Button
           buttonType={cancelButtonType}
@@ -58,7 +58,7 @@ export const ConfirmationDialogBase = ({
           onClick={onCancel}
           puffy={puffyButtons}
         >
-          {cancelButtonText || i18n.gettext('Cancel')}
+          {cancelButtonText || i18n.t('Cancel')}
         </Button>
       </div>
     </div>

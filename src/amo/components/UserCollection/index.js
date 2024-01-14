@@ -42,9 +42,11 @@ export const UserCollectionBase = (props: InternalProps): React.Node => {
     );
 
     linkProps.to = `/collections/${authorId}/${slug}/`;
-    numberText = i18n.sprintf(
-      i18n.ngettext('%(total)s add-on', '%(total)s add-ons', numberOfAddons),
-      { total: i18n.formatNumber(numberOfAddons) },
+    numberText = /* manual-change: merge keys 
+    '%(total)s add-on' -> '%(total)s add-on_one'
+    '%(total)s add-ons' -> '%(total)s add-on_other' */ i18n.t(
+      '%(total)s add-on',
+      { count: numberOfAddons, total: i18n.formatNumber(numberOfAddons) },
     );
   }
 

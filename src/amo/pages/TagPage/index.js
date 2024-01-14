@@ -40,7 +40,7 @@ export class TagPageBase extends React.Component<InternalProps> {
   getPageTitle(tag: string): string {
     const { i18n } = this.props;
 
-    return i18n.sprintf(i18n.gettext('Add-ons tagged with %(tag)s'), {
+    return i18n.t('Add-ons tagged with %(tag)s', {
       tag,
     });
   }

@@ -177,7 +177,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       const callToActionURL = this.makeCallToActionURL();
 
       if (callToActionURL) {
-        const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
+        const linkInsides = <span> {i18n.t('Get the extension')} </span>;
         const linkProps = _checkInternalURL({
           urlString: callToActionURL,
         }).isInternal
@@ -228,12 +228,12 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       if (!loading) {
         if (promotedCategory === RECOMMENDED) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
-          titleText = i18n.gettext('RECOMMENDED');
+          titleText = i18n.t('RECOMMENDED');
         } else if (promotedCategory === LINE) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
-          titleText = i18n.gettext('BY FIREFOX');
+          titleText = i18n.t('BY FIREFOX');
         } else {
-          titleText = i18n.gettext('SPONSORED');
+          titleText = i18n.t('SPONSORED');
         }
       }
 
@@ -250,7 +250,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
               })}#sponsored`}
               rel="noopener noreferrer"
               target="_blank"
-              title={i18n.gettext(
+              title={i18n.t(
                 'Firefox only recommends extensions that meet our standards for security and performance.',
               )}
             >
@@ -274,12 +274,12 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       >
         <div className="HeroRecommendation-wrapper">
           {/* The AppBanner is included here as it wants to live inside the
-          HeroRecommendation on the home page. All other pages in the app
-          include it via the Page component. */}
+            HeroRecommendation on the home page. All other pages in the app
+            include it via the Page component. */}
           <AppBanner className="HeroRecommendation-banner" />
           {/* The WrongPlatformWarning is included here as it wants to live
-          inside the HeroRecommendation on the home page. Most other pages in
-          the app include it via the Page component. */}
+            inside the HeroRecommendation on the home page. Most other pages in
+            the app include it via the Page component. */}
           <WrongPlatformWarning className="HeroRecommendation-WrongPlatformWarning" />
 
           {errorHandler.renderErrorIfPresent()}
@@ -300,6 +300,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
                 </div>
               )
             )}
+
             <div className="HeroRecommendation-info">
               {renderHeroTitle()}
               <h2 className="HeroRecommendation-heading">
@@ -318,6 +319,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
                   dangerouslySetInnerHTML={sanitizeUserHTML(description)}
                 />
               )}
+
               {link}
             </div>
           </div>

@@ -239,7 +239,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       <CardList
         className="UserProfile-reviews"
         footer={paginator}
-        header={i18n.gettext('My reviews')}
+        header={i18n.t('My reviews')}
       >
         <ul>
           {reviews.map((review) => {
@@ -265,24 +265,31 @@ export class UserProfileBase extends React.Component<InternalProps> {
       return null;
     }
 
-    let description;
+    const userName = user.name;
+    let userType;
+    let findOther;
+
     if (user.is_addon_developer && user.is_artist) {
-      description = i18n.gettext(`The profile of %(user)s, a Firefox extension
-        and theme author. Find other apps by %(user)s, including average
-        ratings, tenure, and the option to report issues.`);
+      userType = i18n.t('extension and theme');
+      findOther = i18n.t('apps');
     } else if (user.is_addon_developer) {
-      description = i18n.gettext(`The profile of %(user)s, Firefox extension
-        author. Find other extensions by %(user)s, including average ratings,
-        tenure, and the option to report issues.`);
+      userType = i18n.t('extension');
+      findOther = i18n.t('extensions');
     } else if (user.is_artist) {
-      description = i18n.gettext(`The profile of %(user)s, Firefox theme
-        author. Find other themes by %(user)s, including average ratings,
-        tenure, and the option to report issues.`);
+      userType = i18n.t('theme');
+      findOther = i18n.t('themes');
     } else {
       return null;
     }
 
-    return i18n.sprintf(description, { user: user.name });
+    return i18n.t(
+      'The profile of %(userName)s, a Firefox %(userType)s author. Find other %(findOther)s by %(userName)s, including average ratings, tenure, and the option to report issues.',
+      {
+        userName,
+        userType,
+        findOther,
+      },
+    );
   }
 
   render(): React.Node {
@@ -305,20 +312,21 @@ export class UserProfileBase extends React.Component<InternalProps> {
         <UserAvatar
           className="UserProfile-avatar"
           user={user}
-          altText={i18n.gettext('User Avatar')}
+          altText={i18n.t('User Avatar')}
         />
 
         {user && isDeveloper(user) && (
           <div className="UserProfile-tags">
             {user.is_addon_developer && (
               <p className="UserProfile-developer">
-                {i18n.gettext('Add-ons developer')}
+                {i18n.t('Add-ons developer')}
                 <Icon name="developer" />
               </p>
             )}
+
             {user.is_artist && (
               <p className="UserProfile-artist">
-                {i18n.gettext('Theme artist')}
+                {i18n.t('Theme artist')}
                 <Icon name="artist" />
               </p>
             )}
@@ -332,10 +340,10 @@ export class UserProfileBase extends React.Component<InternalProps> {
     );
 
     const userProfileTitle = user
-      ? i18n.sprintf(i18n.gettext('User Profile for %(user)s'), {
+      ? i18n.t('User Profile for %(user)s', {
           user: user.name,
         })
-      : i18n.gettext('User Profile');
+      : i18n.t('User Profile');
 
     return (
       <Page errorHandler={errorHandler}>
@@ -353,17 +361,17 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 {user && user.homepage ? (
                   <Definition
                     className="UserProfile-homepage"
-                    term={i18n.gettext('Homepage')}
+                    term={i18n.t('Homepage')}
                   >
                     <a href={user.homepage} rel="nofollow">
-                      {i18n.gettext('Homepage')}
+                      {i18n.t('Homepage')}
                     </a>
                   </Definition>
                 ) : null}
                 {user && user.location ? (
                   <Definition
                     className="UserProfile-location"
-                    term={i18n.gettext('Location')}
+                    term={i18n.t('Location')}
                   >
                     {user.location}
                   </Definition>
@@ -371,14 +379,14 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 {user && user.occupation ? (
                   <Definition
                     className="UserProfile-occupation"
-                    term={i18n.gettext('Occupation')}
+                    term={i18n.t('Occupation')}
                   >
                     {user.occupation}
                   </Definition>
                 ) : null}
                 <Definition
                   className="UserProfile-user-since"
-                  term={i18n.gettext('User since')}
+                  term={i18n.t('User since')}
                 >
                   {user ? (
                     i18n.moment(user.created).format('ll')
@@ -388,13 +396,13 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 </Definition>
                 <Definition
                   className="UserProfile-number-of-addons"
-                  term={i18n.gettext('Number of add-ons')}
+                  term={i18n.t('Number of add-ons')}
                 >
                   {user ? user.num_addons_listed : <LoadingText />}
                 </Definition>
                 <Definition
                   className="UserProfile-rating-average"
-                  term={i18n.gettext('Average rating of developer’s add-ons')}
+                  term={i18n.t('Average rating of developer’s add-ons')}
                 >
                   {user ? (
                     <Rating
@@ -409,7 +417,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 {user && user.biography && user.biography.length ? (
                   <Definition
                     className="UserProfile-biography"
-                    term={i18n.gettext('Biography')}
+                    term={i18n.t('Biography')}
                   >
                     <div
                       // eslint-disable-next-line react/no-danger
@@ -433,7 +441,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   to={this.getEditURL()}
                   puffy
                 >
-                  {i18n.gettext('Edit profile')}
+                  {i18n.t('Edit profile')}
                 </Button>
               ) : null}
 
@@ -446,7 +454,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 >
                   {
                     // L10n: This action allows an admin to maintain a user.
-                    i18n.gettext('Admin user')
+                    i18n.t('Admin user')
                   }
                 </Button>
               ) : null}

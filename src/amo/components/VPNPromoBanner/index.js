@@ -175,10 +175,9 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
       return null;
     }
 
-    const headline = i18n.gettext('Save 50% with a full year subscription');
-    const copy = i18n.gettext(
-      `Protect your online data—and choose a VPN subscription plan that works
-       for you.`,
+    const headline = i18n.t('Save 50% with a full year subscription');
+    const copy = i18n.t(
+      'Protect your online data\u2014and choose a VPN subscription plan that works for you.',
     );
 
     const ctaURL = `${VPN_URL}${makeQueryStringWithUTM({
@@ -194,6 +193,7 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
             className="VPNPromoBanner-logo"
             src={vpnLogo}
           />
+
           <div className="VPNPromoBanner-copy">
             <strong>{headline}</strong>
             <span>{copy}</span>
@@ -203,7 +203,7 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
             href={ctaURL}
             onClick={this.onButtonClick}
           >
-            {i18n.gettext('Get Mozilla VPN')}
+            {i18n.t('Get Mozilla VPN')}
           </a>
           <Button
             className="VPNPromoBanner-dismisser-button"

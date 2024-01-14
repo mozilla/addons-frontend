@@ -33,22 +33,20 @@ export const getErrorMessage = ({
 
   switch (error) {
     case ERROR_CORRUPT_FILE:
-      return i18n.gettext(
+      return i18n.t(
         'Installation aborted because the add-on appears to be corrupt.',
       );
     case INSTALL_FAILED:
-      return i18n.gettext('Installation failed. Please try again.');
+      return i18n.t('Installation failed. Please try again.');
     case DOWNLOAD_FAILED:
-      return i18n.gettext('Download failed. Please check your connection.');
+      return i18n.t('Download failed. Please check your connection.');
     case FATAL_INSTALL_ERROR:
-      return i18n.gettext('An unexpected error occurred during installation.');
+      return i18n.t('An unexpected error occurred during installation.');
     case FATAL_UNINSTALL_ERROR:
-      return i18n.gettext(
-        'An unexpected error occurred during uninstallation.',
-      );
+      return i18n.t('An unexpected error occurred during uninstallation.');
     case FATAL_ERROR:
     default:
-      return i18n.gettext('An unexpected error occurred.');
+      return i18n.t('An unexpected error occurred.');
   }
 };
 

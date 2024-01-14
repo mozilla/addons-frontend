@@ -249,64 +249,57 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     if (authorIds) {
       switch (addonType) {
         case ADDON_TYPE_DICT:
-          header = i18n.ngettext(
-            i18n.sprintf(i18n.gettext('More dictionaries by %(author)s'), {
-              author: authorDisplayName,
-            }),
-            i18n.gettext('More dictionaries by these translators'),
-            authorIds.length,
+          header = /* manual-change: merge keys 
+          'More dictionaries by %(author)s' -> 'More dictionaries by %(author)s_one'
+          'More dictionaries by these translators' -> 'More dictionaries by %(author)s_other' */ i18n.t(
+            'More dictionaries by %(author)s',
+            { count: authorIds.length, author: authorDisplayName },
           );
           break;
         case ADDON_TYPE_EXTENSION:
-          header = showMore
-            ? i18n.ngettext(
-                i18n.sprintf(i18n.gettext('More extensions by %(author)s'), {
-                  author: authorDisplayName,
-                }),
-                i18n.gettext('More extensions by these developers'),
-                authorIds.length,
-              )
-            : i18n.ngettext(
-                i18n.sprintf(i18n.gettext('Extensions by %(author)s'), {
-                  author: authorDisplayName,
-                }),
-                i18n.gettext('Extensions by these developers'),
-                authorIds.length,
-              );
+          header = /* manual-change: merge keys 
+          'Extensions by %(author)s' -> 'Extensions by %(author)s_one'
+          'Extensions by these developers' -> 'Extensions by %(author)s_other' */ /* manual-change: merge keys 
+          'More extensions by %(author)s' -> 'More extensions by %(author)s_one'
+          'More extensions by these developers' -> 'More extensions by %(author)s_other' */ showMore
+            ? i18n.t('More extensions by %(author)s', {
+                count: authorIds.length,
+                author: authorDisplayName,
+              })
+            : i18n.t('Extensions by %(author)s', {
+                count: authorIds.length,
+                author: authorDisplayName,
+              });
           break;
         case ADDON_TYPE_LANG:
-          header = i18n.ngettext(
-            i18n.sprintf(i18n.gettext('More language packs by %(author)s'), {
-              author: authorDisplayName,
-            }),
-            i18n.gettext('More language packs by these translators'),
-            authorIds.length,
+          header = /* manual-change: merge keys 
+          'More language packs by %(author)s' -> 'More language packs by %(author)s_one'
+          'More language packs by these translators' -> 'More language packs by %(author)s_other' */ i18n.t(
+            'More language packs by %(author)s',
+            { count: authorIds.length, author: authorDisplayName },
           );
           break;
         case ADDON_TYPE_STATIC_THEME:
-          header = showMore
-            ? i18n.ngettext(
-                i18n.sprintf(i18n.gettext('More themes by %(author)s'), {
-                  author: authorDisplayName,
-                }),
-                i18n.gettext('More themes by these artists'),
-                authorIds.length,
-              )
-            : i18n.ngettext(
-                i18n.sprintf(i18n.gettext('Themes by %(author)s'), {
-                  author: authorDisplayName,
-                }),
-                i18n.gettext('Themes by these artists'),
-                authorIds.length,
-              );
+          header = /* manual-change: merge keys 
+          'Themes by %(author)s' -> 'Themes by %(author)s_one'
+          'Themes by these artists' -> 'Themes by %(author)s_other' */ /* manual-change: merge keys 
+          'More themes by %(author)s' -> 'More themes by %(author)s_one'
+          'More themes by these artists' -> 'More themes by %(author)s_other' */ showMore
+            ? i18n.t('More themes by %(author)s', {
+                count: authorIds.length,
+                author: authorDisplayName,
+              })
+            : i18n.t('Themes by %(author)s', {
+                count: authorIds.length,
+                author: authorDisplayName,
+              });
           break;
         default:
-          header = i18n.ngettext(
-            i18n.sprintf(i18n.gettext('More add-ons by %(author)s'), {
-              author: authorDisplayName,
-            }),
-            i18n.gettext('More add-ons by these developers'),
-            authorIds.length,
+          header = /* manual-change: merge keys 
+          'More add-ons by %(author)s' -> 'More add-ons by %(author)s_one'
+          'More add-ons by these developers' -> 'More add-ons by %(author)s_other' */ i18n.t(
+            'More add-ons by %(author)s',
+            { count: authorIds.length, author: authorDisplayName },
           );
       }
     }

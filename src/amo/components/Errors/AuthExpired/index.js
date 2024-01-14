@@ -41,10 +41,9 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
     const { _window, i18n } = this.props;
 
     const paragraph = replaceStringsWithJSX({
-      text: i18n.gettext(`
-        Login authentication has expired. %(startLink)sReload the page%(endLink)s
-        to continue without authentication, or login again using the Log In
-        link at the top of the page.`),
+      text: i18n.t(
+        'Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page.',
+      ),
       replacements: [
         [
           'startLink',
@@ -65,7 +64,7 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
     });
 
     return (
-      <ErrorComponent code={401} header={i18n.gettext('Login Expired')}>
+      <ErrorComponent code={401} header={i18n.t('Login Expired')}>
         <p>{paragraph}</p>
       </ErrorComponent>
     );

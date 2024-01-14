@@ -32,7 +32,23 @@ module.exports = {
       },
     ],
   ],
-  'plugins': [],
+  'plugins': [
+    [
+      'i18next-extract',
+      {
+        // 'keyAsDefaultValue': ['en_US'],
+        // 'keyAsDefaultValueForDerivedKeys': true,
+        'discardOldKeys': true,
+        'keySeparator': null,
+        'locales': ['en_US'],
+        'nsSeparator': null,
+        'defaultNs': 'amo',
+        'compatibilityJSON': 'v4',
+        'tFunctionNames': ['gettext'],
+        'outputPath': 'locale/{{locale}}/LC_MESSAGES/{{ns}}.json',
+      },
+    ],
+  ],
   'env': {
     'test': {
       'plugins': ['dynamic-import-node'],

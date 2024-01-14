@@ -115,7 +115,7 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
     return (
       <div className="LanguageTools-in-your-locale">
         <h2 className="LanguageTools-header">
-          {i18n.gettext('Available for your locale')}
+          {i18n.t('Available for your locale')}
         </h2>
 
         <ul className="LanguageTools-in-your-locale-list">
@@ -142,7 +142,7 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
   render(): React.Node {
     const { languageTools, errorHandler, i18n } = this.props;
 
-    const header = i18n.gettext('Dictionaries and Language Packs');
+    const header = i18n.t('Dictionaries and Language Packs');
 
     return (
       <Page>
@@ -152,9 +152,9 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
           </Helmet>
 
           <HeadMetaTags
-            description={i18n.gettext(`Download Firefox dictionaries and language
-            pack extensions. Add a new language option to your browser
-            spell-checker, or change the browser's interface language.`)}
+            description={i18n.t(
+              "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language.",
+            )}
             title={header}
           />
 
@@ -163,32 +163,31 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
           {errorHandler.renderErrorIfPresent()}
 
           <p>
-            {i18n.gettext(`Installing a dictionary add-on will add a new language
-            option to your spell-checker, which checks your spelling as you
-            type in Firefox.`)}
+            {i18n.t(
+              'Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox.',
+            )}
           </p>
           <p>
-            {i18n.gettext(`Language packs change your browser's interface
-            language, including menu options and settings.`)}
+            {i18n.t(
+              "Language packs change your browser's interface language, including menu options and settings.",
+            )}
           </p>
 
           {this.languageToolsInYourLocale()}
 
-          <h2 className="LanguageTools-header">
-            {i18n.gettext('All Locales')}
-          </h2>
+          <h2 className="LanguageTools-header">{i18n.t('All Locales')}</h2>
 
           <Table className="LanguageTools-table">
             <Thead>
               <Tr className="LanguageTools-header-row">
                 <Th className="LanguageTools-header-cell LanguageTool-localeName">
-                  {i18n.gettext('Locale Name')}
+                  {i18n.t('Locale Name')}
                 </Th>
                 <Th className="LanguageTools-header-cell">
-                  {i18n.gettext('Language Packs')}
+                  {i18n.t('Language Packs')}
                 </Th>
                 <Th className="LanguageTools-header-cell">
-                  {i18n.gettext('Dictionaries')}
+                  {i18n.t('Dictionaries')}
                 </Th>
               </Tr>
             </Thead>

@@ -17,6 +17,7 @@ export type SuggestionsState = {|
   forCollection: {
     [collection: string]: Suggestions,
   },
+
   lang: string,
   loading: boolean,
 |};

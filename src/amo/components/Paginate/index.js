@@ -152,7 +152,7 @@ export class PaginateBase extends React.Component<InternalProps> {
             className="Paginate-item--previous"
             page={thisPage - 1}
             pageParam={pageParam}
-            text={i18n.gettext('Previous')}
+            text={i18n.t('Previous')}
           />
 
           {getVisiblePages({ currentPage, pageCount, showPages }).map(
@@ -171,12 +171,12 @@ export class PaginateBase extends React.Component<InternalProps> {
             className="Paginate-item--next"
             page={thisPage + 1}
             pageParam={pageParam}
-            text={i18n.gettext('Next')}
+            text={i18n.t('Next')}
           />
         </div>
 
         <div className="Paginate-page-number">
-          {i18n.sprintf(i18n.gettext('Page %(thisPage)s of %(totalPages)s'), {
+          {i18n.t('Page %(thisPage)s of %(totalPages)s', {
             thisPage,
             totalPages: pageCount,
           })}

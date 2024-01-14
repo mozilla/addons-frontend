@@ -115,6 +115,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
             src={iconURL}
             alt={addon.name}
           />
+
           <h2 className="EditableCollectionAddon-name">{addon.name}</h2>
         </div>
         <div className="EditableCollectionAddon-buttons">
@@ -129,7 +130,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
               micro
               onClick={this.onEditNote}
             >
-              {i18n.gettext('Leave a note')}
+              {i18n.t('Leave a note')}
             </Button>
           </div>
           <Button
@@ -139,7 +140,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
             name={addon.id}
             onClick={this.onRemoveAddon}
           >
-            {i18n.gettext('Remove')}
+            {i18n.t('Remove')}
           </Button>
         </div>
         {showNotes && (
@@ -147,8 +148,8 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
             <h4 className="EditableCollectionAddon-notes-header">
               <Icon name="comments-blue" />
               {this.props.uiState.editingNote
-                ? i18n.gettext('Leave a note')
-                : i18n.gettext("Collector's note")}
+                ? i18n.t('Leave a note')
+                : i18n.t("Collector's note")}
             </h4>
 
             {this.props.uiState.editingNote ? (
@@ -163,8 +164,8 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
                   onDelete={addon.notes ? this.onDeleteNote : null}
                   onDismiss={this.onDismissNoteForm}
                   onSubmit={this.onSaveNote}
-                  placeholder={i18n.gettext('Add a comment about this add-on.')}
-                  submitButtonText={i18n.gettext('Save')}
+                  placeholder={i18n.t('Add a comment about this add-on.')}
+                  submitButtonText={i18n.t('Save')}
                   text={sanitizeHTML(addon.notes || '').__html}
                 />
               </>
@@ -178,6 +179,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
                     ['br', 'a'],
                   )}
                 />
+
                 <div className="EditableCollectionAddon-notes-buttons">
                   <Button
                     buttonType="action"
@@ -185,7 +187,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
                     micro
                     onClick={this.onEditNote}
                   >
-                    {i18n.gettext('Edit')}
+                    {i18n.t('Edit')}
                   </Button>
                 </div>
               </div>

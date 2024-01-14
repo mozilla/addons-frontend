@@ -72,7 +72,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
 
       const footerText = footer.text
         ? footer.text
-        : i18n.sprintf(i18n.gettext('See more %(categoryName)s'), {
+        : i18n.t('See more %(categoryName)s', {
             categoryName: title.toLowerCase(),
           });
 
