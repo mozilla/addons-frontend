@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-01-09 16:55+0000\n"
-"PO-Revision-Date: 2024-01-14 05:40+0000\n"
+"PO-Revision-Date: 2024-01-14 05:43+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1041,7 +1041,7 @@ msgstr "Inne i tillegget"
 
 #: src/amo/components/FeedbackForm/index.js:157
 msgid "Both locations"
-msgstr ""
+msgstr "Begge plassar"
 
 #: src/amo/components/FeedbackForm/index.js:252
 msgid "Report submitted"
@@ -1053,7 +1053,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Submitting your report…"
-msgstr ""
+msgstr "Sender inn rapporten din…"
 
 #: src/amo/components/FeedbackForm/index.js:342
 msgid "Submit report"
@@ -1079,7 +1079,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Contact information"
-msgstr ""
+msgstr "Kontaktinformasjon"
 
 #: src/amo/components/FeedbackForm/index.js:442
 msgid "File report anonymously"
@@ -1135,7 +1135,7 @@ msgstr "Rapporter denne vurderinga"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
@@ -1143,7 +1143,7 @@ msgstr "Flagga som spam (søppel)"
 
 #: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
 msgid "Login required"
-msgstr ""
+msgstr "Innlogging påkravd"
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
@@ -1657,7 +1657,7 @@ msgstr "Vi har fått rapporten din. Takk for at du informerte oss om problema di
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
-msgstr ""
+msgstr "Rapporter denne brukaren"
 
 #: src/amo/components/Search/index.js:139 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
@@ -2005,7 +2005,7 @@ msgstr "<span class=\"visually-hidden\">Utvid og</span> les meir"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "Logga inn som %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2358,7 +2358,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "av %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
@@ -2526,11 +2526,11 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "av %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Rapporter denne vurderinga til Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
@@ -2814,7 +2814,7 @@ msgstr "Brukar sidan"
 
 #: src/amo/pages/UserFeedback/index.js:144
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Rapporter denne brukaren til Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
