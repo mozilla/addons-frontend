@@ -91,10 +91,20 @@ export default async function createClient(
   }
   const i18n = makeI18n(i18nData, lang);
 
+  const messages = {
+    message: 'This is a client translation. time: {ts, date, ::yyyyMMdd}',
+  };
+
   const renderApp = (App) => {
     const root = createRoot(document.getElementById('react-view'));
     root.render(
-      <Root history={connectedHistory} i18n={i18n} store={store}>
+      <Root
+        history={connectedHistory}
+        i18n={i18n}
+        store={store}
+        locale={lang}
+        messages={messages}
+      >
         <App />
       </Root>,
     );

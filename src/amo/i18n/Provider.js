@@ -1,13 +1,16 @@
-import { Children, Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
-
+import { IntlProvider } from 'react-intl';
+import config from 'config';
 /*
  * This Provider expects to be passed an initialized
  * Jed i18n object,
  */
 
-export default class I18nProvider extends Component {
+export default class I18nProvider extends React.Component {
   static propTypes = {
+    locale: PropTypes.string,
+    messages: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     children: PropTypes.element.isRequired,
   };
@@ -26,7 +29,15 @@ export default class I18nProvider extends Component {
   }
 
   render() {
-    const { children } = this.props;
-    return Children.only(children);
+    const { children, messages, locale } = this.props;
+    return (
+      <IntlProvider
+        messages={messages}
+        locale={locale}
+        defaultLocale={config.get('defaultLang')}
+      >
+        {children}
+      </IntlProvider>
+    );
   }
 }

@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 // We have to import these styles first to have them listed first in the final
 // CSS file. See: https://github.com/mozilla/addons-frontend/issues/3565
@@ -147,6 +148,16 @@ export class AppBase extends React.Component<Props> {
         <ScrollToTop>
           <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
           <ErrorPage>
+            <div style={{ background: 'white', lineHeight: '2rem' }}>
+              <FormattedMessage
+                id="message"
+                defaultMessage="This is a default message"
+                values={{ ts: Date.now() }}
+              />
+              <br />
+              {/* eslint-disable-next-line react/style-prop-object */}
+              <FormattedNumber value={19} style="currency" currency="EUR" />
+            </div>
             <Routes />
           </ErrorPage>
         </ScrollToTop>

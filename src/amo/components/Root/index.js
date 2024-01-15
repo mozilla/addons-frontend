@@ -16,6 +16,8 @@ type Props = {|
   cookies?: typeof Cookies,
   history: ReactRouterHistoryType,
   i18n: I18nType,
+  messages: mixed,
+  locale: string,
   store: ReduxStore,
 |};
 
@@ -24,11 +26,13 @@ const Root = ({
   children,
   history,
   i18n,
+  messages,
+  locale,
   store,
   cookies = null,
 }: Props): React.Node => {
   return (
-    <I18nProvider i18n={i18n}>
+    <I18nProvider i18n={i18n} messages={messages} locale={locale}>
       <Provider store={store} key="provider">
         <Router history={history}>
           <CookiesProvider cookies={cookies}>

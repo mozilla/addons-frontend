@@ -23,6 +23,7 @@ describe(__filename, () => {
     connectedHistory,
     history = createHistory(),
     i18n = fakeI18n(),
+    messages,
     store,
     ...props
   } = {}) => {
@@ -35,6 +36,8 @@ describe(__filename, () => {
     return render(
       <Root
         i18n={i18n}
+        messages={messages}
+        locale="en"
         history={connectedHistory || thingsFromCreateStore.connectedHistory}
         store={store || thingsFromCreateStore.store}
         {...props}

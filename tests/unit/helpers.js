@@ -1530,9 +1530,9 @@ export const render = (ui, options = {}) => {
     );
   }
 
-  const wrapper = ({ children }) => {
+  const wrapper = ({ children, messages }) => {
     return (
-      <I18nProvider i18n={i18n}>
+      <I18nProvider i18n={i18n} messages={messages} locale="en">
         <Provider store={store}>
           <Router history={history}>{children}</Router>
         </Provider>

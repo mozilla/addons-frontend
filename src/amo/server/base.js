@@ -349,6 +349,10 @@ function baseServer(
 
       const i18n = makeI18n(i18nData, htmlLang);
 
+      const messages = {
+        message: 'This is a server translation. time: {ts, date, ::yyyyMMdd}',
+      };
+
       const props = {
         component: (
           <Root
@@ -356,6 +360,8 @@ function baseServer(
             history={connectedHistory}
             i18n={i18n}
             store={store}
+            messages={messages}
+            locale={htmlLang}
           >
             <App />
           </Root>

@@ -34,9 +34,10 @@ describe(__filename, () => {
     Component = translate()(InnerComponent),
     i18n = fakeI18n(),
     componentProps = {},
+    messages = {},
   } = {}) => {
     return libraryRender(
-      <I18nProvider i18n={i18n}>
+      <I18nProvider i18n={i18n} messages={messages} locale="en">
         <OuterComponent>
           <Component {...componentProps} />
         </OuterComponent>

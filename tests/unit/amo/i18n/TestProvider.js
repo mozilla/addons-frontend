@@ -16,9 +16,9 @@ describe(__filename, () => {
     }
   }
 
-  function render({ i18n }) {
+  function render({ i18n, messages }) {
     return libraryRender(
-      <I18nProvider i18n={i18n}>
+      <I18nProvider i18n={i18n} locale="en" messages={messages}>
         <MyComponent />
       </I18nProvider>,
     );

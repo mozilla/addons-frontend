@@ -36,7 +36,7 @@ const render = ({ app, lang, component }: RenderParams) => {
   store.dispatch(setLang(lang));
 
   return renderToStaticMarkup(
-    <I18nProvider i18n={i18n}>
+    <I18nProvider i18n={i18n} messages={{}} locale={lang}>
       <Provider store={store}>
         <Router history={connectedHistory}>{component}</Router>
       </Provider>
