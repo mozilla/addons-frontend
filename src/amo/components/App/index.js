@@ -35,7 +35,7 @@ import log from 'amo/logger';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
-import type { I18nType } from 'amo/types/i18n';
+import type { I18nType, IntlType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
 /* eslint-enable import/first */
 
@@ -61,6 +61,7 @@ type Props = {|
   ...DefaultProps,
   handleGlobalEvent: () => void,
   i18n: I18nType,
+  intl: IntlType,
   location: ReactRouterLocationType,
   setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
@@ -113,7 +114,7 @@ export class AppBase extends React.Component<Props> {
   }
 
   render(): React.Node {
-    const { clientApp, i18n, lang } = this.props;
+    const { clientApp, i18n, intl, lang } = this.props;
 
     const i18nValues = {
       locale: lang,
@@ -143,16 +144,34 @@ export class AppBase extends React.Component<Props> {
       );
     }
 
+    const nameString = intl.formatMessage(
+      {
+        description: 'A message',
+        defaultMessage: 'My name is {name}',
+      },
+      {
+        name: 'Foo',
+      },
+    );
+
     return (
       <NestedStatus code={200}>
         <ScrollToTop>
           <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
           <ErrorPage>
             <div style={{ background: 'white', lineHeight: '2rem' }}>
+              <p>{nameString}</p>
               <FormattedMessage
-                id="message"
-                defaultMessage="This is a default message"
+                defaultMessage="This is a default message {ts, date}"
                 values={{ ts: Date.now() }}
+              />
+              <FormattedMessage
+                defaultMessage={`There are {count, plural,
+                  =0 {no items}
+                  one {# item}
+                  other {# items}
+                } in your cart.`}
+                values={{ count: 0 }}
               />
               <br />
               {/* eslint-disable-next-line react/style-prop-object */}

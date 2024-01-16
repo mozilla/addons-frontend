@@ -11,3 +11,13 @@ export type I18nType = {|
   |},
   sprintf: (string, { [placeholder: string]: mixed }) => string,
 |};
+
+export type IntlType = {|
+  formatMessage: (
+    {|
+      description?: string,
+      defaultMessage: string,
+    |},
+    { [placeholder: string]: mixed },
+  ) => string,
+|};

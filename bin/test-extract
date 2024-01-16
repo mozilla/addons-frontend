@@ -1,0 +1,10 @@
+TMP_DIR=./tmp
+mkdir -p ${TMP_DIR}
+yarn run flow-remove-types src/ -d ${TMP_DIR}
+yarn run formatjs extract "${TMP_DIR}/**/*.js" \
+     --out-file lang/en.json \
+     --id-interpolation-pattern '[sha512:contenthash:base64:6]' \
+     --format formatter.js \
+     --ignore './tmp/amo/errorHandler.js' \
+     --ignore 'tmp/amo/reducers/utils.js'
+rm -rf ${TMP_DIR}
