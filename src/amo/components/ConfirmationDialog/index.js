@@ -25,7 +25,7 @@ export type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const ConfirmationDialogBase = ({
@@ -34,7 +34,7 @@ export const ConfirmationDialogBase = ({
   className,
   confirmButtonText,
   confirmButtonType = 'alert',
-  i18n,
+  jed,
   onCancel,
   onConfirm,
   message,
@@ -50,7 +50,7 @@ export const ConfirmationDialogBase = ({
           onClick={onConfirm}
           puffy={puffyButtons}
         >
-          {confirmButtonText || i18n.gettext('Confirm')}
+          {confirmButtonText || jed.gettext('Confirm')}
         </Button>
         <Button
           buttonType={cancelButtonType}
@@ -58,7 +58,7 @@ export const ConfirmationDialogBase = ({
           onClick={onCancel}
           puffy={puffyButtons}
         >
-          {cancelButtonText || i18n.gettext('Cancel')}
+          {cancelButtonText || jed.gettext('Cancel')}
         </Button>
       </div>
     </div>

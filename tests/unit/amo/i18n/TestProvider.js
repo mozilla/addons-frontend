@@ -8,27 +8,27 @@ import { fakeI18n } from 'tests/unit/helpers';
 describe(__filename, () => {
   class MyComponent extends React.Component {
     static contextTypes = {
-      i18n: PropTypes.object.isRequired,
+      jed: PropTypes.object.isRequired,
     };
 
     render() {
-      return <p>{this.context.i18n.gettext('Howdy')}</p>;
+      return <p>{this.context.jed.gettext('Howdy')}</p>;
     }
   }
 
-  function render({ i18n }) {
+  function render({ jed }) {
     return libraryRender(
-      <I18nProvider i18n={i18n}>
+      <I18nProvider jed={jed}>
         <MyComponent />
       </I18nProvider>,
     );
   }
 
-  it('sets the i18n as context', () => {
-    const i18n = fakeI18n();
+  it('sets the jed as context', () => {
+    const jed = fakeI18n();
 
-    render({ i18n });
+    render({ jed });
 
-    expect(i18n.gettext).toHaveBeenCalledWith('Howdy');
+    expect(jed.gettext).toHaveBeenCalledWith('Howdy');
   });
 });

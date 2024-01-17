@@ -48,7 +48,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
 |};
@@ -97,7 +97,7 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { errorHandler, user, i18n, isSubmitting, hasSubmitted } = this.props;
+    const { errorHandler, user, jed, isSubmitting, hasSubmitted } = this.props;
 
     if (
       errorHandler.hasError() &&
@@ -111,7 +111,7 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
         <div className="UserFeedback-page">
           <Helmet>
             <title>
-              {i18n.gettext('Submit feedback or report a user to Mozilla')}
+              {jed.gettext('Submit feedback or report a user to Mozilla')}
             </title>
             <meta name="robots" content="noindex, follow" />
           </Helmet>
@@ -130,9 +130,9 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
                 </h1>
 
                 <div className="UserFeedback-header-metadata">
-                  <span>{i18n.gettext('User since')}</span>
+                  <span>{jed.gettext('User since')}</span>
                   {user ? (
-                    i18n.moment(user.created).format('ll')
+                    jed.moment(user.created).format('ll')
                   ) : (
                     <LoadingText />
                   )}
@@ -141,11 +141,11 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
             }
             abuseIsLoading={isSubmitting}
             abuseSubmitted={hasSubmitted}
-            categoryHeader={i18n.gettext('Report this user to Mozilla')}
-            feedbackTitle={i18n.gettext(
+            categoryHeader={jed.gettext('Report this user to Mozilla')}
+            feedbackTitle={jed.gettext(
               'Send some feedback about the user profile',
             )}
-            reportTitle={i18n.gettext(
+            reportTitle={jed.gettext(
               "Report the user profile because it's illegal or incompliant",
             )}
             categories={[

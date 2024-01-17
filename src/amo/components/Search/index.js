@@ -75,7 +75,7 @@ type InternalProps = {|
   ...DefaultProps,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
   pathname: string,
 |};
 
@@ -131,57 +131,57 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 
   renderHelmet(): React.Node {
-    const { i18n, filters, pageTitle, count } = this.props;
+    const { jed, filters, pageTitle, count } = this.props;
 
     let title = pageTitle;
 
     if (!title) {
-      title = i18n.gettext('Search results');
+      title = jed.gettext('Search results');
 
       if (filters && filters.promoted) {
         if (filters.promoted === RECOMMENDED) {
           switch (filters.addonType) {
             case ADDON_TYPE_EXTENSION:
-              title = i18n.gettext('Recommended extensions');
+              title = jed.gettext('Recommended extensions');
               break;
             case ADDON_TYPE_STATIC_THEME:
-              title = i18n.gettext('Recommended themes');
+              title = jed.gettext('Recommended themes');
               break;
             default:
-              title = i18n.gettext('Recommended add-ons');
+              title = jed.gettext('Recommended add-ons');
           }
         } else if (filters.promoted === LINE) {
           switch (filters.addonType) {
             case ADDON_TYPE_EXTENSION:
-              title = i18n.gettext('Extensions by Firefox');
+              title = jed.gettext('Extensions by Firefox');
               break;
             case ADDON_TYPE_STATIC_THEME:
-              title = i18n.gettext('Themes by Firefox');
+              title = jed.gettext('Themes by Firefox');
               break;
             default:
-              title = i18n.gettext('Add-ons by Firefox');
+              title = jed.gettext('Add-ons by Firefox');
           }
         } else if (filters.promoted === REVIEWED_FILTER) {
           switch (filters.addonType) {
             case ADDON_TYPE_EXTENSION:
-              title = i18n.gettext('Reviewed extensions');
+              title = jed.gettext('Reviewed extensions');
               break;
             case ADDON_TYPE_STATIC_THEME:
-              title = i18n.gettext('Reviewed themes');
+              title = jed.gettext('Reviewed themes');
               break;
             default:
-              title = i18n.gettext('Reviewed add-ons');
+              title = jed.gettext('Reviewed add-ons');
           }
         } else if (filters.promoted === VERIFIED_FILTER) {
           switch (filters.addonType) {
             case ADDON_TYPE_EXTENSION:
-              title = i18n.gettext('Verified extensions');
+              title = jed.gettext('Verified extensions');
               break;
             case ADDON_TYPE_STATIC_THEME:
-              title = i18n.gettext('Verified themes');
+              title = jed.gettext('Verified themes');
               break;
             default:
-              title = i18n.gettext('Verified add-ons');
+              title = jed.gettext('Verified add-ons');
           }
         }
       } else if (filters && filters.sort) {
@@ -189,43 +189,43 @@ export class SearchBase extends React.Component<InternalProps> {
           case SEARCH_SORT_TRENDING:
             switch (filters.addonType) {
               case ADDON_TYPE_EXTENSION:
-                title = i18n.gettext('Trending extensions');
+                title = jed.gettext('Trending extensions');
                 break;
               case ADDON_TYPE_STATIC_THEME:
-                title = i18n.gettext('Trending themes');
+                title = jed.gettext('Trending themes');
                 break;
               default:
-                title = i18n.gettext('Trending add-ons');
+                title = jed.gettext('Trending add-ons');
             }
             break;
           case SEARCH_SORT_TOP_RATED:
             switch (filters.addonType) {
               case ADDON_TYPE_EXTENSION:
-                title = i18n.gettext('Top rated extensions');
+                title = jed.gettext('Top rated extensions');
                 break;
               case ADDON_TYPE_STATIC_THEME:
-                title = i18n.gettext('Top rated themes');
+                title = jed.gettext('Top rated themes');
                 break;
               default:
-                title = i18n.gettext('Top rated add-ons');
+                title = jed.gettext('Top rated add-ons');
             }
             break;
           case SEARCH_SORT_POPULAR:
             switch (filters.addonType) {
               case ADDON_TYPE_EXTENSION:
-                title = i18n.gettext('Popular extensions');
+                title = jed.gettext('Popular extensions');
                 break;
               case ADDON_TYPE_STATIC_THEME:
-                title = i18n.gettext('Popular themes');
+                title = jed.gettext('Popular themes');
                 break;
               default:
-                title = i18n.gettext('Popular add-ons');
+                title = jed.gettext('Popular add-ons');
             }
             break;
           default:
         }
       } else if (filters && filters.query) {
-        title = i18n.sprintf(i18n.gettext('Search results for "%(query)s"'), {
+        title = jed.sprintf(jed.gettext('Search results for "%(query)s"'), {
           query: filters.query,
         });
       }

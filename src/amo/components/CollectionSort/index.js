@@ -43,7 +43,7 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   clientApp: string,
-  i18n: I18nType,
+  jed: I18nType,
   lang: string,
   history: ReactRouterHistoryType,
 |};
@@ -77,35 +77,35 @@ export class CollectionSortBase extends React.Component<InternalProps> {
   };
 
   sortOptions(): Array<SortOption> {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     return [
       {
-        label: i18n.gettext('Newest first'),
+        label: jed.gettext('Newest first'),
         value: COLLECTION_SORT_DATE_ADDED_DESCENDING,
       },
       {
-        label: i18n.gettext('Oldest first'),
+        label: jed.gettext('Oldest first'),
         value: COLLECTION_SORT_DATE_ADDED_ASCENDING,
       },
       {
-        label: i18n.gettext('Name'),
+        label: jed.gettext('Name'),
         value: COLLECTION_SORT_NAME,
       },
       {
-        label: i18n.gettext('Popularity'),
+        label: jed.gettext('Popularity'),
         value: COLLECTION_SORT_POPULARITY_DESCENDING,
       },
     ];
   }
 
   render(): React.Node {
-    const { filters, i18n } = this.props;
+    const { filters, jed } = this.props;
 
     return (
       <form className="CollectionSort">
         <label className="CollectionSort-label" htmlFor="CollectionSort-select">
-          {i18n.gettext('Sort add-ons by')}
+          {jed.gettext('Sort add-ons by')}
         </label>
         <Select
           className="CollectionSort-select"

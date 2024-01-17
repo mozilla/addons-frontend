@@ -48,7 +48,7 @@ describe(__filename, () => {
       store,
     };
     if (lang) {
-      renderOptions.i18n = fakeI18n({ lang });
+      renderOptions.jed = fakeI18n({ lang });
     }
 
     return defaultRender(<AddonsCard {...props} />, renderOptions);

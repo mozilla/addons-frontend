@@ -16,7 +16,7 @@ export class ErrorListBase extends React.Component {
     _window: PropTypes.object,
     code: PropTypes.string,
     className: PropTypes.string,
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
     messages: PropTypes.array.isRequired,
   };
 
@@ -25,7 +25,7 @@ export class ErrorListBase extends React.Component {
   };
 
   render() {
-    const { _window, code, className, i18n, messages } = this.props;
+    const { _window, code, className, jed, messages } = this.props;
     const items = [];
 
     messages.forEach((messageItem) => {
@@ -41,14 +41,14 @@ export class ErrorListBase extends React.Component {
         // This API error describes exactly what happened but that isn't
         // very helpful for AMO users. Let's help them figure it out.
         log.debug(`Detected ${code}, replacing API message: ${message}`);
-        message = i18n.gettext('Your session has expired');
+        message = jed.gettext('Your session has expired');
       }
       items.push(message);
     });
 
     if (!items.length) {
       log.debug(`No messages were passed to ErrorList, code: ${code}`);
-      items.push(i18n.gettext('An unexpected error occurred'));
+      items.push(jed.gettext('An unexpected error occurred'));
     }
 
     let action;
@@ -56,7 +56,7 @@ export class ErrorListBase extends React.Component {
     if (API_ERRORS_SESSION_EXPIRY.includes(code)) {
       // Let the user recover from signature expired errors.
       action = () => _window.location.reload();
-      actionText = i18n.gettext('Reload To Continue');
+      actionText = jed.gettext('Reload To Continue');
       if (items.length > 1) {
         // There will never be more than one message but if there is, log a message
         // to help someone debug the problem.

@@ -23,18 +23,18 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class CategoriesPageBase extends React.Component<InternalProps> {
   getPageTitle(addonType: string): null | string {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     switch (addonType) {
       case ADDON_TYPE_EXTENSION:
-        return i18n.gettext('All extension categories');
+        return jed.gettext('All extension categories');
       case ADDON_TYPE_STATIC_THEME:
-        return i18n.gettext('All theme categories');
+        return jed.gettext('All theme categories');
       default:
         return null;
     }

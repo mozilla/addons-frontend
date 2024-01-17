@@ -42,7 +42,7 @@ type Props = {|
   className?: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AddonRecommendationsBase extends React.Component<Props> {
@@ -108,7 +108,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   }
 
   render(): null | React.Node {
-    const { className, i18n, recommendations, errorHandler } = this.props;
+    const { className, jed, recommendations, errorHandler } = this.props;
 
     if (!recommendations) {
       log.debug(
@@ -131,8 +131,8 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     if (!loading) {
       header =
         outcome === OUTCOME_RECOMMENDED
-          ? i18n.gettext('Other users with this extension also installed')
-          : i18n.gettext('Other popular extensions');
+          ? jed.gettext('Other users with this extension also installed')
+          : jed.gettext('Other popular extensions');
     }
 
     return (

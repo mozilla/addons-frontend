@@ -14,19 +14,19 @@ import './styles.scss';
 
 type Props = {|
   version: AddonVersionType | null,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class PermissionsCardBase extends React.Component<InternalProps> {
   render(): null | React.Node {
-    const { version, i18n } = this.props;
+    const { version, jed } = this.props;
 
-    const permissionUtils = new PermissionUtils(i18n);
+    const permissionUtils = new PermissionUtils(jed);
 
     if (!version || !version.file) {
       return null;
@@ -56,7 +56,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
 
     const header = (
       <div className="PermissionsCard-header">
-        {i18n.gettext('Permissions')}
+        {jed.gettext('Permissions')}
         <Link
           className="PermissionsCard-learn-more"
           href="https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
@@ -65,7 +65,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
           prependClientApp={false}
           prependLang={false}
         >
-          {i18n.gettext('Learn more')}
+          {jed.gettext('Learn more')}
         </Link>
       </div>
     );
@@ -81,7 +81,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         {requiredContent.length ? (
           <>
             <p className="PermissionsCard-subhead--required">
-              {i18n.gettext('This add-on needs to:')}
+              {jed.gettext('This add-on needs to:')}
             </p>
             <ul className="PermissionsCard-list--required">
               {requiredContent}
@@ -91,7 +91,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         {optionalContent.length ? (
           <>
             <p className="PermissionsCard-subhead--optional">
-              {i18n.gettext('This add-on may also ask to:')}
+              {jed.gettext('This add-on may also ask to:')}
             </p>
             <ul className="PermissionsCard-list--optional">
               {optionalContent}

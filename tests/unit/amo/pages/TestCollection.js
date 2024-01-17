@@ -804,7 +804,7 @@ describe(__filename, () => {
       expect(getElement('title')).toHaveTextContent(
         `${collectionName({
           name: null,
-          i18n: fakeI18n(),
+          jed: fakeI18n(),
         })} – Add-ons for Firefox (en-US)`,
       ),
     );
@@ -1140,7 +1140,7 @@ describe(__filename, () => {
           'Download and create Firefox collections to keep track of favorite extensions and themes.',
           `Explore the ${collectionName({
             name,
-            i18n: fakeI18n(),
+            jed: fakeI18n(),
           })}.`,
         ].join(' '),
       ),
@@ -2234,7 +2234,7 @@ describe(__filename, () => {
 
       expect(
         screen.getByRole('heading', {
-          name: collectionName({ name: null, i18n: fakeI18n() }),
+          name: collectionName({ name: null, jed: fakeI18n() }),
         }),
       ).toBeInTheDocument();
     });

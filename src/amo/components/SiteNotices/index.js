@@ -22,7 +22,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 // This is needed because of https://github.com/mozilla/addons-frontend/issues/8616
@@ -36,7 +36,7 @@ const sanitizeNoticeHTML = (text: string) => {
 
 export class SiteNoticesBase extends React.Component<InternalProps> {
   render(): Array<React.Node> {
-    const { i18n, siteIsReadOnly, siteNotice, currentUserWasLoggedOut } =
+    const { jed, siteIsReadOnly, siteNotice, currentUserWasLoggedOut } =
       this.props;
 
     const notices = [];
@@ -65,7 +65,7 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
           type="warning"
           key="amo-site-read-only"
         >
-          {i18n.gettext(`Some features are temporarily disabled while we
+          {jed.gettext(`Some features are temporarily disabled while we
             perform website maintenance. We'll be back to full capacity
             shortly.`)}
         </Notice>,
@@ -80,7 +80,7 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
           type="warning"
           key="user-was-logged-out"
         >
-          {i18n.gettext('You have been logged out.')}
+          {jed.gettext('You have been logged out.')}
         </Notice>,
       );
     }

@@ -86,7 +86,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class UserProfileBase extends React.Component<InternalProps> {
@@ -216,7 +216,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 
   renderReviews(): null | React.Node {
-    const { location, i18n, isOwner, pageSize, reviews, reviewCount } =
+    const { location, jed, isOwner, pageSize, reviews, reviewCount } =
       this.props;
 
     if (!isOwner || !reviews || reviews.length < 1) {
@@ -239,7 +239,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       <CardList
         className="UserProfile-reviews"
         footer={paginator}
-        header={i18n.gettext('My reviews')}
+        header={jed.gettext('My reviews')}
       >
         <ul>
           {reviews.map((review) => {
@@ -259,7 +259,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 
   getMetaDescription(): null | string {
-    const { i18n, user } = this.props;
+    const { jed, user } = this.props;
 
     if (!user) {
       return null;
@@ -267,26 +267,26 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
     let description;
     if (user.is_addon_developer && user.is_artist) {
-      description = i18n.gettext(`The profile of %(user)s, a Firefox extension
+      description = jed.gettext(`The profile of %(user)s, a Firefox extension
         and theme author. Find other apps by %(user)s, including average
         ratings, tenure, and the option to report issues.`);
     } else if (user.is_addon_developer) {
-      description = i18n.gettext(`The profile of %(user)s, Firefox extension
+      description = jed.gettext(`The profile of %(user)s, Firefox extension
         author. Find other extensions by %(user)s, including average ratings,
         tenure, and the option to report issues.`);
     } else if (user.is_artist) {
-      description = i18n.gettext(`The profile of %(user)s, Firefox theme
+      description = jed.gettext(`The profile of %(user)s, Firefox theme
         author. Find other themes by %(user)s, including average ratings,
         tenure, and the option to report issues.`);
     } else {
       return null;
     }
 
-    return i18n.sprintf(description, { user: user.name });
+    return jed.sprintf(description, { user: user.name });
   }
 
   render(): React.Node {
-    const { canAdminUser, canEditProfile, errorHandler, i18n, isOwner, user } =
+    const { canAdminUser, canEditProfile, errorHandler, jed, isOwner, user } =
       this.props;
 
     let errorMessage;
@@ -305,20 +305,20 @@ export class UserProfileBase extends React.Component<InternalProps> {
         <UserAvatar
           className="UserProfile-avatar"
           user={user}
-          altText={i18n.gettext('User Avatar')}
+          altText={jed.gettext('User Avatar')}
         />
 
         {user && isDeveloper(user) && (
           <div className="UserProfile-tags">
             {user.is_addon_developer && (
               <p className="UserProfile-developer">
-                {i18n.gettext('Add-ons developer')}
+                {jed.gettext('Add-ons developer')}
                 <Icon name="developer" />
               </p>
             )}
             {user.is_artist && (
               <p className="UserProfile-artist">
-                {i18n.gettext('Theme artist')}
+                {jed.gettext('Theme artist')}
                 <Icon name="artist" />
               </p>
             )}
@@ -332,10 +332,10 @@ export class UserProfileBase extends React.Component<InternalProps> {
     );
 
     const userProfileTitle = user
-      ? i18n.sprintf(i18n.gettext('User Profile for %(user)s'), {
+      ? jed.sprintf(jed.gettext('User Profile for %(user)s'), {
           user: user.name,
         })
-      : i18n.gettext('User Profile');
+      : jed.gettext('User Profile');
 
     return (
       <Page errorHandler={errorHandler}>
@@ -353,17 +353,17 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 {user && user.homepage ? (
                   <Definition
                     className="UserProfile-homepage"
-                    term={i18n.gettext('Homepage')}
+                    term={jed.gettext('Homepage')}
                   >
                     <a href={user.homepage} rel="nofollow">
-                      {i18n.gettext('Homepage')}
+                      {jed.gettext('Homepage')}
                     </a>
                   </Definition>
                 ) : null}
                 {user && user.location ? (
                   <Definition
                     className="UserProfile-location"
-                    term={i18n.gettext('Location')}
+                    term={jed.gettext('Location')}
                   >
                     {user.location}
                   </Definition>
@@ -371,30 +371,30 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 {user && user.occupation ? (
                   <Definition
                     className="UserProfile-occupation"
-                    term={i18n.gettext('Occupation')}
+                    term={jed.gettext('Occupation')}
                   >
                     {user.occupation}
                   </Definition>
                 ) : null}
                 <Definition
                   className="UserProfile-user-since"
-                  term={i18n.gettext('User since')}
+                  term={jed.gettext('User since')}
                 >
                   {user ? (
-                    i18n.moment(user.created).format('ll')
+                    jed.moment(user.created).format('ll')
                   ) : (
                     <LoadingText />
                   )}
                 </Definition>
                 <Definition
                   className="UserProfile-number-of-addons"
-                  term={i18n.gettext('Number of add-ons')}
+                  term={jed.gettext('Number of add-ons')}
                 >
                   {user ? user.num_addons_listed : <LoadingText />}
                 </Definition>
                 <Definition
                   className="UserProfile-rating-average"
-                  term={i18n.gettext('Average rating of developer’s add-ons')}
+                  term={jed.gettext('Average rating of developer’s add-ons')}
                 >
                   {user ? (
                     <Rating
@@ -409,7 +409,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 {user && user.biography && user.biography.length ? (
                   <Definition
                     className="UserProfile-biography"
-                    term={i18n.gettext('Biography')}
+                    term={jed.gettext('Biography')}
                   >
                     <div
                       // eslint-disable-next-line react/no-danger
@@ -433,7 +433,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   to={this.getEditURL()}
                   puffy
                 >
-                  {i18n.gettext('Edit profile')}
+                  {jed.gettext('Edit profile')}
                 </Button>
               ) : null}
 
@@ -446,7 +446,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 >
                   {
                     // L10n: This action allows an admin to maintain a user.
-                    i18n.gettext('Admin user')
+                    jed.gettext('Admin user')
                   }
                 </Button>
               ) : null}

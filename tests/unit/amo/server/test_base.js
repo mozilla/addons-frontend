@@ -12,6 +12,7 @@ import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
 import defaultConfig from 'config';
 import cheerio from 'cheerio';
+import Express from 'express';
 import { configureStore } from '@reduxjs/toolkit';
 
 import { REGION_CODE_HEADER, createApiError } from 'amo/api';
@@ -137,7 +138,7 @@ export class ServerTestHelper {
     // eslint-disable-next-line no-empty-function
     function* fakeSaga() {}
 
-    const app = baseServer(App, _createStoreAndSagas, {
+    const app = baseServer(Express(), App, _createStoreAndSagas, {
       appSagas: appSagas || fakeSaga,
       config,
       ...baseServerParams,

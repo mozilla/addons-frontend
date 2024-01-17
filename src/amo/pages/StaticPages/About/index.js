@@ -7,24 +7,24 @@ import { sanitizeHTML } from 'amo/utils';
 import type { I18nType } from 'amo/types/i18n';
 
 type Props = {|
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AboutBase extends React.Component<Props> {
   render(): React.Node {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     return (
       <StaticPage
-        title={i18n.gettext('About Firefox Add-ons')}
-        metaDescription={i18n.gettext(`The official Mozilla site for downloading
+        title={jed.gettext('About Firefox Add-ons')}
+        metaDescription={jed.gettext(`The official Mozilla site for downloading
           Firefox extensions and themes. Add new features and change the
           browser’s appearance to customize your web experience.`)}
       >
         <>
           <div id="about">
             <p>
-              {i18n.gettext(`Addons.mozilla.org (AMO), is Mozilla's official site
+              {jed.gettext(`Addons.mozilla.org (AMO), is Mozilla's official site
                 for discovering and installing add-ons for the Firefox browser.
                 Add-ons help you modify and personalize your browsing experience
                 by adding new features to Firefox, enhancing your interactions
@@ -33,8 +33,8 @@ export class AboutBase extends React.Component<Props> {
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`If you are looking for add-ons for Thunderbird or SeaMonkey, please visit
+                jed.sprintf(
+                  jed.gettext(`If you are looking for add-ons for Thunderbird or SeaMonkey, please visit
                   %(startTBLink)saddons.thunderbird.net%(endTBLink)s or
                   %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s.`),
                   {
@@ -51,9 +51,9 @@ export class AboutBase extends React.Component<Props> {
             />
           </div>
           <section>
-            <h2>{i18n.gettext('A community of creators')}</h2>
+            <h2>{jed.gettext('A community of creators')}</h2>
             <p>
-              {i18n.gettext(`The add-ons listed here are created by
+              {jed.gettext(`The add-ons listed here are created by
                 thousands of developers and theme designers from all over the
                 world, ranging from individual hobbyists to large corporations.
                 Some add-ons listed on AMO have been automatically published
@@ -62,9 +62,9 @@ export class AboutBase extends React.Component<Props> {
             </p>
           </section>
           <section>
-            <h2>{i18n.gettext(`Get involved`)}</h2>
+            <h2>{jed.gettext(`Get involved`)}</h2>
             <p>
-              {i18n.gettext(`Mozilla is a non-profit champion of the Internet, we
+              {jed.gettext(`Mozilla is a non-profit champion of the Internet, we
                 build Firefox to help keep it healthy, open and accessible. Add-ons
                 support user choice and customization in Firefox, and you can
                 contribute in the following ways:`)}
@@ -73,8 +73,8 @@ export class AboutBase extends React.Component<Props> {
               <li
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(`%(startLink)sMake your own add-on%(endLink)s.
+                  jed.sprintf(
+                    jed.gettext(`%(startLink)sMake your own add-on%(endLink)s.
                         We provide free hosting and update services and can help you
                         reach a large audience of users.`),
                     {
@@ -89,8 +89,8 @@ export class AboutBase extends React.Component<Props> {
               <li
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(`Help improve this website. It's open source, and you
+                  jed.sprintf(
+                    jed.gettext(`Help improve this website. It's open source, and you
                         can file bugs and submit patches. You can get started with a
                         %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s
                         or view all open issues for AMO’s
@@ -115,8 +115,8 @@ export class AboutBase extends React.Component<Props> {
               <li
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(`Want to interact with addons.mozilla.org
+                  jed.sprintf(
+                    jed.gettext(`Want to interact with addons.mozilla.org
                       (AMO) programmatically? Check out the
                       %(startAddonsServerDocumentation)sAdd-ons Servers
                       documentation%(endAddonsServerDocumentation)s for details
@@ -137,7 +137,7 @@ export class AboutBase extends React.Component<Props> {
               />
             </ul>
             <p>
-              {i18n.gettext(
+              {jed.gettext(
                 `If you want to contribute but are not quite as technical, there are still ways to help:`,
               )}
             </p>
@@ -145,8 +145,8 @@ export class AboutBase extends React.Component<Props> {
               <li
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(
+                  jed.sprintf(
+                    jed.gettext(
                       `Participate in our %(startLink)sforum%(endLink)s.`,
                     ),
                     {
@@ -159,20 +159,20 @@ export class AboutBase extends React.Component<Props> {
                 )}
               />
               <li>
-                {i18n.gettext(`Leave feedback for your favorite add-ons. Add-on authors are more likely
+                {jed.gettext(`Leave feedback for your favorite add-ons. Add-on authors are more likely
                   to improve their add-ons and create new ones when they know people appreciate their
                   work.`)}
               </li>
               <li>
-                {i18n.gettext(`Tell your friends and family that Firefox is a fast, secure browser
+                {jed.gettext(`Tell your friends and family that Firefox is a fast, secure browser
                   that protects their privacy, and they can use add-ons to make it their own!`)}
               </li>
             </ul>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(
+                jed.sprintf(
+                  jed.gettext(
                     `To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s.`,
                   ),
                   {
@@ -186,12 +186,12 @@ export class AboutBase extends React.Component<Props> {
             />
           </section>
           <section>
-            <h2 id="reportIssue">{i18n.gettext('Report an issue')}</h2>
+            <h2 id="reportIssue">{jed.gettext('Report an issue')}</h2>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`If you find a problem with the site, we'd love to fix it.
+                jed.sprintf(
+                  jed.gettext(`If you find a problem with the site, we'd love to fix it.
                    Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much
                     detail as possible.`),
                   {
@@ -206,8 +206,8 @@ export class AboutBase extends React.Component<Props> {
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(
+                jed.sprintf(
+                  jed.gettext(
                     `To report a security vulnerability for an extension, even if it is not
                      hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s
                       on Bugzilla or email %(startMailLink)samo-admins@mozilla.com%(endMailLink)s.
@@ -229,12 +229,12 @@ export class AboutBase extends React.Component<Props> {
             />
           </section>
           <section>
-            <h2>{i18n.gettext('Get support')}</h2>
+            <h2>{jed.gettext('Get support')}</h2>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`If you would like to learn more about how to manage add-ons in
+                jed.sprintf(
+                  jed.gettext(`If you would like to learn more about how to manage add-ons in
                       Firefox, or need to find general Firefox support, please visit
                       %(startSUMOLink)sSupport%(endSUMOLink)s
                       Mozilla. If you don't find an answer there, you can
@@ -254,8 +254,8 @@ export class AboutBase extends React.Component<Props> {
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(
+                jed.sprintf(
+                  jed.gettext(
                     `%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s.`,
                   ),
                   {

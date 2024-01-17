@@ -30,7 +30,7 @@ type InternalProps = {|
   ...Props,
   ...DefaultProps,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AddonBadgesBase extends React.Component<InternalProps> {
@@ -39,7 +39,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   };
 
   render(): null | React.Node {
-    const { _getPromotedCategory, addon, clientApp, i18n } = this.props;
+    const { _getPromotedCategory, addon, clientApp, jed } = this.props;
 
     if (!addon) {
       return null;
@@ -57,18 +57,18 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
           <PromotedBadge category={promotedCategory} size="large" />
         ) : null}
         {addon.is_experimental ? (
-          <Badge type="experimental" label={i18n.gettext('Experimental')} />
+          <Badge type="experimental" label={jed.gettext('Experimental')} />
         ) : null}
         {addon.requires_payment ? (
           <Badge
             type="requires-payment"
-            label={i18n.gettext('Some features may require payment')}
+            label={jed.gettext('Some features may require payment')}
           />
         ) : null}
         {clientApp === CLIENT_APP_FIREFOX && addon.isAndroidCompatible && (
           <Badge
             type="android-compatible"
-            label={i18n.gettext('Available on Firefox for Android™')}
+            label={jed.gettext('Available on Firefox for Android™')}
           />
         )}
       </div>

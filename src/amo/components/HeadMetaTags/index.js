@@ -38,7 +38,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
@@ -67,7 +67,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   getTitle(): string {
     const {
       clientApp,
-      i18n,
+      jed,
       lang: locale,
       title,
       appendDefaultTitle,
@@ -83,17 +83,17 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
 
       i18nTitle =
         clientApp === CLIENT_APP_ANDROID
-          ? i18n.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)')
-          : i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)');
+          ? jed.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)')
+          : jed.gettext('%(title)s – Add-ons for Firefox (%(locale)s)');
       i18nValues = { ...i18nValues, title };
     } else {
       i18nTitle =
         clientApp === CLIENT_APP_ANDROID
-          ? i18n.gettext('Add-ons for Firefox Android (%(locale)s)')
-          : i18n.gettext('Add-ons for Firefox (%(locale)s)');
+          ? jed.gettext('Add-ons for Firefox Android (%(locale)s)')
+          : jed.gettext('Add-ons for Firefox (%(locale)s)');
     }
 
-    return i18n.sprintf(i18nTitle, i18nValues);
+    return jed.sprintf(i18nTitle, i18nValues);
   }
 
   renderOpenGraph(): Array<React.Node> {

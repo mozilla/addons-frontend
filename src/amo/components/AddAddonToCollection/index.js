@@ -54,7 +54,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
   history: ReactRouterHistoryType,
 |};
 
@@ -171,7 +171,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     const {
       addon,
       clientApp,
-      i18n,
+      jed,
       lang,
       loadingAddonsInCollections,
       loadingUserCollections,
@@ -184,9 +184,9 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     let progressMessage;
 
     if (loadingUserCollections) {
-      progressMessage = i18n.gettext('Loading…');
+      progressMessage = jed.gettext('Loading…');
     } else if (loadingAddonsInCollections) {
-      progressMessage = i18n.gettext('Adding…');
+      progressMessage = jed.gettext('Adding…');
     }
     if (progressMessage) {
       // Create a disabled select box with a single option.
@@ -202,14 +202,14 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
 
     actionOptions.push(
       this.createOption({
-        text: i18n.gettext('Select a collection…'),
+        text: jed.gettext('Select a collection…'),
         key: 'default',
       }),
     );
 
     actionOptions.push(
       this.createOption({
-        text: i18n.gettext('Create new collection'),
+        text: jed.gettext('Create new collection'),
         key: 'create-new-collection',
         onSelect: () => {
           invariant(addon, 'addon is required');
@@ -229,7 +229,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
           // belongs to, they will see an error.
           collectionOptions.push(
             this.createOption({
-              text: collectionName({ name: collection.name, i18n }),
+              text: collectionName({ name: collection.name, jed }),
               key: `collection-${collection.id}`,
               onSelect: () => {
                 this.addToCollection(collection);
@@ -243,16 +243,15 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { errorHandler, i18n, addonInCollections } = this.props;
+    const { errorHandler, jed, addonInCollections } = this.props;
     const { actionOptions, collectionOptions, disabled } = this.getSelectData();
 
     let addedNotices: Array<React.Node> = [];
     if (addonInCollections) {
       addedNotices = addonInCollections.map((collection) => {
-        const notice = i18n.sprintf(
-          i18n.gettext('Added to %(collectionName)s'),
-          { collectionName: collectionName({ name: collection.name, i18n }) },
-        );
+        const notice = jed.sprintf(jed.gettext('Added to %(collectionName)s'), {
+          collectionName: collectionName({ name: collection.name, jed }),
+        });
         return (
           <Notice
             type="success"
@@ -266,12 +265,12 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     }
 
     // L10n: This is a header for a list meaning Add to [some collection name]
-    const collectionOptLabel = i18n.gettext('Add to…');
+    const collectionOptLabel = jed.gettext('Add to…');
 
     return (
       <Card
         className="AddAddonToCollection"
-        header={i18n.gettext('Add to collection')}
+        header={jed.gettext('Add to collection')}
       >
         {errorHandler.renderErrorIfPresent()}
         {addedNotices}

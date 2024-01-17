@@ -22,11 +22,11 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const UserCollectionBase = (props: InternalProps): React.Node => {
-  const { authorId, id, name, numberOfAddons, slug, i18n } = props;
+  const { authorId, id, name, numberOfAddons, slug, jed } = props;
 
   const linkProps = {};
   let numberText;
@@ -42,9 +42,9 @@ export const UserCollectionBase = (props: InternalProps): React.Node => {
     );
 
     linkProps.to = `/collections/${authorId}/${slug}/`;
-    numberText = i18n.sprintf(
-      i18n.ngettext('%(total)s add-on', '%(total)s add-ons', numberOfAddons),
-      { total: i18n.formatNumber(numberOfAddons) },
+    numberText = jed.sprintf(
+      jed.ngettext('%(total)s add-on', '%(total)s add-ons', numberOfAddons),
+      { total: jed.formatNumber(numberOfAddons) },
     );
   }
 
@@ -55,7 +55,7 @@ export const UserCollectionBase = (props: InternalProps): React.Node => {
           {numberOfAddons === null ? (
             <LoadingText />
           ) : (
-            collectionName({ name, i18n })
+            collectionName({ name, jed })
           )}
         </h2>
         <p className="UserCollection-number">{numberText || <LoadingText />}</p>

@@ -37,14 +37,14 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const AddonVersionCardBase = (props: InternalProps): React.Node => {
   const {
     addon,
     headerText,
-    i18n,
+    jed,
     installError,
     version,
     versionInfo,
@@ -59,7 +59,7 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
             <h1 className="AddonVersionCard-header">{headerText}</h1>
           )}
           <h2 className="AddonVersionCard-noVersion">
-            {i18n.gettext('No version found')}
+            {jed.gettext('No version found')}
           </h2>
         </div>
       </li>
@@ -67,7 +67,7 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
   }
 
   const versionNumber = version ? (
-    i18n.sprintf(i18n.gettext('Version %(versionNumber)s'), {
+    jed.sprintf(jed.gettext('Version %(versionNumber)s'), {
       versionNumber: version.version,
     })
   ) : (
@@ -84,14 +84,14 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
     }
 
     const i18nParams = {
-      dateReleased: i18n.moment(versionInfo.created).format('ll'),
+      dateReleased: jed.moment(versionInfo.created).format('ll'),
       fileSize: versionInfo.filesize,
     };
 
     return (
       <div className="AddonVersionCard-fileInfo">
-        {i18n.sprintf(
-          i18n.gettext('Released %(dateReleased)s - %(fileSize)s'),
+        {jed.sprintf(
+          jed.gettext('Released %(dateReleased)s - %(fileSize)s'),
           i18nParams,
         )}
       </div>
@@ -110,8 +110,8 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
           : { href: license.url, prependClientApp: false, prependLang: false };
 
         const licenseText = license.name
-          ? i18n.sprintf(
-              i18n.gettext(
+          ? jed.sprintf(
+              jed.gettext(
                 'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
               ),
               {
@@ -122,7 +122,7 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
                 linkEnd: '%(linkEnd)s',
               },
             )
-          : i18n.gettext(
+          : jed.gettext(
               'Source code released under %(linkStart)sCustom License%(linkEnd)s',
             );
 
@@ -148,8 +148,8 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
       } else {
         licenseSection = (
           <p className="AddonVersionCard-license">
-            {i18n.sprintf(
-              i18n.gettext('Source code released under %(licenseName)s'),
+            {jed.sprintf(
+              jed.gettext('Source code released under %(licenseName)s'),
               {
                 licenseName: license.name,
               },
@@ -211,7 +211,7 @@ function mapStateToProps(
   state: AppState,
   ownProps: InternalProps,
 ): PropsFromState {
-  const { addon, i18n, version } = ownProps;
+  const { addon, jed, version } = ownProps;
 
   let installedAddon = {};
 
@@ -222,7 +222,7 @@ function mapStateToProps(
   return {
     versionInfo: version
       ? getVersionInfo({
-          i18n,
+          jed,
           state: state.versions,
           versionId: version.id,
         })

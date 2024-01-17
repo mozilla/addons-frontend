@@ -231,7 +231,7 @@ describe(__filename, () => {
 
       expect(
         screen.getByRole('heading', {
-          name: collectionName({ name: null, i18n: fakeI18n() }),
+          name: collectionName({ name: null, jed: fakeI18n() }),
         }),
       ).toBeInTheDocument();
     });

@@ -29,13 +29,13 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const AddonTitleBase = ({
   addon,
   as: Component = 'h1',
-  i18n,
+  jed,
   isRTL,
   linkToAddon = false,
   queryParamsForAttribution = {},
@@ -46,7 +46,7 @@ export const AddonTitleBase = ({
     const addonAuthors = addon.authors;
 
     // L10n: A comma, used in a list of authors: a1, a2, a3.
-    const comma = i18n.gettext(',');
+    const comma = jed.gettext(',');
     const separator = isRTL ? ` ${comma}` : `${comma} `;
 
     addonAuthors.forEach((author, index) => {
@@ -90,12 +90,12 @@ export const AddonTitleBase = ({
                   {authors}{' '}
                   {
                     // L10n: Example: add-on "by" some authors
-                    i18n.gettext('by')
+                    jed.gettext('by')
                   }
                 </>
               ) : (
                 <>
-                  {i18n.gettext('by')} {authors}
+                  {jed.gettext('by')} {authors}
                 </>
               )}
             </span>

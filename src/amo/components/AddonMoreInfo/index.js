@@ -38,7 +38,7 @@ import type { ReactRouterLocationType } from 'amo/types/router';
 
 type Props = {|
   addon: AddonType | null,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 type PropsFromState = {|
@@ -75,7 +75,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       addon,
       currentVersion,
       hasStatsPermission,
-      i18n,
+      jed,
       location,
       relatedCategories,
       userId,
@@ -100,7 +100,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             title={addon.homepage && addon.homepage.url}
             rel="nofollow"
           >
-            {i18n.gettext('Homepage')}
+            {jed.gettext('Homepage')}
           </a>
         </li>
       );
@@ -117,7 +117,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             title={addon.support_url && addon.support_url.url}
             rel="nofollow"
           >
-            {i18n.gettext('Support site')}
+            {jed.gettext('Support site')}
           </a>
         </li>
       );
@@ -131,7 +131,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             className="AddonMoreInfo-support-email"
             href={`mailto:${addon.support_email}`}
           >
-            {i18n.gettext('Support Email')}
+            {jed.gettext('Support Email')}
           </a>
         </li>
       );
@@ -149,7 +149,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             getQueryParametersForAttribution(location),
           )}
         >
-          {i18n.gettext('Visit stats dashboard')}
+          {jed.gettext('Visit stats dashboard')}
         </Link>
       );
     }
@@ -168,7 +168,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             ),
           }
         : { href: license.url, prependClientApp: false, prependLang: false };
-      const licenseName = license.name || i18n.gettext('Custom License');
+      const licenseName = license.name || jed.gettext('Custom License');
 
       versionLicenseLink = license.url ? (
         <Link className="AddonMoreInfo-license-link" {...linkProps}>
@@ -195,7 +195,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
                 slug: category.slug,
               })}
             >
-              {i18n.gettext(category.name)}
+              {jed.gettext(category.name)}
             </Link>
           </li>
         );
@@ -210,12 +210,12 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       version: currentVersion ? currentVersion.version : null,
       filesize: versionInfo && versionInfo.filesize,
       versionLastUpdated: lastUpdated
-        ? i18n.sprintf(
+        ? jed.sprintf(
             // L10n: This will output, in English: "2 months ago (Dec 12 2016)"
-            i18n.gettext('%(timeFromNow)s (%(date)s)'),
+            jed.gettext('%(timeFromNow)s (%(date)s)'),
             {
-              timeFromNow: i18n.moment(lastUpdated).fromNow(),
-              date: i18n.moment(lastUpdated).format('ll'),
+              timeFromNow: jed.moment(lastUpdated).fromNow(),
+              date: jed.moment(lastUpdated).format('ll'),
             },
           )
         : null,
@@ -228,7 +228,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             getQueryParametersForAttribution(location),
           )}
         >
-          {i18n.gettext('Read the privacy policy for this add-on')}
+          {jed.gettext('Read the privacy policy for this add-on')}
         </Link>
       ) : null,
       eulaLink: addon.has_eula ? (
@@ -239,7 +239,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             getQueryParametersForAttribution(location),
           )}
         >
-          {i18n.gettext('Read the license agreement for this add-on')}
+          {jed.gettext('Read the license agreement for this add-on')}
         </Link>
       ) : null,
       relatedCategories: categories,
@@ -252,7 +252,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               getQueryParametersForAttribution(location),
             )}
           >
-            {i18n.gettext('See all versions')}
+            {jed.gettext('See all versions')}
           </Link>
         </li>
       ),
@@ -292,14 +292,14 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     versionLastUpdated,
     versionLicenseLink = null,
   }: Object): React.Node {
-    const { addon, i18n } = this.props;
+    const { addon, jed } = this.props;
     return (
       <>
         <DefinitionList className="AddonMoreInfo-dl">
           {(homepage || supportUrl || supportEmail) && (
             <Definition
               className="AddonMoreInfo-links"
-              term={i18n.gettext('Add-on Links')}
+              term={jed.gettext('Add-on Links')}
             >
               <ul className="AddonMoreInfo-links-contents-list">
                 {homepage}
@@ -311,7 +311,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {version && (
             <Definition
               className="AddonMoreInfo-version"
-              term={i18n.gettext('Version')}
+              term={jed.gettext('Version')}
             >
               {version}
             </Definition>
@@ -319,7 +319,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {filesize && (
             <Definition
               className="AddonMoreInfo-filesize"
-              term={i18n.gettext('Size')}
+              term={jed.gettext('Size')}
             >
               {filesize}
             </Definition>
@@ -327,7 +327,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {versionLastUpdated && (
             <Definition
               className="AddonMoreInfo-last-updated"
-              term={i18n.gettext('Last updated')}
+              term={jed.gettext('Last updated')}
             >
               {versionLastUpdated}
             </Definition>
@@ -335,7 +335,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {relatedCategories && (
             <Definition
               className="AddonMoreInfo-related-categories"
-              term={i18n.gettext('Related Categories')}
+              term={jed.gettext('Related Categories')}
             >
               <ul className="AddonMoreInfo-related-categories-list">
                 {relatedCategories}
@@ -345,7 +345,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {versionLicenseLink && (
             <Definition
               className="AddonMoreInfo-license"
-              term={i18n.gettext('License')}
+              term={jed.gettext('License')}
             >
               {versionLicenseLink}
             </Definition>
@@ -353,7 +353,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {privacyPolicyLink && (
             <Definition
               className="AddonMoreInfo-privacy-policy"
-              term={i18n.gettext('Privacy Policy')}
+              term={jed.gettext('Privacy Policy')}
             >
               {privacyPolicyLink}
             </Definition>
@@ -361,7 +361,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {eulaLink && (
             <Definition
               className="AddonMoreInfo-eula"
-              term={i18n.gettext('End-User License Agreement')}
+              term={jed.gettext('End-User License Agreement')}
             >
               {eulaLink}
             </Definition>
@@ -369,7 +369,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {versionHistoryLink && (
             <Definition
               className="AddonMoreInfo-version-history"
-              term={i18n.gettext('Version History')}
+              term={jed.gettext('Version History')}
             >
               <ul className="AddonMoreInfo-links-contents-list">
                 {versionHistoryLink}
@@ -379,7 +379,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {statsLink && (
             <Definition
               className="AddonMoreInfo-stats"
-              term={i18n.gettext('Usage Statistics')}
+              term={jed.gettext('Usage Statistics')}
             >
               {statsLink}
             </Definition>
@@ -387,7 +387,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {tagsLinks && (
             <Definition
               className="AddonMoreInfo-tag-links"
-              term={i18n.gettext('Tags')}
+              term={jed.gettext('Tags')}
             >
               <ul className="AddonMoreInfo-tag-links-list">{tagsLinks}</ul>
             </Definition>
@@ -400,10 +400,10 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { errorHandler, i18n } = this.props;
+    const { errorHandler, jed } = this.props;
 
     return (
-      <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
+      <Card className="AddonMoreInfo" header={jed.gettext('More information')}>
         {errorHandler.renderErrorIfPresent()}
 
         {this.listContent()}
@@ -413,7 +413,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 }
 
 const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
-  const { addon, i18n } = ownProps;
+  const { addon, jed } = ownProps;
   const { categories } = state.categories;
 
   let currentVersion = null;
@@ -429,7 +429,7 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
 
   if (currentVersion) {
     versionInfo = getVersionInfo({
-      i18n,
+      jed,
       state: state.versions,
       versionId: currentVersion.id,
     });

@@ -54,7 +54,7 @@ type InternalProps = {|
   ...Props,
   ...WithInstallHelpersInjectedProps,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
@@ -68,7 +68,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     defaultButtonText,
     enable,
     hasAddonManager,
-    i18n,
+    jed,
     install,
     installStatus,
     puffy,
@@ -123,7 +123,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     return (
       <div className="InstallButtonWrapper-download">
         <a className="InstallButtonWrapper-download-link" href={installURL}>
-          {i18n.gettext('Download file')}
+          {jed.gettext('Download file')}
         </a>
       </div>
     );

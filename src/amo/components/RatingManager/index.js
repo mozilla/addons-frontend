@@ -62,7 +62,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class RatingManagerBase extends React.Component<InternalProps> {
@@ -123,16 +123,16 @@ export class RatingManagerBase extends React.Component<InternalProps> {
       validAddonTypes: typeof defaultValidAddonTypes,
     } = {},
   ): string {
-    const { i18n } = this.props;
+    const { jed } = this.props;
     switch (addonType) {
       case ADDON_TYPE_DICT:
-        return i18n.gettext('Log in to rate this dictionary');
+        return jed.gettext('Log in to rate this dictionary');
       case ADDON_TYPE_LANG:
-        return i18n.gettext('Log in to rate this language pack');
+        return jed.gettext('Log in to rate this language pack');
       case ADDON_TYPE_STATIC_THEME:
-        return i18n.gettext('Log in to rate this theme');
+        return jed.gettext('Log in to rate this theme');
       case ADDON_TYPE_EXTENSION:
-        return i18n.gettext('Log in to rate this extension');
+        return jed.gettext('Log in to rate this extension');
       default: {
         const validAddonType = validAddonTypes.includes(addonType);
         log.warn(
@@ -140,7 +140,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
             validAddonType ? 'add-on' : 'unknown add-on'
           } type: ${addonType}`,
         );
-        return i18n.gettext('Log in to rate this add-on');
+        return jed.gettext('Log in to rate this add-on');
       }
     }
   }
@@ -172,7 +172,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
       addon,
       beginningToDeleteReview,
       deletingReview,
-      i18n,
+      jed,
       flashMessage,
       userReview,
     } = this.props;
@@ -181,21 +181,21 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     let prompt;
     if (userReview && onDeleteScreen) {
       if (userReview.body) {
-        prompt = i18n.gettext(
+        prompt = jed.gettext(
           'Are you sure you want to delete your review of %(addonName)s?',
         );
       } else {
         // A review without a body is a rating.
-        prompt = i18n.gettext(
+        prompt = jed.gettext(
           'Are you sure you want to delete your rating of %(addonName)s?',
         );
       }
     } else {
-      prompt = i18n.gettext('How are you enjoying %(addonName)s?');
+      prompt = jed.gettext('How are you enjoying %(addonName)s?');
     }
 
     const promptHTML = sanitizeHTML(
-      i18n.sprintf(prompt, { addonName: `<b>${addon.name}</b>` }),
+      jed.sprintf(prompt, { addonName: `<b>${addon.name}</b>` }),
       ['b'],
     );
 
@@ -234,8 +234,8 @@ export class RatingManagerBase extends React.Component<InternalProps> {
             hideMessage={!this.isMessageVisible()}
             message={
               flashMessage === STARTED_SAVE_RATING
-                ? i18n.gettext('Saving star rating')
-                : i18n.gettext('Star rating saved')
+                ? jed.gettext('Saving star rating')
+                : jed.gettext('Star rating saved')
             }
             type={
               flashMessage === STARTED_SAVE_RATING ? genericType : successType

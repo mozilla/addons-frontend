@@ -368,7 +368,7 @@ describe(__filename, () => {
   it('passes the first found version into the AddonVersionCard', () => {
     const app = 'testApp';
     const created = '1967-02-19T10:09:01Z';
-    const i18n = fakeI18n();
+    const jed = fakeI18n();
     const licenseName = 'some license name';
     const licenseURL = 'http://example.com/';
     const max = '2.0';
@@ -417,8 +417,8 @@ describe(__filename, () => {
     ).toBeInTheDocument();
     expect(
       within(latestVersionCard).getByText(
-        `Released ${i18n.moment(created).format('ll')} - ${formatFilesize({
-          i18n,
+        `Released ${jed.moment(created).format('ll')} - ${formatFilesize({
+          jed,
           size,
         })}`,
       ),

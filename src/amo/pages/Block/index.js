@@ -39,7 +39,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 const CRITERIA_URL =
@@ -83,15 +83,15 @@ export class BlockBase extends React.Component<InternalProps> {
   }
 
   renderDateAndURL(): React.Node | Array<React.Node | string> {
-    const { block, i18n } = this.props;
+    const { block, jed } = this.props;
 
     if (!block) {
       return <LoadingText />;
     }
 
     const content: Array<React.Node | string> = [
-      i18n.sprintf(i18n.gettext('Blocked on %(date)s.'), {
-        date: i18n.moment(block.created).format('ll'),
+      jed.sprintf(jed.gettext('Blocked on %(date)s.'), {
+        date: jed.moment(block.created).format('ll'),
       }),
     ];
 
@@ -99,7 +99,7 @@ export class BlockBase extends React.Component<InternalProps> {
       content.push(
         ' ',
         <a key={block.url.url} href={block.url.outgoing} title={block.url.url}>
-          {i18n.gettext('View block request')}
+          {jed.gettext('View block request')}
         </a>,
         '.',
       );
@@ -109,25 +109,25 @@ export class BlockBase extends React.Component<InternalProps> {
   }
 
   renderVersions(): React.Node | string {
-    const { block, i18n } = this.props;
+    const { block, jed } = this.props;
 
     if (!block) {
       return <LoadingText />;
     }
 
     if (block.is_all_versions) {
-      return i18n.gettext('Versions blocked: all versions.');
+      return jed.gettext('Versions blocked: all versions.');
     }
 
     const versions = block.versions.join(', ');
 
-    return i18n.sprintf(i18n.gettext('Versions blocked: %(versions)s.'), {
+    return jed.sprintf(jed.gettext('Versions blocked: %(versions)s.'), {
       versions,
     });
   }
 
   render(): React.Node {
-    const { block, errorHandler, i18n } = this.props;
+    const { block, errorHandler, jed } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
@@ -141,13 +141,13 @@ export class BlockBase extends React.Component<InternalProps> {
 
     const title =
       block && block.name
-        ? i18n.sprintf(
-            i18n.gettext(`%(addonName)s has been blocked for your protection.`),
+        ? jed.sprintf(
+            jed.gettext(`%(addonName)s has been blocked for your protection.`),
             {
               addonName: block.name,
             },
           )
-        : i18n.gettext(`This add-on has been blocked for your protection.`);
+        : jed.gettext(`This add-on has been blocked for your protection.`);
 
     return (
       <Page>
@@ -158,12 +158,12 @@ export class BlockBase extends React.Component<InternalProps> {
           </Helmet>
 
           <Card className="Block-content" header={title}>
-            <h2>{i18n.gettext('Why was it blocked?')}</h2>
+            <h2>{jed.gettext('Why was it blocked?')}</h2>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`This add-on violates %(startLink)sMozilla's
+                jed.sprintf(
+                  jed.gettext(`This add-on violates %(startLink)sMozilla's
                     Add-on Policies%(endLink)s.`),
                   {
                     startLink: `<a href="${POLICIES_URL}">`,
@@ -175,16 +175,16 @@ export class BlockBase extends React.Component<InternalProps> {
             />
             {this.renderReason()}
 
-            <h2>{i18n.gettext('What does this mean?')}</h2>
+            <h2>{jed.gettext('What does this mean?')}</h2>
             <p>
-              {i18n.gettext(`The problematic add-on or plugin will be
+              {jed.gettext(`The problematic add-on or plugin will be
                 automatically disabled and no longer usable.`)}
             </p>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`When Mozilla becomes aware of add-ons, plugins,
+                jed.sprintf(
+                  jed.gettext(`When Mozilla becomes aware of add-ons, plugins,
                     or other third-party software that seriously compromises
                     Firefox security, stability, or performance and meets
                     %(criteriaStartLink)scertain criteria%(criteriaEndLink)s,

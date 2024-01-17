@@ -83,7 +83,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class LanguageToolsBase extends React.Component<InternalProps> {
@@ -100,7 +100,7 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
   }
 
   languageToolsInYourLocale(): null | React.Node {
-    const { i18n, lang, languageTools } = this.props;
+    const { jed, lang, languageTools } = this.props;
 
     const languageToolsInYourLocale = languageTools.filter((languageTool) => {
       return languageTool.target_locale === lang;
@@ -115,7 +115,7 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
     return (
       <div className="LanguageTools-in-your-locale">
         <h2 className="LanguageTools-header">
-          {i18n.gettext('Available for your locale')}
+          {jed.gettext('Available for your locale')}
         </h2>
 
         <ul className="LanguageTools-in-your-locale-list">
@@ -140,9 +140,9 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { languageTools, errorHandler, i18n } = this.props;
+    const { languageTools, errorHandler, jed } = this.props;
 
-    const header = i18n.gettext('Dictionaries and Language Packs');
+    const header = jed.gettext('Dictionaries and Language Packs');
 
     return (
       <Page>
@@ -152,7 +152,7 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
           </Helmet>
 
           <HeadMetaTags
-            description={i18n.gettext(`Download Firefox dictionaries and language
+            description={jed.gettext(`Download Firefox dictionaries and language
             pack extensions. Add a new language option to your browser
             spell-checker, or change the browser's interface language.`)}
             title={header}
@@ -163,32 +163,30 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
           {errorHandler.renderErrorIfPresent()}
 
           <p>
-            {i18n.gettext(`Installing a dictionary add-on will add a new language
+            {jed.gettext(`Installing a dictionary add-on will add a new language
             option to your spell-checker, which checks your spelling as you
             type in Firefox.`)}
           </p>
           <p>
-            {i18n.gettext(`Language packs change your browser's interface
+            {jed.gettext(`Language packs change your browser's interface
             language, including menu options and settings.`)}
           </p>
 
           {this.languageToolsInYourLocale()}
 
-          <h2 className="LanguageTools-header">
-            {i18n.gettext('All Locales')}
-          </h2>
+          <h2 className="LanguageTools-header">{jed.gettext('All Locales')}</h2>
 
           <Table className="LanguageTools-table">
             <Thead>
               <Tr className="LanguageTools-header-row">
                 <Th className="LanguageTools-header-cell LanguageTool-localeName">
-                  {i18n.gettext('Locale Name')}
+                  {jed.gettext('Locale Name')}
                 </Th>
                 <Th className="LanguageTools-header-cell">
-                  {i18n.gettext('Language Packs')}
+                  {jed.gettext('Language Packs')}
                 </Th>
                 <Th className="LanguageTools-header-cell">
-                  {i18n.gettext('Dictionaries')}
+                  {jed.gettext('Dictionaries')}
                 </Th>
               </Tr>
             </Thead>

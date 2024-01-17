@@ -22,7 +22,7 @@ describe(__filename, () => {
     Child = App,
     connectedHistory,
     history = createHistory(),
-    i18n = fakeI18n(),
+    jed = fakeI18n(),
     store,
     ...props
   } = {}) => {
@@ -34,7 +34,7 @@ describe(__filename, () => {
 
     return render(
       <Root
-        i18n={i18n}
+        jed={jed}
         history={connectedHistory || thingsFromCreateStore.connectedHistory}
         store={store || thingsFromCreateStore.store}
         {...props}
@@ -50,10 +50,10 @@ describe(__filename, () => {
     expect(screen.getByClassName('App')).toBeInTheDocument();
   });
 
-  it('provides i18n capability', () => {
-    const AppWithI18n = translate()(({ i18n }) => (
+  it('provides jed capability', () => {
+    const AppWithI18n = translate()(({ jed }) => (
       <App>
-        <p>{i18n.gettext('hello')}</p>
+        <p>{jed.gettext('hello')}</p>
       </App>
     ));
 

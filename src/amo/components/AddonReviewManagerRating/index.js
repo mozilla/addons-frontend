@@ -18,13 +18,13 @@ export type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const AddonReviewManagerRatingBase = ({
   children,
   className,
-  i18n,
+  jed,
   onSelectRating,
   rating,
 }: InternalProps): React.Node => {
@@ -32,7 +32,7 @@ export const AddonReviewManagerRatingBase = ({
 
   return (
     <div className={makeClassName('AddonReviewManagerRating', className)}>
-      <span>{i18n.gettext('Your star rating:')}</span>
+      <span>{jed.gettext('Your star rating:')}</span>
       <Rating
         onSelectRating={onSelectRating}
         rating={rating}

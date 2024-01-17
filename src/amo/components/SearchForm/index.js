@@ -32,7 +32,7 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   history: ReactRouterHistoryType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class SearchFormBase extends React.Component<InternalProps> {
@@ -59,11 +59,11 @@ export class SearchFormBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { className, i18n, lang, clientApp } = this.props;
+    const { className, jed, lang, clientApp } = this.props;
     const openSearchTitle =
       clientApp === CLIENT_APP_ANDROID
-        ? i18n.gettext('Firefox Add-ons for Android')
-        : i18n.gettext('Firefox Add-ons');
+        ? jed.gettext('Firefox Add-ons for Android')
+        : jed.gettext('Firefox Add-ons');
     return (
       <>
         <Helmet>
@@ -86,7 +86,7 @@ export class SearchFormBase extends React.Component<InternalProps> {
             inputName="q"
             onSearch={this.onSearch}
             onSuggestionSelected={this.onSuggestionSelected}
-            selectSuggestionText={i18n.gettext('Go to the add-on page')}
+            selectSuggestionText={jed.gettext('Go to the add-on page')}
             showInputLabel={false}
           />
         </form>

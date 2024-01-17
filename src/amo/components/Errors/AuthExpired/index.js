@@ -24,7 +24,7 @@ type InternalProps = {|
   ...Props,
   ...DefaultProps,
   dispatch: DispatchFunc,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AuthExpiredBase extends React.Component<InternalProps> {
@@ -38,10 +38,10 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { _window, i18n } = this.props;
+    const { _window, jed } = this.props;
 
     const paragraph = replaceStringsWithJSX({
-      text: i18n.gettext(`
+      text: jed.gettext(`
         Login authentication has expired. %(startLink)sReload the page%(endLink)s
         to continue without authentication, or login again using the Log In
         link at the top of the page.`),
@@ -65,7 +65,7 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
     });
 
     return (
-      <ErrorComponent code={401} header={i18n.gettext('Login Expired')}>
+      <ErrorComponent code={401} header={jed.gettext('Login Expired')}>
         <p>{paragraph}</p>
       </ErrorComponent>
     );

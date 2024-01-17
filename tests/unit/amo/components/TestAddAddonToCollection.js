@@ -324,7 +324,7 @@ describe(__filename, () => {
 
       const options = screen.getAllByRole('option');
       expect(options[2]).toHaveTextContent(
-        collectionName({ name: null, i18n: fakeI18n() }),
+        collectionName({ name: null, jed: fakeI18n() }),
       );
     });
 

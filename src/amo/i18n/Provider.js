@@ -1,5 +1,6 @@
-import { Children, Component } from 'react';
+import React, { Children, Component } from 'react';
 import PropTypes from 'prop-types';
+import { I18nextProvider } from 'react-i18next';
 
 /*
  * This Provider expects to be passed an initialized
@@ -8,25 +9,30 @@ import PropTypes from 'prop-types';
 
 export default class I18nProvider extends Component {
   static propTypes = {
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
+    i18next: PropTypes.object.isRequired,
     children: PropTypes.element.isRequired,
   };
 
   static childContextTypes = {
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
   };
 
   constructor(props, context) {
     super(props, context);
-    this.i18n = props.i18n;
+    this.jed = props.jed;
   }
 
   getChildContext() {
-    return { i18n: this.i18n };
+    return { jed: this.jed };
   }
 
   render() {
-    const { children } = this.props;
-    return Children.only(children);
+    const { children, i18next } = this.props;
+    return (
+      <I18nextProvider i18next={i18next}>
+        {Children.only(children)}
+      </I18nextProvider>
+    );
   }
 }

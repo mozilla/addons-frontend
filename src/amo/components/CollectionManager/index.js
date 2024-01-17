@@ -57,7 +57,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
@@ -221,7 +221,7 @@ export class CollectionManagerBase extends React.Component<
       creating,
       currentUserId,
       errorHandler,
-      i18n,
+      jed,
       isCollectionBeingModified,
       siteLang,
     } = this.props;
@@ -245,8 +245,8 @@ export class CollectionManagerBase extends React.Component<
     const isSubmitDisabled =
       formIsDisabled || formIsUnchanged || isNameBlank || isSlugBlank;
     const buttonText = creating
-      ? i18n.gettext('Create collection')
-      : i18n.gettext('Save changes');
+      ? jed.gettext('Create collection')
+      : jed.gettext('Save changes');
 
     return (
       <form className="CollectionManager" onSubmit={this.onSubmit}>
@@ -255,7 +255,7 @@ export class CollectionManagerBase extends React.Component<
           className="CollectionManager-collectionName"
           htmlFor="collectionName"
         >
-          {i18n.gettext('Collection name')}
+          {jed.gettext('Collection name')}
         </label>
         {collection || creating ? (
           <input
@@ -269,7 +269,7 @@ export class CollectionManagerBase extends React.Component<
           <LoadingText minWidth={60} />
         )}
         <label htmlFor="collectionDescription">
-          {i18n.gettext('Description')}
+          {jed.gettext('Description')}
         </label>
         {collection || creating ? (
           <textarea
@@ -281,7 +281,7 @@ export class CollectionManagerBase extends React.Component<
         ) : (
           <LoadingText minWidth={60} />
         )}
-        <label htmlFor="collectionSlug">{i18n.gettext('Custom URL')}</label>
+        <label htmlFor="collectionSlug">{jed.gettext('Custom URL')}</label>
         <div className="CollectionManager-slug">
           <div
             id="collectionUrlPrefix"
@@ -321,7 +321,7 @@ export class CollectionManagerBase extends React.Component<
             puffy
             type="button"
           >
-            {i18n.gettext('Cancel')}
+            {jed.gettext('Cancel')}
           </Button>
           <Button
             buttonType="action"

@@ -52,7 +52,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
@@ -80,7 +80,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
     const {
       buttonType,
       className,
-      i18n,
+      jed,
       logInText,
       logOutText,
       noIcon,
@@ -89,11 +89,11 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
     } = this.props;
 
     const buttonText = siteUser
-      ? logOutText || i18n.gettext('Log out')
-      : logInText || i18n.gettext('Log in');
+      ? logOutText || jed.gettext('Log out')
+      : logInText || jed.gettext('Log in');
 
     const title = siteIsReadOnly
-      ? i18n.gettext(`This action is currently unavailable. Please reload the
+      ? jed.gettext(`This action is currently unavailable. Please reload the
         page in a moment.`)
       : null;
 

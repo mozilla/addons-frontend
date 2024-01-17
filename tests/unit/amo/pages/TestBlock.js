@@ -189,7 +189,7 @@ describe(__filename, () => {
     const block = _createFakeBlockResult({
       is_all_versions: true,
     });
-    const i18n = fakeI18n();
+    const jed = fakeI18n();
     store.dispatch(loadBlock({ block }));
     render();
 
@@ -197,7 +197,7 @@ describe(__filename, () => {
     // by a </br>.
     expect(
       screen.getByTextAcrossTags(
-        `Versions blocked: all versions.Blocked on ${i18n
+        `Versions blocked: all versions.Blocked on ${jed
           .moment(block.created)
           .format('ll')}.`,
       ),
@@ -211,7 +211,7 @@ describe(__filename, () => {
       versions: [v1, v2],
       is_all_versions: false,
     });
-    const i18n = fakeI18n();
+    const jed = fakeI18n();
     store.dispatch(loadBlock({ block }));
     render();
 
@@ -219,7 +219,7 @@ describe(__filename, () => {
     // by a </br>.
     expect(
       screen.getByTextAcrossTags(
-        `Versions blocked: ${v1}, ${v2}.Blocked on ${i18n
+        `Versions blocked: ${v1}, ${v2}.Blocked on ${jed
           .moment(block.created)
           .format('ll')}.`,
       ),
@@ -233,7 +233,7 @@ describe(__filename, () => {
       versions: [v1, v2],
       is_all_versions: undefined,
     });
-    const i18n = fakeI18n();
+    const jed = fakeI18n();
     store.dispatch(loadBlock({ block }));
     render();
 
@@ -241,7 +241,7 @@ describe(__filename, () => {
     // by a </br>.
     expect(
       screen.getByTextAcrossTags(
-        `Versions blocked: ${v1}, ${v2}.Blocked on ${i18n
+        `Versions blocked: ${v1}, ${v2}.Blocked on ${jed
           .moment(block.created)
           .format('ll')}.`,
       ),

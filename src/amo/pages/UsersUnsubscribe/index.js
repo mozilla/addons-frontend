@@ -53,7 +53,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class UsersUnsubscribeBase extends React.Component<InternalProps> {
@@ -76,11 +76,11 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { errorHandler, i18n, isUnsubscribed, match } = this.props;
+    const { errorHandler, jed, isUnsubscribed, match } = this.props;
     const { token, notificationName } = match.params;
 
     const editProfileLink = replaceStringsWithJSX({
-      text: i18n.gettext(
+      text: jed.gettext(
         'You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s.',
       ),
       replacements: [
@@ -100,7 +100,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
       <Page>
         <div className="UsersUnsubscribe">
           <Helmet>
-            <title>{i18n.gettext('Unsubscribe')}</title>
+            <title>{jed.gettext('Unsubscribe')}</title>
           </Helmet>
 
           {errorHandler.hasError() ? (
@@ -109,7 +109,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
             <Card
               header={
                 isUnsubscribed ? (
-                  i18n.gettext('You are successfully unsubscribed!')
+                  jed.gettext('You are successfully unsubscribed!')
                 ) : (
                   <LoadingText />
                 )
@@ -120,9 +120,9 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
                   className="UsersUnsubscribe-content-explanation"
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={sanitizeHTML(
-                    i18n.sprintf(
+                    jed.sprintf(
                       // L10n: a list of notifications will be displayed under this prompt.
-                      i18n.gettext(`The email address %(strongStart)s%(email)s%(strongEnd)s
+                      jed.gettext(`The email address %(strongStart)s%(email)s%(strongEnd)s
                         will no longer get messages when:`),
                       {
                         strongStart: '<strong>',
@@ -141,7 +141,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
 
               <blockquote className="UsersUnsubscribe-content-notification">
                 {isUnsubscribed ? (
-                  getNotificationDescription(i18n, notificationName)
+                  getNotificationDescription(jed, notificationName)
                 ) : (
                   <LoadingText minWidth={40} />
                 )}

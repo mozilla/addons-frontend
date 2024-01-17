@@ -29,14 +29,14 @@ const render = ({ app, lang, component }: RenderParams) => {
   // The first argument should be of type I18nConfig but we can pass an empty
   // object here because it's fine for en-US content.
   // $FlowIgnore: see comment above
-  const i18n = makeI18n({}, lang);
+  const jed = makeI18n({}, lang);
   const { connectedHistory, store } = createStore();
 
   store.dispatch(setClientApp(app));
   store.dispatch(setLang(lang));
 
   return renderToStaticMarkup(
-    <I18nProvider i18n={i18n}>
+    <I18nProvider jed={jed}>
       <Provider store={store}>
         <Router history={connectedHistory}>{component}</Router>
       </Provider>

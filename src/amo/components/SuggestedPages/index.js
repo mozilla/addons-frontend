@@ -12,30 +12,30 @@ type Props = {||};
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class SuggestedPagesBase extends React.Component<InternalProps> {
   render(): React.Node {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     return (
       <section className="SuggestedPages">
-        <h2>{i18n.gettext('Suggested Pages')}</h2>
+        <h2>{jed.gettext('Suggested Pages')}</h2>
 
         <ul>
           <li>
             <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}>
-              {i18n.gettext('Browse all extensions')}
+              {jed.gettext('Browse all extensions')}
             </Link>
           </li>
           <li className="SuggestedPages-link-themes">
             <Link to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}>
-              {i18n.gettext('Browse all themes')}
+              {jed.gettext('Browse all themes')}
             </Link>
           </li>
           <li>
-            <Link to="/">{i18n.gettext('Add-ons Home Page')}</Link>
+            <Link to="/">{jed.gettext('Add-ons Home Page')}</Link>
           </li>
         </ul>
       </section>

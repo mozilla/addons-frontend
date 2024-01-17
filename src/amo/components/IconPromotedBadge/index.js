@@ -32,20 +32,20 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const IconPromotedBadgeBase = ({
   category,
   className,
-  i18n,
+  jed,
   showAlt = false,
   size,
 }: InternalProps): React.Node => {
   const altTexts = {
-    line: i18n.gettext('By Firefox'),
-    recommended: i18n.gettext('Recommended'),
-    verified: i18n.gettext('Verified'),
+    line: jed.gettext('By Firefox'),
+    recommended: jed.gettext('Recommended'),
+    verified: jed.gettext('Verified'),
   };
   const alt = altTexts[category];
 

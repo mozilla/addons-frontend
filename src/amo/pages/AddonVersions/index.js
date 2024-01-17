@@ -60,7 +60,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AddonVersionsBase extends React.Component<InternalProps> {
@@ -112,7 +112,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { addon, errorHandler, i18n, versions } = this.props;
+    const { addon, errorHandler, jed, versions } = this.props;
 
     let latestVersion;
     let olderVersions: Array<AddonVersionType> = [];
@@ -127,15 +127,15 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
 
     let header = '';
     if (addon && versions) {
-      header = i18n.sprintf(
-        i18n.ngettext(
+      header = jed.sprintf(
+        jed.ngettext(
           '%(addonName)s version history - %(total)s version',
           '%(addonName)s version history - %(total)s versions',
           versions.length,
         ),
         {
           addonName: addon.name,
-          total: i18n.formatNumber(versions.length),
+          total: jed.formatNumber(versions.length),
         },
       );
     }
@@ -162,12 +162,12 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
                 <li>
                   <Notice type="warning">
                     <span className="AddonVersions-warning-text">
-                      {i18n.gettext(
+                      {jed.gettext(
                         'Be careful with old versions! These versions are displayed for testing and reference purposes.',
                       )}
                     </span>
                     <span className="AddonVersions-warning-text">
-                      {i18n.gettext(
+                      {jed.gettext(
                         'You should always use the latest version of an add-on.',
                       )}
                     </span>
@@ -176,7 +176,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
 
                 <AddonVersionCard
                   addon={addon}
-                  headerText={i18n.gettext('Latest version')}
+                  headerText={jed.gettext('Latest version')}
                   isCurrentVersion
                   key="latestVersion"
                   version={latestVersion}
@@ -186,7 +186,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
                     <AddonVersionCard
                       addon={addon}
                       headerText={
-                        index === 0 ? i18n.gettext('Older versions') : null
+                        index === 0 ? jed.gettext('Older versions') : null
                       }
                       key={version.id}
                       version={version}

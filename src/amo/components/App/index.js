@@ -34,7 +34,7 @@ import log from 'amo/logger';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
-import type { I18nType } from 'amo/types/i18n';
+import type { I18nType, i18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
 /* eslint-enable import/first */
 
@@ -59,7 +59,8 @@ type Props = {|
   ...PropsFromState,
   ...DefaultProps,
   handleGlobalEvent: () => void,
-  i18n: I18nType,
+  jed: I18nType,
+  i18n: i18nType,
   location: ReactRouterLocationType,
   setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
@@ -112,34 +113,42 @@ export class AppBase extends React.Component<Props> {
   }
 
   render(): React.Node {
-    const { clientApp, i18n, lang } = this.props;
+    const { clientApp, jed, lang, i18n } = this.props;
 
     const i18nValues = {
       locale: lang,
     };
 
-    let defaultTitle = i18n.sprintf(
-      i18n.gettext('Add-ons for Firefox (%(locale)s)'),
+    let defaultTitle = jed.sprintf(
+      jed.gettext('Add-ons for Firefox (%(locale)s)'),
       i18nValues,
     );
-    let titleTemplate = i18n.sprintf(
-      i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)'),
+    let titleTemplate = jed.sprintf(
+      jed.gettext('%(title)s – Add-ons for Firefox (%(locale)s)'),
       // We inject `%s` as a named argument to avoid localizer mistakes. Helmet
       // will replace `%s` by the title supplied in other pages.
       { ...i18nValues, title: '%s' },
     );
 
     if (clientApp === CLIENT_APP_ANDROID) {
-      defaultTitle = i18n.sprintf(
-        i18n.gettext('Add-ons for Firefox Android (%(locale)s)'),
+      defaultTitle = jed.sprintf(
+        jed.gettext('Add-ons for Firefox Android (%(locale)s)'),
         i18nValues,
       );
-      titleTemplate = i18n.sprintf(
-        i18n.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)'),
+      titleTemplate = jed.sprintf(
+        jed.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)'),
         // We inject `%s` as a named argument to avoid localizer mistakes.
         // Helmet will replace `%s` by the title supplied in other pages.
         { ...i18nValues, title: '%s' },
       );
+    }
+
+    const test = i18n.t('translation');
+
+    console.log('app:test', { test, i18n });
+
+    if (typeof document !== 'undefined') {
+      window.i18n = i18n;
     }
 
     return (
@@ -147,6 +156,21 @@ export class AppBase extends React.Component<Props> {
         <ScrollToTop>
           <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
           <ErrorPage>
+            <div
+              style={{
+                border: '1px solid red',
+                width: '100vw',
+                height: '20px',
+                background: 'white',
+                textAlign: 'center',
+                padding: '20px 20px',
+                alignContent: 'center',
+                verticalAlign: 'middle',
+                lineHeight: 0,
+              }}
+            >
+              {test}
+            </div>
             <Routes />
           </ErrorPage>
         </ScrollToTop>

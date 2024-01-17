@@ -14,15 +14,15 @@ type Props = {||};
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class UnavailableForLegalReasonsBase extends React.Component<InternalProps> {
   render(): React.Node {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     const paragraphWithLinks = replaceStringsWithJSX({
-      text: i18n.gettext(
+      text: jed.gettext(
         `You may be able to find what you’re looking for in one of the available
         %(extensionStart)sextensions%(extensionEnd)s or
         %(themeStart)sthemes%(themeEnd)s, or by asking for help on our
@@ -73,10 +73,10 @@ export class UnavailableForLegalReasonsBase extends React.Component<InternalProp
     return (
       <ErrorComponent
         code={451}
-        header={i18n.gettext('That page is not available in your region')}
+        header={jed.gettext('That page is not available in your region')}
       >
         <p>
-          {i18n.gettext(
+          {jed.gettext(
             'The page you tried to access is not available in your region.',
           )}
         </p>

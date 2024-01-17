@@ -35,7 +35,7 @@ export type Props = {|
 type InternalProps = {|
   ...Props,
   dispatch: DispatchFunc,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class CollectionDetailsBase extends React.Component<InternalProps> {
@@ -54,7 +54,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
       editing,
       filters,
       hasEditPermission,
-      i18n,
+      jed,
       showEditButton,
     } = this.props;
 
@@ -62,7 +62,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
       <div className="CollectionDetails">
         <h1 className="CollectionDetails-title">
           {collection ? (
-            collectionName({ name: collection.name, i18n })
+            collectionName({ name: collection.name, jed })
           ) : (
             <LoadingText />
           )}
@@ -74,17 +74,17 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
           metadata={[
             {
               content: collection ? collection.numberOfAddons : null,
-              title: i18n.gettext('Add-ons'),
+              title: jed.gettext('Add-ons'),
             },
             {
               content: collection ? collection.authorName : null,
-              title: i18n.gettext('Creator'),
+              title: jed.gettext('Creator'),
             },
             {
               content: collection
-                ? i18n.moment(collection.lastUpdatedDate).format('ll')
+                ? jed.moment(collection.lastUpdatedDate).format('ll')
                 : null,
-              title: i18n.gettext('Last updated'),
+              title: jed.gettext('Last updated'),
             },
           ]}
         />
@@ -98,7 +98,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
               query: convertFiltersToQueryParams(filters),
             }}
           >
-            {i18n.gettext('Edit this collection')}
+            {jed.gettext('Edit this collection')}
           </Button>
         )}
         {collection && editing && hasEditPermission && (
@@ -109,7 +109,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
             href="#editdetails"
             onClick={this.onEditDetails}
           >
-            {i18n.gettext('Edit collection details')}
+            {jed.gettext('Edit collection details')}
           </Button>
         )}
         {collection && editing && (
@@ -121,7 +121,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
               query: convertFiltersToQueryParams(filters),
             }}
           >
-            {i18n.gettext('Back to collection')}
+            {jed.gettext('Back to collection')}
           </Button>
         )}
       </div>

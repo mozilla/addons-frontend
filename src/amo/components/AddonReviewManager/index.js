@@ -45,7 +45,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const extractId = (props: Props | InternalProps): string => {
@@ -83,11 +83,11 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { errorHandler, i18n, onCancel, review, flashMessage, puffyButtons } =
+    const { errorHandler, jed, onCancel, review, flashMessage, puffyButtons } =
       this.props;
 
     const formFoterLink = replaceStringsWithJSX({
-      text: i18n.gettext(
+      text: jed.gettext(
         'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
       ),
       replacements: [
@@ -109,15 +109,15 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
 
     const formFooter = <div>{formFoterLink}</div>;
 
-    const placeholder = i18n.gettext(
+    const placeholder = jed.gettext(
       'Write about your experience with this add-on.',
     );
 
-    let submitButtonText = i18n.gettext('Submit review');
-    let submitButtonInProgressText = i18n.gettext('Submitting review');
+    let submitButtonText = jed.gettext('Submit review');
+    let submitButtonInProgressText = jed.gettext('Submitting review');
     if (review.body) {
-      submitButtonText = i18n.gettext('Update review');
-      submitButtonInProgressText = i18n.gettext('Updating review');
+      submitButtonText = jed.gettext('Update review');
+      submitButtonInProgressText = jed.gettext('Updating review');
     }
 
     return (
@@ -137,13 +137,13 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
             }
             message={
               flashMessage === STARTED_SAVE_RATING
-                ? i18n.gettext('Saving')
-                : i18n.gettext('Saved')
+                ? jed.gettext('Saving')
+                : jed.gettext('Saved')
             }
           />
         </AddonReviewManagerRating>
         <DismissibleTextForm
-          dismissButtonText={i18n.gettext('Cancel')}
+          dismissButtonText={jed.gettext('Cancel')}
           formFooter={formFooter}
           id={`${normalizeFileNameId(__filename)}-${extractId(this.props)}`}
           isSubmitting={flashMessage === STARTED_SAVE_REVIEW}

@@ -22,12 +22,12 @@ export type Props = {|
 
 export type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const PromotedBadgeBase = ({
   category,
-  i18n,
+  jed,
   onClick = null,
   size,
 }: InternalProps): React.Node => {
@@ -38,23 +38,23 @@ export const PromotedBadgeBase = ({
   });
   switch (category) {
     case 'line':
-      label = i18n.gettext('By Firefox');
-      linkTitle = i18n.gettext(
+      label = jed.gettext('By Firefox');
+      linkTitle = jed.gettext(
         'Official add-on built by Mozilla Firefox. Meets security and performance standards.',
       );
       break;
 
     case 'recommended':
-      label = i18n.gettext('Recommended');
-      linkTitle = i18n.gettext(
+      label = jed.gettext('Recommended');
+      linkTitle = jed.gettext(
         'Firefox only recommends add-ons that meet our standards for security and performance.',
       );
       break;
 
     // This is the verified badge.
     default:
-      label = i18n.gettext('Verified');
-      linkTitle = i18n.gettext(
+      label = jed.gettext('Verified');
+      linkTitle = jed.gettext(
         'This add-on has been reviewed to meet our standards for security and performance.',
       );
       break;

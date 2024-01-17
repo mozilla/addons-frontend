@@ -27,7 +27,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 function makePageNumbers({
@@ -112,7 +112,7 @@ export class PaginateBase extends React.Component<InternalProps> {
       LinkComponent,
       count,
       currentPage,
-      i18n,
+      jed,
       pageParam,
       pathname,
       perPage,
@@ -152,7 +152,7 @@ export class PaginateBase extends React.Component<InternalProps> {
             className="Paginate-item--previous"
             page={thisPage - 1}
             pageParam={pageParam}
-            text={i18n.gettext('Previous')}
+            text={jed.gettext('Previous')}
           />
 
           {getVisiblePages({ currentPage, pageCount, showPages }).map(
@@ -171,12 +171,12 @@ export class PaginateBase extends React.Component<InternalProps> {
             className="Paginate-item--next"
             page={thisPage + 1}
             pageParam={pageParam}
-            text={i18n.gettext('Next')}
+            text={jed.gettext('Next')}
           />
         </div>
 
         <div className="Paginate-page-number">
-          {i18n.sprintf(i18n.gettext('Page %(thisPage)s of %(totalPages)s'), {
+          {jed.sprintf(jed.gettext('Page %(thisPage)s of %(totalPages)s'), {
             thisPage,
             totalPages: pageCount,
           })}

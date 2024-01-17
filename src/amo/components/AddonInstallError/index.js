@@ -14,20 +14,20 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const AddonInstallErrorBase = (
   props: InternalProps,
 ): null | React.Node => {
-  const { error, i18n } = props;
+  const { error, jed } = props;
   if (!error) {
     return null;
   }
 
   return (
     <Notice className="AddonInstallError" type="error">
-      {getErrorMessage({ i18n, error })}
+      {getErrorMessage({ jed, error })}
     </Notice>
   );
 };

@@ -10,7 +10,7 @@ import translate from 'amo/i18n/translate';
 
 export class NotFoundBase extends React.Component {
   static propTypes = {
-    i18n: PropTypes.object.isRequired,
+    jed: PropTypes.object.isRequired,
     status: PropTypes.number,
   };
 
@@ -19,20 +19,20 @@ export class NotFoundBase extends React.Component {
   };
 
   render() {
-    const { i18n, status } = this.props;
+    const { jed, status } = this.props;
 
     return (
       <NestedStatus code={status}>
         <div className="ErrorPage NotFound">
-          <h1>{i18n.gettext('Page not found')}</h1>
+          <h1>{jed.gettext('Page not found')}</h1>
           <p>
-            {i18n.gettext(
+            {jed.gettext(
               "Sorry, but we can't find anything at the URL you entered.",
             )}
           </p>
 
           <p>
-            {i18n.sprintf(i18n.gettext('Error code: %(status)s.'), { status })}
+            {jed.sprintf(jed.gettext('Error code: %(status)s.'), { status })}
           </p>
         </div>
       </NestedStatus>

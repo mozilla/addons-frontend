@@ -14,15 +14,15 @@ type Props = {||};
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class NotFoundBase extends React.Component<InternalProps> {
   render(): React.Node {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
     const paragraphWithLinks = replaceStringsWithJSX({
-      text: i18n.gettext(
+      text: jed.gettext(
         `Try visiting the page later, as the theme or extension may become
         available again. Alternatively, you may be able to find what you’re
         looking for in one of the available
@@ -75,21 +75,21 @@ export class NotFoundBase extends React.Component<InternalProps> {
     return (
       <ErrorComponent
         code={404}
-        header={i18n.gettext('Oops! We can’t find that page')}
+        header={jed.gettext('Oops! We can’t find that page')}
       >
         <p>
-          {i18n.gettext(`If you’ve followed a link from another site for an
+          {jed.gettext(`If you’ve followed a link from another site for an
             extension or theme, that item is no longer available. This could
             be because:`)}
         </p>
         <ul>
           <li>
-            {i18n.gettext(`The developer removed it. Developers commonly do
+            {jed.gettext(`The developer removed it. Developers commonly do
               this because they no longer support the extension or theme, or
               have replaced it.`)}
           </li>
           <li>
-            {i18n.gettext(`Mozilla removed it. This can happen when issues
+            {jed.gettext(`Mozilla removed it. This can happen when issues
               are found during the review of the extension or theme, or the
               extension or theme has been abusing the terms and conditions
               for addons.mozilla.org. The developer has the opportunity to

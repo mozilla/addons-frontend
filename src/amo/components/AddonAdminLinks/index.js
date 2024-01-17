@@ -31,7 +31,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AddonAdminLinksBase extends React.Component<InternalProps> {
@@ -42,7 +42,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       hasContentReviewPermission,
       hasEditPermission,
       hasStaticThemeReviewPermission,
-      i18n,
+      jed,
     } = this.props;
 
     if (addon === null) {
@@ -73,7 +73,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           {
             // eslint-disable-next-line max-len
             // L10n: This action allows the add-on developer or an admin to edit an add-on's properties.
-            i18n.gettext('Edit add-on')
+            jed.gettext('Edit add-on')
           }
         </a>
       </li>
@@ -87,7 +87,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
         >
           {
             // L10n: This action allows an admin to maintain an add-on.
-            i18n.gettext('Admin add-on')
+            jed.gettext('Admin add-on')
           }
         </a>
       </li>
@@ -101,7 +101,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
         >
           {
             // L10n: This action allows a reviewer to perform a content review of an add-on.
-            i18n.gettext('Content review add-on')
+            jed.gettext('Content review add-on')
           }
         </a>
       </li>
@@ -109,9 +109,9 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
 
     const codeReviewLinkText = isTheme
       ? // L10n: This action allows a reviewer to perform a review of a theme.
-        i18n.gettext('Review theme')
+        jed.gettext('Review theme')
       : // L10n: This action allows a reviewer to perform a review of an add-on's code.
-        i18n.gettext('Review add-on code');
+        jed.gettext('Review add-on code');
     const codeReviewLink =
       showCodeReviewLink || showStaticThemeReviewLink ? (
         <li>
@@ -131,7 +131,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
         <Definition
           term={
             // L10n: This is a list of links to administrative functions.
-            i18n.gettext('Admin Links')
+            jed.gettext('Admin Links')
           }
         >
           <ul className="AddonAdminLinks-list">

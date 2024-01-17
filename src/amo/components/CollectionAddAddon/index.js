@@ -60,7 +60,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
   setUIState: (state: $Shape<UIStateType>) => void,
   uiState: UIStateType,
 |};
@@ -148,7 +148,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { collection, errorHandler, i18n, uiState } = this.props;
+    const { collection, errorHandler, jed, uiState } = this.props;
 
     const { addonAction } = uiState;
     const addonAdded = addonAction === addonAddedAction;
@@ -166,8 +166,8 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
               >
                 <Notice type={addonAdded ? 'success' : 'generic'}>
                   {addonAdded
-                    ? i18n.gettext('Added to collection')
-                    : i18n.gettext('Removed from collection')}
+                    ? jed.gettext('Added to collection')
+                    : jed.gettext('Removed from collection')}
                 </Notice>
               </CSSTransition>
             )}
@@ -176,11 +176,11 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
 
         <AutoSearchInput
           inputName="collection-addon-query"
-          inputPlaceholder={i18n.gettext(
+          inputPlaceholder={jed.gettext(
             'Find an add-on to include in this collection',
           )}
           onSuggestionSelected={this.onAddonSelected}
-          selectSuggestionText={i18n.gettext('Add to collection')}
+          selectSuggestionText={jed.gettext('Add to collection')}
           key={collection ? collection.id : ''}
         />
       </Card>

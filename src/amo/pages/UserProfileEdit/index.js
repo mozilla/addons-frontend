@@ -80,7 +80,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
   // `match` is used in `mapStateToProps()`
   // eslint-disable-next-line react/no-unused-prop-types
@@ -162,7 +162,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
       currentUser,
       dispatch,
       errorHandler,
-      i18n,
+      jed,
       isUpdating,
       lang,
       location,
@@ -209,7 +209,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
       this.setState({
         picture: null,
         pictureData: null,
-        successMessage: i18n.gettext('Picture successfully deleted'),
+        successMessage: jed.gettext('Picture successfully deleted'),
       });
     }
 
@@ -447,7 +447,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
   }
 
   renderProfileAside(): string | Array<React.Node> {
-    const { user, i18n, isEditingCurrentUser } = this.props;
+    const { user, jed, isEditingCurrentUser } = this.props;
 
     if (!user) {
       return [
@@ -457,11 +457,11 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
     }
 
     return isEditingCurrentUser
-      ? i18n.gettext(`Tell users a bit more information about yourself. Most
+      ? jed.gettext(`Tell users a bit more information about yourself. Most
         fields are optional, but they'll help other users get to know you
         better.`)
-      : i18n.sprintf(
-          i18n.gettext(`Tell users a bit more information about this user.
+      : jed.sprintf(
+          jed.gettext(`Tell users a bit more information about this user.
             Most fields are optional, but they'll help other users get to know
             %(userName)s better.`),
           { userName: user.name },
@@ -469,15 +469,15 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
   }
 
   renderBiographyLabel(): React.Node | string {
-    const { user, i18n, isEditingCurrentUser } = this.props;
+    const { user, jed, isEditingCurrentUser } = this.props;
 
     if (!user) {
       return <LoadingText />;
     }
 
     return isEditingCurrentUser
-      ? i18n.gettext(`Introduce yourself to the community if you like`)
-      : i18n.sprintf(i18n.gettext(`Introduce %(userName)s to the community`), {
+      ? jed.gettext(`Introduce yourself to the community if you like`)
+      : jed.sprintf(jed.gettext(`Introduce %(userName)s to the community`), {
           userName: user.name,
         });
   }
@@ -487,7 +487,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
       currentUser,
       errorHandler,
       hasEditPermission,
-      i18n,
+      jed,
       isEditingCurrentUser,
       isUpdating,
       user,
@@ -503,7 +503,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
           <Card className="UserProfileEdit-authenticate">
             <AuthenticateButton
               noIcon
-              logInText={i18n.gettext('Log in to edit the profile')}
+              logInText={jed.gettext('Log in to edit the profile')}
             />
           </Card>
         </div>
@@ -525,17 +525,17 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
     }
 
     let submitButtonText = isUpdating
-      ? i18n.gettext('Creating your profile…')
-      : i18n.gettext('Create My Profile');
+      ? jed.gettext('Creating your profile…')
+      : jed.gettext('Create My Profile');
     if (user && user.display_name) {
       if (isEditingCurrentUser) {
         submitButtonText = isUpdating
-          ? i18n.gettext('Updating your profile…')
-          : i18n.gettext('Update My Profile');
+          ? jed.gettext('Updating your profile…')
+          : jed.gettext('Update My Profile');
       } else {
         submitButtonText = isUpdating
-          ? i18n.gettext('Updating profile…')
-          : i18n.gettext('Update Profile');
+          ? jed.gettext('Updating profile…')
+          : jed.gettext('Update Profile');
       }
     }
 
@@ -543,10 +543,8 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
     const overlayClassName = 'UserProfileEdit-deletion-modal';
 
     const title = isMzaBranding()
-      ? i18n.gettext(
-          'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
-        )
-      : i18n.gettext(
+      ? jed.gettext('Firefox Accounts was renamed to Mozilla accounts on Nov 1')
+      : jed.gettext(
           'Firefox Accounts will be renamed to Mozilla accounts on Nov 1',
         );
 
@@ -560,13 +558,13 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
             <Notice
               actionHref="https://support.mozilla.org/kb/firefox-accounts-renamed-mozilla-accounts"
               actionTarget="_blank"
-              actionText={i18n.gettext('Learn more')}
+              actionText={jed.gettext('Learn more')}
               className="UserProfileEdit-fxa-notice"
               type="warning"
             >
               <strong>{title}</strong>
               <br />
-              {i18n.gettext(`You will still sign in with the same username and
+              {jed.gettext(`You will still sign in with the same username and
                         password, and there are no other changes to the products that
                         you use.`)}
             </Notice>
@@ -575,7 +573,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
             {user && (
               <Helmet>
                 <title>
-                  {i18n.sprintf(i18n.gettext('User Profile for %(user)s'), {
+                  {jed.sprintf(jed.gettext('User Profile for %(user)s'), {
                     user: user.name,
                   })}
                 </title>
@@ -587,14 +585,14 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                 <li>
                   <Link to={userProfileURL}>
                     {isEditingCurrentUser
-                      ? i18n.gettext('View My Profile')
-                      : i18n.gettext(`View user's profile`)}
+                      ? jed.gettext('View My Profile')
+                      : jed.gettext(`View user's profile`)}
                   </Link>
                 </li>
                 <li>
                   {isEditingCurrentUser
-                    ? i18n.gettext('Edit My Profile')
-                    : i18n.gettext(`Edit user's profile`)}
+                    ? jed.gettext('Edit My Profile')
+                    : jed.gettext(`Edit user's profile`)}
                 </li>
               </ul>
             </Card>
@@ -612,15 +610,15 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                   className="UserProfileEdit--Card"
                   header={
                     isEditingCurrentUser || !user
-                      ? i18n.gettext('Account')
-                      : i18n.sprintf(i18n.gettext('Account for %(userName)s'), {
+                      ? jed.gettext('Account')
+                      : jed.sprintf(jed.gettext('Account for %(userName)s'), {
                           userName: user.name,
                         })
                   }
                 >
                   <div>
                     <label className="UserProfileEdit--label" htmlFor="email">
-                      {i18n.gettext('Email Address')}
+                      {jed.gettext('Email Address')}
                     </label>
                     <input
                       className="UserProfileEdit-email"
@@ -628,7 +626,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                       value={user && user.email}
                       disabled
                       onChange={this.onFieldChange}
-                      title={i18n.gettext(
+                      title={jed.gettext(
                         'Email address cannot be changed here',
                       )}
                       type="email"
@@ -638,11 +636,11 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                         className="UserProfileEdit-email--help"
                         // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={sanitizeHTML(
-                          i18n.sprintf(
+                          jed.sprintf(
                             isMzaBranding()
-                              ? i18n.gettext(`You can change your email address on
+                              ? jed.gettext(`You can change your email address on
                           Mozilla accounts. %(startLink)sNeed help?%(endLink)s`)
-                              : i18n.gettext(`You can change your email address on
+                              : jed.gettext(`You can change your email address on
                           Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
                             {
                               startLink:
@@ -662,8 +660,8 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                           className="UserProfileEdit-manage-account-link"
                         >
                           {isMzaBranding()
-                            ? i18n.gettext('Manage Mozilla accounts…')
-                            : i18n.gettext('Manage Firefox Accounts…')}
+                            ? jed.gettext('Manage Mozilla accounts…')
+                            : jed.gettext('Manage Firefox Accounts…')}
                         </a>
                       )}
                   </div>
@@ -671,7 +669,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
 
                 <Card
                   className="UserProfileEdit--Card"
-                  header={i18n.gettext('Profile')}
+                  header={jed.gettext('Profile')}
                 >
                   <p className="UserProfileEdit-profile-aside">
                     {this.renderProfileAside()}
@@ -680,11 +678,11 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                   <label
                     className="UserProfileEdit--label"
                     htmlFor="displayName"
-                    title={i18n.gettext('This field is required')}
+                    title={jed.gettext('This field is required')}
                   >
                     {
                       // L10n: the star is used to indicate a required field
-                      i18n.gettext('Display Name *')
+                      jed.gettext('Display Name *')
                     }
                   </label>
                   <input
@@ -705,7 +703,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                 See: https://github.com/mozilla/addons-frontend/issues/4964
               */}
                   <label className="UserProfileEdit--label" htmlFor="homepage">
-                    {i18n.gettext('Homepage')}
+                    {jed.gettext('Homepage')}
                   </label>
                   <input
                     className="UserProfileEdit-homepage"
@@ -717,12 +715,12 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                     value={this.state.homepage}
                   />
                   <p className="UserProfileEdit-homepage--help">
-                    {i18n.gettext(`This URL will only be visible for users who are
+                    {jed.gettext(`This URL will only be visible for users who are
                   developers.`)}
                   </p>
 
                   <label className="UserProfileEdit--label" htmlFor="location">
-                    {i18n.gettext('Location')}
+                    {jed.gettext('Location')}
                   </label>
                   <input
                     className="UserProfileEdit-location"
@@ -737,7 +735,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                     className="UserProfileEdit--label"
                     htmlFor="occupation"
                   >
-                    {i18n.gettext('Occupation')}
+                    {jed.gettext('Occupation')}
                   </label>
                   <input
                     className="UserProfileEdit-occupation"
@@ -759,7 +757,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
 
                 <Card
                   className="UserProfileEdit--Card"
-                  header={i18n.gettext('Biography')}
+                  header={jed.gettext('Biography')}
                 >
                   <label className="UserProfileEdit--label" htmlFor="biography">
                     {this.renderBiographyLabel()}
@@ -773,8 +771,8 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                     value={this.state.biography || ''}
                   />
                   <p className="UserProfileEdit-biography--help">
-                    {i18n.sprintf(
-                      i18n.gettext(
+                    {jed.sprintf(
+                      jed.gettext(
                         `Some HTML supported: %(htmlTags)s. Links are forbidden.`,
                       ),
                       {
@@ -798,16 +796,16 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
 
                 <Card
                   className="UserProfileEdit--Card"
-                  header={i18n.gettext('Notifications')}
+                  header={jed.gettext('Notifications')}
                 >
                   <p className="UserProfileEdit-notifications-aside">
                     {isEditingCurrentUser
-                      ? i18n.gettext(
+                      ? jed.gettext(
                           `From time to time, Mozilla may send you email about
                       upcoming releases and add-on events. Please select the
                       topics you are interested in.`,
                         )
-                      : i18n.gettext(
+                      : jed.gettext(
                           `From time to time, Mozilla may send this user email
                       about upcoming releases and add-on events. Please select
                       the topics this user may be interested in.`,
@@ -822,7 +820,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
 
                   {isEditingCurrentUser && isDeveloper(user) && (
                     <p className="UserProfileEdit-notifications--help">
-                      {i18n.gettext(`Mozilla reserves the right to contact you
+                      {jed.gettext(`Mozilla reserves the right to contact you
                     individually about specific concerns with your hosted
                     add-ons.`)}
                     </p>
@@ -848,8 +846,8 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                     type="button"
                   >
                     {isEditingCurrentUser
-                      ? i18n.gettext('Delete My Profile')
-                      : i18n.gettext(`Delete Profile`)}
+                      ? jed.gettext('Delete My Profile')
+                      : jed.gettext(`Delete Profile`)}
                   </Button>
                 </div>
               </div>
@@ -861,10 +859,10 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                 className={overlayClassName}
                 header={
                   isEditingCurrentUser
-                    ? i18n.gettext(
+                    ? jed.gettext(
                         `IMPORTANT: Deleting your Firefox Add-ons profile is irreversible.`,
                       )
-                    : i18n.gettext(
+                    : jed.gettext(
                         `IMPORTANT: Deleting this Firefox Add-ons profile is irreversible.`,
                       )
                 }
@@ -873,13 +871,13 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
               >
                 <p>
                   {isEditingCurrentUser
-                    ? i18n.gettext(
+                    ? jed.gettext(
                         `Your data will be permanently removed, including
                     profile details (picture, user name, display name,
                     location, home page, biography, occupation), notification
                     preferences, reviews, and collections.`,
                       )
-                    : i18n.gettext(
+                    : jed.gettext(
                         `The user’s data will be permanently removed, including
                     profile details (picture, user name, display name,
                     location, home page, biography, occupation), notification
@@ -888,13 +886,13 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                 </p>
                 <p>
                   {isEditingCurrentUser
-                    ? i18n.gettext(
+                    ? jed.gettext(
                         `If you authored any add-ons they will also be deleted,
                     unless you share ownership with other authors. In that
                     case, you will be removed as an author and the remaining
                     authors will maintain ownership of the add-on.`,
                       )
-                    : i18n.gettext(
+                    : jed.gettext(
                         `If the user authored any add-ons they will also be
                     deleted, unless ownership is shared with other authors. In
                     that case, the user will be removed as an author and the
@@ -904,7 +902,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
 
                 {isEditingCurrentUser && (
                   <p>
-                    {i18n.gettext(
+                    {jed.gettext(
                       `When you use this email address to log in again to
                     addons.mozilla.org, your profile on Firefox Add-ons will
                     not have access to any of its previous content.`,
@@ -920,15 +918,15 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                     puffy
                   >
                     {isEditingCurrentUser
-                      ? i18n.gettext('Delete My Profile')
-                      : i18n.gettext('Delete Profile')}
+                      ? jed.gettext('Delete My Profile')
+                      : jed.gettext('Delete Profile')}
                   </Button>
                   <Button
                     buttonType="cancel"
                     className="UserProfileEdit-button UserProfileEdit-cancel-button"
                     onClick={this.onCancelProfileDeletion}
                   >
-                    {i18n.gettext('Cancel')}
+                    {jed.gettext('Cancel')}
                   </Button>
                 </div>
               </OverlayCard>

@@ -52,7 +52,7 @@ type InternalProps = {|
   ...Props,
   ...DefaultProps,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export const getDownloadCampaign = ({
@@ -121,7 +121,7 @@ export const GetFirefoxButtonBase = ({
   className,
   clientApp,
   forIncompatibleAddon,
-  i18n,
+  jed,
   overrideQueryParams = {},
   userAgentInfo,
 }: InternalProps): null | React.Node => {
@@ -143,26 +143,26 @@ export const GetFirefoxButtonBase = ({
 
   let downloadTextForRTAMO =
     addon.type === ADDON_TYPE_STATIC_THEME
-      ? i18n.gettext('Download Firefox and get the theme')
-      : i18n.gettext('Download Firefox and get the extension');
+      ? jed.gettext('Download Firefox and get the theme')
+      : jed.gettext('Download Firefox and get the extension');
   if (forIncompatibleAddon) {
     downloadTextForRTAMO =
       addon.type === ADDON_TYPE_STATIC_THEME
-        ? i18n.gettext('Download the new Firefox and get the theme')
-        : i18n.gettext('Download the new Firefox and get the extension');
+        ? jed.gettext('Download the new Firefox and get the theme')
+        : jed.gettext('Download the new Firefox and get the extension');
   }
   const buttonText = supportsRTAMO
     ? downloadTextForRTAMO
-    : i18n.gettext('Download Firefox');
+    : jed.gettext('Download Firefox');
   let calloutText =
     addon.type === ADDON_TYPE_STATIC_THEME
-      ? i18n.gettext(`You'll need Firefox to use this theme`)
-      : i18n.gettext(`You'll need Firefox to use this extension`);
+      ? jed.gettext(`You'll need Firefox to use this theme`)
+      : jed.gettext(`You'll need Firefox to use this extension`);
   if (forIncompatibleAddon) {
     calloutText =
       addon.type === ADDON_TYPE_STATIC_THEME
-        ? i18n.gettext('You need an updated version of Firefox for this theme')
-        : i18n.gettext(
+        ? jed.gettext('You need an updated version of Firefox for this theme')
+        : jed.gettext(
             'You need an updated version of Firefox for this extension',
           );
   }

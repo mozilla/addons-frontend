@@ -21,7 +21,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
   location: ReactRouterLocationType,
 |};
 
@@ -31,7 +31,7 @@ export const roundToOneDigit = (value: number | null): number => {
 
 export class AddonMetaBase extends React.Component<InternalProps> {
   render(): React.Node {
-    const { addon, i18n, location } = this.props;
+    const { addon, jed, location } = this.props;
 
     let averageRating;
     if (addon) {
@@ -46,24 +46,24 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     let userTitle;
     if (!addon) {
       userCount = null;
-      userTitle = i18n.gettext('Users');
+      userTitle = jed.gettext('Users');
     } else if (averageDailyUsers) {
-      userCount = i18n.formatNumber(averageDailyUsers);
-      userTitle = i18n.ngettext('User', 'Users', averageDailyUsers);
+      userCount = jed.formatNumber(averageDailyUsers);
+      userTitle = jed.ngettext('User', 'Users', averageDailyUsers);
     } else {
-      userTitle = i18n.gettext('No Users');
+      userTitle = jed.gettext('No Users');
     }
 
     let reviewCount: null | string = '';
     let reviewTitle;
     if (!addon) {
       reviewCount = null;
-      reviewTitle = i18n.gettext('Reviews');
+      reviewTitle = jed.gettext('Reviews');
     } else if (addonRatingCount) {
-      reviewCount = i18n.formatNumber(addonRatingCount);
-      reviewTitle = i18n.ngettext('Review', 'Reviews', addonRatingCount);
+      reviewCount = jed.formatNumber(addonRatingCount);
+      reviewTitle = jed.ngettext('Review', 'Reviews', addonRatingCount);
     } else {
-      reviewTitle = i18n.gettext('No Reviews');
+      reviewTitle = jed.gettext('No Reviews');
     }
 
     const reviewsLink =
@@ -89,7 +89,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
 
     return (
       <div className="AddonMeta">
-        <h3 className="visually-hidden">{i18n.gettext('Used by')}</h3>
+        <h3 className="visually-hidden">{jed.gettext('Used by')}</h3>
         <MetadataCard
           className="AddonMeta-overallRating"
           metadata={[
@@ -115,17 +115,17 @@ export class AddonMetaBase extends React.Component<InternalProps> {
               title: (
                 <div className="AddonMeta-rating-title">
                   {addonRatingCount
-                    ? i18n.sprintf(
-                        i18n.ngettext(
+                    ? jed.sprintf(
+                        jed.ngettext(
                           '%(total)s Star',
                           '%(total)s Stars',
                           roundedAverage,
                         ),
                         {
-                          total: i18n.formatNumber(roundedAverage),
+                          total: jed.formatNumber(roundedAverage),
                         },
                       )
-                    : i18n.gettext('Not rated yet')}
+                    : jed.gettext('Not rated yet')}
                 </div>
               ),
             },

@@ -52,7 +52,7 @@ type InternalProps = {|
   ...PropsFromState,
   ...WithInstallHelpersInjectedProps,
   dispatch: DispatchFunc,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class AddonFeedbackFormBase extends React.Component<InternalProps> {
@@ -97,7 +97,7 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
   };
 
   renderHeader(): React.Node {
-    const { addon, installedAddon, i18n } = this.props;
+    const { addon, installedAddon, jed } = this.props;
 
     // When we don't have much information about the add-on because it is a
     // non-public one, and the add-on is not installed, then we hide the header.
@@ -133,13 +133,13 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
             <div className="AddonFeedbackForm-header-metadata-adu">
               <Icon name="user-fill" />
               {addon ? (
-                i18n.sprintf(
-                  i18n.ngettext(
+                jed.sprintf(
+                  jed.ngettext(
                     '%(total)s user',
                     '%(total)s users',
                     addon.average_daily_users,
                   ),
-                  { total: i18n.formatNumber(addon.average_daily_users) },
+                  { total: jed.formatNumber(addon.average_daily_users) },
                 )
               ) : (
                 <LoadingText />
@@ -163,7 +163,7 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { abuseReport, addon, errorHandler, i18n, loading } = this.props;
+    const { abuseReport, addon, errorHandler, jed, loading } = this.props;
     const abuseSubmitted = abuseReport && abuseReport.message !== undefined;
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
@@ -195,9 +195,9 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
           contentHeader={this.renderHeader()}
           abuseIsLoading={loading}
           abuseSubmitted={!!abuseSubmitted}
-          categoryHeader={i18n.gettext('Report this add-on to Mozilla')}
-          feedbackTitle={i18n.gettext('Send some feedback about the add-on')}
-          reportTitle={i18n.gettext(
+          categoryHeader={jed.gettext('Report this add-on to Mozilla')}
+          feedbackTitle={jed.gettext('Send some feedback about the add-on')}
+          reportTitle={jed.gettext(
             "Report the add-on because it's illegal or incompliant",
           )}
           categories={categories}

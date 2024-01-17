@@ -41,7 +41,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  let i18n;
+  let jed;
   let store;
   let userEvent;
 
@@ -53,7 +53,7 @@ describe(__filename, () => {
   });
 
   beforeEach(() => {
-    i18n = fakeI18n();
+    jed = fakeI18n();
     store = dispatchClientMetadata().store;
     userEvent = defaultUserEvent.setup({
       delay: null,
@@ -1062,7 +1062,7 @@ describe(__filename, () => {
       render({ review });
 
       expect(
-        screen.getByTitle(i18n.moment(review.created).format('lll')),
+        screen.getByTitle(jed.moment(review.created).format('lll')),
       ).toHaveAttribute(
         'href',
         `/en-US/android${reviewListURL({ addonSlug: slug, id: review.id })}`,
@@ -1083,7 +1083,7 @@ describe(__filename, () => {
       render({ review });
 
       expect(
-        screen.getByTitle(i18n.moment(review.created).format('lll')),
+        screen.getByTitle(jed.moment(review.created).format('lll')),
       ).toHaveAttribute(
         'href',
         `/en-US/android${reviewListURL({ addonSlug: addonId, id: review.id })}`,
@@ -1103,17 +1103,17 @@ describe(__filename, () => {
       render({ review, store });
 
       expect(
-        screen.queryByTitle(i18n.moment(review.created).format('lll')),
+        screen.queryByTitle(jed.moment(review.created).format('lll')),
       ).not.toBeInTheDocument();
     });
 
     it('renders a byLine with a relative date', () => {
       const review = signInAndDispatchSavedReview();
-      render({ i18n, review });
+      render({ jed, review });
 
       expect(
-        screen.getByTitle(i18n.moment(review.created).format('lll')),
-      ).toHaveTextContent(i18n.moment(review.created).fromNow());
+        screen.getByTitle(jed.moment(review.created).format('lll')),
+      ).toHaveTextContent(jed.moment(review.created).fromNow());
     });
 
     it('renders a byLine with an author by default', () => {
@@ -1131,7 +1131,7 @@ describe(__filename, () => {
 
       expect(
         screen.getByTextAcrossTags(
-          `posted ${i18n.moment(reply.created).fromNow()}`,
+          `posted ${jed.moment(reply.created).fromNow()}`,
         ),
       ).toBeInTheDocument();
     });
@@ -1142,7 +1142,7 @@ describe(__filename, () => {
 
       expect(
         screen.getByTextAcrossTags(
-          `posted ${i18n.moment(review.created).fromNow()}`,
+          `posted ${jed.moment(review.created).fromNow()}`,
         ),
       ).toBeInTheDocument();
     });

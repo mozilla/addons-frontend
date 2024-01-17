@@ -1215,7 +1215,7 @@ describe(__filename, () => {
       );
       expect(notifications).toHaveLength(userNotifications.length);
 
-      const i18n = fakeI18n();
+      const jed = fakeI18n();
       userNotifications.forEach((notification, index) => {
         const notificationElement = notifications[index];
 
@@ -1224,7 +1224,7 @@ describe(__filename, () => {
         ).not.toBeInTheDocument();
 
         const checkbox = within(notificationElement).getByRole('checkbox', {
-          name: getNotificationDescription(i18n, notification.name),
+          name: getNotificationDescription(jed, notification.name),
         });
 
         /* eslint-disable jest/no-conditional-expect */

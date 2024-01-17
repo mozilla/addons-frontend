@@ -38,7 +38,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
 |};
@@ -78,14 +78,14 @@ export class AddonFeedbackBase extends React.Component<InternalProps, State> {
   }
 
   render(): React.Node {
-    const { addon, errorHandler, i18n } = this.props;
+    const { addon, errorHandler, jed } = this.props;
 
     return (
       <Page>
         <div className="AddonFeedback-page">
           <Helmet>
             <title>
-              {i18n.gettext('Submit feedback or report an add-on to Mozilla')}
+              {jed.gettext('Submit feedback or report an add-on to Mozilla')}
             </title>
             <meta name="robots" content="noindex, follow" />
           </Helmet>

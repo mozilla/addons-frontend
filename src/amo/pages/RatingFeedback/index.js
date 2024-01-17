@@ -48,7 +48,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
 |};
@@ -97,7 +97,7 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { errorHandler, i18n, review, isSubmitting, hasSubmitted } =
+    const { errorHandler, jed, review, isSubmitting, hasSubmitted } =
       this.props;
 
     if (
@@ -112,7 +112,7 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
         <div className="RatingFeedback-page">
           <Helmet>
             <title>
-              {i18n.gettext('Submit feedback or report a review to Mozilla')}
+              {jed.gettext('Submit feedback or report a review to Mozilla')}
             </title>
             <meta name="robots" content="noindex, follow" />
           </Helmet>
@@ -141,11 +141,11 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
                   isReply={false}
                   byLine={
                     review ? (
-                      i18n.sprintf(
-                        i18n.gettext('by %(userName)s, %(timestamp)s'),
+                      jed.sprintf(
+                        jed.gettext('by %(userName)s, %(timestamp)s'),
                         {
                           userName: review.userName,
-                          timestamp: i18n.moment(review.created).fromNow(),
+                          timestamp: jed.moment(review.created).fromNow(),
                         },
                       )
                     ) : (
@@ -158,11 +158,11 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
             }
             abuseIsLoading={isSubmitting}
             abuseSubmitted={hasSubmitted}
-            categoryHeader={i18n.gettext('Report this review to Mozilla')}
+            categoryHeader={jed.gettext('Report this review to Mozilla')}
             // This title isn't used because we didn't select any of the
             // "feedback" categories.
             feedbackTitle=""
-            reportTitle={i18n.gettext(
+            reportTitle={jed.gettext(
               'Report the review because it is illegal or incompliant',
             )}
             categories={[

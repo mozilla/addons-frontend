@@ -54,7 +54,7 @@ type InternalProps = {|
   ...PropsFromState,
   _getPromotedCategory: typeof getPromotedCategory,
   history: ReactRouterHistoryType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class SearchResultBase extends React.Component<InternalProps> {
@@ -102,7 +102,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       addon,
       addonInstallSource,
       clientApp,
-      i18n,
+      jed,
       onImpression,
       showFullSizePreview,
       showMetadata,
@@ -192,7 +192,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
               />
             ) : (
               <p className="SearchResult-notheme">
-                {i18n.gettext('No theme preview available')}
+                {jed.gettext('No theme preview available')}
               </p>
             )}
           </div>
@@ -227,7 +227,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
               <div className="SearchResult-note">
                 <h4 className="SearchResult-note-header">
                   <Icon name="comments-blue" />
-                  {i18n.gettext('Add-on note')}
+                  {jed.gettext('Add-on note')}
                 </h4>
                 <p
                   className="SearchResult-note-content"
@@ -244,13 +244,13 @@ export class SearchResultBase extends React.Component<InternalProps> {
             <Icon className="SearchResult-users-icon" name="user-fill" />
             <span className="SearchResult-users-text">
               {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
-                i18n.sprintf(
-                  i18n.ngettext(
+                jed.sprintf(
+                  jed.ngettext(
                     '%(total)s user',
                     '%(total)s users',
                     averageDailyUsers,
                   ),
-                  { total: i18n.formatNumber(averageDailyUsers) },
+                  { total: jed.formatNumber(averageDailyUsers) },
                 )
               ) : (
                 <LoadingText width={80} />

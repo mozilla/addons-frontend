@@ -33,14 +33,14 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class TagPageBase extends React.Component<InternalProps> {
   getPageTitle(tag: string): string {
-    const { i18n } = this.props;
+    const { jed } = this.props;
 
-    return i18n.sprintf(i18n.gettext('Add-ons tagged with %(tag)s'), {
+    return jed.sprintf(jed.gettext('Add-ons tagged with %(tag)s'), {
       tag,
     });
   }

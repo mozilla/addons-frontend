@@ -64,7 +64,7 @@ type InternalProps = {|
   _setUIState?: ($Shape<UIStateType>) => void,
   _truncateToMaxHeight: typeof truncateToMaxHeight,
   ...Props,
-  i18n: I18nType,
+  jed: I18nType,
   maxHeight: number,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
@@ -151,7 +151,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { children, className, header, id, i18n, uiState } = this.props;
+    const { children, className, header, id, jed, uiState } = this.props;
     const { showAllContent } = uiState;
 
     invariant(children, 'The children property is required');
@@ -159,12 +159,12 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
 
     const readMoreLink = (
       <a
-        aria-label={i18n.gettext('Expand to read more')}
+        aria-label={jed.gettext('Expand to read more')}
         className="ShowMoreCard-expand-link"
         href="#show-more"
         onClick={this.onClick}
         dangerouslySetInnerHTML={sanitizeHTML(
-          i18n.gettext(
+          jed.gettext(
             // l10n: The "Expand to" text is for screenreaders so the link
             // makes sense out of context. The HTML makes it hidden from
             // non-screenreaders and must stay.

@@ -400,106 +400,106 @@ describe(__filename, () => {
 
   describe('makeI18n', () => {
     class FakeJed {
-      constructor(i18nData) {
+      constructor(jedData) {
         // eslint-disable-next-line no-constructor-return
-        return i18nData;
+        return jedData;
       }
     }
 
-    it('adds a localised moment function to the i18n object', () => {
-      const i18nData = {};
-      const i18n = utils.makeI18n(i18nData, 'en-US', FakeJed);
-      expect(i18n.moment).toBeTruthy();
-      expect(typeof i18n.moment).toBe('function');
+    it('adds a localised moment function to the jed object', () => {
+      const jedData = {};
+      const jed = utils.makeI18n(jedData, 'en-US', FakeJed);
+      expect(jed.moment).toBeTruthy();
+      expect(typeof jed.moment).toBe('function');
     });
 
     it('exposes the lang', () => {
-      const i18n = utils.makeI18n({}, 'af', FakeJed);
-      expect(i18n.lang).toEqual('af');
+      const jed = utils.makeI18n({}, 'af', FakeJed);
+      expect(jed.lang).toEqual('af');
     });
 
     it('tries to localise moment', () => {
-      const i18nData = {
+      const jedData = {
         options: {
           _momentDefineLocale: sinon.stub(),
           locale_data: { messages: { '': { lang: 'fr' } } },
         },
       };
-      const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
-      expect(i18n.moment().locale()).toEqual('fr');
-      sinon.assert.called(i18nData.options._momentDefineLocale);
+      const jed = utils.makeI18n(jedData, 'fr', FakeJed);
+      expect(jed.moment().locale()).toEqual('fr');
+      sinon.assert.called(jedData.options._momentDefineLocale);
     });
 
     it('does not localise if _momentDefineLocale is not a function', () => {
-      const i18nData = {
+      const jedData = {
         options: {
           _momentDefineLocale: null,
           locale_data: { messages: { '': { lang: 'fr' } } },
         },
       };
 
-      const i18n = utils.makeI18n(i18nData, 'en', FakeJed);
-      expect(i18n.moment().locale()).toEqual('en');
+      const jed = utils.makeI18n(jedData, 'en', FakeJed);
+      expect(jed.moment().locale()).toEqual('en');
     });
 
     it('always passes the locale to moment', () => {
-      const i18nData = {
+      const jedData = {
         options: {
           _momentDefineLocale: null,
           locale_data: { messages: { '': { lang: 'fr' } } },
         },
       };
-      const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
-      expect(i18n.moment().locale()).toEqual('fr');
+      const jed = utils.makeI18n(jedData, 'fr', FakeJed);
+      expect(jed.moment().locale()).toEqual('fr');
     });
 
     it('formats a number', () => {
-      const i18n = utils.makeI18n({}, 'en', FakeJed);
-      expect(i18n.formatNumber(9518231)).toEqual('9,518,231');
+      const jed = utils.makeI18n({}, 'en', FakeJed);
+      expect(jed.formatNumber(9518231)).toEqual('9,518,231');
     });
 
     it('Creates an Intl.NumberFormat instance and uses it for formatting', () => {
       const numberFormatSpy = sinon.spy(Intl, 'NumberFormat');
-      const i18n = utils.makeI18n({}, 'de', FakeJed);
+      const jed = utils.makeI18n({}, 'de', FakeJed);
       sinon.assert.calledWith(numberFormatSpy, 'de');
       const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
       const number = 9518231;
-      expect(i18n.formatNumber(number)).toEqual('9.518.231');
+      expect(jed.formatNumber(number)).toEqual('9.518.231');
       sinon.assert.notCalled(toLocaleStringSpy);
     });
 
     it('falls-back to number.toLocaleString if Intl is not an object', () => {
       const numberFormatSpy = sinon.spy(Intl, 'NumberFormat');
-      const i18n = utils.makeI18n({}, 'de', FakeJed, { _Intl: false });
+      const jed = utils.makeI18n({}, 'de', FakeJed, { _Intl: false });
       const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
       const number = 9518231;
-      expect(i18n.formatNumber(number)).toEqual('9.518.231');
+      expect(jed.formatNumber(number)).toEqual('9.518.231');
       sinon.assert.calledWith(toLocaleStringSpy, 'de');
       sinon.assert.notCalled(numberFormatSpy);
     });
 
     it('falls-back to number.toLocaleString when Intl is missing a NumberFormat constructor', () => {
       const numberFormatSpy = sinon.spy(Intl, 'NumberFormat');
-      const i18n = utils.makeI18n({}, 'fr', FakeJed, { _Intl: {} });
+      const jed = utils.makeI18n({}, 'fr', FakeJed, { _Intl: {} });
       const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
       const number = 12345;
 
-      expect(normalizeSpaces(i18n.formatNumber(number))).toEqual('12 345');
+      expect(normalizeSpaces(jed.formatNumber(number))).toEqual('12 345');
       sinon.assert.calledWith(toLocaleStringSpy, 'fr');
       sinon.assert.notCalled(numberFormatSpy);
     });
 
     it('always returns a scoped moment instance', () => {
-      const i18n = utils.makeI18n({}, 'fr', FakeJed);
+      const jed = utils.makeI18n({}, 'fr', FakeJed);
       // Modifying the locale globally below does not affect the instance
       // created previously.
       moment.locale('de');
-      expect(i18n.moment().locale()).toEqual('fr');
+      expect(jed.moment().locale()).toEqual('fr');
     });
 
     it('formats a date', () => {
-      const i18n = utils.makeI18n({}, 'fr', FakeJed);
-      expect(i18n.moment('1988-09-22').format('ll')).toEqual('22 sept. 1988');
+      const jed = utils.makeI18n({}, 'fr', FakeJed);
+      expect(jed.moment('1988-09-22').format('ll')).toEqual('22 sept. 1988');
     });
   });
 
@@ -507,10 +507,10 @@ describe(__filename, () => {
     const _formatFilesize = ({
       _filesize,
       _log,
-      i18n = fakeI18n(),
+      jed = fakeI18n(),
       size = 123,
     }) => {
-      return utils.formatFilesize({ _filesize, _log, i18n, size });
+      return utils.formatFilesize({ _filesize, _log, jed, size });
     };
 
     it('formats the number returned by filesize', () => {
@@ -551,11 +551,11 @@ describe(__filename, () => {
       ['GB', 1234567890, '1.15'],
       ['TB', 1234567890123, '1.12'],
     ])(
-      'calls i18n.sprintf with the expected substitution for size %s',
+      'calls jed.sprintf with the expected substitution for size %s',
       (sizeName, size, localizedSize) => {
-        const i18n = fakeI18n();
-        _formatFilesize({ size, i18n });
-        expect(i18n.sprintf).toHaveBeenCalledWith(
+        const jed = fakeI18n();
+        _formatFilesize({ size, jed });
+        expect(jed.sprintf).toHaveBeenCalledWith(
           `%(localizedSize)s ${sizeName}`,
           {
             localizedSize,

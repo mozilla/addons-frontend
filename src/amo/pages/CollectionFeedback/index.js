@@ -50,7 +50,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  i18n: I18nType,
+  jed: I18nType,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
 |};
@@ -101,7 +101,7 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { collection, errorHandler, hasSubmitted, i18n, isSubmitting } =
+    const { collection, errorHandler, hasSubmitted, jed, isSubmitting } =
       this.props;
 
     if (
@@ -116,9 +116,7 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
         <div className="CollectionFeedback-page">
           <Helmet>
             <title>
-              {i18n.gettext(
-                'Submit feedback or report a collection to Mozilla',
-              )}
+              {jed.gettext('Submit feedback or report a collection to Mozilla')}
             </title>
             <meta name="robots" content="noindex, follow" />
           </Helmet>
@@ -131,7 +129,7 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
                   {collection ? collection.name : <LoadingText />}
                   <span className="CollectionFeedback-header-creator">
                     {collection ? (
-                      i18n.sprintf(i18n.gettext('by %(authorName)s'), {
+                      jed.sprintf(jed.gettext('by %(authorName)s'), {
                         authorName: collection.authorName,
                       })
                     ) : (
@@ -142,13 +140,13 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
 
                 <div className="CollectionFeedback-header-metadata">
                   <p className="CollectionFeedback-header-metadata-addons">
-                    <span>{i18n.gettext('Add-ons')}</span>
+                    <span>{jed.gettext('Add-ons')}</span>
                     {collection ? collection.numberOfAddons : <LoadingText />}
                   </p>
                   <p className="CollectionFeedback-header-metadata-last-updated">
-                    <span>{i18n.gettext('Last updated')}</span>
+                    <span>{jed.gettext('Last updated')}</span>
                     {collection ? (
-                      i18n.moment(collection.lastUpdatedDate).format('ll')
+                      jed.moment(collection.lastUpdatedDate).format('ll')
                     ) : (
                       <LoadingText />
                     )}
@@ -158,11 +156,11 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
             }
             abuseIsLoading={isSubmitting}
             abuseSubmitted={hasSubmitted}
-            categoryHeader={i18n.gettext('Report this collection to Mozilla')}
-            feedbackTitle={i18n.gettext(
+            categoryHeader={jed.gettext('Report this collection to Mozilla')}
+            feedbackTitle={jed.gettext(
               'Send some feedback about the collection',
             )}
-            reportTitle={i18n.gettext(
+            reportTitle={jed.gettext(
               "Report the collection because it's illegal or incompliant",
             )}
             categories={[

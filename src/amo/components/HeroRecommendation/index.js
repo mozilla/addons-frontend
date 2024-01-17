@@ -61,7 +61,7 @@ export type InternalProps = {|
   ...Props,
   ...PropsFromState,
   ...DefaultProps,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class HeroRecommendationBase extends React.Component<InternalProps> {
@@ -144,7 +144,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       _checkInternalURL,
       _getPromotedCategory,
       clientApp,
-      i18n,
+      jed,
       errorHandler,
       shelfData,
       siteIsReadOnly,
@@ -177,7 +177,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       const callToActionURL = this.makeCallToActionURL();
 
       if (callToActionURL) {
-        const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
+        const linkInsides = <span> {jed.gettext('Get the extension')} </span>;
         const linkProps = _checkInternalURL({
           urlString: callToActionURL,
         }).isInternal
@@ -228,12 +228,12 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       if (!loading) {
         if (promotedCategory === RECOMMENDED) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
-          titleText = i18n.gettext('RECOMMENDED');
+          titleText = jed.gettext('RECOMMENDED');
         } else if (promotedCategory === LINE) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
-          titleText = i18n.gettext('BY FIREFOX');
+          titleText = jed.gettext('BY FIREFOX');
         } else {
-          titleText = i18n.gettext('SPONSORED');
+          titleText = jed.gettext('SPONSORED');
         }
       }
 
@@ -250,7 +250,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
               })}#sponsored`}
               rel="noopener noreferrer"
               target="_blank"
-              title={i18n.gettext(
+              title={jed.gettext(
                 'Firefox only recommends extensions that meet our standards for security and performance.',
               )}
             >

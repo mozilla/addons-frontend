@@ -43,7 +43,7 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   history: ReactRouterHistoryType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
@@ -65,7 +65,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { className, clientApp, forBlog, i18n, viewContext } = this.props;
+    const { className, clientApp, forBlog, jed, viewContext } = this.props;
 
     // These SectionLinks should only be included when clientApp is Firefox.
     invariant(
@@ -93,7 +93,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
             {...linkProps}
           >
-            {i18n.gettext('Extensions')}
+            {jed.gettext('Extensions')}
           </Link>
         </li>
         <li>
@@ -109,17 +109,17 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}
             {...linkProps}
           >
-            {i18n.gettext('Themes')}
+            {jed.gettext('Themes')}
           </Link>
         </li>
         <li>
           <DropdownMenu
             className="SectionLinks-link SectionLinks-dropdown"
-            text={i18n.gettext('More…')}
+            text={jed.gettext('More…')}
           >
             <>
               <DropdownMenuItem className="SectionLinks-subheader">
-                {i18n.gettext('for Firefox')}
+                {jed.gettext('for Firefox')}
               </DropdownMenuItem>
               <DropdownMenuItem key="dictionaries-and-language-packs">
                 <Link
@@ -129,11 +129,11 @@ export class SectionLinksBase extends React.Component<InternalProps> {
                   })}
                   to="/language-tools/"
                 >
-                  {i18n.gettext('Dictionaries & Language Packs')}
+                  {jed.gettext('Dictionaries & Language Packs')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="SectionLinks-subheader">
-                {i18n.gettext('Other Browser Sites')}
+                {jed.gettext('Other Browser Sites')}
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link
@@ -143,7 +143,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
                   prependClientApp={false}
                   to={`/${CLIENT_APP_ANDROID}/`}
                 >
-                  {i18n.gettext('Add-ons for Android')}
+                  {jed.gettext('Add-ons for Android')}
                 </Link>
               </DropdownMenuItem>
             </>

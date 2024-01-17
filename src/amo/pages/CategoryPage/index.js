@@ -45,25 +45,25 @@ type InternalProps = {|
   ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+  jed: I18nType,
 |};
 
 export class CategoryPageBase extends React.Component<InternalProps> {
   getPageTitle(categoryName: string | null): string {
-    const { addonType, i18n } = this.props;
+    const { addonType, jed } = this.props;
 
     if (addonType === ADDON_TYPE_STATIC_THEME) {
       return categoryName
-        ? i18n.sprintf(i18n.gettext('Themes in %(categoryName)s'), {
+        ? jed.sprintf(jed.gettext('Themes in %(categoryName)s'), {
             categoryName,
           })
-        : i18n.gettext('Themes');
+        : jed.gettext('Themes');
     }
     return categoryName
-      ? i18n.sprintf(i18n.gettext('Extensions in %(categoryName)s'), {
+      ? jed.sprintf(jed.gettext('Extensions in %(categoryName)s'), {
           categoryName,
         })
-      : i18n.gettext('Extensions');
+      : jed.gettext('Extensions');
   }
 
   constructor(props: InternalProps) {

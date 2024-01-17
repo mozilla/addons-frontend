@@ -250,7 +250,7 @@ describe(__filename, () => {
   describe('getVersionInfo', () => {
     const _getVersionInfo = ({ state = initialState, versionId }) => {
       return getVersionInfo({
-        i18n: fakeI18n(),
+        jed: fakeI18n(),
         state,
         versionId,
       });
@@ -278,7 +278,7 @@ describe(__filename, () => {
         }),
       ).toMatchObject({
         created,
-        filesize: formatFilesize({ i18n: fakeI18n(), size }),
+        filesize: formatFilesize({ jed: fakeI18n(), size }),
       });
     });
 
