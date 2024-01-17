@@ -10,4 +10,5 @@ export type I18nType = {|
     fromNow: () => string,
   |},
   sprintf: (string, { [placeholder: string]: mixed }) => string,
+  lang: string,
 |};

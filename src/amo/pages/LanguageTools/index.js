@@ -152,9 +152,9 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
           </Helmet>
 
           <HeadMetaTags
-            description={i18n.gettext(`Download Firefox dictionaries and language
-            pack extensions. Add a new language option to your browser
-            spell-checker, or change the browser's interface language.`)}
+            description={i18n.gettext(
+              "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language.",
+            )}
             title={header}
           />
 
@@ -163,13 +163,14 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
           {errorHandler.renderErrorIfPresent()}
 
           <p>
-            {i18n.gettext(`Installing a dictionary add-on will add a new language
-            option to your spell-checker, which checks your spelling as you
-            type in Firefox.`)}
+            {i18n.gettext(
+              'Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox.',
+            )}
           </p>
           <p>
-            {i18n.gettext(`Language packs change your browser's interface
-            language, including menu options and settings.`)}
+            {i18n.gettext(
+              "Language packs change your browser's interface language, including menu options and settings.",
+            )}
           </p>
 
           {this.languageToolsInYourLocale()}

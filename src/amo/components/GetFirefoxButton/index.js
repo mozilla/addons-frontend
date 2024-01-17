@@ -156,8 +156,8 @@ export const GetFirefoxButtonBase = ({
     : i18n.gettext('Download Firefox');
   let calloutText =
     addon.type === ADDON_TYPE_STATIC_THEME
-      ? i18n.gettext(`You'll need Firefox to use this theme`)
-      : i18n.gettext(`You'll need Firefox to use this extension`);
+      ? i18n.gettext("You'll need Firefox to use this theme")
+      : i18n.gettext("You'll need Firefox to use this extension");
   if (forIncompatibleAddon) {
     calloutText =
       addon.type === ADDON_TYPE_STATIC_THEME

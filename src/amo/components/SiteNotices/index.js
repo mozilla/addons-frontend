@@ -65,9 +65,9 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
           type="warning"
           key="amo-site-read-only"
         >
-          {i18n.gettext(`Some features are temporarily disabled while we
-            perform website maintenance. We'll be back to full capacity
-            shortly.`)}
+          {i18n.gettext(
+            "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly.",
+          )}
         </Notice>,
       );
     }

@@ -17,18 +17,16 @@ export class ReviewGuideBase extends React.Component<Props> {
     return (
       <StaticPage
         title={i18n.gettext('Review Guidelines')}
-        metaDescription={i18n.gettext(`
-          Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and
-          themes you’ve downloaded and used on Firefox.
-        `)}
+        metaDescription={i18n.gettext(
+          'Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox.',
+        )}
       >
         <>
           <section id="review-guide">
             <p>
-              {i18n.gettext(`Add-on reviews are a way for you to share your opinions
-                about the add-ons you’ve installed and used. Our review moderation
-                team reserves the right to refuse or remove any review that does not
-                comply with these guidelines.`)}
+              {i18n.gettext(
+                'Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply with these guidelines.',
+              )}
             </p>
             <h2>{i18n.gettext('Tips for writing a great review')}</h2>
             <h3>{i18n.gettext('Do:')}</h3>
@@ -65,7 +63,7 @@ export class ReviewGuideBase extends React.Component<Props> {
                 )}
               </li>
             </ul>
-            <h3>{i18n.gettext(`Don't:`)}</h3>
+            <h3>{i18n.gettext("Don't:")}</h3>
             <ul>
               <li>
                 {i18n.gettext(
@@ -73,9 +71,9 @@ export class ReviewGuideBase extends React.Component<Props> {
                 )}
               </li>
               <li>
-                {i18n.gettext(`Post technical issues, support requests, or feature suggestions. Use
-                the available support options for each add-on, if available. You can find them in
-                the "More information" section in the sidebar on the add-on's detail page.`)}
+                {i18n.gettext(
+                  'Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the "More information" section in the sidebar on the add-on\'s detail page.',
+                )}
               </li>
               <li>
                 {i18n.gettext(
@@ -108,10 +106,9 @@ export class ReviewGuideBase extends React.Component<Props> {
                 )}
               </li>
               <li>
-                {i18n.gettext(`Criticize an add-on for something it’s intended to do. For example,
-                leaving a negative review of an add-on for displaying ads or requiring data
-                gathering, when that is the intended purpose of the add-on, or the add-on
-                requires gathering data to function.`)}
+                {i18n.gettext(
+                  'Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the add-on, or the add-on requires gathering data to function.',
+                )}
               </li>
             </ul>
           </section>
@@ -121,22 +118,21 @@ export class ReviewGuideBase extends React.Component<Props> {
 
             <h3>{i18n.gettext('How can I report a problematic review?')}</h3>
             <p>
-              {i18n.gettext(`Please report or flag any questionable reviews by clicking the
-              "Report this review" and it will be submitted to the site for moderation. Our
-              moderation team will use the Review Guidelines to evaluate whether or not to
-              delete the review or restore it back to the site.`)}
+              {i18n.gettext(
+                'Please report or flag any questionable reviews by clicking the "Report this review" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to evaluate whether or not to delete the review or restore it back to the site.',
+              )}
             </p>
 
             <h3>
-              {i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}
+              {i18n.gettext("I'm an add-on author, can I respond to reviews?")}
             </h3>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
-                  i18n.gettext(`Yes, add-on authors can provide a single response to a review.
-                      You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional
-                      discussion or follow-up.`),
+                  i18n.gettext(
+                    'Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up.',
+                  ),
                   {
                     startLink:
                       '<a href="https://discourse.mozilla-community.org/c/add-ons/add-on-support">',
@@ -149,14 +145,13 @@ export class ReviewGuideBase extends React.Component<Props> {
 
             <h3>
               {i18n.gettext(
-                `I'm an add-on author, can I delete unfavorable reviews or ratings?`,
+                "I'm an add-on author, can I delete unfavorable reviews or ratings?",
               )}
             </h3>
             <p>
-              {i18n.gettext(`In general, no. But if the review did not meet the review guidelines
-              outlined above, you can click "Report this review" and have it moderated. If a review
-              included a complaint that is no longer valid due to a new release of your add-on, we
-              may consider deleting the review.`)}
+              {i18n.gettext(
+                'In general, no. But if the review did not meet the review guidelines outlined above, you can click "Report this review" and have it moderated. If a review included a complaint that is no longer valid due to a new release of your add-on, we may consider deleting the review.',
+              )}
             </p>
           </section>
         </>

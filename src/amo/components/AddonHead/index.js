@@ -61,65 +61,93 @@ export class AddonHeadBase extends React.Component<InternalProps> {
       locale: lang,
     };
 
-    let localizedTitle;
     if (clientApp === CLIENT_APP_ANDROID) {
       switch (addon.type) {
         case ADDON_TYPE_DICT:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Dictionary
-            for 🦊 Firefox Android (%(locale)s)`);
-          break;
-        case ADDON_TYPE_EXTENSION:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Extension for
-            🦊 Firefox Android (%(locale)s)`);
-          break;
-        case ADDON_TYPE_LANG:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Language Pack
-            for 🦊 Firefox Android (%(locale)s)`);
-          break;
-        case ADDON_TYPE_STATIC_THEME:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(
-            `%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)`,
+          return i18n.sprintf(
+            // L10n: please keep the fox emoji next to "Firefox Android".
+            i18n.gettext(
+              '%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)',
+            ),
+            i18nValues,
           );
-          break;
-        default:
-          // L10n: please keep the fox emoji next to "Firefox Android".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Add-on for 🦊
-            Firefox Android (%(locale)s)`);
-      }
-    } else {
-      switch (addon.type) {
-        case ADDON_TYPE_DICT:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Dictionary
-            for 🦊 Firefox (%(locale)s)`);
-          break;
         case ADDON_TYPE_EXTENSION:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Extension for
-            🦊 Firefox (%(locale)s)`);
-          break;
+          return i18n.sprintf(
+            // L10n: please keep the fox emoji next to "Firefox Android".
+            i18n.gettext(
+              '%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)',
+            ),
+            i18nValues,
+          );
         case ADDON_TYPE_LANG:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Language Pack
-            for 🦊 Firefox (%(locale)s)`);
-          break;
+          return i18n.sprintf(
+            // L10n: please keep the fox emoji next to "Firefox Android".
+            i18n.gettext(
+              '%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)',
+            ),
+            i18nValues,
+          );
         case ADDON_TYPE_STATIC_THEME:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Theme for 🦊
-            Firefox (%(locale)s)`);
-          break;
+          return i18n.sprintf(
+            // L10n: please keep the fox emoji next to "Firefox Android".
+            i18n.gettext(
+              '%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)',
+            ),
+            i18nValues,
+          );
         default:
-          // L10n: please keep the fox emoji next to "Firefox".
-          localizedTitle = i18n.gettext(`%(addonName)s – Get this Add-on for 🦊
-            Firefox (%(locale)s)`);
+          return i18n.sprintf(
+            // L10n: please keep the fox emoji next to "Firefox Android".
+            i18n.gettext(
+              '%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)',
+            ),
+            i18nValues,
+          );
       }
     }
 
-    return i18n.sprintf(localizedTitle, i18nValues);
+    switch (addon.type) {
+      case ADDON_TYPE_DICT:
+        return i18n.sprintf(
+          // L10n: please keep the fox emoji next to "Firefox".
+          i18n.gettext(
+            '%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)',
+          ),
+          i18nValues,
+        );
+      case ADDON_TYPE_EXTENSION:
+        return i18n.sprintf(
+          // L10n: please keep the fox emoji next to "Firefox".
+          i18n.gettext(
+            '%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)',
+          ),
+          i18nValues,
+        );
+      case ADDON_TYPE_LANG:
+        return i18n.sprintf(
+          // L10n: please keep the fox emoji next to "Firefox".
+          i18n.gettext(
+            '%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)',
+          ),
+          i18nValues,
+        );
+      case ADDON_TYPE_STATIC_THEME:
+        return i18n.sprintf(
+          // L10n: please keep the fox emoji next to "Firefox".
+          i18n.gettext(
+            '%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)',
+          ),
+          i18nValues,
+        );
+      default:
+        return i18n.sprintf(
+          // L10n: please keep the fox emoji next to "Firefox".
+          i18n.gettext(
+            '%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)',
+          ),
+          i18nValues,
+        );
+    }
   }
 
   getPageDescription(): string {

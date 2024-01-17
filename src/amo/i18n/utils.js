@@ -1,7 +1,6 @@
 /* @flow */
 import * as React from 'react';
 import config from 'config';
-import { filesize } from 'filesize';
 import Jed from 'jed';
 import moment from 'moment';
 
@@ -242,55 +241,43 @@ function oneLineTranslationString(translationKey) {
 }
 
 type FormatFilesizeParams = {|
-  _filesize?: typeof filesize,
-  _log?: typeof log,
   i18n: I18nType,
   size: number,
 |};
 
 // Translates a file size in bytes into a localized user-friendly format.
 export const formatFilesize = ({
-  _filesize = filesize,
-  _log = log,
   i18n,
   size,
 }: FormatFilesizeParams): string | null => {
-  const sizeStrings = {
-    // These are the expected values for the unit of measure returned by
-    // filesize. Realistically we shouldn't get anything back larger than TB.
-    /* eslint-disable max-len */
-    // L10n: B is an abbreviation of Bytes in English. Localize it if necessary but use a short abbreviation.
-    B: i18n.gettext('%(localizedSize)s B'),
-    // L10n: KB is an abbreviation of Kilobytes in English. Localize it if necessary but use a short abbreviation.
-    KB: i18n.gettext('%(localizedSize)s KB'),
-    // L10n: MB is an abbreviation of Megabytes in English. Localize it if necessary but use a short abbreviation.
-    MB: i18n.gettext('%(localizedSize)s MB'),
-    // L10n: GB is an abbreviation of Gigabytes in English. Localize it if necessary but use a short abbreviation.
-    GB: i18n.gettext('%(localizedSize)s GB'),
-    // L10n: TB is an abbreviation of Terabytes in English. Localize it if necessary but use a short abbreviation.
-    TB: i18n.gettext('%(localizedSize)s TB'),
-    /* eslint-enable max-len */
-  };
+  const locale = i18n.lang;
 
-  const [sizeNumber, sizeName] = _filesize(size, {
-    base: 2,
-    standard: 'jedec',
-  }).split(' ');
-  if (!sizeNumber || !sizeName) {
-    _log.error(
-      `Filesize returned sizeNumber: "${sizeNumber}", sizeName: "${sizeName}" size "${size}"`,
-    );
-    return i18n.formatNumber(size);
+  let unit;
+  let value;
+
+  if (size < 1024) {
+    value = size;
+    unit = 'byte';
+  } else if (size < 1024 * 1024) {
+    value = size / 1024;
+    unit = 'kilobyte';
+  } else if (size < 1024 * 1024 * 1024) {
+    value = size / (1024 * 1024);
+    unit = 'megabyte';
+  } else {
+    value = size / (1024 * 1024 * 1024);
+    unit = 'gigabyte';
   }
 
-  const localizedSize = i18n.formatNumber(sizeNumber);
-  const sizeString = sizeStrings[sizeName];
-  if (!sizeString) {
-    _log.error(`Filesize returned unrecognized unit: ${sizeName}`);
-    return localizedSize;
-  }
+  const formatter = new Intl.NumberFormat(locale, {
+    /* $FlowIgnore[incompatible-call] flow doesn't want to allow unit, but it is valid */
+    style: 'unit',
+    unit,
+    unitDisplay: 'long',
+    maximumFractionDigits: 2,
+  });
 
-  return i18n.sprintf(sizeString, { localizedSize });
+  return formatter.format(value);
 };
 
 type I18nConfig = {|

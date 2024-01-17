@@ -504,65 +504,24 @@ describe(__filename, () => {
   });
 
   describe('formatFilesize', () => {
-    const _formatFilesize = ({
-      _filesize,
-      _log,
-      i18n = fakeI18n(),
-      size = 123,
-    }) => {
-      return utils.formatFilesize({ _filesize, _log, i18n, size });
+    const _formatFilesize = ({ i18n = fakeI18n(), size = 123 }) => {
+      return utils.formatFilesize({ i18n, size });
     };
 
     it('formats the number returned by filesize', () => {
       const size = 1000;
-      expect(_formatFilesize({ size })).toEqual('1,000 B');
+      expect(_formatFilesize({ size })).toEqual('1,000 bytes');
     });
 
-    it('returns the size for an invalid string from filesize', () => {
-      const size = 987;
-      const _filesize = sinon.stub().returns('123');
-      expect(_formatFilesize({ _filesize, size })).toEqual(size.toString());
+    it('formats for mb files', () => {
+      const size = 1024 * 1024 + 1;
+      expect(_formatFilesize({ size })).toEqual('1 megabyte');
     });
 
-    it('logs an error for an invalid string from filesize', () => {
-      const fakeLog = getFakeLogger();
-      const _filesize = sinon.stub().returns('123');
-      _formatFilesize({ _filesize, _log: fakeLog });
-      sinon.assert.called(fakeLog.error);
+    it('formats for gb files', () => {
+      const size = 1024 * 1024 * 1024 + 1;
+      expect(_formatFilesize({ size })).toEqual('1 gigabyte');
     });
-
-    it('returns the size for an invalid unit of measure from filesize', () => {
-      const size = 987;
-      const _filesize = sinon.stub().returns(`${size} BOB`);
-      expect(_formatFilesize({ _filesize, size })).toEqual(size.toString());
-    });
-
-    it('logs an error for an invalid unit of measure from filesize', () => {
-      const fakeLog = getFakeLogger();
-      const _filesize = sinon.stub().returns('123 BOB');
-      _formatFilesize({ _filesize, _log: fakeLog });
-      sinon.assert.called(fakeLog.error);
-    });
-
-    it.each([
-      ['B', 123, '123'],
-      ['KB', 1234, '1.21'],
-      ['MB', 1234567, '1.18'],
-      ['GB', 1234567890, '1.15'],
-      ['TB', 1234567890123, '1.12'],
-    ])(
-      'calls i18n.sprintf with the expected substitution for size %s',
-      (sizeName, size, localizedSize) => {
-        const i18n = fakeI18n();
-        _formatFilesize({ size, i18n });
-        expect(i18n.sprintf).toHaveBeenCalledWith(
-          `%(localizedSize)s ${sizeName}`,
-          {
-            localizedSize,
-          },
-        );
-      },
-    );
   });
 
   describe('replaceStringsWithJSX', () => {

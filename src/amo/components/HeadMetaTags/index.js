@@ -73,27 +73,31 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
       appendDefaultTitle,
     } = this.props;
 
-    let i18nTitle;
-    let i18nValues = { locale };
+    const i18nValues = { locale, title };
 
     if (title) {
       if (!appendDefaultTitle) {
         return title;
       }
 
-      i18nTitle =
-        clientApp === CLIENT_APP_ANDROID
-          ? i18n.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)')
-          : i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)');
-      i18nValues = { ...i18nValues, title };
-    } else {
-      i18nTitle =
-        clientApp === CLIENT_APP_ANDROID
-          ? i18n.gettext('Add-ons for Firefox Android (%(locale)s)')
-          : i18n.gettext('Add-ons for Firefox (%(locale)s)');
+      return i18n.sprintf(
+        i18n.ngettext(
+          i18n.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)'),
+          i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)'),
+          clientApp === CLIENT_APP_ANDROID ? 1 : 2,
+        ),
+        i18nValues,
+      );
     }
 
-    return i18n.sprintf(i18nTitle, i18nValues);
+    return i18n.sprintf(
+      i18n.ngettext(
+        i18n.gettext('Add-ons for Firefox Android (%(locale)s)'),
+        i18n.gettext('Add-ons for Firefox (%(locale)s)'),
+        clientApp === CLIENT_APP_ANDROID ? 1 : 2,
+      ),
+      i18nValues,
+    );
   }
 
   renderOpenGraph(): Array<React.Node> {

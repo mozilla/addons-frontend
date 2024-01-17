@@ -301,25 +301,28 @@ export const getVersionInfo = ({
   if (version) {
     const { file } = version;
 
-    // L10n: This is application compatibility information, such as "firefox 41 and later"
-    const noMaxString = i18n.gettext(
-      '%(application)s %(minVersion)s and later',
-    );
-    // L10n: This is application compatibility information, such as "firefox 41 to 45"
-    const maxAndMinString = i18n.gettext(
-      '%(application)s %(minVersion)s to %(maxVersion)s',
-    );
     const appInfo = Object.keys(version.compatibility)
       .map((application) => {
         const { max, min } = version.compatibility[application];
         if (max === '*') {
-          return i18n.sprintf(noMaxString, { application, minVersion: min });
+          return i18n.sprintf(
+            // L10n: This is application compatibility information, such as "firefox 41 and later"
+            i18n.gettext('%(application)s %(minVersion)s and later'),
+            {
+              application,
+              minVersion: min,
+            },
+          );
         }
-        return i18n.sprintf(maxAndMinString, {
-          application,
-          maxVersion: max,
-          minVersion: min,
-        });
+        return i18n.sprintf(
+          // L10n: This is application compatibility information, such as "firefox 41 to 45"
+          i18n.gettext('%(application)s %(minVersion)s to %(maxVersion)s'),
+          {
+            application,
+            maxVersion: max,
+            minVersion: min,
+          },
+        );
       })
       .join(', ');
 

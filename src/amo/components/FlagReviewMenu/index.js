@@ -85,7 +85,7 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
             review={review}
             buttonText={i18n.gettext('Misplaced bug report or support request')}
             wasFlaggedText={i18n.gettext(
-              `Flagged as misplaced bug report or support request`,
+              'Flagged as misplaced bug report or support request',
             )}
             disabled={!siteUser}
             disabledTitle={i18n.gettext('Login required')}
@@ -97,8 +97,9 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
         key="flag-language"
       >
         <Link to={`/feedback/review/${review.id}/`}>
-          {i18n.gettext(`Content that is illegal or that violates AMO's content
-            policies`)}
+          {i18n.gettext(
+            "Content that is illegal or that violates AMO's content policies",
+          )}
         </Link>
       </ListItem>,
     ];

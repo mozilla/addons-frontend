@@ -1579,6 +1579,7 @@ describe(__filename, () => {
       [ADDON_TYPE_EXTENSION, 'Extension'],
       [ADDON_TYPE_LANG, 'Language Pack'],
       [ADDON_TYPE_STATIC_THEME, 'Theme'],
+      ['generic-type', 'Add-on'],
     ])(
       'renders an HTML title for Android (add-on type: %s)',
       async (type, name) => {

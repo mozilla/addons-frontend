@@ -336,6 +336,122 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   }
 
+  renderByLine(): React.Node {
+    const { hasUsersEditPermission, i18n, location, review, shortByLine } =
+      this.props;
+
+    const noAuthor = shortByLine || this.isReply();
+    const showUserProfileLink = !noAuthor && hasUsersEditPermission;
+
+    if (!review) return <LoadingText />;
+
+    const byLineStringPlaceholders = {
+      authorName: review.userName,
+      timestamp: i18n.moment(review.created).fromNow(),
+      // Keep the link placeholders so that we can use them to inject a
+      // `<Link />` using `replaceStringsWithJSX`.
+      linkEnd: '%(linkEnd)s',
+      linkStart: '%(linkStart)s',
+      linkUserProfileStart: showUserProfileLink
+        ? '%(linkUserProfileStart)s'
+        : undefined,
+      linkUserProfileEnd: showUserProfileLink
+        ? '%(linkUserProfileEnd)s'
+        : undefined,
+    };
+
+    // eslint-disable-next-line no-nested-ternary
+    const byLineString = noAuthor
+      ? i18n.sprintf(
+          // L10n: Example in English: "posted last week"
+          i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s'),
+          byLineStringPlaceholders,
+        )
+      : showUserProfileLink
+      ? i18n.sprintf(
+          // L10n: Example in English: "by UserName123, last week"
+          i18n.gettext(
+            'by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
+          ),
+          byLineStringPlaceholders,
+        )
+      : i18n.sprintf(
+          // L10n: Example in English: "by UserName123, last week"
+          i18n.gettext(
+            'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
+          ),
+          byLineStringPlaceholders,
+        );
+
+    // See https://github.com/mozilla/addons-frontend/issues/7322 for why we
+    // need this code.
+    const slugForReviewLink = review.reviewAddon.slug || review.reviewAddon.id;
+    if (!review.reviewAddon.slug) {
+      log.error(
+        `The add-on for reviewId: ${review.id} has an falsey slug: ${review.reviewAddon.slug}`,
+      );
+    }
+    if (!review.reviewAddon.id) {
+      log.error(
+        `The add-on for reviewId: ${review.id} has an falsey id: ${review.reviewAddon.id}`,
+      );
+    }
+
+    const replacements = [
+      [
+        'linkStart',
+        'linkEnd',
+        (text) => {
+          return slugForReviewLink ? (
+            <Link
+              title={i18n.moment(review.created).format('lll')}
+              key={review.id}
+              to={reviewListURL({
+                addonSlug: String(slugForReviewLink),
+                id: review.id,
+                location,
+              })}
+            >
+              {text}
+            </Link>
+          ) : (
+            text
+          );
+        },
+      ],
+    ];
+
+    if (showUserProfileLink) {
+      replacements.push([
+        'linkUserProfileStart',
+        'linkUserProfileEnd',
+        (text) => (
+          <Link
+            key={`${review.id}-${review.userId}`}
+            to={`/user/${review.userId}/`}
+          >
+            {text}
+          </Link>
+        ),
+      ]);
+    }
+
+    const byLineLink = replaceStringsWithJSX({
+      text: byLineString,
+      replacements,
+    });
+
+    return (
+      <span
+        className={makeClassName({
+          'AddonReviewCard-authorByLine': !noAuthor,
+        })}
+      >
+        {byLineLink}
+      </span>
+    );
+  }
+
   render(): React.Node {
     const {
       beginningToDeleteReview,
@@ -344,12 +460,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       editingReview,
       errorHandler,
       flaggable,
-      hasUsersEditPermission,
       i18n,
-      location,
       replyingToReview,
       review,
-      shortByLine,
       showControls,
       showRating,
       siteUser,
@@ -357,109 +470,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       slim,
     } = this.props;
 
-    let byLine;
-    const noAuthor = shortByLine || this.isReply();
-    const showUserProfileLink = !noAuthor && hasUsersEditPermission;
-
-    if (review) {
-      // eslint-disable-next-line no-nested-ternary
-      const byLineString = noAuthor
-        ? // L10n: Example in English: "posted last week"
-          i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
-        : showUserProfileLink
-        ? // L10n: Example in English: "by UserName123, last week"
-          i18n.gettext(
-            'by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
-          )
-        : // L10n: Example in English: "by UserName123, last week"
-          i18n.gettext(
-            'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
-          );
-
-      // See https://github.com/mozilla/addons-frontend/issues/7322 for why we
-      // need this code.
-      const slugForReviewLink =
-        review.reviewAddon.slug || review.reviewAddon.id;
-      if (!review.reviewAddon.slug) {
-        log.error(
-          `The add-on for reviewId: ${review.id} has an falsey slug: ${review.reviewAddon.slug}`,
-        );
-      }
-      if (!review.reviewAddon.id) {
-        log.error(
-          `The add-on for reviewId: ${review.id} has an falsey id: ${review.reviewAddon.id}`,
-        );
-      }
-
-      const replacements = [
-        [
-          'linkStart',
-          'linkEnd',
-          (text) => {
-            return slugForReviewLink ? (
-              <Link
-                title={i18n.moment(review.created).format('lll')}
-                key={review.id}
-                to={reviewListURL({
-                  addonSlug: String(slugForReviewLink),
-                  id: review.id,
-                  location,
-                })}
-              >
-                {text}
-              </Link>
-            ) : (
-              text
-            );
-          },
-        ],
-      ];
-
-      if (showUserProfileLink) {
-        replacements.push([
-          'linkUserProfileStart',
-          'linkUserProfileEnd',
-          (text) => (
-            <Link
-              key={`${review.id}-${review.userId}`}
-              to={`/user/${review.userId}/`}
-            >
-              {text}
-            </Link>
-          ),
-        ]);
-      }
-
-      const byLineLink = replaceStringsWithJSX({
-        text: i18n.sprintf(byLineString, {
-          authorName: review.userName,
-          timestamp: i18n.moment(review.created).fromNow(),
-          // Keep the link placeholders so that we can use them to inject a
-          // `<Link />` using `replaceStringsWithJSX`.
-          linkEnd: '%(linkEnd)s',
-          linkStart: '%(linkStart)s',
-          linkUserProfileStart: showUserProfileLink
-            ? '%(linkUserProfileStart)s'
-            : undefined,
-          linkUserProfileEnd: showUserProfileLink
-            ? '%(linkUserProfileEnd)s'
-            : undefined,
-        }),
-        replacements,
-      });
-
-      byLine = (
-        <span
-          className={makeClassName({
-            'AddonReviewCard-authorByLine': !noAuthor,
-          })}
-        >
-          {byLineLink}
-        </span>
-      );
-    } else {
-      byLine = <LoadingText />;
-    }
+    const byLine = this.renderByLine();
 
     let controlsAreVisible = showControls;
     if (beginningToDeleteReview) {

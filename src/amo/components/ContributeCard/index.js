@@ -48,10 +48,12 @@ export const ContributeCardBase = ({
         numberOfAuthors,
       );
       content = i18n.ngettext(
-        i18n.gettext(`The developer of this extension asks that you help support
-          its continued development by making a small contribution.`),
-        i18n.gettext(`The developers of this extension ask that you help
-          support its continued development by making a small contribution.`),
+        i18n.gettext(
+          'The developer of this extension asks that you help support its continued development by making a small contribution.',
+        ),
+        i18n.gettext(
+          'The developers of this extension ask that you help support its continued development by making a small contribution.',
+        ),
         numberOfAuthors,
       );
       break;
@@ -62,10 +64,12 @@ export const ContributeCardBase = ({
         numberOfAuthors,
       );
       content = i18n.ngettext(
-        i18n.gettext(`The artist of this theme asks that you help support
-          its continued creation by making a small contribution.`),
-        i18n.gettext(`The artists of this theme ask that you help support
-          its continued creation by making a small contribution.`),
+        i18n.gettext(
+          'The artist of this theme asks that you help support its continued creation by making a small contribution.',
+        ),
+        i18n.gettext(
+          'The artists of this theme ask that you help support its continued creation by making a small contribution.',
+        ),
         numberOfAuthors,
       );
       break;
@@ -76,10 +80,12 @@ export const ContributeCardBase = ({
         numberOfAuthors,
       );
       content = i18n.ngettext(
-        i18n.gettext(`The author of this add-on asks that you help support
-          its continued work by making a small contribution.`),
-        i18n.gettext(`The authors of this add-on ask that you help support
-          its continued work by making a small contribution.`),
+        i18n.gettext(
+          'The author of this add-on asks that you help support its continued work by making a small contribution.',
+        ),
+        i18n.gettext(
+          'The authors of this add-on ask that you help support its continued work by making a small contribution.',
+        ),
         numberOfAuthors,
       );
       break;

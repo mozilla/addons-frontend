@@ -7,11 +7,13 @@ export const getNotificationDescription = (
 ): string | null => {
   switch (name) {
     case 'announcements':
-      return i18n.gettext(`stay up-to-date with news and events relevant to
-        add-on developers (including the about:addons newsletter)`);
+      return i18n.gettext(
+        'stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)',
+      );
     case 'individual_contact':
-      return i18n.gettext(`Mozilla needs to contact me about my individual
-        add-on`);
+      return i18n.gettext(
+        'Mozilla needs to contact me about my individual add-on',
+      );
     case 'new_features':
       return i18n.gettext('new add-ons or Firefox features are available');
     case 'new_review':
@@ -21,9 +23,9 @@ export const getNotificationDescription = (
     case 'reviewer_reviewed':
       return i18n.gettext('my add-on is reviewed by a reviewer');
     case 'upgrade_fail':
-      return i18n.gettext(`my add-on's compatibility cannot be upgraded`);
+      return i18n.gettext("my add-on's compatibility cannot be upgraded");
     case 'upgrade_success':
-      return i18n.gettext(`my add-on's compatibility is upgraded successfully`);
+      return i18n.gettext("my add-on's compatibility is upgraded successfully");
     default:
       return null;
   }

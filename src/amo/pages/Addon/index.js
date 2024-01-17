@@ -208,8 +208,9 @@ export class AddonBase extends React.Component {
     } else {
       ratingManager = (
         <p className="Addon-no-rating-manager">
-          {i18n.gettext(`This add-on cannot be rated because no versions
-            have been published.`)}
+          {i18n.gettext(
+            'This add-on cannot be rated because no versions have been published.',
+          )}
         </p>
       );
     }
