@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 16:55+0000\n"
+"POT-Creation-Date: 2024-01-19 19:55+0000\n"
 "PO-Revision-Date: 2023-12-04 17:51+0000\n"
 "Last-Translator: Théo Chevalier <theochevalier@pm.me>\n"
 "Language-Team: none\n"
@@ -15,8 +15,8 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:187
-msgid "Loading…"
-msgstr "Chargement…"
+msgid "Test"
+msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 msgid "Adding…"
@@ -3787,6 +3787,9 @@ msgstr "la compatibilité de mon module n’a pas pu être mise à jour"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "la compatibilité de mon module a été mise à jour avec succès"
+
+#~ msgid "Loading…"
+#~ msgstr "Chargement…"
 
 #~ msgid "This is a bug report or support request"
 #~ msgstr "Ce message est un rapport de bug ou une demande d’assistance"

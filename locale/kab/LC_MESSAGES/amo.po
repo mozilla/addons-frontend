@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 16:55+0000\n"
+"POT-Creation-Date: 2024-01-19 19:55+0000\n"
 "PO-Revision-Date: 2023-04-03 12:26+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,8 +15,8 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:187
-msgid "Loading…"
-msgstr "Asali..."
+msgid "Test"
+msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 msgid "Adding…"
@@ -3647,6 +3647,9 @@ msgstr "amṣada n uzegrir-inu ur yettwalqem ara"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "amṣda n uzegrir-inu yettwalqem akken iwata"
+
+#~ msgid "Loading…"
+#~ msgstr "Asali..."
 
 #~ msgid "This is a bug report or support request"
 #~ msgstr "Wagi d tuzna n ubug neɣ asuter n tallelt"
