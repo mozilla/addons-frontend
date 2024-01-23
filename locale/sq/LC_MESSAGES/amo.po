@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 16:55+0000\n"
+"POT-Creation-Date: 2024-01-23 17:56+0000\n"
 "PO-Revision-Date: 2023-12-06 14:26+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -240,7 +240,7 @@ msgstr "Përdorur nga"
 #: src/amo/components/AddonMoreInfo/index.js:103
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:359
-#: src/amo/pages/UserProfileEdit/index.js:708
+#: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr "Faqe hyrëse"
 
@@ -380,7 +380,7 @@ msgstr "Fshije"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:931
+#: src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
 msgstr "Anuloje"
 
@@ -1491,12 +1491,12 @@ msgid "View My Collections"
 msgstr "Shihni Koleksionet e Mia"
 
 #: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:590
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
 msgstr "Shihni Profilin Tim"
 
 #: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
 msgstr "Përpunim i Profilit Tim"
 
@@ -1568,7 +1568,6 @@ msgstr "Shkarko kartelën"
 
 #: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
-#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "Learn more"
 msgstr "Mësoni më tepër"
 
@@ -3362,7 +3361,7 @@ msgid "Theme artist"
 msgstr "Artist teme"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:578
+#: src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
 msgstr "Profil Përdoruesi për %(user)s"
 
@@ -3371,12 +3370,12 @@ msgid "User Profile"
 msgstr "Profil Përdoruesi"
 
 #: src/amo/pages/UserProfile/index.js:366
-#: src/amo/pages/UserProfileEdit/index.js:725
+#: src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr "Vend"
 
 #: src/amo/pages/UserProfile/index.js:374
-#: src/amo/pages/UserProfileEdit/index.js:740
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr "Punësim"
 
@@ -3389,7 +3388,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Vlerësim mesatar për shtesat e programuesit"
 
 #: src/amo/pages/UserProfile/index.js:412
-#: src/amo/pages/UserProfileEdit/index.js:762
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr "Jetëshkrim"
 
@@ -3402,11 +3401,11 @@ msgstr "Përpunoni profilin"
 msgid "Admin user"
 msgstr "Përdorues përgjegjës"
 
-#: src/amo/pages/UserProfileEdit/index.js:212
+#: src/amo/pages/UserProfileEdit/index.js:211
 msgid "Picture successfully deleted"
 msgstr "Fotoja u fshi me sukses"
 
-#: src/amo/pages/UserProfileEdit/index.js:460
+#: src/amo/pages/UserProfileEdit/index.js:459
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3414,7 +3413,7 @@ msgstr ""
 "Na jepni pakëz më tepër informacion rreth vetes. Shumica e fushave janë "
 "opsionale, por ato ndihmojnë përdoruesit e tjerë t’ju njohin më mirë."
 
-#: src/amo/pages/UserProfileEdit/index.js:464
+#: src/amo/pages/UserProfileEdit/index.js:463
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3423,83 +3422,67 @@ msgstr ""
 "janë opsionale, por ato ndihmojnë përdoruesit e tjerë ta njohin %(userName)s "
 "më mirë."
 
-#: src/amo/pages/UserProfileEdit/index.js:479
+#: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
 msgstr "Paraqiteni veten te bashkësia, po deshët"
 
-#: src/amo/pages/UserProfileEdit/index.js:480
+#: src/amo/pages/UserProfileEdit/index.js:479
 msgid "Introduce %(userName)s to the community"
 msgstr "Prezantojani %(userName)s bashkësisë"
 
-#: src/amo/pages/UserProfileEdit/index.js:506
+#: src/amo/pages/UserProfileEdit/index.js:505
 msgid "Log in to edit the profile"
 msgstr "Bëni hyrjen, që të përpunoni profilin"
 
-#: src/amo/pages/UserProfileEdit/index.js:528
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Creating your profile…"
 msgstr "Po krijohet profili juaj…"
 
-#: src/amo/pages/UserProfileEdit/index.js:529
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Create My Profile"
 msgstr "Krijoje Profilin Tim"
 
-#: src/amo/pages/UserProfileEdit/index.js:533
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Updating your profile…"
 msgstr "Po përditësohet profili juaj…"
 
-#: src/amo/pages/UserProfileEdit/index.js:534
+#: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Update My Profile"
 msgstr "Përditësoje Profilin Tim"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Updating profile…"
 msgstr "Po përditësohet profili…"
 
-#: src/amo/pages/UserProfileEdit/index.js:538
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Update Profile"
 msgstr "Përditësoje Profilin"
 
-#: src/amo/pages/UserProfileEdit/index.js:546
-msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-msgstr "Më 1 nëntor llogaritë Firefox u riemërtuan llogari Mozilla"
-
-#: src/amo/pages/UserProfileEdit/index.js:549
-msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr "Më 1 nëntor Llogaritë Firefox do të riemërtohen llogari Mozilla"
-
-#: src/amo/pages/UserProfileEdit/index.js:569
-msgid ""
-"You will still sign in with the same username and password, and there are no "
-"other changes to the products that you use."
-msgstr ""
-"Do të bëni hyrjen me të njëjtin emër përdoruesi dhe fjalëkalim dhe s’do të "
-"ketë ndryshime të tjera te produktet që përdorni."
-
-#: src/amo/pages/UserProfileEdit/index.js:591
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "View user's profile"
 msgstr "Shihni profilin e përdoruesit"
 
-#: src/amo/pages/UserProfileEdit/index.js:597
+#: src/amo/pages/UserProfileEdit/index.js:570
 msgid "Edit user's profile"
 msgstr "Përpunoni profilin e përdoruesit"
 
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Account"
 msgstr "Llogari"
 
-#: src/amo/pages/UserProfileEdit/index.js:616
+#: src/amo/pages/UserProfileEdit/index.js:589
 msgid "Account for %(userName)s"
 msgstr "Llogari për %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:623
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
 msgstr "Adresë Email"
 
-#: src/amo/pages/UserProfileEdit/index.js:631
+#: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
 msgstr "Adresa email s’mund të ndryshohet këtu"
 
-#: src/amo/pages/UserProfileEdit/index.js:643
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid ""
 "You can change your email address on Mozilla accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3507,48 +3490,36 @@ msgstr ""
 "Adresën tuaj email mund ta ndryshoni te llogaritë Mozilla. %(startLink)sJu "
 "duhet ndihmë?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:645
-msgid ""
-"You can change your email address on Firefox Accounts. %(startLink)sNeed "
-"help?%(endLink)s"
-msgstr ""
-"Adresën tuaj email mund ta ndryshoni te Llogaritë Firefox. %(startLink)sJu "
-"duhet ndihmë?%(endLink)s"
-
-#: src/amo/pages/UserProfileEdit/index.js:665
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
 msgstr "Administroni llogari Mozilla…"
 
-#: src/amo/pages/UserProfileEdit/index.js:666
-msgid "Manage Firefox Accounts…"
-msgstr "Administroni Llogari Firefox…"
-
-#: src/amo/pages/UserProfileEdit/index.js:674
+#: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:683
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
 msgstr "Kjo fushë është e domosdoshme"
 
 #. the star is used to indicate a required field
-#: src/amo/pages/UserProfileEdit/index.js:687
+#: src/amo/pages/UserProfileEdit/index.js:655
 msgid "Display Name *"
 msgstr "Emër Në Ekran *"
 
-#: src/amo/pages/UserProfileEdit/index.js:720
+#: src/amo/pages/UserProfileEdit/index.js:688
 msgid "This URL will only be visible for users who are developers."
 msgstr "Kjo URL do të jetë e dukshme vetëm për përdoruesit që janë zhvillues."
 
-#: src/amo/pages/UserProfileEdit/index.js:777
+#: src/amo/pages/UserProfileEdit/index.js:745
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Disa shenja HTML mbulohen: %(htmlTags)s. Lidhjet janë të ndaluara."
 
-#: src/amo/pages/UserProfileEdit/index.js:801
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Notifications"
 msgstr "Njoftime"
 
-#: src/amo/pages/UserProfileEdit/index.js:805
+#: src/amo/pages/UserProfileEdit/index.js:773
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3557,7 +3528,7 @@ msgstr ""
 "dhe veprimtari që lidhen me shtesat. Ju lutemi, përzgjidhni më poshtë temat "
 "që ju interesojnë."
 
-#: src/amo/pages/UserProfileEdit/index.js:810
+#: src/amo/pages/UserProfileEdit/index.js:778
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3566,7 +3537,7 @@ msgstr ""
 "versionesh të ardhshëm dhe veprimtari që lidhen me shtesat. Ju lutemi, "
 "përzgjidhni më poshtë temat që mund t’i interesojnë këtij përdoruesi."
 
-#: src/amo/pages/UserProfileEdit/index.js:825
+#: src/amo/pages/UserProfileEdit/index.js:793
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3574,29 +3545,29 @@ msgstr ""
 "Mozilla ruan të drejtën të lidhet me ju veçmas, lidhur me çështje të "
 "caktuara te shtesat që keni strehuar këtu."
 
-#: src/amo/pages/UserProfileEdit/index.js:851
-#: src/amo/pages/UserProfileEdit/index.js:923
+#: src/amo/pages/UserProfileEdit/index.js:819
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
 msgstr "Fshije Profilin Tim"
 
-#: src/amo/pages/UserProfileEdit/index.js:852
-#: src/amo/pages/UserProfileEdit/index.js:924
+#: src/amo/pages/UserProfileEdit/index.js:820
+#: src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
 msgstr "Fshije Profilin"
 
-#: src/amo/pages/UserProfileEdit/index.js:864
+#: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "E RËNDËSISHME: Fshirja e profilit tuaj te Shtesa Firefox-i është e "
 "pakthyeshme."
 
-#: src/amo/pages/UserProfileEdit/index.js:867
+#: src/amo/pages/UserProfileEdit/index.js:835
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "E RËNDËSISHME: Fshirja e këtij profili te Shtesa Firefox-i është e "
 "pakthyeshme."
 
-#: src/amo/pages/UserProfileEdit/index.js:876
+#: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3606,7 +3577,7 @@ msgstr ""
 "emër përdoruesi, emër në ekran, vendndodhje, faqe hyrëse, jetëshkrim, "
 "punësim), parapëlqime njoftimesh, shqyrtime dhe koleksione."
 
-#: src/amo/pages/UserProfileEdit/index.js:882
+#: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3616,7 +3587,7 @@ msgstr ""
 "profili (foto, emër përdoruesi, emër në ekran, vendndodhje, faqe hyrëse, "
 "jetëshkrim, punësim), parapëlqime njoftimesh, shqyrtime dhe koleksione."
 
-#: src/amo/pages/UserProfileEdit/index.js:891
+#: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3626,7 +3597,7 @@ msgstr ""
 "keni të përbashkët me autorë të tjerë. Në rast të tillë, ju do të hiqeni si "
 "autor dhe autorët e tjerët do të ruajnë autorësinë e shtesës."
 
-#: src/amo/pages/UserProfileEdit/index.js:897
+#: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3637,7 +3608,7 @@ msgstr ""
 "përdoruesi do të hiqet si autor dhe autorët e tjerët do të ruajnë autorësinë "
 "e shtesës."
 
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3754,6 +3725,29 @@ msgstr "përputhshmëria e shtesës sime s’mund të përmirësohet"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "përputhshmëria e shtesës sime është përmirësuar me sukses"
+
+#~ msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
+#~ msgstr "Më 1 nëntor llogaritë Firefox u riemërtuan llogari Mozilla"
+
+#~ msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
+#~ msgstr "Më 1 nëntor Llogaritë Firefox do të riemërtohen llogari Mozilla"
+
+#~ msgid ""
+#~ "You will still sign in with the same username and password, and there are "
+#~ "no other changes to the products that you use."
+#~ msgstr ""
+#~ "Do të bëni hyrjen me të njëjtin emër përdoruesi dhe fjalëkalim dhe s’do "
+#~ "të ketë ndryshime të tjera te produktet që përdorni."
+
+#~ msgid ""
+#~ "You can change your email address on Firefox Accounts. %(startLink)sNeed "
+#~ "help?%(endLink)s"
+#~ msgstr ""
+#~ "Adresën tuaj email mund ta ndryshoni te Llogaritë Firefox. "
+#~ "%(startLink)sJu duhet ndihmë?%(endLink)s"
+
+#~ msgid "Manage Firefox Accounts…"
+#~ msgstr "Administroni Llogari Firefox…"
 
 #~ msgid "This is a bug report or support request"
 #~ msgstr "Ky është njoftim të mete ose kërkesë për asistencë"

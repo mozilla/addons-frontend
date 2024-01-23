@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 16:55+0000\n"
+"POT-Creation-Date: 2024-01-23 17:56+0000\n"
 "PO-Revision-Date: 2023-12-13 21:36+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -221,7 +221,7 @@ msgstr "사용됨"
 #: src/amo/components/AddonMoreInfo/index.js:103
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:359
-#: src/amo/pages/UserProfileEdit/index.js:708
+#: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr "홈 페이지"
 
@@ -361,7 +361,7 @@ msgstr "삭제"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:931
+#: src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
 msgstr "취소"
 
@@ -1434,12 +1434,12 @@ msgid "View My Collections"
 msgstr "내 모음집 보기"
 
 #: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:590
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
 msgstr "내 프로필 보기"
 
 #: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
 msgstr "내 프로필 수정"
 
@@ -1509,7 +1509,6 @@ msgstr "파일 다운로드"
 
 #: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
-#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "Learn more"
 msgstr "더 알아보기"
 
@@ -3191,7 +3190,7 @@ msgid "Theme artist"
 msgstr "테마 아티스트"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:578
+#: src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
 msgstr "%(user)s님의 사용자 프로필"
 
@@ -3200,12 +3199,12 @@ msgid "User Profile"
 msgstr "사용자 프로필"
 
 #: src/amo/pages/UserProfile/index.js:366
-#: src/amo/pages/UserProfileEdit/index.js:725
+#: src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr "지역"
 
 #: src/amo/pages/UserProfile/index.js:374
-#: src/amo/pages/UserProfileEdit/index.js:740
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr "직업"
 
@@ -3218,7 +3217,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "개발자 부가 기능의 평균 별점"
 
 #: src/amo/pages/UserProfile/index.js:412
-#: src/amo/pages/UserProfileEdit/index.js:762
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr "소개"
 
@@ -3231,11 +3230,11 @@ msgstr "프로필 수정"
 msgid "Admin user"
 msgstr "관리자 사용자"
 
-#: src/amo/pages/UserProfileEdit/index.js:212
+#: src/amo/pages/UserProfileEdit/index.js:211
 msgid "Picture successfully deleted"
 msgstr "사진이 성공적으로 삭제되었습니다"
 
-#: src/amo/pages/UserProfileEdit/index.js:460
+#: src/amo/pages/UserProfileEdit/index.js:459
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3243,89 +3242,73 @@ msgstr ""
 "다른 사용자에게 자신에 대한 추가 정보를 알려주세요. 대부분 선택 사항이지만 다"
 "른 사용자가 여러분에 대해 더 잘 알 수 있도록 도와줍니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:464
+#: src/amo/pages/UserProfileEdit/index.js:463
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:479
+#: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
 msgstr "커뮤니티에 자기 소개하기"
 
-#: src/amo/pages/UserProfileEdit/index.js:480
+#: src/amo/pages/UserProfileEdit/index.js:479
 msgid "Introduce %(userName)s to the community"
 msgstr "커뮤니티에 %(userName)s 소개하기"
 
-#: src/amo/pages/UserProfileEdit/index.js:506
+#: src/amo/pages/UserProfileEdit/index.js:505
 msgid "Log in to edit the profile"
 msgstr "프로필을 편집하려면 로그인하세요"
 
-#: src/amo/pages/UserProfileEdit/index.js:528
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Creating your profile…"
 msgstr "프로필을 만드는 중…"
 
-#: src/amo/pages/UserProfileEdit/index.js:529
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Create My Profile"
 msgstr "내 프로필 만들기"
 
-#: src/amo/pages/UserProfileEdit/index.js:533
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Updating your profile…"
 msgstr "프로필 업데이트 중…"
 
-#: src/amo/pages/UserProfileEdit/index.js:534
+#: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Update My Profile"
 msgstr "내 프로필 수정"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Updating profile…"
 msgstr "프로필 업데이트 중…"
 
-#: src/amo/pages/UserProfileEdit/index.js:538
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Update Profile"
 msgstr "프로필 수정"
 
-#: src/amo/pages/UserProfileEdit/index.js:546
-msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-msgstr "Firefox 계정은 11월 1일에 Mozilla 계정으로 이름이 변경되었습니다"
-
-#: src/amo/pages/UserProfileEdit/index.js:549
-msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr ""
-
-#: src/amo/pages/UserProfileEdit/index.js:569
-msgid ""
-"You will still sign in with the same username and password, and there are no "
-"other changes to the products that you use."
-msgstr ""
-"동일한 사용자 이름과 비밀번호로 계속 로그인할 수 있으며, 사용하는 제품에는 다"
-"른 변경 사항이 없습니다."
-
-#: src/amo/pages/UserProfileEdit/index.js:591
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "View user's profile"
 msgstr "사용자 프로필 보기"
 
-#: src/amo/pages/UserProfileEdit/index.js:597
+#: src/amo/pages/UserProfileEdit/index.js:570
 msgid "Edit user's profile"
 msgstr "사용자 프로필 수정"
 
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Account"
 msgstr "계정"
 
-#: src/amo/pages/UserProfileEdit/index.js:616
+#: src/amo/pages/UserProfileEdit/index.js:589
 msgid "Account for %(userName)s"
 msgstr "%(userName)s 계정"
 
-#: src/amo/pages/UserProfileEdit/index.js:623
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
 msgstr "이메일 주소"
 
-#: src/amo/pages/UserProfileEdit/index.js:631
+#: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
 msgstr "여기에서 이메일 주소 변경할 수 없음"
 
-#: src/amo/pages/UserProfileEdit/index.js:643
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid ""
 "You can change your email address on Mozilla accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3333,48 +3316,36 @@ msgstr ""
 "Mozilla 계정에서 이메일 주소를 변경할 수 있습니다. %(startLink)s도움이 필요하"
 "십니까?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:645
-msgid ""
-"You can change your email address on Firefox Accounts. %(startLink)sNeed "
-"help?%(endLink)s"
-msgstr ""
-"Firefox 계정에서 이메일 주소를 변경할 수 있습니다. %(startLink)s도움이 필요하"
-"십니까?%(endLink)s"
-
-#: src/amo/pages/UserProfileEdit/index.js:665
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
 msgstr "Mozilla 계정 관리…"
 
-#: src/amo/pages/UserProfileEdit/index.js:666
-msgid "Manage Firefox Accounts…"
-msgstr "Firefox 계정 관리…"
-
-#: src/amo/pages/UserProfileEdit/index.js:674
+#: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
 msgstr "프로필"
 
-#: src/amo/pages/UserProfileEdit/index.js:683
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
 msgstr "필수 항목"
 
 #. the star is used to indicate a required field
-#: src/amo/pages/UserProfileEdit/index.js:687
+#: src/amo/pages/UserProfileEdit/index.js:655
 msgid "Display Name *"
 msgstr "표시 이름 *"
 
-#: src/amo/pages/UserProfileEdit/index.js:720
+#: src/amo/pages/UserProfileEdit/index.js:688
 msgid "This URL will only be visible for users who are developers."
 msgstr "이 URL은 개발자인 사용자만 표시됩니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:777
+#: src/amo/pages/UserProfileEdit/index.js:745
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "일부 HTML 지원: %(htmlTags)s. 링크는 금지되어 있습니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:801
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Notifications"
 msgstr "알림"
 
-#: src/amo/pages/UserProfileEdit/index.js:805
+#: src/amo/pages/UserProfileEdit/index.js:773
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3382,7 +3353,7 @@ msgstr ""
 "때때로 Mozilla에서 곧 출시될 최신 버전 정보와 및 부가 기능 이벤트에 대한 이메"
 "일을 보낼 수 있습니다. 관심 있는 주제를 선택하세요."
 
-#: src/amo/pages/UserProfileEdit/index.js:810
+#: src/amo/pages/UserProfileEdit/index.js:778
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3391,7 +3362,7 @@ msgstr ""
 "트에 대한 이메일을 보낼 수 있습니다. 이 사용자가 관심을 가질만한 주제를 선택"
 "하세요."
 
-#: src/amo/pages/UserProfileEdit/index.js:825
+#: src/amo/pages/UserProfileEdit/index.js:793
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3399,25 +3370,25 @@ msgstr ""
 "Mozilla는 당신이 등록한 부가 기능의 특정 사항에 대한 개인적 연락을 할 권리를 "
 "보장하고 있습니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:851
-#: src/amo/pages/UserProfileEdit/index.js:923
+#: src/amo/pages/UserProfileEdit/index.js:819
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
 msgstr "내 프로필 삭제"
 
-#: src/amo/pages/UserProfileEdit/index.js:852
-#: src/amo/pages/UserProfileEdit/index.js:924
+#: src/amo/pages/UserProfileEdit/index.js:820
+#: src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
 msgstr "프로필 삭제"
 
-#: src/amo/pages/UserProfileEdit/index.js:864
+#: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "중요: Firefox 부가 기능 프로필을 삭제하면 되돌릴 수 없습니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:867
+#: src/amo/pages/UserProfileEdit/index.js:835
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "중요: 이 Firefox 부가 기능 프로필을 삭제하면 되돌릴 수 없습니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:876
+#: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3426,7 +3397,7 @@ msgstr ""
 "프로필 세부 정보 (사진, 사용자 이름, 표시 이름, 위치, 홈페이지, 소개, 직업), "
 "알림 기본 설정, 평가 및 모음집을 포함한 데이터가 영구적으로 제거됩니다."
 
-#: src/amo/pages/UserProfileEdit/index.js:882
+#: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3436,21 +3407,21 @@ msgstr ""
 "알림 환경 설정, 평가 및 모음집을 포함한 사용자의 데이터가 영구적으로 삭제됩니"
 "다."
 
-#: src/amo/pages/UserProfileEdit/index.js:891
+#: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
 "and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:897
+#: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
 "author and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3565,6 +3536,26 @@ msgstr "부가 기능 호환성을 업그레이드 할 수 없습니다"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "부가 기능 호환성이 업그레이드 되었습니다"
+
+#~ msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
+#~ msgstr "Firefox 계정은 11월 1일에 Mozilla 계정으로 이름이 변경되었습니다"
+
+#~ msgid ""
+#~ "You will still sign in with the same username and password, and there are "
+#~ "no other changes to the products that you use."
+#~ msgstr ""
+#~ "동일한 사용자 이름과 비밀번호로 계속 로그인할 수 있으며, 사용하는 제품에"
+#~ "는 다른 변경 사항이 없습니다."
+
+#~ msgid ""
+#~ "You can change your email address on Firefox Accounts. %(startLink)sNeed "
+#~ "help?%(endLink)s"
+#~ msgstr ""
+#~ "Firefox 계정에서 이메일 주소를 변경할 수 있습니다. %(startLink)s도움이 필"
+#~ "요하십니까?%(endLink)s"
+
+#~ msgid "Manage Firefox Accounts…"
+#~ msgstr "Firefox 계정 관리…"
 
 #~ msgid "This is a bug report or support request"
 #~ msgstr "버그 신고나 지원 요청입니다"

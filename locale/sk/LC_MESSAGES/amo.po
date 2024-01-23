@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 16:55+0000\n"
+"POT-Creation-Date: 2024-01-23 17:56+0000\n"
 "PO-Revision-Date: 2023-12-03 18:19+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
@@ -229,7 +229,7 @@ msgstr "Používa"
 #: src/amo/components/AddonMoreInfo/index.js:103
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:359
-#: src/amo/pages/UserProfileEdit/index.js:708
+#: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr "Domovská stránka"
 
@@ -369,7 +369,7 @@ msgstr "Odstrániť"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:931
+#: src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -1479,12 +1479,12 @@ msgid "View My Collections"
 msgstr "Zobraziť moje kolekcie"
 
 #: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:590
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
 msgstr "Zobraziť môj profil"
 
 #: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
 msgstr "Upraviť môj profil"
 
@@ -1556,7 +1556,6 @@ msgstr "Stiahnuť súbor"
 
 #: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
-#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "Learn more"
 msgstr "Ďalšie informácie"
 
@@ -3404,7 +3403,7 @@ msgid "Theme artist"
 msgstr "Umelec"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:578
+#: src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
 msgstr "Profil používateľa %(user)s"
 
@@ -3413,12 +3412,12 @@ msgid "User Profile"
 msgstr "Profil používateľa"
 
 #: src/amo/pages/UserProfile/index.js:366
-#: src/amo/pages/UserProfileEdit/index.js:725
+#: src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr "Umiestnenie"
 
 #: src/amo/pages/UserProfile/index.js:374
-#: src/amo/pages/UserProfileEdit/index.js:740
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr "Povolanie"
 
@@ -3431,7 +3430,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Priemerné hodnotenie doplnkov vývojára"
 
 #: src/amo/pages/UserProfile/index.js:412
-#: src/amo/pages/UserProfileEdit/index.js:762
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr "Životopis"
 
@@ -3445,11 +3444,11 @@ msgstr "Upraviť profil"
 msgid "Admin user"
 msgstr "Správca"
 
-#: src/amo/pages/UserProfileEdit/index.js:212
+#: src/amo/pages/UserProfileEdit/index.js:211
 msgid "Picture successfully deleted"
 msgstr "Fotografia bola úspešne odstránená"
 
-#: src/amo/pages/UserProfileEdit/index.js:460
+#: src/amo/pages/UserProfileEdit/index.js:459
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3457,7 +3456,7 @@ msgstr ""
 "Povedzte ostatným niečo o sebe. Väčšinu polí nemusíte vypĺňať, ale "
 "používatelia vás vďaka nim môžu lepšie spoznať."
 
-#: src/amo/pages/UserProfileEdit/index.js:464
+#: src/amo/pages/UserProfileEdit/index.js:463
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3466,83 +3465,67 @@ msgstr ""
 "vypĺňať, ale používatelia vďaka nim môžu používateľa %(userName)s lepšie "
 "spoznať."
 
-#: src/amo/pages/UserProfileEdit/index.js:479
+#: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
 msgstr "Ak chcete, predstavte sa komunite"
 
-#: src/amo/pages/UserProfileEdit/index.js:480
+#: src/amo/pages/UserProfileEdit/index.js:479
 msgid "Introduce %(userName)s to the community"
 msgstr "Predstavte používateľa %(userName)s komunite"
 
-#: src/amo/pages/UserProfileEdit/index.js:506
+#: src/amo/pages/UserProfileEdit/index.js:505
 msgid "Log in to edit the profile"
 msgstr "Ak chcete upraviť tento profil, musíte sa prihlásiť"
 
-#: src/amo/pages/UserProfileEdit/index.js:528
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Creating your profile…"
 msgstr "Vytváram váš profil…"
 
-#: src/amo/pages/UserProfileEdit/index.js:529
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Create My Profile"
 msgstr "Vytvoriť môj profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:533
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Updating your profile…"
 msgstr "Aktualizujem váš profil…"
 
-#: src/amo/pages/UserProfileEdit/index.js:534
+#: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Update My Profile"
 msgstr "Aktualizovať môj profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Updating profile…"
 msgstr "Aktualizujem profil…"
 
-#: src/amo/pages/UserProfileEdit/index.js:538
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Update Profile"
 msgstr "Aktualizovať profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:546
-msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-msgstr "Účty Firefox boli 1. novembra premenované na Účty Mozilla"
-
-#: src/amo/pages/UserProfileEdit/index.js:549
-msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr "Účty Firefox budú 1. novembra premenované na Účty Mozilla"
-
-#: src/amo/pages/UserProfileEdit/index.js:569
-msgid ""
-"You will still sign in with the same username and password, and there are no "
-"other changes to the products that you use."
-msgstr ""
-"Naďalej sa budete prihlasovať pomocou rovnakého používateľského mena a hesla "
-"a v produktoch, ktoré používate, nenastanú žiadne ďalšie zmeny."
-
-#: src/amo/pages/UserProfileEdit/index.js:591
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "View user's profile"
 msgstr "Zobraziť profil používateľa"
 
-#: src/amo/pages/UserProfileEdit/index.js:597
+#: src/amo/pages/UserProfileEdit/index.js:570
 msgid "Edit user's profile"
 msgstr "Upraviť profil používateľa"
 
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Account"
 msgstr "Účet"
 
-#: src/amo/pages/UserProfileEdit/index.js:616
+#: src/amo/pages/UserProfileEdit/index.js:589
 msgid "Account for %(userName)s"
 msgstr "Účet používateľa %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:623
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
 msgstr "E‑mailová adresa"
 
-#: src/amo/pages/UserProfileEdit/index.js:631
+#: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
 msgstr "E‑mailovú adresu nemožno zmeniť na tejto stránke"
 
-#: src/amo/pages/UserProfileEdit/index.js:643
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid ""
 "You can change your email address on Mozilla accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3550,51 +3533,39 @@ msgstr ""
 "Svoju e‑mailovú adresu môžete zmeniť vo svojom účte Mozilla. "
 "%(startLink)sPotrebujete pomoc?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:645
-msgid ""
-"You can change your email address on Firefox Accounts. %(startLink)sNeed "
-"help?%(endLink)s"
-msgstr ""
-"Svoju e‑mailovú adresu môžete zmeniť vo svojom účte Firefox. "
-"%(startLink)sPotrebujete pomoc?%(endLink)s"
-
-#: src/amo/pages/UserProfileEdit/index.js:665
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
 msgstr "Spravovať účty Mozilla…"
 
-#: src/amo/pages/UserProfileEdit/index.js:666
-msgid "Manage Firefox Accounts…"
-msgstr "Spravovať účet Firefox…"
-
-#: src/amo/pages/UserProfileEdit/index.js:674
+#: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:683
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
 msgstr "Toto pole je povinné"
 
 #. the star is used to indicate a required field
-#: src/amo/pages/UserProfileEdit/index.js:687
+#: src/amo/pages/UserProfileEdit/index.js:655
 msgid "Display Name *"
 msgstr "Zobrazované meno *"
 
-#: src/amo/pages/UserProfileEdit/index.js:720
+#: src/amo/pages/UserProfileEdit/index.js:688
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 "Táto adresa URL bude viditeľná iba pre používateľov, ktorí sú vývojármi."
 
-#: src/amo/pages/UserProfileEdit/index.js:777
+#: src/amo/pages/UserProfileEdit/index.js:745
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 "Niektoré HTML značky sú povolené: %(htmlTags)s. Pridávanie odkazov je "
 "zakázané."
 
-#: src/amo/pages/UserProfileEdit/index.js:801
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Notifications"
 msgstr "Upozornenia"
 
-#: src/amo/pages/UserProfileEdit/index.js:805
+#: src/amo/pages/UserProfileEdit/index.js:773
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3603,7 +3574,7 @@ msgstr ""
 "verziách a udalostiach spojených s doplnkami. Vyberte si témy, ktoré vás "
 "zaujímajú."
 
-#: src/amo/pages/UserProfileEdit/index.js:810
+#: src/amo/pages/UserProfileEdit/index.js:778
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3612,7 +3583,7 @@ msgstr ""
 "nadchádzajúcich verziách a udalostiach spojených s doplnkami. Vyberte si "
 "témy, ktoré tohto používateľa zaujímajú."
 
-#: src/amo/pages/UserProfileEdit/index.js:825
+#: src/amo/pages/UserProfileEdit/index.js:793
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3620,25 +3591,25 @@ msgstr ""
 "Mozilla si vyhradzuje právo vás osobne kontaktovať ohľadne špecifických "
 "záležitostí týkajúcich sa vašich tu uverejnených doplnkov."
 
-#: src/amo/pages/UserProfileEdit/index.js:851
-#: src/amo/pages/UserProfileEdit/index.js:923
+#: src/amo/pages/UserProfileEdit/index.js:819
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
 msgstr "Odstrániť môj profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:852
-#: src/amo/pages/UserProfileEdit/index.js:924
+#: src/amo/pages/UserProfileEdit/index.js:820
+#: src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
 msgstr "Odstrániť profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:864
+#: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "DÔLEŽITÉ: Odstránenie vášho profilu je nenavrátiteľné."
 
-#: src/amo/pages/UserProfileEdit/index.js:867
+#: src/amo/pages/UserProfileEdit/index.js:835
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "DÔLEŽITÉ: Odstránenie tohto profilu je nenavrátiteľné."
 
-#: src/amo/pages/UserProfileEdit/index.js:876
+#: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3648,7 +3619,7 @@ msgstr ""
 "polohy či domovskej stránky) a nastavení upozornení, recenzií a kolekcií "
 "budú natrvalo odstránené."
 
-#: src/amo/pages/UserProfileEdit/index.js:882
+#: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3658,7 +3629,7 @@ msgstr ""
 "používateľského mena, polohy či domovskej stránky) a nastavení upozornení, "
 "recenzií a kolekcií budú natrvalo odstránené."
 
-#: src/amo/pages/UserProfileEdit/index.js:891
+#: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3668,7 +3639,7 @@ msgstr ""
 "nezdieľate vlastníctvo s inými autormi. V takom prípade budete odstránení "
 "ako autor a zostávajúci autori si ponechajú vlastníctvo doplnku."
 
-#: src/amo/pages/UserProfileEdit/index.js:897
+#: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3678,7 +3649,7 @@ msgstr ""
 "nezdieľa vlastníctvo s inými autormi. V takom prípade bude používateľ "
 "odstránený ako autor a zostávajúci autori si ponechajú vlastníctvo doplnku."
 
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3796,6 +3767,29 @@ msgstr "kompatibilitu môjho doplnku nie je možné aktualizovať"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "kompatibilita môjho doplnku je úspešne aktualizovaná"
+
+#~ msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
+#~ msgstr "Účty Firefox boli 1. novembra premenované na Účty Mozilla"
+
+#~ msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
+#~ msgstr "Účty Firefox budú 1. novembra premenované na Účty Mozilla"
+
+#~ msgid ""
+#~ "You will still sign in with the same username and password, and there are "
+#~ "no other changes to the products that you use."
+#~ msgstr ""
+#~ "Naďalej sa budete prihlasovať pomocou rovnakého používateľského mena a "
+#~ "hesla a v produktoch, ktoré používate, nenastanú žiadne ďalšie zmeny."
+
+#~ msgid ""
+#~ "You can change your email address on Firefox Accounts. %(startLink)sNeed "
+#~ "help?%(endLink)s"
+#~ msgstr ""
+#~ "Svoju e‑mailovú adresu môžete zmeniť vo svojom účte Firefox. "
+#~ "%(startLink)sPotrebujete pomoc?%(endLink)s"
+
+#~ msgid "Manage Firefox Accounts…"
+#~ msgstr "Spravovať účet Firefox…"
 
 #~ msgid "This is a bug report or support request"
 #~ msgstr "Toto je správa o chybe alebo žiadosť o podporu"
