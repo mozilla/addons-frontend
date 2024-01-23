@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 16:55+0000\n"
+"POT-Creation-Date: 2024-01-23 17:56+0000\n"
 "PO-Revision-Date: 2023-12-19 12:31+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
@@ -227,7 +227,7 @@ msgstr "用户："
 #: src/amo/components/AddonMoreInfo/index.js:103
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:359
-#: src/amo/pages/UserProfileEdit/index.js:708
+#: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr "主页"
 
@@ -367,7 +367,7 @@ msgstr "删除"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:931
+#: src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
 msgstr "取消"
 
@@ -1434,12 +1434,12 @@ msgid "View My Collections"
 msgstr "查看我的收藏集"
 
 #: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:590
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
 msgstr "查看我的个人资料"
 
 #: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
 msgstr "编辑我的个人资料"
 
@@ -1509,7 +1509,6 @@ msgstr "下载文件"
 
 #: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
-#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "Learn more"
 msgstr "详细了解"
 
@@ -3162,7 +3161,7 @@ msgid "Theme artist"
 msgstr "主题艺术家"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:578
+#: src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
 msgstr "%(user)s 的用户资料"
 
@@ -3171,12 +3170,12 @@ msgid "User Profile"
 msgstr "用户资料"
 
 #: src/amo/pages/UserProfile/index.js:366
-#: src/amo/pages/UserProfileEdit/index.js:725
+#: src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr "地址"
 
 #: src/amo/pages/UserProfile/index.js:374
-#: src/amo/pages/UserProfileEdit/index.js:740
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr "职业"
 
@@ -3189,7 +3188,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "开发者的附加组件平均得分"
 
 #: src/amo/pages/UserProfile/index.js:412
-#: src/amo/pages/UserProfileEdit/index.js:762
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr "自我介绍"
 
@@ -3202,11 +3201,11 @@ msgstr "编辑个人资料"
 msgid "Admin user"
 msgstr "管理员用户"
 
-#: src/amo/pages/UserProfileEdit/index.js:212
+#: src/amo/pages/UserProfileEdit/index.js:211
 msgid "Picture successfully deleted"
 msgstr "照片删除成功"
 
-#: src/amo/pages/UserProfileEdit/index.js:460
+#: src/amo/pages/UserProfileEdit/index.js:459
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3214,7 +3213,7 @@ msgstr ""
 "请向其他用户更详细地介绍一下您。大多数字段为选填，但能帮助其他人更好地了解"
 "您。"
 
-#: src/amo/pages/UserProfileEdit/index.js:464
+#: src/amo/pages/UserProfileEdit/index.js:463
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3222,128 +3221,103 @@ msgstr ""
 "请向其他用户更详细地介绍一下这位用户。大多数字段为选填，但能帮助其他人更好地"
 "了解 %(userName)s。"
 
-#: src/amo/pages/UserProfileEdit/index.js:479
+#: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
 msgstr "可以的话欢迎向整个社区介绍一下您自己"
 
-#: src/amo/pages/UserProfileEdit/index.js:480
+#: src/amo/pages/UserProfileEdit/index.js:479
 msgid "Introduce %(userName)s to the community"
 msgstr "介绍 %(userName)s 给社区成员认识"
 
-#: src/amo/pages/UserProfileEdit/index.js:506
+#: src/amo/pages/UserProfileEdit/index.js:505
 msgid "Log in to edit the profile"
 msgstr "登录以编辑个人资料"
 
-#: src/amo/pages/UserProfileEdit/index.js:528
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Creating your profile…"
 msgstr "正在创建您的个人资料…"
 
-#: src/amo/pages/UserProfileEdit/index.js:529
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Create My Profile"
 msgstr "创建个人资料"
 
-#: src/amo/pages/UserProfileEdit/index.js:533
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Updating your profile…"
 msgstr "正在更新您的个人资料…"
 
-#: src/amo/pages/UserProfileEdit/index.js:534
+#: src/amo/pages/UserProfileEdit/index.js:533
 msgid "Update My Profile"
 msgstr "更新我的个人资料"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Updating profile…"
 msgstr "更新个人资料…"
 
-#: src/amo/pages/UserProfileEdit/index.js:538
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Update Profile"
 msgstr "更新个人资料"
 
-#: src/amo/pages/UserProfileEdit/index.js:546
-msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-msgstr "Firefox 账户已于 11 月 1 日起更名为 Mozilla 账户"
-
-#: src/amo/pages/UserProfileEdit/index.js:549
-msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
-msgstr "11 月 1 日起，Firefox 账户将更名为 Mozilla 账户"
-
-#: src/amo/pages/UserProfileEdit/index.js:569
-msgid ""
-"You will still sign in with the same username and password, and there are no "
-"other changes to the products that you use."
-msgstr "您仍将使用原有的用户名和密码，所使用的产品内容也不会有其他变化。"
-
-#: src/amo/pages/UserProfileEdit/index.js:591
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "View user's profile"
 msgstr "查看用户个人资料"
 
-#: src/amo/pages/UserProfileEdit/index.js:597
+#: src/amo/pages/UserProfileEdit/index.js:570
 msgid "Edit user's profile"
 msgstr "编辑用户个人资料"
 
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Account"
 msgstr "账户"
 
-#: src/amo/pages/UserProfileEdit/index.js:616
+#: src/amo/pages/UserProfileEdit/index.js:589
 msgid "Account for %(userName)s"
 msgstr "%(userName)s 的账户"
 
-#: src/amo/pages/UserProfileEdit/index.js:623
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
 msgstr "邮箱地址"
 
-#: src/amo/pages/UserProfileEdit/index.js:631
+#: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
 msgstr "邮箱地址不可在此处更改"
 
-#: src/amo/pages/UserProfileEdit/index.js:643
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid ""
 "You can change your email address on Mozilla accounts. %(startLink)sNeed "
 "help?%(endLink)s"
 msgstr ""
 "您可以在 Mozilla 账户页面更改邮箱地址。%(startLink)s需要帮助？%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:645
-msgid ""
-"You can change your email address on Firefox Accounts. %(startLink)sNeed "
-"help?%(endLink)s"
-msgstr ""
-"您可以更改您 Firefox 账户上的电子邮件地址。%(startLink)s需要帮助？%(endLink)s"
-
-#: src/amo/pages/UserProfileEdit/index.js:665
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
 msgstr "管理 Mozilla 账户…"
 
-#: src/amo/pages/UserProfileEdit/index.js:666
-msgid "Manage Firefox Accounts…"
-msgstr "管理 Firefox 账户…"
-
-#: src/amo/pages/UserProfileEdit/index.js:674
+#: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
 msgstr "用户资料"
 
-#: src/amo/pages/UserProfileEdit/index.js:683
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
 msgstr "此字段必填"
 
 #. the star is used to indicate a required field
-#: src/amo/pages/UserProfileEdit/index.js:687
+#: src/amo/pages/UserProfileEdit/index.js:655
 msgid "Display Name *"
 msgstr "显示名称 *"
 
-#: src/amo/pages/UserProfileEdit/index.js:720
+#: src/amo/pages/UserProfileEdit/index.js:688
 msgid "This URL will only be visible for users who are developers."
 msgstr "此网址只会给其他开发者看到。"
 
-#: src/amo/pages/UserProfileEdit/index.js:777
+#: src/amo/pages/UserProfileEdit/index.js:745
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "支持部分 HTML：%(htmlTags)s。不允许使用链接。"
 
-#: src/amo/pages/UserProfileEdit/index.js:801
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Notifications"
 msgstr "通知"
 
-#: src/amo/pages/UserProfileEdit/index.js:805
+#: src/amo/pages/UserProfileEdit/index.js:773
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3351,7 +3325,7 @@ msgstr ""
 "Mozilla 可能会不时向您寄送电子邮件，告诉您即将发布的版本和附加组件新动向。请"
 "选择您感兴趣的话题。"
 
-#: src/amo/pages/UserProfileEdit/index.js:810
+#: src/amo/pages/UserProfileEdit/index.js:778
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3359,33 +3333,33 @@ msgstr ""
 "Mozilla 可能会不时向此用户寄送电子邮件，告诉他有关即将发布的版本和附加组件新"
 "动向。请选择此用户可能感兴趣的话题。"
 
-#: src/amo/pages/UserProfileEdit/index.js:825
+#: src/amo/pages/UserProfileEdit/index.js:793
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr "Mozilla 保留使用此信息与您联络，就您上架的附加组件进行询问的权利。"
 
-#: src/amo/pages/UserProfileEdit/index.js:851
-#: src/amo/pages/UserProfileEdit/index.js:923
+#: src/amo/pages/UserProfileEdit/index.js:819
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
 msgstr "删除我的个人资料"
 
-#: src/amo/pages/UserProfileEdit/index.js:852
-#: src/amo/pages/UserProfileEdit/index.js:924
+#: src/amo/pages/UserProfileEdit/index.js:820
+#: src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
 msgstr "删除个人资料"
 
-#: src/amo/pages/UserProfileEdit/index.js:864
+#: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "重要：此操作无法撤销，您将删除您在 Firefox 附加组件网站的个人资料（账号）。"
 
-#: src/amo/pages/UserProfileEdit/index.js:867
+#: src/amo/pages/UserProfileEdit/index.js:835
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "重要：此操作无法撤销，您将删除在 Firefox 附加组件网站的个人资料（账号）。"
 
-#: src/amo/pages/UserProfileEdit/index.js:876
+#: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3394,7 +3368,7 @@ msgstr ""
 "将永久移除您的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首"
 "页、自传、职业）、通知首选项、评论和收集。"
 
-#: src/amo/pages/UserProfileEdit/index.js:882
+#: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3403,7 +3377,7 @@ msgstr ""
 "将永久移除该用户的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、"
 "首页、自传、职业）、通知首选项、评论和收集。"
 
-#: src/amo/pages/UserProfileEdit/index.js:891
+#: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3413,7 +3387,7 @@ msgstr ""
 "组件的所有权，则将从该附加组件的作者名单中移除，其他的作者将继续拥有该附加组"
 "件。"
 
-#: src/amo/pages/UserProfileEdit/index.js:897
+#: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3423,7 +3397,7 @@ msgstr ""
 "享附加组件的所有权，则将从该附加组件的作者名单中移除，其他的作者将继续拥有该"
 "附加组件。"
 
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3535,6 +3509,27 @@ msgstr "无法升级我的附加组件的兼容性"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "我的附加组件的兼容性升级成功"
+
+#~ msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
+#~ msgstr "Firefox 账户已于 11 月 1 日起更名为 Mozilla 账户"
+
+#~ msgid "Firefox Accounts will be renamed to Mozilla accounts on Nov 1"
+#~ msgstr "11 月 1 日起，Firefox 账户将更名为 Mozilla 账户"
+
+#~ msgid ""
+#~ "You will still sign in with the same username and password, and there are "
+#~ "no other changes to the products that you use."
+#~ msgstr "您仍将使用原有的用户名和密码，所使用的产品内容也不会有其他变化。"
+
+#~ msgid ""
+#~ "You can change your email address on Firefox Accounts. %(startLink)sNeed "
+#~ "help?%(endLink)s"
+#~ msgstr ""
+#~ "您可以更改您 Firefox 账户上的电子邮件地址。%(startLink)s需要帮助？"
+#~ "%(endLink)s"
+
+#~ msgid "Manage Firefox Accounts…"
+#~ msgstr "管理 Firefox 账户…"
 
 #~ msgid "This is a bug report or support request"
 #~ msgstr "这是一份缺陷报告或支持请求"
