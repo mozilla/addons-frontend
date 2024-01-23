@@ -19,6 +19,9 @@ const localeDir = path.join(__dirname, '../locale');
 const poFiles = globSync(`${localeDir}/**/amo.po`);
 const dest = path.join(__dirname, '../src/locale/');
 
+// Custom implementation of po2json that converts po sources to json
+const poToJson = require('../po-to-json/plugin');
+
 const getLocaleModulePath = (locale, { _config = config } = {}) => {
   const momentLangMap = _config.get('momentLangMap');
 
@@ -43,7 +46,11 @@ poFiles.forEach((pofile) => {
   const locale = path.basename(subdir);
   const stem = path.basename(pofile, '.po');
   const localeOutputFilePath = path.join(dest, locale, `${stem}.js`);
+  const localeOutputFilePathJson = path.join(dest, locale, `${stem}.json`);
   shelljs.mkdir('-p', path.join(dest, locale));
+
+  fs.writeFileSync(
+    localeOutputFilePathJson, poToJson(pofile));
 
   const json = po2json.parseFileSync(pofile, {
     stringify: true,

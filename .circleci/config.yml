@@ -37,7 +37,10 @@ references:
     run:
       name: install dependencies
       # See: https://github.com/mozilla/addons-frontend/issues/3034
-      command: yarn install --pure-lockfile
+      command: |
+        yarn install --pure-lockfile
+        yarn --cwd ./remix install
+        yarn --cwd ./po-to-json install
 
   save_build_cache: &save_build_cache
     save_cache:

@@ -1,32 +1,16 @@
-import { Children, Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { I18nextProvider } from 'react-i18next';
 
-/*
- * This Provider expects to be passed an initialized
- * Jed i18n object,
- */
-
-export default class I18nProvider extends Component {
-  static propTypes = {
-    i18n: PropTypes.object.isRequired,
-    children: PropTypes.element.isRequired,
+function I18nProvider({ i18n, children }) {
+  const extended = {
+    ...i18n,
+    formatNumber(value) {
+      // eslint-disable-next-line no-console
+      console.log('formatting', value);
+      return value;
+    },
   };
 
-  static childContextTypes = {
-    i18n: PropTypes.object.isRequired,
-  };
-
-  constructor(props, context) {
-    super(props, context);
-    this.i18n = props.i18n;
-  }
-
-  getChildContext() {
-    return { i18n: this.i18n };
-  }
-
-  render() {
-    const { children } = this.props;
-    return Children.only(children);
-  }
+  return <I18nextProvider i18n={extended}>{children}</I18nextProvider>;
 }
+export default I18nProvider;

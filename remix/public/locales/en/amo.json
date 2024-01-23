@@ -1,0 +1,9 @@
+{
+  "hello-user": "Hello, {{userName}}!",
+  "shared-photos": "{{userName}} $t(photo-count) to $t(user-gender)",
+  "photo-count_one": "added a new photo",
+  "photo-count_other": "added {{count}} new photos",
+  "user-gender_male": "his stream",
+  "user-gender_female": "her stream",
+  "user-gender_other": "their stream"
+}
