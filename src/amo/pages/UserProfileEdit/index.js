@@ -53,7 +53,6 @@ import type {
   ReactRouterMatchType,
 } from 'amo/types/router';
 import { setViewContext } from 'amo/actions/viewContext';
-import { isMzaBranding } from 'amo/utils/fxa';
 
 import './styles.scss';
 
@@ -542,35 +541,9 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
     const userProfileURL = `/user/${userId}/`;
     const overlayClassName = 'UserProfileEdit-deletion-modal';
 
-    const title = isMzaBranding()
-      ? i18n.gettext(
-          'Firefox Accounts was renamed to Mozilla accounts on Nov 1',
-        )
-      : i18n.gettext(
-          'Firefox Accounts will be renamed to Mozilla accounts on Nov 1',
-        );
-
     return (
       <Page>
-        {alternateOutput || [
-          <div
-            className="UserProfileEdit-notice-wrapper"
-            key="UserProfileEdit-notice-wrapper"
-          >
-            <Notice
-              actionHref="https://support.mozilla.org/kb/firefox-accounts-renamed-mozilla-accounts"
-              actionTarget="_blank"
-              actionText={i18n.gettext('Learn more')}
-              className="UserProfileEdit-fxa-notice"
-              type="warning"
-            >
-              <strong>{title}</strong>
-              <br />
-              {i18n.gettext(`You will still sign in with the same username and
-                        password, and there are no other changes to the products that
-                        you use.`)}
-            </Notice>
-          </div>,
+        {alternateOutput || (
           <div className="UserProfileEdit" key="UserProfileEdit">
             {user && (
               <Helmet>
@@ -639,11 +612,8 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                         // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={sanitizeHTML(
                           i18n.sprintf(
-                            isMzaBranding()
-                              ? i18n.gettext(`You can change your email address on
-                          Mozilla accounts. %(startLink)sNeed help?%(endLink)s`)
-                              : i18n.gettext(`You can change your email address on
-                          Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
+                            i18n.gettext(`You can change your email address on
+                          Mozilla accounts. %(startLink)sNeed help?%(endLink)s`),
                             {
                               startLink:
                                 '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
@@ -661,9 +631,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                           href={user.fxa_edit_email_url}
                           className="UserProfileEdit-manage-account-link"
                         >
-                          {isMzaBranding()
-                            ? i18n.gettext('Manage Mozilla accounts…')
-                            : i18n.gettext('Manage Firefox Accounts…')}
+                          {i18n.gettext('Manage Mozilla accounts…')}
                         </a>
                       )}
                   </div>
@@ -933,8 +901,8 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                 </div>
               </OverlayCard>
             )}
-          </div>,
-        ]}
+          </div>
+        )}
       </Page>
     );
   }

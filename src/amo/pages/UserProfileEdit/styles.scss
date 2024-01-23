@@ -2,14 +2,6 @@
 
 $font-size-aside: $font-size-xs;
 
-.UserProfileEdit-notice-wrapper {
-  @include page-padding;
-
-  @include respond-to(large) {
-    margin-bottom: -$padding-page;
-  }
-}
-
 .UserProfileEdit {
   @include page-padding;
 
