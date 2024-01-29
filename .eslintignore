@@ -2,3 +2,6 @@ server.babel.js
 dist
 coverage
 src/locale
+
+exec.js
+babel-plugin-extract-redux-page
