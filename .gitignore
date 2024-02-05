@@ -66,3 +66,7 @@ storybook-static/
 # ssl certs
 bin/local-dev-server-certs/example.com-key.pem
 bin/local-dev-server-certs/example.com.pem
+
+# Glean generated files and virtual env
+.venv
+glean
