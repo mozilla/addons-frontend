@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-01-23 17:56+0000\n"
-"PO-Revision-Date: 2024-02-07 22:30+0000\n"
+"PO-Revision-Date: 2024-02-07 22:42+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1774,8 +1774,8 @@ msgstr[1] "%(count)s tilägg hittades med tagg %(tag)s"
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s utökning hittades"
-msgstr[1] "%(count)s utökningar hittades"
+msgstr[0] "%(count)s tillägg hittades"
+msgstr[1] "%(count)s tillägg hittades"
 
 #: src/amo/components/SearchContextCard/index.js:134
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
@@ -1861,31 +1861,31 @@ msgstr "Söker efter tillägg"
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgstr[0] "%(count)s tillägg hittades för \"%(query)s\" med tagg %(tag)s i %(categoryName)s"
-msgstr[1] "%(count)s tillägg hittades för \"%(query)s\" med taggarna %(tag)s i %(categoryName)s"
+msgstr[1] "%(count)s tillägg hittades för \"%(query)s\" med tagg %(tag)s i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s utökning hittades för \"%(query)s\" i %(categoryName)s"
-msgstr[1] "%(count)s utökningar hittades för \"%(query)s\" i %(categoryName)s"
+msgstr[0] "%(count)s tillägg hittades för \"%(query)s\" i %(categoryName)s"
+msgstr[1] "%(count)s tillägg hittades för \"%(query)s\" i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
 msgstr[0] "%(count)s tillägg hittades med tagg %(tag)s i %(categoryName)s"
-msgstr[1] "%(count)s tillägg hittades med taggarna %(tag)s i %(categoryName)s"
+msgstr[1] "%(count)s tillägg hittades med tagg %(tag)s i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s utökning hittades i %(categoryName)s"
-msgstr[1] "%(count)s utökningar hittades i %(categoryName)s"
+msgstr[0] "%(count)s tillägg hittades i %(categoryName)s"
+msgstr[1] "%(count)s tillägg hittades i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] "%(count)s tillägg hittades för \"%(query)s\" med tagg %(tag)s"
-msgstr[1] "%(count)s tillägg hittades för \"%(query)s\" med taggarna %(tag)s"
+msgstr[1] "%(count)s tillägg hittades för \"%(query)s\" med tagg %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
@@ -2345,19 +2345,19 @@ msgstr "Logga in för att redigera denna samling"
 
 #: src/amo/pages/Collection/index.js:493
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "Skapa först din samling. Då kan du lägga till utökningar och teman."
+msgstr "Skapa först din samling. Då kan du lägga till tillägg och teman."
 
 #: src/amo/pages/Collection/index.js:496
 msgid "Search for extensions and themes to add to your collection."
-msgstr "Sök efter utökningar och teman som ska läggas till i din samling."
+msgstr "Sök efter tillägg och teman som ska läggas till i din samling."
 
 #: src/amo/pages/Collection/index.js:557
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr "Hämta och skapa Firefox-samlingar för att hålla reda på favoritutökningar och teman. Utforska %(collectionName)s—%(collectionDescription)s."
+msgstr "Hämta och skapa Firefox-samlingar för att hålla reda på favorittillägg och teman. Utforska %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:560
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "Hämta och skapa Firefox-samlingar för att hålla reda på favoritutökningar och teman. Utforska %(collectionName)s."
+msgstr "Hämta och skapa Firefox-samlingar för att hålla reda på favorittillägg och teman. Utforska %(collectionName)s."
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
@@ -2421,7 +2421,7 @@ msgstr "Anpassa Firefox för Android med kraftfulla tillägg."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
-msgstr "Se fler rekommenderade utökningar"
+msgstr "Se fler rekommenderade tillägg"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
@@ -2429,7 +2429,7 @@ msgstr "Utforska alla Android-tillägg"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
-msgstr "Se fler trendiga utökningar"
+msgstr "Se fler populära tillägg"
 
 #: src/amo/pages/Home/index.js:199
 msgid "Change the way Firefox looks with themes."
