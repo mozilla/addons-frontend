@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-01-23 17:56+0000\n"
-"PO-Revision-Date: 2024-02-07 22:42+0000\n"
+"PO-Revision-Date: 2024-02-07 22:51+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -2437,7 +2437,7 @@ msgstr "Ändra hur Firefox ser ut med teman."
 
 #: src/amo/pages/Home/index.js:208
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr "Hämta Firefox utökningar och teman. De är som appar för din webbläsare. De kan blockera irriterande annonser, skydda lösenord, ändra webbläsarens utseende och mer."
+msgstr "Hämta Firefox tillägg och teman. De är som appar för din webbläsare. De kan blockera irriterande annonser, skydda lösenord, ändra webbläsarens utseende och mer."
 
 #: src/amo/pages/Home/index.js:84
 msgid "Abstract"
@@ -2457,7 +2457,7 @@ msgstr "Landskap"
 
 #: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
-msgstr "Se fler topprankade utökningar"
+msgstr "Se fler topprankade tillägg"
 
 #: src/amo/pages/LandingPage/index.js:163
 msgid "See more recommended themes"
@@ -2477,7 +2477,7 @@ msgstr "Hämta teman för att ändra hur Firefox ser ut. Skräddarsy din uppleve
 
 #: src/amo/pages/LandingPage/index.js:210
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr "Hämta Firefox utökningar för att lägga till funktioner som anpassar surfning. Skydda lösenord, hitta erbjudanden, förbättra video och blockera irriterande annonser med webbläsarprogram."
+msgstr "Hämta tillägg för Firefox för att lägga till funktioner som anpassar surfning. Skydda lösenord, hitta erbjudanden, förbättra video och blockera irriterande annonser med webbläsarappar."
 
 #: src/amo/pages/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2501,7 +2501,7 @@ msgstr "Ordlistor och språkpaket"
 
 #: src/amo/pages/LanguageTools/index.js:155
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr "Hämta Firefox-ordlistor och språkpaketsutökningar. Lägg till ett nytt språkalternativ i din webbläsares stavningskontroll, eller ändra webbläsarens gränssnittsspråk."
+msgstr "Hämta Firefox-ordlistor och språkpaketstillägg. Lägg till ett nytt språkalternativ i din webbläsares stavningskontroll, eller ändra webbläsarens gränssnittsspråk."
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2585,7 +2585,7 @@ msgstr "Om du hittar ett problem med webbplatsen skulle vi gärna åtgärda det.
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr "Den officiella Mozilla-webbplatsen för nedladdning av Firefox utökningar och teman. Lägg till nya funktioner och ändra webbläsarens utseende för att anpassa din webbupplevelse."
+msgstr "Den officiella Mozilla-webbplatsen för nedladdning av Firefox tillägg och teman. Lägg till nya funktioner och ändra webbläsarens utseende för att anpassa din webbupplevelse."
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
@@ -2716,7 +2716,7 @@ msgstr "Recensionsriktlinjer"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr "Riktlinjer, tips och vanliga frågor om att lämna en recension för de utökningar och teman som du har laddat ner och använt på Firefox."
+msgstr "Riktlinjer, tips och vanliga frågor för att lämna en recension för de tillägg och teman som du har laddat ner och använt på Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
