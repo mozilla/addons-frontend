@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-01-23 17:56+0000\n"
-"PO-Revision-Date: 2024-02-07 22:08+0000\n"
+"PO-Revision-Date: 2024-02-07 22:20+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1227,7 +1227,7 @@ msgstr "Firefox tilläggsblogg "
 
 #: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
-msgstr "Utökningsverkstad"
+msgstr "Verkstad för tillägg"
 
 #: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
@@ -1307,11 +1307,11 @@ msgstr "Webbläsartillägg för Firefox"
 
 #: src/amo/components/Header/index.js:214
 msgid "Learn how to create extensions and themes"
-msgstr "Läs om hur du skapar utökningar och teman"
+msgstr "Läs om hur du skapar tillägg och teman"
 
 #: src/amo/components/Header/index.js:224
 msgid "Submit and manage extensions and themes"
-msgstr "Skicka in och hantera utökningar och teman"
+msgstr "Skicka in och hantera tillägg och teman"
 
 #: src/amo/components/Header/index.js:75
 msgid "My Account"
@@ -1331,7 +1331,7 @@ msgstr "Redigera min profil"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
-msgstr "Hämta utökningen"
+msgstr "Hämta tillägget"
 
 #. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 # If uppercase does not work in your locale, change it to lowercase.
@@ -1351,7 +1351,7 @@ msgstr "SPONSRAD"
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr "Firefox rekommenderar endast utökningar som uppfyller våra standarder för säkerhet och prestanda."
+msgstr "Firefox rekommenderar endast tillägg som uppfyller våra standarder för säkerhet och prestanda."
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
@@ -1479,7 +1479,7 @@ msgstr "Åtkomst till webbhistoriken"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Monitor extension usage and manage themes"
-msgstr "Övervaka utökningsanvändning och hantera teman"
+msgstr "Övervaka tilläggsanvändning och hantera teman"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Exchange messages with programs other than Firefox"
@@ -1563,7 +1563,7 @@ msgstr "Logga in för att betygsätta detta tema"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
-msgstr "Logga in för att betygsätta denna utökning"
+msgstr "Logga in för att betygsätta detta tillägg"
 
 #: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
@@ -1673,7 +1673,7 @@ msgstr "Sökresultat"
 
 #: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:162 src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
-msgstr "Rekommenderade utökningar"
+msgstr "Rekommenderade tillägg"
 
 #: src/amo/components/Search/index.js:148 src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
@@ -1685,7 +1685,7 @@ msgstr "Rekommenderade tillägg"
 
 #: src/amo/components/Search/index.js:156
 msgid "Extensions by Firefox"
-msgstr "Utökningar av Firefox"
+msgstr "Tillägg av Firefox"
 
 #: src/amo/components/Search/index.js:159
 msgid "Themes by Firefox"
@@ -1697,7 +1697,7 @@ msgstr "Tillägg från Firefox"
 
 #: src/amo/components/Search/index.js:167
 msgid "Reviewed extensions"
-msgstr "Granskade utökningar"
+msgstr "Granskade tillägg"
 
 #: src/amo/components/Search/index.js:170
 msgid "Reviewed themes"
@@ -1709,7 +1709,7 @@ msgstr "Granskade tillägg"
 
 #: src/amo/components/Search/index.js:178
 msgid "Verified extensions"
-msgstr "Verifierade utökningar"
+msgstr "Verifierade tillägg"
 
 #: src/amo/components/Search/index.js:181
 msgid "Verified themes"
@@ -1721,7 +1721,7 @@ msgstr "Verifierade tillägg"
 
 #: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
-msgstr "Trendiga utökningar"
+msgstr "Trendiga tillägg"
 
 #: src/amo/components/Search/index.js:195 src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
@@ -1733,7 +1733,7 @@ msgstr "Trendiga tillägg"
 
 #: src/amo/components/Search/index.js:204 src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
-msgstr "Högst rankade utökning"
+msgstr "Högst rankade tillägg"
 
 #: src/amo/components/Search/index.js:207 src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
@@ -1745,7 +1745,7 @@ msgstr "Högst rankade tillägg"
 
 #: src/amo/components/Search/index.js:216
 msgid "Popular extensions"
-msgstr "Populära utökningar"
+msgstr "Populära tillägg"
 
 #: src/amo/components/Search/index.js:219
 msgid "Popular themes"
@@ -1893,7 +1893,7 @@ msgstr "Alla"
 
 #: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
-msgstr "Utökning"
+msgstr "Tillägg"
 
 #: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
@@ -2001,7 +2001,7 @@ msgstr "Tillägg för Android"
 
 #: src/amo/components/SectionLinks/index.js:96 src/amo/pages/CategoryPage/index.js:66 src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
-msgstr "Utökningar"
+msgstr "Tillägg"
 
 #: src/amo/components/ShowMoreCard/index.js:162
 msgid "Expand to read more"
