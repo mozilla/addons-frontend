@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-01-23 17:56+0000\n"
-"PO-Revision-Date: 2024-02-07 22:20+0000\n"
+"PO-Revision-Date: 2024-02-07 22:30+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1762,8 +1762,8 @@ msgstr "Sökresultat för \"%(query)s\""
 #: src/amo/components/SearchContextCard/index.js:104
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s utökning hittades för \"%(query)s\""
-msgstr[1] "%(count)s utökningar hittades för \"%(query)s\""
+msgstr[0] "%(count)s tillägg hittades för \"%(query)s\""
+msgstr[1] "%(count)s tillägg hittades för \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:113
 msgid "%(count)s extension found with tag %(tag)s"
@@ -2029,7 +2029,7 @@ msgstr "Föreslagna sidor"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr "Bläddra bland alla utökningar"
+msgstr "Bläddra bland alla tillägg"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
@@ -2141,7 +2141,7 @@ msgstr "Om denna ordbok"
 
 #: src/amo/pages/Addon/index.js:275
 msgid "About this extension"
-msgstr "Om denna utökning"
+msgstr "Om detta tillägg"
 
 #: src/amo/pages/Addon/index.js:278
 msgid "About this language pack"
@@ -2169,7 +2169,7 @@ msgstr "Detta är inte en publik listning. Du ser endast det på grund av förh�
 
 #: src/amo/pages/Addon/index.js:530
 msgid "Extension Metadata"
-msgstr "Metadata för utökning"
+msgstr "Metadata för tillägg"
 
 #: src/amo/pages/Addon/index.js:555
 msgid "Screenshots"
@@ -2301,7 +2301,7 @@ msgstr "Blockerad den %(date)s."
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
-msgstr "Alla utökningskategorier"
+msgstr "Alla tilläggskategorier"
 
 #: src/amo/pages/CategoriesPage/index.js:37
 msgid "All theme categories"
