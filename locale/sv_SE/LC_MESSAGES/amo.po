@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-01-23 17:56+0000\n"
-"PO-Revision-Date: 2024-02-07 22:03+0000\n"
+"PO-Revision-Date: 2024-02-07 22:08+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -793,11 +793,11 @@ msgstr "Stöd dessa utvecklare"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "Utvecklaren av denna utökning frågar att du kan hjälpa till att stödja den fortsatta utvecklingen genom att göra ett litet bidrag."
+msgstr "Utvecklaren av det här tillägget frågar att du kan hjälpa till att stödja den fortsatta utvecklingen genom att göra ett litet bidrag."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "Utvecklarna av denna utökning frågar att du kan hjälpa till att stödja den fortsatta utvecklingen genom att göra ett litet bidrag."
+msgstr "Utvecklarna av det här tillägget frågar att du kan hjälpa till att stödja den fortsatta utvecklingen genom att göra ett litet bidrag."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
@@ -914,8 +914,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Prova att besöka sidan senare, eftersom utökningen eller temat kan bli tillgängligt igen. Alternativt kan du hitta det du letar efter i de tillgängliga %(extensionStart)sutökningar%(extensionEnd)s "
-"eller %(themeStart)steman%(themeEnd)s, eller genom att fråga efter hjälp på våra %(communityStart)sforum%(communityEnd)s."
+"Prova att besöka sidan senare, eftersom temat eller tillägget kan bli tillgängligt igen. Alternativt kan du hitta det du letar efter i en av de tillgängliga %(extensionStart)stillägg%(extensionEnd)s"
+" eller %(themeStart)steman%(themeEnd)s, eller genom att be om hjälp på vårt %(communityStart)scommunityforum%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
@@ -923,19 +923,19 @@ msgstr "Hoppsan! Vi kan inte hitta den sidan"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr "Om du har följt en länk från en annan webbplats för en utökning eller ett tema, är den inte längre tillgänglig. Detta kan bero på att:"
+msgstr "Om du har följt en länk från en annan webbplats för ett tillägg eller tema är den inte längre tillgänglig. Detta kan bero på att:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr "Utvecklaren tog bort den. Utvecklare gör det vanligtvis eftersom de inte längre stöder utökningen eller temat eller har ersatt den."
+msgstr "Utvecklaren tog bort det. Utvecklare gör vanligtvis detta eftersom de inte längre stöder tillägget eller temat, eller har ersatt det."
 
 #: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
-"Mozilla tog bort den. Detta kan hända när problem upptäcks under granskningen av utökningen eller temat, eller utökningen eller temat har missbrukat villkoren för addons.mozilla.org. Utvecklaren har"
-" möjlighet att lösa problemen och göra tillägget tillgängligt igen."
+"Mozilla tog bort det. Detta kan hända när problem upptäcks under granskningen av tillägget eller temat, eller tillägget eller temat har missbrukat villkoren för addons.mozilla.org. Utvecklaren har "
+"möjlighet att lösa problemen och göra tillägget tillgängligt igen."
 
 #: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
