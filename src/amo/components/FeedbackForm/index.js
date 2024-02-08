@@ -237,7 +237,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       abuseIsLoading ||
       !category ||
       (this.isCertificationRequired() && !certification) ||
-      (!anonymous && (!name.trim().length || !email.trim().length))
+      (!anonymous && (!name.trim().length || !email.trim().length)) ||
+      (this.isLocationRequired() && !this.state.location)
     );
   }
 
@@ -256,6 +257,15 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
           </p>
         </Card>
       </div>
+    );
+  }
+
+  isLocationRequired(): boolean {
+    return (
+      this.props.showLocation &&
+      ![CATEGORY_DOES_NOT_WORK, CATEGORY_FEEDBACK_SPAM].includes(
+        this.state.category,
+      )
     );
   }
 
@@ -324,7 +334,6 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       feedbackTitle,
       i18n,
       reportTitle,
-      showLocation,
     } = this.props;
 
     let errorMessage;
@@ -360,39 +369,28 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               className="FeedbackForm--Card"
               header={i18n.gettext('Provide more information')}
             >
-              {showLocation &&
-                this.state.category !== CATEGORY_DOES_NOT_WORK && (
-                  <>
-                    <label
-                      className="FeedbackForm-label"
-                      htmlFor="feedbackLocation"
-                    >
-                      {replaceStringsWithJSX({
-                        text: i18n.gettext(
-                          'Place of the violation %(spanStart)s(optional)%(spanEnd)s',
-                        ),
-                        replacements: [
-                          [
-                            'spanStart',
-                            'spanEnd',
-                            (text) => <span>{text}</span>,
-                          ],
-                        ],
-                      })}
-                    </label>
-                    <Select
-                      className="FeedbackForm-location"
-                      id="feedbackLocation"
-                      name="location"
-                      onChange={this.onFieldChange}
-                      value={this.state.location}
-                    >
-                      {getLocationOptions(i18n).map((option) => {
-                        return <option key={option.value} {...option} />;
-                      })}
-                    </Select>
-                  </>
-                )}
+              {this.isLocationRequired() && (
+                <>
+                  <label
+                    className="FeedbackForm-label"
+                    htmlFor="feedbackLocation"
+                  >
+                    {i18n.gettext('Place of the violation')}
+                  </label>
+                  <Select
+                    className="FeedbackForm-location"
+                    id="feedbackLocation"
+                    name="location"
+                    onChange={this.onFieldChange}
+                    value={this.state.location}
+                    required
+                  >
+                    {getLocationOptions(i18n).map((option) => {
+                      return <option key={option.value} {...option} />;
+                    })}
+                  </Select>
+                </>
+              )}
 
               <label className="FeedbackForm-label" htmlFor="feedbackText">
                 {replaceStringsWithJSX({

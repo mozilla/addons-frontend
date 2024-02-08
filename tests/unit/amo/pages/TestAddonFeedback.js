@@ -294,7 +294,7 @@ describe(__filename, () => {
     );
     await userEvent.selectOptions(
       screen.getByRole('combobox', {
-        name: 'Place of the violation (optional)',
+        name: 'Place of the violation',
       }),
       defaultLocationLabel,
     );
@@ -336,6 +336,12 @@ describe(__filename, () => {
     await userEvent.click(
       screen.getByRole('radio', { name: 'Something else' }),
     );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Place of the violation',
+      }),
+      defaultLocationLabel,
+    );
     await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
     );
@@ -348,7 +354,7 @@ describe(__filename, () => {
         reporterName: name,
         message: '',
         reason: CATEGORY_SOMETHING_ELSE,
-        location: null,
+        location: defaultLocation,
         auth: true,
       }),
     );
@@ -364,7 +370,7 @@ describe(__filename, () => {
     );
     await userEvent.selectOptions(
       screen.getByRole('combobox', {
-        name: 'Place of the violation (optional)',
+        name: 'Place of the violation',
       }),
       defaultLocationLabel,
     );
@@ -401,7 +407,7 @@ describe(__filename, () => {
 
     expect(
       screen.getByRole('combobox', {
-        name: 'Place of the violation (optional)',
+        name: 'Place of the violation',
       }),
     ).toBeInTheDocument();
 
@@ -413,7 +419,7 @@ describe(__filename, () => {
 
     expect(
       screen.queryByRole('combobox', {
-        name: 'Place of the violation (optional)',
+        name: 'Place of the violation',
       }),
     ).not.toBeInTheDocument();
   });
@@ -456,7 +462,7 @@ describe(__filename, () => {
 
     expect(
       screen.queryByRole('combobox', {
-        name: 'Place of the violation (optional)',
+        name: 'Place of the violation',
       }),
     ).not.toBeInTheDocument();
   });
@@ -466,7 +472,7 @@ describe(__filename, () => {
 
     expect(
       screen.queryByRole('combobox', {
-        name: 'Place of the violation (optional)',
+        name: 'Place of the violation',
       }),
     ).not.toBeInTheDocument();
   });
@@ -551,7 +557,7 @@ describe(__filename, () => {
     );
     await userEvent.selectOptions(
       screen.getByRole('combobox', {
-        name: 'Place of the violation (optional)',
+        name: 'Place of the violation',
       }),
       defaultLocationLabel,
     );
@@ -608,6 +614,12 @@ describe(__filename, () => {
     render();
     await userEvent.click(
       screen.getByRole('radio', { name: hatefulReasonLabel }),
+    );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Place of the violation',
+      }),
+      defaultLocationLabel,
     );
     await userEvent.type(
       screen.getByRole('textbox', {
