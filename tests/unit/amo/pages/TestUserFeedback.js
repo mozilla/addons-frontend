@@ -201,7 +201,7 @@ describe(__filename, () => {
     // This should never be shown for users.
     expect(
       screen.queryByRole('combobox', {
-        name: 'Place of the violation (optional)',
+        name: 'Place of the violation',
       }),
     ).not.toBeInTheDocument();
 
@@ -239,7 +239,7 @@ describe(__filename, () => {
     // This should never be shown for users.
     expect(
       screen.queryByRole('combobox', {
-        name: 'Place of the violation (optional)',
+        name: 'Place of the violation',
       }),
     ).not.toBeInTheDocument();
 
