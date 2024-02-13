@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-23 17:56+0000\n"
+"POT-Creation-Date: 2024-02-13 17:07+0000\n"
 "PO-Revision-Date: 2023-12-18 12:06+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -65,7 +65,7 @@ msgstr "Αξιολόγηση κώδικα προσθέτου"
 msgid "Admin Links"
 msgstr "Σύνδεσμοι διαχειριστή"
 
-#. This action allows the add-on developer or an admin to edit an add-on's properties.
+#. This action allows the add-on developer to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -1176,35 +1176,35 @@ msgstr "Μέσα στο πρόσθετο"
 msgid "Both locations"
 msgstr "Και στις δύο τοποθεσίες"
 
-#: src/amo/components/FeedbackForm/index.js:252
+#: src/amo/components/FeedbackForm/index.js:253
 msgid "Report submitted"
 msgstr "Η αναφορά υποβλήθηκε"
 
-#: src/amo/components/FeedbackForm/index.js:254
+#: src/amo/components/FeedbackForm/index.js:255
 msgid "We have received your report. Thanks for letting us know."
 msgstr "Λάβαμε την αναφορά σας. Σας ευχαριστούμε που μας ενημερώσατε."
 
-#: src/amo/components/FeedbackForm/index.js:341
+#: src/amo/components/FeedbackForm/index.js:350
 msgid "Submitting your report…"
 msgstr "Υποβολή της αναφοράς σας…"
 
-#: src/amo/components/FeedbackForm/index.js:342
+#: src/amo/components/FeedbackForm/index.js:351
 msgid "Submit report"
 msgstr "Υποβολή αναφοράς"
 
-#: src/amo/components/FeedbackForm/index.js:361
+#: src/amo/components/FeedbackForm/index.js:370
 msgid "Provide more information"
 msgstr "Δώστε περισσότερες πληροφορίες"
 
-#: src/amo/components/FeedbackForm/index.js:371
-msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
-msgstr "Τόπος παράβασης %(spanStart)s(προαιρετικό)%(spanEnd)s"
+#: src/amo/components/FeedbackForm/index.js:378
+msgid "Place of the violation"
+msgstr "Μέρος παραβίασης"
 
-#: src/amo/components/FeedbackForm/index.js:399
+#: src/amo/components/FeedbackForm/index.js:397
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Δώστε περισσότερες λεπτομέρειες %(spanStart)s(προαιρετικό)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:416
+#: src/amo/components/FeedbackForm/index.js:414
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1217,15 +1217,15 @@ msgstr ""
 "απαιτούνται, η μη συμπερίληψή τους ενδέχεται να μας εμποδίσει από το να "
 "ενεργήσουμε σχετικά με το αναφερόμενο περιεχόμενο."
 
-#: src/amo/components/FeedbackForm/index.js:426
+#: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
 msgstr "Στοιχεία επικοινωνίας"
 
-#: src/amo/components/FeedbackForm/index.js:442
+#: src/amo/components/FeedbackForm/index.js:440
 msgid "File report anonymously"
 msgstr "Ανώνυμη υποβολή αναφοράς"
 
-#: src/amo/components/FeedbackForm/index.js:445
+#: src/amo/components/FeedbackForm/index.js:443
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1234,23 +1234,23 @@ msgstr ""
 "σας σχετικά με την κατάσταση της αναφοράς ή σχετικά με τυχόν επιλογές για "
 "ένσταση."
 
-#: src/amo/components/FeedbackForm/index.js:466
+#: src/amo/components/FeedbackForm/index.js:464
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Το όνομά σας %(spanStart)s(προαιρετικό)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:469
+#: src/amo/components/FeedbackForm/index.js:467
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "Το όνομά σας %(spanStart)s(απαιτείται)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:506
+#: src/amo/components/FeedbackForm/index.js:504
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Η διεύθυνση email σας %(spanStart)s(προαιρετικό)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:509
+#: src/amo/components/FeedbackForm/index.js:507
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "Η διεύθυνση email σας %(spanStart)s(απαιτείται)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:553
+#: src/amo/components/FeedbackForm/index.js:551
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -3753,6 +3753,9 @@ msgstr "η συμβατότητα του προσθέτου μου δεν μπο
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "η συμβατότητα του προσθέτου μου αναβαθμίζεται επιτυχώς"
 
+#~ msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
+#~ msgstr "Τόπος παράβασης %(spanStart)s(προαιρετικό)%(spanEnd)s"
+
 #~ msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
 #~ msgstr "Οι λογαριασμοί Firefox έγιναν λογαριασμοί Mozilla την 1η Νοεμβρίου"
 
@@ -3866,9 +3869,6 @@ msgstr "η συμβατότητα του προσθέτου μου αναβαθ�
 #~ msgstr ""
 #~ "Για να βρείτε πρόσθετα που είναι συμβατά με το Firefox για Android, <a "
 #~ "href=\"%(newLocation)s\">κάντε κλικ εδώ</a>."
-
-#~ msgid "Place of the violation"
-#~ msgstr "Μέρος παραβίασης"
 
 #~ msgid "optional"
 #~ msgstr "προαιρετικό"

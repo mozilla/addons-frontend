@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-23 17:56+0000\n"
+"POT-Creation-Date: 2024-02-13 17:07+0000\n"
 "PO-Revision-Date: 2023-02-23 00:02+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgstr "Tanik'oj rub'itz'ib' tz'aqat"
 msgid "Admin Links"
 msgstr "Ruximonel Nuk'samajel"
 
-#. This action allows the add-on developer or an admin to edit an add-on's properties.
+#. This action allows the add-on developer to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -1185,35 +1185,35 @@ msgstr ""
 msgid "Both locations"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:252
+#: src/amo/components/FeedbackForm/index.js:253
 msgid "Report submitted"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:254
+#: src/amo/components/FeedbackForm/index.js:255
 msgid "We have received your report. Thanks for letting us know."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:341
+#: src/amo/components/FeedbackForm/index.js:350
 msgid "Submitting your report…"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:342
+#: src/amo/components/FeedbackForm/index.js:351
 msgid "Submit report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:361
+#: src/amo/components/FeedbackForm/index.js:370
 msgid "Provide more information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:371
-msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
+#: src/amo/components/FeedbackForm/index.js:378
+msgid "Place of the violation"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:399
+#: src/amo/components/FeedbackForm/index.js:397
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:416
+#: src/amo/components/FeedbackForm/index.js:414
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1221,37 +1221,37 @@ msgid ""
 "addressing the reported content."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:426
+#: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:442
+#: src/amo/components/FeedbackForm/index.js:440
 msgid "File report anonymously"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:445
+#: src/amo/components/FeedbackForm/index.js:443
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:466
+#: src/amo/components/FeedbackForm/index.js:464
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:469
+#: src/amo/components/FeedbackForm/index.js:467
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:506
+#: src/amo/components/FeedbackForm/index.js:504
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:509
+#: src/amo/components/FeedbackForm/index.js:507
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:553
+#: src/amo/components/FeedbackForm/index.js:551
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "

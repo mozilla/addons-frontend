@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-23 17:56+0000\n"
+"POT-Creation-Date: 2024-02-13 17:07+0000\n"
 "PO-Revision-Date: 2023-12-02 08:19+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -65,7 +65,7 @@ msgstr "審核附加元件程式碼"
 msgid "Admin Links"
 msgstr "附加元件鏈結"
 
-#. This action allows the add-on developer or an admin to edit an add-on's properties.
+#. This action allows the add-on developer to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -1133,35 +1133,35 @@ msgstr "附加元件內"
 msgid "Both locations"
 msgstr "兩個位置都有"
 
-#: src/amo/components/FeedbackForm/index.js:252
+#: src/amo/components/FeedbackForm/index.js:253
 msgid "Report submitted"
 msgstr "已送出回報內容"
 
-#: src/amo/components/FeedbackForm/index.js:254
+#: src/amo/components/FeedbackForm/index.js:255
 msgid "We have received your report. Thanks for letting us know."
 msgstr "我們已收到您回報的內容，感謝您通知我們。"
 
-#: src/amo/components/FeedbackForm/index.js:341
+#: src/amo/components/FeedbackForm/index.js:350
 msgid "Submitting your report…"
 msgstr "正在送出您的回報內容…"
 
-#: src/amo/components/FeedbackForm/index.js:342
+#: src/amo/components/FeedbackForm/index.js:351
 msgid "Submit report"
 msgstr "送出報告"
 
-#: src/amo/components/FeedbackForm/index.js:361
+#: src/amo/components/FeedbackForm/index.js:370
 msgid "Provide more information"
 msgstr "提供更多資訊"
 
-#: src/amo/components/FeedbackForm/index.js:371
-msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
-msgstr "違反位置%(spanStart)s（選填）%(spanEnd)s"
+#: src/amo/components/FeedbackForm/index.js:378
+msgid "Place of the violation"
+msgstr "違反行為發生位置"
 
-#: src/amo/components/FeedbackForm/index.js:399
+#: src/amo/components/FeedbackForm/index.js:397
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
 msgstr "請提供更多資訊%(spanStart)s（選填）%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:416
+#: src/amo/components/FeedbackForm/index.js:414
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1172,15 +1172,15 @@ msgstr ""
 "些政策）。雖然此資訊不是必填，若未包含此資訊可能會導致我們無法處理您的檢舉內"
 "容。"
 
-#: src/amo/components/FeedbackForm/index.js:426
+#: src/amo/components/FeedbackForm/index.js:424
 msgid "Contact information"
 msgstr "聯絡資訊"
 
-#: src/amo/components/FeedbackForm/index.js:442
+#: src/amo/components/FeedbackForm/index.js:440
 msgid "File report anonymously"
 msgstr "匿名回報"
 
-#: src/amo/components/FeedbackForm/index.js:445
+#: src/amo/components/FeedbackForm/index.js:443
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1188,23 +1188,23 @@ msgstr ""
 "若匿名提出檢舉，我們將無法提供有關檢舉內容的處理情況，或是針對處理結果再提出"
 "申訴。"
 
-#: src/amo/components/FeedbackForm/index.js:466
+#: src/amo/components/FeedbackForm/index.js:464
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "您的姓名%(spanStart)s（選填）%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:469
+#: src/amo/components/FeedbackForm/index.js:467
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "您的姓名%(spanStart)s（必填）%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:506
+#: src/amo/components/FeedbackForm/index.js:504
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "您的電子郵件地址%(spanStart)s（選填）%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:509
+#: src/amo/components/FeedbackForm/index.js:507
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "您的電子郵件地址%(spanStart)s（必填）%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:553
+#: src/amo/components/FeedbackForm/index.js:551
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -3517,6 +3517,9 @@ msgstr "無法升級我的附加元件相容性"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "成功升級我的附加元件相容性"
 
+#~ msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
+#~ msgstr "違反位置%(spanStart)s（選填）%(spanEnd)s"
+
 #~ msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
 #~ msgstr "11 月 1 日起，Firefox 帳號已更名為 Mozilla 帳號"
 
@@ -3617,9 +3620,6 @@ msgstr "成功升級我的附加元件相容性"
 #~ msgstr ""
 #~ "若要尋找相容於 Firefox on Android 的附加元件，<a href=\"%(newLocation)s\">"
 #~ "請點擊此處</a>。"
-
-#~ msgid "Place of the violation"
-#~ msgstr "違反行為發生位置"
 
 #~ msgid "optional"
 #~ msgstr "非必要"
