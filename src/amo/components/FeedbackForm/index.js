@@ -231,15 +231,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
 
   preventSubmit(): boolean {
     const { abuseIsLoading } = this.props;
-    const { anonymous, category, certification, name, email } = this.state;
 
-    return (
-      abuseIsLoading ||
-      !category ||
-      (this.isCertificationRequired() && !certification) ||
-      (!anonymous && (!name.trim().length || !email.trim().length)) ||
-      (this.isLocationRequired() && !this.state.location)
-    );
+    return abuseIsLoading;
   }
 
   renderReportSentConfirmation(): React.Node {

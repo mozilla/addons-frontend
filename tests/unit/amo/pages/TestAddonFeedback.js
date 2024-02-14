@@ -645,14 +645,6 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('disables the submit button when no reason selected', async () => {
-    render();
-
-    expect(
-      screen.getByRole('button', { name: 'Submit report' }),
-    ).toBeDisabled();
-  });
-
   it('renders errors', () => {
     const message = 'Some error message';
     createFailedErrorHandler({
