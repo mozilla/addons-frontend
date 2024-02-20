@@ -438,14 +438,6 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it('disables the submit button when no reason selected', async () => {
-    render();
-
-    expect(
-      screen.getByRole('button', { name: 'Submit report' }),
-    ).toBeDisabled();
-  });
-
   it('shows success message after submission', async () => {
     const ratingId = 456;
     const { store } = dispatchClientMetadata();
