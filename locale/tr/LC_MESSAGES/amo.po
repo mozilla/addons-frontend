@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-02-13 17:07+0000\n"
-"PO-Revision-Date: 2024-02-21 18:50+0000\n"
+"PO-Revision-Date: 2024-02-21 18:57+0000\n"
 "Last-Translator: Grk <gu0townkg@relay.firefox.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -2781,7 +2781,7 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
-"Teknik sorunlar, destek istekleri veya özellik önerileri göndermeyin. Her eklenti kendi destek seçeneklerini kullanın (varsa). Bunları, eklentinin ayrıntı sayfasındaki kenar çubuğunda yer alan "
+"Teknik sorunlar, destek istekleri veya özellik önerileri göndermeyin. Her eklentinin kendi destek seçeneklerini kullanın (varsa). Bunları, eklentinin ayrıntı sayfasındaki kenar çubuğunda yer alan "
 "\"Daha fazla bilgi\" bölümünde bulabilirsiniz."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
@@ -2790,7 +2790,7 @@ msgstr "Bizzat kullanmadığınız eklentiler için inceleme yazmayın."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr "Küfür, cinsellik veya nefret ifaleri içeren bir üsluptan kaçının."
+msgstr "Küfür, cinsellik veya nefret ifadeleri içeren bir üsluptan kaçının."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
@@ -3127,7 +3127,7 @@ msgstr "eklenti geliştiricilerini ilgilendiren haber ve etkinlikleri size ulaş
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr "Mozilla'nın eklentim hakkında benle iletişim kurması gerekiyor"
+msgstr "Mozilla'nın eklentim hakkında benimle iletişim kurması gerekiyor"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
