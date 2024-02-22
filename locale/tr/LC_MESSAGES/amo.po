@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-02-13 17:07+0000\n"
-"PO-Revision-Date: 2024-02-19 20:17+0000\n"
-"Last-Translator: Selim Şumlu <selim@sum.lu>\n"
+"PO-Revision-Date: 2024-02-21 18:50+0000\n"
+"Last-Translator: Grk <gu0townkg@relay.firefox.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -2474,7 +2474,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Tarayıcınızın görünümünü değiştirin. Binlerce temadan istediğiniz seçerek Firefox’unuzu giydirin."
+msgstr "Tarayıcınızın görünümünü değiştirin. Binlerce temadan istediğinizi seçerek Firefox’unuzu giydirin."
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
@@ -2494,7 +2494,7 @@ msgstr "Sözlükler ve dil paketleri"
 
 #: src/amo/pages/LanguageTools/index.js:155
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr "Firefox sözlüklerini ve dil paketi uzantıkarını indirin. Tarayıcınızın yazım denetleyicisine yeni bir dil ekleyebilir veya tarayıcınızın arayüz dilini değiştirebilirsiniz."
+msgstr "Firefox sözlüklerini ve dil paketi uzantılarını indirin. Tarayıcınızın yazım denetleyicisine yeni bir dil ekleyebilir veya tarayıcınızın arayüz dilini değiştirebilirsiniz."
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2580,7 +2580,7 @@ msgstr "Siteyle ilgili bir sorun bulursanız düzeltmeyi çok isteriz. Lütfen b
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
 msgstr ""
-"Firefox uzantılarını ve temalarını indirebileceğiniz resmi Mozilla sitesi. Web deneyiminizi özelleştirmek için trayıcınıza yeni özellikler ekleyebilir, tarayıcınızın görünümünü değiştirebilirsiniz."
+"Firefox uzantılarını ve temalarını indirebileceğiniz resmi Mozilla sitesi. Web deneyiminizi özelleştirmek için tarayıcınıza yeni özellikler ekleyebilir, tarayıcınızın görünümünü değiştirebilirsiniz."
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
