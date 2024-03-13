@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-13 17:07+0000\n"
+"POT-Creation-Date: 2024-03-12 20:07+0000\n"
 "PO-Revision-Date: 2023-12-02 13:32+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -65,7 +65,7 @@ msgstr "Xem lại đoạn mã tiện ích"
 msgid "Admin Links"
 msgstr "Liên kết quản trị"
 
-#. This action allows the add-on developer to edit an add-on's properties.
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -1165,36 +1165,36 @@ msgstr "Trong tiện ích mở rộng"
 msgid "Both locations"
 msgstr "Cả 2 vị trí"
 
-#: src/amo/components/FeedbackForm/index.js:253
+#: src/amo/components/FeedbackForm/index.js:246
 msgid "Report submitted"
 msgstr "Đã gửi báo cáo"
 
-#: src/amo/components/FeedbackForm/index.js:255
+#: src/amo/components/FeedbackForm/index.js:248
 msgid "We have received your report. Thanks for letting us know."
 msgstr ""
 "Chúng tôi đã nhận được báo cáo của bạn. Cảm ơn vì đã cho chúng tôi biết."
 
-#: src/amo/components/FeedbackForm/index.js:350
+#: src/amo/components/FeedbackForm/index.js:343
 msgid "Submitting your report…"
 msgstr "Đang gửi báo cáo của bạn…"
 
-#: src/amo/components/FeedbackForm/index.js:351
+#: src/amo/components/FeedbackForm/index.js:344
 msgid "Submit report"
 msgstr "Gửi báo cáo"
 
-#: src/amo/components/FeedbackForm/index.js:370
+#: src/amo/components/FeedbackForm/index.js:363
 msgid "Provide more information"
 msgstr "Cung cấp thêm thông tin"
 
-#: src/amo/components/FeedbackForm/index.js:378
+#: src/amo/components/FeedbackForm/index.js:371
 msgid "Place of the violation"
 msgstr "Vị trí vi phạm"
 
-#: src/amo/components/FeedbackForm/index.js:397
+#: src/amo/components/FeedbackForm/index.js:390
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Cung cấp thêm chi tiết %(spanStart)s(không bắt buộc)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:414
+#: src/amo/components/FeedbackForm/index.js:407
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1206,15 +1206,15 @@ msgstr ""
 "tin này là không bắt buộc nhưng việc không đưa thông tin này vào có thể "
 "khiến chúng tôi không thể giải quyết nội dung được báo cáo."
 
-#: src/amo/components/FeedbackForm/index.js:424
+#: src/amo/components/FeedbackForm/index.js:417
 msgid "Contact information"
 msgstr "Thông tin liên hệ"
 
-#: src/amo/components/FeedbackForm/index.js:440
+#: src/amo/components/FeedbackForm/index.js:433
 msgid "File report anonymously"
 msgstr "Gửi báo cáo ẩn danh"
 
-#: src/amo/components/FeedbackForm/index.js:443
+#: src/amo/components/FeedbackForm/index.js:436
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1222,23 +1222,23 @@ msgstr ""
 "Việc gửi báo cáo ẩn danh sẽ ngăn chúng tôi liên lạc với bạn về trạng thái "
 "của báo cáo hoặc về bất kỳ lựa chọn khiếu nại nào."
 
-#: src/amo/components/FeedbackForm/index.js:464
+#: src/amo/components/FeedbackForm/index.js:457
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Tên của bạn %(spanStart)s(không bắt buộc)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:467
+#: src/amo/components/FeedbackForm/index.js:460
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "Tên của bạn %(spanStart)s(bắt buộc)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:504
+#: src/amo/components/FeedbackForm/index.js:497
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Địa chỉ email của bạn %(spanStart)s(không bắt buộc)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:507
+#: src/amo/components/FeedbackForm/index.js:500
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "Địa chỉ email của bạn %(spanStart)s(bắt buộc)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:551
+#: src/amo/components/FeedbackForm/index.js:544
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "

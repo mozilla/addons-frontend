@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-13 17:07+0000\n"
+"POT-Creation-Date: 2024-03-12 20:07+0000\n"
 "PO-Revision-Date: 2023-12-01 21:14+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -65,7 +65,7 @@ msgstr "Add-on-Quelltext überprüfen"
 msgid "Admin Links"
 msgstr "Links administrieren"
 
-#. This action allows the add-on developer to edit an add-on's properties.
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -1200,35 +1200,35 @@ msgstr "Innerhalb des Add-ons"
 msgid "Both locations"
 msgstr "Sowohl als auch"
 
-#: src/amo/components/FeedbackForm/index.js:253
+#: src/amo/components/FeedbackForm/index.js:246
 msgid "Report submitted"
 msgstr "Meldung abgesendet"
 
-#: src/amo/components/FeedbackForm/index.js:255
+#: src/amo/components/FeedbackForm/index.js:248
 msgid "We have received your report. Thanks for letting us know."
 msgstr "Wir haben Ihre Meldung erhalten. Danke für Ihre Mitteilung."
 
-#: src/amo/components/FeedbackForm/index.js:350
+#: src/amo/components/FeedbackForm/index.js:343
 msgid "Submitting your report…"
 msgstr "Senden der Meldung…"
 
-#: src/amo/components/FeedbackForm/index.js:351
+#: src/amo/components/FeedbackForm/index.js:344
 msgid "Submit report"
 msgstr "Meldung senden"
 
-#: src/amo/components/FeedbackForm/index.js:370
+#: src/amo/components/FeedbackForm/index.js:363
 msgid "Provide more information"
 msgstr "Geben Sie weitere Informationen an"
 
-#: src/amo/components/FeedbackForm/index.js:378
+#: src/amo/components/FeedbackForm/index.js:371
 msgid "Place of the violation"
 msgstr "Ort des Verstoßes"
 
-#: src/amo/components/FeedbackForm/index.js:397
+#: src/amo/components/FeedbackForm/index.js:390
 msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Geben Sie weitere Details an %(spanStart)s(optional)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:414
+#: src/amo/components/FeedbackForm/index.js:407
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1241,15 +1241,15 @@ msgstr ""
 "erforderlich, aber wenn sie nicht aufgenommen werden, können wir den "
 "gemeldeten Inhalt eventuell nicht bearbeiten."
 
-#: src/amo/components/FeedbackForm/index.js:424
+#: src/amo/components/FeedbackForm/index.js:417
 msgid "Contact information"
 msgstr "Kontaktinformationen"
 
-#: src/amo/components/FeedbackForm/index.js:440
+#: src/amo/components/FeedbackForm/index.js:433
 msgid "File report anonymously"
 msgstr "Meldung anonym übermitteln"
 
-#: src/amo/components/FeedbackForm/index.js:443
+#: src/amo/components/FeedbackForm/index.js:436
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1258,23 +1258,23 @@ msgstr ""
 "den Status der Meldung oder über Möglichkeiten, gegen die Sie Einspruch "
 "einlegen können, kommunizieren."
 
-#: src/amo/components/FeedbackForm/index.js:464
+#: src/amo/components/FeedbackForm/index.js:457
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Ihr Name %(spanStart)s(optional)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:467
+#: src/amo/components/FeedbackForm/index.js:460
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "Ihr Name %(spanStart)s(erforderlich)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:504
+#: src/amo/components/FeedbackForm/index.js:497
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Ihre E-Mail-Adresse %(spanStart)s(optional)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:507
+#: src/amo/components/FeedbackForm/index.js:500
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "Ihre E-Mail-Adresse %(spanStart)s(erforderlich)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:551
+#: src/amo/components/FeedbackForm/index.js:544
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
