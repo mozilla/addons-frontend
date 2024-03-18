@@ -655,6 +655,11 @@ export const unfilteredLanguages = {
     English: 'Yoruba',
     native: 'Yor\u00f9b\u00e1',
   },
+  'zgh': {
+    English: 'Standard Moroccan Tamazight',
+    native:
+      '\u2d5c\u2d30\u2d4e\u2d30\u2d63\u2d49\u2d56\u2d5c \u2d5c\u2d30\u2d4f\u2d30\u2d61\u2d30\u2d62\u2d5c',
+  },
   'zh-CN': {
     English: 'Chinese (Simplified)',
     native: '\u4e2d\u6587 (\u7b80\u4f53)',
