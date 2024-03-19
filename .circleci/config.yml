@@ -24,7 +24,7 @@ references:
 
   defaults-release: &defaults-release
     machine:
-      image: ubuntu-2004:2023.10.1
+      image: ubuntu-2004:current
     working_directory: ~/addons-frontend
 
   restore_build_cache: &restore_build_cache
