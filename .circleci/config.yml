@@ -211,7 +211,6 @@ jobs:
     <<: *defaults-release
     steps:
       - better_checkout
-      - run: pyenv global 3.11
       - run: pip install tox
       - run: TOXENV=dennis-lint tox
 
@@ -236,9 +235,6 @@ jobs:
       - run:
           name: Install dependencies
           command: sudo apt-get update; sudo apt-get install pigz
-      - run:
-          name: "Set Python Version"
-          command: pyenv global 3.11
       - run:
           name: "Install Tox"
           command: pip install tox
@@ -302,9 +298,6 @@ jobs:
       - run:
           name: Install dependencies
           command: sudo apt-get update; sudo apt-get install pigz
-      - run:
-          name: "Set Python Version"
-          command: pyenv global 3.11
       - run:
           name: "Install Tox"
           command: pip install tox
