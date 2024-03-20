@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",                  // Compile to ES5
+    "module": "commonjs",             // Use commonjs module system
+    "strict": true,                   // Enable all strict type-checking options
+    "esModuleInterop": true,          // Allows default imports from modules with no default export
+    "skipLibCheck": true,             // Skip type checking of all declaration files
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references
+    "moduleResolution": "node",       // Resolve modules using Node.js style
+    "outDir": "./dist",               // Redirect output structure
+    "declaration": true,              // Generates corresponding '.d.ts' file
+    "sourceMap": true                 // Generates corresponding '.map' file
+  },
+  "include": ["src/**/*"],             // Include all files in the src folder
+  "exclude": ["node_modules", "dist"]  // Exclude these directories
+}

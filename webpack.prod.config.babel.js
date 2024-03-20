@@ -36,7 +36,11 @@ export default {
     publicPath: config.get('staticPath'),
   },
   module: {
-    rules: getRules(),
+    rules: getRules({
+      babelOptions: {
+        plugins: [path.resolve('./babel-plugin-count-react-elements')],
+      },
+    }),
   },
   node: {
     // This allows us to use `__filename` in our code base, for instance to
