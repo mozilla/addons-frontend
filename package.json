@@ -253,7 +253,8 @@
     "webpack-isomorphic-tools": "4.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.7",
+    "@babel/cli": "7.23.4",
+    "@babel/core": "7.23.7",
     "@babel/eslint-parser": "^7.23.3",
     "@babel/preset-env": "^7.23.8",
     "@babel/preset-flow": "^7.23.3",
@@ -329,7 +330,8 @@
     "webpack-cli": "^4.0.0",
     "webpack-dev-middleware": "^6.1.1",
     "webpack-hot-middleware": "^2.26.0",
-    "webpack-subresource-integrity": "5.1.0"
+    "webpack-subresource-integrity": "5.1.0",
+    "zx": "7.2.3"
   },
   "bundlewatch": [
     {

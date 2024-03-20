@@ -1,0 +1,32 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+            node-version: 18
+            cache: 'yarn'
+      - name: Install gettext
+        run: sudo apt-get install gettext
+      - name: Yarn install
+        run: yarn install --frozen-lockfile --prefer-offline
+
+      - name: Extract locales
+        run: yarn run zx ./bin/locales.mjs
+      - name: Commit locales
+        run: |
+          git config --global user.name "Kevin Meinhardt"
+          git config --global user.email "kmeinhardt@mozilla.com"
+          git checkout -b localization-ci
+          git add .
+          git commit -m 'test: localization'
+          git push -u origin localization-ci
+
+          gh pr create -B master -H localization-ci --title 'Locale BOT destroy!' --body 'Created by Github action'
+
+
+

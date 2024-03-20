@@ -184,7 +184,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     let progressMessage;
 
     if (loadingUserCollections) {
-      progressMessage = i18n.gettext('Loading…');
+      progressMessage = i18n.gettext('Test');
     } else if (loadingAddonsInCollections) {
       progressMessage = i18n.gettext('Adding…');
     }
