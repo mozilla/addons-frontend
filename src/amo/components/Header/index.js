@@ -106,6 +106,7 @@ export class HeaderBase extends React.Component {
           >
             {i18n.gettext('Submit a New Add-on')}
           </Link>
+
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link
