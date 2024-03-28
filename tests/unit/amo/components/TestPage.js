@@ -868,7 +868,7 @@ describe(__filename, () => {
       );
       expect(screen.getByRole('link', { name: 'Legal' })).toHaveAttribute(
         'href',
-        'https://www.mozilla.org/about/legal/terms/mozilla/',
+        'https://www.mozilla.org/about/legal/amo-policies/',
       );
 
       // This link isn't localized because MDN will 404 on some

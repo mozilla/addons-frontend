@@ -284,7 +284,7 @@ export class FooterBase extends React.Component<InternalProps> {
             <li>
               <a
                 className="Footer-legal-link"
-                href="https://www.mozilla.org/about/legal/terms/mozilla/"
+                href="https://www.mozilla.org/about/legal/amo-policies/"
               >
                 {i18n.gettext('Legal')}
               </a>
