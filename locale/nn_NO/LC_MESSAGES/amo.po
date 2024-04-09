@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-04-03 14:24+0000\n"
+"PO-Revision-Date: 2024-04-09 05:02+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1083,7 +1083,7 @@ msgstr "Kontaktinformasjon"
 
 #: src/amo/components/FeedbackForm/index.js:433
 msgid "File report anonymously"
-msgstr ""
+msgstr "Send inn rapport anonymt"
 
 #: src/amo/components/FeedbackForm/index.js:436
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
@@ -2326,7 +2326,7 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:439
 msgid "Report this collection"
-msgstr ""
+msgstr "Rapporter denne samlinga"
 
 #: src/amo/pages/Collection/index.js:458
 msgid "Log in to create a collection"
@@ -2354,7 +2354,7 @@ msgstr "Last ned og lag samlingar for Firefox, og hald styr på favorittutviding
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Send tilbakemelding eller rapporter ei samling til Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
@@ -2406,7 +2406,7 @@ msgstr "Sesongavhengig"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "Firefox for Android-utvidingar"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
@@ -2418,7 +2418,7 @@ msgstr "Vis fleire tilrådde utvidingar"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Utforsk alle Android-utvidingar"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
