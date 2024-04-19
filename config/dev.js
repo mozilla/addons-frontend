@@ -40,5 +40,5 @@ module.exports = {
 
   allowErrorSimulation: true,
 
-  extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
+  extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
 };
