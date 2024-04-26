@@ -31,11 +31,9 @@ type FirefoxAddon = {|
 |};
 
 export type MozAddonManagerType = {|
-  abuseReportPanelEnabled?: boolean,
   addEventListener: (eventName: string, handler: Function) => void,
   createInstall: ({| url: string, hash?: string | null |}) => Promise<any>,
   getAddonByID: (guid: string) => Promise<FirefoxAddon>,
-  reportAbuse?: (addonId: string) => Promise<boolean>,
 |};
 
 type PrivilegedNavigatorType = {|
