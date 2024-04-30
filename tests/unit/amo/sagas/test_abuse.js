@@ -1,6 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'amo/api/abuse';
+import * as addonManager from 'amo/addonManager';
 import abuseReducer, {
   loadAddonAbuseReport,
   sendAddonAbuseReport,
@@ -18,11 +19,13 @@ import {
 describe(__filename, () => {
   let errorHandler;
   let mockApi;
+  let mockAddonManager;
   let sagaTester;
 
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
     mockApi = sinon.mock(api);
+    mockAddonManager = sinon.mock(addonManager);
     const initialState = dispatchSignInActions().state;
     sagaTester = new SagaTester({
       initialState,
@@ -62,6 +65,62 @@ describe(__filename, () => {
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const loadAction = sagaTester.getCalledActions()[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('does not call the API when mozAddonManager.sendAbuseReport can be used', async () => {
+      const addon = { ...fakeAddon, slug: 'fancy' };
+      const message = 'I would prefer the add-on be green';
+      mockApi.expects('reportAddon').never();
+      mockAddonManager.expects('canSendAbuseReports').returns(true);
+      const response = createFakeAddonAbuseReport({ addon, message });
+      mockAddonManager
+        .expects('sendAbuseReport')
+        .withExactArgs(addon.slug, sinon.match.any, {})
+        .returns(Promise.resolve(response));
+
+      _sendAddonAbuseReport({ addonId: addon.slug, message });
+
+      const expectedLoadAction = loadAddonAbuseReport({
+        addon: response.addon,
+        message: response.message,
+        reporter: response.reporter,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockAddonManager.verify();
+      mockApi.verify();
+
+      const loadAction = sagaTester.getCalledActions()[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('can call mozAddonManager.sendAbuseReport with options', async () => {
+      const addon = { ...fakeAddon, slug: 'fancy' };
+      const message = 'I would prefer the add-on be green';
+      mockApi.expects('reportAddon').never();
+      mockAddonManager.expects('canSendAbuseReports').returns(true);
+      const response = createFakeAddonAbuseReport({ addon, message });
+      mockAddonManager
+        .expects('sendAbuseReport')
+        .withExactArgs(addon.slug, sinon.match.any, {
+          authorization: 'Session 123456',
+        })
+        .returns(Promise.resolve(response));
+
+      _sendAddonAbuseReport({ addonId: addon.slug, message, auth: true });
+
+      const expectedLoadAction = loadAddonAbuseReport({
+        addon: response.addon,
+        message: response.message,
+        reporter: response.reporter,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockAddonManager.verify();
       mockApi.verify();
 
       const loadAction = sagaTester.getCalledActions()[2];

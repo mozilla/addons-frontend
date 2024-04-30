@@ -33,11 +33,11 @@ describe(__filename, () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
       const reason = 'does_not_work';
-      const reporterName = 'Foxy';
-      const reporterEmail = 'fox@moz.co';
+      const reporter_name = 'Foxy';
+      const reporter_email = 'fox@moz.co';
       const addonId = 'cool-addon';
       const location = 'both';
-      const addonVersion = '1.2.3.4';
+      const addon_version = '1.2.3.4';
 
       mockApi
         .expects('callApi')
@@ -49,10 +49,10 @@ describe(__filename, () => {
             addon: addonId,
             message,
             reason,
-            reporter_email: reporterEmail,
-            reporter_name: reporterName,
+            reporter_email,
+            reporter_name,
             location,
-            addon_version: addonVersion,
+            addon_version,
             lang: DEFAULT_LANG_IN_TESTS,
           },
           apiState,
@@ -70,10 +70,10 @@ describe(__filename, () => {
         api: apiState,
         message,
         reason,
-        reporterEmail,
-        reporterName,
+        reporter_email,
+        reporter_name,
         location,
-        addonVersion,
+        addon_version,
         auth: true,
       });
 
