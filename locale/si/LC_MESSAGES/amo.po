@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-05 21:39+0000\n"
+"PO-Revision-Date: 2024-05-05 21:50+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -96,7 +96,7 @@ msgstr "ගෙවන විශේෂාංග අඩංගුය"
 
 #: src/amo/components/AddonBadges/index.js:71
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "ඇන්ඩ්‍රොයිඩ්™ සඳහා ෆයර්ෆොක්ස් වල තිබේ"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -122,7 +122,7 @@ msgstr "එක්කහුව ගැන ප්‍රතිපෝෂණ යවන
 
 #: src/amo/components/AddonFeedbackForm/index.js:200
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "එක්කහුව නීති විරෝධී හෝ අනුකූල නොවන නිසා වාර්තා කරන්න"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -288,7 +288,7 @@ msgstr "රහස්‍යතා ප්‍රතිපත්තිය"
 
 #: src/amo/components/AddonMoreInfo/index.js:364
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "අන්ත-පරිශ්‍රීලක බලපත්‍ර ගිවිසුම"
 
 #: src/amo/components/AddonMoreInfo/index.js:372
 msgid "Version History"
@@ -2177,7 +2177,7 @@ msgstr "%(addonName)s සඳහා අභිරුචි බලපත්‍ර�
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s සඳහා අන්ත-පරිශ්‍රීලක බලපත්‍ර ගිවිසුම"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
