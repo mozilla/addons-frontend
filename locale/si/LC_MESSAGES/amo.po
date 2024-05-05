@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-05 22:11+0000\n"
+"PO-Revision-Date: 2024-05-05 22:21+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1641,7 +1641,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:48
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම එක්කහුව පිළිබඳව දන්වා සිටීමට තුති."
+msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම එක්කහුව පිළිබඳව දැනුම්දීමට තුති."
 
 #: src/amo/components/ReportAbuseButton/index.js:70
 msgid "Report this add-on"
@@ -1653,7 +1653,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:52
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම පරිශීලකයා පිළිබඳව දන්වා සිටීමට තුති."
+msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම පරිශ්‍රීලකයා පිළිබඳව දැනුම්දීමට තුති."
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
@@ -2321,11 +2321,11 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:425
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම එකතුව පිළිබඳව දැනුම්දීමට තුති."
 
 #: src/amo/pages/Collection/index.js:439
 msgid "Report this collection"
-msgstr ""
+msgstr "මෙම එකතුව වාර්තා කරන්න"
 
 #: src/amo/pages/Collection/index.js:458
 msgid "Log in to create a collection"
@@ -2353,7 +2353,7 @@ msgstr "ප්‍රියතම දිගු සහ තේමා පිළි�
 
 #: src/amo/pages/CollectionFeedback/index.js:119
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "එකතුවක් ගැන ප්‍රතිපෝෂණ යොමන්න හෝ වාර්තා කරන්න"
 
 #: src/amo/pages/CollectionFeedback/index.js:134
 msgid "by %(authorName)s"
@@ -2361,15 +2361,15 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "මෙම එකතුව වාර්තා කරන්න"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "එකතුව ගැන ප්‍රතිපෝෂණ යවන්න"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "එකතුව නීති විරෝධී හෝ අනුකූල නොවන නිසා වාර්තා කරන්න"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2405,11 +2405,11 @@ msgstr "ඍතුමය"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "ඇන්ඩ්‍රොයිඩ් සඳහා ෆයර්ෆොක්ස් දිගු"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "ප්‍රබල දිගු සමඟ ඇන්ඩ්‍රොයිඩ් සඳහා ෆයර්ෆොක්ස් පෞද්ගලීකරණය කරගන්න."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2521,7 +2521,7 @@ msgstr "ශබ්දකෝෂ"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "ප්‍රතිපෝෂණ යොමන්න හෝ සමාලෝචනයක් වාර්තා කරන්න"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
