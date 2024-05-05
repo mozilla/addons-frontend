@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-05 22:41+0000\n"
+"PO-Revision-Date: 2024-05-05 22:47+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1042,11 +1042,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:157
 msgid "Both locations"
-msgstr ""
+msgstr "ස්ථාන දෙකම"
 
 #: src/amo/components/FeedbackForm/index.js:246
 msgid "Report submitted"
-msgstr ""
+msgstr "වාර්තාව යොමු කළා"
 
 #: src/amo/components/FeedbackForm/index.js:248
 msgid "We have received your report. Thanks for letting us know."
@@ -1054,11 +1054,11 @@ msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. දැ
 
 #: src/amo/components/FeedbackForm/index.js:343
 msgid "Submitting your report…"
-msgstr ""
+msgstr "ඔබගේ වාර්තාව යැවෙමින්…"
 
 #: src/amo/components/FeedbackForm/index.js:344
 msgid "Submit report"
-msgstr ""
+msgstr "වාර්තාවක් යොමන්න"
 
 #: src/amo/components/FeedbackForm/index.js:363
 msgid "Provide more information"
@@ -1116,7 +1116,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "නීති විරෝධී හෝ AMO අන්තර්ගත ප්‍රතිපත්ති උල්ලංඝනය කරන අන්තර්ගතයකි"
 
 #: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flagged"
@@ -1637,7 +1637,7 @@ msgstr[1] "තරු තුනක සමාලෝචන %(total)s කියව�
 
 #: src/amo/components/ReportAbuseButton/index.js:44
 msgid "You reported this add-on"
-msgstr ""
+msgstr "ඔබ මෙම එක්කහුව වාර්තා කර ඇත"
 
 #: src/amo/components/ReportAbuseButton/index.js:48
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1645,11 +1645,11 @@ msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙ
 
 #: src/amo/components/ReportAbuseButton/index.js:70
 msgid "Report this add-on"
-msgstr ""
+msgstr "එක්කහුව වාර්තා කරන්න"
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
-msgstr ""
+msgstr "ඔබ මෙම පරිශ්‍රීලකයා වාර්තා කර ඇත"
 
 #: src/amo/components/ReportUserAbuse/index.js:52
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1657,7 +1657,7 @@ msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙ
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
-msgstr ""
+msgstr "පරිශ්‍රීලකයා වාර්තා කරන්න"
 
 #: src/amo/components/Search/index.js:139 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
@@ -2005,7 +2005,7 @@ msgstr "තව කියවීමට <span class=\"visually-hidden\">විහ�
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "%(username)s ලෙස පිවිස ඇත"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
