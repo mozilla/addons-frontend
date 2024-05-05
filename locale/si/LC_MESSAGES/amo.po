@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-05 22:21+0000\n"
+"PO-Revision-Date: 2024-05-05 22:41+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -1050,7 +1050,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:248
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. දැනුම්දීමට ස්තුතියි."
 
 #: src/amo/components/FeedbackForm/index.js:343
 msgid "Submitting your report…"
@@ -2253,7 +2253,7 @@ msgstr "අවහිර කළ අනුවාද: සියළුම අනු�
 
 #: src/amo/pages/Block/index.js:124
 msgid "Versions blocked: %(versions)s."
-msgstr ""
+msgstr "අවහිර කළ අනුවාද : %(versions)s."
 
 #: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
@@ -2317,7 +2317,7 @@ msgstr "මෙම එකතුව මකන්න"
 
 #: src/amo/pages/Collection/index.js:421
 msgid "You reported this collection"
-msgstr ""
+msgstr "ඔබ මෙම එකතුව වාර්තා කර ඇත"
 
 #: src/amo/pages/Collection/index.js:425
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
