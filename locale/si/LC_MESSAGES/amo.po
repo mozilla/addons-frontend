@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-05 21:50+0000\n"
+"PO-Revision-Date: 2024-05-05 22:00+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -990,7 +990,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:107
 msgid "It’s spam"
-msgstr ""
+msgstr "එය අයාචිතයි"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: The listing advertises unrelated products or services."
@@ -998,7 +998,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:116
 msgid "It violates Add-on Policies"
-msgstr ""
+msgstr "එය එක්කහු ප්‍රතිපත්ති උල්ලංඝනය කරයි"
 
 #: src/amo/components/FeedbackForm/index.js:117
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
@@ -1022,7 +1022,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:138
 msgid "Something else"
-msgstr ""
+msgstr "වෙනත් යමක්"
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid "Anything that doesn’t fit into the other categories."
@@ -3119,15 +3119,15 @@ msgstr "නව එක්කහු හෝ ෆයර්ෆොක්ස් වි�
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "යමෙක් මාගේ එක්කහුව පිළිබඳ සමාලෝචනයක් ලියයි"
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "එක්කහුවක සංවර්ධකයෙක් මාගේ සමාලෝචනයට පිළිතුරු ලියයි"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "සමාලෝචකයෙක් මාගේ එක්කහුව සමාලෝචනය කරයි"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
