@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-05 22:00+0000\n"
+"PO-Revision-Date: 2024-05-05 22:11+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -2417,7 +2417,7 @@ msgstr "තවත් නිර්දේශිත දිගු බලන්න"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "සියලුම ඇන්‌ඩ්‍රොයිඩ් දිගු පිරික්සන්න"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2529,11 +2529,11 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:161
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "මෙම සමාලෝචනය වාර්තා කරන්න"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "සමාලෝචනය නීති විරෝධී හෝ අනුකූල නොවන නිසා වාර්තා කරන්න"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2796,7 +2796,7 @@ msgstr "%(tag)s සමඟ අනන්‍යගත එක්කහු"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "ප්‍රතිපෝෂණ යොමන්න හෝ පරිශ්‍රීලකයෙක් වාර්තා කරන්න"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:381
 msgid "User since"
@@ -2804,15 +2804,15 @@ msgstr "සාමාජිකත්‍වය"
 
 #: src/amo/pages/UserFeedback/index.js:144
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "මෙම පරිශ්‍රීලකයා වාර්තා කරන්න"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "පරිශ්‍රීලකයාගේ පැතිකඩ ගැන ප්‍රතිපෝෂණ යවන්න"
 
 #: src/amo/pages/UserFeedback/index.js:148
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "පරිශ්‍රීලකයාගේ පැතිකඩ නීති විරෝධී හෝ අනුකූල නොවන නිසා වාර්තා කරන්න"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
@@ -2954,11 +2954,11 @@ msgstr "වි-තැපෑල මෙහි වෙනස් කළ නොහැ�
 
 #: src/amo/pages/UserProfileEdit/index.js:615
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "මොසිල්ලා ගිණුම් හරහා ඔබගේ වි-තැපැල් ලිපිනය වෙනස් කිරීමට හැකිය. %(startLink)sඋදව් වුවමනා ද?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "මොසිල්ලා ගිණුම කළමනාකරණය…"
 
 #: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
@@ -3131,11 +3131,11 @@ msgstr "සමාලෝචකයෙක් මාගේ එක්කහුව ස
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "මාගේ එක්කහුවේ අනුකූලතාව උත්ශ්‍රේණි කිරීමට නොහැකිය"
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "මාගේ එක්කහුවේ අනුකූලතාව සාර්ථකව උත්ශ්‍රේණි කෙරිණි"
 
 #~ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 #~ msgstr "ෆයර්ෆොක්ස් ගිණුම හරහා ඔබගේ වි-තැපැල් ලිපිනය වෙනස් කිරීමට හැකිය. %(startLink)sඋදව් වුවමනා ද?%(endLink)s"
