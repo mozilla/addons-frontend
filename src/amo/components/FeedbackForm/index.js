@@ -13,6 +13,7 @@ import Card from 'amo/components/Card';
 import Select from 'amo/components/Select';
 import SignedInUser from 'amo/components/SignedInUser';
 import { replaceStringsWithJSX } from 'amo/i18n/utils';
+import { sanitizeHTML } from 'amo/utils';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
@@ -86,6 +87,9 @@ export const CATEGORY_ILLEGAL = 'illegal';
 // the previous abuse reporting mechanism.
 export const CATEGORY_SOMETHING_ELSE = 'something_else';
 
+export const LEGAL_REPORT_INFRINGEMENT_URL =
+  'https://www.mozilla.org/en-US/about/legal/report-infringement/';
+
 export const getCategories = (
   i18n: I18nType,
 ): {
@@ -129,8 +133,15 @@ export const getCategories = (
         label: i18n.gettext(
           'It violates the law or contains content that violates the law',
         ),
-        help: i18n.gettext(
-          'Example: Copyright or Trademark Infringement, Fraud.',
+        help: i18n.sprintf(
+          i18n.gettext(`Example: Fraud. (If you wish to report a copyright or
+              trademark infringement, you can learn more about how to do so in
+              our %(startLink)sCopyright or Trademark Infringement Reporting
+              article%(endLink)s).`),
+          {
+            startLink: `<a href="${LEGAL_REPORT_INFRINGEMENT_URL}">`,
+            endLink: '</a>',
+          },
         ),
       },
       {
@@ -305,9 +316,9 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                 <p
                   className="FeedbackForm--help"
                   id={`feedbackCategory${category.value}-help`}
-                >
-                  {category.help}
-                </p>
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={sanitizeHTML(category.help, ['a'])}
+                />
               )}
             </li>
           ))}
