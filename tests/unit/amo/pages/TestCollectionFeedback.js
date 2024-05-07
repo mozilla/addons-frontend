@@ -440,7 +440,15 @@ describe(__filename, () => {
     // E
     expect(screen.getByLabelText(/^It violates the law /)).toBeInTheDocument();
     expect(screen.getByLabelText(/^It violates the law /)).toBeRequired();
-    expect(screen.getByText(/^Example: Copyright/)).toBeInTheDocument();
+    expect(screen.getByText(/^Example: Fraud/)).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', {
+        name: 'Copyright or Trademark Infringement Reporting article',
+      }),
+    ).toHaveAttribute(
+      'href',
+      'https://www.mozilla.org/en-US/about/legal/report-infringement/',
+    );
 
     // F
     expect(screen.getByLabelText('Something else')).toBeInTheDocument();
