@@ -10,18 +10,17 @@ docker build . -t mozilla/addons-frontend:latest
 git clone --depth 1 https://github.com/mozilla/addons-server.git
 
 cd addons-server
-UID=`id -u`
-GID=`id -g`
 # Emulate initialization, but without doing it completely since setup-ui-tests
 # would do what it needs later on.
-make create_env_file
-docker-compose run --rm --user ${UID}:${GID} web make update_deps
-docker-compose run --rm --user ${UID}:${GID} web make update_assets
-docker-compose up -d
-docker-compose ps
-# At this point olympia user should have the correct UID/GID and we can use it to run the setup.
-docker-compose exec --user olympia web make setup-ui-tests
-docker-compose stop nginx
-docker-compose up -d
+make create_env_file version
+docker compose run --rm web make update_deps
+docker compose up -d
+docker compose ps
+# At this point olympia user should have the correct UID/GID and we can use it
+# to run the setup.
+docker compose exec --user olympia web make update_assets
+docker compose exec --user olympia web make setup-ui-tests
+docker compose stop nginx
+docker compose up -d
 
 cd -
