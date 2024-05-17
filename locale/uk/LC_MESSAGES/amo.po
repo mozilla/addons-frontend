@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-05 19:41+0000\n"
+"PO-Revision-Date: 2024-05-16 19:44+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1026,7 +1026,7 @@ msgstr "Порушує закон або містить матеріали, як
 
 #: src/amo/components/FeedbackForm/index.js:132
 msgid "Example: Copyright or Trademark Infringement, Fraud."
-msgstr "Наприклад: порушення авторських прав або торгової марки, шахрайство."
+msgstr "Наприклад: порушення авторських прав або торговельної марки, шахрайство."
 
 #: src/amo/components/FeedbackForm/index.js:138
 msgid "Something else"
@@ -1209,8 +1209,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
-"За винятком випадків %(startNotedLink)sзазначених тут%(endNotedLink)s, вміст цього сайту ліцензовано на умовах %(startLicenseLink)sліцензії Creative Commons Attribution Share-Alike License "
-"v3.0%(endLicenseLink)s, або будь-якою новішою версією. Android є торгівельною маркою компанії Google LLC."
+"Окрім випадків %(startNotedLink)sзазначених тут%(endNotedLink)s, вміст цього сайту ліцензовано на умовах %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s, "
+"або будь-якою новішою версією. Android є торговельною маркою компанії Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
