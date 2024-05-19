@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-04-09 05:02+0000\n"
+"PO-Revision-Date: 2024-05-19 02:32+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1091,27 +1091,27 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Nmanet ditt %(spanStart)s(valfritt)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:460
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Namnet ditt %(spanStart)s(påkravd)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "E-postadressa di %(spanStart)s(valfritt)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:500
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "E-postadressa di %(spanStart)s(påkravd)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:544
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
-msgstr ""
+msgstr "Ved å sende inn denne rapporten stadfestar eg, under straff for falsk forklaring, at påstandane han inneheld er fullstendige og nøyaktige, så vidt eg veit."
 
 #: src/amo/components/FeedbackForm/index.js:99
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr ""
+msgstr "Det fungerer ikkje, øydelegg nettstadar eller seinker farta på Firefox"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
