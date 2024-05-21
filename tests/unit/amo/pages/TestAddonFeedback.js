@@ -301,7 +301,7 @@ describe(__filename, () => {
 
     await userEvent.type(
       screen.getByRole('textbox', {
-        name: 'Provide more details (optional)',
+        name: 'Provide more details',
       }),
       defaultMessage,
     );
@@ -416,6 +416,30 @@ describe(__filename, () => {
         auth: false,
       }),
     );
+  });
+
+  it('feedbackText is required', async () => {
+    render();
+
+    /* expect this component to be rendered and have required property
+
+                  <Textarea
+                className="FeedbackForm-text"
+                id="feedbackText"
+                required
+                name="text"
+                onChange={this.onFieldChange}
+                value={this.state.text}
+                aria-describedby="feedbackText-help"
+              />
+    */
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Submit report' }),
+    );
+
+    expect(
+      screen.getByText('Please provide more details.'),
+    ).toBeInTheDocument();
   });
 
   it('hides the location field when the does_not_work category is selected', async () => {
@@ -564,7 +588,7 @@ describe(__filename, () => {
 
     await userEvent.type(
       screen.getByRole('textbox', {
-        name: 'Provide more details (optional)',
+        name: 'Provide more details',
       }),
       defaultMessage,
     );
@@ -639,7 +663,7 @@ describe(__filename, () => {
     );
     await userEvent.type(
       screen.getByRole('textbox', {
-        name: 'Provide more details (optional)',
+        name: 'Provide more details',
       }),
       defaultMessage,
     );
