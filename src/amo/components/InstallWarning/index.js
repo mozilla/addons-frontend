@@ -8,7 +8,6 @@ import type { AppState } from 'amo/store';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
-  CLIENT_APP_FIREFOX,
   EXCLUDE_WARNING_CATEGORIES,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -86,7 +85,6 @@ export class InstallWarningBase extends React.Component<InternalProps> {
     return (
       !correctedLocation &&
       isFirefox({ userAgentInfo }) &&
-      clientApp === CLIENT_APP_FIREFOX &&
       addon.type === ADDON_TYPE_EXTENSION &&
       (!promotedCategory ||
         !EXCLUDE_WARNING_CATEGORIES.includes(promotedCategory))

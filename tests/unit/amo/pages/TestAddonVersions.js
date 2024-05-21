@@ -978,6 +978,15 @@ describe(__filename, () => {
         expect(getInstallWarning()).toBeInTheDocument();
       });
 
+      it('returns true if the userAgent is Firefox, clientApp Android and the add-on is an extension and is not promoted', () => {
+        dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
+        renderWithAddonAndVersions({
+          location: `/${lang}/${CLIENT_APP_ANDROID}/addon/${defaultSlug}/versions/`,
+        });
+
+        expect(getInstallWarning()).toBeInTheDocument();
+      });
+
       it('returns false if the add-on is not an extension', () => {
         renderWithAddonAndVersions({
           addon: {
@@ -1030,20 +1039,6 @@ describe(__filename, () => {
           userAgent: userAgentsByPlatform.mac.chrome41,
         });
         renderWithAddonAndVersions();
-
-        expect(
-          screen.queryByText(
-            `This add-on is not actively monitored for security by Mozilla. ` +
-              `Make sure you trust it before installing.`,
-          ),
-        ).not.toBeInTheDocument();
-      });
-
-      it('returns false if the clientApp is Android', () => {
-        dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
-        renderWithAddonAndVersions({
-          location: `/${lang}/${CLIENT_APP_ANDROID}/addon/${defaultSlug}/versions/`,
-        });
 
         expect(
           screen.queryByText(
