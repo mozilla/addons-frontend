@@ -178,11 +178,31 @@ describe(__filename, () => {
 
     expect(
       screen.getByRole('link', {
-        name: 'Browse add-ons for Firefox for desktop',
+        name: 'Firefox for Android',
+      }),
+    ).toHaveAttribute(
+      'href',
+      `https://play.google.com/store/apps/details?${[
+        'id=org.mozilla.firefox',
+        `referrer=${encodeURIComponent(
+          [
+            'utm_campaign=amo-fx-cta',
+            'utm_content=banner-download-button',
+            'utm_medium=referral',
+            'utm_source=addons.mozilla.org',
+          ].join('&'),
+        )}`,
+      ].join('&')}`,
+    );
+    expect(screen.getByText(/To use Android extensions/)).toBeInTheDocument();
+
+    expect(
+      screen.getByRole('link', {
+        name: 'visit our desktop site',
       }),
     ).toHaveAttribute('href', newLocation);
     expect(
-      screen.getByText(/This listing is not intended for this platform./),
+      screen.getByText(/To explore Firefox for desktop add-ons, please/),
     ).toBeInTheDocument();
   });
 
