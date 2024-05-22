@@ -358,11 +358,11 @@ describe(__filename, () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole('link', {
-        name: 'Browse add-ons for Firefox for desktop',
+        name: 'visit our desktop site',
       }),
     ).toHaveAttribute('href', '/a/different/location/');
     expect(
-      screen.getByText(/This listing is not intended for this platform./),
+      screen.getByText(/To explore Firefox for desktop add-ons, please/),
     ).toBeInTheDocument();
   });
 

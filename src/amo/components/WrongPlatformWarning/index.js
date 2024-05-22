@@ -115,27 +115,6 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
           ],
         ],
       });
-    } else if (addon && newLocation) {
-      // User with desktop browser looking at detail page on mobile site.
-      message = replaceStringsWithJSX({
-        text: i18n.gettext(`This listing is not intended for this platform.
-          %(linkStart)sBrowse add-ons for Firefox for desktop%(linkEnd)s.`),
-        replacements: [
-          [
-            'linkStart',
-            'linkEnd',
-            (text) => (
-              <Link
-                to={newLocation}
-                prependClientApp={false}
-                prependLang={false}
-              >
-                {text}
-              </Link>
-            ),
-          ],
-        ],
-      });
     } else if (newLocation) {
       const overrideQueryParams = {
         // If there is a UTM campaign set on the visited AMO URL, pass it to
