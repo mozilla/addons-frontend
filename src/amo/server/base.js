@@ -404,10 +404,10 @@ function baseServer(
           _log.debug(oneLine`${req.method} -> ${responseStatusCode},
             redirecting=${isRedirecting} anonymous=${!token}:
             response should be cached.`);
-          res.append('Cache-Control', 's-maxage=180');
+          res.append('Cache-Control', 's-maxage=360');
           // The following is for backwards-compatibility until we have
           // switched nginx to obey Cache-Control instead.
-          res.set('X-Accel-Expires', '180');
+          res.set('X-Accel-Expires', '360');
         } else {
           _log.debug(oneLine`${req.method} -> ${responseStatusCode},
             redirecting=${isRedirecting} anonymous=${!token}:

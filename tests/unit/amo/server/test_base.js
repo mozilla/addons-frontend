@@ -203,7 +203,7 @@ describe(__filename, () => {
         store,
       }).get('/en-US/firefox/');
       expect(response.headers['cache-control']).toEqual(
-        'max-age=0, s-maxage=180',
+        'max-age=0, s-maxage=360',
       );
     });
 
@@ -636,9 +636,9 @@ describe(__filename, () => {
         sagaMiddleware,
         store,
       }).get('/en-US/firefox/');
-      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
+      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('360');
       expect(response.headers['cache-control']).toEqual(
-        'max-age=0, s-maxage=180',
+        'max-age=0, s-maxage=360',
       );
     });
 
@@ -738,9 +738,9 @@ describe(__filename, () => {
 
       expect(response.status).toEqual(301);
       expect(response.headers.location).toEqual(newURL);
-      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
+      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('360');
       expect(response.headers['cache-control']).toEqual(
-        'max-age=0, s-maxage=180',
+        'max-age=0, s-maxage=360',
       );
     });
   });
