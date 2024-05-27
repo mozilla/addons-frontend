@@ -1,5 +1,11 @@
 // Config specific to local development
-import { baseUrlDev, analyticsHost, apiDevHost, ga4ConnectHost, ga4Host } from './lib/shared';
+import {
+  apiDevHost,
+  baseUrlDev,
+  ga4AdditionalAnalyticsHost,
+  ga4AnalyticsHost,
+  ga4TagManagerHost,
+} from './lib/shared';
 
 const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
 const webpackServerPort = process.env.WEBPACK_SERVER_PORT || 3001;
@@ -42,12 +48,13 @@ module.exports = {
       connectSrc: [
         "'self'",
         baseUrlDev,
-        analyticsHost,
-        ga4ConnectHost,
         apiDevHost,
         webpackDevServer,
         // This is needed for pino-devtools.
         `${webpackServerHost}:3010`,
+        ga4AnalyticsHost,
+        ga4AdditionalAnalyticsHost,
+        ga4TagManagerHost,
       ],
       fontSrc: [
         webpackDevServer,
@@ -57,6 +64,8 @@ module.exports = {
         'data:',
         baseUrlDev,
         webpackDevServer,
+        ga4AnalyticsHost,
+        ga4TagManagerHost,
       ],
       scriptSrc: [
         "'self'",
@@ -64,8 +73,8 @@ module.exports = {
         "'unsafe-inline'",
         baseUrlDev,
         webpackDevServer,
-        `${analyticsHost}/analytics.js`,
-        `${ga4Host}/gtag/js`,
+        ga4AnalyticsHost,  // https://www.google-analytics.com/analytics.js
+        ga4TagManagerHost, // https://www.googletagmanager.com/gtag/js
       ],
       styleSrc: [
         "'self'",

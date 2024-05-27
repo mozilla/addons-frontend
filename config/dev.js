@@ -1,5 +1,15 @@
 // Config for the -dev server.
-import { analyticsHost, apiDevHost, baseUrlDev, devDomain, ga4ConnectHost, ga4Host, mediaPath, serverStaticPath, staticPath } from './lib/shared';
+import {
+  apiDevHost,
+  baseUrlDev,
+  devDomain,
+  ga4AdditionalAnalyticsHost,
+  ga4AnalyticsHost,
+  ga4TagManagerHost,
+  mediaPath,
+  serverStaticPath,
+  staticPath,
+} from './lib/shared';
 
 module.exports = {
   baseURL: baseUrlDev,
@@ -13,9 +23,10 @@ module.exports = {
     useDefaults: false,
     directives: {
       connectSrc: [
-        analyticsHost,
-        ga4ConnectHost,
         apiDevHost,
+        ga4AnalyticsHost,
+        ga4AdditionalAnalyticsHost,
+        ga4TagManagerHost,
       ],
       fontSrc: [
         `${baseUrlDev}${staticPath}`,
@@ -26,11 +37,13 @@ module.exports = {
         `${baseUrlDev}${mediaPath}`,
         `${baseUrlDev}${staticPath}`,
         `${baseUrlDev}${serverStaticPath}`,
+        ga4AnalyticsHost,
+        ga4TagManagerHost,
       ],
       scriptSrc: [
         `${baseUrlDev}${staticPath}`,
-        `${analyticsHost}/analytics.js`,
-        `${ga4Host}/gtag/js`,
+        ga4AnalyticsHost,  // https://www.google-analytics.com/analytics.js
+        ga4TagManagerHost, // https://www.googletagmanager.com/gtag/js
       ],
       styleSrc: [
         `${baseUrlDev}${staticPath}`,
