@@ -32,7 +32,7 @@ We can't `Vary` on a specific cookie, only the whole header, which would include
 
 ### Cache duration
 
-We currently return `180` as the number of seconds to cache responses. The CDN might potentially serve stale responses while it's populating the cache, so sometimes clients might see a cached response that is a bit older than that.
+We currently return `360` as the number of seconds to cache responses. The CDN might potentially serve stale responses while it's populating the cache, so sometimes clients might see a cached response that is a bit older than that.
 
 ### API
 
