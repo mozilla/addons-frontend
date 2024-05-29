@@ -358,6 +358,10 @@ describe(__filename, () => {
       }),
       defaultLocationLabel,
     );
+    await userEvent.type(
+      screen.getByRole('textbox', { name: 'Provide more details' }),
+      'Some details...',
+    );
     await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
     );
@@ -368,7 +372,7 @@ describe(__filename, () => {
         addonId: defaultAddonGUID,
         reporterEmail: email,
         reporterName: name,
-        message: '',
+        message: 'Some details...',
         reason: CATEGORY_SOMETHING_ELSE,
         location: defaultLocation,
         auth: true,
@@ -390,6 +394,10 @@ describe(__filename, () => {
       }),
       defaultLocationLabel,
     );
+    await userEvent.type(
+      screen.getByRole('textbox', { name: 'Provide more details' }),
+      'Some details...',
+    );
     await userEvent.click(
       screen.getByRole('checkbox', {
         name: certificationLabel,
@@ -410,7 +418,7 @@ describe(__filename, () => {
         addonId: defaultAddonGUID,
         reporterEmail: '',
         reporterName: '',
-        message: '',
+        message: 'Some details...',
         reason: CATEGORY_ILLEGAL,
         location: defaultLocation,
         auth: false,
@@ -421,25 +429,9 @@ describe(__filename, () => {
   it('feedbackText is required', async () => {
     render();
 
-    /* expect this component to be rendered and have required property
-
-                  <Textarea
-                className="FeedbackForm-text"
-                id="feedbackText"
-                required
-                name="text"
-                onChange={this.onFieldChange}
-                value={this.state.text}
-                aria-describedby="feedbackText-help"
-              />
-    */
-    await userEvent.click(
-      screen.getByRole('button', { name: 'Submit report' }),
-    );
-
     expect(
-      screen.getByText('Please provide more details.'),
-    ).toBeInTheDocument();
+      screen.getByRole('textbox', { name: 'Provide more details' }),
+    ).toHaveAttribute('required');
   });
 
   it('hides the location field when the does_not_work category is selected', async () => {
@@ -474,6 +466,10 @@ describe(__filename, () => {
         name: 'It doesn’t work, breaks websites, or slows down Firefox',
       }),
     );
+    await userEvent.type(
+      screen.getByRole('textbox', { name: 'Provide more details' }),
+      'Some details...',
+    );
     await userEvent.click(
       screen.getByRole('checkbox', {
         name: 'File report anonymously',
@@ -489,7 +485,7 @@ describe(__filename, () => {
         addonId: defaultAddonGUID,
         reporterEmail: '',
         reporterName: '',
-        message: '',
+        message: 'Some details...',
         reason: 'does_not_work',
         location: 'addon',
         auth: false,
@@ -533,6 +529,10 @@ describe(__filename, () => {
           name: certificationLabel,
         }),
       );
+      await userEvent.type(
+        screen.getByRole('textbox', { name: 'Provide more details' }),
+        'Some details...',
+      );
       await userEvent.click(
         screen.getByRole('checkbox', {
           name: 'File report anonymously',
@@ -548,7 +548,7 @@ describe(__filename, () => {
           addonId,
           reporterEmail: '',
           reporterName: '',
-          message: '',
+          message: 'Some details...',
           reason: CATEGORY_ILLEGAL,
           location: 'addon',
           auth: false,
