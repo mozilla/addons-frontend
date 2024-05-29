@@ -151,9 +151,6 @@ module.exports = {
         `${baseUrlProd}${mediaPath}`,
         `${baseUrlProd}${staticPath}`,
         `${baseUrlProd}${serverStaticPath}`,
-        // For backwards-compatibility, allow images to be served from the old
-        // dedicated domain for statics and user uploaded content:
-        'https://addons.cdn.mozilla.net/',
         ga4AnalyticsHost,
         ga4TagManagerHost,
       ],
@@ -163,8 +160,8 @@ module.exports = {
       // Script is limited to the static path
       scriptSrc: [
         `${baseUrlProd}${staticPath}`,
-        ga4AnalyticsHost,  // https://www.google-analytics.com/analytics.js
-        ga4TagManagerHost, // https://www.googletagmanager.com/gtag/js
+        ga4AnalyticsHost,
+        ga4TagManagerHost,
       ],
       styleSrc: [
         `${baseUrlProd}${staticPath}`,

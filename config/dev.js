@@ -42,8 +42,8 @@ module.exports = {
       ],
       scriptSrc: [
         `${baseUrlDev}${staticPath}`,
-        ga4AnalyticsHost,  // https://www.google-analytics.com/analytics.js
-        ga4TagManagerHost, // https://www.googletagmanager.com/gtag/js
+        ga4AnalyticsHost,
+        ga4TagManagerHost,
       ],
       styleSrc: [
         `${baseUrlDev}${staticPath}`,
