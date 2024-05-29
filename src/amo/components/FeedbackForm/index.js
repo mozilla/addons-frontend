@@ -397,12 +397,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               )}
 
               <label className="FeedbackForm-label" htmlFor="feedbackText">
-                {replaceStringsWithJSX({
-                  text: i18n.gettext('Provide more details'),
-                  replacements: [
-                    ['spanStart', 'spanEnd', (text) => <span>{text}</span>],
-                  ],
-                })}
+                {i18n.gettext('Provide more details')}
               </label>
               <Textarea
                 className="FeedbackForm-text"
