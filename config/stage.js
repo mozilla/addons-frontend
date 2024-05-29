@@ -1,5 +1,15 @@
 // Config for the stage server.
-import { analyticsHost, apiStageHost, baseUrlStage, ga4ConnectHost, ga4Host, mediaPath, serverStaticPath, stageDomain, staticPath } from './lib/shared';
+import {
+  apiStageHost,
+  baseUrlStage,
+  ga4AdditionalAnalyticsHost,
+  ga4AnalyticsHost,
+  ga4TagManagerHost,
+  mediaPath,
+  serverStaticPath,
+  stageDomain,
+  staticPath,
+} from './lib/shared';
 
 module.exports = {
   baseURL: baseUrlStage,
@@ -12,9 +22,10 @@ module.exports = {
     useDefaults: false,
     directives: {
       connectSrc: [
-        analyticsHost,
-        ga4ConnectHost,
         apiStageHost,
+        ga4AnalyticsHost,
+        ga4AdditionalAnalyticsHost,
+        ga4TagManagerHost,
       ],
       fontSrc: [
         `${baseUrlStage}${staticPath}`,
@@ -25,11 +36,13 @@ module.exports = {
         `${baseUrlStage}${mediaPath}`,
         `${baseUrlStage}${staticPath}`,
         `${baseUrlStage}${serverStaticPath}`,
+        ga4AnalyticsHost,
+        ga4TagManagerHost,
       ],
       scriptSrc: [
         `${baseUrlStage}${staticPath}`,
-        `${analyticsHost}/analytics.js`,
-        `${ga4Host}/gtag/js`,
+        ga4AnalyticsHost,
+        ga4TagManagerHost,
       ],
       styleSrc: [
         `${baseUrlStage}${staticPath}`,

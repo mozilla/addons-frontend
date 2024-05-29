@@ -4,7 +4,17 @@
 
 import path from 'path';
 
-import { analyticsHost, ga4ConnectHost, ga4Host, prodDomain, apiProdHost, baseUrlProd, mediaPath, serverStaticPath, staticPath } from './lib/shared';
+import {
+  apiProdHost,
+  baseUrlProd,
+  ga4AdditionalAnalyticsHost,
+  ga4AnalyticsHost,
+  ga4TagManagerHost,
+  mediaPath,
+  prodDomain,
+  serverStaticPath,
+  staticPath,
+} from './lib/shared';
 
 const basePath = path.resolve(__dirname, '../');
 
@@ -124,7 +134,12 @@ module.exports = {
       defaultSrc: ["'none'"],
       baseUri: ["'self'"],
       childSrc: ["'none'"],
-      connectSrc: [analyticsHost, ga4ConnectHost, apiProdHost],
+      connectSrc: [
+        apiProdHost,
+        ga4AnalyticsHost,
+        ga4AdditionalAnalyticsHost,
+        ga4TagManagerHost,
+      ],
       fontSrc: [
         `${baseUrlProd}${staticPath}`,
       ],
@@ -136,9 +151,8 @@ module.exports = {
         `${baseUrlProd}${mediaPath}`,
         `${baseUrlProd}${staticPath}`,
         `${baseUrlProd}${serverStaticPath}`,
-        // For backwards-compatibility, allow images to be served from the old
-        // dedicated domain for statics and user uploaded content:
-        'https://addons.cdn.mozilla.net/',
+        ga4AnalyticsHost,
+        ga4TagManagerHost,
       ],
       manifestSrc: ["'none'"],
       mediaSrc: ["'none'"],
@@ -146,8 +160,8 @@ module.exports = {
       // Script is limited to the static path
       scriptSrc: [
         `${baseUrlProd}${staticPath}`,
-        `${analyticsHost}/analytics.js`,
-        `${ga4Host}/gtag/js`,
+        ga4AnalyticsHost,
+        ga4TagManagerHost,
       ],
       styleSrc: [
         `${baseUrlProd}${staticPath}`,
