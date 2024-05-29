@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-29 13:41+0000\n"
+"PO-Revision-Date: 2024-05-29 13:43+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1151,7 +1151,7 @@ msgstr "Feilplassert feilrapport eller kundestøtteførespurnad"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Flagga som feilplassert feilrapport eller kundestøtteførespurnad"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
@@ -2169,7 +2169,7 @@ msgstr "Skjermbilde"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Send tilbakemelding eller rapporter eit tillegg til Mozilla"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2253,7 +2253,7 @@ msgstr "Versjonar blokkerte: Alle versjonar"
 
 #: src/amo/pages/Block/index.js:124
 msgid "Versions blocked: %(versions)s."
-msgstr ""
+msgstr "Versjonar blokkerte: %(versions)s."
 
 #: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
@@ -2318,7 +2318,7 @@ msgstr "Slett denne samlinga"
 
 #: src/amo/pages/Collection/index.js:421
 msgid "You reported this collection"
-msgstr ""
+msgstr "Du rapporterte denne samlinga"
 
 #: src/amo/pages/Collection/index.js:425
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
@@ -2362,11 +2362,11 @@ msgstr "av %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:161
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Rapporter denne samlinga til Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:162
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Send tilbakemelding om samlinga"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
