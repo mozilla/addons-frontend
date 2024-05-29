@@ -297,6 +297,10 @@ describe(__filename, () => {
     await userEvent.click(
       screen.getByRole('radio', { name: 'Something else' }),
     );
+    await userEvent.type(
+      screen.getByRole('textbox', { name: 'Provide more details' }),
+      'Some details...',
+    );
     await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
     );
@@ -307,7 +311,7 @@ describe(__filename, () => {
         errorHandlerId: getErrorHandlerId(authorId, collectionSlug),
         reporterEmail: signedInEmail,
         reporterName: signedInName,
-        message: '',
+        message: 'Some details...',
         reason: CATEGORY_SOMETHING_ELSE,
         auth: true,
       }),
@@ -330,6 +334,10 @@ describe(__filename, () => {
     await userEvent.click(
       screen.getByRole('radio', { name: 'Something else' }),
     );
+    await userEvent.type(
+      screen.getByRole('textbox', { name: 'Provide more details' }),
+      'Some details...',
+    );
     await userEvent.click(
       screen.getByRole('checkbox', {
         name: 'File report anonymously',
@@ -345,7 +353,7 @@ describe(__filename, () => {
         errorHandlerId: getErrorHandlerId(authorId, collectionSlug),
         reporterEmail: '',
         reporterName: '',
-        message: '',
+        message: 'Some details...',
         reason: CATEGORY_SOMETHING_ELSE,
         auth: false,
       }),
@@ -471,6 +479,10 @@ describe(__filename, () => {
         name: 'File report anonymously',
       }),
     );
+    await userEvent.type(
+      screen.getByRole('textbox', { name: 'Provide more details' }),
+      'Some details...',
+    );
     await userEvent.click(
       screen.getByRole('button', { name: 'Submit report' }),
     );
@@ -481,7 +493,7 @@ describe(__filename, () => {
         errorHandlerId: getErrorHandlerId(authorId, collectionSlug),
         reporterEmail: '',
         reporterName: '',
-        message: '',
+        message: 'Some details...',
         reason: CATEGORY_FEEDBACK_SPAM,
         auth: false,
       }),
@@ -543,6 +555,10 @@ describe(__filename, () => {
       screen.getByRole('checkbox', {
         name: 'File report anonymously',
       }),
+    );
+    await userEvent.type(
+      screen.getByRole('textbox', { name: 'Provide more details' }),
+      'Some details...',
     );
 
     expect(
