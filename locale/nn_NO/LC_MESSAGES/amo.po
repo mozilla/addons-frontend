@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-29 13:43+0000\n"
+"PO-Revision-Date: 2024-05-29 15:31+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2370,7 +2370,7 @@ msgstr "Send tilbakemelding om samlinga"
 
 #: src/amo/pages/CollectionFeedback/index.js:165
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Rapporter samlinga fordi ho er ulovleg eller inkompatibel"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2410,7 +2410,7 @@ msgstr "Firefox for Android-utvidingar"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "Tilpass Firefox for Android med kraftige utvidingar."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2522,7 +2522,7 @@ msgstr "Ordbøker"
 
 #: src/amo/pages/RatingFeedback/index.js:115
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Send tilbakemelding eller rapporter ei vurdering til Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:145
 msgid "by %(userName)s, %(timestamp)s"
@@ -2534,7 +2534,7 @@ msgstr "Rapporter denne vurderinga til Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:165
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Rapporter vurderinga fordi ho er ulovleg eller inkompatibel"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2806,7 +2806,7 @@ msgstr "Tillegg merkte med etiketten %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:114
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Send tilbakemelding eller rapporter ein brukar til Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:133 src/amo/pages/UserProfile/index.js:381
 msgid "User since"
@@ -2818,7 +2818,7 @@ msgstr "Rapporter denne brukaren til Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "Send tilbakemeldingar om brukarprofilen"
 
 #: src/amo/pages/UserFeedback/index.js:148
 msgid "Report the user profile because it's illegal or incompliant"
