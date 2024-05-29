@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-29 18:52+0000\n"
+"PO-Revision-Date: 2024-05-29 18:56+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1087,7 +1087,7 @@ msgstr "Send inn rapport anonymt"
 
 #: src/amo/components/FeedbackForm/index.js:436
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Ved å sende inn ein anonym rapport hindrar dyu oss i å kommunisere med deg om status på rapporten, eller om eventuelle klagemulegheiter."
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
@@ -2324,7 +2324,7 @@ msgstr "Du rapporterte denne samlinga"
 
 #: src/amo/pages/Collection/index.js:425
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Vi har fått rapporten din. Takk fordi du deler bekymringane dine med oss om denne samlinga."
 
 #: src/amo/pages/Collection/index.js:439
 msgid "Report this collection"
