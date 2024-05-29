@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-05-29 15:31+0000\n"
+"PO-Revision-Date: 2024-05-29 15:36+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1033,7 +1033,7 @@ msgstr "Velg plass"
 
 #: src/amo/components/FeedbackForm/index.js:153
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "På sida for tillegg på denne nettstaden"
 
 #: src/amo/components/FeedbackForm/index.js:156
 msgid "Inside the add-on"
@@ -2818,11 +2818,11 @@ msgstr "Rapporter denne brukaren til Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:145
 msgid "Send some feedback about the user profile"
-msgstr "Send tilbakemeldingar om brukarprofilen"
+msgstr "Send tilbakemelding om brukarprofilen"
 
 #: src/amo/pages/UserFeedback/index.js:148
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "Rapporter brukarprofilen fordi han er ulovleg eller inkompatibel"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
@@ -2963,7 +2963,7 @@ msgstr "E-postadressa kan ikkje endrast her"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Du kan endre e-postadressa di på Mozilla-kontoar. %(startLink)sTreng du hjelp?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
