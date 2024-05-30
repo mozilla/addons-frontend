@@ -34,6 +34,11 @@ export type MozAddonManagerType = {|
   addEventListener: (eventName: string, handler: Function) => void,
   createInstall: ({| url: string, hash?: string | null |}) => Promise<any>,
   getAddonByID: (guid: string) => Promise<FirefoxAddon>,
+  sendAbuseReport: (
+    addonId: string,
+    data: { [key: string]: string | null },
+    options?: { authorization?: string | null },
+  ) => Promise<any>,
 |};
 
 type PrivilegedNavigatorType = {|
@@ -254,4 +259,23 @@ export function enable(
     }
     throw new Error(SET_ENABLE_NOT_AVAILABLE);
   });
+}
+
+export function canSendAbuseReports({
+  _mozAddonManager = window.navigator.mozAddonManager,
+}: OptionalParams = {}): boolean {
+  return typeof _mozAddonManager?.sendAbuseReport === 'function';
+}
+
+export function sendAbuseReport(
+  addonId: string,
+  data: { [key: string]: string | null },
+  options?: { authorization?: string | null },
+  { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
+): Promise<any> {
+  if (canSendAbuseReports({ _mozAddonManager })) {
+    return _mozAddonManager.sendAbuseReport(addonId, data, options);
+  }
+
+  return Promise.reject(new Error('cannot send abuse reports via Firefox'));
 }

@@ -45,6 +45,7 @@ describe(__filename, () => {
       createInstall: sinon.stub().returns(Promise.resolve(fakeInstallObj)),
       getAddonByID: sinon.stub(),
       addEventListener: sinon.stub(),
+      sendAbuseReport: sinon.stub(),
     };
   });
 
@@ -369,6 +370,38 @@ describe(__filename, () => {
         .then(unexpectedSuccess, (err) => {
           expect(err.message).toEqual(SET_ENABLE_NOT_AVAILABLE);
         });
+    });
+  });
+
+  describe('sendAbuseReport', () => {
+    it('rejects when mozAddonManager.sendAbuseReport is not available', () => {
+      delete fakeMozAddonManager.sendAbuseReport;
+
+      return addonManager
+        .sendAbuseReport(
+          'addon-id',
+          /* data */ {},
+          /* options */ {},
+          {
+            _mozAddonManager: fakeMozAddonManager,
+          },
+        )
+        .then(unexpectedSuccess, (err) =>
+          expect(err.message).toEqual('cannot send abuse reports via Firefox'),
+        );
+    });
+
+    it('calls mozAddonManager.sendAbuseReport when available', async () => {
+      fakeMozAddonManager.sendAbuseReport.returns(Promise.resolve('ok'));
+
+      const res = await addonManager.sendAbuseReport(
+        'addon-id',
+        /* data */ {},
+        /* options */ {},
+        { _mozAddonManager: fakeMozAddonManager },
+      );
+
+      expect(res).toEqual('ok');
     });
   });
 });

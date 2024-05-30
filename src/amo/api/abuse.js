@@ -25,15 +25,18 @@ export type AbuseReporter = {|
 export type ReportAddonParams = {|
   addonId: string,
   api: ApiState,
-  reporterName: string | null,
-  reporterEmail: string | null,
+  reporter_name: string | null,
+  reporter_email: string | null,
   message: string | null,
   reason: string | null,
   location: string | null,
-  addonVersion: string | null,
+  addon_version: string | null,
   auth: boolean,
 |};
 
+// We are using snake case in this type because it makes it easier to share
+// the same set of parameters between the `mozAddonManager.sendAbuseReport()`
+// method and the direct API call (`reportAddon()` below).
 export type ReportAddonResponse = {|
   addon: {|
     guid: string,
@@ -52,12 +55,12 @@ export type ReportAddonResponse = {|
 export function reportAddon({
   addonId,
   api,
-  reporterName,
-  reporterEmail,
+  reporter_name,
+  reporter_email,
   message,
   reason,
   location,
-  addonVersion,
+  addon_version,
   auth,
 }: ReportAddonParams): Promise<ReportAddonResponse> {
   return callApi({
@@ -66,12 +69,12 @@ export function reportAddon({
     method: 'POST',
     body: {
       addon: addonId,
-      reporter_email: reporterEmail,
-      reporter_name: reporterName,
+      reporter_email,
+      reporter_name,
       message,
       reason,
       location,
-      addon_version: addonVersion,
+      addon_version,
       lang: api.lang,
     },
     apiState: api,

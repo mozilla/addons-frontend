@@ -1,6 +1,7 @@
 /* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
+import * as addonManager from 'amo/addonManager';
 import { reportAddon as reportAddonApi } from 'amo/api/abuse';
 import log from 'amo/logger';
 import {
@@ -36,15 +37,38 @@ export function* reportAddon({
     const params: ReportAddonParams = {
       addonId,
       api: state.api,
-      reporterName: reporterName || null,
-      reporterEmail: reporterEmail || null,
+      reporter_name: reporterName || null,
+      reporter_email: reporterEmail || null,
       message,
       reason: reason || null,
       location: location || null,
-      addonVersion: addonVersion || null,
+      addon_version: addonVersion || null,
       auth,
     };
-    const response = yield call(reportAddonApi, params);
+    let response;
+
+    if (addonManager.canSendAbuseReports()) {
+      const { addonId: _addonId, api, auth: _auth, ...data } = params;
+
+      let reportData = data;
+      if (api.lang) {
+        reportData = { ...reportData, lang: api.lang };
+      }
+
+      const options = {};
+      if (_auth && api.token) {
+        options.authorization = `Session ${api.token}`;
+      }
+
+      response = yield call(
+        addonManager.sendAbuseReport,
+        addonId,
+        reportData,
+        options,
+      );
+    } else {
+      response = yield call(reportAddonApi, params);
+    }
 
     // Update the response for non-public add-ons so that the rest of our
     // (redux) logic isn't confused by the lack of information.
