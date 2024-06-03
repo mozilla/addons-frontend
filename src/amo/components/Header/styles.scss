@@ -177,7 +177,10 @@
 
   .DropdownMenu-button {
     display: flex;
+    position: relative; /* Add this line to make the dropdown relative to its container */
     padding: 0;
+    overflow-y: auto;
+    max-height: 200px;
   }
 
   @include respond-to(medium) {
