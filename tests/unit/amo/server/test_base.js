@@ -88,8 +88,6 @@ const NotFoundApp = () => (
   </div>
 );
 
-const X_ACCEL_EXPIRES_HEADER = 'x-accel-expires'; // Has to be in lowercase
-
 // eslint-disable-next-line jest/no-export
 export class ServerTestHelper {
   constructor() {
@@ -636,7 +634,6 @@ describe(__filename, () => {
         sagaMiddleware,
         store,
       }).get('/en-US/firefox/');
-      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('360');
       expect(response.headers['cache-control']).toEqual(
         'max-age=0, s-maxage=360',
       );
@@ -652,7 +649,6 @@ describe(__filename, () => {
       })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="foo"`);
-      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
       expect(response.headers['cache-control']).toEqual(
         'max-age=0, s-maxage=0',
       );
@@ -666,7 +662,6 @@ describe(__filename, () => {
         sagaMiddleware,
         store,
       }).post('/en-US/firefox/');
-      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
       expect(response.headers['cache-control']).toEqual(
         'max-age=0, s-maxage=0',
       );
@@ -677,7 +672,6 @@ describe(__filename, () => {
         '/en-US/firefox/simulation-of-a-non-existent-page/',
       );
       expect(response.statusCode).toEqual(404);
-      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
       expect(response.headers['cache-control']).toEqual(
         'max-age=0, s-maxage=0',
       );
@@ -692,7 +686,6 @@ describe(__filename, () => {
         '/en-US/firefox/',
       );
       expect(response.statusCode).toEqual(500);
-      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
       expect(response.headers['cache-control']).toEqual('max-age=0');
     });
 
@@ -738,7 +731,6 @@ describe(__filename, () => {
 
       expect(response.status).toEqual(301);
       expect(response.headers.location).toEqual(newURL);
-      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('360');
       expect(response.headers['cache-control']).toEqual(
         'max-age=0, s-maxage=360',
       );
