@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-03-12 20:07+0000\n"
-"PO-Revision-Date: 2024-06-14 16:39+0000\n"
+"PO-Revision-Date: 2024-06-14 16:53+0000\n"
 "Last-Translator: Joergen <joradan0@gmail.com>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -244,9 +244,8 @@ msgid "Visit stats dashboard"
 msgstr "Besøg statistikoversigt"
 
 #: src/amo/components/AddonMoreInfo/index.js:171
-#, fuzzy
 msgid "Custom License"
-msgstr "Licens"
+msgstr "Tilpasset licens"
 
 #. This will output, in English: "2 months ago (Dec 12 2016)"
 #: src/amo/components/AddonMoreInfo/index.js:215
@@ -602,7 +601,7 @@ msgstr "Kildekode udgivet under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr ""
+msgstr "Kildekode udgivet under %(linkStart)stilpasset licens%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
@@ -2185,7 +2184,7 @@ msgstr ""
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
-msgstr ""
+msgstr "Tilpasset licens for %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
