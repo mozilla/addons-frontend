@@ -601,9 +601,8 @@ msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "Kildekode udgivet under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr "Kildekode udgivet under %(linkStart)s%(licenseName)s%(linkEnd)s"
+msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
