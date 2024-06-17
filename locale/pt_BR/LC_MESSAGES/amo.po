@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-12 20:07+0000\n"
+"POT-Creation-Date: 2024-06-17 10:09+0000\n"
 "PO-Revision-Date: 2023-12-04 11:42+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
@@ -65,7 +65,7 @@ msgstr "Avaliar código da extensão"
 msgid "Admin Links"
 msgstr "Links de administração"
 
-#. This action allows the add-on developer or an admin to edit an add-on's properties.
+#. This action allows the add-on developer to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -1098,7 +1098,11 @@ msgstr "Análise de %(userName)s"
 msgid "The review was not found."
 msgstr "A análise não foi encontrada."
 
-#: src/amo/components/FeedbackForm/index.js:102
+#: src/amo/components/FeedbackForm/index.js:103
+msgid "It doesn’t work, breaks websites, or slows down Firefox"
+msgstr "Não funciona, atrapalha sites, ou faz o Firefox ficar mais lento"
+
+#: src/amo/components/FeedbackForm/index.js:106
 msgid ""
 "Example: Features are slow, hard to use, or don’t work; parts of websites "
 "won't load or look unusual."
@@ -1106,19 +1110,19 @@ msgstr ""
 "Exemplo: recursos são lentos, difíceis de usar, ou não funcionam; partes de "
 "sites não são carregadas ou aparecem erradas."
 
-#: src/amo/components/FeedbackForm/index.js:107
+#: src/amo/components/FeedbackForm/index.js:111
 msgid "It’s spam"
 msgstr "É spam"
 
-#: src/amo/components/FeedbackForm/index.js:108
+#: src/amo/components/FeedbackForm/index.js:112
 msgid "Example: The listing advertises unrelated products or services."
 msgstr "Exemplo: a descrição anuncia produtos ou serviços não relacionados."
 
-#: src/amo/components/FeedbackForm/index.js:116
+#: src/amo/components/FeedbackForm/index.js:120
 msgid "It violates Add-on Policies"
 msgstr "Viola diretrizes de extensões"
 
-#: src/amo/components/FeedbackForm/index.js:117
+#: src/amo/components/FeedbackForm/index.js:121
 msgid ""
 "Example: It compromised my data without informing or asking me, or it "
 "changed my search engine or home page without informing or asking me."
@@ -1126,76 +1130,80 @@ msgstr ""
 "Exemplo: comprometeu meus dados sem me informar ou perguntar, ou mudou meu "
 "mecanismo de pesquisa ou página inicial sem me informar ou perguntar."
 
-#: src/amo/components/FeedbackForm/index.js:123
+#: src/amo/components/FeedbackForm/index.js:127
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr ""
 "Contém conteúdo de ódio, violento, enganoso ou outro conteúdo inadequado"
 
-#: src/amo/components/FeedbackForm/index.js:125
+#: src/amo/components/FeedbackForm/index.js:129
 msgid "Example: It contains racist imagery."
 msgstr "Exemplo: contém imagens racistas."
 
-#: src/amo/components/FeedbackForm/index.js:129
+#: src/amo/components/FeedbackForm/index.js:133
 msgid "It violates the law or contains content that violates the law"
 msgstr "Viola a lei ou tem conteúdo que viola a lei"
 
-#: src/amo/components/FeedbackForm/index.js:132
-msgid "Example: Copyright or Trademark Infringement, Fraud."
-msgstr "Exemplo: violação de direitos autorais ou marcas registradas, fraude."
+#: src/amo/components/FeedbackForm/index.js:137
+msgid ""
+"Example: Fraud. (If you wish to report a copyright or trademark "
+"infringement, you can learn more about how to do so in our "
+"%(startLink)sCopyright or Trademark Infringement Reporting "
+"article%(endLink)s)."
+msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:138
+#: src/amo/components/FeedbackForm/index.js:149
 msgid "Something else"
 msgstr "Outra coisa"
 
-#: src/amo/components/FeedbackForm/index.js:139
+#: src/amo/components/FeedbackForm/index.js:150
 msgid "Anything that doesn’t fit into the other categories."
 msgstr "Qualquer coisa que não se enquadre nas outras categorias."
 
-#: src/amo/components/FeedbackForm/index.js:151
+#: src/amo/components/FeedbackForm/index.js:162
 msgid "Select place"
 msgstr "Selecionar lugar"
 
-#: src/amo/components/FeedbackForm/index.js:153
+#: src/amo/components/FeedbackForm/index.js:164
 msgid "On the add-on's page on this website"
 msgstr "Na página da extensão neste site"
 
-#: src/amo/components/FeedbackForm/index.js:156
+#: src/amo/components/FeedbackForm/index.js:167
 msgid "Inside the add-on"
 msgstr "Dentro da extensão"
 
-#: src/amo/components/FeedbackForm/index.js:157
+#: src/amo/components/FeedbackForm/index.js:168
 msgid "Both locations"
 msgstr "Ambos os locais"
 
-#: src/amo/components/FeedbackForm/index.js:246
+#: src/amo/components/FeedbackForm/index.js:257
 msgid "Report submitted"
 msgstr "Denúncia enviada"
 
-#: src/amo/components/FeedbackForm/index.js:248
+#: src/amo/components/FeedbackForm/index.js:259
 msgid "We have received your report. Thanks for letting us know."
 msgstr "Recebemos sua denúncia. Obrigado por nos avisar."
 
-#: src/amo/components/FeedbackForm/index.js:343
+#: src/amo/components/FeedbackForm/index.js:354
 msgid "Submitting your report…"
 msgstr "Enviando sua denúncia…"
 
-#: src/amo/components/FeedbackForm/index.js:344
+#: src/amo/components/FeedbackForm/index.js:355
 msgid "Submit report"
 msgstr "Enviar denúncia"
 
-#: src/amo/components/FeedbackForm/index.js:363
+#: src/amo/components/FeedbackForm/index.js:374
 msgid "Provide more information"
 msgstr "Forneça mais informações"
 
-#: src/amo/components/FeedbackForm/index.js:371
+#: src/amo/components/FeedbackForm/index.js:382
 msgid "Place of the violation"
 msgstr "Local da violação"
 
-#: src/amo/components/FeedbackForm/index.js:390
-msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
-msgstr "Forneça mais detalhes %(spanStart)s(opcional)%(spanEnd)s"
+#: src/amo/components/FeedbackForm/index.js:400
+msgid "Provide more details"
+msgstr "Forneça mais detalhes"
 
-#: src/amo/components/FeedbackForm/index.js:407
+#: src/amo/components/FeedbackForm/index.js:412
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1207,15 +1215,15 @@ msgstr ""
 "Embora essas informações não sejam obrigatórias, a não inclusão delas pode "
 "nos impedir de abordar o conteúdo denunciado."
 
-#: src/amo/components/FeedbackForm/index.js:417
+#: src/amo/components/FeedbackForm/index.js:422
 msgid "Contact information"
 msgstr "Informações de contato"
 
-#: src/amo/components/FeedbackForm/index.js:433
+#: src/amo/components/FeedbackForm/index.js:438
 msgid "File report anonymously"
 msgstr "Fazer denúncia sem se identificar"
 
-#: src/amo/components/FeedbackForm/index.js:436
+#: src/amo/components/FeedbackForm/index.js:441
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1223,23 +1231,23 @@ msgstr ""
 "Fazer uma denúncia anônima nos impedirá de nos comunicar com você sobre a "
 "situação da denúncia ou sobre quaisquer opções de recurso."
 
-#: src/amo/components/FeedbackForm/index.js:457
+#: src/amo/components/FeedbackForm/index.js:462
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Seu nome %(spanStart)s(opcional)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:460
+#: src/amo/components/FeedbackForm/index.js:465
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "Seu nome %(spanStart)s(obrigatório)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:497
+#: src/amo/components/FeedbackForm/index.js:502
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Seu endereço de email %(spanStart)s(opcional)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:500
+#: src/amo/components/FeedbackForm/index.js:505
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "Seu endereço de email %(spanStart)s(obrigatório)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:544
+#: src/amo/components/FeedbackForm/index.js:549
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -1247,10 +1255,6 @@ msgid ""
 msgstr ""
 "Ao enviar esta denúncia certifico, sob pena de perjúrio, que as alegações "
 "nela contidas são completas e precisas, até onde tenho conhecimento."
-
-#: src/amo/components/FeedbackForm/index.js:99
-msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr "Não funciona, atrapalha sites, ou faz o Firefox ficar mais lento"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
@@ -1386,7 +1390,7 @@ msgstr ""
 "Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125
-#: src/amo/components/WrongPlatformWarning/index.js:148
+#: src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
 "Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
@@ -1551,12 +1555,12 @@ msgstr "Certificado"
 msgid "Download file"
 msgstr "Baixar arquivo"
 
-#: src/amo/components/InstallWarning/index.js:104
+#: src/amo/components/InstallWarning/index.js:102
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "Saiba mais"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:106
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -2331,14 +2335,6 @@ msgid ""
 msgstr ""
 "Para encontrar extensões compatíveis com o Firefox para Android, "
 "%(linkStart)sclique aqui%(linkEnd)s."
-
-#: src/amo/components/WrongPlatformWarning/index.js:121
-msgid ""
-"This listing is not intended for this platform. %(linkStart)sBrowse add-ons "
-"for Firefox for desktop%(linkEnd)s."
-msgstr ""
-"Esta listagem não se destina a esta plataforma. %(linkStart)sVeja extensões "
-"para o Firefox de computador%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid ""
@@ -3714,6 +3710,20 @@ msgstr "a compatibilidade da minha extensão não pôde ser atualizada"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a compatibilidade da minha extensão foi atualizada com sucesso"
 
+#~ msgid "Example: Copyright or Trademark Infringement, Fraud."
+#~ msgstr ""
+#~ "Exemplo: violação de direitos autorais ou marcas registradas, fraude."
+
+#~ msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
+#~ msgstr "Forneça mais detalhes %(spanStart)s(opcional)%(spanEnd)s"
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. %(linkStart)sBrowse add-"
+#~ "ons for Firefox for desktop%(linkEnd)s."
+#~ msgstr ""
+#~ "Esta listagem não se destina a esta plataforma. %(linkStart)sVeja "
+#~ "extensões para o Firefox de computador%(linkEnd)s."
+
 #~ msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
 #~ msgstr "Local da violação %(spanStart)s(opcional)%(spanEnd)s"
 
@@ -3833,9 +3843,6 @@ msgstr "a compatibilidade da minha extensão foi atualizada com sucesso"
 
 #~ msgid "optional"
 #~ msgstr "opcional"
-
-#~ msgid "Provide more details"
-#~ msgstr "Forneça mais detalhes"
 
 #~ msgid "Your name"
 #~ msgstr "Seu nome"

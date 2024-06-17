@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-12 20:07+0000\n"
+"POT-Creation-Date: 2024-06-17 10:09+0000\n"
 "PO-Revision-Date: 2024-01-24 12:53+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -65,7 +65,7 @@ msgstr "סקירת קוד תוספת"
 msgid "Admin Links"
 msgstr "קישורים למנהלי מערכת"
 
-#. This action allows the add-on developer or an admin to edit an add-on's properties.
+#. This action allows the add-on developer to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -1079,7 +1079,11 @@ msgstr "סקירה מאת %(userName)s"
 msgid "The review was not found."
 msgstr "הסקירה לא נמצאה."
 
-#: src/amo/components/FeedbackForm/index.js:102
+#: src/amo/components/FeedbackForm/index.js:103
+msgid "It doesn’t work, breaks websites, or slows down Firefox"
+msgstr "היא לא עובדת, גורמת לאתרים לא לעבוד, או מאטה את Firefox"
+
+#: src/amo/components/FeedbackForm/index.js:106
 msgid ""
 "Example: Features are slow, hard to use, or don’t work; parts of websites "
 "won't load or look unusual."
@@ -1087,19 +1091,19 @@ msgstr ""
 "לדוגמה, תכונות איטיות, קשה לשימוש או שאינה פועלת; חלקים מאתרי אינטרנט לא "
 "נטענים או לא נראים כשורה."
 
-#: src/amo/components/FeedbackForm/index.js:107
+#: src/amo/components/FeedbackForm/index.js:111
 msgid "It’s spam"
 msgstr "זה ספאם"
 
-#: src/amo/components/FeedbackForm/index.js:108
+#: src/amo/components/FeedbackForm/index.js:112
 msgid "Example: The listing advertises unrelated products or services."
 msgstr "לדוגמה, הרשומה מפרסמת מוצרים או שירותים שאינם קשורים."
 
-#: src/amo/components/FeedbackForm/index.js:116
+#: src/amo/components/FeedbackForm/index.js:120
 msgid "It violates Add-on Policies"
 msgstr "היא מפרה את מדיניות התוספות"
 
-#: src/amo/components/FeedbackForm/index.js:117
+#: src/amo/components/FeedbackForm/index.js:121
 msgid ""
 "Example: It compromised my data without informing or asking me, or it "
 "changed my search engine or home page without informing or asking me."
@@ -1107,75 +1111,79 @@ msgstr ""
 "לדוגמה, היא פגעה בנתונים שלי מבלי ליידע או לשאול אותי, או שהיא שינתה את מנוע "
 "החיפוש, דף הבית או הלשונית החדשה שלי מבלי ליידע או לשאול אותי."
 
-#: src/amo/components/FeedbackForm/index.js:123
+#: src/amo/components/FeedbackForm/index.js:127
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr "היא מכילה תוכן של שנאה, אלימות, תוכן מטעה או תוכן בלתי הולם אחר"
 
-#: src/amo/components/FeedbackForm/index.js:125
+#: src/amo/components/FeedbackForm/index.js:129
 msgid "Example: It contains racist imagery."
 msgstr "לדוגמה, היא מכילה תמונות גזעניות."
 
-#: src/amo/components/FeedbackForm/index.js:129
+#: src/amo/components/FeedbackForm/index.js:133
 msgid "It violates the law or contains content that violates the law"
 msgstr "היא מפרה את החוק או שמגילה תוכן שמפר את החוק"
 
-#: src/amo/components/FeedbackForm/index.js:132
-msgid "Example: Copyright or Trademark Infringement, Fraud."
-msgstr "לדוגמה, הפרת זכויות יוצרים, הונאה."
+#: src/amo/components/FeedbackForm/index.js:137
+msgid ""
+"Example: Fraud. (If you wish to report a copyright or trademark "
+"infringement, you can learn more about how to do so in our "
+"%(startLink)sCopyright or Trademark Infringement Reporting "
+"article%(endLink)s)."
+msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:138
+#: src/amo/components/FeedbackForm/index.js:149
 msgid "Something else"
 msgstr "משהו אחר"
 
-#: src/amo/components/FeedbackForm/index.js:139
+#: src/amo/components/FeedbackForm/index.js:150
 msgid "Anything that doesn’t fit into the other categories."
 msgstr "כל מה שלא מתאים לקטגוריות האחרות."
 
-#: src/amo/components/FeedbackForm/index.js:151
+#: src/amo/components/FeedbackForm/index.js:162
 msgid "Select place"
 msgstr "בחירת מקום"
 
-#: src/amo/components/FeedbackForm/index.js:153
+#: src/amo/components/FeedbackForm/index.js:164
 msgid "On the add-on's page on this website"
 msgstr "בדף התוספת באתר זה"
 
-#: src/amo/components/FeedbackForm/index.js:156
+#: src/amo/components/FeedbackForm/index.js:167
 msgid "Inside the add-on"
 msgstr "בתוך התוספת"
 
-#: src/amo/components/FeedbackForm/index.js:157
+#: src/amo/components/FeedbackForm/index.js:168
 msgid "Both locations"
 msgstr "שני המיקומים"
 
-#: src/amo/components/FeedbackForm/index.js:246
+#: src/amo/components/FeedbackForm/index.js:257
 msgid "Report submitted"
 msgstr "הדיווח נשלח"
 
-#: src/amo/components/FeedbackForm/index.js:248
+#: src/amo/components/FeedbackForm/index.js:259
 msgid "We have received your report. Thanks for letting us know."
 msgstr "קיבלנו את הדיווח שלך. תודה שהודעת לנו."
 
-#: src/amo/components/FeedbackForm/index.js:343
+#: src/amo/components/FeedbackForm/index.js:354
 msgid "Submitting your report…"
 msgstr "הדיווח שלך נשלח…"
 
-#: src/amo/components/FeedbackForm/index.js:344
+#: src/amo/components/FeedbackForm/index.js:355
 msgid "Submit report"
 msgstr "שליחת דיווח"
 
-#: src/amo/components/FeedbackForm/index.js:363
+#: src/amo/components/FeedbackForm/index.js:374
 msgid "Provide more information"
 msgstr "לספק מידע נוסף"
 
-#: src/amo/components/FeedbackForm/index.js:371
+#: src/amo/components/FeedbackForm/index.js:382
 msgid "Place of the violation"
 msgstr "מקום הפרת החוקים או הכללים"
 
-#: src/amo/components/FeedbackForm/index.js:390
-msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
-msgstr "פרטים נוספים %(spanStart)s(לא חובה)%(spanEnd)s"
+#: src/amo/components/FeedbackForm/index.js:400
+msgid "Provide more details"
+msgstr "לספק פרטים נוספים"
 
-#: src/amo/components/FeedbackForm/index.js:407
+#: src/amo/components/FeedbackForm/index.js:412
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1186,15 +1194,15 @@ msgstr ""
 "לדעתך הופרה). אמנם מידע זה אינו נדרש, אך אי הכללתו עלולה למנוע מאיתנו לטפל "
 "בתוכן המדווח."
 
-#: src/amo/components/FeedbackForm/index.js:417
+#: src/amo/components/FeedbackForm/index.js:422
 msgid "Contact information"
 msgstr "פרטי איש קשר"
 
-#: src/amo/components/FeedbackForm/index.js:433
+#: src/amo/components/FeedbackForm/index.js:438
 msgid "File report anonymously"
 msgstr "שליחת דיווח בעילום שם"
 
-#: src/amo/components/FeedbackForm/index.js:436
+#: src/amo/components/FeedbackForm/index.js:441
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1202,23 +1210,23 @@ msgstr ""
 "שליחת דיווח בעילום שם תמנע מאיתנו ליצור איתך קשר לגבי מצב הדיווח, או לגבי כל "
 "אפשרויות לערעור."
 
-#: src/amo/components/FeedbackForm/index.js:457
+#: src/amo/components/FeedbackForm/index.js:462
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "השם שלך %(spanStart)s(לא חובה)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:460
+#: src/amo/components/FeedbackForm/index.js:465
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "השם שלך %(spanStart)s(נדרש)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:497
+#: src/amo/components/FeedbackForm/index.js:502
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "כתובת הדוא״ל שלך %(spanStart)s(לא חובה)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:500
+#: src/amo/components/FeedbackForm/index.js:505
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "כתובת הדוא״ל שלך %(spanStart)s(נדרש)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:544
+#: src/amo/components/FeedbackForm/index.js:549
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -1226,10 +1234,6 @@ msgid ""
 msgstr ""
 "שליחת דיווח זה מהווה הסכמה, בכפוף לעונש של עדות שקר, כי הטענות שהוא מכיל הן "
 "שלמות ומדויקות, למיטב ידיעתי."
-
-#: src/amo/components/FeedbackForm/index.js:99
-msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr "היא לא עובדת, גורמת לאתרים לא לעבוד, או מאטה את Firefox"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
@@ -1363,7 +1367,7 @@ msgstr ""
 "Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125
-#: src/amo/components/WrongPlatformWarning/index.js:148
+#: src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
 "Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
@@ -1524,12 +1528,12 @@ msgstr "מאומת"
 msgid "Download file"
 msgstr "הורדת קובץ"
 
-#: src/amo/components/InstallWarning/index.js:104
+#: src/amo/components/InstallWarning/index.js:102
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "מידע נוסף"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:106
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -2283,14 +2287,6 @@ msgid ""
 msgstr ""
 "כדי למצוא הרחבות התואמות ל־Firefox עבור Android, נא %(linkStart)sללחוץ "
 "כאן%(linkEnd)s."
-
-#: src/amo/components/WrongPlatformWarning/index.js:121
-msgid ""
-"This listing is not intended for this platform. %(linkStart)sBrowse add-ons "
-"for Firefox for desktop%(linkEnd)s."
-msgstr ""
-"רשומה זו אינה מיועדת לפלטפורמה זו. %(linkStart)sעיון בתוספות ל־Firefox "
-"למחשבים שולחניים%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid ""
@@ -3599,6 +3595,19 @@ msgstr "לא ניתן לשדרג את תאימות התוספת שלי"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "תאימות התוספת שלי משודרגת בהצלחה"
 
+#~ msgid "Example: Copyright or Trademark Infringement, Fraud."
+#~ msgstr "לדוגמה, הפרת זכויות יוצרים, הונאה."
+
+#~ msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
+#~ msgstr "פרטים נוספים %(spanStart)s(לא חובה)%(spanEnd)s"
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. %(linkStart)sBrowse add-"
+#~ "ons for Firefox for desktop%(linkEnd)s."
+#~ msgstr ""
+#~ "רשומה זו אינה מיועדת לפלטפורמה זו. %(linkStart)sעיון בתוספות ל־Firefox "
+#~ "למחשבים שולחניים%(linkEnd)s."
+
 #~ msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
 #~ msgstr "מיקום הפרת הכללים %(spanStart)s(לא חובה)%(spanEnd)s"
 
@@ -3710,9 +3719,6 @@ msgstr "תאימות התוספת שלי משודרגת בהצלחה"
 
 #~ msgid "optional"
 #~ msgstr "לא חובה"
-
-#~ msgid "Provide more details"
-#~ msgstr "לספק פרטים נוספים"
 
 #~ msgid "Your name"
 #~ msgstr "השם שלך"
