@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-12 20:07+0000\n"
+"POT-Creation-Date: 2024-06-17 10:09+0000\n"
 "PO-Revision-Date: 2024-02-29 09:09+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgid "Admin Links"
 msgstr "Tenglar fyrir stjórnendur"
 
 # This action allows the add-on developer to edit an add-on's properties.
-#. This action allows the add-on developer or an admin to edit an add-on's properties.
+#. This action allows the add-on developer to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -1103,7 +1103,11 @@ msgstr "Umsögn eftir %(userName)s"
 msgid "The review was not found."
 msgstr "Umsögnin fannst ekki."
 
-#: src/amo/components/FeedbackForm/index.js:102
+#: src/amo/components/FeedbackForm/index.js:103
+msgid "It doesn’t work, breaks websites, or slows down Firefox"
+msgstr "Þetta virkar ekki, skemmir vefsvæði eða hægir á Firefox"
+
+#: src/amo/components/FeedbackForm/index.js:106
 msgid ""
 "Example: Features are slow, hard to use, or don’t work; parts of websites "
 "won't load or look unusual."
@@ -1111,19 +1115,19 @@ msgstr ""
 "Dæmi: Ýmislegt virkar ekki, keyrir hægar, eða er erfiðara að nota; hlutar "
 "vefsvæða hlaðast ekki inn eða líta skringilega út."
 
-#: src/amo/components/FeedbackForm/index.js:107
+#: src/amo/components/FeedbackForm/index.js:111
 msgid "It’s spam"
 msgstr "Þetta er ruslsending"
 
-#: src/amo/components/FeedbackForm/index.js:108
+#: src/amo/components/FeedbackForm/index.js:112
 msgid "Example: The listing advertises unrelated products or services."
 msgstr "Dæmi: Skráningin auglýsir ótengdar vörur eða þjónustu."
 
-#: src/amo/components/FeedbackForm/index.js:116
+#: src/amo/components/FeedbackForm/index.js:120
 msgid "It violates Add-on Policies"
 msgstr "Hún brýtur í bága við reglur um viðbætur"
 
-#: src/amo/components/FeedbackForm/index.js:117
+#: src/amo/components/FeedbackForm/index.js:121
 msgid ""
 "Example: It compromised my data without informing or asking me, or it "
 "changed my search engine or home page without informing or asking me."
@@ -1132,77 +1136,81 @@ msgstr ""
 "spyrja mig, eða það breytti leitarvélinni minni eða heimasíðunni án þess að "
 "upplýsa eða spyrja mig."
 
-#: src/amo/components/FeedbackForm/index.js:123
+#: src/amo/components/FeedbackForm/index.js:127
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr ""
 "Hún inniheldur hatursfullt, ofbeldisfullt, villandi eða annað óviðeigandi "
 "efni"
 
-#: src/amo/components/FeedbackForm/index.js:125
+#: src/amo/components/FeedbackForm/index.js:129
 msgid "Example: It contains racist imagery."
 msgstr "Dæmi: Það inniheldur myndefni sem sýnir kynþáttafordóma."
 
-#: src/amo/components/FeedbackForm/index.js:129
+#: src/amo/components/FeedbackForm/index.js:133
 msgid "It violates the law or contains content that violates the law"
 msgstr "Þetta brýtur í bága við lög eða inniheldur efni sem brýtur lög"
 
-#: src/amo/components/FeedbackForm/index.js:132
-msgid "Example: Copyright or Trademark Infringement, Fraud."
-msgstr "Dæmi: Höfundarréttar eða vörumerkjabrot, svik."
+#: src/amo/components/FeedbackForm/index.js:137
+msgid ""
+"Example: Fraud. (If you wish to report a copyright or trademark "
+"infringement, you can learn more about how to do so in our "
+"%(startLink)sCopyright or Trademark Infringement Reporting "
+"article%(endLink)s)."
+msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:138
+#: src/amo/components/FeedbackForm/index.js:149
 msgid "Something else"
 msgstr "Eitthvað annað"
 
-#: src/amo/components/FeedbackForm/index.js:139
+#: src/amo/components/FeedbackForm/index.js:150
 msgid "Anything that doesn’t fit into the other categories."
 msgstr "Allt sem passar ekki við aðra flokka."
 
-#: src/amo/components/FeedbackForm/index.js:151
+#: src/amo/components/FeedbackForm/index.js:162
 msgid "Select place"
 msgstr "Veldu stað"
 
-#: src/amo/components/FeedbackForm/index.js:153
+#: src/amo/components/FeedbackForm/index.js:164
 msgid "On the add-on's page on this website"
 msgstr "Á síðu viðbótarinnar á þessu vefsvæði"
 
-#: src/amo/components/FeedbackForm/index.js:156
+#: src/amo/components/FeedbackForm/index.js:167
 msgid "Inside the add-on"
 msgstr "Inni í viðbótinni"
 
-#: src/amo/components/FeedbackForm/index.js:157
+#: src/amo/components/FeedbackForm/index.js:168
 msgid "Both locations"
 msgstr "Á báðum stöðum"
 
-#: src/amo/components/FeedbackForm/index.js:246
+#: src/amo/components/FeedbackForm/index.js:257
 msgid "Report submitted"
 msgstr "Kæra lögð fram"
 
-#: src/amo/components/FeedbackForm/index.js:248
+#: src/amo/components/FeedbackForm/index.js:259
 msgid "We have received your report. Thanks for letting us know."
 msgstr "Við höfum fengið skýrsluna þína. Takk fyrir að láta okkur vita."
 
-#: src/amo/components/FeedbackForm/index.js:343
+#: src/amo/components/FeedbackForm/index.js:354
 msgid "Submitting your report…"
 msgstr "Sendi skýrslu…"
 
-#: src/amo/components/FeedbackForm/index.js:344
+#: src/amo/components/FeedbackForm/index.js:355
 msgid "Submit report"
 msgstr "Senda inn skýrslu"
 
-#: src/amo/components/FeedbackForm/index.js:363
+#: src/amo/components/FeedbackForm/index.js:374
 msgid "Provide more information"
 msgstr "Gefðu frekari upplýsingar"
 
-#: src/amo/components/FeedbackForm/index.js:371
+#: src/amo/components/FeedbackForm/index.js:382
 msgid "Place of the violation"
 msgstr "Staður brotsins"
 
-#: src/amo/components/FeedbackForm/index.js:390
-msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
-msgstr "Gefðu frekari upplýsingar %(spanStart)s(valfrjálst)%(spanEnd)s"
+#: src/amo/components/FeedbackForm/index.js:400
+msgid "Provide more details"
+msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:407
+#: src/amo/components/FeedbackForm/index.js:412
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1215,15 +1223,15 @@ msgstr ""
 "fyrir að við tökum til ráðstafana varðandi tilkynnt efni, séu þær ekki fyrir "
 "hendi."
 
-#: src/amo/components/FeedbackForm/index.js:417
+#: src/amo/components/FeedbackForm/index.js:422
 msgid "Contact information"
 msgstr "Samskiptaupplýsingar"
 
-#: src/amo/components/FeedbackForm/index.js:433
+#: src/amo/components/FeedbackForm/index.js:438
 msgid "File report anonymously"
 msgstr "Skrá skýrslu nafnlaust"
 
-#: src/amo/components/FeedbackForm/index.js:436
+#: src/amo/components/FeedbackForm/index.js:441
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1231,23 +1239,23 @@ msgstr ""
 "Að leggja fram nafnlausa skýrslu kemur í veg fyrir að við getum haft "
 "samskipti við þig um stöðu skýrslunnar eða um möguleika til áfrýjunar."
 
-#: src/amo/components/FeedbackForm/index.js:457
+#: src/amo/components/FeedbackForm/index.js:462
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Nafnið þitt %(spanStart)s(valfrjálst)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:460
+#: src/amo/components/FeedbackForm/index.js:465
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "Nafnið þitt %(spanStart)s(nauðsynlegt)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:497
+#: src/amo/components/FeedbackForm/index.js:502
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Tölvupóstfangið þitt %(spanStart)s(valfrjálst)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:500
+#: src/amo/components/FeedbackForm/index.js:505
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "Tölvupóstfangið þitt %(spanStart)s(nauðsynlegt)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:544
+#: src/amo/components/FeedbackForm/index.js:549
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -1255,10 +1263,6 @@ msgid ""
 msgstr ""
 "Með því að leggja fram þessa kæru, þá votta ég eftir bestu vitund, að "
 "ásakanirnar sem hún hefur að geyma eru tæmandi og nákvæmar."
-
-#: src/amo/components/FeedbackForm/index.js:99
-msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr "Þetta virkar ekki, skemmir vefsvæði eða hægir á Firefox"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
@@ -1394,7 +1398,7 @@ msgstr ""
 "Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125
-#: src/amo/components/WrongPlatformWarning/index.js:148
+#: src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
 "Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
@@ -1558,12 +1562,12 @@ msgstr "Sannreynt"
 msgid "Download file"
 msgstr "Sækja skrá"
 
-#: src/amo/components/InstallWarning/index.js:104
+#: src/amo/components/InstallWarning/index.js:102
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "Kanna nánar"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:106
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -2329,14 +2333,6 @@ msgid ""
 msgstr ""
 "Til að finna forritsauka sem eru samhæfðir við Firefox fyrir Android, skaltu "
 "%(linkStart)smella hér%(linkEnd)s."
-
-#: src/amo/components/WrongPlatformWarning/index.js:121
-msgid ""
-"This listing is not intended for this platform. %(linkStart)sBrowse add-ons "
-"for Firefox for desktop%(linkEnd)s."
-msgstr ""
-"Þessi listi er ekki ætlaður fyrir þetta stýrikerfi. %(linkStart)sSkoðaðu "
-"viðbætur fyrir Firefox á borðtölvum%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid ""
@@ -3707,6 +3703,19 @@ msgstr "ekki er hægt að uppfæra samhæfni viðbótarinnar minnar"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "hægt er að uppfæra samhæfni viðbótarinnar minnar"
+
+#~ msgid "Example: Copyright or Trademark Infringement, Fraud."
+#~ msgstr "Dæmi: Höfundarréttar eða vörumerkjabrot, svik."
+
+#~ msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
+#~ msgstr "Gefðu frekari upplýsingar %(spanStart)s(valfrjálst)%(spanEnd)s"
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. %(linkStart)sBrowse add-"
+#~ "ons for Firefox for desktop%(linkEnd)s."
+#~ msgstr ""
+#~ "Þessi listi er ekki ætlaður fyrir þetta stýrikerfi. %(linkStart)sSkoðaðu "
+#~ "viðbætur fyrir Firefox á borðtölvum%(linkEnd)s."
 
 #~ msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
 #~ msgstr "Staðsetning brotsins %(spanStart)s(valfrjálst)%(spanEnd)s"

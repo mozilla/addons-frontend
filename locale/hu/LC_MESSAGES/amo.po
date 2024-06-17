@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-12 20:07+0000\n"
+"POT-Creation-Date: 2024-06-17 10:09+0000\n"
 "PO-Revision-Date: 2023-12-30 16:39+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
@@ -65,7 +65,7 @@ msgstr "Kiegészítő kódjának értékelése"
 msgid "Admin Links"
 msgstr "Adminisztrátori hivatkozások"
 
-#. This action allows the add-on developer or an admin to edit an add-on's properties.
+#. This action allows the add-on developer to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -1111,7 +1111,11 @@ msgstr "%(userName)s értékelése"
 msgid "The review was not found."
 msgstr "Az értékelés nem található."
 
-#: src/amo/components/FeedbackForm/index.js:102
+#: src/amo/components/FeedbackForm/index.js:103
+msgid "It doesn’t work, breaks websites, or slows down Firefox"
+msgstr "Nem működik, hibát okoz weboldalakon, vagy lelassítja a Firefoxot"
+
+#: src/amo/components/FeedbackForm/index.js:106
 msgid ""
 "Example: Features are slow, hard to use, or don’t work; parts of websites "
 "won't load or look unusual."
@@ -1119,19 +1123,19 @@ msgstr ""
 "Példa: A funkciók lassúk, nehezen kezelhetők, vagy nem működnek; a weboldal "
 "elemei nem töltődnek be, vagy szokatlanul néznek ki."
 
-#: src/amo/components/FeedbackForm/index.js:107
+#: src/amo/components/FeedbackForm/index.js:111
 msgid "It’s spam"
 msgstr "Kéretlen tartalom"
 
-#: src/amo/components/FeedbackForm/index.js:108
+#: src/amo/components/FeedbackForm/index.js:112
 msgid "Example: The listing advertises unrelated products or services."
 msgstr "Példa: nem kapcsolódó termékeket vagy szolgáltatásokat reklámoz."
 
-#: src/amo/components/FeedbackForm/index.js:116
+#: src/amo/components/FeedbackForm/index.js:120
 msgid "It violates Add-on Policies"
 msgstr "Sérti a kiegészítőkkel kapcsolatos házirendet"
 
-#: src/amo/components/FeedbackForm/index.js:117
+#: src/amo/components/FeedbackForm/index.js:121
 msgid ""
 "Example: It compromised my data without informing or asking me, or it "
 "changed my search engine or home page without informing or asking me."
@@ -1140,75 +1144,79 @@ msgstr ""
 "adataimat, vagy a tájékoztatásom vagy megkérdezésem nélkül módosította a "
 "keresőszolgáltatásomat vagy a kezdőlapomat."
 
-#: src/amo/components/FeedbackForm/index.js:123
+#: src/amo/components/FeedbackForm/index.js:127
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr "Gyűlölködő, erőszakos, megtévesztő vagy más, nem megfelelő tartalom"
 
-#: src/amo/components/FeedbackForm/index.js:125
+#: src/amo/components/FeedbackForm/index.js:129
 msgid "Example: It contains racist imagery."
 msgstr "Példa: rasszista képeket tartalmaz."
 
-#: src/amo/components/FeedbackForm/index.js:129
+#: src/amo/components/FeedbackForm/index.js:133
 msgid "It violates the law or contains content that violates the law"
 msgstr "Törvénysértő, vagy törvénysértő tartalom szerepel benne"
 
-#: src/amo/components/FeedbackForm/index.js:132
-msgid "Example: Copyright or Trademark Infringement, Fraud."
-msgstr "Példa: szerzői jogi vagy védjegyoltalmi visszaélés, csalás."
+#: src/amo/components/FeedbackForm/index.js:137
+msgid ""
+"Example: Fraud. (If you wish to report a copyright or trademark "
+"infringement, you can learn more about how to do so in our "
+"%(startLink)sCopyright or Trademark Infringement Reporting "
+"article%(endLink)s)."
+msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:138
+#: src/amo/components/FeedbackForm/index.js:149
 msgid "Something else"
 msgstr "Valami más"
 
-#: src/amo/components/FeedbackForm/index.js:139
+#: src/amo/components/FeedbackForm/index.js:150
 msgid "Anything that doesn’t fit into the other categories."
 msgstr "Bármi, ami nem illik a többi kategóriába."
 
-#: src/amo/components/FeedbackForm/index.js:151
+#: src/amo/components/FeedbackForm/index.js:162
 msgid "Select place"
 msgstr "Hely kiválasztása"
 
-#: src/amo/components/FeedbackForm/index.js:153
+#: src/amo/components/FeedbackForm/index.js:164
 msgid "On the add-on's page on this website"
 msgstr "A kiegészítő oldala ezen a weboldalon"
 
-#: src/amo/components/FeedbackForm/index.js:156
+#: src/amo/components/FeedbackForm/index.js:167
 msgid "Inside the add-on"
 msgstr "A kiegészítő belsejében"
 
-#: src/amo/components/FeedbackForm/index.js:157
+#: src/amo/components/FeedbackForm/index.js:168
 msgid "Both locations"
 msgstr "Mindkét helyen"
 
-#: src/amo/components/FeedbackForm/index.js:246
+#: src/amo/components/FeedbackForm/index.js:257
 msgid "Report submitted"
 msgstr "Jelentés beküldve"
 
-#: src/amo/components/FeedbackForm/index.js:248
+#: src/amo/components/FeedbackForm/index.js:259
 msgid "We have received your report. Thanks for letting us know."
 msgstr "Megkaptuk a jelentését. Köszönjük, hogy szólt."
 
-#: src/amo/components/FeedbackForm/index.js:343
+#: src/amo/components/FeedbackForm/index.js:354
 msgid "Submitting your report…"
 msgstr "Jelentés elküldése…"
 
-#: src/amo/components/FeedbackForm/index.js:344
+#: src/amo/components/FeedbackForm/index.js:355
 msgid "Submit report"
 msgstr "Jelentés beküldése"
 
-#: src/amo/components/FeedbackForm/index.js:363
+#: src/amo/components/FeedbackForm/index.js:374
 msgid "Provide more information"
 msgstr "Adjon meg további információkat"
 
-#: src/amo/components/FeedbackForm/index.js:371
+#: src/amo/components/FeedbackForm/index.js:382
 msgid "Place of the violation"
 msgstr "A szabályszegés helye"
 
-#: src/amo/components/FeedbackForm/index.js:390
-msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
-msgstr "További részletek megadása %(spanStart)s(nem kötelező)%(spanEnd)s"
+#: src/amo/components/FeedbackForm/index.js:400
+msgid "Provide more details"
+msgstr "Adjon meg további részleteket"
 
-#: src/amo/components/FeedbackForm/index.js:407
+#: src/amo/components/FeedbackForm/index.js:412
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1220,15 +1228,15 @@ msgstr ""
 "megsértették). Bár ez az információ nem kötelező, a hiánya megakadályozhat "
 "minket a jelentett tartalom kezelésében."
 
-#: src/amo/components/FeedbackForm/index.js:417
+#: src/amo/components/FeedbackForm/index.js:422
 msgid "Contact information"
 msgstr "Elérhetőségek"
 
-#: src/amo/components/FeedbackForm/index.js:433
+#: src/amo/components/FeedbackForm/index.js:438
 msgid "File report anonymously"
 msgstr "Névtelen jelentés beküldése"
 
-#: src/amo/components/FeedbackForm/index.js:436
+#: src/amo/components/FeedbackForm/index.js:441
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1236,23 +1244,23 @@ msgstr ""
 "Ha névtelen jelentést küld, akkor megakadályozza, hogy tájékoztassuk a "
 "bejelentés állapotáról, vagy az esetleges fellebbezési lehetőségekről."
 
-#: src/amo/components/FeedbackForm/index.js:457
+#: src/amo/components/FeedbackForm/index.js:462
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Az Ön neve %(spanStart)s(nem kötelező)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:460
+#: src/amo/components/FeedbackForm/index.js:465
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "Az Ön neve %(spanStart)s(kötelező)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:497
+#: src/amo/components/FeedbackForm/index.js:502
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Az Ön e-mail-címe %(spanStart)s(nem kötelező)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:500
+#: src/amo/components/FeedbackForm/index.js:505
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "Az Ön e-mail-címe %(spanStart)s(kötelező)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:544
+#: src/amo/components/FeedbackForm/index.js:549
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -1260,10 +1268,6 @@ msgid ""
 msgstr ""
 "E jelentés benyújtásával, hamis tanúzás terhe mellett tanúsítom, hogy az "
 "abban foglalt állítások legjobb tudomásom szerint teljesek és pontosak."
-
-#: src/amo/components/FeedbackForm/index.js:99
-msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr "Nem működik, hibát okoz weboldalakon, vagy lelassítja a Firefoxot"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
@@ -1397,7 +1401,7 @@ msgstr ""
 "Firefoxot%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125
-#: src/amo/components/WrongPlatformWarning/index.js:148
+#: src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
 "Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
@@ -1562,12 +1566,12 @@ msgstr "Ellenőrzött"
 msgid "Download file"
 msgstr "Fájl letöltése"
 
-#: src/amo/components/InstallWarning/index.js:104
+#: src/amo/components/InstallWarning/index.js:102
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "További tudnivalók"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:106
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -2352,14 +2356,6 @@ msgid ""
 msgstr ""
 "A Firefox for Androiddal kompatibilis kiegészítők megtalálásához "
 "%(linkStart)skattintson ide%(linkEnd)s."
-
-#: src/amo/components/WrongPlatformWarning/index.js:121
-msgid ""
-"This listing is not intended for this platform. %(linkStart)sBrowse add-ons "
-"for Firefox for desktop%(linkEnd)s."
-msgstr ""
-"Ez a felsorolás nem erre a platformra szól. %(linkStart)sBöngéssze az "
-"asztali Firefox kiegészítőit%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid ""
@@ -3735,6 +3731,19 @@ msgstr "a kiegészítőm kompatibilitása nem frissíthető"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a kiegészítőm kompatibilitása sikeresen frissítve"
 
+#~ msgid "Example: Copyright or Trademark Infringement, Fraud."
+#~ msgstr "Példa: szerzői jogi vagy védjegyoltalmi visszaélés, csalás."
+
+#~ msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
+#~ msgstr "További részletek megadása %(spanStart)s(nem kötelező)%(spanEnd)s"
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. %(linkStart)sBrowse add-"
+#~ "ons for Firefox for desktop%(linkEnd)s."
+#~ msgstr ""
+#~ "Ez a felsorolás nem erre a platformra szól. %(linkStart)sBöngéssze az "
+#~ "asztali Firefox kiegészítőit%(linkEnd)s."
+
 #~ msgid "Place of the violation %(spanStart)s(optional)%(spanEnd)s"
 #~ msgstr "A szabálysértés helye %(spanStart)s(nem kötelező)%(spanEnd)s"
 
@@ -3854,9 +3863,6 @@ msgstr "a kiegészítőm kompatibilitása sikeresen frissítve"
 
 #~ msgid "optional"
 #~ msgstr "nem kötelező"
-
-#~ msgid "Provide more details"
-#~ msgstr "Adjon meg további részleteket"
 
 #~ msgid "Report this add-on for abuse"
 #~ msgstr "Kiegészítő jelentése visszaélésért"
