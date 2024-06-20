@@ -30,6 +30,8 @@ export type FeedbackFormValues = {|
   text: string,
   category: string | null,
   location: string | null,
+  illegalCategory: string | null,
+  illegalSubcategory: string | null,
 |};
 
 type Props = {|
@@ -169,6 +171,373 @@ const getLocationOptions = (
   ];
 };
 
+// These categories don't have any subcategories other than "other".
+export const ILLEGAL_CATEGORIES_WITHOUT_SUBCATEGORIES = [
+  'animal_welfare',
+  'other',
+];
+
+export const getIllegalCategoryOptions = (
+  i18n: I18nType,
+): Array<{| children: string, value: string |}> => {
+  return [
+    { children: i18n.gettext('Select type'), value: '' },
+    { value: 'animal_welfare', children: i18n.gettext('Animal welfare') },
+    {
+      value: 'consumer_information',
+      children: i18n.gettext('Consumer information infringements'),
+    },
+    {
+      value: 'data_protection_and_privacy_violations',
+      children: i18n.gettext('Data protection and privacy violations'),
+    },
+    {
+      value: 'illegal_or_harmful_speech',
+      children: i18n.gettext('Illegal or harmful speech'),
+    },
+    {
+      value: 'intellectual_property_infringements',
+      children: i18n.gettext('Intellectual property infringements'),
+    },
+    {
+      value: 'negative_effects_on_civic_discourse_or_elections',
+      children: i18n.gettext(
+        'Negative effects on civic discourse or elections',
+      ),
+    },
+    {
+      value: 'non_consensual_behaviour',
+      children: i18n.gettext('Non-consensual behavior'),
+    },
+    {
+      value: 'pornography_or_sexualized_content',
+      children: i18n.gettext('Pornography or sexualized content'),
+    },
+    {
+      value: 'protection_of_minors',
+      children: i18n.gettext('Protection of minors'),
+    },
+    {
+      value: 'risk_for_public_security',
+      children: i18n.gettext('Risk for public security'),
+    },
+    { value: 'scams_and_fraud', children: i18n.gettext('Scams or fraud') },
+    { value: 'self_harm', children: i18n.gettext('Self-harm') },
+    {
+      value: 'unsafe_and_prohibited_products',
+      children: i18n.gettext('Unsafe, non-compliant, or prohibited products'),
+    },
+    { value: 'violence', children: i18n.gettext('Violence') },
+    { value: 'other', children: i18n.gettext('Other') },
+  ];
+};
+
+export const getIllegalSubcategoryOptions = (
+  i18n: I18nType,
+  category: string | null,
+): Array<{| children: string, value: string |}> => {
+  const options = [{ children: i18n.gettext('Select violation'), value: '' }];
+
+  switch (category) {
+    case 'consumer_information':
+      options.push(
+        ...[
+          {
+            value: 'insufficient_information_on_traders',
+            children: i18n.gettext('Insufficient information on traders'),
+          },
+          {
+            value: 'noncompliance_pricing',
+            children: i18n.gettext('Non-compliance with pricing regulations'),
+          },
+          {
+            value: 'hidden_advertisement',
+            children: i18n.gettext(
+              'Hidden advertisement or commercial communication, including by influencers',
+            ),
+          },
+          {
+            value: 'misleading_info_goods_services',
+            children: i18n.gettext(
+              'Misleading information about the characteristics of the goods and services',
+            ),
+          },
+          {
+            value: 'misleading_info_consumer_rights',
+            children: i18n.gettext(
+              'Misleading information about the consumer’s rights',
+            ),
+          },
+        ],
+      );
+      break;
+
+    case 'data_protection_and_privacy_violations':
+      options.push(
+        ...[
+          {
+            value: 'biometric_data_breach',
+            children: i18n.gettext('Biometric data breach'),
+          },
+          {
+            value: 'missing_processing_ground',
+            children: i18n.gettext('Missing processing ground for data'),
+          },
+          {
+            value: 'right_to_be_forgotten',
+            children: i18n.gettext('Right to be forgotten'),
+          },
+          {
+            value: 'data_falsification',
+            children: i18n.gettext('Data falsification'),
+          },
+        ],
+      );
+      break;
+
+    case 'illegal_or_harmful_speech':
+      options.push(
+        ...[
+          { value: 'defamation', children: i18n.gettext('Defamation') },
+          { value: 'discrimination', children: i18n.gettext('Discrimination') },
+          {
+            value: 'hate_speech',
+            children: i18n.gettext(
+              'Illegal incitement to violence and hatred based on protected characteristics (hate speech)',
+            ),
+          },
+        ],
+      );
+      break;
+
+    case 'intellectual_property_infringements':
+      options.push(
+        ...[
+          {
+            value: 'design_infringement',
+            children: i18n.gettext('Design infringements'),
+          },
+          {
+            value: 'geographic_indications_infringement',
+            children: i18n.gettext('Geographical indications infringements'),
+          },
+          {
+            value: 'patent_infringement',
+            children: i18n.gettext('Patent infringements'),
+          },
+          {
+            value: 'trade_secret_infringement',
+            children: i18n.gettext('Trade secret infringements'),
+          },
+        ],
+      );
+      break;
+
+    case 'negative_effects_on_civic_discourse_or_elections':
+      options.push(
+        ...[
+          {
+            value: 'violation_eu_law',
+            children: i18n.gettext(
+              'Violation of EU law relevant to civic discourse or elections',
+            ),
+          },
+          {
+            value: 'violation_national_law',
+            children: i18n.gettext(
+              'Violation of national law relevant to civic discourse or elections',
+            ),
+          },
+          {
+            value: 'misinformation_disinformation_disinformation',
+            children: i18n.gettext(
+              'Misinformation, disinformation, foreign information manipulation and interference',
+            ),
+          },
+        ],
+      );
+      break;
+
+    case 'non_consensual_behaviour':
+      options.push(
+        ...[
+          {
+            value: 'non_consensual_image_sharing',
+            children: i18n.gettext('Non-consensual image sharing'),
+          },
+          {
+            value: 'non_consensual_items_deepfake',
+            children: i18n.gettext(
+              "Non-consensual items containing deepfake or similar technology using a third party's features",
+            ),
+          },
+          {
+            value: 'online_bullying_intimidation',
+            children: i18n.gettext('Online bullying/intimidation'),
+          },
+          { value: 'stalking', children: i18n.gettext('Stalking') },
+        ],
+      );
+      break;
+
+    case 'pornography_or_sexualized_content':
+      options.push(
+        ...[
+          {
+            value: 'adult_sexual_material',
+            children: i18n.gettext('Adult sexual material'),
+          },
+          {
+            value: 'image_based_sexual_abuse',
+            children: i18n.gettext(
+              'Image-based sexual abuse (excluding content depicting minors)',
+            ),
+          },
+        ],
+      );
+      break;
+
+    case 'protection_of_minors':
+      options.push(
+        ...[
+          {
+            value: 'age_specific_restrictions_minors',
+            children: i18n.gettext(
+              'age-specific restrictions concerning minors',
+            ),
+          },
+          {
+            value: 'child_sexual_abuse_material',
+            children: i18n.gettext('Child sexual abuse material'),
+          },
+          {
+            value: 'grooming_sexual_enticement_minors',
+            children: i18n.gettext('Grooming/sexual enticement of minors'),
+          },
+        ],
+      );
+      break;
+
+    case 'risk_for_public_security':
+      options.push(
+        ...[
+          {
+            value: 'illegal_organizations',
+            children: i18n.gettext('Illegal organizations'),
+          },
+          {
+            value: 'risk_environmental_damage',
+            children: i18n.gettext('Risk for environmental damage'),
+          },
+          {
+            value: 'risk_public_health',
+            children: i18n.gettext('Risk for public health'),
+          },
+          {
+            value: 'terrorist_content',
+            children: i18n.gettext('Terrorist content'),
+          },
+        ],
+      );
+      break;
+
+    case 'scams_and_fraud':
+      options.push(
+        ...[
+          {
+            value: 'inauthentic_accounts',
+            children: i18n.gettext('Inauthentic accounts'),
+          },
+          {
+            value: 'inauthentic_listings',
+            children: i18n.gettext('Inauthentic listings'),
+          },
+          {
+            value: 'inauthentic_user_reviews',
+            children: i18n.gettext('Inauthentic user reviews'),
+          },
+          {
+            value: 'impersonation_account_hijacking',
+            children: i18n.gettext('Impersonation or account hijacking'),
+          },
+          { value: 'phishing', children: i18n.gettext('Phishing') },
+          {
+            value: 'pyramid_schemes',
+            children: i18n.gettext('Pyramid schemes'),
+          },
+        ],
+      );
+      break;
+
+    case 'self_harm':
+      options.push(
+        ...[
+          {
+            value: 'content_promoting_eating_disorders',
+            children: i18n.gettext('Content promoting eating disorders'),
+          },
+          {
+            value: 'self_mutilation',
+            children: i18n.gettext('Self-mutilation'),
+          },
+          { value: 'suicide', children: i18n.gettext('Suicide') },
+        ],
+      );
+      break;
+
+    case 'unsafe_and_prohibited_products':
+      options.push(
+        ...[
+          {
+            value: 'prohibited_products',
+            children: i18n.gettext('Prohibited or restricted products'),
+          },
+          {
+            value: 'unsafe_products',
+            children: i18n.gettext('Unsafe or non-compliant products'),
+          },
+        ],
+      );
+      break;
+
+    case 'violence':
+      options.push(
+        ...[
+          {
+            value: 'coordinated_harm',
+            children: i18n.gettext('Coordinated harm'),
+          },
+          {
+            value: 'gender_based_violence',
+            children: i18n.gettext('Gender-based violence'),
+          },
+          {
+            value: 'human_exploitation',
+            children: i18n.gettext('Human exploitation'),
+          },
+          {
+            value: 'human_trafficking',
+            children: i18n.gettext('Human trafficking'),
+          },
+          {
+            value: 'incitement_violence_hatred',
+            children: i18n.gettext(
+              'General calls or incitement to violence and/or hatred',
+            ),
+          },
+        ],
+      );
+      break;
+
+    default:
+  }
+
+  // Other should be listed for each category..
+  options.push({ value: 'other', children: i18n.gettext('Something else') });
+
+  return options;
+};
+
 export class FeedbackFormBase extends React.Component<InternalProps, State> {
   static defaultProps: DefaultProps = {
     _window: typeof window !== 'undefined' ? window : {},
@@ -208,15 +577,58 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       newValue = checked;
     }
 
-    this.setState({ [name]: newValue });
+    let newState = { [name]: newValue };
+    // We should reset the illegal category/subcategory when the category
+    // (reason) is no longer "illegal".
+    if (name === 'category' && value !== CATEGORY_ILLEGAL) {
+      newState = {
+        ...newState,
+        illegalCategory: null,
+        illegalSubcategory: null,
+      };
+    } else if (name === 'illegalCategory') {
+      // Some illegal categories do not have any sub-categories other than
+      // "Something else" (other) so we set the subcategory to 'other' by
+      // default here, and we'll hide the input field in the UI. Otherwise, we
+      // reset the subcategory to make sure that the user always see "Select
+      // violation" when the illegal category is updated.
+      newState = {
+        ...newState,
+        illegalSubcategory: ILLEGAL_CATEGORIES_WITHOUT_SUBCATEGORIES.includes(
+          value,
+        )
+          ? 'other'
+          : null,
+      };
+    }
+
+    this.setState(newState);
   };
 
   onSubmit: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
-    const { anonymous, email, name, text, category, location } = this.state;
+    const {
+      anonymous,
+      email,
+      name,
+      text,
+      category,
+      location,
+      illegalCategory,
+      illegalSubcategory,
+    } = this.state;
 
-    this.props.onSubmit({ anonymous, email, name, text, category, location });
+    this.props.onSubmit({
+      anonymous,
+      email,
+      name,
+      text,
+      category,
+      location,
+      illegalCategory,
+      illegalSubcategory,
+    });
   };
 
   getFeedbackFormValues(currentUser: UserType | null): FeedbackFormValues {
@@ -227,6 +639,8 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
       text: '',
       category: null,
       location: null,
+      illegalCategory: null,
+      illegalSubcategory: null,
     };
 
     // `name` is either the `display_name` when set or `Firefox user XYZ`
@@ -395,6 +809,59 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                   </Select>
                 </>
               )}
+
+              {this.state.category === CATEGORY_ILLEGAL && (
+                <>
+                  <label
+                    className="FeedbackForm-label"
+                    htmlFor="feedbackIllegalCategory"
+                  >
+                    {i18n.gettext('Type of illegal content')}
+                  </label>
+                  <Select
+                    className="FeedbackForm-illegalCategory"
+                    id="feedbackIllegalCategory"
+                    name="illegalCategory"
+                    onChange={this.onFieldChange}
+                    value={this.state.illegalCategory}
+                    required
+                  >
+                    {getIllegalCategoryOptions(i18n).map((option) => {
+                      return <option key={option.value} {...option} />;
+                    })}
+                  </Select>
+                </>
+              )}
+
+              {this.state.category === CATEGORY_ILLEGAL &&
+                this.state.illegalCategory &&
+                !ILLEGAL_CATEGORIES_WITHOUT_SUBCATEGORIES.includes(
+                  this.state.illegalCategory,
+                ) && (
+                  <>
+                    <label
+                      className="FeedbackForm-label"
+                      htmlFor="feedbackIllegalSubcategory"
+                    >
+                      {i18n.gettext('Specific violation')}
+                    </label>
+                    <Select
+                      className="FeedbackForm-illegalSubcategory"
+                      id="feedbackIllegalSubcategory"
+                      name="illegalSubcategory"
+                      onChange={this.onFieldChange}
+                      value={this.state.illegalSubcategory}
+                      required
+                    >
+                      {getIllegalSubcategoryOptions(
+                        i18n,
+                        this.state.illegalCategory,
+                      ).map((option) => {
+                        return <option key={option.value} {...option} />;
+                      })}
+                    </Select>
+                  </>
+                )}
 
               <label className="FeedbackForm-label" htmlFor="feedbackText">
                 {i18n.gettext('Provide more details')}

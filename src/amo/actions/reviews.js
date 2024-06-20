@@ -817,6 +817,8 @@ type SendRatingAbuseReportParams = {|
   reason: string | null,
   reporterEmail: string | null,
   reporterName: string | null,
+  illegalCategory: string | null,
+  illegalSubcategory: string | null,
 |};
 
 export type SendRatingAbuseReportAction = {|
@@ -832,6 +834,8 @@ export const sendRatingAbuseReport = ({
   reason,
   reporterEmail,
   reporterName,
+  illegalCategory,
+  illegalSubcategory,
 }: SendRatingAbuseReportParams): SendRatingAbuseReportAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(ratingId, 'ratingId is required');
@@ -846,6 +850,8 @@ export const sendRatingAbuseReport = ({
       reason,
       reporterEmail,
       reporterName,
+      illegalCategory,
+      illegalSubcategory,
     },
   };
 };

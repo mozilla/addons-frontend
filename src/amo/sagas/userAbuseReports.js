@@ -22,6 +22,8 @@ export function* reportUser({
     reporterEmail,
     reporterName,
     userId,
+    illegalCategory,
+    illegalSubcategory,
   },
 }: SendUserAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -39,6 +41,8 @@ export function* reportUser({
       reporterName: reporterName || null,
       reporterEmail: reporterEmail || null,
       userId,
+      illegalCategory: illegalCategory || null,
+      illegalSubcategory: illegalSubcategory || null,
     };
     const response = yield call(reportUserApi, params);
 

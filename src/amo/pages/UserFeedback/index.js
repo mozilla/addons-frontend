@@ -77,7 +77,15 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
 
   onFormSubmitted: (values: FeedbackFormValues) => void = (values) => {
     const { dispatch, errorHandler, user } = this.props;
-    const { anonymous, email, name, text, category } = values;
+    const {
+      anonymous,
+      email,
+      name,
+      text,
+      category,
+      illegalCategory,
+      illegalSubcategory,
+    } = values;
 
     invariant(user, 'user is required');
 
@@ -89,6 +97,8 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
         message: text,
         reason: category,
         userId: user.id,
+        illegalCategory,
+        illegalSubcategory,
         // Only authenticate the API call when the report isn't submitted
         // anonymously.
         auth: anonymous === false,

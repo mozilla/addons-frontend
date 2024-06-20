@@ -67,6 +67,8 @@ describe(__filename, () => {
           reporterEmail: 'made_up@email',
           location: 'both',
           addonVersion: '1.2.3',
+          illegalCategory: 'some illegal category',
+          illegalSubcategory: 'some illegal subcategory',
         };
       });
 

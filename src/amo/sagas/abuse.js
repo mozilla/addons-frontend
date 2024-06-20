@@ -24,6 +24,8 @@ export function* reportAddon({
     reason,
     location,
     addonVersion,
+    illegalCategory,
+    illegalSubcategory,
     auth,
   },
 }: SendAddonAbuseReportAction): Saga {
@@ -43,6 +45,8 @@ export function* reportAddon({
       reason: reason || null,
       location: location || null,
       addon_version: addonVersion || null,
+      illegal_category: illegalCategory || null,
+      illegal_subcategory: illegalSubcategory || null,
       auth,
     };
     let response;

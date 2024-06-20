@@ -22,6 +22,8 @@ export function* reportCollection({
     reporterEmail,
     reporterName,
     collectionId,
+    illegalCategory,
+    illegalSubcategory,
   },
 }: SendCollectionAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -39,6 +41,8 @@ export function* reportCollection({
       reporterName: reporterName || null,
       reporterEmail: reporterEmail || null,
       collectionId,
+      illegalCategory: illegalCategory || null,
+      illegalSubcategory: illegalSubcategory || null,
     };
     const response = yield call(reportCollectionApi, params);
 
