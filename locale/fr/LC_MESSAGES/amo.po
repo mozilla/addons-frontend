@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-24 21:12+0000\n"
+"PO-Revision-Date: 2024-06-24 21:14+0000\n"
 "Last-Translator: Théo Chevalier <theochevalier@pm.me>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1208,11 +1208,11 @@ msgstr "Partage d’images non consensuel"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "Éléments non consensuels contenant des deepfakes ou des procédés similaires utilisant des fonctionnalités de tiers"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Harcèlement en ligne"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
