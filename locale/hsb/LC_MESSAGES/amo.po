@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-24 20:04+0000\n"
+"PO-Revision-Date: 2024-06-24 20:09+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1107,7 +1107,7 @@ msgstr "Pornografija abo seksualizowany wobsah"
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
-msgstr ""
+msgstr "Młodźinski škit"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
@@ -1135,7 +1135,7 @@ msgstr "Druhe"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "Přeńdźenje wubrać"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
@@ -1159,7 +1159,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
-msgstr ""
+msgstr "Dźěra biometriskich datow"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
@@ -1167,7 +1167,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr ""
+msgstr "Prawo na zabywanje"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
@@ -1259,23 +1259,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "Riziko za zjawnu strowosć"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
-msgstr ""
+msgstr "Teroristiski wobsah"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "Njeawtentiske konta"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
-msgstr ""
+msgstr "Njeawtentiske lisćinowe zapiski"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "Pohódnoćenja njeawtentiskich wužiwarjow"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
@@ -1283,11 +1283,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "Phishing"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "Pyramidowe šemy"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
