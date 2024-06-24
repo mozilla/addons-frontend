@@ -8241,10 +8241,10 @@ pino-std-serializers@^6.0.0:
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-6.0.0.tgz#4c20928a1bafca122fdc2a7a4a171ca1c5f9c526"
   integrity sha512-mMMOwSKrmyl+Y12Ri2xhH1lbzQxwwpuru9VjyJpgFIH4asSj88F2csdMwN6+M5g1Ll4rmsYghHLQJw81tgZ7LQ==
 
-pino-syslog@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/pino-syslog/-/pino-syslog-3.0.0.tgz#1733392dbadd693818a0fd076bba71e0ae9df56e"
-  integrity sha512-G5JU0mKaNS95E29uuX125vw76D92cSVppGoPwZMNlYBY+NpkFD7dUBc3PyYTFajXUU8jNbEyp4vPpV7Tbl/eiw==
+pino-syslog@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/pino-syslog/-/pino-syslog-3.1.0.tgz#3f214f4701b58cd799690768e2bf043471a3e55e"
+  integrity sha512-lWh11cb/Fdk+OfDUkrDP7oNI45RAhRXVZDuplITXfQjVTJkaIf0VaXm9O09Lkdjr3IvgtntZH2zlORIVorNrig==
   dependencies:
     fast-json-parse "^1.0.2"
     fast-safe-stringify "^2.0.2"
