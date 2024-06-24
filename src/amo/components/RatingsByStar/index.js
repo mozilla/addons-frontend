@@ -151,6 +151,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                 <Link
                   className="RatingsByStar-row"
                   key={star}
+                  rel="nofollow"
                   title={getLinkTitles(star, starCount) || ''}
                   to={reviewListURL({
                     addonSlug: addon.slug,
