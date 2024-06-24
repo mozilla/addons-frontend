@@ -332,6 +332,8 @@ describe(__filename, () => {
         reporterName: '',
         message: 'Some details...',
         reason: CATEGORY_FEEDBACK_SPAM,
+        illegalCategory: null,
+        illegalSubcategory: null,
         auth: false,
       }),
     );
@@ -367,6 +369,8 @@ describe(__filename, () => {
         reporterName: signedInName,
         message: 'Some details...',
         reason: CATEGORY_SOMETHING_ELSE,
+        illegalCategory: null,
+        illegalSubcategory: null,
         auth: true,
       }),
     );
@@ -407,6 +411,8 @@ describe(__filename, () => {
         reporterName: '',
         message: 'Some details...',
         reason: CATEGORY_SOMETHING_ELSE,
+        illegalCategory: null,
+        illegalSubcategory: null,
         auth: false,
       }),
     );

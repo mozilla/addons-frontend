@@ -13,6 +13,7 @@ import {
   CATEGORY_HATEFUL_VIOLENT_DECEPTIVE,
   CATEGORY_ILLEGAL,
   CATEGORY_SOMETHING_ELSE,
+  ILLEGAL_CATEGORIES_WITHOUT_SUBCATEGORIES,
 } from 'amo/components/FeedbackForm';
 import { extractId } from 'amo/pages/AddonFeedback';
 import { loadAddonAbuseReport, sendAddonAbuseReport } from 'amo/reducers/abuse';
@@ -314,6 +315,18 @@ describe(__filename, () => {
       }),
       defaultLocationLabel,
     );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Type of illegal content',
+      }),
+      'Consumer information infringements',
+    );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Specific violation',
+      }),
+      'Non-compliance with pricing regulations',
+    );
     await userEvent.click(
       screen.getByRole('checkbox', {
         name: certificationLabel,
@@ -338,8 +351,129 @@ describe(__filename, () => {
         reason: CATEGORY_ILLEGAL,
         location: defaultLocation,
         auth: false,
+        illegalCategory: 'consumer_information',
+        illegalSubcategory: 'noncompliance_pricing',
       }),
     );
+  });
+
+  it.each(ILLEGAL_CATEGORIES_WITHOUT_SUBCATEGORIES)(
+    'does not show the "violation" select field when illegal category is %s (the subcategory is set to "other")',
+    async (illegalCategory) => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      await userEvent.type(
+        screen.getByRole('textbox', {
+          name: 'Provide more details',
+        }),
+        defaultMessage,
+      );
+      await userEvent.click(
+        screen.getByRole('radio', { name: illegalReasonLabel }),
+      );
+      await userEvent.selectOptions(
+        screen.getByRole('combobox', {
+          name: 'Place of the violation',
+        }),
+        defaultLocationLabel,
+      );
+      await userEvent.selectOptions(
+        screen.getByRole('combobox', {
+          name: 'Type of illegal content',
+        }),
+        illegalCategory,
+      );
+      await userEvent.click(
+        screen.getByRole('checkbox', {
+          name: certificationLabel,
+        }),
+      );
+      await userEvent.click(
+        screen.getByRole('checkbox', {
+          name: 'File report anonymously',
+        }),
+      );
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Submit report' }),
+      );
+
+      expect(
+        screen.queryByLabelText('Specific violation'),
+      ).not.toBeInTheDocument();
+      expect(dispatch).toHaveBeenCalledWith(
+        sendAddonAbuseReport({
+          errorHandlerId: getErrorHandlerId(defaultAddonGUID),
+          addonId: defaultAddonGUID,
+          reporterEmail: '',
+          reporterName: '',
+          message: defaultMessage,
+          reason: CATEGORY_ILLEGAL,
+          location: defaultLocation,
+          auth: false,
+          illegalCategory,
+          illegalSubcategory: 'other',
+        }),
+      );
+    },
+  );
+
+  it('resets the illegal subcategory when the illegal category is updated', async () => {
+    render();
+
+    await userEvent.click(
+      screen.getByRole('radio', { name: illegalReasonLabel }),
+    );
+    // select a category that has no visible subcategory
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Type of illegal content',
+      }),
+      'animal_welfare',
+    );
+    expect(
+      screen.queryByLabelText('Specific violation'),
+    ).not.toBeInTheDocument();
+
+    // select a different category
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Type of illegal content',
+      }),
+      'consumer_information',
+    );
+    // we expect the field for subcategories to be visible now, and its value
+    // should be reset
+    expect(screen.getByLabelText('Specific violation')).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'Select violation' }).selected,
+    ).toBe(true);
+
+    // select a subcategory
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Specific violation',
+      }),
+      'hidden_advertisement',
+    );
+    expect(
+      screen.getByRole('option', {
+        name: 'Hidden advertisement or commercial communication, including by influencers',
+      }).selected,
+    ).toBe(true);
+
+    // select a new category
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Type of illegal content',
+      }),
+      'data_protection_and_privacy_violations',
+    );
+    // at this point, we should reset the subcategory value/field
+    expect(screen.getByLabelText('Specific violation')).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'Select violation' }).selected,
+    ).toBe(true);
   });
 
   it('dispatches sendAddonAbuseReport action with all fields on submit for a signed-in user', async () => {
@@ -349,6 +483,23 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render();
 
+    // start by filing a report for an illegal matter
+    await userEvent.click(
+      screen.getByRole('radio', { name: illegalReasonLabel }),
+    );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Type of illegal content',
+      }),
+      'Consumer information infringements',
+    );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Specific violation',
+      }),
+      'Non-compliance with pricing regulations',
+    );
+    // then change for something else
     await userEvent.click(
       screen.getByRole('radio', { name: 'Something else' }),
     );
@@ -376,6 +527,10 @@ describe(__filename, () => {
         reason: CATEGORY_SOMETHING_ELSE,
         location: defaultLocation,
         auth: true,
+        // We expect these fields to have been reset since the user changed the
+        // reason of the report.
+        illegalCategory: null,
+        illegalSubcategory: null,
       }),
     );
   });
@@ -393,6 +548,18 @@ describe(__filename, () => {
         name: 'Place of the violation',
       }),
       defaultLocationLabel,
+    );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Type of illegal content',
+      }),
+      'Consumer information infringements',
+    );
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', {
+        name: 'Specific violation',
+      }),
+      'Non-compliance with pricing regulations',
     );
     await userEvent.type(
       screen.getByRole('textbox', { name: 'Provide more details' }),
@@ -422,6 +589,8 @@ describe(__filename, () => {
         reason: CATEGORY_ILLEGAL,
         location: defaultLocation,
         auth: false,
+        illegalCategory: 'consumer_information',
+        illegalSubcategory: 'noncompliance_pricing',
       }),
     );
   });
@@ -489,6 +658,8 @@ describe(__filename, () => {
         reason: 'does_not_work',
         location: 'addon',
         auth: false,
+        illegalCategory: null,
+        illegalSubcategory: null,
       }),
     );
   });
@@ -524,6 +695,18 @@ describe(__filename, () => {
       await userEvent.click(
         screen.getByRole('radio', { name: illegalReasonLabel }),
       );
+      await userEvent.selectOptions(
+        screen.getByRole('combobox', {
+          name: 'Type of illegal content',
+        }),
+        'Consumer information infringements',
+      );
+      await userEvent.selectOptions(
+        screen.getByRole('combobox', {
+          name: 'Specific violation',
+        }),
+        'Non-compliance with pricing regulations',
+      );
       await userEvent.click(
         screen.getByRole('checkbox', {
           name: certificationLabel,
@@ -552,6 +735,8 @@ describe(__filename, () => {
           reason: CATEGORY_ILLEGAL,
           location: 'addon',
           auth: false,
+          illegalCategory: 'consumer_information',
+          illegalSubcategory: 'noncompliance_pricing',
         }),
       );
     },
@@ -621,6 +806,8 @@ describe(__filename, () => {
         location: defaultLocation,
         addonVersion: version,
         auth: false,
+        illegalCategory: null,
+        illegalSubcategory: null,
       }),
     );
   });

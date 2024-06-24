@@ -27,6 +27,8 @@ type SendCollectionAbuseReportParams = {|
   reason: string | null,
   reporterEmail: string | null,
   reporterName: string | null,
+  illegalCategory: string | null,
+  illegalSubcategory: string | null,
 |};
 
 export type SendCollectionAbuseReportAction = {|
@@ -42,6 +44,8 @@ export const sendCollectionAbuseReport = ({
   reason,
   reporterEmail,
   reporterName,
+  illegalCategory,
+  illegalSubcategory,
 }: SendCollectionAbuseReportParams): SendCollectionAbuseReportAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(collectionId, 'collectionId is required');
@@ -56,6 +60,8 @@ export const sendCollectionAbuseReport = ({
       reason,
       reporterEmail,
       reporterName,
+      illegalCategory,
+      illegalSubcategory,
     },
   };
 };

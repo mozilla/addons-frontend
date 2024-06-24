@@ -70,7 +70,16 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
     values: FeedbackFormValues,
   ) => {
     const { addon, dispatch, errorHandler, installedAddon } = this.props;
-    const { anonymous, email, name, text, category, location } = values;
+    const {
+      anonymous,
+      email,
+      name,
+      text,
+      category,
+      location,
+      illegalCategory,
+      illegalSubcategory,
+    } = values;
 
     invariant(addon, 'An add-on is required for a report.');
 
@@ -89,6 +98,8 @@ export class AddonFeedbackFormBase extends React.Component<InternalProps> {
             ? 'addon'
             : location,
         addonVersion: installedAddon?.version || null,
+        illegalCategory,
+        illegalSubcategory,
         // Only authenticate the API call when the report isn't submitted
         // anonymously.
         auth: anonymous === false,

@@ -71,6 +71,8 @@ export type SendUserAbuseReportParams = {|
   reporterEmail?: string | null,
   reporterName?: string | null,
   userId: UserId,
+  illegalCategory: string | null,
+  illegalSubcategory: string | null,
 |};
 
 export type SendUserAbuseReportAction = {|
@@ -86,6 +88,8 @@ export function sendUserAbuseReport({
   reporterEmail = null,
   userId,
   reporterName = null,
+  illegalCategory,
+  illegalSubcategory,
 }: SendUserAbuseReportParams): SendUserAbuseReportAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
@@ -100,6 +104,8 @@ export function sendUserAbuseReport({
       reporterEmail,
       reporterName,
       userId,
+      illegalCategory,
+      illegalSubcategory,
     },
   };
 }

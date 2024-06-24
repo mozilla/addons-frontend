@@ -77,7 +77,15 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
 
   onFormSubmitted: (values: FeedbackFormValues) => void = (values) => {
     const { dispatch, errorHandler, review } = this.props;
-    const { anonymous, email, name, text, category } = values;
+    const {
+      anonymous,
+      email,
+      name,
+      text,
+      category,
+      illegalCategory,
+      illegalSubcategory,
+    } = values;
 
     invariant(review, 'review is required');
 
@@ -92,6 +100,8 @@ export class RatingFeedbackBase extends React.Component<InternalProps> {
         reason: category,
         reporterEmail: anonymous ? '' : email,
         reporterName: anonymous ? '' : name,
+        illegalCategory,
+        illegalSubcategory,
       }),
     );
   };

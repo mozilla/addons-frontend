@@ -22,6 +22,9 @@ export type AbuseReporter = {|
   username: string,
 |} | null;
 
+// We are using snake case in this type because it makes it easier to share
+// the same set of parameters between the `mozAddonManager.sendAbuseReport()`
+// method and the direct API call (`reportAddon()` below).
 export type ReportAddonParams = {|
   addonId: string,
   api: ApiState,
@@ -31,12 +34,11 @@ export type ReportAddonParams = {|
   reason: string | null,
   location: string | null,
   addon_version: string | null,
+  illegal_category: string | null,
+  illegal_subcategory: string | null,
   auth: boolean,
 |};
 
-// We are using snake case in this type because it makes it easier to share
-// the same set of parameters between the `mozAddonManager.sendAbuseReport()`
-// method and the direct API call (`reportAddon()` below).
 export type ReportAddonResponse = {|
   addon: {|
     guid: string,
@@ -61,6 +63,8 @@ export function reportAddon({
   reason,
   location,
   addon_version,
+  illegal_category,
+  illegal_subcategory,
   auth,
 }: ReportAddonParams): Promise<ReportAddonResponse> {
   return callApi({
@@ -75,6 +79,8 @@ export function reportAddon({
       reason,
       location,
       addon_version,
+      illegal_category,
+      illegal_subcategory,
       lang: api.lang,
     },
     apiState: api,
@@ -88,6 +94,8 @@ export type ReportUserParams = {|
   message: string | null,
   reason: string | null,
   userId: UserId,
+  illegalCategory: string | null,
+  illegalSubcategory: string | null,
   auth: boolean,
 |};
 
@@ -112,6 +120,8 @@ export function reportUser({
   reporterEmail,
   reporterName,
   userId,
+  illegalCategory,
+  illegalSubcategory,
   auth = true,
 }: ReportUserParams): Promise<ReportUserResponse> {
   if (!reason) {
@@ -132,6 +142,8 @@ export function reportUser({
       reporter_email: reporterEmail,
       reporter_name: reporterName,
       lang: api.lang,
+      illegal_category: illegalCategory,
+      illegal_subcategory: illegalSubcategory,
     },
     apiState: api,
   });
@@ -144,6 +156,8 @@ export type ReportRatingParams = {|
   reason: string | null,
   reporterName: string | null,
   reporterEmail: string | null,
+  illegalCategory: string | null,
+  illegalSubcategory: string | null,
   auth: boolean,
 |};
 
@@ -166,6 +180,8 @@ export function reportRating({
   reason,
   reporterName,
   reporterEmail,
+  illegalCategory,
+  illegalSubcategory,
   auth,
 }: ReportRatingParams): Promise<ReportRatingResponse> {
   if (!reason) {
@@ -186,6 +202,8 @@ export function reportRating({
       reporter_name: reporterName,
       reporter_email: reporterEmail,
       lang: api.lang,
+      illegal_category: illegalCategory,
+      illegal_subcategory: illegalSubcategory,
     },
     apiState: api,
   });
@@ -198,6 +216,8 @@ export type ReportCollectionParams = {|
   reason: string | null,
   reporterName: string | null,
   reporterEmail: string | null,
+  illegalCategory: string | null,
+  illegalSubcategory: string | null,
   auth: boolean,
 |};
 
@@ -220,6 +240,8 @@ export function reportCollection({
   reason,
   reporterName,
   reporterEmail,
+  illegalCategory,
+  illegalSubcategory,
   auth,
 }: ReportCollectionParams): Promise<ReportCollectionResponse> {
   if (!reason) {
@@ -240,6 +262,8 @@ export function reportCollection({
       reporter_name: reporterName,
       reporter_email: reporterEmail,
       lang: api.lang,
+      illegal_category: illegalCategory,
+      illegal_subcategory: illegalSubcategory,
     },
     apiState: api,
   });

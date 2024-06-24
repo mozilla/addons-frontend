@@ -54,6 +54,8 @@ describe(__filename, () => {
             location,
             addon_version,
             lang: DEFAULT_LANG_IN_TESTS,
+            illegal_category: null,
+            illegal_subcategory: null,
           },
           apiState,
         })
@@ -74,6 +76,8 @@ describe(__filename, () => {
         reporter_name,
         location,
         addon_version,
+        illegal_category: null,
+        illegal_subcategory: null,
         auth: true,
       });
 
@@ -88,7 +92,7 @@ describe(__filename, () => {
       });
     }
 
-    it('calls the report add-on abuse API', async () => {
+    it('calls the report user abuse API', async () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
       const userId = 1234;
@@ -107,18 +111,26 @@ describe(__filename, () => {
             reporter_email: undefined,
             reporter_name: undefined,
             lang: DEFAULT_LANG_IN_TESTS,
+            illegal_category: null,
+            illegal_subcategory: null,
           },
           apiState,
         })
         .once()
         .returns(mockResponse({ message, user }));
 
-      await reportUser({ api: apiState, message, userId: user.id });
+      await reportUser({
+        api: apiState,
+        message,
+        userId: user.id,
+        illegalCategory: null,
+        illegalSubcategory: null,
+      });
 
       mockApi.verify();
     });
 
-    it('calls the report add-on abuse API with more information', async () => {
+    it('calls the report user abuse API with more information', async () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const reason = 'other';
       const reporterEmail = 'some-reporter-email';
@@ -139,6 +151,8 @@ describe(__filename, () => {
             reporter_email: reporterEmail,
             reporter_name: reporterName,
             lang: DEFAULT_LANG_IN_TESTS,
+            illegal_category: null,
+            illegal_subcategory: null,
           },
           apiState,
         })
@@ -159,12 +173,14 @@ describe(__filename, () => {
         reason,
         reporterEmail,
         reporterName,
+        illegalCategory: null,
+        illegalSubcategory: null,
       });
 
       mockApi.verify();
     });
 
-    it('allows the add-on abuse report API to be called anonymously', async () => {
+    it('allows the user abuse report API to be called anonymously', async () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
       const userId = 1234;
@@ -183,6 +199,8 @@ describe(__filename, () => {
             reporter_email: undefined,
             reporter_name: undefined,
             lang: DEFAULT_LANG_IN_TESTS,
+            illegal_category: null,
+            illegal_subcategory: null,
           },
           apiState,
         })
@@ -194,6 +212,8 @@ describe(__filename, () => {
         auth: false,
         message,
         userId: user.id,
+        illegalCategory: null,
+        illegalSubcategory: null,
       });
 
       mockApi.verify();
@@ -224,6 +244,8 @@ describe(__filename, () => {
           },
           message: '',
           reason: 'illegal',
+          illegal_category: null,
+          illegal_subcategory: null,
           ...otherProps,
         },
       });
@@ -249,6 +271,8 @@ describe(__filename, () => {
             reporter_email: reporterEmail,
             reporter_name: reporterName,
             lang: DEFAULT_LANG_IN_TESTS,
+            illegal_category: null,
+            illegal_subcategory: null,
           },
           apiState,
         })
@@ -262,6 +286,8 @@ describe(__filename, () => {
         reason,
         reporterEmail,
         reporterName,
+        illegalCategory: null,
+        illegalSubcategory: null,
       });
 
       mockApi.verify();
@@ -285,13 +311,22 @@ describe(__filename, () => {
             reporter_email: undefined,
             reporter_name: undefined,
             lang: DEFAULT_LANG_IN_TESTS,
+            illegal_category: null,
+            illegal_subcategory: null,
           },
           apiState,
         })
         .once()
         .returns(mockResponse());
 
-      await reportRating({ api: apiState, auth: false, message, ratingId });
+      await reportRating({
+        api: apiState,
+        auth: false,
+        message,
+        ratingId,
+        illegalCategory: null,
+        illegalSubcategory: null,
+      });
 
       mockApi.verify();
     });
@@ -320,6 +355,8 @@ describe(__filename, () => {
           },
           message: '',
           reason: 'illegal',
+          illegal_category: null,
+          illegal_subcategory: null,
           ...otherProps,
         },
       });
@@ -345,6 +382,8 @@ describe(__filename, () => {
             reporter_email: reporterEmail,
             reporter_name: reporterName,
             lang: DEFAULT_LANG_IN_TESTS,
+            illegal_category: null,
+            illegal_subcategory: null,
           },
           apiState,
         })
@@ -358,6 +397,8 @@ describe(__filename, () => {
         reason,
         reporterEmail,
         reporterName,
+        illegalCategory: null,
+        illegalSubcategory: null,
       });
 
       mockApi.verify();
@@ -381,6 +422,8 @@ describe(__filename, () => {
             reporter_email: undefined,
             reporter_name: undefined,
             lang: DEFAULT_LANG_IN_TESTS,
+            illegal_category: null,
+            illegal_subcategory: null,
           },
           apiState,
         })
@@ -392,6 +435,8 @@ describe(__filename, () => {
         auth: false,
         message,
         collectionId,
+        illegalCategory: null,
+        illegalSubcategory: null,
       });
 
       mockApi.verify();

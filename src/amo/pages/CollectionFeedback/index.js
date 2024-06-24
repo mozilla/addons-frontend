@@ -81,7 +81,15 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
 
   onFormSubmitted: (values: FeedbackFormValues) => void = (values) => {
     const { dispatch, errorHandler, collection } = this.props;
-    const { anonymous, email, name, text, category } = values;
+    const {
+      anonymous,
+      email,
+      name,
+      text,
+      category,
+      illegalCategory,
+      illegalSubcategory,
+    } = values;
 
     invariant(collection, 'collection is required');
 
@@ -96,6 +104,8 @@ export class CollectionFeedbackBase extends React.Component<InternalProps> {
         reason: category,
         reporterEmail: anonymous ? '' : email,
         reporterName: anonymous ? '' : name,
+        illegalCategory,
+        illegalSubcategory,
       }),
     );
   };

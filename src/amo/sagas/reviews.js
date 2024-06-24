@@ -435,6 +435,8 @@ function* sendRatingAbuseReport({
     reason,
     reporterEmail,
     reporterName,
+    illegalCategory,
+    illegalSubcategory,
   },
 }: SendRatingAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -452,6 +454,8 @@ function* sendRatingAbuseReport({
       reason,
       reporterName: reporterName || null,
       reporterEmail: reporterEmail || null,
+      illegalCategory: illegalCategory || null,
+      illegalSubcategory: illegalSubcategory || null,
     };
 
     const response: ReportRatingResponse = yield call(reportRating, params);

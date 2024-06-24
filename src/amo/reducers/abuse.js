@@ -84,12 +84,14 @@ export function loadAddonAbuseReport({
 type SendAddonAbuseReportParams = {|
   addonId: string,
   errorHandlerId: string,
-  reporterEmail?: string | null,
-  reporterName?: string | null,
+  reporterEmail: string | null,
+  reporterName: string | null,
   message: string | null,
-  reason?: string | null,
-  location?: string | null,
-  addonVersion?: string | null,
+  reason: string | null,
+  location: string | null,
+  addonVersion: string | null,
+  illegalCategory: string | null,
+  illegalSubcategory: string | null,
   auth: boolean,
 |};
 
@@ -107,6 +109,8 @@ export function sendAddonAbuseReport({
   reason = null,
   location = null,
   addonVersion = null,
+  illegalCategory = null,
+  illegalSubcategory = null,
   auth,
 }: SendAddonAbuseReportParams): SendAddonAbuseReportAction {
   invariant(addonId, 'addonId is required');
@@ -123,6 +127,8 @@ export function sendAddonAbuseReport({
       reason,
       location,
       addonVersion,
+      illegalCategory,
+      illegalSubcategory,
       auth,
     },
   };
