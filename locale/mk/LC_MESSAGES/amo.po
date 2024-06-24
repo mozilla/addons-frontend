@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-17 10:09+0000\n"
+"POT-Creation-Date: 2024-06-24 18:43+0000\n"
 "PO-Revision-Date: 2020-01-06 09:08+0000\n"
 "Last-Translator: Matej Plavevski <matej.plavevski@gmail.com>\n"
 "Language-Team: none\n"
@@ -106,22 +106,22 @@ msgstr ""
 msgid "This add-on is not available on your platform."
 msgstr ""
 
-#: src/amo/components/AddonFeedbackForm/index.js:137
+#: src/amo/components/AddonFeedbackForm/index.js:148
 #: src/amo/components/SearchResult/index.js:248
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s корисник"
 msgstr[1] "%(total)s корисници"
 
-#: src/amo/components/AddonFeedbackForm/index.js:198
+#: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
 msgstr ""
 
-#: src/amo/components/AddonFeedbackForm/index.js:199
+#: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
 msgstr ""
 
-#: src/amo/components/AddonFeedbackForm/index.js:200
+#: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
 msgstr ""
 
@@ -291,7 +291,7 @@ msgstr "Големина"
 
 #: src/amo/components/AddonMoreInfo/index.js:330
 #: src/amo/components/CollectionDetails/index.js:87
-#: src/amo/pages/CollectionFeedback/index.js:149
+#: src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
 msgstr "Обновено на"
 
@@ -803,7 +803,7 @@ msgstr "Најавете се за да го оцените овој речни�
 
 #: src/amo/components/CollectionDetails/index.js:77
 #: src/amo/components/Footer/index.js:59
-#: src/amo/pages/CollectionFeedback/index.js:145
+#: src/amo/pages/CollectionFeedback/index.js:155
 msgid "Add-ons"
 msgstr ""
 
@@ -1092,47 +1092,54 @@ msgstr ""
 msgid "The review was not found."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:103
+#: src/amo/components/FeedbackForm/index.js:1016
+msgid ""
+"By submitting this report I certify, under penalty of perjury, that the "
+"allegations it contains are complete and accurate, to the best of my "
+"knowledge."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:105
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:106
+#: src/amo/components/FeedbackForm/index.js:108
 msgid ""
 "Example: Features are slow, hard to use, or don’t work; parts of websites "
 "won't load or look unusual."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:111
+#: src/amo/components/FeedbackForm/index.js:113
 msgid "It’s spam"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:112
+#: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: The listing advertises unrelated products or services."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:120
+#: src/amo/components/FeedbackForm/index.js:122
 msgid "It violates Add-on Policies"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:121
+#: src/amo/components/FeedbackForm/index.js:123
 msgid ""
 "Example: It compromised my data without informing or asking me, or it "
 "changed my search engine or home page without informing or asking me."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:127
+#: src/amo/components/FeedbackForm/index.js:129
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:129
+#: src/amo/components/FeedbackForm/index.js:131
 msgid "Example: It contains racist imagery."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:133
+#: src/amo/components/FeedbackForm/index.js:135
 msgid "It violates the law or contains content that violates the law"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:137
+#: src/amo/components/FeedbackForm/index.js:139
 msgid ""
 "Example: Fraud. (If you wish to report a copyright or trademark "
 "infringement, you can learn more about how to do so in our "
@@ -1140,59 +1147,336 @@ msgid ""
 "article%(endLink)s)."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:149
+#: src/amo/components/FeedbackForm/index.js:151
+#: src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:150
+#: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:162
+#: src/amo/components/FeedbackForm/index.js:164
 msgid "Select place"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:164
+#: src/amo/components/FeedbackForm/index.js:166
 msgid "On the add-on's page on this website"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:167
+#: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:168
+#: src/amo/components/FeedbackForm/index.js:170
 msgid "Both locations"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:257
+#: src/amo/components/FeedbackForm/index.js:184
+msgid "Select type"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:185
+msgid "Animal welfare"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:188
+msgid "Consumer information infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:192
+msgid "Data protection and privacy violations"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:196
+msgid "Illegal or harmful speech"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:200
+msgid "Intellectual property infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:204
+msgid "Negative effects on civic discourse or elections"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:210
+msgid "Non-consensual behavior"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:214
+msgid "Pornography or sexualized content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:218
+msgid "Protection of minors"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:222
+msgid "Risk for public security"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:224
+msgid "Scams or fraud"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:225
+msgid "Self-harm"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:228
+msgid "Unsafe, non-compliant, or prohibited products"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:230
+msgid "Violence"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:231
+msgid "Other"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:239
+msgid "Select violation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:247
+msgid "Insufficient information on traders"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:251
+msgid "Non-compliance with pricing regulations"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:255
+msgid ""
+"Hidden advertisement or commercial communication, including by influencers"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:261
+msgid ""
+"Misleading information about the characteristics of the goods and services"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:267
+msgid "Misleading information about the consumer’s rights"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:280
+msgid "Biometric data breach"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:284
+msgid "Missing processing ground for data"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:288
+msgid "Right to be forgotten"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:292
+msgid "Data falsification"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:301
+msgid "Defamation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:302
+msgid "Discrimination"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:305
+msgid ""
+"Illegal incitement to violence and hatred based on protected characteristics "
+"(hate speech)"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:318
+msgid "Design infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:322
+msgid "Geographical indications infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:326
+msgid "Patent infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:330
+msgid "Trade secret infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:341
+msgid "Violation of EU law relevant to civic discourse or elections"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:347
+msgid "Violation of national law relevant to civic discourse or elections"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:353
+msgid ""
+"Misinformation, disinformation, foreign information manipulation and "
+"interference"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:366
+msgid "Non-consensual image sharing"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:370
+msgid ""
+"Non-consensual items containing deepfake or similar technology using a third "
+"party's features"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:376
+msgid "Online bullying/intimidation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:378
+msgid "Stalking"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:388
+msgid "Adult sexual material"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:392
+msgid "Image-based sexual abuse (excluding content depicting minors)"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:405
+msgid "age-specific restrictions concerning minors"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:411
+msgid "Child sexual abuse material"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:415
+msgid "Grooming/sexual enticement of minors"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:426
+msgid "Illegal organizations"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:430
+msgid "Risk for environmental damage"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:434
+msgid "Risk for public health"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:438
+msgid "Terrorist content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:449
+msgid "Inauthentic accounts"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:453
+msgid "Inauthentic listings"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:457
+msgid "Inauthentic user reviews"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:461
+msgid "Impersonation or account hijacking"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:463
+msgid "Phishing"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:466
+msgid "Pyramid schemes"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:477
+msgid "Content promoting eating disorders"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:481
+msgid "Self-mutilation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:483
+msgid "Suicide"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:493
+msgid "Prohibited or restricted products"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:497
+msgid "Unsafe or non-compliant products"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:508
+msgid "Coordinated harm"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:512
+msgid "Gender-based violence"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:516
+msgid "Human exploitation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:520
+msgid "Human trafficking"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:524
+msgid "General calls or incitement to violence and/or hatred"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:259
+#: src/amo/components/FeedbackForm/index.js:673
 msgid "We have received your report. Thanks for letting us know."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:354
+#: src/amo/components/FeedbackForm/index.js:768
 msgid "Submitting your report…"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:355
+#: src/amo/components/FeedbackForm/index.js:769
 msgid "Submit report"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:374
+#: src/amo/components/FeedbackForm/index.js:788
 msgid "Provide more information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:382
+#: src/amo/components/FeedbackForm/index.js:796
 msgid "Place of the violation"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:400
+#: src/amo/components/FeedbackForm/index.js:819
+msgid "Type of illegal content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:846
+msgid "Specific violation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:412
+#: src/amo/components/FeedbackForm/index.js:879
 msgid ""
 "Please provide any additional information that may help us to understand "
 "your report (including which policy you believe has been violated). While "
@@ -1200,41 +1484,34 @@ msgid ""
 "addressing the reported content."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:422
+#: src/amo/components/FeedbackForm/index.js:889
 msgid "Contact information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:438
+#: src/amo/components/FeedbackForm/index.js:905
 msgid "File report anonymously"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:441
+#: src/amo/components/FeedbackForm/index.js:908
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:462
+#: src/amo/components/FeedbackForm/index.js:929
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:465
+#: src/amo/components/FeedbackForm/index.js:932
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:502
+#: src/amo/components/FeedbackForm/index.js:969
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:505
+#: src/amo/components/FeedbackForm/index.js:972
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
-
-#: src/amo/components/FeedbackForm/index.js:549
-msgid ""
-"By submitting this report I certify, under penalty of perjury, that the "
-"allegations it contains are complete and accurate, to the best of my "
-"knowledge."
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:100
@@ -2630,23 +2907,23 @@ msgid ""
 "and themes. Explore the %(collectionName)s."
 msgstr ""
 
-#: src/amo/pages/CollectionFeedback/index.js:119
+#: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
 msgstr ""
 
-#: src/amo/pages/CollectionFeedback/index.js:134
+#: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
 msgstr ""
 
-#: src/amo/pages/CollectionFeedback/index.js:161
+#: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
 msgstr ""
 
-#: src/amo/pages/CollectionFeedback/index.js:162
+#: src/amo/pages/CollectionFeedback/index.js:172
 msgid "Send some feedback about the collection"
 msgstr ""
 
-#: src/amo/pages/CollectionFeedback/index.js:165
+#: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
 msgstr ""
 
@@ -2827,19 +3104,19 @@ msgstr ""
 msgid "Dictionaries"
 msgstr "Речници"
 
-#: src/amo/pages/RatingFeedback/index.js:115
+#: src/amo/pages/RatingFeedback/index.js:125
 msgid "Submit feedback or report a review to Mozilla"
 msgstr ""
 
-#: src/amo/pages/RatingFeedback/index.js:145
+#: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/pages/RatingFeedback/index.js:161
+#: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
 msgstr ""
 
-#: src/amo/pages/RatingFeedback/index.js:165
+#: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
 msgstr ""
 
@@ -3147,24 +3424,24 @@ msgstr ""
 msgid "Add-ons tagged with %(tag)s"
 msgstr ""
 
-#: src/amo/pages/UserFeedback/index.js:114
+#: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
 msgstr ""
 
-#: src/amo/pages/UserFeedback/index.js:133
+#: src/amo/pages/UserFeedback/index.js:143
 #: src/amo/pages/UserProfile/index.js:381
 msgid "User since"
 msgstr ""
 
-#: src/amo/pages/UserFeedback/index.js:144
+#: src/amo/pages/UserFeedback/index.js:154
 msgid "Report this user to Mozilla"
 msgstr ""
 
-#: src/amo/pages/UserFeedback/index.js:145
+#: src/amo/pages/UserFeedback/index.js:155
 msgid "Send some feedback about the user profile"
 msgstr ""
 
-#: src/amo/pages/UserFeedback/index.js:148
+#: src/amo/pages/UserFeedback/index.js:158
 msgid "Report the user profile because it's illegal or incompliant"
 msgstr ""
 
