@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-25 11:22+0000\n"
+"PO-Revision-Date: 2024-06-25 11:24+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1189,19 +1189,19 @@ msgstr "Ynbrekken op hannelsgeheimen"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Skeining fan EU-wet dy’t relevant is foar maatskiplik debat of ferkiezingen"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Skeining fan foar maatskiplik debat of ferkiezingen relevante nasjonale wetjouwing"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "Misynformaasje, desynformaasje, manipulaasje fan bûtenlânske ynformaasje en ynterferinsje"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
-msgstr ""
+msgstr "Ofbyldingen diele sûnder tastimming fan wjerskanten"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
