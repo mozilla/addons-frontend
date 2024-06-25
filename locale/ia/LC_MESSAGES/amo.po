@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-25 13:13+0000\n"
+"PO-Revision-Date: 2024-06-25 13:31+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:187
 msgid "Loading…"
-msgstr "Cargamento…"
+msgstr "Cargante…"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 msgid "Adding…"
@@ -1076,11 +1076,11 @@ msgstr "Violationes de protection de datos e confidentialitate"
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
-msgstr ""
+msgstr "Discurso illegal o malefic"
 
 #: src/amo/components/FeedbackForm/index.js:200
 msgid "Intellectual property infringements"
-msgstr ""
+msgstr "Violation de proprietate intellectual"
 
 #: src/amo/components/FeedbackForm/index.js:204
 msgid "Negative effects on civic discourse or elections"
@@ -1088,11 +1088,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:210
 msgid "Non-consensual behavior"
-msgstr ""
+msgstr "Comportamento non-consensual"
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
-msgstr ""
+msgstr "Pornographia o contento sexsualisate"
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
@@ -1112,7 +1112,7 @@ msgstr "Automutilation"
 
 #: src/amo/components/FeedbackForm/index.js:228
 msgid "Unsafe, non-compliant, or prohibited products"
-msgstr ""
+msgstr "Productos insecur, non-conforme, o prohibite"
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
@@ -1124,15 +1124,15 @@ msgstr "Altero"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "Seliger violation"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
-msgstr ""
+msgstr "Insufficiente informationes sur le commerciantes"
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "Non-conformitate con regulamentation del precios"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
