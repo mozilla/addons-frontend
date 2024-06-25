@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-25 11:10+0000\n"
+"PO-Revision-Date: 2024-06-25 16:21+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1114,7 +1114,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "違反價格法規"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
@@ -1134,7 +1134,7 @@ msgstr "發生生物識別資料外洩事件"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "缺少資料處理的背景"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
@@ -1182,7 +1182,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "錯誤資訊、造謠、外國介入的資訊操弄與干擾"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
@@ -1206,11 +1206,11 @@ msgstr "成人色情內容"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "以圖片進行性虐待（不含描繪兒童的內容）"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
-msgstr ""
+msgstr "與兒童有關的特定年齡限制"
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
@@ -1258,15 +1258,15 @@ msgstr "釣魚內容"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "多層次傳銷"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "宣傳飲食障礙的內容"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "自殘"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
