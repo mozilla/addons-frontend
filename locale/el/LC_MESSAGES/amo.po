@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-24 22:40+0000\n"
+"PO-Revision-Date: 2024-06-25 20:42+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1062,27 +1062,27 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
-msgstr ""
+msgstr "Παραβιάσεις πληροφοριών καταναλωτή"
 
 #: src/amo/components/FeedbackForm/index.js:192
 msgid "Data protection and privacy violations"
-msgstr ""
+msgstr "Παραβιάσεις προστασίας δεδομένων και απορρήτου"
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
-msgstr ""
+msgstr "Παράνομος ή επιβλαβής λόγος"
 
 #: src/amo/components/FeedbackForm/index.js:200
 msgid "Intellectual property infringements"
-msgstr ""
+msgstr "Παραβιάσεις πνευματικής ιδιοκτησίας"
 
 #: src/amo/components/FeedbackForm/index.js:204
 msgid "Negative effects on civic discourse or elections"
-msgstr ""
+msgstr "Αρνητικές επιρροές στον πολιτικό λόγο ή τις εκλογές"
 
 #: src/amo/components/FeedbackForm/index.js:210
 msgid "Non-consensual behavior"
-msgstr ""
+msgstr "Μη συναινετική συμπεριφορά"
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
@@ -1094,7 +1094,7 @@ msgstr "Προστασία ανηλίκων"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
-msgstr ""
+msgstr "Κίνδυνος για τη δημόσια ασφάλεια"
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
@@ -1102,11 +1102,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:225
 msgid "Self-harm"
-msgstr ""
+msgstr "Αυτοτραυματισμός"
 
 #: src/amo/components/FeedbackForm/index.js:228
 msgid "Unsafe, non-compliant, or prohibited products"
-msgstr ""
+msgstr "Επικίνδυνα, μη συμμορφούμενα ή απαγορευμένα προϊόντα"
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
@@ -1122,11 +1122,11 @@ msgstr "Επιλογή παραβίασης"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
-msgstr ""
+msgstr "Ανεπαρκείς πληροφορίες για τους εμπόρους"
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "Μη συμμόρφωση με τους κανονισμούς τιμολόγησης"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
@@ -1134,15 +1134,15 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
-msgstr ""
+msgstr "Παραπλανητικές πληροφορίες σχετικά με τα χαρακτηριστικά των αγαθών και των υπηρεσιών"
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "Παραπλανητικές πληροφορίες σχετικά με τα δικαιώματα του καταναλωτή"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
-msgstr ""
+msgstr "Παραβίαση βιομετρικών δεδομένων"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
@@ -1154,7 +1154,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
-msgstr ""
+msgstr "Παραποίηση δεδομένων"
 
 #: src/amo/components/FeedbackForm/index.js:301
 msgid "Defamation"
@@ -1170,23 +1170,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
-msgstr ""
+msgstr "Παραβιάσεις σχεδιασμού"
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
-msgstr ""
+msgstr "Παραβιάσεις γεωγραφικών ενδείξεων"
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "Παραβιάσεις διπλωμάτων ευρεσιτεχνίας"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "Παραβιάσεις εμπορικού απορρήτου"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Παραβίαση της νομοθεσίας της ΕΕ σχετικά με τον πολιτικό λόγο ή τις εκλογές"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
