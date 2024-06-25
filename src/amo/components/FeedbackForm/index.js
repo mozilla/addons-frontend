@@ -823,7 +823,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                     id="feedbackIllegalCategory"
                     name="illegalCategory"
                     onChange={this.onFieldChange}
-                    value={this.state.illegalCategory}
+                    value={this.state.illegalCategory || ''}
                     required
                   >
                     {getIllegalCategoryOptions(i18n).map((option) => {
@@ -850,7 +850,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
                       id="feedbackIllegalSubcategory"
                       name="illegalSubcategory"
                       onChange={this.onFieldChange}
-                      value={this.state.illegalSubcategory}
+                      value={this.state.illegalSubcategory || ''}
                       required
                     >
                       {getIllegalSubcategoryOptions(
