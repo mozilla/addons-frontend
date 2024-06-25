@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-25 10:25+0000\n"
+"PO-Revision-Date: 2024-06-25 10:27+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -1167,7 +1167,7 @@ msgstr "Shpifje"
 
 #: src/amo/components/FeedbackForm/index.js:302
 msgid "Discrimination"
-msgstr ""
+msgstr "Diskriminim"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
@@ -1183,11 +1183,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "Cenime patentash"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "Cenime të fshehtash tregtie"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
@@ -1239,23 +1239,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
-msgstr ""
+msgstr "Organizata të paligjshme"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr ""
+msgstr "Rrezik për dëm mjedisor"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "Rrezik për shëndetin publik"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
-msgstr ""
+msgstr "Lëndë terrorizmi"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "Llogari jo të mirëfillta"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
@@ -1307,11 +1307,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "Shfrytëzim i njeriut"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "Trafikim njerëzish"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
@@ -1343,11 +1343,11 @@ msgstr "Vendi i shkeljes"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Lloj lënde të paligjshme"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Cenim specifik"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
