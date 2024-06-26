@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-25 17:55+0000\n"
+"PO-Revision-Date: 2024-06-26 13:12+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1075,7 +1075,7 @@ msgstr "Typ wubraś"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
-msgstr ""
+msgstr "Šćit zwěrjetow"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
@@ -1103,15 +1103,15 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
-msgstr ""
+msgstr "Pornografija abo seksualizěrowane wopśimjeśe"
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
-msgstr ""
+msgstr "Šćit młoźiny"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
-msgstr ""
+msgstr "Riziko za zjawnu wěstotu"
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
@@ -1127,15 +1127,15 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
-msgstr ""
+msgstr "Namóc"
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "Druge"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "Pśejźenje wubraś"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
@@ -1159,7 +1159,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
-msgstr ""
+msgstr "Źěra biometriskich datow"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
@@ -1167,19 +1167,19 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr ""
+msgstr "Pšawo na zabywanje"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
-msgstr ""
+msgstr "Datowe sfalšowanje"
 
 #: src/amo/components/FeedbackForm/index.js:301
 msgid "Defamation"
-msgstr ""
+msgstr "Wobgrono"
 
 #: src/amo/components/FeedbackForm/index.js:302
 msgid "Discrimination"
-msgstr ""
+msgstr "Diskriminacija"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
@@ -1227,11 +1227,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "Pśeslědowanje (stalking)"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
-msgstr ""
+msgstr "Seksualny material za dorosćone"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
