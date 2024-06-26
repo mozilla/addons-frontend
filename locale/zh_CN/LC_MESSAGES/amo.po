@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-26 03:00+0000\n"
+"PO-Revision-Date: 2024-06-26 03:04+0000\n"
 "Last-Translator: wxie <xiewensheng@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1282,7 +1282,7 @@ msgstr "不安全或不合规的产品"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
-msgstr ""
+msgstr "协同伤害"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
@@ -1290,15 +1290,15 @@ msgstr "性別暴力"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "剥削"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "贩卖人口"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "宣扬或煽动暴力和/或仇恨"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
@@ -1326,11 +1326,11 @@ msgstr "违规地点"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "非法内容"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "违规情形"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
