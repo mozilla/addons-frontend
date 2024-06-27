@@ -262,6 +262,7 @@ describe(__filename, () => {
       'href',
       `/en-US/android/addon/${addon.slug}/license/`,
     );
+    expect(link).toHaveAttribute('rel', 'nofollow');
   });
 
   it('renders a default name when the license name is null', () => {
@@ -341,6 +342,7 @@ describe(__filename, () => {
       'href',
       '/en-US/android/addon/chill-out/privacy/',
     );
+    expect(link).toHaveAttribute('rel', 'nofollow');
   });
 
   it('does not render a EULA if none exists', () => {
@@ -365,6 +367,7 @@ describe(__filename, () => {
       'href',
       '/en-US/android/addon/chill-out/eula/',
     );
+    expect(link).toHaveAttribute('rel', 'nofollow');
   });
 
   it('does not link to stats if user is not author of the add-on', () => {

@@ -166,6 +166,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               `/addon/${addon.slug}/license/`,
               getQueryParametersForAttribution(location),
             ),
+            rel: 'nofollow',
           }
         : { href: license.url, prependClientApp: false, prependLang: false };
       const licenseName = license.name || i18n.gettext('Custom License');
@@ -227,6 +228,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             `/addon/${addon.slug}/privacy/`,
             getQueryParametersForAttribution(location),
           )}
+          rel="nofollow"
         >
           {i18n.gettext('Read the privacy policy for this add-on')}
         </Link>
@@ -238,6 +240,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             `/addon/${addon.slug}/eula/`,
             getQueryParametersForAttribution(location),
           )}
+          rel="nofollow"
         >
           {i18n.gettext('Read the license agreement for this add-on')}
         </Link>
