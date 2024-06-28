@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-28 14:22+0000\n"
+"PO-Revision-Date: 2024-06-28 14:32+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1056,15 +1056,15 @@ msgstr "Selecionar tipo"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
-msgstr "Bem-estar dos animais"
+msgstr "Bem-estar de animais"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
-msgstr "Violações de informações do consumidor"
+msgstr "Violações de informações ao consumidor"
 
 #: src/amo/components/FeedbackForm/index.js:192
 msgid "Data protection and privacy violations"
-msgstr "Proteção de dados e violações de privacidade"
+msgstr "Violações de privacidade e proteção de dados"
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
@@ -1080,7 +1080,7 @@ msgstr "Efeitos negativos no discurso cívico ou eleições"
 
 #: src/amo/components/FeedbackForm/index.js:210
 msgid "Non-consensual behavior"
-msgstr "Comportamento não consentido"
+msgstr "Comportamento não consensual"
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
@@ -1092,11 +1092,11 @@ msgstr "Proteção de menores"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
-msgstr "risco para a segurança pública"
+msgstr "Risco à segurança pública"
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
-msgstr "Fraudes ou golpes"
+msgstr "Fraude ou golpe"
 
 #: src/amo/components/FeedbackForm/index.js:225
 msgid "Self-harm"
@@ -1120,7 +1120,7 @@ msgstr "Selecionar violação"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
-msgstr "Informações insuficientes sobre os negociadores"
+msgstr "Informações insuficientes sobre negociadores"
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
@@ -1236,7 +1236,7 @@ msgstr "Organizações ilegais"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr "riscos de danos ao meio ambiente"
+msgstr "Riscos de danos ao meio ambiente"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
@@ -1256,7 +1256,7 @@ msgstr "Listas não autênticas"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr "Análises não autênticas de usuários"
+msgstr "Avaliações de usuários não autênticos"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
@@ -1280,7 +1280,7 @@ msgstr "Automutilação"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr "Suicidio"
+msgstr "Suicídio"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
@@ -1296,7 +1296,7 @@ msgstr "Dano coordenado"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr "Violência baseada em gênero"
+msgstr "Violência com base em gênero"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
