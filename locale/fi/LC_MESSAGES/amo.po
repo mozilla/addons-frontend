@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-29 12:42+0000\n"
+"PO-Revision-Date: 2024-06-29 12:46+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1148,7 +1148,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr ""
+msgstr "Oikeus tulla unohdetuksi"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
@@ -1176,11 +1176,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "Patenttiloukkaukset"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "Liikesalaisuuksien loukkaukset"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
@@ -1204,11 +1204,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Nettikiusaaminen/-uhkailu"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "Vainoaminen"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
@@ -1224,7 +1224,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
-msgstr ""
+msgstr "Lasten seksuaalista hyväksikäyttöä koskeva materiaali"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
@@ -1236,11 +1236,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr ""
+msgstr "Ympäristövahinkojen riski"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "Riski kansanterveydelle"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
@@ -1264,23 +1264,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "Tietojenkalastelu"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "Pyramidihuijaukset"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "Syömishäiriöitä edistävä sisältö"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "Itsensä silpominen"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "Itsemurha"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
@@ -1300,11 +1300,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "Ihmisten hyväksikäyttö"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "Ihmiskauppa"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
@@ -1344,7 +1344,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
-msgstr ""
+msgstr "Anna lisätietoja"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid ""
