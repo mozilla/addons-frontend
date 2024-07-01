@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-28 10:33+0000\n"
+"PO-Revision-Date: 2024-06-29 08:32+0000\n"
 "Last-Translator: Jenny <leanintocuriosity@gmx.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1141,23 +1141,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
-msgstr ""
+msgstr "Informazioni fuorvianti sulle caratteristiche di prodotti e servizi"
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "Informazioni fuorvianti sui diritti del consumatore"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
-msgstr ""
+msgstr "Violazione di dati biometrici"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "Motivazione per il trattamento dei dati mancante"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr ""
+msgstr "Diritto all’oblio"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
@@ -1165,11 +1165,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:301
 msgid "Defamation"
-msgstr ""
+msgstr "Diffamazione"
 
 #: src/amo/components/FeedbackForm/index.js:302
 msgid "Discrimination"
-msgstr ""
+msgstr "Discriminazione"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
@@ -1177,7 +1177,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
-msgstr ""
+msgstr "Violazioni di design"
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
@@ -1185,11 +1185,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "Violazioni di brevetti"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "Violazioni di segreti commerciali"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
