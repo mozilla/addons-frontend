@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-07-01 12:50+0000\n"
+"PO-Revision-Date: 2024-07-01 13:01+0000\n"
 "Last-Translator: Jenny <leanintocuriosity@gmx.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1205,7 +1205,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
-msgstr ""
+msgstr "Condivisione di immagini non consensuale"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
@@ -1217,23 +1217,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "Stalking"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
-msgstr ""
+msgstr "Materiale a sfondo sessuale per adulti"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "Abuso sessuale basato su immagini (esclusi i contenuti che ritraggono minori)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
-msgstr ""
+msgstr "Restrizioni specifiche per età riguardanti i minori"
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
-msgstr ""
+msgstr "Materiale su abusi sessuali su minori"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
@@ -1241,7 +1241,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
-msgstr ""
+msgstr "Organizzazioni illegali"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
@@ -1249,7 +1249,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "Rischio per la salute pubblica"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
@@ -1257,7 +1257,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "Account non autentici"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
