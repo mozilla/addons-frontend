@@ -64,6 +64,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
             buttonType="neutral"
             className="ReportAbuseButton-show-more"
             disabled={loading}
+            rel="nofollow"
             puffy
             {...reportButtonProps}
           >

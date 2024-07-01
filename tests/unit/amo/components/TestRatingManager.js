@@ -526,11 +526,8 @@ describe(__filename, () => {
     it('allows a user to report an add-on for abuse', async () => {
       render();
 
-      expect(
-        screen.getByRole('link', {
-          name: 'Report this add-on',
-        }),
-      ).toBeInTheDocument();
+      const link = screen.getByRole('link', { name: 'Report this add-on' });
+      expect(link).toHaveAttribute('rel', 'nofollow');
     });
 
     it('shows a success message when feedback has been submitted', () => {
