@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-07-01 13:01+0000\n"
+"PO-Revision-Date: 2024-07-01 13:06+0000\n"
 "Last-Translator: Jenny <leanintocuriosity@gmx.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1265,7 +1265,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "Recensioni degli utenti non autentiche"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
@@ -1273,7 +1273,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "Phishing"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
@@ -1285,19 +1285,19 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "Automutilazione"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "Suicidio"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "Prodotti vietati o soggetti a restrizioni"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Prodotti non sicuri o non conformi"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
@@ -1305,7 +1305,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "Violenza di genere"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
@@ -1345,11 +1345,11 @@ msgstr "Posizione della violazione"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Tipo di contenuto illegale"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Violazione specifica"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
