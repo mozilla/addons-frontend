@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-06-24 18:43+0000\n"
-"PO-Revision-Date: 2024-06-26 02:00+0000\n"
+"PO-Revision-Date: 2024-07-08 05:09+0000\n"
 "Last-Translator: Grk <gu0townkg@relay.firefox.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -998,7 +998,7 @@ msgstr "Spam"
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: The listing advertises unrelated products or services."
-msgstr ""
+msgstr "Örnek: Listelemede alakasız ürün veya hizmetlerin reklamı yapılıyor."
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "It violates Add-on Policies"
