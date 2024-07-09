@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-24 18:43+0000\n"
+"POT-Creation-Date: 2024-07-09 18:35+0000\n"
 "PO-Revision-Date: 2018-11-21 10:22+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgstr "Ulasan kod add-on"
 msgid "Admin Links"
 msgstr "Pautan Pentadbir"
 
-#. This action allows the add-on developer to edit an add-on's properties.
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -249,76 +249,76 @@ msgstr "E-mel Sokongan"
 msgid "Visit stats dashboard"
 msgstr "Lawati papan pemuka statistik"
 
-#: src/amo/components/AddonMoreInfo/index.js:171
+#: src/amo/components/AddonMoreInfo/index.js:172
 #, fuzzy
 msgid "Custom License"
 msgstr "Lesen"
 
 #. This will output, in English: "2 months ago (Dec 12 2016)"
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:233
 msgid "Read the privacy policy for this add-on"
 msgstr "Baca dasar privasi untuk add-on ini"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:245
 msgid "Read the license agreement for this add-on"
 msgstr "Baca perjanjian lesen untuk add-on ini"
 
-#: src/amo/components/AddonMoreInfo/index.js:255
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "See all versions"
 msgstr "Lihat semua versi"
 
-#: src/amo/components/AddonMoreInfo/index.js:302
+#: src/amo/components/AddonMoreInfo/index.js:305
 msgid "Add-on Links"
 msgstr "Pautan Add-on"
 
-#: src/amo/components/AddonMoreInfo/index.js:314
+#: src/amo/components/AddonMoreInfo/index.js:317
 msgid "Version"
 msgstr "Versi"
 
-#: src/amo/components/AddonMoreInfo/index.js:322
+#: src/amo/components/AddonMoreInfo/index.js:325
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:330
+#: src/amo/components/AddonMoreInfo/index.js:333
 #: src/amo/components/CollectionDetails/index.js:87
 #: src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
 msgstr "Kemaskini terakhir"
 
-#: src/amo/components/AddonMoreInfo/index.js:338
+#: src/amo/components/AddonMoreInfo/index.js:341
 #, fuzzy
 msgid "Related Categories"
 msgstr "Kategori"
 
-#: src/amo/components/AddonMoreInfo/index.js:348
+#: src/amo/components/AddonMoreInfo/index.js:351
 msgid "License"
 msgstr "Lesen"
 
-#: src/amo/components/AddonMoreInfo/index.js:356
+#: src/amo/components/AddonMoreInfo/index.js:359
 msgid "Privacy Policy"
 msgstr "Dasar Privasi"
 
-#: src/amo/components/AddonMoreInfo/index.js:364
+#: src/amo/components/AddonMoreInfo/index.js:367
 msgid "End-User License Agreement"
 msgstr "Perjanjian Lesen Pengguna Akhir"
 
-#: src/amo/components/AddonMoreInfo/index.js:372
+#: src/amo/components/AddonMoreInfo/index.js:375
 msgid "Version History"
 msgstr "Sejarah Versi"
 
-#: src/amo/components/AddonMoreInfo/index.js:382
+#: src/amo/components/AddonMoreInfo/index.js:385
 msgid "Usage Statistics"
 msgstr "Statistik Penggunaan"
 
-#: src/amo/components/AddonMoreInfo/index.js:390
+#: src/amo/components/AddonMoreInfo/index.js:393
 msgid "Tags"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:406
+#: src/amo/components/AddonMoreInfo/index.js:409
 msgid "More information"
 msgstr "Maklumat lanjut"
 
@@ -2110,7 +2110,7 @@ msgstr ""
 "Kami telah menerima laporan anda. Terima kasih atas keprihatinan anda "
 "terhadap add-on ini."
 
-#: src/amo/components/ReportAbuseButton/index.js:70
+#: src/amo/components/ReportAbuseButton/index.js:71
 msgid "Report this add-on"
 msgstr ""
 

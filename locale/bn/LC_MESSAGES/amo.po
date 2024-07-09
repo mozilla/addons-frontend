@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-24 18:43+0000\n"
+"POT-Creation-Date: 2024-07-09 18:35+0000\n"
 "PO-Revision-Date: 2022-06-16 07:52+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
@@ -65,7 +65,7 @@ msgstr "অ্যাড-অন কোড পর্যালোচনা"
 msgid "Admin Links"
 msgstr "অ্যাডমিন লিংক সমূহ"
 
-#. This action allows the add-on developer to edit an add-on's properties.
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -241,75 +241,75 @@ msgstr "সহায়তাকারী ইমেইল"
 msgid "Visit stats dashboard"
 msgstr "পরিসংখ্যান ড্যাশবোর্ডে পরিদর্শন করুন"
 
-#: src/amo/components/AddonMoreInfo/index.js:171
+#: src/amo/components/AddonMoreInfo/index.js:172
 msgid "Custom License"
 msgstr "কাস্টম লাইসেন্স"
 
 #. This will output, in English: "2 months ago (Dec 12 2016)"
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:233
 msgid "Read the privacy policy for this add-on"
 msgstr "এই অ্যাড-অনটির জন্যে গোপনীয়তার নীতি পড়ুন"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:245
 msgid "Read the license agreement for this add-on"
 msgstr "এই অ্যাড-অনের গোপনীয়তার নীতি পড়ুন"
 
-#: src/amo/components/AddonMoreInfo/index.js:255
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "See all versions"
 msgstr "সকল সংস্করণ দেখুন"
 
-#: src/amo/components/AddonMoreInfo/index.js:302
+#: src/amo/components/AddonMoreInfo/index.js:305
 msgid "Add-on Links"
 msgstr "অ্যাড-অন লিংক"
 
-#: src/amo/components/AddonMoreInfo/index.js:314
+#: src/amo/components/AddonMoreInfo/index.js:317
 msgid "Version"
 msgstr "সংস্করণ"
 
-#: src/amo/components/AddonMoreInfo/index.js:322
+#: src/amo/components/AddonMoreInfo/index.js:325
 msgid "Size"
 msgstr "আকার"
 
-#: src/amo/components/AddonMoreInfo/index.js:330
+#: src/amo/components/AddonMoreInfo/index.js:333
 #: src/amo/components/CollectionDetails/index.js:87
 #: src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
 msgstr "শেষ আপডেট"
 
-#: src/amo/components/AddonMoreInfo/index.js:338
+#: src/amo/components/AddonMoreInfo/index.js:341
 #, fuzzy
 msgid "Related Categories"
 msgstr "বিষয়শ্রেণী"
 
-#: src/amo/components/AddonMoreInfo/index.js:348
+#: src/amo/components/AddonMoreInfo/index.js:351
 msgid "License"
 msgstr "লাইসেন্স"
 
-#: src/amo/components/AddonMoreInfo/index.js:356
+#: src/amo/components/AddonMoreInfo/index.js:359
 msgid "Privacy Policy"
 msgstr "গোপনীয়তা নীতি"
 
-#: src/amo/components/AddonMoreInfo/index.js:364
+#: src/amo/components/AddonMoreInfo/index.js:367
 msgid "End-User License Agreement"
 msgstr "এন্ড ইউজার লাইসেন্স এগ্রিমেন্ট"
 
-#: src/amo/components/AddonMoreInfo/index.js:372
+#: src/amo/components/AddonMoreInfo/index.js:375
 msgid "Version History"
 msgstr "সংস্করণ ইতিহাস"
 
-#: src/amo/components/AddonMoreInfo/index.js:382
+#: src/amo/components/AddonMoreInfo/index.js:385
 msgid "Usage Statistics"
 msgstr "ব্যবহারকারীর পরিসংখ্যান"
 
-#: src/amo/components/AddonMoreInfo/index.js:390
+#: src/amo/components/AddonMoreInfo/index.js:393
 msgid "Tags"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:406
+#: src/amo/components/AddonMoreInfo/index.js:409
 msgid "More information"
 msgstr "আরও তথ্য"
 
@@ -2078,7 +2078,7 @@ msgstr ""
 "আমরা আপনার রিপোর্ট পেয়েছি। এই অ্যাড-অন নিয়ে আপনার উদ্বেগ সম্পর্কে আমাদের জানানোর "
 "জন্য আপনাকে ধন্যবাদ।"
 
-#: src/amo/components/ReportAbuseButton/index.js:70
+#: src/amo/components/ReportAbuseButton/index.js:71
 msgid "Report this add-on"
 msgstr ""
 

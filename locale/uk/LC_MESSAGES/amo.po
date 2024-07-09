@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-24 18:43+0000\n"
+"POT-Creation-Date: 2024-07-09 18:35+0000\n"
 "PO-Revision-Date: 2024-05-16 19:44+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
@@ -66,7 +66,7 @@ msgstr "Перевірка коду додатка"
 msgid "Admin Links"
 msgstr "Посилання адміністратора"
 
-#. This action allows the add-on developer to edit an add-on's properties.
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -260,74 +260,74 @@ msgstr "Електронна пошта підтримки"
 msgid "Visit stats dashboard"
 msgstr "Відвідати панель статистики"
 
-#: src/amo/components/AddonMoreInfo/index.js:171
+#: src/amo/components/AddonMoreInfo/index.js:172
 msgid "Custom License"
 msgstr "Ліцензія розробника"
 
 #. This will output, in English: "2 months ago (Dec 12 2016)"
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:233
 msgid "Read the privacy policy for this add-on"
 msgstr "Ознайомитись з політикою приватності для цього додатка"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:245
 msgid "Read the license agreement for this add-on"
 msgstr "Ознайомитись з ліцензійною угодою для цього додатка"
 
-#: src/amo/components/AddonMoreInfo/index.js:255
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "See all versions"
 msgstr "Переглянути всі версії"
 
-#: src/amo/components/AddonMoreInfo/index.js:302
+#: src/amo/components/AddonMoreInfo/index.js:305
 msgid "Add-on Links"
 msgstr "Посилання додатка"
 
-#: src/amo/components/AddonMoreInfo/index.js:314
+#: src/amo/components/AddonMoreInfo/index.js:317
 msgid "Version"
 msgstr "Версія"
 
-#: src/amo/components/AddonMoreInfo/index.js:322
+#: src/amo/components/AddonMoreInfo/index.js:325
 msgid "Size"
 msgstr "Розмір"
 
-#: src/amo/components/AddonMoreInfo/index.js:330
+#: src/amo/components/AddonMoreInfo/index.js:333
 #: src/amo/components/CollectionDetails/index.js:87
 #: src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
 msgstr "Востаннє оновлено"
 
-#: src/amo/components/AddonMoreInfo/index.js:338
+#: src/amo/components/AddonMoreInfo/index.js:341
 msgid "Related Categories"
 msgstr "Пов'язані категорії"
 
-#: src/amo/components/AddonMoreInfo/index.js:348
+#: src/amo/components/AddonMoreInfo/index.js:351
 msgid "License"
 msgstr "Ліцензія"
 
-#: src/amo/components/AddonMoreInfo/index.js:356
+#: src/amo/components/AddonMoreInfo/index.js:359
 msgid "Privacy Policy"
 msgstr "Політика приватності"
 
-#: src/amo/components/AddonMoreInfo/index.js:364
+#: src/amo/components/AddonMoreInfo/index.js:367
 msgid "End-User License Agreement"
 msgstr "Ліцензійна угода з кінцевим користувачем"
 
-#: src/amo/components/AddonMoreInfo/index.js:372
+#: src/amo/components/AddonMoreInfo/index.js:375
 msgid "Version History"
 msgstr "Історія версій"
 
-#: src/amo/components/AddonMoreInfo/index.js:382
+#: src/amo/components/AddonMoreInfo/index.js:385
 msgid "Usage Statistics"
 msgstr "Статистика використання"
 
-#: src/amo/components/AddonMoreInfo/index.js:390
+#: src/amo/components/AddonMoreInfo/index.js:393
 msgid "Tags"
 msgstr "Мітки"
 
-#: src/amo/components/AddonMoreInfo/index.js:406
+#: src/amo/components/AddonMoreInfo/index.js:409
 msgid "More information"
 msgstr "Більше інформації"
 
@@ -2142,7 +2142,7 @@ msgstr ""
 "Ми отримали ваше повідомлення. Дякуємо, що повідомили нам про вашу "
 "стурбованість цим додатком."
 
-#: src/amo/components/ReportAbuseButton/index.js:70
+#: src/amo/components/ReportAbuseButton/index.js:71
 msgid "Report this add-on"
 msgstr "Повідомити про цей додаток"
 

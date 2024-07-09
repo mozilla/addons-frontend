@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-24 18:43+0000\n"
+"POT-Creation-Date: 2024-07-09 18:35+0000\n"
 "PO-Revision-Date: 2024-01-08 09:29+0000\n"
 "Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
 "Language-Team: none\n"
@@ -65,7 +65,7 @@ msgstr "アドオンコードのレビュー"
 msgid "Admin Links"
 msgstr "管理用リンク"
 
-#. This action allows the add-on developer to edit an add-on's properties.
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:76
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
@@ -237,74 +237,74 @@ msgstr "サポートメールアドレス"
 msgid "Visit stats dashboard"
 msgstr "統計ダッシュボードへ"
 
-#: src/amo/components/AddonMoreInfo/index.js:171
+#: src/amo/components/AddonMoreInfo/index.js:172
 msgid "Custom License"
 msgstr "独自のライセンス"
 
 #. This will output, in English: "2 months ago (Dec 12 2016)"
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:233
 msgid "Read the privacy policy for this add-on"
 msgstr "このアドオンのプライバシーポリシーを読む"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:245
 msgid "Read the license agreement for this add-on"
 msgstr "このアドオンの使用許諾契約を読む"
 
-#: src/amo/components/AddonMoreInfo/index.js:255
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "See all versions"
 msgstr "すべてのバージョンを見る"
 
-#: src/amo/components/AddonMoreInfo/index.js:302
+#: src/amo/components/AddonMoreInfo/index.js:305
 msgid "Add-on Links"
 msgstr "アドオンリンク"
 
-#: src/amo/components/AddonMoreInfo/index.js:314
+#: src/amo/components/AddonMoreInfo/index.js:317
 msgid "Version"
 msgstr "バージョン"
 
-#: src/amo/components/AddonMoreInfo/index.js:322
+#: src/amo/components/AddonMoreInfo/index.js:325
 msgid "Size"
 msgstr "サイズ"
 
-#: src/amo/components/AddonMoreInfo/index.js:330
+#: src/amo/components/AddonMoreInfo/index.js:333
 #: src/amo/components/CollectionDetails/index.js:87
 #: src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
 msgstr "最終更新日"
 
-#: src/amo/components/AddonMoreInfo/index.js:338
+#: src/amo/components/AddonMoreInfo/index.js:341
 msgid "Related Categories"
 msgstr "関連カテゴリー"
 
-#: src/amo/components/AddonMoreInfo/index.js:348
+#: src/amo/components/AddonMoreInfo/index.js:351
 msgid "License"
 msgstr "ライセンス"
 
-#: src/amo/components/AddonMoreInfo/index.js:356
+#: src/amo/components/AddonMoreInfo/index.js:359
 msgid "Privacy Policy"
 msgstr "プライバシーポリシー"
 
-#: src/amo/components/AddonMoreInfo/index.js:364
+#: src/amo/components/AddonMoreInfo/index.js:367
 msgid "End-User License Agreement"
 msgstr "エンドユーザー使用許諾契約"
 
-#: src/amo/components/AddonMoreInfo/index.js:372
+#: src/amo/components/AddonMoreInfo/index.js:375
 msgid "Version History"
 msgstr "バージョン履歴"
 
-#: src/amo/components/AddonMoreInfo/index.js:382
+#: src/amo/components/AddonMoreInfo/index.js:385
 msgid "Usage Statistics"
 msgstr "使用統計"
 
-#: src/amo/components/AddonMoreInfo/index.js:390
+#: src/amo/components/AddonMoreInfo/index.js:393
 msgid "Tags"
 msgstr "タグ"
 
-#: src/amo/components/AddonMoreInfo/index.js:406
+#: src/amo/components/AddonMoreInfo/index.js:409
 msgid "More information"
 msgstr "詳しい情報"
 
@@ -2055,7 +2055,7 @@ msgstr ""
 "あなたの報告を受け取りました。このアドオンに関する懸念を知らせていただきあり"
 "がとうございます。"
 
-#: src/amo/components/ReportAbuseButton/index.js:70
+#: src/amo/components/ReportAbuseButton/index.js:71
 msgid "Report this add-on"
 msgstr "このアドオンを報告"
 
