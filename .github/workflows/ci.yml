@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  context:
+    runs-on: ubuntu-latest
+
+    outputs:
+      is_fork: ${{ steps.context.outputs.is_fork }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - id: context
+        uses: ./.github/actions/context
+
+  locales:
+    needs: context
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+            node-version: 18
+            cache: 'yarn'
+
+      - name: Install gettext
+        run: sudo apt-get install gettext
+
+      - name: Yarn install
+        run: yarn install --frozen-lockfile --prefer-offline
+
+      - name: Extract locales
+        run: yarn extract-locales
+
+      - name: Push Locales
+        run: |
+          event_name="${{ github.event_name }}"
+          is_fork="${{ needs.context.outputs.is_fork }}"
+
+          if [[ "$is_fork" == 'true' ]]; then
+            cat <<'EOF'
+              Github actions are not authorized to push from workflows triggered by forks.
+              We cannot verify if the l10n extraction push will work or not.
+              Please submit a PR from the base repository if you are modifying l10n extraction scripts.
+          EOF
+            exit 0
+          fi
+
+          ARGS=""
+
+          if [[ "$event_name" == 'pull_request' ]]; then
+            ARGS="--dry-run"
+          fi
+
+          ./bin/push-locales $ARGS
+
+
+

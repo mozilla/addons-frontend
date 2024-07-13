@@ -92,7 +92,7 @@
       }
     },
     "extract-locales": {
-      "command": "webpack --progress --color --config webpack.l10n.config.babel.js",
+      "command": "zx ./bin/locales.mjs",
       "env": {
         "NODE_ENV": "production",
         "NODE_ICU_DATA": "./node_modules/full-icu",
@@ -253,6 +253,7 @@
     "webpack-isomorphic-tools": "4.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.23.4",
     "@babel/core": "^7.24.7",
     "@babel/eslint-parser": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
@@ -329,7 +330,8 @@
     "webpack-cli": "^4.0.0",
     "webpack-dev-middleware": "^6.1.2",
     "webpack-hot-middleware": "^2.26.1",
-    "webpack-subresource-integrity": "5.1.0"
+    "webpack-subresource-integrity": "5.1.0",
+    "zx": "^8.1.4"
   },
   "bundlewatch": [
     {
