@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-15 17:43+0000\n"
-"PO-Revision-Date: 2024-07-16 16:28+0000\n"
+"PO-Revision-Date: 2024-07-16 17:01+0000\n"
 "Last-Translator: Pavel Cvrček <jasnapaka@jasnapaka.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1031,8 +1031,8 @@ msgid ""
 "Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
 msgstr ""
-"Příklad: Podvod. (Pokud chcete nahlásit porušení autorských práv nebo ochranných známek, více informací najdete v našem %(startLink)sčlánku Hlášení porušení autorských práv nebo ochranných "
-"známek%(endLink)s)."
+"Příklad: Podvod. (Pokud chcete nahlásit porušení autorských práv nebo ochranné známky, více informací o tom, jak to udělat, najdete v našem článku %(startLink)sHlášení porušení autorských práv nebo "
+"ochranné známky%(endLink)s)."
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
@@ -1260,7 +1260,7 @@ msgstr "Neautentické účty"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
-msgstr "Neautentické stránky"
+msgstr "Neautentické výpisy"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
