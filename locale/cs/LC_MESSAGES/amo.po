@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-15 17:43+0000\n"
-"PO-Revision-Date: 2024-07-16 16:22+0000\n"
+"PO-Revision-Date: 2024-07-16 16:28+0000\n"
 "Last-Translator: Pavel Cvrček <jasnapaka@jasnapaka.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1200,7 +1200,7 @@ msgstr "Porušení národního práva relevantního pro občanský diskurs nebo 
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr "Dezinformace, dezinformace, manipulace s cizími informacemi a jejich vměšování"
+msgstr "Dezinformace, manipulace s cizími informacemi a jejich vměšování"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
