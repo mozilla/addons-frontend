@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-15 17:43+0000\n"
-"PO-Revision-Date: 2024-07-21 18:36+0000\n"
+"PO-Revision-Date: 2024-07-21 18:40+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1211,7 +1211,7 @@ msgstr "Föremål utan samtycke som innehåller deepfake eller liknande teknik s
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Mobbning/hot på nätet"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
@@ -1223,67 +1223,67 @@ msgstr "Sexuellt material för vuxna"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "Bildbaserade sexuella övergrepp (exklusive innehåll som föreställer minderåriga)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
-msgstr ""
+msgstr "åldersspecifika restriktioner beträffande minderåriga"
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
-msgstr ""
+msgstr "Material för sexuella övergrepp mot barn"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
-msgstr ""
+msgstr "Grooming/sexuell lockelse av minderåriga"
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
-msgstr ""
+msgstr "Illegala organisationer"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr ""
+msgstr "Risk för miljöskador"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "Risk för folkhälsan"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
-msgstr ""
+msgstr "Terroristiskt innehåll"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "Oäkta konton"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
-msgstr ""
+msgstr "Oäkta listor"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "Oäkta användarrecensioner"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
-msgstr ""
+msgstr "Imitation eller kapning av konton"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "Nätfiske"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "Pyramidspel"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "Innehåll som främjar ätstörningar"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "Själv-stympning"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
@@ -1291,31 +1291,31 @@ msgstr "Självmord"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "Förbjudna eller begränsade produkter"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Osäkra eller icke-kompatibla produkter"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
-msgstr ""
+msgstr "Samordnad skada"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "Könsrelaterat våld"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "Människoexploatering"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "Människohandel"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Allmänna upprop eller hets till våld och/eller hat"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
@@ -1343,11 +1343,11 @@ msgstr "Plats för överträdelsen"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Typ av olagligt innehåll"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Specifik överträdelse"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
