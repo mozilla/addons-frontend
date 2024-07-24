@@ -706,13 +706,15 @@ describe(__filename, () => {
       renderWithAddonAndReviews();
 
       const getExpectedURL = (locale, app) => {
-        return `${config.get('baseURL')}/${locale}/${app}/addon/${defaultSlug}/reviews/`
-      }
+        return `${config.get(
+          'baseURL',
+        )}/${locale}/${app}/addon/${defaultSlug}/reviews/`;
+      };
 
       await waitFor(() =>
         expect(getElement('link[rel="canonical"]')).toHaveAttribute(
           'href',
-         getExpectedURL('en-US', 'firefox')
+          getExpectedURL('en-US', 'firefox'),
         ),
       );
 
@@ -725,7 +727,7 @@ describe(__filename, () => {
       );
 
       const hrefLangsMap = config.get('hrefLangsMap');
-      hrefLangs.forEach(hrefLang => {
+      hrefLangs.forEach((hrefLang) => {
         const locale = hrefLangsMap[hrefLang] || hrefLang;
         expect(
           getElement(`link[rel="alternate"][hreflang="${hrefLang}"]`),
