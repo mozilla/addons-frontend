@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-15 17:43+0000\n"
-"PO-Revision-Date: 2024-07-24 15:59+0000\n"
+"PO-Revision-Date: 2024-07-24 16:32+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -3318,7 +3318,7 @@ msgstr "Profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
-msgstr "Toś to pólo jo trěbne"
+msgstr "Toś to pólo jo trjebne"
 
 #. the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:655
