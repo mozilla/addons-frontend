@@ -735,6 +735,23 @@ describe(__filename, () => {
       });
     });
 
+    it('renders a canonical with no query string', async () => {
+      renderWithAddonAndReviews({ score: 5 });
+
+      const getExpectedURL = (locale, app) => {
+        return `${config.get(
+          'baseURL',
+        )}/${locale}/${app}/addon/${defaultSlug}/reviews/`;
+      };
+
+      await waitFor(() =>
+        expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+          'href',
+          getExpectedURL('en-US', 'firefox'),
+        ),
+      );
+    });
+
     it('renders a robots meta tag when there is a featured review', async () => {
       const reviews = [
         { ...fakeReview, id: 1, score: 1 },
