@@ -333,9 +333,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
               {reviewId && <meta name="robots" content="noindex, follow" />}
             </Helmet>
           )}
-          {addon && !reviewId && (
-            <HeadLinks />
-          )}
+          {addon && !reviewId && <HeadLinks />}
 
           {errorHandler.renderErrorIfPresent()}
 
