@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-15 17:43+0000\n"
+"POT-Creation-Date: 2024-07-25 11:04+0000\n"
 "PO-Revision-Date: 2024-07-08 05:09+0000\n"
 "Last-Translator: Grk <gu0townkg@relay.firefox.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2058,7 +2058,7 @@ msgid "There are no one-star reviews"
 msgstr "Hiç bir yıldızlı inceleme yok"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:373
+#: src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
 msgstr "Hiç inceleme yok"
 
@@ -2692,7 +2692,7 @@ msgstr "%(addonName)s Son Kullanıcı Lisans Anlaşması"
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s gizlilik ilkeleri"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2700,35 +2700,35 @@ msgstr ""
 "%(addonName)s incelemeleri ve puanları. Diğer kullanıcıların %(addonName)s "
 "hakkında ne düşündüklerini öğrenin ve eklentiyi Firefox tarayıcınıza ekleyin."
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show all reviews"
 msgstr "Tüm incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only five-star reviews"
 msgstr "Yalnızca beş yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only four-star reviews"
 msgstr "Yalnızca dört yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only three-star reviews"
 msgstr "Yalnızca üç yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only two-star reviews"
 msgstr "Yalnızca iki yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:241
+#: src/amo/pages/AddonReviewList/index.js:242
 msgid "Show only one-star reviews"
 msgstr "Yalnızca bir yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:262
+#: src/amo/pages/AddonReviewList/index.js:263
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s incelemeleri"
 
-#: src/amo/pages/AddonReviewList/index.js:272
+#: src/amo/pages/AddonReviewList/index.js:273
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s inceleme"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-15 17:43+0000\n"
+"POT-Creation-Date: 2024-07-25 11:04+0000\n"
 "PO-Revision-Date: 2024-06-26 06:17+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -2028,7 +2028,7 @@ msgid "There are no one-star reviews"
 msgstr "目前沒有一星評論"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:373
+#: src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
 msgstr "目前沒有評論"
 
@@ -2616,7 +2616,7 @@ msgstr "%(addonName)s 的終端使用者授權協議"
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s 的隱私權保護政策"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2624,35 +2624,35 @@ msgstr ""
 "%(addonName)s 的評論與評分。看看其他的使用者覺得 %(addonName)s 如何，再安裝進"
 "您的 Firefox 瀏覽器。"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show all reviews"
 msgstr "顯示所有評論"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only five-star reviews"
 msgstr "僅顯示五星評論"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only four-star reviews"
 msgstr "僅顯示四星評論"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only three-star reviews"
 msgstr "僅顯示三星評論"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only two-star reviews"
 msgstr "僅顯示二星評論"
 
-#: src/amo/pages/AddonReviewList/index.js:241
+#: src/amo/pages/AddonReviewList/index.js:242
 msgid "Show only one-star reviews"
 msgstr "僅顯示一星評論"
 
-#: src/amo/pages/AddonReviewList/index.js:262
+#: src/amo/pages/AddonReviewList/index.js:263
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s 的評論"
 
-#: src/amo/pages/AddonReviewList/index.js:272
+#: src/amo/pages/AddonReviewList/index.js:273
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s 筆評論"

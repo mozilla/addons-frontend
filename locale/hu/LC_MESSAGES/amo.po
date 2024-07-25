@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-15 17:43+0000\n"
+"POT-Creation-Date: 2024-07-25 11:04+0000\n"
 "PO-Revision-Date: 2024-07-10 22:39+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
@@ -2092,7 +2092,7 @@ msgid "There are no one-star reviews"
 msgstr "Nincsenek egycsillagos értékelések"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:373
+#: src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
 msgstr "Még nincsenek értékelések"
 
@@ -2742,7 +2742,7 @@ msgstr "%(addonName)s végfelhasználói licencmegállapodás"
 msgid "Privacy policy for %(addonName)s"
 msgstr "A(z) %(addonName)s adatvédelmi irányelvei"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2751,35 +2751,35 @@ msgstr ""
 "felhasználó mit gondol a(z) %(addonName)s kiegészítőről, és adja hozzá a "
 "Firefox böngészőjéhez."
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show all reviews"
 msgstr "Összes értékelés megtekintése"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only five-star reviews"
 msgstr "Csak az öt csillagos értékelések megjelenítése"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only four-star reviews"
 msgstr "Csak a négy csillagos értékelések megjelenítése"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only three-star reviews"
 msgstr "Csak a három csillagos értékelések megjelenítése"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only two-star reviews"
 msgstr "Csak a két csillagos értékelések megjelenítése"
 
-#: src/amo/pages/AddonReviewList/index.js:241
+#: src/amo/pages/AddonReviewList/index.js:242
 msgid "Show only one-star reviews"
 msgstr "Csak az egy csillagos értékelések megjelenítése"
 
-#: src/amo/pages/AddonReviewList/index.js:262
+#: src/amo/pages/AddonReviewList/index.js:263
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s értékelései"
 
-#: src/amo/pages/AddonReviewList/index.js:272
+#: src/amo/pages/AddonReviewList/index.js:273
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s értékelés"

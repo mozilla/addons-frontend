@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-15 17:43+0000\n"
+"POT-Creation-Date: 2024-07-25 11:04+0000\n"
 "PO-Revision-Date: 2024-02-03 11:06+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2000,7 +2000,7 @@ msgid "There are no one-star reviews"
 msgstr "ไม่มีบทวิจารณ์หนึ่งดาว"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:373
+#: src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
 msgstr "ไม่มีบทวิจารณ์"
 
@@ -2593,7 +2593,7 @@ msgstr "ข้อตกลงใบอนุญาตสำหรับผู้
 msgid "Privacy policy for %(addonName)s"
 msgstr "นโยบายความเป็นส่วนตัวสำหรับ %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2601,35 +2601,35 @@ msgstr ""
 "บทวิจารณ์และการให้คะแนนสำหรับ %(addonName)s ค้นหาว่าผู้ใช้คนอื่นคิดอย่างไรเกี่ยวกับ "
 "%(addonName)s และเพิ่มไปยังเบราว์เซอร์ Firefox ของคุณ"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show all reviews"
 msgstr "แสดงบทวิจารณ์ทั้งหมด"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only five-star reviews"
 msgstr "แสดงบทวิจารณ์ห้าดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only four-star reviews"
 msgstr "แสดงบทวิจารณ์สี่ดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only three-star reviews"
 msgstr "แสดงบทวิจารณ์สามดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only two-star reviews"
 msgstr "แสดงบทวิจารณ์สองดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:241
+#: src/amo/pages/AddonReviewList/index.js:242
 msgid "Show only one-star reviews"
 msgstr "แสดงบทวิจารณ์หนึ่งดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:262
+#: src/amo/pages/AddonReviewList/index.js:263
 msgid "Reviews for %(addonName)s"
 msgstr "บทวิจารณ์สำหรับ %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:272
+#: src/amo/pages/AddonReviewList/index.js:273
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s บทวิจารณ์"

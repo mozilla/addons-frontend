@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-15 17:43+0000\n"
+"POT-Creation-Date: 2024-07-25 11:04+0000\n"
 "PO-Revision-Date: 2024-06-21 10:16+0000\n"
 "Last-Translator: Joergen <joradan0@gmail.com>\n"
 "Language-Team: none\n"
@@ -2047,7 +2047,7 @@ msgid "There are no one-star reviews"
 msgstr "Der er ingen en-stjernede anmeldelser"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:373
+#: src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
 msgstr "Der er ingen anmeldelser"
 
@@ -2690,7 +2690,7 @@ msgstr "Licensaftale for slutbrugere for %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Privatlivspolitik for %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2698,35 +2698,35 @@ msgstr ""
 "Anmeldelser og bedømmelser af %(addonName)s. Find ud af, hvad andre brugere "
 "synes om %(addonName)s, og føj den til din Firefox-browser."
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show all reviews"
 msgstr "Vis alle anmeldelser"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only five-star reviews"
 msgstr "Viser kun fem-stjernede anmeldelser"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only four-star reviews"
 msgstr "Viser kun fire-stjernede anmeldelser"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only three-star reviews"
 msgstr "Viser kun tre-stjernede anmeldelser"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only two-star reviews"
 msgstr "Viser kun to-stjernede anmeldelser"
 
-#: src/amo/pages/AddonReviewList/index.js:241
+#: src/amo/pages/AddonReviewList/index.js:242
 msgid "Show only one-star reviews"
 msgstr "Viser kun en-stjernede anmeldelser"
 
-#: src/amo/pages/AddonReviewList/index.js:262
+#: src/amo/pages/AddonReviewList/index.js:263
 msgid "Reviews for %(addonName)s"
 msgstr "Anmeldelser af %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:272
+#: src/amo/pages/AddonReviewList/index.js:273
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s anmeldelse"

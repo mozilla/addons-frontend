@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-15 17:43+0000\n"
+"POT-Creation-Date: 2024-07-25 11:04+0000\n"
 "PO-Revision-Date: 2018-10-31 16:33+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2045,7 +2045,7 @@ msgid "There are no one-star reviews"
 msgstr "Hələlik bal yoxdur"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:373
+#: src/amo/pages/AddonReviewList/index.js:375
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Hələlik bal yoxdur"
@@ -2696,47 +2696,47 @@ msgstr "Son İstifadəçi Lisenziya Razılaşması"
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s üçün rəylər"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Mənim rəylərim"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "%(count)s rəyi oxu"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "%(count)s rəyi oxu"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "%(count)s rəyi oxu"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:241
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Bu rəyi cavabla"
 
-#: src/amo/pages/AddonReviewList/index.js:241
+#: src/amo/pages/AddonReviewList/index.js:242
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "%(count)s rəyi oxu"
 
-#: src/amo/pages/AddonReviewList/index.js:262
+#: src/amo/pages/AddonReviewList/index.js:263
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s üçün rəylər"
 
-#: src/amo/pages/AddonReviewList/index.js:272
+#: src/amo/pages/AddonReviewList/index.js:273
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
