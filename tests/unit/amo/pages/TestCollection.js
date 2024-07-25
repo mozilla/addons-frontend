@@ -1151,7 +1151,7 @@ describe(__filename, () => {
 
   it('renders canonical and alternate links for mozilla collections', async () => {
     renderWithCollection({
-      detailProps: { authorId: mozillaUserId, authorUsername: 'mozilla' },
+      detailProps: { authorId: mozillaUserId },
       userId: mozillaUserId,
     });
 

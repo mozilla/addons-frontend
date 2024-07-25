@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import deepEqual from 'deep-eql';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -589,9 +590,10 @@ export class CollectionBase extends React.Component<InternalProps> {
           )}
           {
             /* Only include canonical/alternate links if this is a mozilla collection */
-            collection && collection.authorUsername === 'mozilla' && (
-              <HeadLinks />
-            )
+            collection &&
+              collection.authorId === config.get('mozillaUserId') && (
+                <HeadLinks />
+              )
           }
 
           {errorHandler.renderErrorIfPresent()}
