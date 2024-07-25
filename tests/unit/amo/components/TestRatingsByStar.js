@@ -78,6 +78,7 @@ describe(__filename, () => {
         'href',
         `/en-US/android${reviewListURL({ addonSlug: addon.slug, score })}`,
       );
+      expect(link).toHaveAttribute('rel', 'nofollow');
       expect(within(link).getByText(count)).toBeInTheDocument();
     }
 

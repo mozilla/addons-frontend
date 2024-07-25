@@ -1,3 +1,4 @@
+import config from 'config';
 import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -17,6 +18,7 @@ import {
   CLIENT_APP_FIREFOX,
   SET_VIEW_CONTEXT,
 } from 'amo/constants';
+import { hrefLangs } from 'amo/languages';
 import { fetchAddon, loadAddon } from 'amo/reducers/addons';
 import {
   changeLocation,
@@ -698,6 +700,56 @@ describe(__filename, () => {
       await waitFor(() => expect(getElement('title')).toBeInTheDocument());
 
       expect(getElements('meta[name="robots"]')).toHaveLength(0);
+    });
+
+    it('renders a canonical link for the list page with alternates', async () => {
+      renderWithAddonAndReviews();
+
+      const getExpectedURL = (locale, app) => {
+        return `${config.get(
+          'baseURL',
+        )}/${locale}/${app}/addon/${defaultSlug}/reviews/`;
+      };
+
+      await waitFor(() =>
+        expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+          'href',
+          getExpectedURL('en-US', 'firefox'),
+        ),
+      );
+
+      await waitFor(() =>
+        expect(getElement('link[rel="alternate"]')).toBeInTheDocument(),
+      );
+
+      expect(getElements('link[rel="alternate"]')).toHaveLength(
+        hrefLangs.length,
+      );
+
+      const hrefLangsMap = config.get('hrefLangsMap');
+      hrefLangs.forEach((hrefLang) => {
+        const locale = hrefLangsMap[hrefLang] || hrefLang;
+        expect(
+          getElement(`link[rel="alternate"][hreflang="${hrefLang}"]`),
+        ).toHaveAttribute('href', getExpectedURL(locale, 'firefox'));
+      });
+    });
+
+    it('renders a canonical with no query string', async () => {
+      renderWithAddonAndReviews({ score: 5 });
+
+      const getExpectedURL = (locale, app) => {
+        return `${config.get(
+          'baseURL',
+        )}/${locale}/${app}/addon/${defaultSlug}/reviews/`;
+      };
+
+      await waitFor(() =>
+        expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+          'href',
+          getExpectedURL('en-US', 'firefox'),
+        ),
+      );
     });
 
     it('renders a robots meta tag when there is a featured review', async () => {
