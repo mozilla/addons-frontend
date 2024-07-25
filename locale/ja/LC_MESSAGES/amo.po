@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 11:04+0000\n"
+"POT-Creation-Date: 2024-07-25 13:25+0000\n"
 "PO-Revision-Date: 2024-01-08 09:29+0000\n"
 "Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
 "Language-Team: none\n"
@@ -2751,47 +2751,47 @@ msgstr "%(categoryName)s のテーマ"
 msgid "Extensions in %(categoryName)s"
 msgstr "%(categoryName)s の拡張機能"
 
-#: src/amo/pages/Collection/index.js:402
+#: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
 msgstr "本当にこのコレクションを削除しますか？"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:407
 msgid "Delete this collection"
 msgstr "このコレクションを削除"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:425
+#: src/amo/pages/Collection/index.js:427
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:439
+#: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
 msgstr "コレクションを作成するにはログインしてください"
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:461
 msgid "Log in to edit this collection"
 msgstr "このコレクションを編集するにはログインしてください"
 
-#: src/amo/pages/Collection/index.js:493
+#: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "まず、コレクションを作成してください。その後、拡張機能やテーマを追加できるよ"
 "うになります"
 
-#: src/amo/pages/Collection/index.js:496
+#: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr "コレクションへ追加する拡張機能やテーマを検索"
 
-#: src/amo/pages/Collection/index.js:557
+#: src/amo/pages/Collection/index.js:559
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2799,7 +2799,7 @@ msgstr ""
 "Firefox コレクションをダウンロードして作成し、お気に入りの拡張機能とテーマを"
 "追いかけましょう。%(collectionName)s—%(collectionDescription)s を調べる。"
 
-#: src/amo/pages/Collection/index.js:560
+#: src/amo/pages/Collection/index.js:562
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."

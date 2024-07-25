@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 11:04+0000\n"
+"POT-Creation-Date: 2024-07-25 13:25+0000\n"
 "PO-Revision-Date: 2024-05-05 22:47+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2779,45 +2779,45 @@ msgstr "%(categoryName)s හි තේමා"
 msgid "Extensions in %(categoryName)s"
 msgstr "%(categoryName)s හි දිගු"
 
-#: src/amo/pages/Collection/index.js:402
+#: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
 msgstr "මෙම එකතුව මකා දැමීමට වුවමනා ද?"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:407
 msgid "Delete this collection"
 msgstr "මෙම එකතුව මකන්න"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
 msgstr "ඔබ මෙම එකතුව වාර්තා කර ඇත"
 
-#: src/amo/pages/Collection/index.js:425
+#: src/amo/pages/Collection/index.js:427
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
 msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම එකතුව පිළිබඳව දැනුම්දීමට තුති."
 
-#: src/amo/pages/Collection/index.js:439
+#: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
 msgstr "මෙම එකතුව වාර්තා කරන්න"
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
 msgstr "එකතුවක් සෑදීමට පිවිසෙන්න"
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:461
 msgid "Log in to edit this collection"
 msgstr "මෙම එකතුව සංස්කරණයට පිවිසෙන්න"
 
-#: src/amo/pages/Collection/index.js:493
+#: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "පළමුව, ඔබගේ එකතුව සාදන්න. ඉන්පසු ඔබට දිගු සහ තේමා එක් කළ හැකිය."
 
-#: src/amo/pages/Collection/index.js:496
+#: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr "ඔබගේ එකතුවට එක් කිරීමට දිගු සහ තේමා සොයන්න."
 
-#: src/amo/pages/Collection/index.js:557
+#: src/amo/pages/Collection/index.js:559
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2825,7 +2825,7 @@ msgstr ""
 "ප්‍රියතම දිගු සහ තේමා පිළිබඳව අවධානයෙන් සිටීමට බාගත කර ෆයර්ෆොක්ස් එකතු සාදන්න. "
 "%(collectionName)s—%(collectionDescription)s ගවේශනය කරන්න."
 
-#: src/amo/pages/Collection/index.js:560
+#: src/amo/pages/Collection/index.js:562
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."

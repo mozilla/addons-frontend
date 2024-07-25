@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 11:04+0000\n"
+"POT-Creation-Date: 2024-07-25 13:25+0000\n"
 "PO-Revision-Date: 2024-06-25 06:00+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -2885,19 +2885,19 @@ msgstr "Thema’s in %(categoryName)s"
 msgid "Extensions in %(categoryName)s"
 msgstr "Extensies in %(categoryName)s"
 
-#: src/amo/pages/Collection/index.js:402
+#: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
 msgstr "Wilt u deze collectie echt verwijderen?"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:407
 msgid "Delete this collection"
 msgstr "Deze collectie verwijderen"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
 msgstr "U hebt deze collectie gerapporteerd"
 
-#: src/amo/pages/Collection/index.js:425
+#: src/amo/pages/Collection/index.js:427
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
@@ -2905,30 +2905,30 @@ msgstr ""
 "We hebben uw melding ontvangen. Bedankt dat u ons op de hoogte hebt gebracht "
 "van uw zorgen over deze collectie."
 
-#: src/amo/pages/Collection/index.js:439
+#: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
 msgstr "Deze collectie rapporteren"
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
 msgstr "Meld u aan om een collectie aan te maken"
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:461
 msgid "Log in to edit this collection"
 msgstr "Meld u aan om deze collectie te bewerken"
 
-#: src/amo/pages/Collection/index.js:493
+#: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Maak eerst uw collectie aan; daarna kunt u er add-ons en thema’s aan "
 "toevoegen"
 
-#: src/amo/pages/Collection/index.js:496
+#: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 "Naar extensies en thema’s zoeken om deze aan uw collectie toe te voegen."
 
-#: src/amo/pages/Collection/index.js:557
+#: src/amo/pages/Collection/index.js:559
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2936,7 +2936,7 @@ msgstr ""
 "Download en maak Firefox-collecties om favoriete extensies en thema’s te "
 "volgen. Ontdek de %(collectionName)s–%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:560
+#: src/amo/pages/Collection/index.js:562
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."

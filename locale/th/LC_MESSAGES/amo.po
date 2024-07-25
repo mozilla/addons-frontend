@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 11:04+0000\n"
+"POT-Creation-Date: 2024-07-25 13:25+0000\n"
 "PO-Revision-Date: 2024-02-03 11:06+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2727,45 +2727,45 @@ msgstr "%(categoryName)s"
 msgid "Extensions in %(categoryName)s"
 msgstr "พบ %(count)s ส่วนขยายใน %(categoryName)s"
 
-#: src/amo/pages/Collection/index.js:402
+#: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
 msgstr "คุณต้องการลบชุดสะสมนี้หรือไม่?"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:407
 msgid "Delete this collection"
 msgstr "ลบชุดสะสมนี้"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:425
+#: src/amo/pages/Collection/index.js:427
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:439
+#: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
 msgstr "เข้าสู่ระบบเพื่อสร้างชุดสะสม"
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:461
 msgid "Log in to edit this collection"
 msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/pages/Collection/index.js:493
+#: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "ขั้นแรก สร้างชุดสะสมของคุณ จากนั้นคุณสามารถเพิ่มส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/pages/Collection/index.js:496
+#: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr "ค้นหาส่วนขยายและชุดตกแต่งที่จะเพิ่มไปยังชุดสะสมของคุณ"
 
-#: src/amo/pages/Collection/index.js:557
+#: src/amo/pages/Collection/index.js:559
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2773,7 +2773,7 @@ msgstr ""
 "ดาวน์โหลดและสร้างคอลเลกชัน Firefox เพื่อติดตามส่วนขยายและชุดตกแต่งที่ชื่นชอบ สำรวจ "
 "%(collectionName)s—%(collectionDescription)s"
 
-#: src/amo/pages/Collection/index.js:560
+#: src/amo/pages/Collection/index.js:562
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."

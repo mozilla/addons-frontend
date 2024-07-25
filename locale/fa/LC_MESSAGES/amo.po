@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 11:04+0000\n"
+"POT-Creation-Date: 2024-07-25 13:25+0000\n"
 "PO-Revision-Date: 2023-06-03 07:13+0000\n"
 "Last-Translator: MSKF <mskf1383@protonmail.com>\n"
 "Language-Team: none\n"
@@ -2932,55 +2932,55 @@ msgstr "دسته‌بندی‌ها"
 msgid "Extensions in %(categoryName)s"
 msgstr "%(count)s افزونه برای «%(query)s» پیدا شد"
 
-#: src/amo/pages/Collection/index.js:402
+#: src/amo/pages/Collection/index.js:404
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:407
 #, fuzzy
 msgid "Delete this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:425
+#: src/amo/pages/Collection/index.js:427
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:439
+#: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:460
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:461
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:493
+#: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:496
+#: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:557
+#: src/amo/pages/Collection/index.js:559
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:560
+#: src/amo/pages/Collection/index.js:562
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."

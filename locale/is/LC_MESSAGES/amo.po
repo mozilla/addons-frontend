@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 11:04+0000\n"
+"POT-Creation-Date: 2024-07-25 13:25+0000\n"
 "PO-Revision-Date: 2024-06-25 14:24+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2867,19 +2867,19 @@ msgstr "Þemu í %(categoryName)s"
 msgid "Extensions in %(categoryName)s"
 msgstr "Forritsaukar í %(categoryName)s"
 
-#: src/amo/pages/Collection/index.js:402
+#: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
 msgstr "Viltu í alvörunni eyða þessu safni?"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:407
 msgid "Delete this collection"
 msgstr "Eyða þessu safni"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
 msgstr "Þú kærðir þetta safn"
 
-#: src/amo/pages/Collection/index.js:425
+#: src/amo/pages/Collection/index.js:427
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
@@ -2887,29 +2887,29 @@ msgstr ""
 "Við höfum fengið skýrsluna þína. Takk fyrir að láta okkur vita að þú sért "
 "hugsi yfir þessu safni."
 
-#: src/amo/pages/Collection/index.js:439
+#: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
 msgstr "Kæra þetta safn"
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
 msgstr "Skráðu inn til að útbúa safn"
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:461
 msgid "Log in to edit this collection"
 msgstr "Skráðu inn til að breyta þessu safni"
 
-#: src/amo/pages/Collection/index.js:493
+#: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Fyrst skaltu útbúa safnið þitt. Síðan geturðu bætt þar við forritsaukum og "
 "þemum."
 
-#: src/amo/pages/Collection/index.js:496
+#: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Leitaðu að forritsaukum og þemum til að bæta í safnið þitt."
 
-#: src/amo/pages/Collection/index.js:557
+#: src/amo/pages/Collection/index.js:559
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2917,7 +2917,7 @@ msgstr ""
 "Sæktu og útbúðu Firefox-söfn til að halda utan um eftirlætis forritsauka og "
 "þemu. Skoðaðu %(collectionName)s—%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:560
+#: src/amo/pages/Collection/index.js:562
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."

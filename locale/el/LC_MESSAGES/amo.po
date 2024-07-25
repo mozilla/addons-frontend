@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 11:04+0000\n"
+"POT-Creation-Date: 2024-07-25 13:25+0000\n"
 "PO-Revision-Date: 2024-07-12 17:59+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -2904,19 +2904,19 @@ msgstr "Θέματα στην κατηγορία «%(categoryName)s»"
 msgid "Extensions in %(categoryName)s"
 msgstr "Επεκτάσεις στην κατηγορία «%(categoryName)s»"
 
-#: src/amo/pages/Collection/index.js:402
+#: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
 msgstr "Θέλετε πραγματικά να διαγράψετε τη συλλογή;"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:407
 msgid "Delete this collection"
 msgstr "Διαγραφή συλλογής"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
 msgstr "Αναφέρατε αυτήν τη συλλογή"
 
-#: src/amo/pages/Collection/index.js:425
+#: src/amo/pages/Collection/index.js:427
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
@@ -2924,29 +2924,29 @@ msgstr ""
 "Λάβαμε την αναφορά σας. Ευχαριστούμε που μας ενημερώσατε σχετικά με τις "
 "ανησυχίες σας για αυτήν τη συλλογή."
 
-#: src/amo/pages/Collection/index.js:439
+#: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
 msgstr "Αναφορά συλλογής"
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
 msgstr "Συνδεθείτε για δημιουργία συλλογής"
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:461
 msgid "Log in to edit this collection"
 msgstr "Σύνδεση για επεξεργασία συλλογής"
 
-#: src/amo/pages/Collection/index.js:493
+#: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Πρώτα, δημιουργήστε τη συλλογή σας. Έπειτα, μπορείτε να προσθέσετε "
 "επεκτάσεις και θέματα."
 
-#: src/amo/pages/Collection/index.js:496
+#: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Αναζητήστε επεκτάσεις και θέματα για να προσθέσετε στη συλλογή σας."
 
-#: src/amo/pages/Collection/index.js:557
+#: src/amo/pages/Collection/index.js:559
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2955,7 +2955,7 @@ msgstr ""
 "αγαπημένες επεκτάσεις και θέματα. Εξερευνήστε τη συλλογή %(collectionName)s—"
 "%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:560
+#: src/amo/pages/Collection/index.js:562
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."

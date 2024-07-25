@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 11:04+0000\n"
+"POT-Creation-Date: 2024-07-25 13:25+0000\n"
 "PO-Revision-Date: 2024-04-22 13:00+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2822,45 +2822,45 @@ msgstr "%(categoryName)s"
 msgid "Extensions in %(categoryName)s"
 msgstr "%(count)s ਦਾ ਇਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
 
-#: src/amo/pages/Collection/index.js:402
+#: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
 msgstr "ਕੀ ਤੁਸੀਂ ਅਸਲ ਵਿੱਚ ਇਸ ਸੰਗ੍ਰਹਿ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:407
 msgid "Delete this collection"
 msgstr "ਇਸ ਸੰਗ੍ਰਹਿ ਨੂੰ ਹਟਾਓ"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:425
+#: src/amo/pages/Collection/index.js:427
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:439
+#: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
 msgstr "ਇੱਕ ਸੰਗ੍ਰਹਿ ਬਣਾਉਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:461
 msgid "Log in to edit this collection"
 msgstr "ਇਸ ਭੰਡਾਰ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
-#: src/amo/pages/Collection/index.js:493
+#: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "ਪਹਿਲਾਂ, ਆਪਣਾ ਸੰਗ੍ਰਹਿ ਬਣਾਓ। ਫਿਰ ਤੁਸੀਂ ਇਕਸਟੈਨਸ਼ਨਾੰ ਅਤੇ ਥੀਮਾਂ ਨੂੰ ਜੋੜ ਸਕਦੇ ਹੋ।"
 
-#: src/amo/pages/Collection/index.js:496
+#: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr "ਆਪਣੇ ਸੰਗ੍ਰਹਿ ਵਿੱਚ ਜੋੜਨ ਲਈ ਇਕਸਟੈਨਸ਼ਨਾੰ ਅਤੇ ਥੀਸ ਲਈ ਖੋਜ ਕਰੋ।"
 
-#: src/amo/pages/Collection/index.js:557
+#: src/amo/pages/Collection/index.js:559
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2868,7 +2868,7 @@ msgstr ""
 "ਮਨਪਸੰਦ ਇਕਸਟੈਨਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਦਾ ਟਰੈਕ ਰੱਖਣ ਲਈ Firefox ਸੰਗ੍ਰਹਿ ਡਾਊਨਲੋਡ ਕਰੋ ਅਤੇ ਬਣਾਓ। "
 "%(collectionName)s—%(collectionDescription)s ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/Collection/index.js:560
+#: src/amo/pages/Collection/index.js:562
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."

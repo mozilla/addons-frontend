@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 11:04+0000\n"
+"POT-Creation-Date: 2024-07-25 13:25+0000\n"
 "PO-Revision-Date: 2024-06-28 04:55+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -2835,19 +2835,19 @@ msgstr "Chủ đề trong %(categoryName)s"
 msgid "Extensions in %(categoryName)s"
 msgstr "Các tiện ích mở rộng trong %(categoryName)s"
 
-#: src/amo/pages/Collection/index.js:402
+#: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
 msgstr "Bạn có thực sự muốn xóa bộ sưu tập này không?"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:407
 msgid "Delete this collection"
 msgstr "Xóa bộ sưu tập này"
 
-#: src/amo/pages/Collection/index.js:421
+#: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
 msgstr "Bạn đã báo cáo bộ sưu tập này"
 
-#: src/amo/pages/Collection/index.js:425
+#: src/amo/pages/Collection/index.js:427
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this collection."
@@ -2855,30 +2855,30 @@ msgstr ""
 "Chúng tôi đã nhận được báo cáo của bạn. Cảm ơn bạn đã cho chúng tôi biết mối "
 "quan tâm của bạn với bộ sưu tập này."
 
-#: src/amo/pages/Collection/index.js:439
+#: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
 msgstr "Báo cáo bộ sưu tập này"
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
 msgstr "Đăng nhập để tạo bộ sưu tập"
 
-#: src/amo/pages/Collection/index.js:459
+#: src/amo/pages/Collection/index.js:461
 msgid "Log in to edit this collection"
 msgstr "Đăng nhập để chỉnh sửa bộ sưu tập"
 
-#: src/amo/pages/Collection/index.js:493
+#: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Đầu tiên, tạo bộ sưu tập của bạn. Sau đó, bạn có thể thêm tiện ích mở rộng "
 "và chủ đề."
 
-#: src/amo/pages/Collection/index.js:496
+#: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 "Tìm kiếm các tiện ích mở rộng và chủ đề để thêm vào bộ sưu tập của bạn."
 
-#: src/amo/pages/Collection/index.js:557
+#: src/amo/pages/Collection/index.js:559
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2886,7 +2886,7 @@ msgstr ""
 "Tải xuống và tạo bộ sưu tập Firefox để theo dõi các chủ đề và tiện ích yêu "
 "thích. Khám phá %(collectionName)s—%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:560
+#: src/amo/pages/Collection/index.js:562
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
