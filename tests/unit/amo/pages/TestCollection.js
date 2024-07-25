@@ -19,6 +19,7 @@ import {
   INSTALL_SOURCE_SUGGESTIONS,
   MOZILLA_COLLECTIONS_EDIT,
 } from 'amo/constants';
+import { hrefLangs } from 'amo/languages';
 import {
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
@@ -63,6 +64,7 @@ import {
   fakeI18n,
   fakePreview,
   getElement,
+  getElements,
   getMockConfig,
   renderPage as defaultRender,
   screen,
@@ -1145,6 +1147,49 @@ describe(__filename, () => {
         ].join(' '),
       ),
     );
+  });
+
+  it('renders canonical and alternate links for mozilla collections', async () => {
+    renderWithCollection({
+      detailProps: { authorId: mozillaUserId, authorUsername: 'mozilla' },
+      userId: mozillaUserId,
+    });
+
+    const getExpectedURL = (locale, app) => {
+      return `${config.get(
+        'baseURL',
+      )}/${locale}/${app}/collections/${mozillaUserId}/${defaultSlug}/`;
+    };
+
+    await waitFor(() =>
+      expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+        'href',
+        getExpectedURL('en-US', 'firefox'),
+      ),
+    );
+
+    await waitFor(() =>
+      expect(getElement('link[rel="alternate"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements('link[rel="alternate"]')).toHaveLength(hrefLangs.length);
+
+    const hrefLangsMap = config.get('hrefLangsMap');
+    hrefLangs.forEach((hrefLang) => {
+      const locale = hrefLangsMap[hrefLang] || hrefLang;
+      expect(
+        getElement(`link[rel="alternate"][hreflang="${hrefLang}"]`),
+      ).toHaveAttribute('href', getExpectedURL(locale, 'firefox'));
+    });
+  });
+
+  it('does not render canonical and alternate links for non-mozilla collections', async () => {
+    renderWithCollection();
+
+    await waitFor(() =>
+      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
+    );
+    expect(getElements('link[rel="canonical"]')).toHaveLength(0);
   });
 
   describe('errorHandler - extractId', () => {
