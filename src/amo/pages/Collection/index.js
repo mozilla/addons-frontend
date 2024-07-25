@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import deepEqual from 'deep-eql';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -11,6 +12,7 @@ import Button from 'amo/components/Button';
 import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionControls from 'amo/components/CollectionControls';
 import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
+import HeadLinks from 'amo/components/HeadLinks';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
@@ -586,6 +588,13 @@ export class CollectionBase extends React.Component<InternalProps> {
               <meta name="description" content={this.getPageDescription()} />
             </Helmet>
           )}
+          {
+            /* Only include canonical/alternate links if this is a mozilla collection */
+            collection &&
+              collection.authorId === config.get('mozillaUserId') && (
+                <HeadLinks />
+              )
+          }
 
           {errorHandler.renderErrorIfPresent()}
 
