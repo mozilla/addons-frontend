@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 13:25+0000\n"
+"POT-Creation-Date: 2024-07-26 19:38+0000\n"
 "PO-Revision-Date: 2024-01-08 09:29+0000\n"
 "Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
 "Language-Team: none\n"
@@ -1756,19 +1756,18 @@ msgstr "%(param)s のユーザーデータへのアクセス"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:182
+#: src/amo/components/SearchFilters/index.js:181
 msgid "By Firefox"
 msgstr "Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Recommended"
 msgstr "おすすめ"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr ""
 
@@ -2075,102 +2074,90 @@ msgstr ""
 msgid "Report this user"
 msgstr "このユーザーを報告"
 
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "検索結果"
 
-#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:162
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "おすすめの拡張機能"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "おすすめのテーマ"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
 msgstr "おすすめのアドオン"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:155
 msgid "Extensions by Firefox"
 msgstr "Firefox による拡張機能"
 
-#: src/amo/components/Search/index.js:159
+#: src/amo/components/Search/index.js:158
 msgid "Themes by Firefox"
 msgstr "Firefox のテーマ"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:161
 msgid "Add-ons by Firefox"
 msgstr "Firefox のアドオン"
 
-#: src/amo/components/Search/index.js:167
+#: src/amo/components/Search/index.js:166
 msgid "Reviewed extensions"
 msgstr "レビューされた拡張機能"
 
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:169
 msgid "Reviewed themes"
 msgstr "レビューされたテーマ"
 
-#: src/amo/components/Search/index.js:173
+#: src/amo/components/Search/index.js:172
 msgid "Reviewed add-ons"
 msgstr "レビューされたアドオン"
 
-#: src/amo/components/Search/index.js:178
-msgid "Verified extensions"
-msgstr "検証された拡張機能"
-
-#: src/amo/components/Search/index.js:181
-msgid "Verified themes"
-msgstr "検証されたテーマ"
-
-#: src/amo/components/Search/index.js:184
-msgid "Verified add-ons"
-msgstr "検証されたアドオン"
-
-#: src/amo/components/Search/index.js:192
+#: src/amo/components/Search/index.js:180
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "流行の拡張機能"
 
-#: src/amo/components/Search/index.js:195
+#: src/amo/components/Search/index.js:183
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "流行のテーマ"
 
-#: src/amo/components/Search/index.js:198
+#: src/amo/components/Search/index.js:186
 msgid "Trending add-ons"
 msgstr "流行のアドオン"
 
-#: src/amo/components/Search/index.js:204
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "最も評価の高い拡張機能"
 
-#: src/amo/components/Search/index.js:207
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "最も評価の高いテーマ"
 
-#: src/amo/components/Search/index.js:210
+#: src/amo/components/Search/index.js:198
 msgid "Top rated add-ons"
 msgstr "最も評価の高い拡張機能"
 
-#: src/amo/components/Search/index.js:216
+#: src/amo/components/Search/index.js:204
 msgid "Popular extensions"
 msgstr "人気の拡張機能"
 
-#: src/amo/components/Search/index.js:219
+#: src/amo/components/Search/index.js:207
 msgid "Popular themes"
 msgstr "人気のテーマ"
 
-#: src/amo/components/Search/index.js:222
+#: src/amo/components/Search/index.js:210
 msgid "Popular add-ons"
 msgstr "人気のアドオン"
 
-#: src/amo/components/Search/index.js:228
+#: src/amo/components/Search/index.js:216
 msgid "Search results for \"%(query)s\""
 msgstr "「%(query)s」の検索結果"
 
@@ -2305,59 +2292,59 @@ msgstr[0] ""
 "%(tag)s タグを持ち「%(query)s」と一致する拡張機能が %(count)s 件見つかりまし"
 "た"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:147
 msgid "All"
 msgstr "すべて"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Extension"
 msgstr "拡張機能"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:152
 msgid "Theme"
 msgstr "テーマ"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:163
 msgid "Relevance"
 msgstr "関連性"
 
-#: src/amo/components/SearchFilters/index.js:166
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Recently Updated"
 msgstr "最近更新"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:168
 msgid "Most Users"
 msgstr "ユーザー数"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Top Rated"
 msgstr "高評価"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Trending"
 msgstr "流行"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:178
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:185
 msgid "All Reviewed"
 msgstr "すべてレビュー済み"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Filter results"
 msgstr "結果を絞り込み"
 
-#: src/amo/components/SearchFilters/index.js:215
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Sort by"
 msgstr "並べ替え"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:232
 msgid "Add-on Type"
 msgstr "アドオンの種類"
 
-#: src/amo/components/SearchFilters/index.js:258
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Badging"
 msgstr "バッジ付与"
 
@@ -3822,6 +3809,15 @@ msgstr "あなたのアドオンの互換性が更新されませんでした"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "あなたのアドオンの互換性が更新されました"
+
+#~ msgid "Verified extensions"
+#~ msgstr "検証された拡張機能"
+
+#~ msgid "Verified themes"
+#~ msgstr "検証されたテーマ"
+
+#~ msgid "Verified add-ons"
+#~ msgstr "検証されたアドオン"
 
 #~ msgid ""
 #~ "You can change your email address on Firefox Accounts. %(startLink)sNeed "

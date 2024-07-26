@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 13:25+0000\n"
+"POT-Creation-Date: 2024-07-26 19:38+0000\n"
 "PO-Revision-Date: 2024-06-29 12:46+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
@@ -1792,19 +1792,18 @@ msgstr "Pääsy tietoihisi sivustolla %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:182
+#: src/amo/components/SearchFilters/index.js:181
 msgid "By Firefox"
 msgstr "Firefoxilta"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Recommended"
 msgstr "Suositeltu"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr "Vahvistettu"
 
@@ -2122,102 +2121,90 @@ msgstr ""
 msgid "Report this user"
 msgstr "Ilmoita tästä käyttäjästä"
 
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "Hakutulokset"
 
-#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:162
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Suositellut laajennukset"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "Suositellut teemat"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
 msgstr "Suositellut lisäosat"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:155
 msgid "Extensions by Firefox"
 msgstr "Laajennukset Firefoxilta"
 
-#: src/amo/components/Search/index.js:159
+#: src/amo/components/Search/index.js:158
 msgid "Themes by Firefox"
 msgstr "Teemat Firefoxilta"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:161
 msgid "Add-ons by Firefox"
 msgstr "Lisäosat Firefoxilta"
 
-#: src/amo/components/Search/index.js:167
+#: src/amo/components/Search/index.js:166
 msgid "Reviewed extensions"
 msgstr "Katselmoidut laajennukset"
 
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:169
 msgid "Reviewed themes"
 msgstr "Katselmoidut teemat"
 
-#: src/amo/components/Search/index.js:173
+#: src/amo/components/Search/index.js:172
 msgid "Reviewed add-ons"
 msgstr "Katselmoidut lisäosat"
 
-#: src/amo/components/Search/index.js:178
-msgid "Verified extensions"
-msgstr "Vahvistetut laajennukset"
-
-#: src/amo/components/Search/index.js:181
-msgid "Verified themes"
-msgstr "Vahvistetut teemat"
-
-#: src/amo/components/Search/index.js:184
-msgid "Verified add-ons"
-msgstr "Vahvistetut lisäosat"
-
-#: src/amo/components/Search/index.js:192
+#: src/amo/components/Search/index.js:180
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Nousussa olevat laajennukset"
 
-#: src/amo/components/Search/index.js:195
+#: src/amo/components/Search/index.js:183
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "Nousussa olevat teemat"
 
-#: src/amo/components/Search/index.js:198
+#: src/amo/components/Search/index.js:186
 msgid "Trending add-ons"
 msgstr "Nousussa olevat lisäosat"
 
-#: src/amo/components/Search/index.js:204
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Parhaiten arvioidut laajennukset"
 
-#: src/amo/components/Search/index.js:207
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Parhaiten arvioidut teemat"
 
-#: src/amo/components/Search/index.js:210
+#: src/amo/components/Search/index.js:198
 msgid "Top rated add-ons"
 msgstr "Parhaiten arvioidut lisäosat"
 
-#: src/amo/components/Search/index.js:216
+#: src/amo/components/Search/index.js:204
 msgid "Popular extensions"
 msgstr "Suositut laajennukset"
 
-#: src/amo/components/Search/index.js:219
+#: src/amo/components/Search/index.js:207
 msgid "Popular themes"
 msgstr "Suositut teemat"
 
-#: src/amo/components/Search/index.js:222
+#: src/amo/components/Search/index.js:210
 msgid "Popular add-ons"
 msgstr "Suositut lisäosat"
 
-#: src/amo/components/Search/index.js:228
+#: src/amo/components/Search/index.js:216
 msgid "Search results for \"%(query)s\""
 msgstr "Tulokset haulle ”%(query)s”"
 
@@ -2374,59 +2361,59 @@ msgstr[0] ""
 msgstr[1] ""
 "%(count)s laajennusta löytyi haulla \"%(query)s\" luokasta %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:147
 msgid "All"
 msgstr "Kaikki"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Extension"
 msgstr "Laajennus"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:152
 msgid "Theme"
 msgstr "Teema"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:163
 msgid "Relevance"
 msgstr "Osuvuus"
 
-#: src/amo/components/SearchFilters/index.js:166
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Recently Updated"
 msgstr "Päivitetty hiljattain"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:168
 msgid "Most Users"
 msgstr "Eniten käyttäjiä"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Top Rated"
 msgstr "Parhaiten arvioidut"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Trending"
 msgstr "Nousussa olevat"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:178
 msgid "Any"
 msgstr "Mikä tahansa"
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:185
 msgid "All Reviewed"
 msgstr "Kaikki arvioidut"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Filter results"
 msgstr "Hakutulosten suodatus"
 
-#: src/amo/components/SearchFilters/index.js:215
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Sort by"
 msgstr "Järjestysperuste"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:232
 msgid "Add-on Type"
 msgstr "Lisäosan tyyppi"
 
-#: src/amo/components/SearchFilters/index.js:258
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Badging"
 msgstr "Merkintä"
 
@@ -3947,6 +3934,15 @@ msgstr "lisäosani yhteensopivuutta ei voida päivittää"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "lisäosani yhteensopivuus on päivitetty onnistuneesti"
+
+#~ msgid "Verified extensions"
+#~ msgstr "Vahvistetut laajennukset"
+
+#~ msgid "Verified themes"
+#~ msgstr "Vahvistetut teemat"
+
+#~ msgid "Verified add-ons"
+#~ msgstr "Vahvistetut lisäosat"
 
 #~ msgid "Example: Copyright or Trademark Infringement, Fraud."
 #~ msgstr "Esimerkki: Tekijänoikeuden tai tavaramerkin loukkaus, petos."

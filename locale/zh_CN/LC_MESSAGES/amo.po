@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 13:25+0000\n"
+"POT-Creation-Date: 2024-07-26 19:38+0000\n"
 "PO-Revision-Date: 2024-06-27 05:42+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
@@ -1770,19 +1770,18 @@ msgstr "存取您在 %(param)s 的数据"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:182
+#: src/amo/components/SearchFilters/index.js:181
 msgid "By Firefox"
 msgstr "Firefox 出品"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Recommended"
 msgstr "推荐"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr "已验证"
 
@@ -2082,102 +2081,90 @@ msgstr "我们已收到您的报告。感谢告知。"
 msgid "Report this user"
 msgstr "举报此用户"
 
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "搜索结果"
 
-#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:162
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "推荐扩展"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "推荐主题"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
 msgstr "推荐附加组件"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:155
 msgid "Extensions by Firefox"
 msgstr "Firefox 制作的扩展"
 
-#: src/amo/components/Search/index.js:159
+#: src/amo/components/Search/index.js:158
 msgid "Themes by Firefox"
 msgstr "Firefox 制作的主题"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:161
 msgid "Add-ons by Firefox"
 msgstr "Firefox 制作的附加组件"
 
-#: src/amo/components/Search/index.js:167
+#: src/amo/components/Search/index.js:166
 msgid "Reviewed extensions"
 msgstr "已审核的扩展"
 
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:169
 msgid "Reviewed themes"
 msgstr "已审核的主题"
 
-#: src/amo/components/Search/index.js:173
+#: src/amo/components/Search/index.js:172
 msgid "Reviewed add-ons"
 msgstr "已审核的附加组件"
 
-#: src/amo/components/Search/index.js:178
-msgid "Verified extensions"
-msgstr "已验证的扩展"
-
-#: src/amo/components/Search/index.js:181
-msgid "Verified themes"
-msgstr "已验证的主题"
-
-#: src/amo/components/Search/index.js:184
-msgid "Verified add-ons"
-msgstr "已验证的附加组件"
-
-#: src/amo/components/Search/index.js:192
+#: src/amo/components/Search/index.js:180
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "热门扩展"
 
-#: src/amo/components/Search/index.js:195
+#: src/amo/components/Search/index.js:183
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "热门主题"
 
-#: src/amo/components/Search/index.js:198
+#: src/amo/components/Search/index.js:186
 msgid "Trending add-ons"
 msgstr "热门附加组件"
 
-#: src/amo/components/Search/index.js:204
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "好评扩展"
 
-#: src/amo/components/Search/index.js:207
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "最受好评的主题"
 
-#: src/amo/components/Search/index.js:210
+#: src/amo/components/Search/index.js:198
 msgid "Top rated add-ons"
 msgstr "好评附加组件"
 
-#: src/amo/components/Search/index.js:216
+#: src/amo/components/Search/index.js:204
 msgid "Popular extensions"
 msgstr "最流行的扩展"
 
-#: src/amo/components/Search/index.js:219
+#: src/amo/components/Search/index.js:207
 msgid "Popular themes"
 msgstr "最流行的主题"
 
-#: src/amo/components/Search/index.js:222
+#: src/amo/components/Search/index.js:210
 msgid "Popular add-ons"
 msgstr "最流行的附加组件"
 
-#: src/amo/components/Search/index.js:228
+#: src/amo/components/Search/index.js:216
 msgid "Search results for \"%(query)s\""
 msgstr "“%(query)s”的搜索结果"
 
@@ -2297,59 +2284,59 @@ msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] "找到“%(query)s”含 %(tag)s 标签的 %(count)s 个扩展"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:147
 msgid "All"
 msgstr "所有"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Extension"
 msgstr "扩展"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:152
 msgid "Theme"
 msgstr "主题"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:163
 msgid "Relevance"
 msgstr "相关性"
 
-#: src/amo/components/SearchFilters/index.js:166
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Recently Updated"
 msgstr "最近更新"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:168
 msgid "Most Users"
 msgstr "最多用户"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Top Rated"
 msgstr "最高评分"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Trending"
 msgstr "热门"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:178
 msgid "Any"
 msgstr "任何"
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:185
 msgid "All Reviewed"
 msgstr "全部已审核项目"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Filter results"
 msgstr "过滤结果"
 
-#: src/amo/components/SearchFilters/index.js:215
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Sort by"
 msgstr "排序方式"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:232
 msgid "Add-on Type"
 msgstr "附加组件类型"
 
-#: src/amo/components/SearchFilters/index.js:258
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Badging"
 msgstr "徽章"
 
@@ -3784,6 +3771,15 @@ msgstr "无法升级我的附加组件的兼容性"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "我的附加组件的兼容性升级成功"
+
+#~ msgid "Verified extensions"
+#~ msgstr "已验证的扩展"
+
+#~ msgid "Verified themes"
+#~ msgstr "已验证的主题"
+
+#~ msgid "Verified add-ons"
+#~ msgstr "已验证的附加组件"
 
 #~ msgid "Example: Copyright or Trademark Infringement, Fraud."
 #~ msgstr "例如：侵犯版权或商标侵权、欺诈。"

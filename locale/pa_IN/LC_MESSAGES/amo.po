@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 13:25+0000\n"
+"POT-Creation-Date: 2024-07-26 19:38+0000\n"
 "PO-Revision-Date: 2024-04-22 13:00+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1780,19 +1780,18 @@ msgstr "%(param)s ਲਈ ਆਪਣਾ ਡੇਟਾ ਐਕਸੈਸ ਕਰੋ"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:182
+#: src/amo/components/SearchFilters/index.js:181
 msgid "By Firefox"
 msgstr "Firefox ਵਲੋੰ"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Recommended"
 msgstr "ਸਿਫ਼ਾਰਸ਼ੀ"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr "ਤਸਦੀਕ ਕੀਤਾ"
 
@@ -2116,104 +2115,92 @@ msgstr ""
 msgid "Report this user"
 msgstr ""
 
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "ਖੋਜ ਨਤੀਜੇ"
 
-#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:162
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਥੀਮ"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਐਡ-ਆਨ"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:155
 msgid "Extensions by Firefox"
 msgstr "Firefox ਵਲੋਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/Search/index.js:159
+#: src/amo/components/Search/index.js:158
 msgid "Themes by Firefox"
 msgstr "Firefox ਵੱਲੋ ਥੀਮ"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:161
 msgid "Add-ons by Firefox"
 msgstr "Firefox ਵੱਲੋ ਐਡ-ਆਨ"
 
-#: src/amo/components/Search/index.js:167
+#: src/amo/components/Search/index.js:166
 msgid "Reviewed extensions"
 msgstr "ਪੜਤਾਲੀਆ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 # This action allows a reviewer to perform a review of a theme.
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:169
 msgid "Reviewed themes"
 msgstr "ਪੜਤਾਲ ਕੀਤੇ ਥੀਮ"
 
 # This action allows a reviewer to perform a review of an add-on's code.
-#: src/amo/components/Search/index.js:173
+#: src/amo/components/Search/index.js:172
 msgid "Reviewed add-ons"
 msgstr "ਪੜਤਾਲ ਕੀਤੇ ਐਡ-ਆਨ"
 
-#: src/amo/components/Search/index.js:178
-msgid "Verified extensions"
-msgstr "ਪ੍ਰਮਾਣਿਤ ਇਕਸਟੈਨਸ਼ਨਾਂ"
-
-#: src/amo/components/Search/index.js:181
-msgid "Verified themes"
-msgstr "ਪ੍ਰਮਾਣਿਤ ਥੀਮ"
-
-#: src/amo/components/Search/index.js:184
-msgid "Verified add-ons"
-msgstr "ਤਸਦੀਕ ਕੀਤੇ ਐਡ-ਆਨ"
-
-#: src/amo/components/Search/index.js:192
+#: src/amo/components/Search/index.js:180
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਦਾ ਰੁਝਾਨ"
 
-#: src/amo/components/Search/index.js:195
+#: src/amo/components/Search/index.js:183
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "ਰੁਝਾਨ ਥੀਮ"
 
-#: src/amo/components/Search/index.js:198
+#: src/amo/components/Search/index.js:186
 msgid "Trending add-ons"
 msgstr "ਐਡ-ਆਨ ਰੁਝਾਨ"
 
-#: src/amo/components/Search/index.js:204
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "ਸਿਖਰਲੀ ਦਰਜਾਬੰਦੀ ਦੇ ਇਕਸਟੈਨਸ਼ਨਾੰ"
 
-#: src/amo/components/Search/index.js:207
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "ਸਿਖਰ ਤੇ ਦਿੱਤੇ ਗਏ ਵਿਸ਼ੇ"
 
-#: src/amo/components/Search/index.js:210
+#: src/amo/components/Search/index.js:198
 msgid "Top rated add-ons"
 msgstr "ਸਿਖਰ ਤੇ ਐਡ-ਆਨ ਸ਼ਾਮਲ"
 
-#: src/amo/components/Search/index.js:216
+#: src/amo/components/Search/index.js:204
 msgid "Popular extensions"
 msgstr "ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/Search/index.js:219
+#: src/amo/components/Search/index.js:207
 msgid "Popular themes"
 msgstr "ਹਰਮਨਪਿਆਰੇ ਥੀਮ"
 
-#: src/amo/components/Search/index.js:222
+#: src/amo/components/Search/index.js:210
 msgid "Popular add-ons"
 msgstr "ਹਰਮਨਪਿਆਰੀਆਂ ਐਡ-ਆਨ"
 
-#: src/amo/components/Search/index.js:228
+#: src/amo/components/Search/index.js:216
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\" ਲਈ ਖੋਜ ਨਤੀਜੇ"
 
@@ -2361,59 +2348,59 @@ msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀ ਹੈ"
 msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀਆਂ"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:147
 msgid "All"
 msgstr "ਸਾਰੇ"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Extension"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:152
 msgid "Theme"
 msgstr "ਥੀਮ"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:163
 msgid "Relevance"
 msgstr "ਸਬੰਧਤ"
 
-#: src/amo/components/SearchFilters/index.js:166
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Recently Updated"
 msgstr "ਹਾਲ ਹੀ ਵਿੱਚ ਅੱਪਡੇਟ ਕੀਤੇ"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:168
 msgid "Most Users"
 msgstr "ਬਹੁਤੇ ਵਰਤੋਂਕਾਰ"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Top Rated"
 msgstr "ਚੋਟੀ ਦਾ ਦਰਜਾ"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Trending"
 msgstr "ਰੁਝਾਨ"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:178
 msgid "Any"
 msgstr "ਕੋਈ ਵੀ"
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:185
 msgid "All Reviewed"
 msgstr "ਸਭ ਪੜਤਾਲਾਂ"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Filter results"
 msgstr "ਨਤੀਜੇ ਛਾਂਟੋ"
 
-#: src/amo/components/SearchFilters/index.js:215
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Sort by"
 msgstr "ਲੜੀਬੱਧ"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:232
 msgid "Add-on Type"
 msgstr "ਐਡ-ਆਨ ਕਿਸਮ"
 
-#: src/amo/components/SearchFilters/index.js:258
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Badging"
 msgstr "ਬੈਜਿੰਗ"
 
@@ -3877,6 +3864,15 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਕਾਮਯਾਬੀ ਅੱਪਗਰੇਡ ਹੋਈ"
+
+#~ msgid "Verified extensions"
+#~ msgstr "ਪ੍ਰਮਾਣਿਤ ਇਕਸਟੈਨਸ਼ਨਾਂ"
+
+#~ msgid "Verified themes"
+#~ msgstr "ਪ੍ਰਮਾਣਿਤ ਥੀਮ"
+
+#~ msgid "Verified add-ons"
+#~ msgstr "ਤਸਦੀਕ ਕੀਤੇ ਐਡ-ਆਨ"
 
 #~ msgid ""
 #~ "You can change your email address on Firefox Accounts. %(startLink)sNeed "

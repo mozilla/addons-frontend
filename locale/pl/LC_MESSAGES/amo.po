@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 13:25+0000\n"
+"POT-Creation-Date: 2024-07-26 19:38+0000\n"
 "PO-Revision-Date: 2023-12-10 16:01+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -1813,19 +1813,18 @@ msgstr "Mieć dostęp do danych użytkownika na stronie „%(param)s”"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:182
+#: src/amo/components/SearchFilters/index.js:181
 msgid "By Firefox"
 msgstr "Od Firefoksa"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Recommended"
 msgstr "Polecane"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr "Zweryfikowany"
 
@@ -2151,102 +2150,90 @@ msgstr ""
 msgid "Report this user"
 msgstr "Zgłoś tego użytkownika"
 
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "Wyniki wyszukiwania"
 
-#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:162
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162
 #: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Polecane rozszerzenia"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "Polecane motywy"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
 msgstr "Polecane dodatki"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:155
 msgid "Extensions by Firefox"
 msgstr "Rozszerzenia od Firefoksa"
 
-#: src/amo/components/Search/index.js:159
+#: src/amo/components/Search/index.js:158
 msgid "Themes by Firefox"
 msgstr "Motywy od Firefoksa"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:161
 msgid "Add-ons by Firefox"
 msgstr "Dodatki od Firefoksa"
 
-#: src/amo/components/Search/index.js:167
+#: src/amo/components/Search/index.js:166
 msgid "Reviewed extensions"
 msgstr "Sprawdzone rozszerzenia"
 
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:169
 msgid "Reviewed themes"
 msgstr "Sprawdzone motywy"
 
-#: src/amo/components/Search/index.js:173
+#: src/amo/components/Search/index.js:172
 msgid "Reviewed add-ons"
 msgstr "Sprawdzone dodatki"
 
-#: src/amo/components/Search/index.js:178
-msgid "Verified extensions"
-msgstr "Zweryfikowane rozszerzenia"
-
-#: src/amo/components/Search/index.js:181
-msgid "Verified themes"
-msgstr "Zweryfikowane motywy"
-
-#: src/amo/components/Search/index.js:184
-msgid "Verified add-ons"
-msgstr "Zweryfikowane dodatki"
-
-#: src/amo/components/Search/index.js:192
+#: src/amo/components/Search/index.js:180
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Rozszerzenia na czasie"
 
-#: src/amo/components/Search/index.js:195
+#: src/amo/components/Search/index.js:183
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "Motywy na czasie"
 
-#: src/amo/components/Search/index.js:198
+#: src/amo/components/Search/index.js:186
 msgid "Trending add-ons"
 msgstr "Dodatki na czasie"
 
-#: src/amo/components/Search/index.js:204
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Najwyżej oceniane rozszerzenia"
 
-#: src/amo/components/Search/index.js:207
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Najwyżej oceniane motywy"
 
-#: src/amo/components/Search/index.js:210
+#: src/amo/components/Search/index.js:198
 msgid "Top rated add-ons"
 msgstr "Najwyżej oceniane dodatki"
 
-#: src/amo/components/Search/index.js:216
+#: src/amo/components/Search/index.js:204
 msgid "Popular extensions"
 msgstr "Popularne rozszerzenia"
 
-#: src/amo/components/Search/index.js:219
+#: src/amo/components/Search/index.js:207
 msgid "Popular themes"
 msgstr "Popularne motywy"
 
-#: src/amo/components/Search/index.js:222
+#: src/amo/components/Search/index.js:210
 msgid "Popular add-ons"
 msgstr "Popularne dodatki"
 
-#: src/amo/components/Search/index.js:228
+#: src/amo/components/Search/index.js:216
 msgid "Search results for \"%(query)s\""
 msgstr "Wyniki wyszukiwania „%(query)s”"
 
@@ -2451,59 +2438,59 @@ msgstr[2] ""
 "Odnaleziono %(count)s rozszerzeń dla zapytania „%(query)s” z etykietą "
 "„%(tag)s”"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:147
 msgid "All"
 msgstr "Wszystkie"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Extension"
 msgstr "Rozszerzenie"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:152
 msgid "Theme"
 msgstr "Motyw"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:163
 msgid "Relevance"
 msgstr "Trafność"
 
-#: src/amo/components/SearchFilters/index.js:166
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Recently Updated"
 msgstr "Ostatnio zaktualizowane"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:168
 msgid "Most Users"
 msgstr "Najczęściej używane"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Top Rated"
 msgstr "Najwyżej oceniane"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Trending"
 msgstr "Zdobywające popularność"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:178
 msgid "Any"
 msgstr "Wszystkie"
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:185
 msgid "All Reviewed"
 msgstr "Wszystkie sprawdzone"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Filter results"
 msgstr "Filtruj wyniki"
 
-#: src/amo/components/SearchFilters/index.js:215
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Sort by"
 msgstr "Uporządkuj według"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:232
 msgid "Add-on Type"
 msgstr "Typ dodatku"
 
-#: src/amo/components/SearchFilters/index.js:258
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Badging"
 msgstr "Odznaki"
 
@@ -4027,6 +4014,15 @@ msgstr "zgodność mojego dodatku nie może zostać zaktualizowana"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
+
+#~ msgid "Verified extensions"
+#~ msgstr "Zweryfikowane rozszerzenia"
+
+#~ msgid "Verified themes"
+#~ msgstr "Zweryfikowane motywy"
+
+#~ msgid "Verified add-ons"
+#~ msgstr "Zweryfikowane dodatki"
 
 #~ msgid "Provide more details %(spanStart)s(optional)%(spanEnd)s"
 #~ msgstr "Podaj więcej informacji %(spanStart)s(opcjonalnie)%(spanEnd)s"

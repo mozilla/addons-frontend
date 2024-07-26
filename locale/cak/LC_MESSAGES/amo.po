@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-25 13:25+0000\n"
+"POT-Creation-Date: 2024-07-26 19:38+0000\n"
 "PO-Revision-Date: 2023-02-23 00:02+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1831,21 +1831,20 @@ msgstr "Katok pa taq atzij richin %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:182
+#: src/amo/components/SearchFilters/index.js:181
 #, fuzzy
 msgid "By Firefox"
 msgstr "richin Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:179
 #, fuzzy
 msgid "Recommended"
 msgstr "Okisanel pa"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr "Xjikib'äx"
 
@@ -2184,114 +2183,99 @@ msgstr ""
 msgid "Report this user"
 msgstr ""
 
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "Kiq'i'oj kanoxïk"
 
-#: src/amo/components/Search/index.js:145 src/amo/pages/Home/index.js:162
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162
 #: src/amo/pages/LandingPage/index.js:122
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Talun taq k'amal"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:154
 #, fuzzy
 msgid "Recommended themes"
 msgstr "Taq wachinïk k'ïy kiwinaq"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:150
 #, fuzzy
 msgid "Recommended add-ons"
 msgstr "Ke'ilitäj taq tz'aqat"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:155
 #, fuzzy
 msgid "Extensions by Firefox"
 msgstr "Taq kik'amal %(author)s"
 
-#: src/amo/components/Search/index.js:159
+#: src/amo/components/Search/index.js:158
 #, fuzzy
 msgid "Themes by Firefox"
 msgstr "richin Firefox"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:161
 #, fuzzy
 msgid "Add-ons by Firefox"
 msgstr "Kitz'aqat Firefox"
 
-#: src/amo/components/Search/index.js:167
+#: src/amo/components/Search/index.js:166
 #, fuzzy
 msgid "Reviewed extensions"
 msgstr "Talun taq k'amal"
 
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:169
 #, fuzzy
 msgid "Reviewed themes"
 msgstr "Kenik'öx taq wachinel"
 
-#: src/amo/components/Search/index.js:173
+#: src/amo/components/Search/index.js:172
 #, fuzzy
 msgid "Reviewed add-ons"
 msgstr "Kitzijoxikil %(addonName)s"
 
-#: src/amo/components/Search/index.js:178
-#, fuzzy
-msgid "Verified extensions"
-msgstr "Talun taq k'amal"
-
-#: src/amo/components/Search/index.js:181
-#, fuzzy
-msgid "Verified themes"
-msgstr "Talun wachinel"
-
-#: src/amo/components/Search/index.js:184
-#, fuzzy
-msgid "Verified add-ons"
-msgstr "Talun taq tz'aqat"
-
-#: src/amo/components/Search/index.js:192
+#: src/amo/components/Search/index.js:180
 #: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Taq k'amal k'ïy kiwinaq"
 
-#: src/amo/components/Search/index.js:195
+#: src/amo/components/Search/index.js:183
 #: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "K'ïy kiwinaq taq wachinel"
 
-#: src/amo/components/Search/index.js:198
+#: src/amo/components/Search/index.js:186
 msgid "Trending add-ons"
 msgstr "K'ïy kiwinaq taq tz'aqat"
 
-#: src/amo/components/Search/index.js:204
+#: src/amo/components/Search/index.js:192
 #: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Taq k'amal k'ïy kejqalem"
 
-#: src/amo/components/Search/index.js:207
+#: src/amo/components/Search/index.js:195
 #: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Taq wachinel k'ïy kejqalem"
 
-#: src/amo/components/Search/index.js:210
+#: src/amo/components/Search/index.js:198
 msgid "Top rated add-ons"
 msgstr "Taq tz'aqat ya'on kiq'ij"
 
-#: src/amo/components/Search/index.js:216
+#: src/amo/components/Search/index.js:204
 msgid "Popular extensions"
 msgstr "K'ïy kiwinaq taq k'amal"
 
-#: src/amo/components/Search/index.js:219
+#: src/amo/components/Search/index.js:207
 msgid "Popular themes"
 msgstr "Taq wachinïk k'ïy kiwinaq"
 
-#: src/amo/components/Search/index.js:222
+#: src/amo/components/Search/index.js:210
 msgid "Popular add-ons"
 msgstr "K'ïy kiwinaq taq tz'aqat"
 
-#: src/amo/components/Search/index.js:228
+#: src/amo/components/Search/index.js:216
 msgid "Search results for \"%(query)s\""
 msgstr "Kekanöx taq ruq'i'oj \"%(query)s\""
 
@@ -2447,60 +2431,60 @@ msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] "%(count)s k'amal xilitäj richin \"%(query)s\""
 msgstr[1] "%(count)s taq k'amal xe'ilitäj richin \"%(query)s\""
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:147
 msgid "All"
 msgstr "Ronojel"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Extension"
 msgstr "K'amal"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:152
 msgid "Theme"
 msgstr "Wachinïk"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:163
 msgid "Relevance"
 msgstr "Rejqalem"
 
-#: src/amo/components/SearchFilters/index.js:166
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Recently Updated"
 msgstr "Nimakol k'exoj"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:168
 msgid "Most Users"
 msgstr "Ch'aqa' Okisanela'"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Top Rated"
 msgstr "Ütz Kejqalem Ya'on"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Trending"
 msgstr "K'ïy ruwinaq"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:178
 msgid "Any"
 msgstr "Xab'achike"
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:185
 #, fuzzy
 msgid "All Reviewed"
 msgstr "Tzijoxïk"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Filter results"
 msgstr "Kichayub'al q'i'oj"
 
-#: src/amo/components/SearchFilters/index.js:215
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Sort by"
 msgstr "Tichol chi"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:232
 msgid "Add-on Type"
 msgstr "Ruwäch Tz'aqat"
 
-#: src/amo/components/SearchFilters/index.js:258
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Badging"
 msgstr ""
 
@@ -4002,6 +3986,18 @@ msgstr "man tikirel ta nik'ex ri ruk'amonel nutz'aqat"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ri k'amonel nutz'aqat ütz nuk'ëx ri'"
+
+#, fuzzy
+#~ msgid "Verified extensions"
+#~ msgstr "Talun taq k'amal"
+
+#, fuzzy
+#~ msgid "Verified themes"
+#~ msgstr "Talun wachinel"
+
+#, fuzzy
+#~ msgid "Verified add-ons"
+#~ msgstr "Talun taq tz'aqat"
 
 #, fuzzy
 #~ msgid "Manage Firefox Accounts…"
