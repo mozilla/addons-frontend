@@ -24,7 +24,6 @@ import {
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_POPULAR,
   SET_VIEW_CONTEXT,
-  VERIFIED_FILTER,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
 import { fetchCategories, loadCategories } from 'amo/reducers/categories';
@@ -534,18 +533,6 @@ describe(__filename, () => {
       [
         { type: ADDON_TYPE_LANG, promoted: REVIEWED_FILTER },
         'Reviewed add-ons',
-      ],
-      [
-        { type: ADDON_TYPE_EXTENSION, promoted: VERIFIED_FILTER },
-        'Verified extensions',
-      ],
-      [
-        { type: ADDON_TYPE_STATIC_THEME, promoted: VERIFIED_FILTER },
-        'Verified themes',
-      ],
-      [
-        { type: ADDON_TYPE_LANG, promoted: VERIFIED_FILTER },
-        'Verified add-ons',
       ],
       [
         { type: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TRENDING },

@@ -19,7 +19,6 @@ import {
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_UPDATED,
-  VERIFIED_FILTER,
 } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
@@ -181,10 +180,6 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
       {
         children: i18n.gettext('By Firefox'),
         value: LINE,
-      },
-      {
-        children: i18n.gettext('Verified'),
-        value: VERIFIED_FILTER,
       },
       {
         children: i18n.gettext('All Reviewed'),
