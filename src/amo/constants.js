@@ -346,7 +346,6 @@ export const EXCLUDE_WARNING_CATEGORIES = [
   VERIFIED,
 ];
 export const REVIEWED_FILTER = 'badged';
-export const VERIFIED_FILTER = `${SPONSORED},${VERIFIED}`;
 
 export type PromotedCategoryType =
   | typeof LINE

@@ -23,7 +23,6 @@ import {
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
-  VERIFIED_FILTER,
 } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
@@ -171,17 +170,6 @@ export class SearchBase extends React.Component<InternalProps> {
               break;
             default:
               title = i18n.gettext('Reviewed add-ons');
-          }
-        } else if (filters.promoted === VERIFIED_FILTER) {
-          switch (filters.addonType) {
-            case ADDON_TYPE_EXTENSION:
-              title = i18n.gettext('Verified extensions');
-              break;
-            case ADDON_TYPE_STATIC_THEME:
-              title = i18n.gettext('Verified themes');
-              break;
-            default:
-              title = i18n.gettext('Verified add-ons');
           }
         }
       } else if (filters && filters.sort) {
