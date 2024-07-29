@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-07-29 14:07+0000\n"
+"PO-Revision-Date: 2024-07-29 14:23+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2938,6 +2938,9 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Pomogni poboljšati ovu web stranicu. Stranica je otvorenog koda i možeš prijaviti programske greške i slati zakrpe. Možeš započeti s %(startGoodFirstBugLink)sprihvaćena nova "
+"greška%(endGoodFirstBugLink)s ili pregledati sve otvorene probleme za AMO-ov %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s i %(startAddonsFrontendRepoLink)s "
+"sučelje%(endAddonsFrontendRepoLink)s na GitHubu."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
@@ -3311,24 +3314,31 @@ msgstr "VAŽNO: Brisanje ovog profila u Firefox dodacima je nepovratna radnja."
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
+"Tvoji će se podaci trajno ukloniti, uključujući detalje o profilu (slika, korisničko ime, prikazano ime, mjesto, početna stranica, biografija, zanimanje), postavke obavijesti, recenzije i zbirke."
 
 #: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
+"Podaci korisnika će se trajno ukloniti, uključujući detalje o profilu (slika, korisničko ime, prikazano ime, mjesto, početna stranica, biografija, zanimanje), postavke obavijesti, recenzije i "
+"zbirke."
 
 #: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Ako si autor bilo kojeg dodatka, oni će se također izbrisati, osim ako ne dijeliš vlasništvo s drugim autorima. U tom ćeš slučaju biti uklonjeni kao autor, a preostali autori će zadržati vlasništvo "
+"nad dodatkom."
 
 #: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Ako je korisnik autor bilo kojeg dodatka, oni će se također izbrisati, osim ako se vlasništvo ne dijeli s drugim autorima. U tom će slučaju korisnik biti uklonjen kao autor, a preostali autori će "
+"zadržati vlasništvo nad dodatkom."
 
 #: src/amo/pages/UserProfileEdit/index.js:875
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
