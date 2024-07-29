@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-07-29 14:04+0000\n"
+"PO-Revision-Date: 2024-07-29 14:07+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2931,7 +2931,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:77
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sStvori vlastiti dodatak%(endLink)s. Pružamo besplatni hosting i usluge aktualiziranja i možemo ti pomoći da dosegneš puno korisnika."
 
 #: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
