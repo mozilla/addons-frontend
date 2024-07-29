@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-07-29 13:36+0000\n"
+"PO-Revision-Date: 2024-07-29 13:50+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2891,17 +2891,19 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sInformacije o tome kako kontaktirati Mozillin tim za dodatke možeš pronaći ovdje%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO) je službena web stranica Mozille za otkrivanje i instaliranje dodataka za preglednik Firefox. Dodaci ti pomažu da promijeniš i prilagodiš svoje iskustvo pregledavanja "
+"dodavanjem novih funkcija u Firefoxu i na taj način poboljšati tvoje interakcije s web sadržajem i promijeniti izgled tvog preglednika."
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
+msgstr "Ako tražiš dodatke za Thunderbird ili SeaMonkey, pogledaj stranicu %(startTBLink)saddons.thunderbird.net%(endTBLink)s ili %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
