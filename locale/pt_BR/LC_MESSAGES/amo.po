@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-08-05 21:50+0000\n"
+"PO-Revision-Date: 2024-08-05 22:03+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1144,11 +1144,11 @@ msgstr "Vazamento de dados biométricos"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr "Falta campo de processamento de dados"
+msgstr "Falta de fundamento no processamento de dados"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr "direito a ser esquecido"
+msgstr "Direito de ser esquecido"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
