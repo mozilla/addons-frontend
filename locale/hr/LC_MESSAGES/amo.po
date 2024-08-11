@@ -2877,7 +2877,7 @@ msgid ""
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
 "Za prijavljivanje sigurnosnog problema za proširenje, čak i ako nije hostirano na ovoj stranici, pošalji %(startSecIssueLink)sproblem%(endSecIssueLink)s na Bugzilla ili pošalji e-mail na "
-"%(startMailLink)samo-admins@mozilla.com%(endMailLink )s. Svi izvještaji o sigurnosnim problemima se obrađuju %(startLink)spovjerljivo%(endLink)s."
+"%(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Svi izvještaji o sigurnosnim problemima se obrađuju %(startLink)spovjerljivo%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
