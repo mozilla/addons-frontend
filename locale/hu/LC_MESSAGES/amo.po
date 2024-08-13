@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-08-13 09:21+0000\n"
+"PO-Revision-Date: 2024-08-13 09:27+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1143,35 +1143,35 @@ msgstr "Félrevezető információk az áruk vagy szolgáltatások jellemzőirő
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "Félrevezető tájékoztatás a fogyasztói jogokról"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
-msgstr ""
+msgstr "Biometrikus adatokat érintő adatvédelmi incidens"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "Hiányzó jogalap az adatfeldolgozáshoz"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr ""
+msgstr "Felejtés joga"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
-msgstr ""
+msgstr "Adathamisítás"
 
 #: src/amo/components/FeedbackForm/index.js:301
 msgid "Defamation"
-msgstr ""
+msgstr "Becsületsértés"
 
 #: src/amo/components/FeedbackForm/index.js:302
 msgid "Discrimination"
-msgstr ""
+msgstr "Diszkrimináció"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
-msgstr ""
+msgstr "Védett tulajdonságokon alapuló, erőszakra és gyűlöletre uszítás (gyűlöletbeszéd)"
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
@@ -1179,39 +1179,39 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
-msgstr ""
+msgstr "Földrajzi jelzésekkel való visszaélések"
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "Szabadalomsértések"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "Üzleti titok megsértése"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "A civil párbeszéd vagy a választások szempontjából releváns uniós jog megsértése"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "A civil párbeszéd vagy a választások szempontjából releváns nemzeti jog megsértése"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "Félretájékoztatás, dezinformáció, külföldi információk manipulálása és beavatkozás"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
-msgstr ""
+msgstr "Nem beleegyezésen alapuló képmegosztás"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "Olyan nem beleegyezésen alapuló elemek, melyek deepfake vagy hasonló technológiákat használnak egy harmadik fél tulajdonságainak felhasználásával"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Online zaklatás/megfélemlítés"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
@@ -1219,7 +1219,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
-msgstr ""
+msgstr "Felnőtt szexuális tartalom"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
