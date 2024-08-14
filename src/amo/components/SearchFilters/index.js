@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -23,12 +24,21 @@ import {
 import { withErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
-import { convertFiltersToQueryParams, paramsToFilter } from 'amo/searchUtils';
+import {
+  colorFilters,
+  convertFiltersToQueryParams,
+  paramsToFilter,
+} from 'amo/searchUtils';
 import ExpandableCard from 'amo/components/ExpandableCard';
 import Select from 'amo/components/Select';
 import type { AppState } from 'amo/store';
 import type { SearchFilters as SearchFiltersType } from 'amo/api/search';
-import type { SelectEvent } from 'amo/types/dom';
+import type {
+  ElementEvent,
+  HTMLElementEventHandler,
+  SelectEvent,
+  TypedElementEvent,
+} from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterHistoryType } from 'amo/types/router';
 
@@ -110,6 +120,33 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     this.doSearch(newFilters);
 
     return false;
+  };
+
+  changeColorFilter: (colorValue: string) => void = (colorValue: string) => {
+    const { filters } = this.props;
+    const newFilters = { ...filters };
+    if (filters.color === colorValue) {
+      delete newFilters.color;
+    } else if (colorValue) {
+      newFilters.color = colorValue;
+    }
+
+    this.doSearch(newFilters);
+  };
+
+  onColorClick: HTMLElementEventHandler = (event: ElementEvent) => {
+    event.preventDefault();
+    const colorValue = event.currentTarget.getAttribute('data-color') || '';
+    this.changeColorFilter(colorValue);
+  };
+
+  onCustomColorChange: (event: TypedElementEvent<HTMLInputElement>) => void = (
+    event: TypedElementEvent<HTMLInputElement>,
+  ) => {
+    const colorValue = event.target.value;
+    if (colorValue && colorValue.startsWith('#')) {
+      this.changeColorFilter(colorValue.substr(1));
+    }
   };
 
   doSearch(newFilters: SearchFiltersType) {
@@ -198,6 +235,13 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
           .filter((field) => field !== SEARCH_SORT_RECOMMENDED)
       : [''];
     const selectedSort = selectedSortFields[0];
+    const selectedCustomColor = filters.color
+      ? colorFilters
+          .map((colorFilter) => {
+            return colorFilter.color;
+          })
+          .includes(filters.color) === false
+      : false;
 
     return (
       <ExpandableCard
@@ -242,6 +286,51 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                   return <option key={option.value} {...option} />;
                 })}
               </Select>
+            </div>
+          )}
+
+          {filters.addonType === ADDON_TYPE_STATIC_THEME && (
+            <div>
+              <label
+                className="SearchFilters-label SearchFilters-Color-label"
+                htmlFor="SearchFilters-CustomColor"
+              >
+                {i18n.gettext('Theme Color')}
+              </label>
+              <ul className="SearchFilters-ThemeColors">
+                {colorFilters.map((colorFilter) => (
+                  // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
+                  <li
+                    key={colorFilter.id}
+                    className={makeClassName(
+                      'SearchFilter-ThemeColors-ColorItem',
+                      `SearchFilter-ThemeColors-ColorItem--${colorFilter.id}`,
+                      {
+                        'SearchFilter-ThemeColors-ColorItem--active':
+                          filters.color === colorFilter.color,
+                      },
+                    )}
+                    data-color={colorFilter.color}
+                    onClick={this.onColorClick}
+                  />
+                ))}
+                <li
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    `SearchFilter-ThemeColors-ColorItem--custom`,
+                    {
+                      'SearchFilter-ThemeColors-ColorItem--active':
+                        selectedCustomColor === true,
+                    },
+                  )}
+                >
+                  <input
+                    id="SearchFilters-CustomColor"
+                    type="color"
+                    onChange={this.onCustomColorChange}
+                  />
+                </li>
+              </ul>
             </div>
           )}
 

@@ -25,6 +25,7 @@ export const paramsToFilter = {
   appversion: 'compatibleWithVersion',
   author: 'author',
   category: 'category',
+  color: 'color',
   exclude_addons: 'exclude_addons',
   guid: 'guid',
   page: 'page',
@@ -38,6 +39,45 @@ export const paramsToFilter = {
   type: 'addonType',
   ...generateThresholdParams('users'),
 };
+
+export const colorFilters = [
+  {
+    id: 'black',
+    color: '000000',
+  },
+  {
+    id: 'gray',
+    color: '808080',
+  },
+  {
+    id: 'white',
+    color: 'ffffff',
+  },
+  {
+    id: 'red',
+    color: 'ff0000',
+  },
+  {
+    id: 'yellow',
+    color: 'ffff00',
+  },
+  {
+    id: 'green',
+    color: '00ff00',
+  },
+  {
+    id: 'cyan',
+    color: '00ffff',
+  },
+  {
+    id: 'blue',
+    color: '0000ff',
+  },
+  {
+    id: 'magenta',
+    color: 'ff00ff',
+  },
+];
 
 export function addVersionCompatibilityToFilters({
   filters,
