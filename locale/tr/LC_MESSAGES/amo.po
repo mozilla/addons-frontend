@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-08-03 11:35+0000\n"
+"PO-Revision-Date: 2024-08-16 15:11+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1280,15 +1280,15 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "İntihar"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "Yasak veya kısıtlanmış ürünler"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Güvensiz veya mevzuata aykırı ürünler"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
@@ -1296,7 +1296,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "Cinsiyete dayalı şiddet"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
@@ -1304,11 +1304,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "İnsan kaçakçılığı"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Şiddet ve/veya nefrete yönelik genel çağrılar ve kışkırtmalar"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
