@@ -166,33 +166,53 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
                         'Be careful with old versions! These versions are displayed for testing and reference purposes.',
                       )}
                     </span>
-                    <span className="AddonVersions-warning-text">
-                      {i18n.gettext(
-                        'You should always use the latest version of an add-on.',
-                      )}
-                    </span>
+                    {addon?.type !== 'language' && (
+                      <span className="AddonVersions-warning-text">
+                        {i18n.gettext(
+                          'You should always use the latest version of an add-on.',
+                        )}
+                      </span>
+                    )}
                   </Notice>
                 </li>
-
-                <AddonVersionCard
-                  addon={addon}
-                  headerText={i18n.gettext('Latest version')}
-                  isCurrentVersion
-                  key="latestVersion"
-                  version={latestVersion}
-                />
-                {olderVersions.map((version, index) => {
-                  return (
+                {addon?.type === 'language' ? (
+                  <>
+                    {versions?.map((version, index) => {
+                      return (
+                        <AddonVersionCard
+                          addon={addon}
+                          headerText={
+                            index === 0 ? i18n.gettext('Versions') : null
+                          }
+                          key={version.id}
+                          version={version}
+                        />
+                      );
+                    })}
+                  </>
+                ) : (
+                  <>
                     <AddonVersionCard
                       addon={addon}
-                      headerText={
-                        index === 0 ? i18n.gettext('Older versions') : null
-                      }
-                      key={version.id}
-                      version={version}
+                      headerText={i18n.gettext('Latest version')}
+                      isCurrentVersion
+                      key="latestVersion"
+                      version={latestVersion}
                     />
-                  );
-                })}
+                    {olderVersions.map((version, index) => {
+                      return (
+                        <AddonVersionCard
+                          addon={addon}
+                          headerText={
+                            index === 0 ? i18n.gettext('Older versions') : null
+                          }
+                          key={version.id}
+                          version={version}
+                        />
+                      );
+                    })}
+                  </>
+                )}
               </ul>
             </CardList>
           </div>
