@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-08-19 02:03+0000\n"
+"PO-Revision-Date: 2024-08-19 02:12+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1864,66 +1864,58 @@ msgid "There are no three-star reviews"
 msgstr "ਕੋਈ ਵੀ ਤਿੰਨ ਤਾਰੇ ਰੀਵਿਊ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "ਸਾਰੀਆਂ ਦੋ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
-msgstr[1] "ਸਾਰੀਆਂ ਦੋ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+msgstr[0] "1 ਦੋ-ਤਾਰਾ ਰੀਵਿਊ ਪੜ੍ਹੋ"
+msgstr[1] "ਸਾਰੇ %(total)s ਦੋ-ਸਟਾਰ ਰੀਵਿਊ ਪੜ੍ਹੋ"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
+msgstr "ਕੋਈ ਵੀ ਦੋ ਤਾਰੇ ਰੀਵਿਊ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "ਸਾਰੇ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
-msgstr[1] "ਸਾਰੇ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
+msgstr[0] "1 ਇੱਕ ਤਾਰਾ ਰੀਵਿਊ ਪੜ੍ਹੋ"
+msgstr[1] "ਸਾਰੀਆਂ %(total)s ਇੱਕ-ਤਾਰਾ ਰੀਵਿਊ ਪੜ੍ਹੋ"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
+msgstr "ਕੋਈ ਇੱਕ-ਤਾਰਾ ਰੀਵਿਊ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
 msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "ਸਾਰੇ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
-msgstr[1] "ਸਾਰੇ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+msgstr[0] "1 ਪੰਜ-ਤਾਰਾ ਰੀਵਿਊ ਪੜ੍ਹੋ"
+msgstr[1] "ਸਾਰੇ %(total)s ਪੰਜ-ਤਾਰਾ ਰੀਵਿਊ ਪੜ੍ਹੋ"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
+msgstr "ਕੋਈ ਪੰਜ-ਤਾਰਾ ਰੀਵਿਊ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "ਚਾਰ-ਸਟਾਰ ਦੀਆਂ ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
-msgstr[1] "ਚਾਰ-ਸਟਾਰ ਦੀਆਂ ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+msgstr[0] "1 ਚਾਰ-ਤਾਰਾ ਰੀਵਿਊ ਪੜ੍ਹੋ"
+msgstr[1] "ਸਾਰੇ %(total)s ਚਾਰ-ਤਾਰਾ ਰੀਵਿਊ ਪੜ੍ਹੋ"
 
 #: src/amo/components/RatingsByStar/index.js:88
 msgid "There are no four-star reviews"
 msgstr "ਕੋਈ ਚਾਰ-ਸਟਾਰ ਰੀਵਿਊ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "ਸਾਰੇ ਤਾਰੇ ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
-msgstr[1] "ਸਾਰੇ ਤਾਰੇ ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
+msgstr[0] "1 ਤਿੰਨ-ਤਾਰਾ ਰੀਵਿਊ ਪੜ੍ਹੋ"
+msgstr[1] "ਸਾਰੀਆਂ %(total)s ਤਿੰਨ-ਤਾਰਾ ਰੀਵਿਊ ਪੜ੍ਹੋ"
 
 #: src/amo/components/ReportAbuseButton/index.js:44
 msgid "You reported this add-on"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਬਾਰੇ ਰਿਪੋਰਟ ਕੀਤੀ ਹੈ"
 
 #: src/amo/components/ReportAbuseButton/index.js:48
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1931,7 +1923,7 @@ msgstr "ਸਾਨੂੰ ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਮਿਲੀ ਹ�
 
 #: src/amo/components/ReportAbuseButton/index.js:71
 msgid "Report this add-on"
-msgstr ""
+msgstr "ਇਸ ਐਡ-ਆਨ ਬਾਰੇ ਰਿਪੋਰਟ ਕਰੋ"
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
