@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-08-19 01:50+0000\n"
+"PO-Revision-Date: 2024-08-19 02:03+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1690,9 +1690,8 @@ msgid "This add-on needs to:"
 msgstr "ਇਹ ਐਡ-ਆਨ ਕਰ ਸਕਦੀ ਹੈ:"
 
 #: src/amo/components/PermissionsCard/index.js:94
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "ਇਹ ਐਡ-ਆਨ ਕਰ ਸਕਦਾ ਹੈ:"
+msgstr "ਇਹ ਐਡ-ਆਨ ਇਸ ਦੀ ਮੰਗ ਵੀ ਕਰ ਸਕਦੀ ਹੈ:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
@@ -1716,11 +1715,11 @@ msgstr "ਕਲਿੱਪਬੋਰਡ 'ਚ ਡਾਟਾ ਇਨਪੁੱਟ ਕਰ�
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Block content on any page"
-msgstr ""
+msgstr "ਕਿਸੇ ਵੀ ਸਫ਼ੇ ਤੋਂ ਸਮੱਗਰੀ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Read your browsing history"
-msgstr ""
+msgstr "ਤੁਹਾਡੇ ਬਰਾਊਜ਼ ਕਰਨ ਦੇ ਅਤੀਤ ਨੂੰ ਪੜ੍ਹਨ"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
@@ -1861,9 +1860,8 @@ msgid "Star rating saved"
 msgstr "ਸਟਾਰ ਰੇਟਿੰਗ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
-msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
+msgstr "ਕੋਈ ਵੀ ਤਿੰਨ ਤਾਰੇ ਰੀਵਿਊ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:108
 #, fuzzy
