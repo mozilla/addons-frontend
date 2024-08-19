@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-08-19 02:12+0000\n"
+"PO-Revision-Date: 2024-08-19 02:19+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -518,7 +518,7 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:107
 msgid "More amazing extensions to change the way Firefox looks"
-msgstr ""
+msgstr "Firefox ਦੀ ਦਿੱਖ ਬਦਲਣ ਲਈ ਹੋਰ ਸ਼ਾਨਦਾਰ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonSuggestions/index.js:114
 msgid "More incredible social media extensions"
@@ -530,11 +530,11 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:124
 msgid "More great extensions for feeds, news & media"
-msgstr ""
+msgstr "ਫ਼ੀਡ, ਖ਼ਬਰਾਂ ਤੇ ਮੀਡੀਏ ਬਾਰੇ ਹੋਰ ਸ਼ਾਨਦਾਰ ਇਕਸਟੈਨਸ਼ਨ"
 
 #: src/amo/components/AddonSuggestions/index.js:129
 msgid "More great notification extensions"
-msgstr ""
+msgstr "ਹੋਰ ਬੇਹਤਰਨੀ ਨੋਟੀਫਿਕੇਸ਼ਨ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonSuggestions/index.js:138
 msgid "More great tools for web developers"
@@ -554,11 +554,11 @@ msgstr "ਵੱਧ ਮਜ਼ਬੂਤ ਪਰਦੇਦਾਰੀ ਤੇ ਸੁਰ�
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
-msgstr ""
+msgstr "ਹੋਰ ਸ਼ਾਨਦਾਰ ਡਾਊਨਲੋਡ ਮੈਨੇਜਰ"
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
-msgstr ""
+msgstr "ਹੋਰ ਸ਼ਾਨਦਾਰ ਟੈਬ ਤੇ ਬੁੱਕਮਾਰਕ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
@@ -1002,7 +1002,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It’s spam"
-msgstr ""
+msgstr "ਇਹ ਸਮੈਪ ਹੈ"
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: The listing advertises unrelated products or services."
