@@ -7,6 +7,7 @@ import {
   fetchVersions,
 } from 'amo/reducers/versions';
 import {
+  ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -531,6 +532,46 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
     expect(
       within(versionCards[3]).queryByRole('heading', {
+        name: 'Latest version',
+      }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('displays expected headings for langpacks', () => {
+    const version1 = { ...fakeVersion, id: 1 };
+    const addon = {
+      ...fakeAddon,
+      slug: defaultSlug,
+      type: ADDON_TYPE_LANG,
+      current_version: version1,
+    };
+    const version2 = { ...fakeVersion, id: 2 };
+    const version3 = { ...fakeVersion, id: 3 };
+
+    _loadAddon(addon);
+    _loadVersions({ versions: [version1, version2, version3] });
+
+    render();
+
+    const versionCards = allVersionCards();
+
+    expect(
+      within(versionCards[0]).getByRole('heading', {
+        name: 'Versions',
+      }),
+    ).toBeInTheDocument();
+    expect(
+      within(versionCards[1]).queryByRole('heading', {
+        name: 'Versions',
+      }),
+    ).not.toBeInTheDocument();
+    expect(
+      within(versionCards[2]).queryByRole('heading', {
+        name: 'Versions',
+      }),
+    ).not.toBeInTheDocument();
+    expect(
+      within(document).queryByRole('heading', {
         name: 'Latest version',
       }),
     ).not.toBeInTheDocument();
