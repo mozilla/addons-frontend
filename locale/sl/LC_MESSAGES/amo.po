@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-26 19:38+0000\n"
-"PO-Revision-Date: 2024-08-20 13:30+0000\n"
+"PO-Revision-Date: 2024-08-20 13:52+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1201,11 +1201,11 @@ msgstr "Kršitve poslovnih skrivnosti"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr "Kršitev prava EU, pomembna za državljanski diskurz ali volitve"
+msgstr "Kršitev zakonodaje EU, ki se tiče državljanskega diskurza ali volitev"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr "Kršitev nacionalnega prava, ki se nanaša na državljanski diskurz ali volitve"
+msgstr "Kršitev državne zakonodaje, ki se tiče državljanskega diskurza ali volitev"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
@@ -1245,7 +1245,7 @@ msgstr "Gradivo, ki prikazuje spolno zlorabo otrok"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
-msgstr "Nagovarjanje/spolno napeljevanje mladoletnikov"
+msgstr "Spolno napeljevanje mladoletnikov"
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
