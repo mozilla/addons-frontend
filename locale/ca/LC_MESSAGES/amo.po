@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-26 19:38+0000\n"
+"POT-Creation-Date: 2024-08-20 18:04+0000\n"
 "PO-Revision-Date: 2024-06-29 20:14+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -2758,13 +2758,13 @@ msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s ressenya"
 msgstr[1] "%(total)s ressenyes"
 
-#: src/amo/pages/AddonVersions/index.js:131
+#: src/amo/pages/AddonVersions/index.js:132
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Historial de versions de %(addonName)s - %(total)s versió"
 msgstr[1] "Historial de versions de %(addonName)s - %(total)s versions"
 
-#: src/amo/pages/AddonVersions/index.js:165
+#: src/amo/pages/AddonVersions/index.js:166
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2772,15 +2772,19 @@ msgstr ""
 "Compte amb les versions antigues! Sovint es mostren per fer proves i com a "
 "referència."
 
-#: src/amo/pages/AddonVersions/index.js:170
+#: src/amo/pages/AddonVersions/index.js:172
 msgid "You should always use the latest version of an add-on."
 msgstr "És recomanable que empreu la versió més recent d'un complement."
 
-#: src/amo/pages/AddonVersions/index.js:179
+#: src/amo/pages/AddonVersions/index.js:186
+msgid "Versions"
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
 msgstr "Darrera versió"
 
-#: src/amo/pages/AddonVersions/index.js:189
+#: src/amo/pages/AddonVersions/index.js:208
 msgid "Older versions"
 msgstr "Versions més antigues"
 

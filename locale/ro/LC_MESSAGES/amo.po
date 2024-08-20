@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-26 19:38+0000\n"
+"POT-Creation-Date: 2024-08-20 18:04+0000\n"
 "PO-Revision-Date: 2022-06-25 13:19+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -2784,14 +2784,14 @@ msgstr[0] "%(total)s recenzie"
 msgstr[1] "%(total)s recenzii"
 msgstr[2] "%(total)s de recenzii"
 
-#: src/amo/pages/AddonVersions/index.js:131
+#: src/amo/pages/AddonVersions/index.js:132
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Istoricul versiunilor pentru %(addonName)s - %(total)s versiune"
 msgstr[1] "Istoricul versiunilor pentru %(addonName)s - %(total)s versiuni"
 msgstr[2] "Istoricul versiunilor pentru %(addonName)s - %(total)s de versiuni"
 
-#: src/amo/pages/AddonVersions/index.js:165
+#: src/amo/pages/AddonVersions/index.js:166
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2799,16 +2799,20 @@ msgstr ""
 "Atenție la versiunile vechi! Aceste versiuni sunt afișate pentru testare și "
 "ca referință."
 
-#: src/amo/pages/AddonVersions/index.js:170
+#: src/amo/pages/AddonVersions/index.js:172
 msgid "You should always use the latest version of an add-on."
 msgstr ""
 "Trebuie să folosești întotdeauna cea mai recentă versiune a unui supliment."
 
-#: src/amo/pages/AddonVersions/index.js:179
+#: src/amo/pages/AddonVersions/index.js:186
+msgid "Versions"
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
 msgstr "Ultima versiune"
 
-#: src/amo/pages/AddonVersions/index.js:189
+#: src/amo/pages/AddonVersions/index.js:208
 msgid "Older versions"
 msgstr "Versiuni mai vechi"
 

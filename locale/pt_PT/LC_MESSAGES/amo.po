@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-26 19:38+0000\n"
+"POT-Creation-Date: 2024-08-20 18:04+0000\n"
 "PO-Revision-Date: 2024-06-22 21:15+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
@@ -2731,13 +2731,13 @@ msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s análise"
 msgstr[1] "%(total)s análises"
 
-#: src/amo/pages/AddonVersions/index.js:131
+#: src/amo/pages/AddonVersions/index.js:132
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Histórico de versões de %(addonName)s - %(total)s versão"
 msgstr[1] "Histórico de versões de %(addonName)s - %(total)s versões"
 
-#: src/amo/pages/AddonVersions/index.js:165
+#: src/amo/pages/AddonVersions/index.js:166
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2745,15 +2745,19 @@ msgstr ""
 "Tenha cuidado com versões antigas! Estas versões são mostradas para fins de "
 "teste e referência."
 
-#: src/amo/pages/AddonVersions/index.js:170
+#: src/amo/pages/AddonVersions/index.js:172
 msgid "You should always use the latest version of an add-on."
 msgstr "Deve sempre utilizar a versão mais recente de um extra."
 
-#: src/amo/pages/AddonVersions/index.js:179
+#: src/amo/pages/AddonVersions/index.js:186
+msgid "Versions"
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
 msgstr "Versão mais recente"
 
-#: src/amo/pages/AddonVersions/index.js:189
+#: src/amo/pages/AddonVersions/index.js:208
 msgid "Older versions"
 msgstr "Versões antigas"
 

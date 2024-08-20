@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-26 19:38+0000\n"
+"POT-Creation-Date: 2024-08-20 18:04+0000\n"
 "PO-Revision-Date: 2024-01-08 09:29+0000\n"
 "Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
 "Language-Team: none\n"
@@ -2645,12 +2645,12 @@ msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "合計レビュー数: %(total)s"
 
-#: src/amo/pages/AddonVersions/index.js:131
+#: src/amo/pages/AddonVersions/index.js:132
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "%(addonName)s のバージョン履歴 - 全 %(total)s バージョン"
 
-#: src/amo/pages/AddonVersions/index.js:165
+#: src/amo/pages/AddonVersions/index.js:166
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2658,15 +2658,19 @@ msgstr ""
 "古いバージョンに注意してください！これらのバージョンは、テストや参照を目的に"
 "表示されています。"
 
-#: src/amo/pages/AddonVersions/index.js:170
+#: src/amo/pages/AddonVersions/index.js:172
 msgid "You should always use the latest version of an add-on."
 msgstr "常に最新バージョンのアドオンを使用してください。"
 
-#: src/amo/pages/AddonVersions/index.js:179
+#: src/amo/pages/AddonVersions/index.js:186
+msgid "Versions"
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
 msgstr "最新バージョン"
 
-#: src/amo/pages/AddonVersions/index.js:189
+#: src/amo/pages/AddonVersions/index.js:208
 msgid "Older versions"
 msgstr "以前のバージョン"
 
