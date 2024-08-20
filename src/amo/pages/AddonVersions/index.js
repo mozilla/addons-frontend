@@ -117,7 +117,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
 
     let latestVersion;
     let olderVersions: Array<AddonVersionType> = [];
-    if (addon && versions) {
+    if (addon && versions && addon?.type !== ADDON_TYPE_LANG) {
       latestVersion =
         versions.find((version) => version.id === addon.currentVersionId) ||
         null;
