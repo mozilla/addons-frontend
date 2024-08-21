@@ -134,12 +134,6 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     this.doSearch(newFilters);
   };
 
-  onColorClick: HTMLElementEventHandler = (event: ElementEvent) => {
-    event.preventDefault();
-    const colorValue = event.currentTarget.getAttribute('data-color') || '';
-    this.changeColorFilter(colorValue);
-  };
-
   onCustomColorChange: (event: TypedElementEvent<HTMLInputElement>) => void = (
     event: TypedElementEvent<HTMLInputElement>,
   ) => {
@@ -310,8 +304,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                           filters.color === colorFilter.color,
                       },
                     )}
-                    data-color={colorFilter.color}
-                    onClick={this.onColorClick}
+                    onClick={this.changeColorFilter.bind(null, colorFilter.color)}
                   />
                 ))}
                 <li
