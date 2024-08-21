@@ -33,12 +33,7 @@ import ExpandableCard from 'amo/components/ExpandableCard';
 import Select from 'amo/components/Select';
 import type { AppState } from 'amo/store';
 import type { SearchFilters as SearchFiltersType } from 'amo/api/search';
-import type {
-  ElementEvent,
-  HTMLElementEventHandler,
-  SelectEvent,
-  TypedElementEvent,
-} from 'amo/types/dom';
+import type { SelectEvent, TypedElementEvent } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterHistoryType } from 'amo/types/router';
 
@@ -304,7 +299,10 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                           filters.color === colorFilter.color,
                       },
                     )}
-                    onClick={this.changeColorFilter.bind(null, colorFilter.color)}
+                    onClick={this.changeColorFilter.bind(
+                      null,
+                      colorFilter.color,
+                    )}
                   />
                 ))}
                 <li
