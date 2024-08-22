@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-20 18:04+0000\n"
-"PO-Revision-Date: 2024-08-22 16:50+0000\n"
+"PO-Revision-Date: 2024-08-22 16:54+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1259,59 +1259,59 @@ msgstr "רישומים לא אותנטיים"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "סקירות משתמשים לא אותנטיות"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
-msgstr ""
+msgstr "התחזות או חטיפת חשבון"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "פישינג"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "תרמיות פירמידה"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "תוכן המקדם הפרעות אכילה"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "השחתה עצמית"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "התאבדות"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "מוצרים אסורים או מוגבלים"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "מוצרים לא בטוחים או שאינם עומדים בדרישות"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
-msgstr ""
+msgstr "פגיעה מתואמת"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "אלימות על רקע מגדרי"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "ניצול אנושי"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "סחר בבני אדם"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "קריאות כלליות או הסתה לאלימות ו/או שנאה"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
@@ -1339,7 +1339,7 @@ msgstr "מקום הפרת החוקים או הכללים"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "סוג תוכן לא חוקי"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
