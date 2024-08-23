@@ -24,11 +24,7 @@ import {
 import { withErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
-import {
-  colorFilters,
-  convertFiltersToQueryParams,
-  paramsToFilter,
-} from 'amo/searchUtils';
+import { convertFiltersToQueryParams, paramsToFilter } from 'amo/searchUtils';
 import ExpandableCard from 'amo/components/ExpandableCard';
 import Select from 'amo/components/Select';
 import type { AppState } from 'amo/store';
@@ -60,6 +56,8 @@ type InternalProps = {|
 |};
 
 type SelectOption = {| children: string, value: string |};
+
+type ColorFilter = {| id: string, color: string, label: string |};
 
 export class SearchFiltersBase extends React.Component<InternalProps> {
   onSelectElementChange: (event: SelectEvent) => boolean = (
@@ -117,9 +115,16 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     return false;
   };
 
-  changeColorFilter: (colorValue: string) => void = (colorValue: string) => {
+  changeColorFilter: (
+    colorValue: string,
+    event: TypedElementEvent<HTMLInputElement>,
+  ) => void = (
+    colorValue: string,
+    event: TypedElementEvent<HTMLInputElement>,
+  ) => {
     const { filters } = this.props;
     const newFilters = { ...filters };
+    event.preventDefault();
     if (filters.color === colorValue) {
       delete newFilters.color;
     } else if (colorValue) {
@@ -134,7 +139,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
   ) => {
     const colorValue = event.target.value;
     if (colorValue && colorValue.startsWith('#')) {
-      this.changeColorFilter(colorValue.substr(1));
+      this.changeColorFilter(colorValue.substr(1), event);
     }
   };
 
@@ -214,6 +219,58 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     ];
   }
 
+  colorFilters(): Array<ColorFilter> {
+    const { i18n } = this.props;
+
+    return [
+      {
+        id: 'black',
+        color: '000000',
+        label: i18n.gettext('Black'),
+      },
+      {
+        id: 'gray',
+        color: '808080',
+        label: i18n.gettext('Gray'),
+      },
+      {
+        id: 'white',
+        color: 'ffffff',
+        label: i18n.gettext('White'),
+      },
+      {
+        id: 'red',
+        color: 'ff0000',
+        label: i18n.gettext('Red'),
+      },
+      {
+        id: 'yellow',
+        color: 'ffff00',
+        label: i18n.gettext('Yellow'),
+      },
+      {
+        id: 'green',
+        color: '00ff00',
+        label: i18n.gettext('Green'),
+      },
+      {
+        id: 'cyan',
+        color: '00ffff',
+        label: i18n.gettext('Cyan'),
+      },
+      {
+        id: 'blue',
+        color: '0000ff',
+        label: i18n.gettext('Blue'),
+      },
+      {
+        id: 'magenta',
+        color: 'ff00ff',
+        label: i18n.gettext('Magenta'),
+      },
+    ];
+  }
+
   render(): React.Node {
     const { clientApp, filters, i18n } = this.props;
 
@@ -225,7 +282,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
       : [''];
     const selectedSort = selectedSortFields[0];
     const selectedCustomColor = filters.color
-      ? colorFilters
+      ? this.colorFilters()
           .map((colorFilter) => {
             return colorFilter.color;
           })
@@ -287,10 +344,10 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                 {i18n.gettext('Theme Color')}
               </label>
               <ul className="SearchFilters-ThemeColors">
-                {colorFilters.map((colorFilter) => (
-                  // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
+                {this.colorFilters().map((colorFilter) => (
                   <li
                     key={colorFilter.id}
+                    title={colorFilter.label}
                     className={makeClassName(
                       'SearchFilter-ThemeColors-ColorItem',
                       `SearchFilter-ThemeColors-ColorItem--${colorFilter.id}`,
@@ -299,11 +356,20 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                           filters.color === colorFilter.color,
                       },
                     )}
-                    onClick={this.changeColorFilter.bind(
-                      null,
-                      colorFilter.color,
-                    )}
-                  />
+                  >
+                    <button
+                      aria-describedby={colorFilter.id}
+                      type="button"
+                      onClick={this.changeColorFilter.bind(
+                        null,
+                        colorFilter.color,
+                      )}
+                    >
+                      <span id={colorFilter.id} className="visually-hidden">
+                        {colorFilter.label}
+                      </span>
+                    </button>
+                  </li>
                 ))}
                 <li
                   className={makeClassName(

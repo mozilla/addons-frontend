@@ -25,7 +25,6 @@
   padding: 0;
 
   .SearchFilter-ThemeColors-ColorItem {
-    cursor: pointer;
     outline: 2px solid transparent; /* originally had a 1px border instead, but it was too subtle */
     border: 1px solid $grey-40;
     margin-right: 4px;
@@ -39,10 +38,11 @@
       outline-color: $action-active-color;
     }
 
-    input[type='color'] {
+    button, input[type='color'] {
+      cursor: pointer;
       width: 100%;
       height: 100%;
-      opacity: 0; /* hidden, but captures clicks to trigger the color dialog */
+      opacity: 0; /* hidden, but captures clicks to trigger the color change */
       padding: 0;
       border-radius: 50%;
       border: 0;

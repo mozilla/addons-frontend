@@ -726,7 +726,9 @@ describe(__filename, () => {
       const pushSpy = jest.spyOn(history, 'push');
 
       await userEvent.click(
-        screen.getByClassName('SearchFilter-ThemeColors-ColorItem--green'),
+        within(
+          screen.getByClassName('SearchFilter-ThemeColors-ColorItem--green'),
+        ).getByRole('button'),
       );
 
       expect(pushSpy).toHaveBeenCalledWith({
