@@ -28,8 +28,8 @@
     outline: 2px solid transparent; /* originally had a 1px border instead, but it was too subtle */
     border: 1px solid $grey-40;
     margin-right: 4px;
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     display: inline-block;
     border-radius: 50%;
     vertical-align: top;
@@ -47,6 +47,21 @@
       padding: 0;
       border-radius: 50%;
       border: 0;
+    }
+
+    &.SearchFilter-ThemeColors-ColorItem--hidden {
+      visibility: hidden;
+    }
+
+    &.SearchFilter-ThemeColors-ColorItem--clear {
+      border: 0;
+      margin-right: 0;
+      width: 29px;
+
+      button {
+        opacity: 100%;
+        font-size: 125%;
+      }
     }
   }
 }

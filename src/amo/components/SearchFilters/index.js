@@ -374,7 +374,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                 <li
                   className={makeClassName(
                     'SearchFilter-ThemeColors-ColorItem',
-                    `SearchFilter-ThemeColors-ColorItem--custom`,
+                    'SearchFilter-ThemeColors-ColorItem--custom',
                     {
                       'SearchFilter-ThemeColors-ColorItem--active':
                         selectedCustomColor === true,
@@ -386,6 +386,24 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                     type="color"
                     onChange={this.onCustomColorChange}
                   />
+                </li>
+                <li
+                  title={i18n.gettext('Clear')}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    'SearchFilter-ThemeColors-ColorItem--clear',
+                    {
+                      'SearchFilter-ThemeColors-ColorItem--hidden':
+                        filters.color === undefined,
+                    },
+                  )}
+                >
+                  <button
+                    type="button"
+                    onClick={this.changeColorFilter.bind(null, filters.color)}
+                  >
+                    ✖
+                  </button>
                 </li>
               </ul>
             </div>
