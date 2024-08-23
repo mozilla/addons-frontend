@@ -400,7 +400,10 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                 >
                   <button
                     type="button"
-                    onClick={this.changeColorFilter.bind(null, filters.color || '')}
+                    onClick={this.changeColorFilter.bind(
+                      null,
+                      filters.color || '',
+                    )}
                   >
                     ✖
                   </button>
