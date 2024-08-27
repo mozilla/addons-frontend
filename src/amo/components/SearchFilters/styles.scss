@@ -38,7 +38,7 @@
       outline-color: $action-hover-color;
     }
 
-    &:has(button:focus,input:focus) {
+    &:has(button:focus, input:focus) {
       outline-color: $action-active-color;
     }
 
