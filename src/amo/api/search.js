@@ -19,6 +19,7 @@ export type SearchFilters = {|
   author?: string,
   category?: string,
   clientApp?: string,
+  color?: string,
   compatibleWithVersion?: number | string,
   exclude_addons?: string,
   guid?: string,

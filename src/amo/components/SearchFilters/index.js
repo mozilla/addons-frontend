@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -28,7 +29,7 @@ import ExpandableCard from 'amo/components/ExpandableCard';
 import Select from 'amo/components/Select';
 import type { AppState } from 'amo/store';
 import type { SearchFilters as SearchFiltersType } from 'amo/api/search';
-import type { SelectEvent } from 'amo/types/dom';
+import type { SelectEvent, TypedElementEvent } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterHistoryType } from 'amo/types/router';
 
@@ -55,6 +56,8 @@ type InternalProps = {|
 |};
 
 type SelectOption = {| children: string, value: string |};
+
+type ColorFilter = {| id: string, color: string, label: string |};
 
 export class SearchFiltersBase extends React.Component<InternalProps> {
   onSelectElementChange: (event: SelectEvent) => boolean = (
@@ -110,6 +113,34 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     this.doSearch(newFilters);
 
     return false;
+  };
+
+  changeColorFilter: (
+    colorValue: string,
+    event: TypedElementEvent<HTMLInputElement>,
+  ) => void = (
+    colorValue: string,
+    event: TypedElementEvent<HTMLInputElement>,
+  ) => {
+    const { filters } = this.props;
+    const newFilters = { ...filters };
+    event.preventDefault();
+    if (filters.color === colorValue) {
+      delete newFilters.color;
+    } else if (colorValue) {
+      newFilters.color = colorValue;
+    }
+
+    this.doSearch(newFilters);
+  };
+
+  onCustomColorChange: (event: TypedElementEvent<HTMLInputElement>) => void = (
+    event: TypedElementEvent<HTMLInputElement>,
+  ) => {
+    const colorValue = event.target.value;
+    if (colorValue && colorValue.startsWith('#')) {
+      this.changeColorFilter(colorValue.substr(1), event);
+    }
   };
 
   doSearch(newFilters: SearchFiltersType) {
@@ -188,6 +219,58 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     ];
   }
 
+  colorFilters(): Array<ColorFilter> {
+    const { i18n } = this.props;
+
+    return [
+      {
+        id: 'black',
+        color: '000000',
+        label: i18n.gettext('Black'),
+      },
+      {
+        id: 'gray',
+        color: '808080',
+        label: i18n.gettext('Gray'),
+      },
+      {
+        id: 'white',
+        color: 'ffffff',
+        label: i18n.gettext('White'),
+      },
+      {
+        id: 'red',
+        color: 'ff0000',
+        label: i18n.gettext('Red'),
+      },
+      {
+        id: 'yellow',
+        color: 'ffff00',
+        label: i18n.gettext('Yellow'),
+      },
+      {
+        id: 'green',
+        color: '00ff00',
+        label: i18n.gettext('Green'),
+      },
+      {
+        id: 'cyan',
+        color: '00ffff',
+        label: i18n.gettext('Cyan'),
+      },
+      {
+        id: 'blue',
+        color: '0000ff',
+        label: i18n.gettext('Blue'),
+      },
+      {
+        id: 'magenta',
+        color: 'ff00ff',
+        label: i18n.gettext('Magenta'),
+      },
+    ];
+  }
+
   render(): React.Node {
     const { clientApp, filters, i18n } = this.props;
 
@@ -198,6 +281,13 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
           .filter((field) => field !== SEARCH_SORT_RECOMMENDED)
       : [''];
     const selectedSort = selectedSortFields[0];
+    const selectedCustomColor = filters.color
+      ? this.colorFilters()
+          .map((colorFilter) => {
+            return colorFilter.color;
+          })
+          .includes(filters.color) === false
+      : false;
 
     return (
       <ExpandableCard
@@ -242,6 +332,83 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
                   return <option key={option.value} {...option} />;
                 })}
               </Select>
+            </div>
+          )}
+
+          {filters.addonType === ADDON_TYPE_STATIC_THEME && (
+            <div>
+              <label
+                className="SearchFilters-label SearchFilters-Color-label"
+                htmlFor="SearchFilters-CustomColor"
+              >
+                {i18n.gettext('Theme Color')}
+              </label>
+              <ul className="SearchFilters-ThemeColors">
+                {this.colorFilters().map((colorFilter) => (
+                  <li
+                    key={colorFilter.id}
+                    title={colorFilter.label}
+                    className={makeClassName(
+                      'SearchFilter-ThemeColors-ColorItem',
+                      `SearchFilter-ThemeColors-ColorItem--${colorFilter.id}`,
+                      {
+                        'SearchFilter-ThemeColors-ColorItem--active':
+                          filters.color === colorFilter.color,
+                      },
+                    )}
+                  >
+                    <button
+                      aria-describedby={colorFilter.id}
+                      type="button"
+                      onClick={this.changeColorFilter.bind(
+                        null,
+                        colorFilter.color,
+                      )}
+                    >
+                      <span id={colorFilter.id} className="visually-hidden">
+                        {colorFilter.label}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+                <li
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    'SearchFilter-ThemeColors-ColorItem--custom',
+                    {
+                      'SearchFilter-ThemeColors-ColorItem--active':
+                        selectedCustomColor === true,
+                    },
+                  )}
+                >
+                  <input
+                    id="SearchFilters-CustomColor"
+                    type="color"
+                    onChange={this.onCustomColorChange}
+                  />
+                </li>
+                <li
+                  title={i18n.gettext('Clear')}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    'SearchFilter-ThemeColors-ColorItem--clear',
+                    {
+                      'SearchFilter-ThemeColors-ColorItem--hidden':
+                        filters.color === undefined,
+                    },
+                  )}
+                >
+                  <button
+                    type="button"
+                    onClick={this.changeColorFilter.bind(
+                      null,
+                      filters.color || '',
+                    )}
+                  >
+                    ✖
+                  </button>
+                </li>
+              </ul>
             </div>
           )}
 

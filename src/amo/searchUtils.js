@@ -25,6 +25,7 @@ export const paramsToFilter = {
   appversion: 'compatibleWithVersion',
   author: 'author',
   category: 'category',
+  color: 'color',
   exclude_addons: 'exclude_addons',
   guid: 'guid',
   page: 'page',

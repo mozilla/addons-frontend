@@ -6,7 +6,7 @@
 }
 
 .SearchFilters-select {
-  margin: 0 0 5px;
+  margin: 0 0 7px;
 }
 
 .SearchFilters-Recommended-label {
@@ -17,4 +17,110 @@
 
 #SearchFilters-Recommended {
   @include margin-end(10px);
+}
+
+.SearchFilters-ThemeColors {
+  display: inline-block;
+  margin: 0 0 7px;
+  padding: 0;
+
+  .SearchFilter-ThemeColors-ColorItem {
+    outline: 2px solid transparent; /* originally had a 1px border instead, but it was too subtle */
+    border: 1px solid $grey-40;
+    margin-right: 4px;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: top;
+
+    &:hover {
+      outline-color: $action-hover-color;
+    }
+
+    &:has(button:focus, input:focus) {
+      outline-color: $action-active-color;
+    }
+
+    &.SearchFilter-ThemeColors-ColorItem--active {
+      outline-color: $action-active-color;
+    }
+
+    button,
+    input[type='color'] {
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      opacity: 0; /* hidden, but captures clicks to trigger the color change */
+      padding: 0;
+      border-radius: 50%;
+      border: 0;
+    }
+
+    &.SearchFilter-ThemeColors-ColorItem--hidden {
+      visibility: hidden;
+    }
+
+    &.SearchFilter-ThemeColors-ColorItem--clear {
+      border: 0;
+      margin-right: 0;
+      width: 29px;
+
+      button {
+        opacity: 1;
+        font-size: 125%;
+      }
+    }
+  }
+}
+
+.SearchFilter-ThemeColors-ColorItem--custom {
+  background: linear-gradient(
+    90deg,
+    hsl(0deg, 100%, 50%),
+    hsl(45deg, 100%, 50%),
+    hsl(90deg, 100%, 50%),
+    hsl(135deg, 100%, 50%),
+    hsl(180deg, 100%, 50%),
+    hsl(225deg, 100%, 50%),
+    hsl(270deg, 100%, 50%),
+    hsl(315deg, 100%, 50%),
+    hsl(360deg, 100%, 50%)
+  );
+}
+
+.SearchFilter-ThemeColors-ColorItem--black {
+  background-color: $black;
+}
+
+.SearchFilter-ThemeColors-ColorItem--gray {
+  background-color: $grey-50;
+}
+
+.SearchFilter-ThemeColors-ColorItem--white {
+  background-color: $white-100;
+}
+
+.SearchFilter-ThemeColors-ColorItem--red {
+  background-color: $red-50;
+}
+
+.SearchFilter-ThemeColors-ColorItem--yellow {
+  background-color: $yellow-50;
+}
+
+.SearchFilter-ThemeColors-ColorItem--green {
+  background-color: $green-50;
+}
+
+.SearchFilter-ThemeColors-ColorItem--cyan {
+  background-color: $teal-50;
+}
+
+.SearchFilter-ThemeColors-ColorItem--blue {
+  background-color: $blue-50;
+}
+
+.SearchFilter-ThemeColors-ColorItem--magenta {
+  background-color: $magenta-50;
 }
