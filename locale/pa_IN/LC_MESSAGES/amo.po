@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-20 18:04+0000\n"
+"POT-Creation-Date: 2024-08-27 11:44+0000\n"
 "PO-Revision-Date: 2024-08-19 02:19+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1780,13 +1780,13 @@ msgstr "%(param)s ਲਈ ਆਪਣਾ ਡੇਟਾ ਐਕਸੈਸ ਕਰੋ"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:181
+#: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Firefox ਵਲੋੰ"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "ਸਿਫ਼ਾਰਸ਼ੀ"
 
@@ -2338,59 +2338,103 @@ msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀ ਹੈ"
 msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀਆਂ"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:178
 msgid "All"
 msgstr "ਸਾਰੇ"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Extension"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
-#: src/amo/components/SearchFilters/index.js:152
+#: src/amo/components/SearchFilters/index.js:183
 msgid "Theme"
 msgstr "ਥੀਮ"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:194
 msgid "Relevance"
 msgstr "ਸਬੰਧਤ"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:196
 msgid "Recently Updated"
 msgstr "ਹਾਲ ਹੀ ਵਿੱਚ ਅੱਪਡੇਟ ਕੀਤੇ"
 
-#: src/amo/components/SearchFilters/index.js:168
+#: src/amo/components/SearchFilters/index.js:199
 msgid "Most Users"
 msgstr "ਬਹੁਤੇ ਵਰਤੋਂਕਾਰ"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Top Rated"
 msgstr "ਚੋਟੀ ਦਾ ਦਰਜਾ"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:201
 msgid "Trending"
 msgstr "ਰੁਝਾਨ"
 
-#: src/amo/components/SearchFilters/index.js:178
+#: src/amo/components/SearchFilters/index.js:209
 msgid "Any"
 msgstr "ਕੋਈ ਵੀ"
 
-#: src/amo/components/SearchFilters/index.js:185
+#: src/amo/components/SearchFilters/index.js:216
 msgid "All Reviewed"
 msgstr "ਸਭ ਪੜਤਾਲਾਂ"
 
-#: src/amo/components/SearchFilters/index.js:205
+#: src/amo/components/SearchFilters/index.js:229
+msgid "Black"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:234
+msgid "Gray"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:239
+msgid "White"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:244
+msgid "Red"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:249
+msgid "Yellow"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:254
+msgid "Green"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:259
+msgid "Cyan"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:264
+msgid "Blue"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:269
+msgid "Magenta"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
 msgstr "ਨਤੀਜੇ ਛਾਂਟੋ"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:300
 msgid "Sort by"
 msgstr "ਲੜੀਬੱਧ"
 
-#: src/amo/components/SearchFilters/index.js:232
+#: src/amo/components/SearchFilters/index.js:322
 msgid "Add-on Type"
 msgstr "ਐਡ-ਆਨ ਕਿਸਮ"
 
-#: src/amo/components/SearchFilters/index.js:253
+#: src/amo/components/SearchFilters/index.js:344
+msgid "Theme Color"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:391
+msgid "Clear"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
 msgstr "ਬੈਜਿੰਗ"
 

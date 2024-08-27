@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-20 18:04+0000\n"
+"POT-Creation-Date: 2024-08-27 11:44+0000\n"
 "PO-Revision-Date: 2024-06-17 22:35+0000\n"
 "Last-Translator: Stacy Kim <stacy.kim@ucla.edu>\n"
 "Language-Team: none\n"
@@ -1768,13 +1768,13 @@ msgstr "%(param)s에서 사용자의 데이터에 접근"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:181
+#: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Firefox 제작"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "추천"
 
@@ -2311,59 +2311,103 @@ msgstr[0] ""
 "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니"
 "다"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:178
 msgid "All"
 msgstr "모두"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Extension"
 msgstr "확장 기능"
 
-#: src/amo/components/SearchFilters/index.js:152
+#: src/amo/components/SearchFilters/index.js:183
 msgid "Theme"
 msgstr "테마"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:194
 msgid "Relevance"
 msgstr "관련성"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:196
 msgid "Recently Updated"
 msgstr "최근 업데이트됨"
 
-#: src/amo/components/SearchFilters/index.js:168
+#: src/amo/components/SearchFilters/index.js:199
 msgid "Most Users"
 msgstr "사용자 많음"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Top Rated"
 msgstr "평점 높음"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:201
 msgid "Trending"
 msgstr "인기"
 
-#: src/amo/components/SearchFilters/index.js:178
+#: src/amo/components/SearchFilters/index.js:209
 msgid "Any"
 msgstr "모두"
 
-#: src/amo/components/SearchFilters/index.js:185
+#: src/amo/components/SearchFilters/index.js:216
 msgid "All Reviewed"
 msgstr "모두 검토됨"
 
-#: src/amo/components/SearchFilters/index.js:205
+#: src/amo/components/SearchFilters/index.js:229
+msgid "Black"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:234
+msgid "Gray"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:239
+msgid "White"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:244
+msgid "Red"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:249
+msgid "Yellow"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:254
+msgid "Green"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:259
+msgid "Cyan"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:264
+msgid "Blue"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:269
+msgid "Magenta"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
 msgstr "결과 필터"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:300
 msgid "Sort by"
 msgstr "정렬 기준"
 
-#: src/amo/components/SearchFilters/index.js:232
+#: src/amo/components/SearchFilters/index.js:322
 msgid "Add-on Type"
 msgstr "부가 기능 종류"
 
-#: src/amo/components/SearchFilters/index.js:253
+#: src/amo/components/SearchFilters/index.js:344
+msgid "Theme Color"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:391
+msgid "Clear"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
 msgstr "배지"
 

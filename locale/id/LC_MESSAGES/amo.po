@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-20 18:04+0000\n"
+"POT-Creation-Date: 2024-08-27 11:44+0000\n"
 "PO-Revision-Date: 2021-08-20 16:16+0000\n"
 "Last-Translator: 9hs <saptohadi@outlook.com>\n"
 "Language-Team: none\n"
@@ -1791,13 +1791,13 @@ msgstr "Mengakses data Anda untuk %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:181
+#: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Oleh Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "Disarankan"
 
@@ -2335,59 +2335,103 @@ msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] ""
 "%(count)s ekstensi ditemukan untuk \"%(query)s\" pada %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:178
 msgid "All"
 msgstr "Semua"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Extension"
 msgstr "Ekstensi"
 
-#: src/amo/components/SearchFilters/index.js:152
+#: src/amo/components/SearchFilters/index.js:183
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:194
 msgid "Relevance"
 msgstr "Kesesuaian"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:196
 msgid "Recently Updated"
 msgstr "Baru Dimutakhirkan"
 
-#: src/amo/components/SearchFilters/index.js:168
+#: src/amo/components/SearchFilters/index.js:199
 msgid "Most Users"
 msgstr "Sebagian Besar Pengguna"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Top Rated"
 msgstr "Peringkat Teratas"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:201
 msgid "Trending"
 msgstr "Trending"
 
-#: src/amo/components/SearchFilters/index.js:178
+#: src/amo/components/SearchFilters/index.js:209
 msgid "Any"
 msgstr "Apa pun"
 
-#: src/amo/components/SearchFilters/index.js:185
+#: src/amo/components/SearchFilters/index.js:216
 msgid "All Reviewed"
 msgstr "Semua yang Sudah Ditinjau"
 
-#: src/amo/components/SearchFilters/index.js:205
+#: src/amo/components/SearchFilters/index.js:229
+msgid "Black"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:234
+msgid "Gray"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:239
+msgid "White"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:244
+msgid "Red"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:249
+msgid "Yellow"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:254
+msgid "Green"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:259
+msgid "Cyan"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:264
+msgid "Blue"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:269
+msgid "Magenta"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
 msgstr "Saring hasil"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:300
 msgid "Sort by"
 msgstr "Urut berdasarkan"
 
-#: src/amo/components/SearchFilters/index.js:232
+#: src/amo/components/SearchFilters/index.js:322
 msgid "Add-on Type"
 msgstr "Tipe Pengaya"
 
-#: src/amo/components/SearchFilters/index.js:253
+#: src/amo/components/SearchFilters/index.js:344
+msgid "Theme Color"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:391
+msgid "Clear"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
 msgstr "Lencana"
 

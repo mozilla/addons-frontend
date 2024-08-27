@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-20 18:04+0000\n"
+"POT-Creation-Date: 2024-08-27 11:44+0000\n"
 "PO-Revision-Date: 2024-07-27 11:30+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -1830,13 +1830,13 @@ msgstr "Të hyjë në të dhënat tuaja për %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:181
+#: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Nga Firefox-i"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "E rekomanduar"
 
@@ -2391,59 +2391,103 @@ msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] "U gjet %(count)s zgjerim për \"%(query)s\" me etiketën %(tag)s"
 msgstr[1] "U gjetën %(count)s zgjerime për \"%(query)s\" me etiketën %(tag)s"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:178
 msgid "All"
 msgstr "Krejt"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Extension"
 msgstr "Zgjerim"
 
-#: src/amo/components/SearchFilters/index.js:152
+#: src/amo/components/SearchFilters/index.js:183
 msgid "Theme"
 msgstr "Temë"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:194
 msgid "Relevance"
 msgstr "Rëndësi"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:196
 msgid "Recently Updated"
 msgstr "Përditësuar Së Fundi"
 
-#: src/amo/components/SearchFilters/index.js:168
+#: src/amo/components/SearchFilters/index.js:199
 msgid "Most Users"
 msgstr "Me Më Shumë Përdorues"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Top Rated"
 msgstr "Më të Vlerësuarat"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:201
 msgid "Trending"
 msgstr "Në Modë"
 
-#: src/amo/components/SearchFilters/index.js:178
+#: src/amo/components/SearchFilters/index.js:209
 msgid "Any"
 msgstr "Çfarëdo"
 
-#: src/amo/components/SearchFilters/index.js:185
+#: src/amo/components/SearchFilters/index.js:216
 msgid "All Reviewed"
 msgstr "Krejt të Shqyrtuarat"
 
-#: src/amo/components/SearchFilters/index.js:205
+#: src/amo/components/SearchFilters/index.js:229
+msgid "Black"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:234
+msgid "Gray"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:239
+msgid "White"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:244
+msgid "Red"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:249
+msgid "Yellow"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:254
+msgid "Green"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:259
+msgid "Cyan"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:264
+msgid "Blue"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:269
+msgid "Magenta"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
 msgstr "Filtroni përfundimet"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:300
 msgid "Sort by"
 msgstr "Renditi sipas"
 
-#: src/amo/components/SearchFilters/index.js:232
+#: src/amo/components/SearchFilters/index.js:322
 msgid "Add-on Type"
 msgstr "Lloj Shtese"
 
-#: src/amo/components/SearchFilters/index.js:253
+#: src/amo/components/SearchFilters/index.js:344
+msgid "Theme Color"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:391
+msgid "Clear"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
 msgstr ""
 
