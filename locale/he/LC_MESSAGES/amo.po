@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-27 11:44+0000\n"
-"PO-Revision-Date: 2024-08-28 05:01+0000\n"
+"PO-Revision-Date: 2024-08-28 05:02+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -2207,7 +2207,7 @@ msgstr "ירוק"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "ציאן"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
@@ -2215,7 +2215,7 @@ msgstr "כחול"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "מג’נטה"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
