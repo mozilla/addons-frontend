@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-27 11:44+0000\n"
-"PO-Revision-Date: 2024-08-29 15:10+0000\n"
+"PO-Revision-Date: 2024-08-29 15:54+0000\n"
 "Last-Translator: Théo Chevalier <theochevalier@pm.me>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1244,7 +1244,7 @@ msgstr "Organisations illégales"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr ""
+msgstr "Risque de dégradation de l’environnement"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
@@ -1256,7 +1256,7 @@ msgstr "Contenu d’apologie du terrorisme"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "Comptes non authentiques"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
@@ -1264,11 +1264,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "Avis d’utilisateurs non authentiques"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
-msgstr ""
+msgstr "Usurpation d’identité ou détournement de compte"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
@@ -1288,15 +1288,15 @@ msgstr "Automutilation"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "Suicide"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "Produits interdits ou faisant l’objet de restrictions"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Produits dangereux ou non conformes"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
@@ -1304,19 +1304,19 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "Violences basées sur le genre"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "Exploitation humaine"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "Traite d’êtres humains"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Appels ou incitation à la violence et/ou à la haine"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
@@ -1344,11 +1344,11 @@ msgstr "Lieu de la violation"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Type de contenu illégal"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Violation spécifique"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
