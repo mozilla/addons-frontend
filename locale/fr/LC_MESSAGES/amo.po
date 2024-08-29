@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-27 11:44+0000\n"
-"PO-Revision-Date: 2024-08-29 13:00+0000\n"
+"PO-Revision-Date: 2024-08-29 13:09+0000\n"
 "Last-Translator: Théo Chevalier <theochevalier@pm.me>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1136,7 +1136,7 @@ msgstr "Non-respect de la réglementation tarifaire"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
-msgstr ""
+msgstr "Publicité ou communications commerciales cachées, y compris par des influenceurs·ceuses"
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
@@ -1196,7 +1196,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Violation de la législation nationale applicable au discours civique ou aux élections"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
