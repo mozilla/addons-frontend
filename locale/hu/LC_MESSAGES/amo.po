@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-27 11:44+0000\n"
-"PO-Revision-Date: 2024-08-28 08:27+0000\n"
+"PO-Revision-Date: 2024-08-30 11:27+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -753,7 +753,7 @@ msgstr "Leírás"
 
 #: src/amo/components/CollectionManager/index.js:284
 msgid "Custom URL"
-msgstr "Egyéni URL"
+msgstr "Egyéni webcím"
 
 #: src/amo/components/CollectionSort/index.js:108
 msgid "Sort add-ons by"
@@ -881,7 +881,7 @@ msgstr "Az oldal nem található"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "Sajnáljuk, de semmit sem találunk a megadott URL-en."
+msgstr "Sajnáljuk, de semmit sem találunk a megadott webcímen."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
@@ -3298,7 +3298,7 @@ msgstr "Megjelenítendő név *"
 
 #: src/amo/pages/UserProfileEdit/index.js:688
 msgid "This URL will only be visible for users who are developers."
-msgstr "Ez az URL csak azon felhasználók számára lesz látható, akik fejlesztők is."
+msgstr "Ez a webcím csak azon felhasználók számára lesz látható, akik fejlesztők is."
 
 #: src/amo/pages/UserProfileEdit/index.js:745
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
