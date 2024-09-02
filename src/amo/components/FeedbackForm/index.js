@@ -878,9 +878,7 @@ export class FeedbackFormBase extends React.Component<InternalProps, State> {
               <p className="FeedbackForm--help" id="feedbackText-help">
                 {i18n.gettext(`Please provide any additional information that
                   may help us to understand your report (including which policy
-                  you believe has been violated). While this information is not
-                  required, failure to include it may prevent us from
-                  addressing the reported content.`)}
+                  you believe has been violated).`)}
               </p>
             </Card>
 
