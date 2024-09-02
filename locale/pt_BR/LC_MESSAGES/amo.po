@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-27 11:44+0000\n"
-"PO-Revision-Date: 2024-08-29 14:56+0000\n"
+"PO-Revision-Date: 2024-09-02 12:28+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1208,7 +1208,7 @@ msgstr "Assédio/intimidação online"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr "'Stalking'"
+msgstr "Perseguição"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
@@ -1264,7 +1264,7 @@ msgstr "Roubo de identidade ou sequestro de conta"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr "Fraude"
+msgstr "Fraude (phishing)"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
