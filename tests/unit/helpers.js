@@ -145,7 +145,7 @@ export const fakeVersion = Object.freeze({
 export const fakeAddon = Object.freeze({
   authors: [fakeAuthor],
   average_daily_users: 100,
-  categories: { firefox: ['other'] },
+  categories: ['other'],
   contributions_url: null,
   created: '2014-11-22T10:09:01Z',
   current_version: fakeVersion,
@@ -299,7 +299,6 @@ export function createExternalReview({
 }
 
 export const fakeCategory = Object.freeze({
-  application: CLIENT_APP_FIREFOX,
   description: 'I am a cool category for doing things',
   id: 5,
   misc: false,

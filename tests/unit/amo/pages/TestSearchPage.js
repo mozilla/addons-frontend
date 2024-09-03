@@ -1130,7 +1130,6 @@ describe(__filename, () => {
         results: [
           {
             ...fakeCategory,
-            application: CLIENT_APP_FIREFOX, // Unified categories ignore android applications
             type: ADDON_TYPE_EXTENSION,
             name: categoryName,
             slug: category,

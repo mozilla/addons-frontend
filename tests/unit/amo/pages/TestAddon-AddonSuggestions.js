@@ -79,7 +79,7 @@ describe(__filename, () => {
   beforeEach(() => {
     addon = {
       ...fakeAddon,
-      categories: { firefox: [addonCategory] },
+      categories: [addonCategory],
       slug: defaultSlug,
     };
     fakeConfig = getMockConfig({
@@ -289,7 +289,7 @@ describe(__filename, () => {
       const dispatch = jest.spyOn(store, 'dispatch');
 
       renderWithAddon({
-        addonToLoad: { ...addon, categories: { firefox: [] } },
+        addonToLoad: { ...addon, categories: [] },
         variant: VARIANT_SHOW_TOP,
       });
 
@@ -308,7 +308,7 @@ describe(__filename, () => {
       const newSlug = 'some-new-slug';
       const newAddon = {
         ...addon,
-        categories: { firefox: [newCategory] },
+        categories: [newCategory],
         slug: newSlug,
       };
 
@@ -347,7 +347,7 @@ describe(__filename, () => {
       const newSlug = 'some-new-slug';
       const newAddon = {
         ...addon,
-        categories: { firefox: [newCategory] },
+        categories: [newCategory],
         guid: `${addon.guid}-new`,
         slug: newSlug,
       };
@@ -460,7 +460,7 @@ describe(__filename, () => {
         renderWithAddon({
           addonToLoad: {
             ...addon,
-            categories: { firefox: addonCategories },
+            categories: addonCategories,
           },
           variant: VARIANT_SHOW_TOP,
         });
