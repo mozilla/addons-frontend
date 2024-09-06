@@ -524,56 +524,30 @@ describe(__filename, () => {
     const categories = [
       {
         ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
         name: 'Alerts & Update',
         slug: 'alert-update',
         type: ADDON_TYPE_EXTENSION,
       },
       {
         ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
-        name: 'Blogging',
-        slug: 'blogging',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
-        name: 'Games',
-        slug: 'Games',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        ...fakeCategory,
-        application: CLIENT_APP_FIREFOX,
-        name: 'Alerts & Update',
-        slug: 'alert-update',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        ...fakeCategory,
-        application: CLIENT_APP_FIREFOX,
         name: 'Security',
         slug: 'security',
         type: ADDON_TYPE_EXTENSION,
       },
       {
         ...fakeCategory,
-        application: CLIENT_APP_FIREFOX,
         name: 'Anime',
         slug: 'anime',
         type: ADDON_TYPE_STATIC_THEME,
       },
       {
         ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
         name: 'Alerts & Update',
         slug: 'alert-update',
         type: ADDON_TYPE_DICT,
       },
       {
         ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
         name: 'Alerts & Update',
         slug: 'alert-update',
         type: ADDON_TYPE_LANG,
@@ -581,8 +555,8 @@ describe(__filename, () => {
     ];
 
     it('renders related categories', () => {
-      const { slug: slug1, name: name1 } = categories[3];
-      const { slug: slug2, name: name2 } = categories[4];
+      const { slug: slug1, name: name1 } = categories[0];
+      const { slug: slug2, name: name2 } = categories[1];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
         categories: [slug1, slug2],
@@ -607,7 +581,7 @@ describe(__filename, () => {
     it('does not render related categories when add-on has no category', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: { [CLIENT_APP_FIREFOX]: [] },
+        categories: [],
       });
 
       store.dispatch(loadCategories({ results: categories }));
@@ -624,7 +598,7 @@ describe(__filename, () => {
         // We are migrating away from per-app categories so if an Addon only
         // has Android categories, ignore them completely, even on Android
         // pages.
-        categories: { [CLIENT_APP_ANDROID]: ['some', 'thing'] },
+        categories: ['some', 'thing'],
       });
 
       store.dispatch(loadCategories({ results: categories }));
@@ -640,7 +614,7 @@ describe(__filename, () => {
       const { slug: slug2 } = categories[4];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: { [CLIENT_APP_FIREFOX]: [slug1, slug2] },
+        categories: [slug1, slug2],
       });
 
       store.dispatch(loadCategories({ results: [] }));
@@ -654,10 +628,8 @@ describe(__filename, () => {
     it('does not render related categories when categories for add-on do not exist in clientApp', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: {
-          // 'blogging' and 'games' only exist for CLIENT_APP_ANDROID
-          [CLIENT_APP_FIREFOX]: ['blogging', 'games'],
-        },
+        // 'blogging' and 'games' only exist for CLIENT_APP_ANDROID
+        categories: ['blogging', 'games'],
       });
 
       store.dispatch(loadCategories({ results: categories }));

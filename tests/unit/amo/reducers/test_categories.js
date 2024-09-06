@@ -110,63 +110,30 @@ describe(__filename, () => {
       const results = [
         {
           ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
           name: 'Alerts & Update',
           slug: 'alert-update',
           type: ADDON_TYPE_EXTENSION,
         },
         {
           ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
-          name: 'Blogging',
-          slug: 'blogging',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
-          name: 'Games',
-          slug: 'Games',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
-          name: 'Alerts & Update',
-          slug: 'alert-update',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
           name: 'Security',
           slug: 'security',
           type: ADDON_TYPE_EXTENSION,
         },
         {
           ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
           name: 'Anime',
           slug: 'anime',
           type: ADDON_TYPE_STATIC_THEME,
         },
         {
           ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
           name: 'Naturé',
           slug: 'naturé',
           type: ADDON_TYPE_STATIC_THEME,
         },
         {
           ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
-          name: 'Painting',
-          slug: 'painting',
-          type: ADDON_TYPE_STATIC_THEME,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
           name: 'Painting',
           slug: 'painting',
           type: ADDON_TYPE_STATIC_THEME,
@@ -179,14 +146,12 @@ describe(__filename, () => {
         [ADDON_TYPE_EXTENSION]: {
           'alert-update': {
             ...fakeCategory,
-            application: CLIENT_APP_FIREFOX,
             name: 'Alerts & Update',
             slug: 'alert-update',
             type: ADDON_TYPE_EXTENSION,
           },
           security: {
             ...fakeCategory,
-            application: CLIENT_APP_FIREFOX,
             name: 'Security',
             slug: 'security',
             type: ADDON_TYPE_EXTENSION,
@@ -196,21 +161,18 @@ describe(__filename, () => {
         [ADDON_TYPE_STATIC_THEME]: {
           anime: {
             ...fakeCategory,
-            application: CLIENT_APP_FIREFOX,
             name: 'Anime',
             slug: 'anime',
             type: ADDON_TYPE_STATIC_THEME,
           },
           naturé: {
             ...fakeCategory,
-            application: CLIENT_APP_FIREFOX,
             name: 'Naturé',
             slug: 'naturé',
             type: ADDON_TYPE_STATIC_THEME,
           },
           painting: {
             ...fakeCategory,
-            application: CLIENT_APP_FIREFOX,
             name: 'Painting',
             slug: 'painting',
             type: ADDON_TYPE_STATIC_THEME,

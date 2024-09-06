@@ -13,7 +13,6 @@ export type ExternalCategory = {|
   id: string,
   name: string,
   slug: string,
-  application: string | null,
   misc: boolean,
   type: string,
   weight: number,
@@ -107,16 +106,6 @@ export default function reducer(
         if (!category) {
           // eslint-disable-next-line amo/only-log-strings
           log.warn('category was falsey: %o', category);
-          return;
-        }
-
-        // If the API returns data for an application we don't support,
-        // we'll ignore it for now.
-        if (category.application && category.application !== 'firefox') {
-          if (category.application !== 'android') {
-            log.warn(oneLine`Category data for unknown clientApp
-                "${category.application}" received from API.`);
-          }
           return;
         }
 
