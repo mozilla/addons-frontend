@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-27 11:44+0000\n"
+"POT-Creation-Date: 2024-09-06 12:00+0000\n"
 "PO-Revision-Date: 2021-08-22 17:37+0000\n"
 "Last-Translator: cfatls <cfatls@gmail.com>\n"
 "Language-Team: none\n"
@@ -1108,7 +1108,7 @@ msgstr "Revisado por %(userName)s"
 msgid "The review was not found."
 msgstr "No se ha encontrado la revisión."
 
-#: src/amo/components/FeedbackForm/index.js:1016
+#: src/amo/components/FeedbackForm/index.js:1014
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -1495,38 +1495,36 @@ msgstr ""
 #: src/amo/components/FeedbackForm/index.js:879
 msgid ""
 "Please provide any additional information that may help us to understand "
-"your report (including which policy you believe has been violated). While "
-"this information is not required, failure to include it may prevent us from "
-"addressing the reported content."
+"your report (including which policy you believe has been violated)."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:889
+#: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:905
+#: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:908
+#: src/amo/components/FeedbackForm/index.js:906
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:929
+#: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:932
+#: src/amo/components/FeedbackForm/index.js:930
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:969
+#: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:972
+#: src/amo/components/FeedbackForm/index.js:970
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr ""
 

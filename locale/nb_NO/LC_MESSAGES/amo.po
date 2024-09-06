@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-27 11:44+0000\n"
+"POT-Creation-Date: 2024-09-06 12:00+0000\n"
 "PO-Revision-Date: 2024-06-21 05:58+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1096,7 +1096,7 @@ msgstr "Omtale av %(userName)s"
 msgid "The review was not found."
 msgstr "Fant ikke omtalen."
 
-#: src/amo/components/FeedbackForm/index.js:1016
+#: src/amo/components/FeedbackForm/index.js:1014
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -1496,24 +1496,18 @@ msgstr "Oppgi flere detaljer"
 #: src/amo/components/FeedbackForm/index.js:879
 msgid ""
 "Please provide any additional information that may help us to understand "
-"your report (including which policy you believe has been violated). While "
-"this information is not required, failure to include it may prevent us from "
-"addressing the reported content."
+"your report (including which policy you believe has been violated)."
 msgstr ""
-"Oppgi eventuell tilleggsinformasjon som kan hjelpe oss å forstå rapporten "
-"din (inkludert hvilke retningslinjer du mener har blitt brutt). Selv om "
-"denne informasjonen ikke er nødvendig, kan unnlatelse av å inkludere den "
-"hindre oss i å ta opp det rapporterte innholdet."
 
-#: src/amo/components/FeedbackForm/index.js:889
+#: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
 msgstr "Kontaktinformasjon"
 
-#: src/amo/components/FeedbackForm/index.js:905
+#: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
 msgstr "Send inn rapport anonymt"
 
-#: src/amo/components/FeedbackForm/index.js:908
+#: src/amo/components/FeedbackForm/index.js:906
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1521,19 +1515,19 @@ msgstr ""
 "Ved å sende inn en anonym rapport forhindres vi i å kommunisere med deg om "
 "rapportens status, eller om eventuelle klagemuligheter."
 
-#: src/amo/components/FeedbackForm/index.js:929
+#: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Ditt navn %(spanStart)s(valgfritt)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:932
+#: src/amo/components/FeedbackForm/index.js:930
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "Ditt navn %(spanStart)s(nødvendig)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:969
+#: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Din e-postadresse %(spanStart)s(valgfritt)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:972
+#: src/amo/components/FeedbackForm/index.js:970
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "Din e-postadresse %(spanStart)s(nødvendig)%(spanEnd)s"
 
@@ -4005,6 +3999,17 @@ msgstr "mitt tilleggs kompatibilitet kan ikke oppgraderes"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "mitt tilleggs kompatibilitet har blitt oppgradert"
+
+#~ msgid ""
+#~ "Please provide any additional information that may help us to understand "
+#~ "your report (including which policy you believe has been violated). While "
+#~ "this information is not required, failure to include it may prevent us "
+#~ "from addressing the reported content."
+#~ msgstr ""
+#~ "Oppgi eventuell tilleggsinformasjon som kan hjelpe oss å forstå rapporten "
+#~ "din (inkludert hvilke retningslinjer du mener har blitt brutt). Selv om "
+#~ "denne informasjonen ikke er nødvendig, kan unnlatelse av å inkludere den "
+#~ "hindre oss i å ta opp det rapporterte innholdet."
 
 #~ msgid "Verified extensions"
 #~ msgstr "Bekreftede utvidelser"

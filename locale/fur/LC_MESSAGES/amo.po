@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-27 11:44+0000\n"
+"POT-Creation-Date: 2024-09-06 12:00+0000\n"
 "PO-Revision-Date: 2024-06-27 06:58+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1115,7 +1115,7 @@ msgstr "Recension di %(userName)s"
 msgid "The review was not found."
 msgstr "La recension no je stade cjatade."
 
-#: src/amo/components/FeedbackForm/index.js:1016
+#: src/amo/components/FeedbackForm/index.js:1014
 msgid ""
 "By submitting this report I certify, under penalty of perjury, that the "
 "allegations it contains are complete and accurate, to the best of my "
@@ -1526,24 +1526,18 @@ msgstr "Da plui detais"
 #: src/amo/components/FeedbackForm/index.js:879
 msgid ""
 "Please provide any additional information that may help us to understand "
-"your report (including which policy you believe has been violated). While "
-"this information is not required, failure to include it may prevent us from "
-"addressing the reported content."
+"your report (including which policy you believe has been violated)."
 msgstr ""
-"Furnìs cualsisei informazion adizionâl che e pues judânus a capî la tô "
-"segnalazion (includude la politiche che tu crodis che e vegni violade). "
-"Ancje se chestis informazions no son necessariis, no includilis al podarès "
-"impedînus di frontâ il contignût segnalât."
 
-#: src/amo/components/FeedbackForm/index.js:889
+#: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
 msgstr "Informazions sul contat"
 
-#: src/amo/components/FeedbackForm/index.js:905
+#: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
 msgstr "Mande la segnalazion in mût anonim"
 
-#: src/amo/components/FeedbackForm/index.js:908
+#: src/amo/components/FeedbackForm/index.js:906
 msgid ""
 "Filing an anonymous report will prevent us from communicating with you about "
 "the report’s status, or about any options for appeal."
@@ -1551,19 +1545,19 @@ msgstr ""
 "Se tu mandis une segnalazion anonime no podarin comunicâ cun te in merit al "
 "stât de segnalazion, o su eventuâls opzions di ricors."
 
-#: src/amo/components/FeedbackForm/index.js:929
+#: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
 msgstr "Il to non %(spanStart)s(facoltatîf)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:932
+#: src/amo/components/FeedbackForm/index.js:930
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
 msgstr "Il to non %(spanStart)s(obligatori)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:969
+#: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
 msgstr "La tô direzion e-mail %(spanStart)s(facoltative)%(spanEnd)s"
 
-#: src/amo/components/FeedbackForm/index.js:972
+#: src/amo/components/FeedbackForm/index.js:970
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
 msgstr "La tô direzion e-mail %(spanStart)s(obligatorie)%(spanEnd)s"
 
@@ -4057,6 +4051,17 @@ msgstr "nol è pussibil inzornâ la compatibilitât dal gno component adizionâl
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "la compatibilitât dal gno component adizionâl e je inzornade cun sucès"
+
+#~ msgid ""
+#~ "Please provide any additional information that may help us to understand "
+#~ "your report (including which policy you believe has been violated). While "
+#~ "this information is not required, failure to include it may prevent us "
+#~ "from addressing the reported content."
+#~ msgstr ""
+#~ "Furnìs cualsisei informazion adizionâl che e pues judânus a capî la tô "
+#~ "segnalazion (includude la politiche che tu crodis che e vegni violade). "
+#~ "Ancje se chestis informazions no son necessariis, no includilis al "
+#~ "podarès impedînus di frontâ il contignût segnalât."
 
 #~ msgid "Verified extensions"
 #~ msgstr "Estensions verificadis"
