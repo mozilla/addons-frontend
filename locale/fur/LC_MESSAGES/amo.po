@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-07 20:01+0000\n"
+"PO-Revision-Date: 2024-09-07 20:04+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2189,35 +2189,35 @@ msgstr "Neri"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "Grîs"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "Blanc"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "Ros"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "Zâl"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "Vert"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "Ciano"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "Blu"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -2233,11 +2233,11 @@ msgstr "Gjenar di component adizionâl"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
-msgstr ""
+msgstr "Colôr teme"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
-msgstr ""
+msgstr "Nete"
 
 #: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
@@ -2541,7 +2541,7 @@ msgstr "Tu varessis di doprâ simpri la ultime version di un component adizionâ
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Versions"
-msgstr ""
+msgstr "Versions"
 
 #: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
