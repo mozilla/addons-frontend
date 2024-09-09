@@ -72,7 +72,7 @@ module.exports = {
   // The version for the favicon.
   // This should be changed when a new favicon is pushed to the CDN to prevent
   // client caching.
-  faviconVersion: 2,
+  faviconVersion: 3,
 
   // URL patterns of anonymous/stateless pages. These pages won't authenticate
   // the logged in user (if any) and should not contain any non-public data (so
