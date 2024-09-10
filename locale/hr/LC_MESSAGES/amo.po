@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-10 15:19+0000\n"
+"PO-Revision-Date: 2024-09-10 15:31+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -991,7 +991,7 @@ msgstr "Recenzija nije pronađena."
 
 #: src/amo/components/FeedbackForm/index.js:1014
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
-msgstr ""
+msgstr "Podnošenjem ovog izvještaja potvrđujem, pod krivičnom odgovornošću za krivokletstvo, da su navodi koje sadrži potpuni i točni, prema mojem najboljem saznanju."
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
@@ -1003,11 +1003,11 @@ msgstr "Primjer: Funkcije su spore, teško ih je koristiti ili ne rade, dijelovi
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It’s spam"
-msgstr ""
+msgstr "To je spam"
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: The listing advertises unrelated products or services."
-msgstr ""
+msgstr "Primjer: Popis oglašava nepovezane proizvode ili usluge."
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "It violates Add-on Policies"
@@ -1023,7 +1023,7 @@ msgstr "Sadrži mrzak, nasilan, obmanjujući ili drugi neprikladan sadržaj"
 
 #: src/amo/components/FeedbackForm/index.js:131
 msgid "Example: It contains racist imagery."
-msgstr ""
+msgstr "Primjer: Sadrži rasističke slike."
 
 #: src/amo/components/FeedbackForm/index.js:135
 msgid "It violates the law or contains content that violates the law"
@@ -1409,7 +1409,7 @@ msgstr "Označi ovu recenziju"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
@@ -1472,6 +1472,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Sadržaj ove stranice licenciran je pod licencom %(startLicenseLink)sCreative Commons Imenovanje dijeli pod istim uvjetima verzija 3.0%(endLicenseLink)s ili novijoj, osim gdje je "
+"%(startNotedLink)snavedeno%(endNotedLink)s drugačije. Android je zaštitni znak tvrtke Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
