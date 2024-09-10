@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-10 15:36+0000\n"
+"PO-Revision-Date: 2024-09-10 15:48+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1015,7 +1015,7 @@ msgstr "Krši pravila o dodacima"
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr ""
+msgstr "Primjer: Kompromitirao je moje podatke bez da me obavijestio ili pitao, ili je promijenio moju tražilicu ili početnu stranicu, bez da me obavijestio ili pitao."
 
 #: src/amo/components/FeedbackForm/index.js:129
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
@@ -1183,7 +1183,7 @@ msgstr "Kršenja dizajna"
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
-msgstr ""
+msgstr "Povrede podataka o geografskom podrijetlu"
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
