@@ -140,8 +140,9 @@ export default class ServerHtml extends Component {
 
   getFaviconLink() {
     const { _config } = this.props;
-    // /favicon.ico is an alias handled in nginx - the favicon is actually in
-    // addons-server static files.
+    // /favicon.ico is an alias handled in nginx - the favicon actually lives
+    // in addons-server static files, and gets copied to /favicon.ico on the
+    // bucket serving those assets when addons-server assets are deployed.
     return `/favicon.ico?v=${_config.get('faviconVersion')}`;
   }
 
