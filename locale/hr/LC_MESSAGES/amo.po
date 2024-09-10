@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-10 12:02+0000\n"
+"PO-Revision-Date: 2024-09-10 12:11+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1361,35 +1361,35 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
-msgstr ""
+msgstr "Podaci za kontaktiranje"
 
 #: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
-msgstr ""
+msgstr "Prijavi anonimno"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Anonimna prijava sprečava komunikaciju s tobom o stanju prijave ili o mogućnostima žalbe."
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Tvoje ime %(spanStart)s(opcionalno)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:930
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Tvoje ime %(spanStart)s(obavezno)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Tvoja e-mail adresa %(spanStart)s(opcionalno)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:970
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Tvoja e-mail adresa %(spanStart)s(obavezno)%(spanEnd)s"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "Sadržaj koji je nezakonit ili koji krši AMO-ova pravila o sadržaju"
 
 #: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flagged"
