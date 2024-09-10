@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-10 12:11+0000\n"
+"PO-Revision-Date: 2024-09-10 12:21+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1421,11 +1421,11 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
-msgstr ""
+msgstr "Pogrešno usmjeren izvještaj o grešci ili zahtjev za podršku"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Označeno kao pogrešno usmjeren izvještaj o grešci ili zahtjev za podršku"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
@@ -1503,12 +1503,14 @@ msgstr "Centar za programere"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "Za korištenje ovih dodataka morat ćeš %(downloadLinkStart)spreuzeti Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Za korištenje proširenja za Android, trebat ćeš %(downloadLinkStart)sFirefox za Android%(downloadLinkEnd)s. Istraži Firefox dodatke za desktop %(linkStart)sna našoj web stranici za "
+"desktop%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:146
 msgid "Download Firefox and get the theme"
@@ -1714,7 +1716,7 @@ msgstr "Unijeti podatke u međuspremnik"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Block content on any page"
-msgstr ""
+msgstr "Blokiraj sadržaj na svim stranicama"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Read your browsing history"
