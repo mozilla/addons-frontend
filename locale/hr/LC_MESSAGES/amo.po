@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-10 12:51+0000\n"
+"PO-Revision-Date: 2024-09-10 12:57+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1149,11 +1149,11 @@ msgstr "Zavaravajuće informacije o pravima potrošača"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
-msgstr ""
+msgstr "Otkrivanje biometrijskih podataka"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "Nedostaje osnova za obradu podataka"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
@@ -1193,11 +1193,11 @@ msgstr "Kršenja poslovnih tajni"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Kršenje EU zakona koji je relevantan za građanski diskurs ili izbore"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Kršenje nacionalnog zakona koji je relevantan za građanski diskurs ili izbore"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
@@ -1205,7 +1205,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
-msgstr ""
+msgstr "Dijeljenje slika bez pristanka"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
@@ -1213,7 +1213,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Zlostavljanje/zastrašivanje"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
