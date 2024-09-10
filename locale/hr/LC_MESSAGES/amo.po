@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-10 15:07+0000\n"
+"PO-Revision-Date: 2024-09-10 15:19+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1201,7 +1201,7 @@ msgstr "Kršenje nacionalnog zakona koji je relevantan za građanski diskurs ili
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "Krive informacije, dezinformacija, manipulacija i uplitanje"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
@@ -1209,7 +1209,7 @@ msgstr "Dijeljenje slika bez pristanka"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "Materijal bez pristanka koji sadrži deepfake ili sličnu tehnologiju koja koristi funkcije treće strane"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
@@ -1217,7 +1217,7 @@ msgstr "Zlostavljanje/zastrašivanje"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "Uhođenje"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
@@ -1237,7 +1237,7 @@ msgstr "Materijal seksualnog zlostavljanja djece"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
-msgstr ""
+msgstr "Seksualno navođenje maloljetnika"
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
@@ -1357,7 +1357,7 @@ msgstr "Navedi više detalja"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "Navedi sve dodatne informacije koje bi nam mogle pomoći da razumijemo tvoju prijavu (uključujući pravila koja smatraš da su prekršena)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
