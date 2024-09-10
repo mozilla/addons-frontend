@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-10 11:35+0000\n"
+"PO-Revision-Date: 2024-09-10 11:50+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1257,23 +1257,23 @@ msgstr "Teroristički sadržaj"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr "Neautentični računi"
+msgstr "Nevjerodostojni računi"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
-msgstr ""
+msgstr "Nevjerodostojni popisi"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "Nevjerodostojne korisničke recenzije"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
-msgstr ""
+msgstr "Lažno predstavljanje ili krađa računa"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "Phishing (krađa identiteta)"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
@@ -1289,19 +1289,19 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "Samoubojstvo"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "Zabranjeni ili ograničeni proizvodi"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Nesigurni ili nesukladni proizvodi"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
-msgstr ""
+msgstr "Koordinirana šteta"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
@@ -1317,7 +1317,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Općeniti pozivi ili poticanje na nasilje i/ili mržnju"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
