@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-10 11:11+0000\n"
+"PO-Revision-Date: 2024-09-10 11:20+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -999,7 +999,7 @@ msgstr "Ne radi, kvari web stranice ili usporava Firefox"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
-msgstr ""
+msgstr "Primjer: Funkcije su spore, teško ih je koristiti ili ne rade, dijelovi web stranica se ne mogu učitati ili čudno izgledaju."
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It’s spam"
@@ -1011,7 +1011,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "It violates Add-on Policies"
-msgstr ""
+msgstr "Krši pravila o dodacima"
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
@@ -1019,7 +1019,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:129
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
-msgstr ""
+msgstr "Sadrži mrzak, nasilan, obmanjujući ili drugi neprikladan sadržaj"
 
 #: src/amo/components/FeedbackForm/index.js:131
 msgid "Example: It contains racist imagery."
@@ -1027,7 +1027,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:135
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Krši zakon ili sadrži sadržaj koji krši zakon"
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid ""
@@ -1037,31 +1037,31 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
-msgstr ""
+msgstr "Nešto drugo"
 
 #: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "Sve što ne spada u druge kategorije."
 
 #: src/amo/components/FeedbackForm/index.js:164
 msgid "Select place"
-msgstr ""
+msgstr "Odaberi mjesto"
 
 #: src/amo/components/FeedbackForm/index.js:166
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "Na stranici dodatka na ovoj web stranici"
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
-msgstr ""
+msgstr "Unutar dodatka"
 
 #: src/amo/components/FeedbackForm/index.js:170
 msgid "Both locations"
-msgstr ""
+msgstr "Obje lokacije"
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "Odaberi vrstu"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
