@@ -521,6 +521,10 @@ export const unfilteredLanguages = {
     English: 'Slovenian',
     native: 'Sloven\u0161\u010dina',
   },
+  skr: {
+    English: 'Saraiki',
+    native: '\u0633\u0631\u0627\u0626\u06cc\u06a9\u06cc',
+  },
   son: {
     English: 'Songhai',
     native: 'So\u014bay',
