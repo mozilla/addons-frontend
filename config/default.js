@@ -320,6 +320,7 @@ module.exports = {
   // These are all URLs that should not get a locale prepended to the URL,
   // because they are locale-independant, like `/firefox/downloads/`.
   validLocaleUrlExceptions: [
+    'activity',
     '__frontend_version__',
     '__version__',
     // This isn't in addons-server, but instead will cause a redirect to
@@ -354,6 +355,7 @@ module.exports = {
     'abuse',
     'admin',
     'apps',
+    'activity',
     'blocklist',
     'blog',
     'contribute.json',
