@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-06 12:05+0000\n"
-"Last-Translator: Google Translate <pontoon-gt@example.com>\n"
+"PO-Revision-Date: 2024-09-13 14:25+0000\n"
+"Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -2695,7 +2695,7 @@ msgstr "Criar uma coleção"
 
 #: src/amo/pages/CollectionList/index.js:70
 msgid "You do not have any collections."
-msgstr "Você não possui nenhuma coleção."
+msgstr "Você não tem nenhuma coleção."
 
 #: src/amo/pages/Home/index.js:104
 msgid "Music"
