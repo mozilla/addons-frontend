@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-17 15:31+0000\n"
+"PO-Revision-Date: 2024-09-19 07:43+0000\n"
 "Last-Translator: Théo Chevalier <theochevalier@pm.me>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -2462,7 +2462,7 @@ msgstr "Notes de version pour la version %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:506
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr "Ceci n'est pas une fiche publique. Vous la voyez uniquement parce que vous avez des privilèges élevés."
+msgstr "Ceci n’est pas une fiche publique. Vous la voyez uniquement parce que vous avez des privilèges élevés."
 
 #: src/amo/pages/Addon/index.js:530
 msgid "Extension Metadata"
