@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-22 00:03+0000\n"
+"PO-Revision-Date: 2024-09-22 00:10+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1694,7 +1694,7 @@ msgstr "모든 페이지의 콘텐츠 차단"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Read your browsing history"
-msgstr ""
+msgstr "방문 기록 보기"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
@@ -1996,10 +1996,9 @@ msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "\"%(query)s\"에 대해 %(count)s개의 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:113
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니다"
+msgstr[0] "%(tag)s 태그가 포함된 %(count)s 개의 확장 기능을 찾음"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
@@ -2007,10 +2006,9 @@ msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s개의 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:134
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개의 테마를 찾았습니다"
+msgstr[0] "%(categoryName)s 분류에서 %(tag)s 태그가 포함된 \"%(query)s\"에 대해 %(count)s개의 테마를 찾음"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -2018,10 +2016,9 @@ msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개의 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:152
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(categoryName)s에서 %(count)s개의 테마를 찾았습니다"
+msgstr[0] "%(categoryName)s 분류에서 %(tag)s 태그가 포함된 테마를 %(count)s개 찾음"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
@@ -2029,10 +2026,9 @@ msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "%(categoryName)s에서 %(count)s개의 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:170
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개의 테마를 찾았습니다"
+msgstr[0] "%(tag)s 태그가 포함된 \"%(query)s\"에 대해 %(count)s개의 테마를 찾음"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -2040,10 +2036,9 @@ msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "\"%(query)s\"에 대해 %(count)s개의 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:188
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "%(categoryName)s에서 %(count)s개의 테마를 찾았습니다"
+msgstr[0] "%(tag)s 태그가 포함된 테마를 %(count)s개 찾음"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
@@ -2051,10 +2046,9 @@ msgid_plural "%(count)s themes found"
 msgstr[0] "%(count)s개의 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "\"%(query)s\"에 대한 %(count)s개의 결과를 찾았습니다"
+msgstr[0] "%(tag)s 태그가 포함된 \"%(query)s\"에 대한 결과를 %(count)s개 찾음"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -2062,10 +2056,9 @@ msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "\"%(query)s\"에 대한 %(count)s개의 결과를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:227
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "\"%(query)s\"에 대한 %(count)s개의 결과를 찾았습니다"
+msgstr[0] "%(tag)s 태그가 포함된 %(count)s개의 결과를 찾음"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
@@ -2150,39 +2143,39 @@ msgstr "모두 검토됨"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "검은색"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "회색"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "흰색"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "빨간색"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "노란색"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "초록색"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "청록색"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "파란색"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "마젠타색"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -2198,11 +2191,11 @@ msgstr "부가 기능 종류"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
-msgstr ""
+msgstr "테마 색상"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
-msgstr ""
+msgstr "지우기"
 
 #: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
@@ -2278,7 +2271,7 @@ msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "%(username)s로 로그인됨"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2343,7 +2336,7 @@ msgstr "1년 구독으로 50% 할인"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "온라인 데이터를 보호하고 적합한 VPN 구독 플랜을 선택하세요."
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
@@ -2502,7 +2495,7 @@ msgstr "항상 최신 버전의 부가 기능을 사용해야 합니다."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Versions"
-msgstr ""
+msgstr "버전"
 
 #: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
@@ -2522,7 +2515,7 @@ msgstr "차단된 버전: 모든 버전."
 
 #: src/amo/pages/Block/index.js:124
 msgid "Versions blocked: %(versions)s."
-msgstr ""
+msgstr "차단된 버전: %(versions)s."
 
 #: src/amo/pages/Block/index.js:145
 msgid "%(addonName)s has been blocked for your protection."
@@ -2590,7 +2583,7 @@ msgstr "이 모음집을 신고했습니다"
 
 #: src/amo/pages/Collection/index.js:427
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "신고가 접수되었습니다. 이 컬렉션과 관련된 우려 사항을 알려주셔서 감사합니다."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
@@ -2622,11 +2615,11 @@ msgstr "좋아하는 확장 기능과 테마를 추적하려면 Firefox 모음�
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Mozilla에 피드백을 제출하거나 컬렉션을 신고하세요."
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "%(authorName)s 제작"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
@@ -2634,11 +2627,11 @@ msgstr "이 모음집을 Mozilla에 신고"
 
 #: src/amo/pages/CollectionFeedback/index.js:172
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "컬렉션에 대한 피드백을 보내주세요."
 
 #: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "불법이거나 규정을 준수하지 않는 컬렉션을 신고하세요."
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2790,7 +2783,7 @@ msgstr "사전"
 
 #: src/amo/pages/RatingFeedback/index.js:125
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Mozilla에 피드백을 제출하거나 리뷰를 신고하세요."
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
@@ -2802,7 +2795,7 @@ msgstr "이 리뷰를 Mozilla에 신고"
 
 #: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "불법이거나 규정에 어긋나는 리뷰를 신고하세요."
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2840,7 +2833,7 @@ msgstr "Firefox 부가 기능 정보"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr ""
+msgstr "사이트에 문제가 있으면 기꺼이 해결해 드리겠습니다. 가능한 한 자세한 내용을 포함하여 %(startIssueLink)s이슈%(endIssueLink)s를 제출하세요."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -2851,6 +2844,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"이 사이트에서 호스팅하고 있지 않더라도 확장 기능의 보안 취약성을 보고하려면 Bugzilla에 %(startSecIssueLink)s이슈%(endSecIssueLink)s를 제출하거나 %(startMailLink)samo-admins@mozilla.com%(endMailLink)s으로 이메일을 보내주세요. 모든 보안 취약성 보고서는 "
+"%(startLink)s기밀%(endLink)s입니다."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
@@ -2864,13 +2859,13 @@ msgstr "Firefox의 부가 기능 관리에 대해 더 알고 싶거나, Firefox�
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sMozilla 부가 기능 팀에 연락하는 방법에 대한 정보는 여기에서 확인할 수 있습니다%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
-msgstr ""
+msgstr "Addons.mozilla.org(AMO)는 Firefox 브라우저용 부가 기능을 검색하고 설치하기 위한 Mozilla의 공식 사이트입니다. 부가 기능은 Firefox에 새로운 기능을 추가하고, 웹 콘텐츠와의 상호 작용을 향상시키고, 브라우저 디자인을 변경하여 탐색 환경을 수정하고 개인화하는 데 도움이 됩니다."
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
