@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-21 23:50+0000\n"
+"PO-Revision-Date: 2024-09-22 00:03+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -977,305 +977,305 @@ msgstr "작동하지 않거나, 웹사이트가 중단되거나, Firefox 속도�
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
-msgstr ""
+msgstr "예: 기능이 느리거나, 사용하기 어렵거나, 웹사이트의 일부가 로드되지 않거나 이상하게 보입니다."
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It’s spam"
-msgstr ""
+msgstr "스팸입니다."
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: The listing advertises unrelated products or services."
-msgstr ""
+msgstr "예: 관련 없는 제품이나 서비스를 광고합니다."
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "It violates Add-on Policies"
-msgstr ""
+msgstr "부가 기능 규정에 어긋납니다."
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr ""
+msgstr "예: 나에게 알리거나 묻지 않고 내 데이터를 손상시켰거나, 내 검색 엔진이나 홈페이지를 변경했습니다."
 
 #: src/amo/components/FeedbackForm/index.js:129
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
-msgstr ""
+msgstr "혐오, 폭력, 사실에 대한 오도 또는 기타 부적절한 콘텐츠가 포함되어 있습니다."
 
 #: src/amo/components/FeedbackForm/index.js:131
 msgid "Example: It contains racist imagery."
-msgstr ""
+msgstr "예: 인종 차별적인 이미지가 포함되어 있습니다."
 
 #: src/amo/components/FeedbackForm/index.js:135
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "법을 위반하거나, 법을 위반하는 내용을 포함하고 있습니다."
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid ""
 "Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
-msgstr ""
+msgstr "예: 사기. (저작권 또는 상표권 침해를 신고하려는 경우 %(startLink)s저작권 또는 상표권 침해 신고 문서%(endLink)s에서 자세한 방법을 알아볼 수 있습니다)."
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
-msgstr ""
+msgstr "그 밖의 다른 것"
 
 #: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "다른 범주에 맞지 않는 것입니다."
 
 #: src/amo/components/FeedbackForm/index.js:164
 msgid "Select place"
-msgstr ""
+msgstr "장소 선택"
 
 #: src/amo/components/FeedbackForm/index.js:166
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "이 웹사이트의 추가 기능 페이지에서"
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
-msgstr ""
+msgstr "부가기능 내부"
 
 #: src/amo/components/FeedbackForm/index.js:170
 msgid "Both locations"
-msgstr ""
+msgstr "두 위치 모두"
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "타입 선택"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
-msgstr ""
+msgstr "동물 복지"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
-msgstr ""
+msgstr "고객 정보 침해"
 
 #: src/amo/components/FeedbackForm/index.js:192
 msgid "Data protection and privacy violations"
-msgstr ""
+msgstr "데이터 보호 및 개인정보 침해"
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
-msgstr ""
+msgstr "불법적이거나 유해한 발언"
 
 #: src/amo/components/FeedbackForm/index.js:200
 msgid "Intellectual property infringements"
-msgstr ""
+msgstr "지적재산권 침해"
 
 #: src/amo/components/FeedbackForm/index.js:204
 msgid "Negative effects on civic discourse or elections"
-msgstr ""
+msgstr "시민 담론이나 선거에 대한 부정적 영향"
 
 #: src/amo/components/FeedbackForm/index.js:210
 msgid "Non-consensual behavior"
-msgstr ""
+msgstr "합의되지 않은 행동"
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
-msgstr ""
+msgstr "포르노 또는 성적인 콘텐츠"
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
-msgstr ""
+msgstr "미성년자 보호"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
-msgstr ""
+msgstr "공공 보안에 대한 위험"
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
-msgstr ""
+msgstr "스캠 또는 사기"
 
 #: src/amo/components/FeedbackForm/index.js:225
 msgid "Self-harm"
-msgstr ""
+msgstr "자해"
 
 #: src/amo/components/FeedbackForm/index.js:228
 msgid "Unsafe, non-compliant, or prohibited products"
-msgstr ""
+msgstr "안전하지 않거나 규정을 준수하지 않음, 금지된 제품"
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
-msgstr ""
+msgstr "폭행"
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "그 외"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "위반 선택"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
-msgstr ""
+msgstr "거래자에 대한 정보가 부족함"
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "가격 규정 위반"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
-msgstr ""
+msgstr "인플루언서를 포함한 숨겨진 광고 또는 상업적 커뮤니케이션"
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
-msgstr ""
+msgstr "상품 및 서비스의 특성에 대해 오해를 불러일으키는 정보를 제공하는 행위"
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "고객의 권리에 대해 오해를 불러일으키는 정보"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
-msgstr ""
+msgstr "생체정보 침해"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "데이터 처리에 대한 근거가 누락됨"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr ""
+msgstr "잊혀질 권리"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
-msgstr ""
+msgstr "데이터 위조"
 
 #: src/amo/components/FeedbackForm/index.js:301
 msgid "Defamation"
-msgstr ""
+msgstr "중상"
 
 #: src/amo/components/FeedbackForm/index.js:302
 msgid "Discrimination"
-msgstr ""
+msgstr "차별"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
-msgstr ""
+msgstr "보호받는 특성을 바탕으로 하여 폭력과 증오를 불법 선동하는 행위(혐오표현)"
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
-msgstr ""
+msgstr "디자인 침해"
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
-msgstr ""
+msgstr "지리적 표시 침해"
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "특허 침해"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "영업비밀 침해"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "시민 담론 혹은 선거와 관련된 EU 법률 위반"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "시민 담론 혹은 선거와 관련된 국가법 위반"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "잘못된 정보, 허위 정보, 외국 정보 조작 및 간섭"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
-msgstr ""
+msgstr "동의 없는 이미지 공유"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "제3자의 기능을 사용한 딥페이크 또는 유사한 기술이 포함된 합의되지 않은 항목"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "사이버 폭력/협박"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "스토킹"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
-msgstr ""
+msgstr "성인용 성적 매체"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "이미지 기반 성적 학대(미성년자를 묘사하는 콘텐츠 제외)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
-msgstr ""
+msgstr "미성년자를 위한 연령 제한"
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
-msgstr ""
+msgstr "아동 성적 학대 자료"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
-msgstr ""
+msgstr "미성년자의 그루밍/성적 유혹"
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
-msgstr ""
+msgstr "불법 조직"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr ""
+msgstr "환경 훼손 위험"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "공중 보건에 대한 위험"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
-msgstr ""
+msgstr "테러리스트 콘텐츠"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "허위 계정"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
-msgstr ""
+msgstr "허위 목록"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "허위 사용자 리뷰"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
-msgstr ""
+msgstr "명의 도용 또는 계정 도용"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "피싱"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "다단계"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "섭식 장애를 조장하는 콘텐츠"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "자해"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "자살"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "금지되거나 제한된 제품"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "안전하지 않거나 규정을 준수하지 않는 제품"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
@@ -1283,67 +1283,67 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "젠더 기반 폭력"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "인간 착취"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "인신매매"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "폭력이나 증오를 조장하거나 선동하는 행위"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
-msgstr ""
+msgstr "보고서 제출됨"
 
 #: src/amo/components/FeedbackForm/index.js:673
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "신고가 접수되었습니다. 알려주셔서 감사합니다."
 
 #: src/amo/components/FeedbackForm/index.js:768
 msgid "Submitting your report…"
-msgstr ""
+msgstr "보고서 제출 중…"
 
 #: src/amo/components/FeedbackForm/index.js:769
 msgid "Submit report"
-msgstr ""
+msgstr "보고서 제출"
 
 #: src/amo/components/FeedbackForm/index.js:788
 msgid "Provide more information"
-msgstr ""
+msgstr "추가 정보 제공"
 
 #: src/amo/components/FeedbackForm/index.js:796
 msgid "Place of the violation"
-msgstr ""
+msgstr "위반 장소"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "불법 콘텐츠 유형"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "특정 위반"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
-msgstr ""
+msgstr "상세 내용을 입력하세요."
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "귀하의 신고 내용을 이해하는 데 도움이 될 수 있는 추가 정보(위반되었다고 생각하는 정책 포함)를 제공해 주세요."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
-msgstr ""
+msgstr "연락처 정보"
 
 #: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
-msgstr ""
+msgstr "익명으로 신고하기"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
@@ -1351,23 +1351,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "이름 %(spanStart)s(선택 사항)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:930
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "이름 %(spanStart)s(필수 사항)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "이메일 주소 %(spanStart)s(선택 사항)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:970
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "이메일 주소 %(spanStart)s(필수 사항)%(spanEnd)s"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "불법이거나 AMO의 콘텐츠 정책을 위반하는 콘텐츠"
 
 #: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flagged"
@@ -1387,7 +1387,7 @@ msgstr "이 리뷰에 플래그 지정하기"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "스팸"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
@@ -1395,7 +1395,7 @@ msgstr "스팸으로 플래그 지정됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
 msgid "Login required"
-msgstr ""
+msgstr "로그인 필요"
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
@@ -1480,7 +1480,7 @@ msgstr "개발자 허브"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "이 부가 기능을 사용하시려면, Firefox를%(downloadLinkStart)s다운로드%(downloadLinkEnd)s하세요."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
@@ -1690,7 +1690,7 @@ msgstr "클립보드에 데이터 넣기"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Block content on any page"
-msgstr ""
+msgstr "모든 페이지의 콘텐츠 차단"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Read your browsing history"
