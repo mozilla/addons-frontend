@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-06 12:00+0000\n"
-"PO-Revision-Date: 2024-09-22 00:10+0000\n"
+"PO-Revision-Date: 2024-09-22 00:14+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2900,6 +2900,8 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"이 웹사이트를 개선하는 데 도움을 주세요. 이 웹사이트는 오픈 소스이며 버그를 신고하고 패치를 제출할 수 있습니다. Github에서 %(startGoodFirstBugLink)s좋은 첫번째 버그%(endGoodFirstBugLink)s로 시작하거나 AMO의 "
+"%(startAddonsServerRepoLink)ss서버%(endAddonsServerRepoLink)s 및 %(startAddonsFrontendRepoLink)s프론트 엔드%(endAddonsFrontendRepoLink)s에 대한 모든 열린 이슈를 볼 수 있습니다."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
@@ -3037,11 +3039,11 @@ msgstr "부가 기능 제작자를 폄하하거나 개인적으로 모욕을 주
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "%(tag)s 태그가 있는 부가 기능"
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Mozilla에 피드백을 제출하거나 사용자를 신고하세요."
 
 #: src/amo/pages/UserFeedback/index.js:143 src/amo/pages/UserProfile/index.js:381
 msgid "User since"
@@ -3053,11 +3055,11 @@ msgstr "이 사용자를 Mozilla에 신고"
 
 #: src/amo/pages/UserFeedback/index.js:155
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "사용자 프로필에 대한 피드백을 보내세요."
 
 #: src/amo/pages/UserFeedback/index.js:158
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "불법이거나 규정을 준수하지 않는 사용자 프로필을 신고하세요."
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
