@@ -324,36 +324,24 @@ export const GET_FIREFOX_BANNER_UTM_CONTENT = 'banner-download-button';
 // Promoted categories
 export const LINE = 'line';
 export const RECOMMENDED = 'recommended';
-export const SPONSORED = 'sponsored';
 export const SPOTLIGHT = 'spotlight';
 export const STRATEGIC = 'strategic';
-export const VERIFIED = 'verified';
 
 export const ALL_PROMOTED_CATEGORIES = [
   LINE,
   RECOMMENDED,
-  SPONSORED,
   SPOTLIGHT,
   STRATEGIC,
-  VERIFIED,
 ];
-export const BADGE_CATEGORIES = [LINE, RECOMMENDED, VERIFIED];
-export const EXCLUDE_WARNING_CATEGORIES = [
-  LINE,
-  RECOMMENDED,
-  SPONSORED,
-  SPOTLIGHT,
-  VERIFIED,
-];
+export const BADGE_CATEGORIES = [LINE, RECOMMENDED];
+export const EXCLUDE_WARNING_CATEGORIES = [LINE, RECOMMENDED, SPOTLIGHT];
 export const REVIEWED_FILTER = 'badged';
 
 export type PromotedCategoryType =
   | typeof LINE
   | typeof RECOMMENDED
-  | typeof SPONSORED
   | typeof SPOTLIGHT
-  | typeof STRATEGIC
-  | typeof VERIFIED;
+  | typeof STRATEGIC;
 
 export const APP_NAME = 'amo';
 export const WEBPACK_ENTRYPOINT = APP_NAME;

@@ -36,9 +36,7 @@ import {
   LANDING_PAGE_THEME_COUNT,
   LINE,
   RECOMMENDED,
-  SPONSORED,
   VIEW_CONTEXT_HOME,
-  VERIFIED,
 } from 'amo/constants';
 import {
   FETCH_HOME_DATA,
@@ -652,9 +650,7 @@ describe(__filename, () => {
       it.each([
         [LINE, 'BY FIREFOX'],
         [RECOMMENDED, 'RECOMMENDED'],
-        [SPONSORED, 'SPONSORED'],
-        [VERIFIED, 'SPONSORED'],
-        ['unknown category', 'SPONSORED'],
+        ['unknown category', 'PROMOTED'],
       ])('displays the expected title for %s add-ons', (category, title) => {
         renderWithHomeData({
           primaryProps: {
@@ -667,24 +663,21 @@ describe(__filename, () => {
         );
       });
 
-      it.each([SPONSORED, VERIFIED, 'unknown category'])(
-        'displays an additional link for %s add-ons',
-        (category) => {
-          renderWithHomeData({
-            primaryProps: {
-              addon: addonForPromotedCategory(category),
-            },
-          });
+      it('displays an additional link for %s add-ons', () => {
+        renderWithHomeData({
+          primaryProps: {
+            addon: addonForPromotedCategory('unknown category'),
+          },
+        });
 
-          expect(
-            screen.getByRole('link', {
-              name:
-                `Firefox only recommends extensions that meet our ` +
-                `standards for security and performance.`,
-            }),
-          ).toBeInTheDocument();
-        },
-      );
+        expect(
+          screen.getByRole('link', {
+            name:
+              `Firefox only recommends extensions that meet our ` +
+              `standards for security and performance.`,
+          }),
+        ).toBeInTheDocument();
+      });
 
       it('does not display an additional link when loading', () => {
         render();

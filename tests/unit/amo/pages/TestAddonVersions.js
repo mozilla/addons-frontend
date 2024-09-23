@@ -19,8 +19,8 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   INSTALLING,
+  RECOMMENDED,
   STRATEGIC,
-  VERIFIED,
 } from 'amo/constants';
 import { extractId } from 'amo/pages/AddonVersions';
 import { formatFilesize } from 'amo/i18n/utils';
@@ -1050,7 +1050,7 @@ describe(__filename, () => {
           addon: {
             ...fakeAddon,
             slug: defaultSlug,
-            promoted: { category: VERIFIED, apps: [CLIENT_APP_FIREFOX] },
+            promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
           },
         });
 
