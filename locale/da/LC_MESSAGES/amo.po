@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-24 17:32+0000\n"
-"PO-Revision-Date: 2024-09-24 17:58+0000\n"
+"PO-Revision-Date: 2024-09-24 18:07+0000\n"
 "Last-Translator: Joergen <joradan0@gmail.com>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1400,7 +1400,7 @@ msgstr "Rapportér denne anmeldelse"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
@@ -2178,39 +2178,39 @@ msgstr "Alle tjekkede"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "Sort"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "Grå"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "Hvid"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "Rød"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "Gul"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "Grøn"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "Cyan"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "Blå"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -2226,11 +2226,11 @@ msgstr "Tilføjelses-type"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
-msgstr ""
+msgstr "Temafarve"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
-msgstr ""
+msgstr "Ryd"
 
 #: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
@@ -2306,7 +2306,7 @@ msgstr "<span class=\"visually-hidden\">Udvid</span> for at læse mere"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "Logget ind som %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2368,7 +2368,7 @@ msgstr "Svar fra udvikleren"
 
 #: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "Spar 50% med et årsabonnement"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
@@ -2380,7 +2380,7 @@ msgstr "Hent Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "For at finde udvidelser, der er kompatible med Firefox til Android, %(linkStart)sklik her%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
@@ -2534,7 +2534,7 @@ msgstr "Du bør altid bruge den seneste version af en tilføjelse."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Versions"
-msgstr ""
+msgstr "Versioner"
 
 #: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
@@ -2658,7 +2658,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "af %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
@@ -2826,7 +2826,7 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "af %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
