@@ -22,28 +22,24 @@ describe(__filename, () => {
     expect(root).toHaveClass(className);
   });
 
-  it.each(['recommended', 'verified'])(
-    'adds the expected classes for category="%s"',
-    (category) => {
-      render({ category });
+  it('adds the expected classes for category="%s"', () => {
+    const category = 'recommended';
+    render({ category });
 
-      expect(screen.getByTagName('circle')).toHaveClass(
-        `IconPromotedBadge-circle-bgColor--${category}`,
-      );
-      expect(screen.getByTagName('path')).toHaveClass(
-        `IconPromotedBadge-iconPath--${category}`,
-      );
-    },
-  );
+    expect(screen.getByTagName('circle')).toHaveClass(
+      `IconPromotedBadge-circle-bgColor--${category}`,
+    );
+    expect(screen.getByTagName('path')).toHaveClass(
+      `IconPromotedBadge-iconPath--${category}`,
+    );
+  });
 
-  it.each(['recommended', 'verified'])(
-    'uses the expected path for category="%s"',
-    (category) => {
-      render({ category });
+  it('uses the expected path for category="%s"', () => {
+    const category = 'recommended';
+    render({ category });
 
-      expect(screen.getByTagName('path')).toHaveAttribute('d', paths[category]);
-    },
-  );
+    expect(screen.getByTagName('path')).toHaveAttribute('d', paths[category]);
+  });
 
   it('adds a custom class', () => {
     const className = 'MyCoolBadge';
@@ -55,7 +51,6 @@ describe(__filename, () => {
   it.each([
     ['line', 'By Firefox'],
     ['recommended', 'Recommended'],
-    ['verified', 'Verified'],
   ])(
     'adds an alt property for category="%s" when showAlt is true',
     (category, alt) => {
@@ -73,14 +68,11 @@ describe(__filename, () => {
     expect(screen.queryByClassName('visually-hidden')).not.toBeInTheDocument();
   });
 
-  it.each(['recommended', 'verified'])(
-    'sets the icon with category="%s" to inline content',
-    (category) => {
-      const { root } = render({ category });
+  it('sets the icon with category="recommended" to inline content', () => {
+    const { root } = render({ category: 'recommended' });
 
-      expect(root).toHaveClass('Icon-inline-content');
-    },
-  );
+    expect(root).toHaveClass('Icon-inline-content');
+  });
 
   it('does not use inline-content but a real icon (image) for the category="line"', () => {
     const { root } = render({ category: 'line' });

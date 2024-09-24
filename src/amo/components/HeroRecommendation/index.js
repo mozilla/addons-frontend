@@ -233,7 +233,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
           titleText = i18n.gettext('BY FIREFOX');
         } else {
-          titleText = i18n.gettext('SPONSORED');
+          titleText = i18n.gettext('PROMOTED');
         }
       }
 

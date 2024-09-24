@@ -9,10 +9,8 @@ import {
   INSTALL_FAILED,
   OS_ALL,
   RECOMMENDED,
-  SPONSORED,
   SPOTLIGHT,
   STRATEGIC,
-  VERIFIED,
 } from 'amo/constants';
 import {
   createFakeAutocompleteResult,
@@ -269,21 +267,6 @@ describe(__filename, () => {
           ).toEqual(null);
         },
       );
-
-      it('returns VERIFIED if the category is SPONSORED', () => {
-        const addon = createInternalAddonWithLang({
-          ...fakeAddon,
-          promoted: { category: SPONSORED, apps: [CLIENT_APP_ANDROID] },
-        });
-
-        expect(
-          getPromotedCategory({
-            addon,
-            clientApp: CLIENT_APP_ANDROID,
-            forBadging: true,
-          }),
-        ).toEqual(VERIFIED);
-      });
     });
   });
 });

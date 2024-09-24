@@ -29,16 +29,11 @@ $icon-promoted-small-size: 16px;
   fill: $orange-50;
 }
 
-.IconPromotedBadge-circle-bgColor--verified {
-  fill: $green-70;
-}
-
 .IconPromotedBadge-iconPath {
   transform-origin: 50% 50%;
 }
 
-.IconPromotedBadge-iconPath--recommended,
-.IconPromotedBadge-iconPath--verified {
+.IconPromotedBadge-iconPath--recommended {
   fill: $white;
 }
 
@@ -60,11 +55,6 @@ $icon-promoted-small-size: 16px;
     // Nudge the trophy into the center of the circle.
     transform: translate(2px, 2.5px) scale(1.1);
   }
-
-  .IconPromotedBadge-iconPath--verified {
-    // Nudge the checkmark into the center of the circle.
-    transform: translate(4px, 4px) scale(1.1);
-  }
 }
 
 .IconPromotedBadge-small {
@@ -76,11 +66,6 @@ $icon-promoted-small-size: 16px;
   .IconPromotedBadge-iconPath--recommended {
     // Nudge the trophy into the center of the circle.
     transform: translate(-1.5px, -1.5px) scale(0.8);
-  }
-
-  .IconPromotedBadge-iconPath--verified {
-    // Nudge the checkmark into the center of the circle.
-    transform: translate(-0.5px, 0) scale(0.8);
   }
 
   &.Icon-line {

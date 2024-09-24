@@ -31,10 +31,6 @@
   color: $orange-50;
 }
 
-.PromotedBadge--verified {
-  color: $green-70;
-}
-
 .PromotedBadge-link {
   align-items: center;
   border-radius: 20px;
@@ -102,29 +98,6 @@
   }
 }
 
-.PromotedBadge-link--verified {
-  border: 1px solid $green-70;
-
-  @include border-start(0);
-
-  &,
-  &:link,
-  &:visited {
-    color: $green-70;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
-    border-color: $green-80;
-    color: $green-80;
-
-    .IconPromotedBadge-circle-bgColor--verified {
-      fill: $green-80;
-    }
-  }
-}
-
 .PromotedBadge-label {
   @include margin-start(6px);
   @include margin-end(8px);
@@ -136,8 +109,4 @@
 
 .PromotedBadge-label--recommended {
   color: $orange-80;
-}
-
-.PromotedBadge-label--verified {
-  color: $green-80;
 }

@@ -10,8 +10,6 @@ import {
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
-  SPONSORED,
-  VERIFIED,
 } from 'amo/constants';
 import log from 'amo/logger';
 import { getPreviewImage } from 'amo/imageUtils';
@@ -129,16 +127,8 @@ export const getPromotedCategory = ({
   }
 
   // Special logic if we're using the category for badging.
-  if (forBadging) {
-    // SPONSORED is badged as VERIFIED.
-    if (category === SPONSORED) {
-      category = VERIFIED;
-    }
-
-    // We only have badges for certain categories.
-    if (!BADGE_CATEGORIES.includes(category)) {
-      category = null;
-    }
+  if (forBadging && !BADGE_CATEGORIES.includes(category)) {
+    category = null;
   }
 
   return category;

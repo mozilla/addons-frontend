@@ -44,18 +44,11 @@ export const PromotedBadgeBase = ({
       );
       break;
 
-    case 'recommended':
+    // This is the recommended badge
+    default:
       label = i18n.gettext('Recommended');
       linkTitle = i18n.gettext(
         'Firefox only recommends add-ons that meet our standards for security and performance.',
-      );
-      break;
-
-    // This is the verified badge.
-    default:
-      label = i18n.gettext('Verified');
-      linkTitle = i18n.gettext(
-        'This add-on has been reviewed to meet our standards for security and performance.',
       );
       break;
   }

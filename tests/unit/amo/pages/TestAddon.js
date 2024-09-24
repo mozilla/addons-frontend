@@ -2930,11 +2930,6 @@ describe(__filename, () => {
         'Firefox only recommends add-ons that meet our standards for security and performance.',
         'Recommended',
       ],
-      [
-        'verified',
-        'This add-on has been reviewed to meet our standards for security and performance.',
-        'Verified',
-      ],
     ])(
       'renders the category "%s" as expected',
       (category, linkTitle, label) => {
