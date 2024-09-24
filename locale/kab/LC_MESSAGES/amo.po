@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2024-08-21 09:35+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
@@ -1743,10 +1743,9 @@ msgstr "YELHA"
 msgid "BY FIREFOX"
 msgstr "S FIREFOX"
 
-# If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
-msgstr "S LMENDAD"
+msgid "PROMOTED"
+msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
@@ -1772,22 +1771,17 @@ msgstr "Kcem ɣer yisefka-ik n i yismal di %(param)s n taɣult"
 msgid "Access your data for %(param)s"
 msgstr "Kcem ɣer isefka-ik i %(param)s"
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "S Firefox"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "Yelha"
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "Ittwasenqed"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1944,21 +1938,13 @@ msgstr ""
 "Azegrir unṣib i tebna Mozila Firefox. Itteddu d yilugan n tɣellist d "
 "temlellit."
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
 "Firefox ittwelleh ala  ɣer yizegrae yemṣadan d yilugan-nneɣ icudden ɣer "
 "tɣellist akked timellit."
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-"Azegrir-a yettusenqed akken ara yemṣada d yilugan-nneɣ icudden ɣer tɣellist "
-"akked timellit."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -3871,27 +3857,27 @@ msgstr "%(application)s %(minVersion)s ɣer %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Iteddu d %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Asbeddi yefsex, acku azegrir yettban yexṣer."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr "Asebded ur yeddi ara. Ma ulac aqilif, ɛreḍ tikelt nniḍen."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr "Asader yecceḍ. Ma ulac aɣilif wali tuqqna-ik."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 msgid "An unexpected error occurred during installation."
 msgstr "Teḍra-d tuccḍa tarussint deg usbeddi."
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Teḍra-d tuccḍa tarussint deg tukksa n usbeddi."
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 msgid "An unexpected error occurred."
 msgstr "Teḍra-d tuccḍa."
 
@@ -3930,6 +3916,20 @@ msgstr "amṣada n uzegrir-inu ur yettwalqem ara"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "amṣda n uzegrir-inu yettwalqem akken iwata"
+
+# If uppercase does not work in your locale,
+#~ msgid "SPONSORED"
+#~ msgstr "S LMENDAD"
+
+#~ msgid "Verified"
+#~ msgstr "Ittwasenqed"
+
+#~ msgid ""
+#~ "This add-on has been reviewed to meet our standards for security and "
+#~ "performance."
+#~ msgstr ""
+#~ "Azegrir-a yettusenqed akken ara yemṣada d yilugan-nneɣ icudden ɣer "
+#~ "tɣellist akked timellit."
 
 #~ msgid "Verified extensions"
 #~ msgstr "Isiɣzaf yettusneqden"

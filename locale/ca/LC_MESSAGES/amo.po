@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2024-06-29 20:14+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -1785,10 +1785,9 @@ msgstr "RECOMANACIONS"
 msgid "BY FIREFOX"
 msgstr "DEL FIREFOX"
 
-# If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
-msgstr "PATROCINAT"
+msgid "PROMOTED"
+msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
@@ -1815,22 +1814,17 @@ msgstr "Accedir a les dades web del domini %(param)s"
 msgid "Access your data for %(param)s"
 msgstr "Accediu a les dades de %(param)s"
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Del Firefox"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "Recomanat"
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "Verificat"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1989,21 +1983,13 @@ msgstr ""
 "Complement oficial creat per Mozilla Firefox. Compleix els estàndards de "
 "seguretat i rendiment."
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
 "El Firefox només recomana complements que compleixen els estàndards de "
 "seguretat i de rendiment."
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-"Aquest complement s'ha revisat i compleix els nostres estàndards de "
-"seguretat i rendiment."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -3957,28 +3943,28 @@ msgstr "%(application)s %(minVersion)s a %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Funciona amb %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr ""
 "La instal·lació s'ha cancel·lat perquè sembla que el complement està malmès."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr "La instal·lació ha fallat. Torneu a provar."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr "Ha fallat la descàrrega. Comproveu la vostra connexió."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 msgid "An unexpected error occurred during installation."
 msgstr "S'ha produït un error inesperat durant la instal·lació."
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during uninstallation."
 msgstr "S'ha produït un error inesperat durant la desinstal·lació."
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 msgid "An unexpected error occurred."
 msgstr "S'ha produït un error inesperat."
 
@@ -4017,6 +4003,20 @@ msgstr "la compatibilitat del meu complement no es pot actualitzar"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "la compatibilitat del meu complement s'ha actualitzat correctament"
+
+# If uppercase does not work in your locale,
+#~ msgid "SPONSORED"
+#~ msgstr "PATROCINAT"
+
+#~ msgid "Verified"
+#~ msgstr "Verificat"
+
+#~ msgid ""
+#~ "This add-on has been reviewed to meet our standards for security and "
+#~ "performance."
+#~ msgstr ""
+#~ "Aquest complement s'ha revisat i compleix els nostres estàndards de "
+#~ "seguretat i rendiment."
 
 #~ msgid "Verified extensions"
 #~ msgstr "Extensions verificades"

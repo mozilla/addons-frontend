@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2022-05-20 12:28+0000\n"
 "Last-Translator: bipoza <bipoza@gmail.com>\n"
 "Language-Team: none\n"
@@ -1699,9 +1699,8 @@ msgstr ""
 msgid "BY FIREFOX"
 msgstr ""
 
-# If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
+msgid "PROMOTED"
 msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
@@ -1727,22 +1726,17 @@ msgstr ""
 msgid "Access your data for %(param)s"
 msgstr ""
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 #, fuzzy
 msgid "By Firefox"
 msgstr "Gehitu Firefoxera"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
-msgstr ""
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
 msgstr ""
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
@@ -1895,15 +1889,9 @@ msgid ""
 "standards."
 msgstr ""
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
-"performance."
-msgstr ""
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
 "performance."
 msgstr ""
 
@@ -3654,27 +3642,27 @@ msgstr ""
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr ""
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 msgid "An unexpected error occurred during installation."
 msgstr ""
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during uninstallation."
 msgstr ""
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 msgid "An unexpected error occurred."
 msgstr ""
 

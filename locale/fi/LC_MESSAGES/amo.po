@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2024-06-29 12:46+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
@@ -1759,10 +1759,9 @@ msgstr "SUOSITELTU"
 msgid "BY FIREFOX"
 msgstr "FIREFOXILTA"
 
-# If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
-msgstr "SPONSOROITU"
+msgid "PROMOTED"
+msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
@@ -1788,22 +1787,17 @@ msgstr "Pääsy tietoihisi sivustoilla, jotka ovat verkkotunnuksessa %(param)s"
 msgid "Access your data for %(param)s"
 msgstr "Pääsy tietoihisi sivustolla %(param)s"
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Firefoxilta"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "Suositeltu"
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "Vahvistettu"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1960,21 +1954,13 @@ msgstr ""
 "Virallinen lisäosa, jonka on toteuttanut Mozilla Firefox. Täyttää "
 "turvallisuus- ja suorituskykystandardit."
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
 "Firefox suosittelee vain sellaisia lisäosia, jotka täyttävät standardimme "
 "turvallisuuden ja suorituskyvyn suhteen."
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-"Tämä lisäosa on katselmoitu, ja se täyttää standardimme turvallisuuden ja "
-"suorituskyvyn suhteen."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -3921,27 +3907,27 @@ msgstr "%(application)s versiosta %(minVersion)s versioon %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Yhteensopivuus: %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Asennus päättyi, koska lisäosa vaikuttaa olevan rikkoutunut."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr "Asennus epäonnistui. Yritä uudelleen."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr "Lataus epäonnistui. Tarkista verkkoyhteytesi tila."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 msgid "An unexpected error occurred during installation."
 msgstr "Asennuksen aikana tapahtui odottamaton virhe."
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Poistamisen aikana tapahtui odottamaton virhe."
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 msgid "An unexpected error occurred."
 msgstr "Tapahtui odottamaton virhe."
 
@@ -3980,6 +3966,20 @@ msgstr "lisäosani yhteensopivuutta ei voida päivittää"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "lisäosani yhteensopivuus on päivitetty onnistuneesti"
+
+# If uppercase does not work in your locale,
+#~ msgid "SPONSORED"
+#~ msgstr "SPONSOROITU"
+
+#~ msgid "Verified"
+#~ msgstr "Vahvistettu"
+
+#~ msgid ""
+#~ "This add-on has been reviewed to meet our standards for security and "
+#~ "performance."
+#~ msgstr ""
+#~ "Tämä lisäosa on katselmoitu, ja se täyttää standardimme turvallisuuden ja "
+#~ "suorituskyvyn suhteen."
 
 #~ msgid "Verified extensions"
 #~ msgstr "Vahvistetut laajennukset"

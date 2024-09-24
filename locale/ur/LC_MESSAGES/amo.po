@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2022-05-22 12:45+0000\n"
 "Last-Translator: Shahbaz - محمد شہباز عالم <shahbazalam17feb@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1751,10 +1751,9 @@ msgstr "سفارش کردہ"
 msgid "BY FIREFOX"
 msgstr "FIREFOX کی جانب سے "
 
-# If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
-msgstr "سپانسرڈ"
+msgid "PROMOTED"
+msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
@@ -1779,22 +1778,17 @@ msgstr ""
 msgid "Access your data for %(param)s"
 msgstr ""
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Firefox کی  جانب سے"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "تجویز کردہ"
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "تصدیق شدہ"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1950,15 +1944,9 @@ msgid ""
 "standards."
 msgstr ""
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
-"performance."
-msgstr ""
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
 "performance."
 msgstr ""
 
@@ -3796,29 +3784,29 @@ msgstr ""
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr ""
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr "تنصیب کاری ناکام ہوگئی۔ براہ مہربانی پھر کوشش کریں۔"
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr "ڈائونلوڈ ناکام ہو گئی، براہ مہربانی اپنے کنکشن کی بڑتال کریں۔"
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 #, fuzzy
 msgid "An unexpected error occurred during installation."
 msgstr "ایک غیرمتوقع نقص پیش آگیا"
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 #, fuzzy
 msgid "An unexpected error occurred during uninstallation."
 msgstr "ایک غیرمتوقع نقص پیش آگیا"
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 #, fuzzy
 msgid "An unexpected error occurred."
 msgstr "ایک غیرمتوقع نقص پیش آگیا"
@@ -3857,6 +3845,13 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+# If uppercase does not work in your locale,
+#~ msgid "SPONSORED"
+#~ msgstr "سپانسرڈ"
+
+#~ msgid "Verified"
+#~ msgstr "تصدیق شدہ"
 
 #, fuzzy
 #~ msgid "Verified extensions"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2024-07-27 10:45+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1735,8 +1735,8 @@ msgid "BY FIREFOX"
 msgstr "ෆයර්ෆොක්ස් වෙතින්"
 
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
-msgstr "අනුග්‍රහය ලද"
+msgid "PROMOTED"
+msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
@@ -1760,22 +1760,17 @@ msgstr "%(param)s වසමෙහි අඩවි සඳහා ඔබගේ ද�
 msgid "Access your data for %(param)s"
 msgstr "%(param)s සඳහා ඔබගේ දත්ත වෙත ප්‍රවේශය"
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "ෆයර්ෆොක්ස් වෙතින්"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "නිර්දේශිත"
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "සත්‍යාපිතයි"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1929,17 +1924,11 @@ msgid ""
 "standards."
 msgstr "මොසිල්ලා ෆයර්ෆොක්ස් තනන ලද නිල එක්කහුවකි. ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලයි."
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr "අපගේ ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලන එක්කහු පමණක් ෆයර්ෆොක්ස් නිර්දේශ කරයි."
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr "මෙම එක්කහුව අපගේ ආරක්‍ෂණ සහ කාර්ය සාධන ප්‍රමිතීන් සපුරාලන්නේ දැයි සමාලෝචනය කර ඇත."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -3798,27 +3787,27 @@ msgstr "%(application)s %(minVersion)s සිට %(maxVersion)s දක්වා"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "%(listOfApplicatonsAndVersions)s සමඟ ක්‍රියා කරයි"
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "එක්කහුවට හානි වී ඇතැයි පෙනෙන නිසා ස්ථාපනය නතර විය."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr "ස්ථාපනයට අසමත් විය. යළි උත්සාහ කරන්න."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr "බාගැනීමට අසමත් විය. සම්බන්ධතාවය පරීක්‍ෂා කරන්න."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 msgid "An unexpected error occurred during installation."
 msgstr "ස්ථාපනය අතරතුර අනපේක්‍ෂිත දෝෂයක් සිදු විය."
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during uninstallation."
 msgstr "අස්ථාපනය අතරතුර අනපේක්‍ෂිත දෝෂයක් සිදු විය."
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 msgid "An unexpected error occurred."
 msgstr "අනපේක්‍ෂිත දෝෂයක් මතු විය."
 
@@ -3857,6 +3846,18 @@ msgstr "මාගේ එක්කහුවේ අනුකූලතාව උත
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "මාගේ එක්කහුවේ අනුකූලතාව සාර්ථකව උත්ශ්‍රේණි කෙරිණි"
+
+#~ msgid "SPONSORED"
+#~ msgstr "අනුග්‍රහය ලද"
+
+#~ msgid "Verified"
+#~ msgstr "සත්‍යාපිතයි"
+
+#~ msgid ""
+#~ "This add-on has been reviewed to meet our standards for security and "
+#~ "performance."
+#~ msgstr ""
+#~ "මෙම එක්කහුව අපගේ ආරක්‍ෂණ සහ කාර්ය සාධන ප්‍රමිතීන් සපුරාලන්නේ දැයි සමාලෝචනය කර ඇත."
 
 #~ msgid "Verified extensions"
 #~ msgstr "සත්‍යාපිත දිගු"

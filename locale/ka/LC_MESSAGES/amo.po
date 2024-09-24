@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2023-12-05 16:44+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1783,10 +1783,9 @@ msgstr "სასურველი"
 msgid "BY FIREFOX"
 msgstr "FIREFOX-ᲘᲡᲒᲐᲜ"
 
-# If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
-msgstr "ᲓᲐᲤᲘᲜᲐᲜᲡᲔᲑᲣᲚᲘ"
+msgid "PROMOTED"
+msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
@@ -1812,22 +1811,17 @@ msgstr "თქვენს მონაცემებთან წვდომ�
 msgid "Access your data for %(param)s"
 msgstr "თქვენს მონაცემებთან წვდომა %(param)s-ზე"
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "უზრუნველყოფს Firefox"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "სასურველი"
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "დამოწმებული"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1987,21 +1981,13 @@ msgstr ""
 "დამატება, რომელსაც თავად Mozilla Firefox ქმნის. სრულად აკმაყოფილებს "
 "უსაფრთხოებისა და წარმადობის მოთხოვნებს."
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
 "Firefox მხოლოდ იმ დამატებებს გირჩევთ, რომლებიც აკმაყოფილებს უსაფრთხოებისა და "
 "წარმადობის მაღალ მოთხოვნებს."
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-"მოცემული დამატება შემოწმებულია და აკმაყოფილებს უსაფრთხოებისა და წარმადობის "
-"სათანადო მოთხოვნებს."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -3972,27 +3958,27 @@ msgstr "%(application)s %(minVersion)s – %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "იმუშავებს ვერსიასთან %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "ჩადგმა შეჩერდა, ვინაიდან როგორც ჩანს, დამატება დაზიანებულია."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr "დაყენება ვერ მოხერხდა. სცადეთ ხელახლა."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr "ჩამოტვირთვა ვერ მოხერხდა. გთხოვთ შეამოწმოთ თქვენი კავშირი."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 msgid "An unexpected error occurred during installation."
 msgstr "მოულოდნელი შეცდომა წარმოიშვა დაყენებისას."
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during uninstallation."
 msgstr "მოულოდნელი შეცდომა წარმოიშვა ამოშლისას."
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 msgid "An unexpected error occurred."
 msgstr "მოულოდნელი შეცდომა წარმოიშვა."
 
@@ -4032,6 +4018,20 @@ msgstr "ჩემი დამატების თავსებადობ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ჩემი დამატების თავსებადობა განახლდა წარმატებით"
+
+# If uppercase does not work in your locale,
+#~ msgid "SPONSORED"
+#~ msgstr "ᲓᲐᲤᲘᲜᲐᲜᲡᲔᲑᲣᲚᲘ"
+
+#~ msgid "Verified"
+#~ msgstr "დამოწმებული"
+
+#~ msgid ""
+#~ "This add-on has been reviewed to meet our standards for security and "
+#~ "performance."
+#~ msgstr ""
+#~ "მოცემული დამატება შემოწმებულია და აკმაყოფილებს უსაფრთხოებისა და "
+#~ "წარმადობის სათანადო მოთხოვნებს."
 
 #~ msgid ""
 #~ "Please provide any additional information that may help us to understand "

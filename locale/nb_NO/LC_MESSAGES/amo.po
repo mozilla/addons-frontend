@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2024-06-21 05:58+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1777,10 +1777,9 @@ msgstr "ANBEFALT"
 msgid "BY FIREFOX"
 msgstr "AV FIREFOX"
 
-# If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
-msgstr "SPONSET"
+msgid "PROMOTED"
+msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
@@ -1806,22 +1805,17 @@ msgstr "Få tilgang til din informasjon for nettsteder på domenet %(param)s"
 msgid "Access your data for %(param)s"
 msgstr "Få tilgang til dine data for %(param)s"
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Av Firefox"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "Anbefalt"
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "Bekreftet"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1978,20 +1972,12 @@ msgstr ""
 "Offisielt tillegg utviklet av Mozilla Firefox. Oppfyller sikkerhets- og "
 "ytelsesstandarder."
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
 "Firefox anbefaler bare tillegg som oppfyller våre standarder for sikkerhet "
-"og ytelse."
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-"Dette tillegget er gjennomgått for å oppfylle våre standarder for sikkerhet "
 "og ytelse."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
@@ -3940,27 +3926,27 @@ msgstr "%(application)s %(minVersion)s til %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Fungerer med %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Installasjonen ble avbrutt fordi tillegget ser ut til å være skadet."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr "Installasjon mislyktes. Prøv igjen."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr "Nedlastning mislyktes. Kontroller tilkoblingen din."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 msgid "An unexpected error occurred during installation."
 msgstr "Det oppstod en uventet feil under installasjonen."
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Det oppstod en uventet feil under avinstallasjonen."
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 msgid "An unexpected error occurred."
 msgstr "Det oppstod en uventet feil."
 
@@ -3999,6 +3985,20 @@ msgstr "mitt tilleggs kompatibilitet kan ikke oppgraderes"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "mitt tilleggs kompatibilitet har blitt oppgradert"
+
+# If uppercase does not work in your locale,
+#~ msgid "SPONSORED"
+#~ msgstr "SPONSET"
+
+#~ msgid "Verified"
+#~ msgstr "Bekreftet"
+
+#~ msgid ""
+#~ "This add-on has been reviewed to meet our standards for security and "
+#~ "performance."
+#~ msgstr ""
+#~ "Dette tillegget er gjennomgått for å oppfylle våre standarder for "
+#~ "sikkerhet og ytelse."
 
 #~ msgid ""
 #~ "Please provide any additional information that may help us to understand "

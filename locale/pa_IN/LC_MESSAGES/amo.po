@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2024-08-19 02:19+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1747,10 +1747,9 @@ msgstr "ਸਿਫਾਰਸ਼ੀ"
 msgid "BY FIREFOX"
 msgstr "FIREFOX ਦੁਆਰਾ"
 
-# If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
-msgstr "ਇਸ਼ਤਿਹਾਰ"
+msgid "PROMOTED"
+msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
@@ -1776,22 +1775,17 @@ msgstr "%(param)s ਦੇ ਡੋਮੇਨ ਵਿਚ ਸਾਈਟਾਂ ਲਈ ਆ
 msgid "Access your data for %(param)s"
 msgstr "%(param)s ਲਈ ਆਪਣਾ ਡੇਟਾ ਐਕਸੈਸ ਕਰੋ"
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Firefox ਵਲੋੰ"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "ਸਿਫ਼ਾਰਸ਼ੀ"
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "ਤਸਦੀਕ ਕੀਤਾ"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1947,20 +1941,13 @@ msgstr ""
 "Mozilla Firefox ਵਲੋਂ ਖੁਦ ਬਣਾਈ ਐਡ-ਆਨ ਹੈ।\n"
 "ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਦੇ ਮਿਆਰਾਂ ਉੱਤੇ ਖ਼ਰੀ ਉਤਰਦੀ ਹੈ।"
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
 "Firefox ਸਿਰਫ਼ ਉਹੀ ਐਡ-ਆਨ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ, ਜੋ ਸਾਡੇ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਮਿਆਰਾਂ ਉੱਤੇ "
 "ਪੂਰਾ ਉਤਰਦੀਆਂ ਹਨ।"
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-"ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰਾਂ ਉੱਤੇ ਖ਼ਰ੍ਹਾ ਉਤਰਨ ਲਈ ਇਸ ਐਡ-ਆਨ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ ਚੁੱਕੀ ਹੈ।"
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -3843,27 +3830,27 @@ msgstr "%(application)s %(minVersion)s ਤੋਂ %(maxVersion)s ਤੱਕ"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "%(listOfApplicatonsAndVersions)s ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ"
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ ਕੀਤੀ ਗਈ ਕਿਉਂਕਿ ਐਡ-ਆਨ ਭ੍ਰਿਸ਼ਟ ਜਾਪਦੀ ਹੈ।"
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ। ਮੁੜ ਕੋਸ਼ਿਸ ਕਰੋ ਜੀੀ।"
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr "ਡਾਊਨਲੋਡ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 msgid "An unexpected error occurred during installation."
 msgstr "ਇੰਸਟੌਲੇਸ਼ਨ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚਾਨਕ ਤਰੁੱਟੀ ਪੈਦਾ ਹੋਈ।"
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during uninstallation."
 msgstr "ਅਣ-ਇੰਸਟਾਲ ਹੋਣ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚਾਨਕ ਗਲਤੀ ਆਈ।"
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 msgid "An unexpected error occurred."
 msgstr "ਅਚਾਨਕ ਗਲਤੀ ਆਈ ਹੈ।"
 
@@ -3900,6 +3887,20 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਕਾਮਯਾਬੀ ਅੱਪਗਰੇਡ ਹੋਈ"
+
+# If uppercase does not work in your locale,
+#~ msgid "SPONSORED"
+#~ msgstr "ਇਸ਼ਤਿਹਾਰ"
+
+#~ msgid "Verified"
+#~ msgstr "ਤਸਦੀਕ ਕੀਤਾ"
+
+#~ msgid ""
+#~ "This add-on has been reviewed to meet our standards for security and "
+#~ "performance."
+#~ msgstr ""
+#~ "ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰਾਂ ਉੱਤੇ ਖ਼ਰ੍ਹਾ ਉਤਰਨ ਲਈ ਇਸ ਐਡ-ਆਨ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ "
+#~ "ਚੁੱਕੀ ਹੈ।"
 
 #~ msgid "Verified extensions"
 #~ msgstr "ਪ੍ਰਮਾਣਿਤ ਇਕਸਟੈਨਸ਼ਨਾਂ"

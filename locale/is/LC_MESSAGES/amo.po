@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-06 12:00+0000\n"
+"POT-Creation-Date: 2024-09-24 17:32+0000\n"
 "PO-Revision-Date: 2024-09-04 12:18+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1786,8 +1786,8 @@ msgid "BY FIREFOX"
 msgstr "FRÁ FIREFOX"
 
 #: src/amo/components/HeroRecommendation/index.js:236
-msgid "SPONSORED"
-msgstr "STYRKT"
+msgid "PROMOTED"
+msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid ""
@@ -1813,22 +1813,17 @@ msgstr "Fáðu aðgang að gögnunum þínum fyrir öll vefsvæði á %(param)s 
 msgid "Access your data for %(param)s"
 msgstr "Fáðu aðgang að gögnunum þínum á %(param)s"
 
-#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/IconPromotedBadge/index.js:41
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Af Firefox"
 
-#: src/amo/components/IconPromotedBadge/index.js:47
-#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "Mælt með"
-
-#: src/amo/components/IconPromotedBadge/index.js:48
-#: src/amo/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "Sannreynt"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1984,21 +1979,13 @@ msgstr ""
 "Opinber viðbót byggð af Mozilla Firefox. Stenst kröfur okkar varðandi öryggi "
 "og afköst."
 
-#: src/amo/components/PromotedBadge/index.js:49
+#: src/amo/components/PromotedBadge/index.js:50
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
 "Firefox mælir aðeins með viðbótum sem hafa verið yfirfarnar með tilliti til "
 "viðmiða okkar varðandi öryggi og afköst."
-
-#: src/amo/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-"Þessi viðbót hefur verið yfirfarin með tilliti til viðmiða okkar varðandi "
-"öryggi og afköst."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -3952,27 +3939,27 @@ msgstr "%(application)s %(minVersion)s til %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Virkar með %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:36
+#: src/amo/utils/addons.js:34
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Hætt við uppsetningu þar sem viðbótin virðist vera skemmd."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:38
 msgid "Installation failed. Please try again."
 msgstr "Uppsetning mistókst. Reyndu aftur."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:40
 msgid "Download failed. Please check your connection."
 msgstr "Niðurhal mistókst. Athugaðu nettenginguna þína."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:42
 msgid "An unexpected error occurred during installation."
 msgstr "Óvænt villa kom upp á meðan uppsetningu stóð."
 
-#: src/amo/utils/addons.js:46
+#: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Óvænt villa kom upp á meðan fjarlægingu stóð."
 
-#: src/amo/utils/addons.js:51
+#: src/amo/utils/addons.js:49
 msgid "An unexpected error occurred."
 msgstr "Upp kom óvænt villa."
 
@@ -4011,6 +3998,19 @@ msgstr "ekki er hægt að uppfæra samhæfni viðbótarinnar minnar"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "hægt er að uppfæra samhæfni viðbótarinnar minnar"
+
+#~ msgid "SPONSORED"
+#~ msgstr "STYRKT"
+
+#~ msgid "Verified"
+#~ msgstr "Sannreynt"
+
+#~ msgid ""
+#~ "This add-on has been reviewed to meet our standards for security and "
+#~ "performance."
+#~ msgstr ""
+#~ "Þessi viðbót hefur verið yfirfarin með tilliti til viðmiða okkar varðandi "
+#~ "öryggi og afköst."
 
 #~ msgid ""
 #~ "Please provide any additional information that may help us to understand "
