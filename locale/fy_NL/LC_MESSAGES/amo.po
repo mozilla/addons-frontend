@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-24 17:32+0000\n"
+"POT-Creation-Date: 2024-09-27 11:34+0000\n"
 "PO-Revision-Date: 2024-09-06 15:08+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
@@ -2818,39 +2818,39 @@ msgstr "Nijste ferzje"
 msgid "Older versions"
 msgstr "Aldere ferzjes"
 
-#: src/amo/pages/Block/index.js:102
+#: src/amo/pages/Block/index.js:103
 msgid "View block request"
 msgstr "Blokkearringsfersyk besjen"
 
-#: src/amo/pages/Block/index.js:119
+#: src/amo/pages/Block/index.js:120
 msgid "Versions blocked: all versions."
 msgstr "Blokkearre ferzjes: alle ferzjes."
 
-#: src/amo/pages/Block/index.js:124
+#: src/amo/pages/Block/index.js:125
 msgid "Versions blocked: %(versions)s."
 msgstr "Blokkearre ferzjes: %(versions)s."
 
-#: src/amo/pages/Block/index.js:145
+#: src/amo/pages/Block/index.js:146
 msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s is blokkearre foar jo beskerming."
 
-#: src/amo/pages/Block/index.js:150
+#: src/amo/pages/Block/index.js:151
 msgid "This add-on has been blocked for your protection."
 msgstr "Dizze add-on is blokkearre foar jo beskerming."
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:162
 msgid "Why was it blocked?"
 msgstr "Wêrom is dizze blokkearre?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:167
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
 msgstr "Dizze add-on skeint %(startLink)sMozilla’s add-onbelied%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:179
 msgid "What does this mean?"
 msgstr "Wat betsjut dit?"
 
-#: src/amo/pages/Block/index.js:180
+#: src/amo/pages/Block/index.js:181
 msgid ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
@@ -2858,7 +2858,7 @@ msgstr ""
 "De problematyske add-on of ynstekker wurdt automatysk útskeakele en kin net "
 "mear brûkt wurde."
 
-#: src/amo/pages/Block/index.js:187
+#: src/amo/pages/Block/index.js:188
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2874,7 +2874,7 @@ msgstr ""
 "blokkearre wurde. Lês foar mear ynformaasje %(supportStartLink)sdit stipe-"
 "artikel%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:93
+#: src/amo/pages/Block/index.js:94
 msgid "Blocked on %(date)s."
 msgstr "Blokkearre op %(date)s."
 

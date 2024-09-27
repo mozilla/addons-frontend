@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-24 17:32+0000\n"
+"POT-Creation-Date: 2024-09-27 11:34+0000\n"
 "PO-Revision-Date: 2024-09-07 18:31+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -2761,39 +2761,39 @@ msgstr "הגרסה העדכנית ביותר"
 msgid "Older versions"
 msgstr "גרסאות ישנות יותר"
 
-#: src/amo/pages/Block/index.js:102
+#: src/amo/pages/Block/index.js:103
 msgid "View block request"
 msgstr "הצגת בקשת חסימה"
 
-#: src/amo/pages/Block/index.js:119
+#: src/amo/pages/Block/index.js:120
 msgid "Versions blocked: all versions."
 msgstr "גרסאות חסומות: כל הגרסאות."
 
-#: src/amo/pages/Block/index.js:124
+#: src/amo/pages/Block/index.js:125
 msgid "Versions blocked: %(versions)s."
 msgstr "גרסאות חסומות: %(versions)s."
 
-#: src/amo/pages/Block/index.js:145
+#: src/amo/pages/Block/index.js:146
 msgid "%(addonName)s has been blocked for your protection."
 msgstr "התוספת %(addonName)s נחסמה כדי להגן עליך."
 
-#: src/amo/pages/Block/index.js:150
+#: src/amo/pages/Block/index.js:151
 msgid "This add-on has been blocked for your protection."
 msgstr "תוספת זו נחסמה כדי להגן עליך."
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:162
 msgid "Why was it blocked?"
 msgstr "למה היא נחסמה?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:167
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
 msgstr "תוספת זו מפרה את %(startLink)sמדיניות התוספות של Mozilla%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:179
 msgid "What does this mean?"
 msgstr "מה זה אומר?"
 
-#: src/amo/pages/Block/index.js:180
+#: src/amo/pages/Block/index.js:181
 msgid ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
@@ -2801,7 +2801,7 @@ msgstr ""
 "התוספת או התוסף החיצוני הבעייתים יושבתו באופן אוטומטי ולא יהיה ניתן להשתמש "
 "בהם."
 
-#: src/amo/pages/Block/index.js:187
+#: src/amo/pages/Block/index.js:188
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2816,7 +2816,7 @@ msgstr ""
 "להיחסם משימוש הכלל. למידע נוסף ניתן לקרוא את %(supportStartLink)sמאמר התמיכה "
 "הבא%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:93
+#: src/amo/pages/Block/index.js:94
 msgid "Blocked on %(date)s."
 msgstr "נחסם בתאריך %(date)s."
 

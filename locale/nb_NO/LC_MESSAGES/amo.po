@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-24 17:32+0000\n"
+"POT-Creation-Date: 2024-09-27 11:34+0000\n"
 "PO-Revision-Date: 2024-06-21 05:58+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2792,41 +2792,41 @@ msgstr "Siste versjon"
 msgid "Older versions"
 msgstr "Eldre versjoner"
 
-#: src/amo/pages/Block/index.js:102
+#: src/amo/pages/Block/index.js:103
 msgid "View block request"
 msgstr "Vis blokkeringsforespørsel"
 
-#: src/amo/pages/Block/index.js:119
+#: src/amo/pages/Block/index.js:120
 msgid "Versions blocked: all versions."
 msgstr "Versjoner blokkerte: alle versjoner."
 
-#: src/amo/pages/Block/index.js:124
+#: src/amo/pages/Block/index.js:125
 msgid "Versions blocked: %(versions)s."
 msgstr "Versjoner blokkerte: %(versions)s."
 
-#: src/amo/pages/Block/index.js:145
+#: src/amo/pages/Block/index.js:146
 msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s har blitt blokkert for å beskytte deg."
 
-#: src/amo/pages/Block/index.js:150
+#: src/amo/pages/Block/index.js:151
 msgid "This add-on has been blocked for your protection."
 msgstr "Dette tillegget er blokkert for å beskytte deg."
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:162
 msgid "Why was it blocked?"
 msgstr "Hvorfor ble den blokkert?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:167
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
 msgstr ""
 "Dette tillegget bryter med %(startLink)sMozilla sine retningslinjer for "
 "utvidelser%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:179
 msgid "What does this mean?"
 msgstr "Hva betyr dette?"
 
-#: src/amo/pages/Block/index.js:180
+#: src/amo/pages/Block/index.js:181
 msgid ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
@@ -2834,7 +2834,7 @@ msgstr ""
 "Den problematiske tillegget eller programtillegget vil automatisk slås av, "
 "og ikke lenger være brukbar."
 
-#: src/amo/pages/Block/index.js:187
+#: src/amo/pages/Block/index.js:188
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2850,7 +2850,7 @@ msgstr ""
 "For mer informasjon om dette, les %(supportStartLink)sdenne "
 "brukerstøtteartikkelen%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:93
+#: src/amo/pages/Block/index.js:94
 msgid "Blocked on %(date)s."
 msgstr "Blokkert den %(date)s."
 

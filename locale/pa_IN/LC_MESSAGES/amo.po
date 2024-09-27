@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-24 17:32+0000\n"
+"POT-Creation-Date: 2024-09-27 11:34+0000\n"
 "PO-Revision-Date: 2024-08-19 02:19+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2756,46 +2756,46 @@ msgstr "ਨਵਾਂ ਵਰਜ਼ਨ"
 msgid "Older versions"
 msgstr "ਪੁਰਾਣਾ ਵਰਜ਼ਨ"
 
-#: src/amo/pages/Block/index.js:102
+#: src/amo/pages/Block/index.js:103
 msgid "View block request"
 msgstr "ਪਾਬੰਦੀ ਬੇਨਤੀ ਵੇਖੋ"
 
-#: src/amo/pages/Block/index.js:119
+#: src/amo/pages/Block/index.js:120
 msgid "Versions blocked: all versions."
 msgstr "ਪਾਬੰਦੀ ਲਾਏ ਵਰਜ਼ਨ: ਸਾਰੇ ਵਰਜ਼ਨ।"
 
-#: src/amo/pages/Block/index.js:124
+#: src/amo/pages/Block/index.js:125
 msgid "Versions blocked: %(versions)s."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:145
+#: src/amo/pages/Block/index.js:146
 msgid "%(addonName)s has been blocked for your protection."
 msgstr "ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ %(addonName)s ਪਾਬੰਦੀ ਲਾਈ ਗਈ।"
 
-#: src/amo/pages/Block/index.js:150
+#: src/amo/pages/Block/index.js:151
 msgid "This add-on has been blocked for your protection."
 msgstr "ਇਹ ਐਡ-ਆਨ ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ ਰੋਕ ਦਿੱਤੀ ਗਈ ਹੈ।"
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:162
 msgid "Why was it blocked?"
 msgstr "ਇਸ ਤੇ ਪਾਬੰਦੀ ਕਿਉੰ ਲਾਈ ਗਈ ਸੀ?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:167
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
 msgstr ""
 "ਇਹ ਐਡ-ਆਨ %(startLink)sਮੋਜ਼ੀਲਾ ਦੀਆਂ ਐਡ-ਆਨ ਨੀਤੀਆਂ%(endLink)s ਦੀ ਉਲੰਘਣਾ ਕਰਦੀ ਹੈੋ।"
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:179
 msgid "What does this mean?"
 msgstr "ਇਸ ਦਾ ਕੀ ਮਤਲਬ ਹੈ?"
 
-#: src/amo/pages/Block/index.js:180
+#: src/amo/pages/Block/index.js:181
 msgid ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
 msgstr "ਸਮੱਸਿਆ ਵਾਲੇ ਐਡ-ਆਨ ਜਾਂ ਪਲੱਗਇਨ ਆਪਣੇ ਆਪ ਹੀ ਅਯੋਗ ਹੋ ਜਾਣਗੇ ਅਤੇ ਹੁਣ ਵਰਤਣਯੋਗ ਨਹੀਂ ਰਹਿਣਗੇ।"
 
-#: src/amo/pages/Block/index.js:187
+#: src/amo/pages/Block/index.js:188
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2810,7 +2810,7 @@ msgstr ""
 "ਨੂੰ ਆਮ ਵਰਤੋਂ ਤੋਂ ਰੋਕਿਆ ਜਾ ਸਕਦਾ ਹੈ। ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ %(supportStartLink)sਇਹ "
 "ਸਹਾਇਤਾ ਲੇਖ%(supportEndLink)s ਪੜ੍ਹੋ।"
 
-#: src/amo/pages/Block/index.js:93
+#: src/amo/pages/Block/index.js:94
 msgid "Blocked on %(date)s."
 msgstr "%(date)s ਨੂੰ ਬਲਾਕ ਕੀਤਾ।"
 

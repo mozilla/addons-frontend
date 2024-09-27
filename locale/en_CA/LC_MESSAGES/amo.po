@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-24 17:32+0000\n"
+"POT-Creation-Date: 2024-09-27 11:34+0000\n"
 "PO-Revision-Date: 2024-09-06 19:52+0000\n"
 "Last-Translator: chutten <chutten@mozilla.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2797,40 +2797,40 @@ msgstr "Latest version"
 msgid "Older versions"
 msgstr "Older versions"
 
-#: src/amo/pages/Block/index.js:102
+#: src/amo/pages/Block/index.js:103
 msgid "View block request"
 msgstr "View block request"
 
-#: src/amo/pages/Block/index.js:119
+#: src/amo/pages/Block/index.js:120
 msgid "Versions blocked: all versions."
 msgstr "Versions blocked: all versions."
 
-#: src/amo/pages/Block/index.js:124
+#: src/amo/pages/Block/index.js:125
 msgid "Versions blocked: %(versions)s."
 msgstr "Versions blocked: %(versions)s."
 
-#: src/amo/pages/Block/index.js:145
+#: src/amo/pages/Block/index.js:146
 msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s has been blocked for your protection."
 
-#: src/amo/pages/Block/index.js:150
+#: src/amo/pages/Block/index.js:151
 msgid "This add-on has been blocked for your protection."
 msgstr "This add-on has been blocked for your protection."
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:162
 msgid "Why was it blocked?"
 msgstr "Why was it blocked?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:167
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
 msgstr ""
 "This add-on violates %(startLink)sMozilla’s Add-on Policies%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:179
 msgid "What does this mean?"
 msgstr "What does this mean?"
 
-#: src/amo/pages/Block/index.js:180
+#: src/amo/pages/Block/index.js:181
 msgid ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
@@ -2838,7 +2838,7 @@ msgstr ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
 
-#: src/amo/pages/Block/index.js:187
+#: src/amo/pages/Block/index.js:188
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2854,7 +2854,7 @@ msgstr ""
 "For more information, please read %(supportStartLink)sthis support "
 "article%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:93
+#: src/amo/pages/Block/index.js:94
 msgid "Blocked on %(date)s."
 msgstr "Blocked on %(date)s."
 

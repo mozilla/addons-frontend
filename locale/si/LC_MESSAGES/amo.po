@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-24 17:32+0000\n"
+"POT-Creation-Date: 2024-09-27 11:34+0000\n"
 "PO-Revision-Date: 2024-07-27 10:45+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2728,45 +2728,45 @@ msgstr "නවතම අනුවාදය"
 msgid "Older versions"
 msgstr "පරණ අනුවාද"
 
-#: src/amo/pages/Block/index.js:102
+#: src/amo/pages/Block/index.js:103
 msgid "View block request"
 msgstr "අවහිර ඉල්ලීම බලන්න"
 
-#: src/amo/pages/Block/index.js:119
+#: src/amo/pages/Block/index.js:120
 msgid "Versions blocked: all versions."
 msgstr "අවහිර කළ අනුවාද: සියළුම අනුවාද."
 
-#: src/amo/pages/Block/index.js:124
+#: src/amo/pages/Block/index.js:125
 msgid "Versions blocked: %(versions)s."
 msgstr "අවහිර කළ අනුවාද : %(versions)s."
 
-#: src/amo/pages/Block/index.js:145
+#: src/amo/pages/Block/index.js:146
 msgid "%(addonName)s has been blocked for your protection."
 msgstr "ඔබගේ රැකවරණය සඳහා %(addonName)s අවහිර කර ඇත."
 
-#: src/amo/pages/Block/index.js:150
+#: src/amo/pages/Block/index.js:151
 msgid "This add-on has been blocked for your protection."
 msgstr "ඔබගේ රැකවරණය සඳහා මෙම එක්කහුව අවහිර කර ඇත."
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:162
 msgid "Why was it blocked?"
 msgstr "එය අවහිර කළේ ඇයි?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:167
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
 msgstr "මෙම එක්කහුව %(startLink)sමොසිල්ලා එක්කහු ප්‍රතිපත්ති%(endLink)s කඩ කරයි."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:179
 msgid "What does this mean?"
 msgstr "මෙහි තේරුම කුමක්ද?"
 
-#: src/amo/pages/Block/index.js:180
+#: src/amo/pages/Block/index.js:181
 msgid ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
 msgstr "ගැටළු සහගත එක්කහු හෝ පේනු ස්වයංක්‍රීයව අබල කෙරෙන අතර තවදුරටත් භාවිතා කිරීමට නොහැකිය."
 
-#: src/amo/pages/Block/index.js:187
+#: src/amo/pages/Block/index.js:188
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2781,7 +2781,7 @@ msgstr ""
 "වැඩි විස්තර සඳහා කරුණාකර %(supportStartLink)sමෙම සහාය ලිපිය%(supportEndLink)s "
 "කියවන්න."
 
-#: src/amo/pages/Block/index.js:93
+#: src/amo/pages/Block/index.js:94
 msgid "Blocked on %(date)s."
 msgstr "%(date)s දී අවහිර කර ඇත."
 
