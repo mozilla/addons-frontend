@@ -175,6 +175,7 @@ describe(__filename, () => {
     render();
 
     expect(screen.getByText(reason)).toBeInTheDocument();
+    expect(screen.getByText(reason)).toHaveAttribute('lang', 'en-US');
   });
 
   it('does not render a reason if the block does not have one', () => {
