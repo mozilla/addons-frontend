@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-27 11:34+0000\n"
-"PO-Revision-Date: 2024-10-02 19:23+0000\n"
+"PO-Revision-Date: 2024-10-02 21:39+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1303,11 +1303,11 @@ msgstr "Sebjemordarstwo"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "Zakazane abo wobmjezowane produkty"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Njewěste abo njekonformne produkty"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
