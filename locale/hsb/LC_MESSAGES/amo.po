@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-27 11:34+0000\n"
-"PO-Revision-Date: 2024-10-02 19:06+0000\n"
+"PO-Revision-Date: 2024-10-02 19:23+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1143,19 +1143,19 @@ msgstr "Njedosahace informacije wo wikowarjach"
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "Njedodźerženje prawidłow tworjenja płaćiznow"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
-msgstr ""
+msgstr "Schowane wabjenje abo komercielna komunikacija, tež wot influencerow"
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
-msgstr ""
+msgstr "Zabłudźawe informacije wo kajkosćach tworow a słužbow"
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "Zabłudźawe informacije wo prawach přetrjebarjow"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
@@ -1163,7 +1163,7 @@ msgstr "Dźěra biometriskich datow"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "Falowaca předźěłanska přičina za daty"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
