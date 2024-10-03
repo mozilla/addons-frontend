@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-27 11:34+0000\n"
-"PO-Revision-Date: 2024-10-03 21:39+0000\n"
+"PO-Revision-Date: 2024-10-03 21:46+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1151,11 +1151,11 @@ msgstr "Schowane wabjenje abo komercielna komunikacija, teke wót influencerow"
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
-msgstr ""
+msgstr "Torjece informacije wó kakosćach wórow a słužbow"
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "Torjece informacije wó pšawach pśetrjebarjow"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
@@ -1163,7 +1163,7 @@ msgstr "Źěra biometriskich datow"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "Felujuca pśeźěłowańska pśicyna za daty"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
@@ -1187,7 +1187,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
-msgstr ""
+msgstr "Nacerjeńske pśejźenja"
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
@@ -1195,7 +1195,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "Patentowe pśejźenja"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
@@ -1303,11 +1303,11 @@ msgstr "Sebjemordaŕstwo"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "Zakazane abo wobgranicowane produkty"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Njewěste abo njekonformne produkty"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
