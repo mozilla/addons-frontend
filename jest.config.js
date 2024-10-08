@@ -27,7 +27,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
-    '<rootDir>/(assets|bin|config|coverage|dist|docs|flow|locale|src)/',
+    '<rootDir>/(assets|bin|config|coverage|dist|docs|flow|locale|src|flow-extract)/',
   ],
   testMatch: ['**/[Tt]est(*).js?(x)', '**/__tests__/**/*.js?(x)'],
   // This will initialize the jsdom document with a URL which is necessary
