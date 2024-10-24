@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-27 11:34+0000\n"
-"PO-Revision-Date: 2024-10-02 20:02+0000\n"
+"PO-Revision-Date: 2024-10-24 12:32+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -982,7 +982,7 @@ msgstr "İnceleme bulunamadı."
 
 #: src/amo/components/FeedbackForm/index.js:1014
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
-msgstr ""
+msgstr "Bu raporu göndererek, yalan beyanda bulunmanın cezalandırılabileceğini, rapordaki iddiaların bildiğim kadarıyla eksiksiz ve doğru olduğunu  onaylıyorum."
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
@@ -1024,7 +1024,7 @@ msgstr "Yasaları ihlal ediyor veya yasaları ihlal eden içerik barındırıyor
 msgid ""
 "Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
-msgstr ""
+msgstr "Örnek: Dolandırıcılık. (Telif hakkı veya ticari marka ihlali bildirmek istiyorsanız %(startLink)sTelif Hakkı veya Ticari Marka İhlali Bildirme makalemizden%(endLink)s bilgi alabilirsiniz.)"
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
@@ -1164,7 +1164,7 @@ msgstr "Ayrımcılık"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
-msgstr ""
+msgstr "Koruma altındaki özellikler nedeniyle şiddete ve nefrete yasa dışı teşvik (nefret söylemi)"
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
@@ -1184,15 +1184,15 @@ msgstr "Ticari sır ihlalleri"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Kamusal söylemler veya seçimlerle ilgili AB yasalarının ihlali"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Kamusal söylemler veya seçimlerle ilgili ulusal yasaların ihlali"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "Yanlış bilgi, dezenformasyon, yabancı bilgi manipülasyonu ve müdahale"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
