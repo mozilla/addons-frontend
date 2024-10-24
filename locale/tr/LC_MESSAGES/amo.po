@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-27 11:34+0000\n"
-"PO-Revision-Date: 2024-10-24 12:32+0000\n"
+"PO-Revision-Date: 2024-10-24 12:39+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1144,7 +1144,7 @@ msgstr "Biyometrik veri ihlali"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "Veri için yetersiz dayanak"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
@@ -1228,7 +1228,7 @@ msgstr "Çocuklara yönelik cinsel istismar materyalleri"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
-msgstr ""
+msgstr "Reşit olmayan çocukları baştan çıkarma"
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
@@ -1276,7 +1276,7 @@ msgstr "Yeme bozukluklarını teşvik eden içerikler"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "Kendi kendine zarar verme"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
@@ -1292,7 +1292,7 @@ msgstr "Güvensiz veya mevzuata aykırı ürünler"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
-msgstr ""
+msgstr "Planlı bir şekilde zarar verme"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
@@ -1300,7 +1300,7 @@ msgstr "Cinsiyete dayalı şiddet"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "İnsan istismarı"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
@@ -1340,7 +1340,7 @@ msgstr "Yasa dışı içeriğin türü"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Belirli bir ihlal"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
@@ -1348,7 +1348,7 @@ msgstr "Daha fazla ayrıntı belirtin"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "Lütfen raporunuzu anlamamıza yardımcı olabilecek bilgileri paylaşın (hangi ilkelerin ihlal edildiğini düşündüğünüz de dahil)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
@@ -1360,7 +1360,7 @@ msgstr "Anonim olarak bildir"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Anonim bir rapor gönderirseniz raporunuzun durumu ve itiraz seçenekleri hakkında sizinle iletişim kuramayız."
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
@@ -1463,6 +1463,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Aksi %(startNotedLink)sbelirtilmedikçe%(endNotedLink)s bu sitedeki içerikler %(startLicenseLink)sCreative Commons Attribution Share-Alike Lisansı v3.0%(endLicenseLink)s veya daha yeni sürümüyle "
+"lisanslanmıştır. Android, Google LLC’nin ticari markasıdır."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1500,6 +1502,8 @@ msgstr "Bu eklentileri kullanmak için %(downloadLinkStart)sFirefox’u indirmen
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Android uzantılarını kullanmak için %(downloadLinkStart)sAndroid için Firefox%(downloadLinkEnd)s gerekir. Firefox’un bilgisayar sürümüne yönelik eklentilerini keşfetmek için %(linkStart)smasaüstü "
+"sitemizi ziyaret edin%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:146
 msgid "Download Firefox and get the theme"
