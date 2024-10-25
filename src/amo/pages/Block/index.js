@@ -83,52 +83,26 @@ export class BlockBase extends React.Component<InternalProps> {
     );
   }
 
-  renderDateAndURL(): React.Node | Array<React.Node | string> {
+  renderURL(): React.Node | Array<React.Node | string> {
     const { block, i18n } = this.props;
 
     if (!block) {
       return <LoadingText />;
     }
 
-    const content: Array<React.Node | string> = [
-      i18n.sprintf(i18n.gettext('Blocked on %(date)s.'), {
-        date: i18n.moment(block.created).format('ll'),
-      }),
-    ];
-
     if (block.url) {
-      content.push(
-        ' ',
+      return (
         <a key={block.url.url} href={block.url.outgoing} title={block.url.url}>
           {i18n.gettext('View block request')}
-        </a>,
-        '.',
+        </a>
       );
     }
 
-    return content;
-  }
-
-  renderVersions(): React.Node | string {
-    const { block, i18n } = this.props;
-
-    if (!block) {
-      return <LoadingText />;
-    }
-
-    if (block.is_all_versions) {
-      return i18n.gettext('Versions blocked: all versions.');
-    }
-
-    const versions = block.versions.join(', ');
-
-    return i18n.sprintf(i18n.gettext('Versions blocked: %(versions)s.'), {
-      versions,
-    });
+    return null;
   }
 
   render(): React.Node {
-    const { block, errorHandler, i18n } = this.props;
+    const { block, errorHandler, i18n, match } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
@@ -140,15 +114,39 @@ export class BlockBase extends React.Component<InternalProps> {
       return <ServerErrorPage />;
     }
 
-    const title =
-      block && block.name
-        ? i18n.sprintf(
-            i18n.gettext(`%(addonName)s has been blocked for your protection.`),
-            {
-              addonName: block.name,
-            },
-          )
-        : i18n.gettext(`This add-on has been blocked for your protection.`);
+    const isSoftBlocked =
+      (block?.soft_blocked.includes(match.params.versionId)) ||
+      (block?.soft_blocked.length && !block.blocked.length);
+    let title;
+    if (isSoftBlocked) {
+      title =
+        block && block.name
+          ? i18n.sprintf(
+              i18n.gettext(
+                `%(addonName)s is restricted for violating Mozilla policies.`,
+              ),
+              {
+                addonName: block.name,
+              },
+            )
+          : i18n.gettext(
+              `This add-on is restricted for violating Mozilla policies.`,
+            );
+    } else {
+      title =
+        block && block.name
+          ? i18n.sprintf(
+              i18n.gettext(
+                `%(addonName)s is blocked for violating Mozilla policies.`,
+              ),
+              {
+                addonName: block.name,
+              },
+            )
+          : i18n.gettext(
+              `This add-on is blocked for violating Mozilla policies.`,
+            );
+    }
 
     return (
       <Page>
@@ -159,7 +157,7 @@ export class BlockBase extends React.Component<InternalProps> {
           </Helmet>
 
           <Card className="Block-content" header={title}>
-            <h2>{i18n.gettext('Why was it blocked?')}</h2>
+            <h2>{i18n.gettext('Why did this happen?')}</h2>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
@@ -178,8 +176,16 @@ export class BlockBase extends React.Component<InternalProps> {
 
             <h2>{i18n.gettext('What does this mean?')}</h2>
             <p>
-              {i18n.gettext(`The problematic add-on or plugin will be
-                automatically disabled and no longer usable.`)}
+              {isSoftBlocked
+                ? i18n.gettext(`Until the violation is resolved, this add-on
+                  won't be available for download from addons.mozilla.org.
+                  If it’s already installed, it will be disabled and users
+                  will be informed about the violation. They may choose to
+                  enable the add-on again at their own risk.`)
+                : i18n.gettext(`Until the violation is resolved, this add-on
+                won't be available for download from addons.mozilla.org.
+                It will be automatically disabled and no longer usable in
+                Firefox.`)}
             </p>
             <p
               // eslint-disable-next-line react/no-danger
@@ -189,9 +195,10 @@ export class BlockBase extends React.Component<InternalProps> {
                     or other third-party software that seriously compromises
                     Firefox security, stability, or performance and meets
                     %(criteriaStartLink)scertain criteria%(criteriaEndLink)s,
-                    the software may be blocked from general use. For more
-                    information, please read %(supportStartLink)sthis support
-                    article%(supportEndLink)s.`),
+                    the software may be blocked or restricted from general
+                    use. For more information, please read
+                    %(supportStartLink)sthis support article%(supportEndLink)s.
+                    `),
                   {
                     criteriaStartLink: `<a href="${CRITERIA_URL}">`,
                     criteriaEndLink: '</a>',
@@ -202,11 +209,7 @@ export class BlockBase extends React.Component<InternalProps> {
                 ['a'],
               )}
             />
-            <p className="Block-metadata">
-              {this.renderVersions()}
-              <br />
-              {this.renderDateAndURL()}
-            </p>
+            <p className="Block-metadata">{this.renderURL()}</p>
           </Card>
         </div>
       </Page>
