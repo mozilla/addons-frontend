@@ -162,8 +162,8 @@ export class BlockBase extends React.Component<InternalProps> {
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
-                  i18n.gettext(`This add-on violates %(startLink)sMozilla's
-                    Add-on Policies%(endLink)s.`),
+                  i18n.gettext(`This extension, theme, or plugin violates
+                    %(startLink)sMozilla's Add-on Policies%(endLink)s.`),
                   {
                     startLink: `<a href="${POLICIES_URL}">`,
                     endLink: '</a>',
