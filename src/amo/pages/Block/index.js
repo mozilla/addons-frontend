@@ -115,8 +115,9 @@ export class BlockBase extends React.Component<InternalProps> {
     }
 
     const isSoftBlocked =
-      block?.soft_blocked.includes(match.params.versionId) ||
-      (block?.soft_blocked.length && !block.blocked.length);
+      block?.soft_blocked.length &&
+      (block?.soft_blocked.includes(match.params.versionId) ||
+        !block?.blocked.length);
     let title;
     if (isSoftBlocked) {
       title =

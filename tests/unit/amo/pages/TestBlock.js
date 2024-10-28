@@ -15,7 +15,6 @@ import {
   createFakeBlockResult,
   createLocalizedString,
   dispatchClientMetadata,
-  fakeI18n,
   getElement,
   renderPage as defaultRender,
   screen,
@@ -129,16 +128,14 @@ describe(__filename, () => {
     expect(
       within(screen.getByClassName('Block-reason')).getAllByRole('alert'),
     ).toHaveLength(1);
-    // 1. versions blocked
-    // 2. date and URL
     expect(
       within(screen.getByClassName('Block-metadata')).getAllByRole('alert'),
-    ).toHaveLength(2);
+    ).toHaveLength(1);
   });
 
   it('renders a generic header/title when the block has no add-on name', async () => {
     const block = _createFakeBlockResult({ addonName: null });
-    const title = 'This add-on has been blocked for your protection.';
+    const title = 'This add-on is blocked for violating Mozilla policies.';
     store.dispatch(loadBlock({ block }));
     render();
 
@@ -155,7 +152,7 @@ describe(__filename, () => {
     const block = _createFakeBlockResult({
       addonName: createLocalizedString(name),
     });
-    const title = `${name} has been blocked for your protection.`;
+    const title = `${name} is blocked for violating Mozilla policies.`;
     store.dispatch(loadBlock({ block }));
     render();
 
@@ -165,6 +162,24 @@ describe(__filename, () => {
       ),
     );
 
+    expect(screen.getByText(title)).toBeInTheDocument();
+  });
+
+  it('renders a generic soft-block header/title when the block has no add-on name', async () => {
+    const block = _createFakeBlockResult({
+      addonName: null,
+      soft_blocked: ['42.0'],
+      blocked: [],
+    });
+    const title = 'This add-on is restricted for violating Mozilla policies.';
+    store.dispatch(loadBlock({ block }));
+    render();
+
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `${title} – Add-ons for Firefox (${lang})`,
+      ),
+    );
     expect(screen.getByText(title)).toBeInTheDocument();
   });
 
@@ -184,69 +199,6 @@ describe(__filename, () => {
     render();
 
     expect(screen.queryByClassName('Block-reason')).not.toBeInTheDocument();
-  });
-
-  it('renders "all versions" when "is_all_versions" is true', () => {
-    const block = _createFakeBlockResult({
-      is_all_versions: true,
-    });
-    const i18n = fakeI18n();
-    store.dispatch(loadBlock({ block }));
-    render();
-
-    // The version info and the block date are inside the same tag, separated
-    // by a </br>.
-    expect(
-      screen.getByTextAcrossTags(
-        `Versions blocked: all versions.Blocked on ${i18n
-          .moment(block.created)
-          .format('ll')}.`,
-      ),
-    ).toBeInTheDocument();
-  });
-
-  it('renders the versions if "is_all_versions" is false', () => {
-    const v1 = '12';
-    const v2 = '34';
-    const block = _createFakeBlockResult({
-      versions: [v1, v2],
-      is_all_versions: false,
-    });
-    const i18n = fakeI18n();
-    store.dispatch(loadBlock({ block }));
-    render();
-
-    // The version info and the block date are inside the same tag, separated
-    // by a </br>.
-    expect(
-      screen.getByTextAcrossTags(
-        `Versions blocked: ${v1}, ${v2}.Blocked on ${i18n
-          .moment(block.created)
-          .format('ll')}.`,
-      ),
-    ).toBeInTheDocument();
-  });
-
-  it('renders the versions if "is_all_versions" is missing', () => {
-    const v1 = '12';
-    const v2 = '34';
-    const block = _createFakeBlockResult({
-      versions: [v1, v2],
-      is_all_versions: undefined,
-    });
-    const i18n = fakeI18n();
-    store.dispatch(loadBlock({ block }));
-    render();
-
-    // The version info and the block date are inside the same tag, separated
-    // by a </br>.
-    expect(
-      screen.getByTextAcrossTags(
-        `Versions blocked: ${v1}, ${v2}.Blocked on ${i18n
-          .moment(block.created)
-          .format('ll')}.`,
-      ),
-    ).toBeInTheDocument();
   });
 
   it('renders the reason with HTML tags removed', () => {
@@ -307,7 +259,56 @@ describe(__filename, () => {
     });
 
     expect(
-      screen.getByText(`${name} has been blocked for your protection.`),
+      screen.getByText(`${name} is blocked for violating Mozilla policies.`),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /It will be automatically disabled and no longer usable in Firefox./,
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it('renders a soft-block page when the block has only soft-blocks', () => {
+    const name = 'some-addon-name';
+    const block = _createFakeBlockResult({
+      addonName: createLocalizedString(name),
+      soft_blocked: ['42.0'],
+      blocked: [],
+    });
+    store.dispatch(loadBlock({ block }));
+
+    render();
+
+    expect(
+      screen.getByText(`${name} is restricted for violating Mozilla policies.`),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /They may choose to enable the add-on again at their own risk./,
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it('renders a soft-block page when a soft-blocked versionId is present in the URL', () => {
+    const name = 'some-addon-name';
+    const block = _createFakeBlockResult({
+      addonName: createLocalizedString(name),
+      soft_blocked: ['42.0'],
+    });
+    store.dispatch(loadBlock({ block }));
+
+    defaultRender({
+      initialEntries: [`${getLocation()}42.0/`],
+      store,
+    });
+
+    expect(
+      screen.getByText(`${name} is restricted for violating Mozilla policies.`),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /They may choose to enable the add-on again at their own risk./,
+      ),
     ).toBeInTheDocument();
   });
 
