@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 17:04+0000\n"
+"PO-Revision-Date: 2024-10-29 17:13+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1315,7 +1315,7 @@ msgstr "Koordiněrowana škóda"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "Namóc nastupajucy rody"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
@@ -1327,7 +1327,7 @@ msgstr "Wikowanje z luźimi"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Powšykne wuwołanja abo našćuwanje k namócy a/abo gramośe"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
@@ -1367,7 +1367,7 @@ msgstr "Pódajśo dalšne drobnostki"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "Pšosym pódajśo pśidatne informacije, kótarež mógli nam pomagaś, wašu rozpšawu rozměś (mjazy nimi, kótare pšawidła su se pśestupili pó wašom měnjenju)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
@@ -2614,19 +2614,19 @@ msgstr "Starše wersije"
 
 #: src/amo/pages/Block/index.js:126
 msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr ""
+msgstr "%(addonName)s se dla pśestupjenja pšawidłow Mozilla wobgranicujo."
 
 #: src/amo/pages/Block/index.js:133
 msgid "This add-on is restricted for violating Mozilla policies."
-msgstr ""
+msgstr "Toś ten dodank se dla pśestupjenja pšawidłow Mozilla wobgranicujo."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr ""
+msgstr "%(addonName)s se dla pśestupjenja pšawidłow Mozilla blokěrujo."
 
 #: src/amo/pages/Block/index.js:147
 msgid "This add-on is blocked for violating Mozilla policies."
-msgstr ""
+msgstr "Toś ten dodank se dla pśestupjenja pšawidłow Mozilla blokěrujo."
 
 #: src/amo/pages/Block/index.js:161
 msgid "Why did this happen?"
@@ -2645,16 +2645,20 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Daniž pśestupjenje njejo rozwězane, toś ten dodank njejo k dispoziciji za ześěgnjenje wót addons.mozilla.org. Jolic dodank jo južo instalěrowany, buźo se znjemóžnjaś a informěruju wužywarjow wó toś "
+"tom pśestupjenju. Mógu dodank zasej na swójo riziko zmóžniś."
 
 #: src/amo/pages/Block/index.js:186
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Daniž pśestupjenje njejo rozwězane, toś ten dodank njejo k dispoziciji za ześěgnjenje wót addons.mozilla.org. Znjemóžnja se awtomatiski a njejo wěcej wužywajobny w Firefox."
 
 #: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Gaž Mozilla zgónijo, až dodanki, tykace abo druge programy tśeśich póbitowarjow napšawdu wobgrozuju wěstotu, stabilnosć abo wugbaśe dodanka Firefox a wótpowěduju %(criteriaStartLink)s>wěstym "
+"kriterijam%(criteriaEndLink)s, dajo se software za powšykne wužywanje blokěrowa abo wobgranicowaś. Za dalšne informacije cytajśo pšosym %(supportStartLink)stoś ten nastawk pomocy%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
