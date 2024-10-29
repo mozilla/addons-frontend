@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 20:55+0000\n"
+"PO-Revision-Date: 2024-10-29 21:24+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -2560,7 +2560,7 @@ msgstr "מדוע זה קרה?"
 
 #: src/amo/pages/Block/index.js:166
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr "הרחבה, ערכת נושא או תוסף חיצוני זה מפרים את %(startLink)sמדיניות התוספות של Mozilla%(endLink)s."
+msgstr "הרחבה, ערכת נושא או תוסף חיצוני זה מפר את %(startLink)sמדיניות התוספות של Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
