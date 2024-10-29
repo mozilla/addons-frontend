@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 14:31+0000\n"
+"PO-Revision-Date: 2024-10-29 14:42+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1367,7 +1367,7 @@ msgstr "Podajće dalše podrobnosće"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "Prošu podajće přidatne informacije, kotrež móhli nam pomhać, wašu rozprawu rozumić (mjez nimi, kotre prawidła su so po wašim měnjenju přestupili)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
