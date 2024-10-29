@@ -1312,7 +1312,6 @@ export const createFakeBlockResult = ({
     created: '2020-01-22T10:09:01Z',
     modified: '2020-01-22T10:09:01Z',
     guid,
-    versions: ['0.1', '4.56'],
     blocked: ['0.1', '4.56'],
     soft_blocked: [],
     is_all_versions: false,

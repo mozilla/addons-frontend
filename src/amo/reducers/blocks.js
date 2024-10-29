@@ -14,7 +14,6 @@ export type ExternalBlockType = {|
   created: string,
   guid: string,
   id: number,
-  versions: [string],
   soft_blocked: [string],
   blocked: [string],
   is_all_versions?: boolean,
