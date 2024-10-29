@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 20:49+0000\n"
+"PO-Revision-Date: 2024-10-29 20:55+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -2570,17 +2570,19 @@ msgstr "מה זה אומר?"
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
-msgstr ""
+msgstr "עד שההפרה תיפתר, תוספת זו לא תהיה זמינה להורדה מ־addons.mozilla.org. אם היא כבר מותקנת, היא תושבת והמשתמשים יקבלו מידע על ההפרה. הם עשויים לבחור להפעיל את התוספת שוב, על אחריותם בלבד."
 
 #: src/amo/pages/Block/index.js:186
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "עד שההפרה תיפתר, תוספת זו לא תהיה זמינה להורדה מ־addons.mozilla.org. היא תושבת באופן אוטומטי ולא תהיה שמישה יותר ב־Firefox."
 
 #: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"כאשר נודע ל־Mozilla על תוספות, תוספים חיצוניים או תכניות צד־שלישי שעלולות לפגום באופן מהותי באבטחה, ביציבות או בביצועים של Firefox והם תואמים ל%(criteriaStartLink)sתנאים מסוימים%(criteriaEndLink)s, "
+"התכניות עלולות להיחסם משימוש הכלל או להיות מוגבלות. למידע נוסף ניתן לקרוא את %(supportStartLink)sמאמר התמיכה הבא%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
