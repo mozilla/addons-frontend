@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 19:00+0000\n"
+"PO-Revision-Date: 2024-10-29 19:09+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2576,16 +2576,23 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Fintant che la violazion no ven risolte, chest component adizionâl nol sarà disponibil di discjariâ di addons.mozilla.org. Se al è za instalât, al vignarà disativât e i utents a vignaran informâts "
+"de violazion. In chê volte a podaran decidi se tornâ a ativâlu a lôr risi e pericul."
 
 #: src/amo/pages/Block/index.js:186
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
 msgstr ""
+"Fintant che la violazion no ven risolte, chest component adizionâl nol sarà disponibil di discjariâ di addons.mozilla.org. Al vignarà disativât in automatic e nol sarà plui pussibil doprâlu in "
+"Firefox."
 
 #: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Tal moment che Mozilla al scuvierç che un component adizionâl, un plugin o un altri software di tiercis parts al rive a comprometi in maniere serie la sigurece, la stabilitât o lis prestazions di "
+"Firefox e che al rispuint a %(criteriaStartLink)sdeterminâts criteris%(criteriaEndLink)s, al sarà pussibil che chel software al vegni blocât o limitât pal ûs public. Par vê plui informazions, lei "
+"%(supportStartLink)schest articul di supuart%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
