@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 12:36+0000\n"
+"PO-Revision-Date: 2024-10-29 13:02+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2614,19 +2614,19 @@ msgstr "Starše wersije"
 
 #: src/amo/pages/Block/index.js:126
 msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr ""
+msgstr "%(addonName)s so přestupjenja prawidłow Mozilla dla wobmjezuje."
 
 #: src/amo/pages/Block/index.js:133
 msgid "This add-on is restricted for violating Mozilla policies."
-msgstr ""
+msgstr "Tutón přidatk so přestupjenja prawidłow Mozilla dla wobmjezuje."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr ""
+msgstr "%(addonName)s so přestupjenja prawidłow Mozilla dla blokuje."
 
 #: src/amo/pages/Block/index.js:147
 msgid "This add-on is blocked for violating Mozilla policies."
-msgstr ""
+msgstr "Tutón přidatk so přestupjenja prawidłow Mozilla dla blokuje."
 
 #: src/amo/pages/Block/index.js:161
 msgid "Why did this happen?"
