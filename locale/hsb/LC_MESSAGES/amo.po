@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 12:23+0000\n"
+"PO-Revision-Date: 2024-10-29 12:34+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1219,11 +1219,11 @@ msgstr "Njepřezjedne daledaće wobrazow"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "Njepřezjedne zapiski, kotrež deepfake abo podobnu technologiju wobsahuja, kotrež funkcije třećich poskićowarjow wužiwaja"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Mobbing/Zatrašenje online"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
@@ -1235,7 +1235,7 @@ msgstr "Seksualny material za dorosćenych"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "Seksualne znjewužiwanje na zakładźe wobrazow (nimo wobsaha, kotryž małolětnych zwobraznja)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
