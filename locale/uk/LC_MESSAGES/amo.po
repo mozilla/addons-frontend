@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2024-09-25 06:11+0000\n"
 "Last-Translator: Lobodzets <Lobodzets@meta.ua>\n"
 "Language-Team: none\n"
@@ -2875,65 +2875,64 @@ msgstr "Найновіша версія"
 msgid "Older versions"
 msgstr "Попередні версії"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "Переглянути запит на блокування"
-
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "Заблоковані версії: усі версії."
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
-msgstr "Заблоковані версії: %(versions)s."
-
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "%(addonName)s заблоковано для вашого захисту."
-
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "Цей додаток заблоковано для вашого захисту."
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "Чому його було заблоковано?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
-"Цей додаток порушує %(startLink)sПравила для додатків Mozilla%(endLink)s."
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "Що це значить?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
-"Проблемний додаток чи плагін буде автоматично вимкнено й надалі ним не можна "
-"буде користуватись."
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"Коли Mozilla стає відомо про додатки, плагіни чи інші сторонні програми, які "
-"становлять загрозу безпеці, стабільності чи продуктивності та відповідають "
-"%(criteriaStartLink)sпевним критеріям%(criteriaEndLink)s, використання цих "
-"програм може бути заблоковане. Для отримання додаткової інформації, будь "
-"ласка, ознайомтеся з %(supportStartLink)sціею статтею%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "Заблоковано %(date)s."
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "Переглянути запит на блокування"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -4072,6 +4071,51 @@ msgstr "сумісність мого додатка не може бути он
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "сумісність мого додатка успішно оновлена"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "Заблоковані версії: усі версії."
+
+#~ msgid "Versions blocked: %(versions)s."
+#~ msgstr "Заблоковані версії: %(versions)s."
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "%(addonName)s заблоковано для вашого захисту."
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "Цей додаток заблоковано для вашого захисту."
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "Чому його було заблоковано?"
+
+#~ msgid ""
+#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr ""
+#~ "Цей додаток порушує %(startLink)sПравила для додатків Mozilla%(endLink)s."
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr ""
+#~ "Проблемний додаток чи плагін буде автоматично вимкнено й надалі ним не "
+#~ "можна буде користуватись."
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "Коли Mozilla стає відомо про додатки, плагіни чи інші сторонні програми, "
+#~ "які становлять загрозу безпеці, стабільності чи продуктивності та "
+#~ "відповідають %(criteriaStartLink)sпевним критеріям%(criteriaEndLink)s, "
+#~ "використання цих програм може бути заблоковане. Для отримання додаткової "
+#~ "інформації, будь ласка, ознайомтеся з %(supportStartLink)sціею "
+#~ "статтею%(supportEndLink)s."
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "Заблоковано %(date)s."
 
 #~ msgid "SPONSORED"
 #~ msgstr "СПОНСОРОВАНІ"

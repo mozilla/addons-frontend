@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2024-09-10 15:48+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
@@ -2868,63 +2868,64 @@ msgstr "Najnovija verzija"
 msgid "Older versions"
 msgstr "Starije verzije"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "Prikaži zahtjev za blokiranje"
-
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "Blokirane verzije: sve verzije."
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
-msgstr "Blokirane verzije: %(versions)s."
-
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "%(addonName)s je blokiran radi vaše zaštite."
-
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "Ovaj dodatak je blokiran radi tvoje zaštite."
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "Zašto je blokiran?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
-"Ovaj dodatak krši %(startLink)sMozillina pravila za dodatke%(endLink)s."
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "Što to znači?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
-msgstr "Problematični dodatak će biti automatski onemogućen i neupotrebljiv."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"Kad Mozilla sazna za dodatke, priključke ili drugi softver treće strane koji "
-"ozbiljno ugrožavaju Firefoxovu sigurnost, stabilnost ili performanse i koji "
-"zadovoljavaju %(criteriaStartLink)sodređene kriterije%(criteriaEndLink)s, "
-"softver može biti blokiran za opću upotrebu. Za više informacija pročitaj "
-"%(supportStartLink)sovaj članak podrške%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "Blokirano %(date)s."
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "Prikaži zahtjev za blokiranje"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -4036,6 +4037,50 @@ msgstr "kompatibilnost mog dodatka ne može se nadograditi"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "kompatibilnost mog dodatka uspješno je nadograđena"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "Blokirane verzije: sve verzije."
+
+#~ msgid "Versions blocked: %(versions)s."
+#~ msgstr "Blokirane verzije: %(versions)s."
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "%(addonName)s je blokiran radi vaše zaštite."
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "Ovaj dodatak je blokiran radi tvoje zaštite."
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "Zašto je blokiran?"
+
+#~ msgid ""
+#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr ""
+#~ "Ovaj dodatak krši %(startLink)sMozillina pravila za dodatke%(endLink)s."
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr ""
+#~ "Problematični dodatak će biti automatski onemogućen i neupotrebljiv."
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "Kad Mozilla sazna za dodatke, priključke ili drugi softver treće strane "
+#~ "koji ozbiljno ugrožavaju Firefoxovu sigurnost, stabilnost ili performanse "
+#~ "i koji zadovoljavaju %(criteriaStartLink)sodređene "
+#~ "kriterije%(criteriaEndLink)s, softver može biti blokiran za opću "
+#~ "upotrebu. Za više informacija pročitaj %(supportStartLink)sovaj članak "
+#~ "podrške%(supportEndLink)s."
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "Blokirano %(date)s."
 
 # If uppercase does not work in your locale,
 #~ msgid "SPONSORED"

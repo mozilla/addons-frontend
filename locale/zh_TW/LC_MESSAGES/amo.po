@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2024-09-25 02:04+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -2700,61 +2700,64 @@ msgstr "最新版本"
 msgid "Older versions"
 msgstr "較舊版本"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "檢視封鎖請求"
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "被封鎖的版本: 所有版本。"
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
-msgstr "已封鎖版本：%(versions)s。"
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "為了保護您，已封鎖 %(addonName)s。"
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "為了保護您，已封鎖這套附加元件。"
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "為什麼它被封鎖了?"
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr "此附加元件違反了 %(startLink)sMozilla 的附加元件政策%(endLink)s。"
-
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "這是什麼意思？"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
-msgstr "有問題的附加元件或外掛程式將會被自動停用且不再可用。"
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"當 Mozilla 發現有附加元件、外掛程式，或其他第三方軟體嚴重影響 Firefox 的安全"
-"性、穩定性、效能，而且符合%(criteriaStartLink)s某些條件%(criteriaEndLink)s，"
-"該軟體就可能被封鎖，防止公眾使用。如果您想了解更多資訊，請閱"
-"讀%(supportStartLink)s這篇技術支援文章%(supportEndLink)s。"
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "封鎖於 %(date)s。"
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "檢視封鎖請求"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -3811,6 +3814,46 @@ msgstr "無法升級我的附加元件相容性"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "成功升級我的附加元件相容性"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "被封鎖的版本: 所有版本。"
+
+#~ msgid "Versions blocked: %(versions)s."
+#~ msgstr "已封鎖版本：%(versions)s。"
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "為了保護您，已封鎖 %(addonName)s。"
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "為了保護您，已封鎖這套附加元件。"
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "為什麼它被封鎖了?"
+
+#~ msgid ""
+#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr "此附加元件違反了 %(startLink)sMozilla 的附加元件政策%(endLink)s。"
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr "有問題的附加元件或外掛程式將會被自動停用且不再可用。"
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "當 Mozilla 發現有附加元件、外掛程式，或其他第三方軟體嚴重影響 Firefox 的安"
+#~ "全性、穩定性、效能，而且符合%(criteriaStartLink)s某些條"
+#~ "件%(criteriaEndLink)s，該軟體就可能被封鎖，防止公眾使用。如果您想了解更多"
+#~ "資訊，請閱讀%(supportStartLink)s這篇技術支援文章%(supportEndLink)s。"
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "封鎖於 %(date)s。"
 
 #~ msgid "SPONSORED"
 #~ msgstr "贊助"

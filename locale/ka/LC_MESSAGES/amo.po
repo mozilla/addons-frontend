@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2023-12-05 16:44+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2816,64 +2816,64 @@ msgstr "უახლესი ვერსია"
 msgid "Older versions"
 msgstr "ადრინდელი ვერსიები"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "შეზღუდვის მოთხოვნის ხილვა"
-
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "შეზღუდული ვერსიები: ყველა ვერსია."
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
-msgstr "შეზღუდული ვერსიები: %(versions)s."
-
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "%(addonName)s შეზღუდულია თქვენი უსაფრთხოებისთვის."
-
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "ეს დამატება შეზღუდულია თქვენი უსაფრთხოებისთვის."
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "რატომ შეიზღუდა?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
-"ეს დამატება არღვევს %(startLink)sMozilla-ს დამატებების დებულებას%(endLink)s."
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "რას გულისხმობს ეს?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
-"ხარვეზიანი დამატება ან მოდული ავტომატურად გაითიშება და მიუწვდომელი იქნება."
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"როცა Mozilla წააწყდება დამატებებს, მოდულებს ან გარეშე პროგრამას, რომელიც "
-"საფრთხეს უქმნის Firefox-ის უსაფრთხოებას, მდგრადობას ან წარმადობას და "
-"აკმაყოფილებს %(criteriaStartLink)sგარკვეულ პირობებს%(criteriaEndLink)s, ეს "
-"პროგრამა შესაძლოა შეიზღუდოს საერთო გამოყენებისგან. ვრცლად გთხოვთ გაეცნოთ "
-"%(supportStartLink)sსტატიას მხარდაჭერის გვერდზე%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "შეზღუდვის თარიღია %(date)s."
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "შეზღუდვის მოთხოვნის ხილვა"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -4018,6 +4018,50 @@ msgstr "ჩემი დამატების თავსებადობ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ჩემი დამატების თავსებადობა განახლდა წარმატებით"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "შეზღუდული ვერსიები: ყველა ვერსია."
+
+#~ msgid "Versions blocked: %(versions)s."
+#~ msgstr "შეზღუდული ვერსიები: %(versions)s."
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "%(addonName)s შეზღუდულია თქვენი უსაფრთხოებისთვის."
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "ეს დამატება შეზღუდულია თქვენი უსაფრთხოებისთვის."
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "რატომ შეიზღუდა?"
+
+#~ msgid ""
+#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr ""
+#~ "ეს დამატება არღვევს %(startLink)sMozilla-ს დამატებების "
+#~ "დებულებას%(endLink)s."
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr ""
+#~ "ხარვეზიანი დამატება ან მოდული ავტომატურად გაითიშება და მიუწვდომელი იქნება."
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "როცა Mozilla წააწყდება დამატებებს, მოდულებს ან გარეშე პროგრამას, რომელიც "
+#~ "საფრთხეს უქმნის Firefox-ის უსაფრთხოებას, მდგრადობას ან წარმადობას და "
+#~ "აკმაყოფილებს %(criteriaStartLink)sგარკვეულ პირობებს%(criteriaEndLink)s, "
+#~ "ეს პროგრამა შესაძლოა შეიზღუდოს საერთო გამოყენებისგან. ვრცლად გთხოვთ "
+#~ "გაეცნოთ %(supportStartLink)sსტატიას მხარდაჭერის გვერდზე%(supportEndLink)s."
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "შეზღუდვის თარიღია %(date)s."
 
 # If uppercase does not work in your locale,
 #~ msgid "SPONSORED"

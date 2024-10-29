@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2024-09-26 17:41+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
@@ -2881,65 +2881,64 @@ msgstr "Najnovšia verzia"
 msgid "Older versions"
 msgstr "Staršie verzie"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "Zobraziť požiadavku na zablokovanie"
-
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "Zablokované verzie: všetky."
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
-msgstr "Zablokované verzie: %(versions)s."
-
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "Doplnok %(addonName)s bol kvôli vašej ochrane zablokovaný."
-
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "Tento doplnok bol pre vašu ochranu zakázaný."
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "Prečo bol zablokovaný?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
-"Tento doplnok porušuje %(startLink)spravidlá Mozilly pre doplnky%(endLink)s."
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "Čo to znamená?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
-"Problematický doplnok alebo zásuvný modul bude automaticky zakázaný a nebude "
-"už dostupný."
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"Ak Mozilla zistí, že doplnok, zásuvný modul či softvér tretej strany "
-"spôsobuje vážne problémy v otázkach bezpečnosti, stability a výkonu Firefoxu "
-"a zároveň spĺňa %(criteriaStartLink)sdané kritériá%(criteriaEndLink)s, môže "
-"byť takýto softvér zablokovaný. Ďalšie informácie nájdete v "
-"%(supportStartLink)stomto článku podpory%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "Zablokované dňa %(date)s."
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "Zobraziť požiadavku na zablokovanie"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -4068,6 +4067,52 @@ msgstr "kompatibilitu môjho doplnku nie je možné aktualizovať"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "kompatibilita môjho doplnku je úspešne aktualizovaná"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "Zablokované verzie: všetky."
+
+#~ msgid "Versions blocked: %(versions)s."
+#~ msgstr "Zablokované verzie: %(versions)s."
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "Doplnok %(addonName)s bol kvôli vašej ochrane zablokovaný."
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "Tento doplnok bol pre vašu ochranu zakázaný."
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "Prečo bol zablokovaný?"
+
+#~ msgid ""
+#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr ""
+#~ "Tento doplnok porušuje %(startLink)spravidlá Mozilly pre "
+#~ "doplnky%(endLink)s."
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr ""
+#~ "Problematický doplnok alebo zásuvný modul bude automaticky zakázaný a "
+#~ "nebude už dostupný."
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "Ak Mozilla zistí, že doplnok, zásuvný modul či softvér tretej strany "
+#~ "spôsobuje vážne problémy v otázkach bezpečnosti, stability a výkonu "
+#~ "Firefoxu a zároveň spĺňa %(criteriaStartLink)sdané "
+#~ "kritériá%(criteriaEndLink)s, môže byť takýto softvér zablokovaný. Ďalšie "
+#~ "informácie nájdete v %(supportStartLink)stomto článku "
+#~ "podpory%(supportEndLink)s."
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "Zablokované dňa %(date)s."
 
 #~ msgid "SPONSORED"
 #~ msgstr "SPONZOROVANÉ"

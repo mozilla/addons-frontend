@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2024-08-21 09:35+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
@@ -2750,67 +2750,64 @@ msgstr "Lqem aneggaru"
 msgid "Older versions"
 msgstr "Ileqman iqbuṛen"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "Sken asuter n usewḥel"
-
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "Ileqman i iweḥlen: meṛṛa ileqman."
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "%(addonName)s yewḥel ɣef sebba n tɣellist."
-
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "Azegrir-a yewḥel ɣef sebba n tɣellist."
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "Acuɣer yewḥel?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
 msgstr ""
-"Izegra-a ur ttqadaṛen ara %(startLink)s ilugan n Mozilla deg "
-"yizegrar%(endLink)s."
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "D acu yebɣa ad d-yini waya?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
-"Azegrir neɣ asiɣzef yesɛan ugur ad yens s wudem awurman, ihi ur ittuɣal ara "
-"ad yettwaseqdec."
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"Ticki Mozilla tuffa-d azegrir neɣ asiɣzef, neɣ yal aseɣẓan-nniḍen wis kraḍ i "
-"yezmren ad d-yeglun s usexseṛ n tɣellist, arkad neɣ timellit n Firefox  "
-"daɣen ahat llan deg-s %(criteriaStartLink)skra n "
-"isebdaden%(criteriaEndLink)s, aseɣẓan yezmer ad iwḥel.  I wugar n yisallen, "
-"ddu ma ulac aɣilif ɣer %(supportStartLink)sumagrad-a n "
-"tallelt%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "Yewḥel deg %(date)s"
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "Sken asuter n usewḥel"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -3916,6 +3913,49 @@ msgstr "amṣada n uzegrir-inu ur yettwalqem ara"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "amṣda n uzegrir-inu yettwalqem akken iwata"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "Ileqman i iweḥlen: meṛṛa ileqman."
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "%(addonName)s yewḥel ɣef sebba n tɣellist."
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "Azegrir-a yewḥel ɣef sebba n tɣellist."
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "Acuɣer yewḥel?"
+
+#~ msgid ""
+#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr ""
+#~ "Izegra-a ur ttqadaṛen ara %(startLink)s ilugan n Mozilla deg "
+#~ "yizegrar%(endLink)s."
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr ""
+#~ "Azegrir neɣ asiɣzef yesɛan ugur ad yens s wudem awurman, ihi ur ittuɣal "
+#~ "ara ad yettwaseqdec."
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "Ticki Mozilla tuffa-d azegrir neɣ asiɣzef, neɣ yal aseɣẓan-nniḍen wis "
+#~ "kraḍ i yezmren ad d-yeglun s usexseṛ n tɣellist, arkad neɣ timellit n "
+#~ "Firefox  daɣen ahat llan deg-s %(criteriaStartLink)skra n "
+#~ "isebdaden%(criteriaEndLink)s, aseɣẓan yezmer ad iwḥel.  I wugar n "
+#~ "yisallen, ddu ma ulac aɣilif ɣer %(supportStartLink)sumagrad-a n "
+#~ "tallelt%(supportEndLink)s."
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "Yewḥel deg %(date)s"
 
 # If uppercase does not work in your locale,
 #~ msgid "SPONSORED"

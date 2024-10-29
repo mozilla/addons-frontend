@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2023-11-28 14:42+0000\n"
 "Last-Translator: Bogomil Shopov - Бого <shopov.bogomil@gmail.com>\n"
 "Language-Team: none\n"
@@ -2759,63 +2759,63 @@ msgstr "Последна версия"
 msgid "Older versions"
 msgstr "Стари версии"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "Спрени издания: всички издания."
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "Тази добавка е спряна с цел вашата безопасност."
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
 msgstr ""
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr ""
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
-"Проблемната добавка или приставка ще бъде автоматично изключена и няма да "
-"може да бъде ползвана."
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"Когато Mozilla узнае за добавки, приставки или друг софтуер от трета страна, "
-"който сериозно компрометира сигурността, стабилността или производителността "
-"на Firefox и удовлетворява %(criteriaStartLink)sопределени "
-"критерии%(criteriaEndLink)s, софтуерът може да бъде изцяло спрян. За повече "
-"информация, моля прочетете %(supportStartLink)sтази статия%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
 msgstr ""
 
 #: src/amo/pages/CategoriesPage/index.js:35
@@ -3821,6 +3821,34 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "Спрени издания: всички издания."
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "Тази добавка е спряна с цел вашата безопасност."
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr ""
+#~ "Проблемната добавка или приставка ще бъде автоматично изключена и няма да "
+#~ "може да бъде ползвана."
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "Когато Mozilla узнае за добавки, приставки или друг софтуер от трета "
+#~ "страна, който сериозно компрометира сигурността, стабилността или "
+#~ "производителността на Firefox и удовлетворява "
+#~ "%(criteriaStartLink)sопределени критерии%(criteriaEndLink)s, софтуерът "
+#~ "може да бъде изцяло спрян. За повече информация, моля прочетете "
+#~ "%(supportStartLink)sтази статия%(supportEndLink)s."
 
 #~ msgid "Verified"
 #~ msgstr "Проверено"

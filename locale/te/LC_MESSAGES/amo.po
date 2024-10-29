@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2022-09-12 13:33+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2715,56 +2715,63 @@ msgstr "కొత్త వెర్షను"
 msgid "Older versions"
 msgstr "పాత వెర్షనులు"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "నిరోధించిన వెర్షనులు: వెర్షనులన్నీ."
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "మీ భద్రత కొరకు మీ పొడగింత నిరోధించబడింది."
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "ఇది ఎందుకు నిరోధించబడింది?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "దీని అర్థం ఏమిటి?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
 msgstr ""
 
 #: src/amo/pages/CategoriesPage/index.js:35
@@ -3726,6 +3733,15 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "నిరోధించిన వెర్షనులు: వెర్షనులన్నీ."
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "మీ భద్రత కొరకు మీ పొడగింత నిరోధించబడింది."
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "ఇది ఎందుకు నిరోధించబడింది?"
 
 #~ msgid "Verified extensions"
 #~ msgstr "తనిఖీయైన పొడగింతలు"

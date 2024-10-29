@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2024-06-22 21:15+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
@@ -2789,66 +2789,64 @@ msgstr "Versão mais recente"
 msgid "Older versions"
 msgstr "Versões antigas"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "Ver pedido de bloqueio"
-
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "Versões bloqueadas: todas as versões."
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "%(addonName)s foi bloqueado para a sua proteção."
-
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "Para sua proteção, este extra foi bloqueado."
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "Porque foi bloqueado?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
 msgstr ""
-"Este extra viola as %(startLink)spolíticas de extras da Mozilla%(endLink)s."
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "O que isto significa?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
-"Os extras ou plugins problemáticos serão automaticamente desativados e "
-"deixarão ser utilizáveis."
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"Quando a Mozilla toma conhecimento de extras, plugins, ou software de "
-"terceiros que comprometem seriamente a segurança, estabilidade ou desempenho "
-"do Firefox e que reúnam %(criteriaStartLink)sdeterminados "
-"critérios%(criteriaEndLink)s, a utilização geral do software pode ser "
-"impedida. Para obter mais informações, por favor consulte "
-"%(supportStartLink)seste artigo de apoio%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "Bloqueado a %(date)s."
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "Ver pedido de bloqueio"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -3976,6 +3974,49 @@ msgstr "a compatibilidade do meu extra não pode ser atualizada"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a compatibilidade do meu extra é atualizada com sucesso"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "Versões bloqueadas: todas as versões."
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "%(addonName)s foi bloqueado para a sua proteção."
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "Para sua proteção, este extra foi bloqueado."
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "Porque foi bloqueado?"
+
+#~ msgid ""
+#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr ""
+#~ "Este extra viola as %(startLink)spolíticas de extras da "
+#~ "Mozilla%(endLink)s."
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr ""
+#~ "Os extras ou plugins problemáticos serão automaticamente desativados e "
+#~ "deixarão ser utilizáveis."
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "Quando a Mozilla toma conhecimento de extras, plugins, ou software de "
+#~ "terceiros que comprometem seriamente a segurança, estabilidade ou "
+#~ "desempenho do Firefox e que reúnam %(criteriaStartLink)sdeterminados "
+#~ "critérios%(criteriaEndLink)s, a utilização geral do software pode ser "
+#~ "impedida. Para obter mais informações, por favor consulte "
+#~ "%(supportStartLink)seste artigo de apoio%(supportEndLink)s."
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "Bloqueado a %(date)s."
 
 # If uppercase does not work in your locale,
 #~ msgid "SPONSORED"

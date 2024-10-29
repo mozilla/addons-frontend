@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2024-09-22 00:14+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -2741,65 +2741,64 @@ msgstr "최신 버전"
 msgid "Older versions"
 msgstr "이전 버전"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "차단 요청 보기"
-
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "차단된 버전: 모든 버전."
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
-msgstr "차단된 버전: %(versions)s."
-
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "%(addonName)s은 사용자 보호를 위해 차단되었습니다."
-
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "이 부가 기능은 사용자 보호를 위해 차단되었습니다."
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "왜 차단 되었습니까?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
-"이 부가 기능은 %(startLink)sMozilla의 부가 기능 정책%(endLink)s을 위반합니다."
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "어떻게 되는건가요?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
-"문제가 발생한 부가 기능 및 플러그인은 자동으로 사용 중단 처리되어 더이상 사용"
-"할 수 없게 됩니다."
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"Mozilla에선 부가 기능, 플러그인, 기타 서드파티 소프트웨어에서 Firefox에 심각"
-"한 보안, 안정성, 성능 저하 문제를 초래하는 것이 있을 경우 "
-"%(criteriaStartLink)s규정%(criteriaEndLink)s에 의거, 해당 소프트웨어를 일반적"
-"인 사용을 할 수 없도록 차단하게 됩니다. 보다 자세한 정보를 보시려면 "
-"%(supportStartLink)s이 도움말%(supportEndLink)s을 읽어보시기 바랍니다."
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "%(date)s에 차단되었습니다."
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "차단 요청 보기"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -3863,6 +3862,51 @@ msgstr "부가 기능 호환성을 업그레이드 할 수 없습니다"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "부가 기능 호환성이 업그레이드 되었습니다"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "차단된 버전: 모든 버전."
+
+#~ msgid "Versions blocked: %(versions)s."
+#~ msgstr "차단된 버전: %(versions)s."
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "%(addonName)s은 사용자 보호를 위해 차단되었습니다."
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "이 부가 기능은 사용자 보호를 위해 차단되었습니다."
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "왜 차단 되었습니까?"
+
+#~ msgid ""
+#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr ""
+#~ "이 부가 기능은 %(startLink)sMozilla의 부가 기능 정책%(endLink)s을 위반합니"
+#~ "다."
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr ""
+#~ "문제가 발생한 부가 기능 및 플러그인은 자동으로 사용 중단 처리되어 더이상 "
+#~ "사용할 수 없게 됩니다."
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "Mozilla에선 부가 기능, 플러그인, 기타 서드파티 소프트웨어에서 Firefox에 심"
+#~ "각한 보안, 안정성, 성능 저하 문제를 초래하는 것이 있을 경우 "
+#~ "%(criteriaStartLink)s규정%(criteriaEndLink)s에 의거, 해당 소프트웨어를 일"
+#~ "반적인 사용을 할 수 없도록 차단하게 됩니다. 보다 자세한 정보를 보시려면 "
+#~ "%(supportStartLink)s이 도움말%(supportEndLink)s을 읽어보시기 바랍니다."
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "%(date)s에 차단되었습니다."
 
 # If uppercase does not work in your locale,
 #~ msgid "SPONSORED"

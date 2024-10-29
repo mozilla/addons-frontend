@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2024-08-19 02:19+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2756,63 +2756,64 @@ msgstr "ਨਵਾਂ ਵਰਜ਼ਨ"
 msgid "Older versions"
 msgstr "ਪੁਰਾਣਾ ਵਰਜ਼ਨ"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "ਪਾਬੰਦੀ ਬੇਨਤੀ ਵੇਖੋ"
-
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "ਪਾਬੰਦੀ ਲਾਏ ਵਰਜ਼ਨ: ਸਾਰੇ ਵਰਜ਼ਨ।"
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ %(addonName)s ਪਾਬੰਦੀ ਲਾਈ ਗਈ।"
-
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "ਇਹ ਐਡ-ਆਨ ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ ਰੋਕ ਦਿੱਤੀ ਗਈ ਹੈ।"
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "ਇਸ ਤੇ ਪਾਬੰਦੀ ਕਿਉੰ ਲਾਈ ਗਈ ਸੀ?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
 msgstr ""
-"ਇਹ ਐਡ-ਆਨ %(startLink)sਮੋਜ਼ੀਲਾ ਦੀਆਂ ਐਡ-ਆਨ ਨੀਤੀਆਂ%(endLink)s ਦੀ ਉਲੰਘਣਾ ਕਰਦੀ ਹੈੋ।"
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "ਇਸ ਦਾ ਕੀ ਮਤਲਬ ਹੈ?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
-msgstr "ਸਮੱਸਿਆ ਵਾਲੇ ਐਡ-ਆਨ ਜਾਂ ਪਲੱਗਇਨ ਆਪਣੇ ਆਪ ਹੀ ਅਯੋਗ ਹੋ ਜਾਣਗੇ ਅਤੇ ਹੁਣ ਵਰਤਣਯੋਗ ਨਹੀਂ ਰਹਿਣਗੇ।"
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
+msgstr ""
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
-"ਜਦੋਂ Mozilla ਐਡ-ਆਨ, ਪਲੱਗਇਨਾਂ, ਜਾਂ ਹੋਰ ਤੀਜੀ-ਧਿਰ ਸਾਫਟਵੇਅਰ ਬਾਰੇ ਜਾਣੂ ਹੋ ਜਾਂਦਾ ਹੈ ਜੋ Firefox "
-"ਸੁਰੱਖਿਆ, ਸਥਿਰਤਾ, ਜਾਂ ਕਾਰਗੁਜ਼ਾਰੀ ਨਾਲ ਗੰਭੀਰਤਾ ਨਾਲ ਸਮਝੌਤਾ ਕਰਦਾ ਹੈ ਅਤੇ "
-"%(criteriaStartLink)s ਖੋਜ ਮਾਪਦੰਡ %(criteriaEndLink)s ਨੂੰ ਪੂਰਾ ਕਰਦਾ ਹੈ, ਤਾਂ ਸਾਫਟਵੇਅਰ "
-"ਨੂੰ ਆਮ ਵਰਤੋਂ ਤੋਂ ਰੋਕਿਆ ਜਾ ਸਕਦਾ ਹੈ। ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ %(supportStartLink)sਇਹ "
-"ਸਹਾਇਤਾ ਲੇਖ%(supportEndLink)s ਪੜ੍ਹੋ।"
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "%(date)s ਨੂੰ ਬਲਾਕ ਕੀਤਾ।"
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "ਪਾਬੰਦੀ ਬੇਨਤੀ ਵੇਖੋ"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -3887,6 +3888,46 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਕਾਮਯਾਬੀ ਅੱਪਗਰੇਡ ਹੋਈ"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "ਪਾਬੰਦੀ ਲਾਏ ਵਰਜ਼ਨ: ਸਾਰੇ ਵਰਜ਼ਨ।"
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ %(addonName)s ਪਾਬੰਦੀ ਲਾਈ ਗਈ।"
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "ਇਹ ਐਡ-ਆਨ ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ ਰੋਕ ਦਿੱਤੀ ਗਈ ਹੈ।"
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "ਇਸ ਤੇ ਪਾਬੰਦੀ ਕਿਉੰ ਲਾਈ ਗਈ ਸੀ?"
+
+#~ msgid ""
+#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr ""
+#~ "ਇਹ ਐਡ-ਆਨ %(startLink)sਮੋਜ਼ੀਲਾ ਦੀਆਂ ਐਡ-ਆਨ ਨੀਤੀਆਂ%(endLink)s ਦੀ ਉਲੰਘਣਾ ਕਰਦੀ ਹੈੋ।"
+
+#~ msgid ""
+#~ "The problematic add-on or plugin will be automatically disabled and no "
+#~ "longer usable."
+#~ msgstr ""
+#~ "ਸਮੱਸਿਆ ਵਾਲੇ ਐਡ-ਆਨ ਜਾਂ ਪਲੱਗਇਨ ਆਪਣੇ ਆਪ ਹੀ ਅਯੋਗ ਹੋ ਜਾਣਗੇ ਅਤੇ ਹੁਣ ਵਰਤਣਯੋਗ ਨਹੀਂ ਰਹਿਣਗੇ।"
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
+#~ "use. For more information, please read %(supportStartLink)sthis support "
+#~ "article%(supportEndLink)s."
+#~ msgstr ""
+#~ "ਜਦੋਂ Mozilla ਐਡ-ਆਨ, ਪਲੱਗਇਨਾਂ, ਜਾਂ ਹੋਰ ਤੀਜੀ-ਧਿਰ ਸਾਫਟਵੇਅਰ ਬਾਰੇ ਜਾਣੂ ਹੋ ਜਾਂਦਾ ਹੈ ਜੋ "
+#~ "Firefox ਸੁਰੱਖਿਆ, ਸਥਿਰਤਾ, ਜਾਂ ਕਾਰਗੁਜ਼ਾਰੀ ਨਾਲ ਗੰਭੀਰਤਾ ਨਾਲ ਸਮਝੌਤਾ ਕਰਦਾ ਹੈ ਅਤੇ "
+#~ "%(criteriaStartLink)s ਖੋਜ ਮਾਪਦੰਡ %(criteriaEndLink)s ਨੂੰ ਪੂਰਾ ਕਰਦਾ ਹੈ, ਤਾਂ "
+#~ "ਸਾਫਟਵੇਅਰ ਨੂੰ ਆਮ ਵਰਤੋਂ ਤੋਂ ਰੋਕਿਆ ਜਾ ਸਕਦਾ ਹੈ। ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ "
+#~ "%(supportStartLink)sਇਹ ਸਹਾਇਤਾ ਲੇਖ%(supportEndLink)s ਪੜ੍ਹੋ।"
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "%(date)s ਨੂੰ ਬਲਾਕ ਕੀਤਾ।"
 
 # If uppercase does not work in your locale,
 #~ msgid "SPONSORED"

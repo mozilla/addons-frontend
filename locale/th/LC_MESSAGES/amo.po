@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-27 11:34+0000\n"
+"POT-Creation-Date: 2024-10-29 11:53+0000\n"
 "PO-Revision-Date: 2024-05-23 21:17+0000\n"
 "Last-Translator: komsitr <komsitr@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2678,57 +2678,64 @@ msgstr "รุ่นล่าสุด"
 msgid "Older versions"
 msgstr "รุ่นเก่ากว่า"
 
-#: src/amo/pages/Block/index.js:103
-msgid "View block request"
-msgstr "ดูคำขอปิดกั้น"
-
-#: src/amo/pages/Block/index.js:120
-msgid "Versions blocked: all versions."
-msgstr "รุ่นที่ถูกปิดกั้น: รุ่นทั้งหมด"
-
-#: src/amo/pages/Block/index.js:125
-msgid "Versions blocked: %(versions)s."
+#: src/amo/pages/Block/index.js:126
+msgid "%(addonName)s is restricted for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:146
-msgid "%(addonName)s has been blocked for your protection."
-msgstr "%(addonName)s ถูกปิดกั้นเพื่อปกป้องคุณ"
-
-#: src/amo/pages/Block/index.js:151
-msgid "This add-on has been blocked for your protection."
-msgstr "ส่วนเสริมนี้ถูกปิดกั้นเพื่อปกป้องคุณ"
-
-#: src/amo/pages/Block/index.js:162
-msgid "Why was it blocked?"
-msgstr "ทำไมจึงถูกปิดกั้น?"
-
-#: src/amo/pages/Block/index.js:167
-msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#: src/amo/pages/Block/index.js:133
+msgid "This add-on is restricted for violating Mozilla policies."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:140
+msgid "%(addonName)s is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:147
+msgid "This add-on is blocked for violating Mozilla policies."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:161
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:166
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+"Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
 msgstr "สิ่งนี้หมายถึงอะไร?"
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
-"The problematic add-on or plugin will be automatically disabled and no "
-"longer usable."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:188
+#: src/amo/pages/Block/index.js:186
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
 "performance and meets %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked from general use. "
-"For more information, please read %(supportStartLink)sthis support "
-"article%(supportEndLink)s."
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:94
-msgid "Blocked on %(date)s."
-msgstr "ถูกปิดกั้นเมื่อ %(date)s"
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr "ดูคำขอปิดกั้น"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -3783,6 +3790,21 @@ msgstr "ไม่สามารถอัปเกรดความเข้า
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "อัปเกรดความเข้ากันได้ของส่วนเสริมของฉันสำเร็จ"
+
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "รุ่นที่ถูกปิดกั้น: รุ่นทั้งหมด"
+
+#~ msgid "%(addonName)s has been blocked for your protection."
+#~ msgstr "%(addonName)s ถูกปิดกั้นเพื่อปกป้องคุณ"
+
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "ส่วนเสริมนี้ถูกปิดกั้นเพื่อปกป้องคุณ"
+
+#~ msgid "Why was it blocked?"
+#~ msgstr "ทำไมจึงถูกปิดกั้น?"
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "ถูกปิดกั้นเมื่อ %(date)s"
 
 # If uppercase does not work in your locale,
 #~ msgid "SPONSORED"
