@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 13:51+0000\n"
+"PO-Revision-Date: 2024-10-29 19:00+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fur\n"
@@ -2565,7 +2565,7 @@ msgstr "Parcè isal sucedût?"
 
 #: src/amo/pages/Block/index.js:166
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Cheste estension, teme o plugin al viole lis %(startLink)spolitichis di Mozilla pai components adizionâi%(endLink)s."
 
 #: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
