@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 12:57+0000\n"
+"PO-Revision-Date: 2024-10-29 12:59+0000\n"
 "Last-Translator: Grk <gu0townkg@relay.firefox.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -2557,7 +2557,7 @@ msgstr "Neden böyle bir şey oldu?"
 
 #: src/amo/pages/Block/index.js:166
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Bu uzantı, tema veya yan uygulama %(startLink)sMozilla’nın Eklenti Politikalarını%(endLink)s ihlal ediyor."
 
 #: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
@@ -2578,6 +2578,9 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Mozilla, Firefox’un güvenliğini, kararlılığını veya performansını ciddi şekilde tehlikeye atan ve %(criteriaStartLink)sbelirli ölçütleri%(criteriaEndLink)s karşılayan eklentilerin, yan uygulamaların"
+" veya diğer üçüncü taraf yazılımların farkına vardığında o yazılımı engelleyebilir veya kısıtlayabilir. Daha fazla bilgi için lütfen %(supportStartLink)sbu destek makalesini%(supportEndLink)s "
+"okuyun."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
