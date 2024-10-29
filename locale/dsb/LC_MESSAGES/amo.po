@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 16:53+0000\n"
+"PO-Revision-Date: 2024-10-29 17:04+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1203,15 +1203,15 @@ msgstr "Pśejźenja pśeśiwo wobchodnym pótajmnosćam"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Pśestupjenje EU-pšawa, kótarež jo relewantne za ciwilny diskurs abo wólby"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Pśestupjenje narodnego pšawa, kótarež jo relewantne za ciwilny diskurs abo wólby"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "Wopacne informacije, desinformacija, manipulacija cuzych informacijow a zaměšanje"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
@@ -1219,11 +1219,11 @@ msgstr "Njewobjadne dalejdaśe wobrazow"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "Njewobjadne zapiski, kótarež deepfake abo pódobnu technologiju wopśimuju, kótarež funkcije tśeśich póbitowarjow wužywaju"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Mobbing/Zatšašenje online"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
@@ -1235,11 +1235,11 @@ msgstr "Seksualny material za dorosćone"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "Seksualne znjewužywanje na zakłaźe wobrazow (mimo wopśimjeśa, kótarež małolětnych zwobraznjujo)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
-msgstr ""
+msgstr "pó starstwje specifiske wobgranicowanja nastupajucy małolětnych"
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
@@ -1279,7 +1279,7 @@ msgstr "Pógódnośenja njeawtentiskich wužywarjow"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
-msgstr ""
+msgstr "Kšadnjenje identity abo kontow"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
@@ -1291,7 +1291,7 @@ msgstr "Pyramidowe šemy"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "Wopśimjeśe, kótarež mólenja jěźenja pódpěrajo"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
