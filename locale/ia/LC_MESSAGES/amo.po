@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 17:47+0000\n"
+"PO-Revision-Date: 2024-10-29 23:30+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2550,7 +2550,7 @@ msgstr "%(addonName)s es limitate perque viola le directivas de Mozilla."
 
 #: src/amo/pages/Block/index.js:133
 msgid "This add-on is restricted for violating Mozilla policies."
-msgstr ""
+msgstr "Iste additivo es limitate perque viola le directivas de Mozilla."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s is blocked for violating Mozilla policies."
