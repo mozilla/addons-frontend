@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-30 02:15+0000\n"
+"PO-Revision-Date: 2024-10-30 02:26+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -2522,17 +2522,17 @@ msgstr "這是什麼意思？"
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
-msgstr ""
+msgstr "解決這個違規問題之前，將無法從 addons.mozilla.org 下載此附加元件。使用者若已經安裝則將被停用，並收到此違規通知。他們仍可自行承擔風險，重新啟用附加元件。"
 
 #: src/amo/pages/Block/index.js:186
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "解決這個違規問題之前，將無法從 addons.mozilla.org 下載此附加元件。使用者若已經安裝則將被停用，不可再於 Firefox 使用。"
 
 #: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
-msgstr ""
+msgstr "當 Mozilla 發現有附加元件、外掛程式，或其他第三方軟體嚴重影響 Firefox 的安全性、穩定性、效能，而且符合%(criteriaStartLink)s某些條件%(criteriaEndLink)s，該軟體就可能被封鎖或受限，防止公眾使用。如果您想了解更多資訊，請閱讀%(supportStartLink)s這篇技術支援文章%(supportEndLink)s。"
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
