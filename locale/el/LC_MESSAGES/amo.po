@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-30 09:19+0000\n"
+"PO-Revision-Date: 2024-10-30 09:46+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -2539,19 +2539,19 @@ msgstr "Παλαιότερες εκδόσεις"
 
 #: src/amo/pages/Block/index.js:126
 msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr ""
+msgstr "Το %(addonName)s έχει περιοριστεί λόγω παραβίασης των πολιτικών της Mozilla."
 
 #: src/amo/pages/Block/index.js:133
 msgid "This add-on is restricted for violating Mozilla policies."
-msgstr ""
+msgstr "Αυτό το πρόσθετο έχει περιοριστεί λόγω παραβίασης των πολιτικών της Mozilla."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr ""
+msgstr "Το %(addonName)s έχει αποκλειστεί λόγω παραβίασης των πολιτικών της Mozilla."
 
 #: src/amo/pages/Block/index.js:147
 msgid "This add-on is blocked for violating Mozilla policies."
-msgstr ""
+msgstr "Αυτό το πρόσθετο έχει αποκλειστεί λόγω παραβίασης των πολιτικών της Mozilla."
 
 #: src/amo/pages/Block/index.js:161
 msgid "Why did this happen?"
@@ -2559,7 +2559,7 @@ msgstr "Γιατί συνέβη αυτό;"
 
 #: src/amo/pages/Block/index.js:166
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Αυτή η επέκταση, το θέμα ή το άρθρωμα παραβιάζει τις %(startLink)sπολιτικές προσθέτων της Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
@@ -2580,6 +2580,8 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Όταν η Mozilla εντοπίσει πρόσθετα, αρθρώματα ή άλλο λογισμικό τρίτων που θέτουν σε κίνδυνο την ασφάλεια, τη σταθερότητα ή τις επιδόσεις του Firefox και πληρούν %(criteriaStartLink)sορισμένα "
+"κριτήρια%(criteriaEndLink)s, ενδέχεται να αποκλειστεί ή να περιοριστεί η χρήση τους. Για περισσότερες πληροφορίες, διαβάστε %(supportStartLink)sαυτό το άρθρο υποστήριξης%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
