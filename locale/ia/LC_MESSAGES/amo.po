@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-29 23:35+0000\n"
+"PO-Revision-Date: 2024-10-30 00:00+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2577,16 +2577,21 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Usque le violation es resolvite, iste additivo non sera disponibile a discargar ab addons.mozilla.org. Si illo es jam installate, illo sera disactivate e le usatores sera informate re le violation. "
+"Illes pote seliger de activar le additivo ancora a lor proprie risco."
 
 #: src/amo/pages/Block/index.js:186
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Usque le violation es resolvite, iste additivo non sera disponibile a discargar ab addons.mozilla.org. Illo sera automaticamente disactivate e non plus usabile in Firefox."
 
 #: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Quando Mozilla deveni conscie de additivos, plugins, o altere software de tertie-parte que seriemente compromitte le securitate, stabilitate, o prestation de Firefox e satisface "
+"%(criteriaStartLink)scerte criterios%(criteriaEndLink)s, le software pote esser blocate o limitate del uso general. Pro altere informationes, lege %(supportStartLink)siste articulo de "
+"assistentia%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
