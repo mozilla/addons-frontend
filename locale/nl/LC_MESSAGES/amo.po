@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-09-25 05:26+0000\n"
+"PO-Revision-Date: 2024-10-30 07:49+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2544,27 +2544,27 @@ msgstr "Oudere versies"
 
 #: src/amo/pages/Block/index.js:126
 msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr ""
+msgstr "%(addonName)s is beperkt vanwege schending van Mozilla-beleid."
 
 #: src/amo/pages/Block/index.js:133
 msgid "This add-on is restricted for violating Mozilla policies."
-msgstr ""
+msgstr "Deze add-on is beperkt vanwege schending van Mozilla-beleid."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr ""
+msgstr "%(addonName)s is geblokkeerd vanwege schending van Mozilla-beleid."
 
 #: src/amo/pages/Block/index.js:147
 msgid "This add-on is blocked for violating Mozilla policies."
-msgstr ""
+msgstr "Deze add-on is geblokkeerd vanwege schending van Mozilla-beleid."
 
 #: src/amo/pages/Block/index.js:161
 msgid "Why did this happen?"
-msgstr ""
+msgstr "Waarom is dit gebeurd?"
 
 #: src/amo/pages/Block/index.js:166
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Deze extensie, thema of plug-in schendt %(startLink)sMozilla’s add-onbeleid%(endLink)s."
 
 #: src/amo/pages/Block/index.js:178
 msgid "What does this mean?"
@@ -2575,16 +2575,21 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Totdat de schending is opgelost, is deze add-on niet beschikbaar voor downloaden vanaf addons.mozilla.org. Als deze al is geïnstalleerd, wordt deze uitgeschakeld en worden gebruikers over de "
+"schending geïnformeerd. Ze kunnen er op eigen risico voor kiezen de add-on weer in te schakelen."
 
 #: src/amo/pages/Block/index.js:186
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Totdat de schending is opgelost, is deze add-on niet beschikbaar voor downloaden vanaf addons.mozilla.org. Deze wordt automatisch uitgeschakeld en kan niet meer worden gebruikt in Firefox."
 
 #: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Wanneer Mozilla kennis neemt van add-ons, plug-ins of andere software van derden die een serieuze bedreiging vormt voor de veiligheid, stabiliteit of prestaties van Firefox en aan "
+"%(criteriaStartLink)sbepaalde criteria%(criteriaEndLink)s voldoet, kan de software voor algemeen gebruik worden geblokkeerd of beperkt. Lees voor meer informatie %(supportStartLink)sdit "
+"ondersteuningsartikel%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
