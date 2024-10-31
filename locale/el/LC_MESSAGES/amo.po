@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-10-30 09:46+0000\n"
+"PO-Revision-Date: 2024-10-31 00:18+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -2570,10 +2570,12 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Μέχρι να επιλυθεί η παραβίαση, αυτό το πρόσθετο δεν θα είναι διαθέσιμο για λήψη από το addons.mozilla.org. Αν είναι ήδη εγκατεστημένο, θα απενεργοποιηθεί και οι χρήστες θα ενημερωθούν για την "
+"παραβίαση. Μπορούν να το ενεργοποιήσουν ξανά με δική τους ευθύνη."
 
 #: src/amo/pages/Block/index.js:186
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Μέχρι να επιλυθεί η παραβίαση, αυτό το πρόσθετο δεν θα είναι διαθέσιμο για λήψη από το addons.mozilla.org. Θα απενεργοποιηθεί αυτόματα και δεν θα είναι πλέον δυνατή η χρήση του στο Firefox."
 
 #: src/amo/pages/Block/index.js:195
 msgid ""
