@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-11-01 20:21+0000\n"
+"PO-Revision-Date: 2024-11-01 20:26+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -2568,12 +2568,12 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
-"Até que a violação seja resolvida, esta extensão não estará disponível para download no addons.mozilla.org. Se já estiver instalado, será desativado e os usuários serão informados sobre a violação. "
-"Eles podem optar por ativar o complemento novamente por sua conta e risco."
+"Até que a violação seja resolvida, esta extensão não estará disponível para download em addons.mozilla.org. Se já estiver instalada, será desativada e os usuários serão informados sobre a violação. "
+"Eles podem optar por ativar a extensão novamente por sua conta e risco."
 
 #: src/amo/pages/Block/index.js:186
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr "Até que a violação seja resolvida, esta extensão não estará disponível para download no addons.mozilla.org. Será desativado automaticamente e não poderá mais ser usado no Firefox."
+msgstr "Até que a violação seja resolvida, esta extensão não estará disponível para download em addons.mozilla.org. Será desativada automaticamente e não poderá mais ser usada no Firefox."
 
 #: src/amo/pages/Block/index.js:195
 msgid ""
@@ -2581,7 +2581,7 @@ msgid ""
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
 "Quando a Mozilla toma conhecimento de extensões, plugins ou outros softwares de terceiros que comprometem seriamente a segurança, estabilidade ou desempenho do Firefox e atendem "
-"%(criteriaStartLink)sdeterminados critérios%(criteriaEndLink)s, o software pode ser bloqueado ou restringido de forma geral usar. Para mais informações, leia %(supportStartLink)seste artigo de "
+"%(criteriaStartLink)sdeterminados critérios%(criteriaEndLink)s, o software pode ser bloqueado ou restrito para uso geral. Consulte mais informações %(supportStartLink)sneste artigo do "
 "suporte%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:96
