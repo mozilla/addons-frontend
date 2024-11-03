@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-29 11:53+0000\n"
-"PO-Revision-Date: 2024-11-03 20:50+0000\n"
+"PO-Revision-Date: 2024-11-03 20:53+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -2611,18 +2611,20 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
-"Поки порушення не буде усунено, цей додаток буде не доступним для завантаження з addons.mozilla.org. Якщо він уже встановлений, то його буде вимкнено, а користувачів буде повідомлено про порушення. "
-"Вони можуть знову ввімкнути його на власний ризик."
+"Доки порушення не буде усунено, цей додаток буде недоступним для завантаження з addons.mozilla.org. Якщо він уже встановлений, його буде вимкнено, а користувачів буде повідомлено про порушення. Вони"
+" зможуть знову ввімкнути його на власний ризик."
 
 #: src/amo/pages/Block/index.js:186
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Доки порушення не буде усунено, цей додаток буде недоступним для завантаження з addons.mozilla.org. Його буде автоматично вимкнено та більше не можна використовувати у Firefox."
 
 #: src/amo/pages/Block/index.js:195
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Коли Mozilla стає відомо про додатки, плагіни чи інші сторонні програми, які становлять загрозу безпеці, стабільності чи швидкодії та відповідають %(criteriaStartLink)sпевним "
+"критеріям%(criteriaEndLink)s, то їх використання може бути заблоковане чи обмежене. Для отримання додаткової інформації ознайомтеся з %(supportStartLink)sцією статтею%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
