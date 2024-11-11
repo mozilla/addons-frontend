@@ -5,6 +5,19 @@ on:
     branches:
       - master
   pull_request:
+  # Runs when a release is published
+  # Pushes a tagged image
+  # That is deployed to the "staging/production" environments
+  release:
+    types: [published]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name}}-${{ github.ref}}
+  cancel-in-progress: true
+
+env:
+  GAR_REGISTRY: us-docker.pkg.dev
+  GAR_IMAGE: moz-fx-amo-prod/amo-prod
 
 jobs:
   context:
@@ -12,11 +25,35 @@ jobs:
 
     outputs:
       is_fork: ${{ steps.context.outputs.is_fork }}
+      is_release_master: ${{ steps.context.outputs.is_release_master }}
+      is_default_branch: ${{ steps.context.outputs.is_default_branch }}
+      is_release_tag: ${{ steps.context.outputs.is_release_tag }}
+      docker_version: ${{ steps.context.outputs.docker_version }}
 
     steps:
-      - uses: actions/checkout@v4
       - id: context
-        uses: ./.github/actions/context
+        uses: mozilla/addons/.github/actions/context@main
+
+  build:
+    needs: context
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: echo "Not implemented"
+
+  check:
+    needs: context
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: echo "Not implemented"
+
+  test:
+    needs: [context, build]
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: echo "Not implemented"
 
   locales:
     needs: context
@@ -43,9 +80,11 @@ jobs:
         run: yarn extract-locales
 
       - name: Push Locales
+        if: ${{ needs.context.outputs.is_release_master }}
         run: |
-          event_name="${{ github.event_name }}"
           is_fork="${{ needs.context.outputs.is_fork }}"
+          is_default_branch="${{ needs.context.outputs.is_default_branch }}"
+          is_push="${{ github.event_name == 'push' }}"
 
           if [[ "$is_fork" == 'true' ]]; then
             cat <<'EOF'
@@ -53,16 +92,55 @@ jobs:
               We cannot verify if the l10n extraction push will work or not.
               Please submit a PR from the base repository if you are modifying l10n extraction scripts.
           EOF
-            exit 0
+          else
+            if [[ "$is_default_branch" == 'true' && "$is_push" == 'true' ]]; then
+              args=""
+            else
+              args="--dry-run"
+            fi
+            ./bin/push-locales $ARGS
           fi
 
-          ARGS=""
+  push_dockerhub:
+    name: Push Production Docker Image (Dockerhub)
+    runs-on: ubuntu-latest
+    # if: |
+    #   needs.context.outputs.is_release_master == 'true' ||
+    #   needs.context.outputs.is_release_tag == 'true'
+    needs: [context, build, locales, test]
 
-          if [[ "$event_name" == 'pull_request' ]]; then
-            ARGS="--dry-run"
-          fi
+    steps:
+      - uses: actions/checkout@v4
 
-          ./bin/push-locales $ARGS
+      - name: Login to Dockerhub
+        id: docker_hub
+        uses: mozilla/addons/.github/actions/login-docker@main
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASS }}
+
+  push_gar:
+    name: Push Production Docker Image (GAR)
+    runs-on: ubuntu-latest
+    # if: |
+    #   needs.context.outputs.is_release_master == 'true' ||
+    #   needs.context.outputs.is_release_tag == 'true'
+    needs: [context, build, locales, test]
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login to GAR
+        id: docker_gar
+        uses: mozilla/addons/.github/actions/login-gar@main
+        with:
+          service_account: ${{ secrets.GAR_PUSHER_SERVICE_ACCOUNT_EMAIL }}
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          registry: ${{ env.GAR_REGISTRY }}
 
 
 
