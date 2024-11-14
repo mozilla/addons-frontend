@@ -108,6 +108,16 @@ export const createInternalBlock = (
   };
 };
 
+export const isSoftBlocked = (
+  block?: BlockType | null,
+  versionId?: string,
+): boolean => {
+  return (
+    Boolean(block?.soft_blocked.length) &&
+    (block?.soft_blocked.includes(versionId) || !block?.blocked.length)
+  );
+};
+
 type Action = FetchBlockAction | AbortFetchBlockAction | LoadBlockAction;
 
 const reducer = (

@@ -135,7 +135,7 @@ describe(__filename, () => {
 
   it('renders a generic header/title when the block has no add-on name', async () => {
     const block = _createFakeBlockResult({ addonName: null });
-    const title = 'This add-on is blocked for violating Mozilla policies.';
+    const title = 'This add-on is blocked for violating Mozilla policies';
     store.dispatch(loadBlock({ block }));
     render();
 
@@ -152,7 +152,7 @@ describe(__filename, () => {
     const block = _createFakeBlockResult({
       addonName: createLocalizedString(name),
     });
-    const title = `${name} is blocked for violating Mozilla policies.`;
+    const title = `${name} is blocked for violating Mozilla policies`;
     store.dispatch(loadBlock({ block }));
     render();
 
@@ -171,7 +171,7 @@ describe(__filename, () => {
       soft_blocked: ['42.0'],
       blocked: [],
     });
-    const title = 'This add-on is restricted for violating Mozilla policies.';
+    const title = 'This add-on is restricted for violating Mozilla policies';
     store.dispatch(loadBlock({ block }));
     render();
 
@@ -259,7 +259,7 @@ describe(__filename, () => {
     });
 
     expect(
-      screen.getByText(`${name} is blocked for violating Mozilla policies.`),
+      screen.getByText(`${name} is blocked for violating Mozilla policies`),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
@@ -280,7 +280,7 @@ describe(__filename, () => {
     render();
 
     expect(
-      screen.getByText(`${name} is restricted for violating Mozilla policies.`),
+      screen.getByText(`${name} is restricted for violating Mozilla policies`),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
@@ -303,7 +303,7 @@ describe(__filename, () => {
     });
 
     expect(
-      screen.getByText(`${name} is restricted for violating Mozilla policies.`),
+      screen.getByText(`${name} is restricted for violating Mozilla policies`),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
