@@ -13,13 +13,13 @@ import {
   CONTRIBUTE_BUTTON_CLICK_CATEGORY,
 } from 'amo/components/ContributeCard';
 import {
+  ADDONS_CONTENT_REVIEW,
+  ADDONS_EDIT,
+  ADDONS_REVIEW,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
-  ADDONS_CONTENT_REVIEW,
-  ADDONS_EDIT,
-  ADDONS_REVIEW,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DEFAULT_UTM_SOURCE,
@@ -27,6 +27,7 @@ import {
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   INSTALLING,
   RECOMMENDED,
+  REVIEWER_TOOLS_VIEW,
   SET_VIEW_CONTEXT,
   STATIC_THEMES_REVIEW,
 } from 'amo/constants';
@@ -1433,13 +1434,16 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
-    it('shows a code review link for an extension if the user has permission', () => {
-      renderWithPermissions({ permissions: ADDONS_REVIEW });
+    it.each([ADDONS_REVIEW, REVIEWER_TOOLS_VIEW])(
+      'shows a code review link for an extension if the user has the %s permission',
+      (permission) => {
+        renderWithPermissions({ permissions: [permission] });
 
-      expect(
-        screen.getByRole('link', { name: 'Review add-on code' }),
-      ).toHaveAttribute('href', `/reviewers/review/${defaultAddonId}`);
-    });
+        expect(
+          screen.getByRole('link', { name: 'Review add-on code' }),
+        ).toHaveAttribute('href', `/reviewers/review/${defaultAddonId}`);
+      },
+    );
 
     it('does not show a code review link if the user does not have permission', () => {
       renderWithPermissions({ permissions: ADDONS_EDIT });

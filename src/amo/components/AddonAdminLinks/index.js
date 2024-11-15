@@ -8,6 +8,7 @@ import {
   ADDONS_EDIT,
   ADDONS_REVIEW,
   ADDON_TYPE_STATIC_THEME,
+  REVIEWER_TOOLS_VIEW,
   STATIC_THEMES_REVIEW,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -148,7 +149,9 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
 
 const mapStateToProps = (state: AppState): PropsFromState => {
   return {
-    hasCodeReviewPermission: hasPermission(state, ADDONS_REVIEW),
+    hasCodeReviewPermission:
+      hasPermission(state, ADDONS_REVIEW) ||
+      hasPermission(state, REVIEWER_TOOLS_VIEW),
     hasContentReviewPermission: hasPermission(state, ADDONS_CONTENT_REVIEW),
     hasEditPermission: hasPermission(state, ADDONS_EDIT),
     hasStaticThemeReviewPermission: hasPermission(state, STATIC_THEMES_REVIEW),
