@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-14 07:54+0000\n"
+"POT-Creation-Date: 2024-11-15 12:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,33 +42,33 @@ msgstr ""
 msgid "Add to collection"
 msgstr ""
 
-#: src/amo/components/AddonAdminLinks/index.js:104
+#: src/amo/components/AddonAdminLinks/index.js:105
 #. This action allows a reviewer to perform a content review of an add-on.
 msgid "Content review add-on"
 msgstr ""
 
-#: src/amo/components/AddonAdminLinks/index.js:112
+#: src/amo/components/AddonAdminLinks/index.js:113
 #. This action allows a reviewer to perform a review of a theme.
 msgid "Review theme"
 msgstr ""
 
-#: src/amo/components/AddonAdminLinks/index.js:114
+#: src/amo/components/AddonAdminLinks/index.js:115
 #. This action allows a reviewer to perform a review of an add-on's code.
 msgid "Review add-on code"
 msgstr ""
 
-#: src/amo/components/AddonAdminLinks/index.js:134
+#: src/amo/components/AddonAdminLinks/index.js:135
 #. This is a list of links to administrative functions.
 msgid "Admin Links"
 msgstr ""
 
-#: src/amo/components/AddonAdminLinks/index.js:76
+#: src/amo/components/AddonAdminLinks/index.js:77
 #: src/amo/components/AddonAuthorLinks/index.js:51
 #. This action allows the add-on developer or an admin to edit an add-on's properties.
 msgid "Edit add-on"
 msgstr ""
 
-#: src/amo/components/AddonAdminLinks/index.js:90
+#: src/amo/components/AddonAdminLinks/index.js:91
 #. This action allows an admin to maintain an add-on.
 msgid "Admin add-on"
 msgstr ""

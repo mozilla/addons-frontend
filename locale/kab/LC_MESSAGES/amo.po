@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-10-29 11:53+0000\n"
+"POT-Creation-Date: 2024-11-15 12:02+0000\n"
 "PO-Revision-Date: 2024-08-21 09:35+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
@@ -46,33 +46,33 @@ msgid "Add to collection"
 msgstr "Rnu ar tegrumma"
 
 #. This action allows a reviewer to perform a content review of an add-on.
-#: src/amo/components/AddonAdminLinks/index.js:104
+#: src/amo/components/AddonAdminLinks/index.js:105
 msgid "Content review add-on"
 msgstr "Acegger n ugbur n usiɣzef"
 
 #. This action allows a reviewer to perform a review of a theme.
-#: src/amo/components/AddonAdminLinks/index.js:112
+#: src/amo/components/AddonAdminLinks/index.js:113
 msgid "Review theme"
 msgstr "Acegger n usentel"
 
 #. This action allows a reviewer to perform a review of an add-on's code.
-#: src/amo/components/AddonAdminLinks/index.js:114
+#: src/amo/components/AddonAdminLinks/index.js:115
 msgid "Review add-on code"
 msgstr "Acegger n tengalt n usiɣzef"
 
 #. This is a list of links to administrative functions.
-#: src/amo/components/AddonAdminLinks/index.js:134
+#: src/amo/components/AddonAdminLinks/index.js:135
 msgid "Admin Links"
 msgstr "Sefrek iseɣwan"
 
 #. This action allows the add-on developer or an admin to edit an add-on's properties.
-#: src/amo/components/AddonAdminLinks/index.js:76
+#: src/amo/components/AddonAdminLinks/index.js:77
 #: src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
 msgstr "Ẓreg isiɣzaf"
 
 #. This action allows an admin to maintain an add-on.
-#: src/amo/components/AddonAdminLinks/index.js:90
+#: src/amo/components/AddonAdminLinks/index.js:91
 msgid "Admin add-on"
 msgstr "Sefrek isiɣzaf"
 
