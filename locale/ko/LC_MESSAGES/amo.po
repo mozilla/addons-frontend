@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-11-15 12:02+0000\n"
-"PO-Revision-Date: 2024-11-17 14:01+0000\n"
+"PO-Revision-Date: 2024-11-17 14:07+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1830,14 +1830,13 @@ msgstr "별 3개 리뷰가 없습니다"
 #: src/amo/components/RatingsByStar/index.js:108
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "1점 리뷰 모두 보기"
+msgstr[0] "2 별점 리뷰 모두 보기"
 
 #: src/amo/components/RatingsByStar/index.js:118
 msgid "There are no two-star reviews"
 msgstr "별 2개 리뷰가 없습니다"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
 msgstr[0] "1 별점 리뷰 모두 보기"
@@ -1851,7 +1850,6 @@ msgid "There are no reviews"
 msgstr "리뷰가 없습니다"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
 msgstr[0] "5 별점 리뷰 모두 보기"
@@ -1861,7 +1859,6 @@ msgid "There are no five-star reviews"
 msgstr "별 5개 리뷰가 없습니다"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
 msgstr[0] "4 별점 리뷰 모두 보기"
@@ -1871,7 +1868,6 @@ msgid "There are no four-star reviews"
 msgstr "별 4개 리뷰가 없습니다"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "3 별점 리뷰 모두 보기"
@@ -2064,10 +2060,9 @@ msgid "Searching for add-ons"
 msgstr "부가 기능 검색 중"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니다"
+msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s 태그의 확장 기능 찾음"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -2075,10 +2070,9 @@ msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니다"
+msgstr[0] "%(categoryName)s 태그에서 %(count)s개의 확장 기능 찾음"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -2086,10 +2080,9 @@ msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "%(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니다"
+msgstr[0] "\"%(query)s\"에 대해 %(tag)s 태그에서 %(count)s개의 확장 기능 찾음"
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "All"
