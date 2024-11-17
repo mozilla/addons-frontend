@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-11-15 12:02+0000\n"
-"PO-Revision-Date: 2024-10-11 00:36+0000\n"
-"Last-Translator: Sojin <sojin980@gmail.com>\n"
+"PO-Revision-Date: 2024-11-17 14:01+0000\n"
+"Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1828,10 +1828,9 @@ msgid "There are no three-star reviews"
 msgstr "별 3개 리뷰가 없습니다"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "2 별점 리뷰 모두 보기"
+msgstr[0] "1점 리뷰 모두 보기"
 
 #: src/amo/components/RatingsByStar/index.js:118
 msgid "There are no two-star reviews"
