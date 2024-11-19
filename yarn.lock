@@ -5070,10 +5070,10 @@ flow-bin@^0.187.0:
   resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.187.1.tgz#0704d8f16bcf58c07decc09daebbf0d3ce845bc8"
   integrity sha512-rG2p8NAJ7By0QTh+RMQRIGfM7nuKKp4XANqYUAoi6tDuEULLjlNxSa1vcwqW+O2EXGeLKYDkz/QVhefH/pBToA==
 
-focus-visible@5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/focus-visible/-/focus-visible-5.2.0.tgz#3a9e41fccf587bd25dcc2ef045508284f0a4d6b3"
-  integrity sha512-Rwix9pBtC1Nuy5wysTmKy+UjbDJpIfg8eHjw0rjZ1mX4GNLz1Bmd16uDpI3Gk1i70Fgcs8Csg2lPm8HULFg9DQ==
+focus-visible@5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/focus-visible/-/focus-visible-5.2.1.tgz#38615e8be4d4df7819a0d9d92cdee4fda183ac96"
+  integrity sha512-8Bx950VD1bWTQJEH/AM6SpEk+SU55aVnp4Ujhuuxy3eMEBCRwBnTBnVXr9YAPvZL3/CNjCa8u4IWfNmEO53whA==
 
 follow-redirects@^1.0.0, follow-redirects@^1.15.0:
   version "1.15.6"
