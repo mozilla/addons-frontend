@@ -12,7 +12,7 @@ import Page from 'amo/components/Page';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { sanitizeHTML } from 'amo/utils';
-import { fetchBlock } from 'amo/reducers/blocks';
+import { fetchBlock, isSoftBlocked } from 'amo/reducers/blocks';
 import log from 'amo/logger';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
@@ -32,6 +32,7 @@ type Props = {|
 
 type PropsFromState = {|
   block: BlockType | void | null,
+  isSoftBlocked: boolean,
 |};
 
 type InternalProps = {|
@@ -102,7 +103,7 @@ export class BlockBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { block, errorHandler, i18n, match } = this.props;
+    const { block, errorHandler, i18n } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
@@ -114,38 +115,34 @@ export class BlockBase extends React.Component<InternalProps> {
       return <ServerErrorPage />;
     }
 
-    const isSoftBlocked =
-      block?.soft_blocked.length &&
-      (block?.soft_blocked.includes(match.params.versionId) ||
-        !block?.blocked.length);
     let title;
-    if (isSoftBlocked) {
+    if (this.props.isSoftBlocked) {
       title =
         block && block.name
           ? i18n.sprintf(
               i18n.gettext(
-                `%(addonName)s is restricted for violating Mozilla policies.`,
+                `%(addonName)s is restricted for violating Mozilla policies`,
               ),
               {
                 addonName: block.name,
               },
             )
           : i18n.gettext(
-              `This add-on is restricted for violating Mozilla policies.`,
+              `This add-on is restricted for violating Mozilla policies`,
             );
     } else {
       title =
         block && block.name
           ? i18n.sprintf(
               i18n.gettext(
-                `%(addonName)s is blocked for violating Mozilla policies.`,
+                `%(addonName)s is blocked for violating Mozilla policies`,
               ),
               {
                 addonName: block.name,
               },
             )
           : i18n.gettext(
-              `This add-on is blocked for violating Mozilla policies.`,
+              `This add-on is blocked for violating Mozilla policies`,
             );
     }
 
@@ -164,7 +161,7 @@ export class BlockBase extends React.Component<InternalProps> {
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
                   i18n.gettext(`This extension, theme, or plugin violates
-                    %(startLink)sMozilla's Add-on Policies%(endLink)s.`),
+                    %(startLink)sMozilla's add-on policies%(endLink)s.`),
                   {
                     startLink: `<a href="${POLICIES_URL}">`,
                     endLink: '</a>',
@@ -177,7 +174,7 @@ export class BlockBase extends React.Component<InternalProps> {
 
             <h2>{i18n.gettext('What does this mean?')}</h2>
             <p>
-              {isSoftBlocked
+              {this.props.isSoftBlocked
                 ? i18n.gettext(`Until the violation is resolved, this add-on
                   won't be available for download from addons.mozilla.org.
                   If it’s already installed, it will be disabled and users
@@ -223,9 +220,11 @@ const mapStateToProps = (
   ownProps: InternalProps,
 ): PropsFromState => {
   const { blocks } = state;
+  const block = blocks.blocks[ownProps.match.params.guid];
 
   return {
-    block: blocks.blocks[ownProps.match.params.guid],
+    block,
+    isSoftBlocked: isSoftBlocked(block, ownProps.match.params.versionId),
   };
 };
 
