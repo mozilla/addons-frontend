@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-11-19 13:53+0000\n"
-"PO-Revision-Date: 2024-11-19 14:06+0000\n"
-"Last-Translator: Google Translate <pontoon-gt@example.com>\n"
+"PO-Revision-Date: 2024-11-19 18:07+0000\n"
+"Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -2537,19 +2537,19 @@ msgstr "Versões mais antigas"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr "%(addonName)s está restrito por violar as políticas da Mozilla"
+msgstr "%(addonName)s está restrito por violar diretrizes da Mozilla"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr "Esta extensão está restrita por violar as políticas da Mozilla"
+msgstr "Esta extensão está restrita por violar diretrizes da Mozilla"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
-msgstr "%(addonName)s foi bloqueado por violar as políticas da Mozilla"
+msgstr "%(addonName)s foi bloqueado por violar diretrizes da Mozilla"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
-msgstr "Esta extensão foi bloqueada por violar as políticas da Mozilla"
+msgstr "Esta extensão foi bloqueada por violar diretrizes da Mozilla"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
@@ -2557,7 +2557,7 @@ msgstr "Por que isso aconteceu?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr "Esta extensão, tema ou plugin viola %(startLink)spolíticas de extensão da Mozilla%(endLink)s."
+msgstr "Esta extensão, tema ou plugin viola %(startLink)sdiretrizes de extensões da Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
