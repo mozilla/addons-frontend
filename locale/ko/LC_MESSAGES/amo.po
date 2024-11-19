@@ -2276,7 +2276,8 @@ msgid_plural ""
 "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in "
 "%(categoryName)s"
 msgstr[0] ""
-"\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s 태그의 확장 기능 찾음"
+"%(count)s extension found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -2288,7 +2289,7 @@ msgstr[0] ""
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(categoryName)s 태그에서 %(count)s개의 확장 기능 찾음"
+msgstr[0] "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
