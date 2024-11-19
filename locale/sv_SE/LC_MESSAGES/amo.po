@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-29 19:51+0000\n"
 "Last-Translator: Andreas Pettersson <amvpet@gmail.com>\n"
 "Language-Team: none\n"
@@ -2800,39 +2800,37 @@ msgstr "Senaste version"
 msgid "Older versions"
 msgstr "Äldre versioner"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "%(addonName)s är begränsat för att det bryter mot Mozillas policyer."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
-msgstr "Detta tillägg är begränsat för att det bryter mot Mozillas policyer."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "%(addonName)s är blockerat för att det bryter mot Mozillas policyer."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
-msgstr "Detta tillägg är blockerat för att det bryter mot Mozillas policyer."
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Varför hände detta?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Tillägget, temat eller insticksmodulen bryter mot %(startLink)sMozillas "
-"tilläggspolicyer%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Vad innebär det?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2844,7 +2842,7 @@ msgstr ""
 "det att inaktiveras och användarna kommer att informeras om överträdelsen. "
 "De kan välja att aktivera tillägget igen på egen risk."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2854,7 +2852,7 @@ msgstr ""
 "för nedladdning från addons.mozilla.org. Det kommer att inaktiveras "
 "automatiskt och kan inte längre användas i Firefox."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2870,7 +2868,7 @@ msgstr ""
 "från allmän användning. För mer information, läs %(supportStartLink)sdenna "
 "supportartikel%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Visa blockeringsförfrågan"
 
@@ -3998,6 +3996,29 @@ msgstr "mitt tilläggs kompatibilitet kan inte uppgraderas"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "mitt tilläggs kompatibilitet har uppgraderats"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "%(addonName)s är begränsat för att det bryter mot Mozillas policyer."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "Detta tillägg är begränsat för att det bryter mot Mozillas policyer."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr ""
+#~ "%(addonName)s är blockerat för att det bryter mot Mozillas policyer."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr ""
+#~ "Detta tillägg är blockerat för att det bryter mot Mozillas policyer."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Tillägget, temat eller insticksmodulen bryter mot %(startLink)sMozillas "
+#~ "tilläggspolicyer%(endLink)s."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Versioner blockerade: alla versioner."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-29 13:32+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
@@ -2818,39 +2818,37 @@ msgstr "Nijste ferzje"
 msgid "Older versions"
 msgstr "Aldere ferzjes"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "%(addonName)s is beheind foar it skeinen fan Mozilla-belied."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
-msgstr "Dizze add-on is beheind foar it skeinen fan Mozilla-belied."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "%(addonName)s is blokkearre foar it skeinen fan Mozilla-belied."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
-msgstr "Dizze add-on is blokkearre foar it skeinen fan Mozilla-belied."
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Wêrom barde dit?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Dizze útwreiding, tema of ynstekker skeint %(startLink)sMozilla’s add-"
-"onbelied%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Wat betsjut dit?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2862,7 +2860,7 @@ msgstr ""
 "útskeakele wurde en brûkers wurde ynformearre oer de skeining. Se kinne der "
 "foar kieze om de add-on opnij yn te skeakeljen op eigen risiko."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2872,7 +2870,7 @@ msgstr ""
 "downloaden fan addons.mozilla.org. It sil automatysk útskeakele wurde en net "
 "mear brûkber wêze yn Firefox."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2888,7 +2886,7 @@ msgstr ""
 "blokkearre of beheind wurde. Lês foar mear ynformaasje "
 "%(supportStartLink)sdit stipe-artikel%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Blokkearringsfersyk besjen"
 
@@ -4022,6 +4020,25 @@ msgstr "de komptabiliteit fan myn add-on kin net fernijd wurde"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "de komptabiliteit fan myn add-on is mei sukses fernijd"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr "%(addonName)s is beheind foar it skeinen fan Mozilla-belied."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr "Dizze add-on is beheind foar it skeinen fan Mozilla-belied."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr "%(addonName)s is blokkearre foar it skeinen fan Mozilla-belied."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr "Dizze add-on is blokkearre foar it skeinen fan Mozilla-belied."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Dizze útwreiding, tema of ynstekker skeint %(startLink)sMozilla’s add-"
+#~ "onbelied%(endLink)s."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Blokkearre ferzjes: alle ferzjes."

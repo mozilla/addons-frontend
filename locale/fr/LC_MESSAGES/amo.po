@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-09-25 08:43+0000\n"
 "Last-Translator: Théo Chevalier <theochevalier@pm.me>\n"
 "Language-Team: none\n"
@@ -2847,37 +2847,37 @@ msgstr "Dernière version"
 msgid "Older versions"
 msgstr "Anciennes versions"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
 msgstr ""
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
 msgstr ""
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
 msgstr ""
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
 msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr ""
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Qu’est-ce que cela signifie ?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2885,14 +2885,14 @@ msgid ""
 "add-on again at their own risk."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
 "usable in Firefox."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2902,7 +2902,7 @@ msgid ""
 "support article%(supportEndLink)s."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Afficher la demande de blocage"
 

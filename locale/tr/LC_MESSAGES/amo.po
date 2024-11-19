@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-11-05 22:19+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2801,39 +2801,37 @@ msgstr "Son sürüm"
 msgid "Older versions"
 msgstr "Eski sürümler"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "%(addonName)s Mozilla politikalarını ihlal ettiği için kısıtlandı."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
-msgstr "Bu eklenti Mozilla politikalarını ihlal ettiği için kısıtlandı."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "%(addonName)s Mozilla politikalarını ihlal ettiği için engellendi."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
-msgstr "Bu eklenti Mozilla politikalarını ihlal ettiği için engellendi."
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Neden böyle bir şey oldu?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Bu uzantı, tema veya yan uygulama %(startLink)sMozilla’nın Eklenti "
-"Politikalarını%(endLink)s ihlal ediyor."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Bu ne anlama geliyor?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2845,7 +2843,7 @@ msgstr ""
 "bilgilendirilecektir. Kullanıcılar eklentiyi yeniden etkinleştirmeyi "
 "seçebilir, ancak risk kendilerine aittir."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2855,7 +2853,7 @@ msgstr ""
 "Eklenti otomatik olarak devre dışı bırakılacak ve artık Firefox’ta "
 "kullanılamayacaktır."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2871,7 +2869,7 @@ msgstr ""
 "veya kısıtlayabilir. Daha fazla bilgi için lütfen %(supportStartLink)sbu "
 "destek makalesini%(supportEndLink)s okuyun."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Engelleme isteğini görüntüle"
 
@@ -4009,6 +4007,25 @@ msgstr "eklentimin uyumluluğu yükseltilemediğinde"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "eklentimin uyumluluğu başarıyla yükseltildiğinde"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr "%(addonName)s Mozilla politikalarını ihlal ettiği için kısıtlandı."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr "Bu eklenti Mozilla politikalarını ihlal ettiği için kısıtlandı."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr "%(addonName)s Mozilla politikalarını ihlal ettiği için engellendi."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr "Bu eklenti Mozilla politikalarını ihlal ettiği için engellendi."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Bu uzantı, tema veya yan uygulama %(startLink)sMozilla’nın Eklenti "
+#~ "Politikalarını%(endLink)s ihlal ediyor."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Engellenen sürümler: tüm sürümler."

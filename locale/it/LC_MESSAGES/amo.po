@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-29 13:24+0000\n"
 "Last-Translator: Francesco Lodolo [:flod] <flod+pontoon@mozilla.com>\n"
 "Language-Team: none\n"
@@ -2845,43 +2845,37 @@ msgstr "Ultima versione"
 msgid "Older versions"
 msgstr "Versioni precedenti"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
 msgstr ""
-"%(addonName)s è soggetto a restrizioni per violazione dei criteri di Mozilla."
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
 msgstr ""
-"Questo componente aggiuntivo è soggetto a restrizioni in quanto viola i "
-"criteri di Mozilla."
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "%(addonName)s è bloccato per violazione dei criteri di Mozilla."
-
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
 msgstr ""
-"Questo componente aggiuntivo è bloccato in quanto viola i criteri di Mozilla."
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Perché è successo?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Questa estensione, tema o plugin viola i %(startLink)scriteri di Mozilla per "
-"i componenti aggiuntivi%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Che cosa significa?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2894,7 +2888,7 @@ msgstr ""
 "punto potranno scegliere di riattivare il componente aggiuntivo a proprio "
 "rischio."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2904,7 +2898,7 @@ msgstr ""
 "sarà disponibile per il download da addons.mozilla.org. Verrà disattivato "
 "automaticamente e non sarà più utilizzabile in Firefox."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2921,7 +2915,7 @@ msgstr ""
 "ulteriori informazioni, consultare %(supportStartLink)squesto articolo di "
 "supporto%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Visualizza la richiesta di blocco"
 
@@ -4084,6 +4078,31 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 "quando i miei componenti aggiuntivi vengono aggiornati a una versione "
 "compatibile"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "%(addonName)s è soggetto a restrizioni per violazione dei criteri di "
+#~ "Mozilla."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "Questo componente aggiuntivo è soggetto a restrizioni in quanto viola i "
+#~ "criteri di Mozilla."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr "%(addonName)s è bloccato per violazione dei criteri di Mozilla."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr ""
+#~ "Questo componente aggiuntivo è bloccato in quanto viola i criteri di "
+#~ "Mozilla."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Questa estensione, tema o plugin viola i %(startLink)scriteri di Mozilla "
+#~ "per i componenti aggiuntivi%(endLink)s."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Versioni bloccate: tutte le versioni."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-29 18:37+0000\n"
 "Last-Translator: wladow <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
@@ -2881,40 +2881,37 @@ msgstr "Najnovšia verzia"
 msgid "Older versions"
 msgstr "Staršie verzie"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "Doplnok %(addonName)s je obmedzený z dôvodu porušovania zásad Mozilly."
-
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
-msgstr "Tento doplnok je obmedzený z dôvodu porušovania zásad Mozilly."
-
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
 msgstr ""
-"Doplnok %(addonName)s je zablokovaný z dôvodu porušenia pravidiel Mozilly."
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
-msgstr "Tento doplnok je zablokovaný z dôvodu porušenia pravidiel Mozilly."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Prečo sa to stalo?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Toto rozšírenie, téma alebo doplnok porušuje %(startLink)spravidlá Mozilly "
-"pre doplnky%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Čo to znamená?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2926,7 +2923,7 @@ msgstr ""
 "budú informovaní o porušení. Môžu sa rozhodnúť znova povoliť doplnok na "
 "vlastné riziko."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2936,7 +2933,7 @@ msgstr ""
 "z addons.mozilla.org. Automaticky sa deaktivuje a vo Firefoxe sa už nebude "
 "dať použiť."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2952,7 +2949,7 @@ msgstr ""
 "informácie nájdete v %(supportStartLink)stomto článku "
 "podpory%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Zobraziť požiadavku na zablokovanie"
 
@@ -4083,6 +4080,27 @@ msgstr "kompatibilitu môjho doplnku nie je možné aktualizovať"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "kompatibilita môjho doplnku je úspešne aktualizovaná"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "Doplnok %(addonName)s je obmedzený z dôvodu porušovania zásad Mozilly."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr "Tento doplnok je obmedzený z dôvodu porušovania zásad Mozilly."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr ""
+#~ "Doplnok %(addonName)s je zablokovaný z dôvodu porušenia pravidiel Mozilly."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr "Tento doplnok je zablokovaný z dôvodu porušenia pravidiel Mozilly."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Toto rozšírenie, téma alebo doplnok porušuje %(startLink)spravidlá "
+#~ "Mozilly pre doplnky%(endLink)s."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Zablokované verzie: všetky."

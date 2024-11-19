@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-31 00:18+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -2843,43 +2843,37 @@ msgstr "Πιο πρόσφατη έκδοση"
 msgid "Older versions"
 msgstr "Παλαιότερες εκδόσεις"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
 msgstr ""
-"Το %(addonName)s έχει περιοριστεί λόγω παραβίασης των πολιτικών της Mozilla."
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
 msgstr ""
-"Αυτό το πρόσθετο έχει περιοριστεί λόγω παραβίασης των πολιτικών της Mozilla."
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
 msgstr ""
-"Το %(addonName)s έχει αποκλειστεί λόγω παραβίασης των πολιτικών της Mozilla."
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
 msgstr ""
-"Αυτό το πρόσθετο έχει αποκλειστεί λόγω παραβίασης των πολιτικών της Mozilla."
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Γιατί συνέβη αυτό;"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Αυτή η επέκταση, το θέμα ή το άρθρωμα παραβιάζει τις %(startLink)sπολιτικές "
-"προσθέτων της Mozilla%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Τι σημαίνει αυτό;"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2891,7 +2885,7 @@ msgstr ""
 "απενεργοποιηθεί και οι χρήστες θα ενημερωθούν για την παραβίαση. Μπορούν να "
 "το ενεργοποιήσουν ξανά με δική τους ευθύνη."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2901,7 +2895,7 @@ msgstr ""
 "λήψη από το addons.mozilla.org. Θα απενεργοποιηθεί αυτόματα και δεν θα είναι "
 "πλέον δυνατή η χρήση του στο Firefox."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2917,7 +2911,7 @@ msgstr ""
 "πληροφορίες, διαβάστε %(supportStartLink)sαυτό το άρθρο "
 "υποστήριξης%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Προβολή αιτήματος αποκλεισμού"
 
@@ -4071,6 +4065,33 @@ msgstr "η συμβατότητα του προσθέτου μου δεν μπο
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "η συμβατότητα του προσθέτου μου αναβαθμίζεται επιτυχώς"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "Το %(addonName)s έχει περιοριστεί λόγω παραβίασης των πολιτικών της "
+#~ "Mozilla."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "Αυτό το πρόσθετο έχει περιοριστεί λόγω παραβίασης των πολιτικών της "
+#~ "Mozilla."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr ""
+#~ "Το %(addonName)s έχει αποκλειστεί λόγω παραβίασης των πολιτικών της "
+#~ "Mozilla."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr ""
+#~ "Αυτό το πρόσθετο έχει αποκλειστεί λόγω παραβίασης των πολιτικών της "
+#~ "Mozilla."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Αυτή η επέκταση, το θέμα ή το άρθρωμα παραβιάζει τις "
+#~ "%(startLink)sπολιτικές προσθέτων της Mozilla%(endLink)s."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Αποκλεισμένες εκδόσεις: όλες οι εκδόσεις."

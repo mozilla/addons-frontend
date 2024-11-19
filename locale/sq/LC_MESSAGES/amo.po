@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-11-13 15:38+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -2816,39 +2816,37 @@ msgstr "Versioni më i ri"
 msgid "Older versions"
 msgstr "Versione të vjetër"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "%(addonName)s është kufizuar për cenim rregullash Mozilla."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
-msgstr "Kjo shtesë është kufizuar për cenim rregullash të Mozilla-s."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "%(addonName)s është bllokuar për cenim rregullash Mozilla."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
-msgstr "Kjo shtesë është bllokuar për cenim rregullash të Mozilla-s."
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Pse ndodhi kjo?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Ky zgjerim, temë apo shtojcë cenon %(startLink)sRregullat e Mozilla-s për "
-"Shtesat%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Ç’do të thotë kjo?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2860,7 +2858,7 @@ msgstr ""
 "përdoruesve do t’u bëhet me dije cenimi. Mund të zgjedhin në kokë të tyre ta "
 "riaktivizojnë shtojcën."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2870,7 +2868,7 @@ msgstr ""
 "mozilla.org. Do të çaktivizohet automatikisht dhe s’do të jetë më e "
 "përdorshme në Firefox."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2886,7 +2884,7 @@ msgstr ""
 "përdorimi i tij nga publiku i përgjithshëm. Për më tepër të dhëna, ju "
 "lutemi, lexoni %(supportStartLink)skëtë artikull asistence%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Shihni kërkesë bllokimi"
 
@@ -4034,6 +4032,25 @@ msgstr "përputhshmëria e shtesës sime s’mund të përmirësohet"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "përputhshmëria e shtesës sime është përmirësuar me sukses"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr "%(addonName)s është kufizuar për cenim rregullash Mozilla."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr "Kjo shtesë është kufizuar për cenim rregullash të Mozilla-s."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr "%(addonName)s është bllokuar për cenim rregullash Mozilla."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr "Kjo shtesë është bllokuar për cenim rregullash të Mozilla-s."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Ky zgjerim, temë apo shtojcë cenon %(startLink)sRregullat e Mozilla-s për "
+#~ "Shtesat%(endLink)s."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Versione të bllokuar: krejt versionet."

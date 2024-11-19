@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-29 15:31+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
@@ -2692,38 +2692,37 @@ msgstr "最新版本"
 msgid "Older versions"
 msgstr "较早版本"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "“%(addonName)s”由于违反 Mozilla 政策，已被限制。"
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
-msgstr "此附加组件由于违反 Mozilla 政策，已被限制。"
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "“%(addonName)s”由于违反 Mozilla 政策，已被阻止。"
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
-msgstr "此附加组件由于违反 Mozilla 政策，已被阻止。"
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "为什么会出现此情况？"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"此扩展、主题或插件违反了 %(startLink)sMozilla 的附加组件政策%(endLink)s。"
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "这是什么意思？"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2734,7 +2733,7 @@ msgstr ""
 "加组件也将被禁用，并告知用户此违规情况。用户可选择自担风险，重新启用此附加组"
 "件。"
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2743,7 +2742,7 @@ msgstr ""
 "在消除违规情况前，addons.mozilla.org 将不再提供此附加组件的下载。其将被自动禁"
 "用，且无法再在 Firefox 上使用。"
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2757,7 +2756,7 @@ msgstr ""
 "可能被阻止或限制正常使用。更多信息请阅读%(supportStartLink)s这篇支持文"
 "章%(supportEndLink)s。"
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "查看屏蔽请求"
 
@@ -3816,6 +3815,24 @@ msgstr "无法升级我的附加组件的兼容性"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "我的附加组件的兼容性升级成功"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr "“%(addonName)s”由于违反 Mozilla 政策，已被限制。"
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr "此附加组件由于违反 Mozilla 政策，已被限制。"
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr "“%(addonName)s”由于违反 Mozilla 政策，已被阻止。"
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr "此附加组件由于违反 Mozilla 政策，已被阻止。"
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "此扩展、主题或插件违反了 %(startLink)sMozilla 的附加组件政策%(endLink)s。"
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "被屏蔽的版本：所有版本。"

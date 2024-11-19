@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-29 19:09+0000\n"
 "Last-Translator: Fabio Tomat <dark.tmtfx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2836,43 +2836,37 @@ msgstr "Ultime version"
 msgid "Older versions"
 msgstr "Versions plui vecjis"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "%(addonName)s al è limitât par violazion di politichis di Mozilla."
-
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
 msgstr ""
-"Chest component adizionâl al è limitât parcè che al viole lis politichis di "
-"Mozilla."
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "%(addonName)s al è blocât par violazion des politichis di Mozilla."
-
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
 msgstr ""
-"Chest component adizionâl al è blocât parcè che al viole lis politichis di "
-"Mozilla."
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Parcè isal sucedût?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Cheste estension, teme o plugin al viole lis %(startLink)spolitichis di "
-"Mozilla pai components adizionâi%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Ce significhial?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2884,7 +2878,7 @@ msgstr ""
 "vignarà disativât e i utents a vignaran informâts de violazion. In chê volte "
 "a podaran decidi se tornâ a ativâlu a lôr risi e pericul."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2894,7 +2888,7 @@ msgstr ""
 "disponibil di discjariâ di addons.mozilla.org. Al vignarà disativât in "
 "automatic e nol sarà plui pussibil doprâlu in Firefox."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2911,7 +2905,7 @@ msgstr ""
 "plui informazions, lei %(supportStartLink)schest articul di "
 "supuart%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Visualize la richieste di bloc"
 
@@ -4056,6 +4050,29 @@ msgstr "nol è pussibil inzornâ la compatibilitât dal gno component adizionâl
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "la compatibilitât dal gno component adizionâl e je inzornade cun sucès"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr "%(addonName)s al è limitât par violazion di politichis di Mozilla."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "Chest component adizionâl al è limitât parcè che al viole lis politichis "
+#~ "di Mozilla."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr "%(addonName)s al è blocât par violazion des politichis di Mozilla."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr ""
+#~ "Chest component adizionâl al è blocât parcè che al viole lis politichis "
+#~ "di Mozilla."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Cheste estension, teme o plugin al viole lis %(startLink)spolitichis di "
+#~ "Mozilla pai components adizionâi%(endLink)s."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Versions blocadis: dutis lis versions."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-30 02:26+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -2700,39 +2700,37 @@ msgstr "最新版本"
 msgid "Older versions"
 msgstr "較舊版本"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "由於違反 Mozilla 政策規定，%(addonName)s 已被限制。"
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
-msgstr "由於違反 Mozilla 政策規定，此附加元件已被限制。"
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "由於違反 Mozilla 政策規定，%(addonName)s 已被封鎖。"
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
-msgstr "由於違反 Mozilla 政策規定，此附加元件已被封鎖。"
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "為什麼會發生？"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"此擴充套件、佈景主題或外掛程式違反了 %(startLink)sMozilla 的附加元件政"
-"策%(endLink)s。"
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "這是什麼意思？"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2742,7 +2740,7 @@ msgstr ""
 "解決這個違規問題之前，將無法從 addons.mozilla.org 下載此附加元件。使用者若已"
 "經安裝則將被停用，並收到此違規通知。他們仍可自行承擔風險，重新啟用附加元件。"
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2751,7 +2749,7 @@ msgstr ""
 "解決這個違規問題之前，將無法從 addons.mozilla.org 下載此附加元件。使用者若已"
 "經安裝則將被停用，不可再於 Firefox 使用。"
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2765,7 +2763,7 @@ msgstr ""
 "該軟體就可能被封鎖或受限，防止公眾使用。如果您想了解更多資訊，請閱"
 "讀%(supportStartLink)s這篇技術支援文章%(supportEndLink)s。"
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "檢視封鎖請求"
 
@@ -3824,6 +3822,25 @@ msgstr "無法升級我的附加元件相容性"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "成功升級我的附加元件相容性"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr "由於違反 Mozilla 政策規定，%(addonName)s 已被限制。"
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr "由於違反 Mozilla 政策規定，此附加元件已被限制。"
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr "由於違反 Mozilla 政策規定，%(addonName)s 已被封鎖。"
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr "由於違反 Mozilla 政策規定，此附加元件已被封鎖。"
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "此擴充套件、佈景主題或外掛程式違反了 %(startLink)sMozilla 的附加元件政"
+#~ "策%(endLink)s。"
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "被封鎖的版本: 所有版本。"

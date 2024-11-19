@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-29 17:13+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -2938,39 +2938,37 @@ msgstr "Nejnowša wersija"
 msgid "Older versions"
 msgstr "Starše wersije"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "%(addonName)s se dla pśestupjenja pšawidłow Mozilla wobgranicujo."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
-msgstr "Toś ten dodank se dla pśestupjenja pšawidłow Mozilla wobgranicujo."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "%(addonName)s se dla pśestupjenja pšawidłow Mozilla blokěrujo."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
-msgstr "Toś ten dodank se dla pśestupjenja pšawidłow Mozilla blokěrujo."
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Cogodla jo se to stało?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Toś to rozšyrjenje, drastwa abo tykac se %(startLink)spśeśiwo dodankowym "
-"pšawidłam Mozilla%(endLink)s pśejźo."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Co ma to na se?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2982,7 +2980,7 @@ msgstr ""
 "se znjemóžnjaś a informěruju wužywarjow wó toś tom pśestupjenju. Mógu dodank "
 "zasej na swójo riziko zmóžniś."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2992,7 +2990,7 @@ msgstr ""
 "ześěgnjenje wót addons.mozilla.org. Znjemóžnja se awtomatiski a njejo wěcej "
 "wužywajobny w Firefox."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -3008,7 +3006,7 @@ msgstr ""
 "blokěrowa abo wobgranicowaś. Za dalšne informacije cytajśo pšosym "
 "%(supportStartLink)stoś ten nastawk pomocy%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Blokowe pominanje pokazaś"
 
@@ -4144,6 +4142,25 @@ msgstr "kompatibelnosć mójogo dodanka njedajo se pówušyś"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "Kompatibelnosć mójogo dodanka jo se wuspěšnje pówušiła"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr "%(addonName)s se dla pśestupjenja pšawidłow Mozilla wobgranicujo."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr "Toś ten dodank se dla pśestupjenja pšawidłow Mozilla wobgranicujo."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr "%(addonName)s se dla pśestupjenja pšawidłow Mozilla blokěrujo."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr "Toś ten dodank se dla pśestupjenja pšawidłow Mozilla blokěrujo."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Toś to rozšyrjenje, drastwa abo tykac se %(startLink)spśeśiwo dodankowym "
+#~ "pšawidłam Mozilla%(endLink)s pśejźo."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Zablokěrowane wersije: wšykne wersije"

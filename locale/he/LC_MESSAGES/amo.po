@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-10-29 21:24+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -2761,39 +2761,37 @@ msgstr "הגרסה העדכנית ביותר"
 msgid "Older versions"
 msgstr "גרסאות ישנות יותר"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
-msgstr "התוספת %(addonName)s מוגבלת עקב הפרת מדיניות Mozilla."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
-msgstr "תוספת זו מוגבלת עקב הפרת מדיניות Mozilla."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
-msgstr "התוספת %(addonName)s חסומה עקב הפרת מדיניות Mozilla."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
-msgstr "תוספת זו חסומה עקב הפרת מדיניות Mozilla."
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "מדוע זה קרה?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"הרחבה, ערכת נושא או תוסף חיצוני זה מפר את %(startLink)sמדיניות התוספות של "
-"Mozilla%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "מה זה אומר?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2804,7 +2802,7 @@ msgstr ""
 "כבר מותקנת, היא תושבת והמשתמשים יקבלו מידע על ההפרה. הם עשויים לבחור להפעיל "
 "את התוספת שוב, על אחריותם בלבד."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2813,7 +2811,7 @@ msgstr ""
 "עד שההפרה תיפתר, תוספת זו לא תהיה זמינה להורדה מ־addons.mozilla.org. היא "
 "תושבת באופן אוטומטי ולא תהיה שמישה יותר ב־Firefox."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2828,7 +2826,7 @@ msgstr ""
 "להיחסם משימוש הכלל או להיות מוגבלות. למידע נוסף ניתן לקרוא את "
 "%(supportStartLink)sמאמר התמיכה הבא%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "הצגת בקשת חסימה"
 
@@ -3908,6 +3906,25 @@ msgstr "לא ניתן לשדרג את תאימות התוספת שלי"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "תאימות התוספת שלי משודרגת בהצלחה"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr "התוספת %(addonName)s מוגבלת עקב הפרת מדיניות Mozilla."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr "תוספת זו מוגבלת עקב הפרת מדיניות Mozilla."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr "התוספת %(addonName)s חסומה עקב הפרת מדיניות Mozilla."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr "תוספת זו חסומה עקב הפרת מדיניות Mozilla."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "הרחבה, ערכת נושא או תוסף חיצוני זה מפר את %(startLink)sמדיניות התוספות של "
+#~ "Mozilla%(endLink)s."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "גרסאות חסומות: כל הגרסאות."

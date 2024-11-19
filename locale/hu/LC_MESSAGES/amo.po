@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-15 12:02+0000\n"
+"POT-Creation-Date: 2024-11-19 13:53+0000\n"
 "PO-Revision-Date: 2024-11-08 19:06+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
@@ -2844,43 +2844,37 @@ msgstr "Legfrissebb verzió"
 msgid "Older versions"
 msgstr "Korábbi verziók"
 
-#: src/amo/pages/Block/index.js:126
-msgid "%(addonName)s is restricted for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
 msgstr ""
-"A(z) %(addonName)s a Mozilla irányelveinek megsértése miatt korlátozva van."
 
-#: src/amo/pages/Block/index.js:133
-msgid "This add-on is restricted for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
 msgstr ""
-"Ez a kiegészítő a Mozilla irányelveinek megsértése miatt korlátozva van."
 
-#: src/amo/pages/Block/index.js:140
-msgid "%(addonName)s is blocked for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
 msgstr ""
-"A(z) %(addonName)s a Mozilla irányelveinek megsértése miatt blokkolva van."
 
-#: src/amo/pages/Block/index.js:147
-msgid "This add-on is blocked for violating Mozilla policies."
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
 msgstr ""
-"Ez a kiegészítő a Mozilla irányelveinek megsértése miatt blokkolva van."
 
-#: src/amo/pages/Block/index.js:161
+#: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
 msgstr "Miért történt ez?"
 
-#: src/amo/pages/Block/index.js:166
+#: src/amo/pages/Block/index.js:163
 msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
-"Policies%(endLink)s."
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
-"Ez a kiegészítő, téma vagy bővítmény megsérti a %(startLink)sMozilla "
-"kiegészítőkre vonatkozó házirendjét%(endLink)s."
 
-#: src/amo/pages/Block/index.js:178
+#: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
 msgstr "Mit jelent ez?"
 
-#: src/amo/pages/Block/index.js:181
+#: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. If it’s already installed, it will be disabled and "
@@ -2892,7 +2886,7 @@ msgstr ""
 "és a felhasználók értesítést kapnak a házirendsértésről. Dönthetnek úgy is, "
 "hogy saját felelősségre újra engedélyezik a kiegészítőt."
 
-#: src/amo/pages/Block/index.js:186
+#: src/amo/pages/Block/index.js:183
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download "
 "from addons.mozilla.org. It will be automatically disabled and no longer "
@@ -2902,7 +2896,7 @@ msgstr ""
 "addons.mozilla.org oldalról. Automatikusan letiltásra kerül, és többé nem "
 "lesz használható a Firefoxban."
 
-#: src/amo/pages/Block/index.js:195
+#: src/amo/pages/Block/index.js:192
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -2919,7 +2913,7 @@ msgstr ""
 "információkért olvassa el %(supportStartLink)sezt a "
 "leírást%(supportEndLink)s."
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:97
 msgid "View block request"
 msgstr "Blokkolási kérés megtekintése"
 
@@ -4057,6 +4051,30 @@ msgstr "a kiegészítőm kompatibilitása nem frissíthető"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a kiegészítőm kompatibilitása sikeresen frissítve"
+
+#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "A(z) %(addonName)s a Mozilla irányelveinek megsértése miatt korlátozva "
+#~ "van."
+
+#~ msgid "This add-on is restricted for violating Mozilla policies."
+#~ msgstr ""
+#~ "Ez a kiegészítő a Mozilla irányelveinek megsértése miatt korlátozva van."
+
+#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
+#~ msgstr ""
+#~ "A(z) %(addonName)s a Mozilla irányelveinek megsértése miatt blokkolva van."
+
+#~ msgid "This add-on is blocked for violating Mozilla policies."
+#~ msgstr ""
+#~ "Ez a kiegészítő a Mozilla irányelveinek megsértése miatt blokkolva van."
+
+#~ msgid ""
+#~ "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on "
+#~ "Policies%(endLink)s."
+#~ msgstr ""
+#~ "Ez a kiegészítő, téma vagy bővítmény megsérti a %(startLink)sMozilla "
+#~ "kiegészítőkre vonatkozó házirendjét%(endLink)s."
 
 #~ msgid "Versions blocked: all versions."
 #~ msgstr "Blokkolt verziók: minden verzió."
