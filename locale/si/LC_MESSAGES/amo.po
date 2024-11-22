@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-11-19 13:53+0000\n"
-"PO-Revision-Date: 2024-11-22 06:14+0000\n"
+"PO-Revision-Date: 2024-11-22 11:09+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -877,7 +877,7 @@ msgstr "පූරණය කර ඉදිරියට"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr "පිටුව හමු නොවිණි"
+msgstr "පිටුව හමු නොවුණි"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -982,7 +982,7 @@ msgstr "%(userName)s වෙතින් සමාලෝචනය"
 
 #: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
-msgstr "සමාලෝචනය හමු නොවිණි."
+msgstr "සමාලෝචනය හමු නොවුණි."
 
 #: src/amo/components/FeedbackForm/index.js:1014
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
