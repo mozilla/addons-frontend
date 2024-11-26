@@ -1077,12 +1077,12 @@
   resolved "https://registry.yarnpkg.com/@emotion/core/-/core-11.0.0.tgz#d075867e07864119de7cfd5268c15012bd2d6290"
   integrity sha512-w4sE3AmHmyG6RDKf6mIbtHpgJUSJ2uGvPQb8VXFL7hFjMPibE8IiehG8cMX3Ztm4svfCQV6KqusQbeIOkurBcA==
 
-"@eslint-community/eslint-utils@^4.2.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
-  integrity sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==
+"@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.1.tgz#d1145bf2c20132d6400495d6df4bf59362fd9d56"
+  integrity sha512-s3O3waFUrMV8P/XaF/+ZTp1X9XBZW1a4B97ZnjQF2KYWaFD2A8KyFBsrsfSjEmjn3RGWAIuvlneuZm3CUK3jbA==
   dependencies:
-    eslint-visitor-keys "^3.3.0"
+    eslint-visitor-keys "^3.4.3"
 
 "@eslint-community/regexpp@^4.6.1":
   version "4.10.0"
@@ -4581,10 +4581,12 @@ eslint-plugin-prettier@4.2.1:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-promise@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-7.1.0.tgz#06b3ad6d36b3c3ef3ec201c8a8d97049cf5dbb20"
-  integrity sha512-8trNmPxdAy3W620WKDpaS65NlM5yAumod6XeC4LOb+jxlkG4IVcp68c6dXY2ev+uT4U1PtG57YDV6EGAXN0GbQ==
+eslint-plugin-promise@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-7.2.0.tgz#ef4194982c3a00867a4def866e0b5abf0caf6a87"
+  integrity sha512-O2QBfKGRP0AHxXhZ3Lk2sFGGGw8TlMW84c+QfPX0gMnDrKJEN5SGJOICt/nR6spLvzuYO3d3nV4R3AIzdbaW7Q==
+  dependencies:
+    "@eslint-community/eslint-utils" "^4.4.0"
 
 eslint-plugin-react-hooks@4.6.0:
   version "4.6.0"
