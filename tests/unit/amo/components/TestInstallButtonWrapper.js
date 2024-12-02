@@ -1321,7 +1321,7 @@ describe(__filename, () => {
 
       it.each([
         // An unpromoted add-on.
-        { ...fakeAddon, promoted: null },
+        { ...fakeAddon, promoted: [] },
         // An add-on which is promoted, but not for the current app.
         {
           ...fakeAddon,
@@ -1459,7 +1459,7 @@ describe(__filename, () => {
 
       it.each([
         // An unpromoted theme.
-        { ...fakeAddon, promoted: null },
+        { ...fakeAddon, promoted: [] },
         // A promoted theme.
         {
           ...fakeAddon,

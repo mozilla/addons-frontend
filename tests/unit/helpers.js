@@ -174,7 +174,7 @@ export const fakeAddon = Object.freeze({
   last_updated: '2018-11-22T10:09:01Z',
   name: createLocalizedString('Chill Out'),
   previews: [fakePreview],
-  promoted: null,
+  promoted: [],
   ratings: {
     average: 3.5,
     count: 10,
@@ -629,7 +629,7 @@ export function createFakeAutocompleteResult({
     id: randomId(),
     icon_url: `https://addons.mozilla.org/${name}.png`,
     name: createLocalizedString(name),
-    promoted: null,
+    promoted: [],
     url: `https://example.org/en-US/firefox/addons/${name}/`,
     ...props,
   };

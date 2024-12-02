@@ -956,7 +956,7 @@ describe(__filename, () => {
     it('returns true when add-on is not promoted', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        promoted: null,
+        promoted: [],
       });
 
       expect(isAndroidInstallable({ addon })).toEqual(true);

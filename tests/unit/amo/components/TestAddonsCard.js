@@ -246,7 +246,7 @@ describe(__filename, () => {
           { name: 'A groovy developer' },
         ],
         average_daily_users: 5253,
-        promoted: null,
+        promoted: [],
         name: createLocalizedString(name),
         slug,
         ...props,
@@ -682,7 +682,7 @@ describe(__filename, () => {
     });
 
     it('does not display a promoted badge when the addon is not promoted', () => {
-      renderWithResult({ addonProps: { promoted: null } });
+      renderWithResult({ addonProps: { promoted: [] } });
 
       expect(
         screen.queryByRole('link', {

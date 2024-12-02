@@ -128,7 +128,7 @@ describe(__filename, () => {
             },
             // Assume extension.
             type: ADDON_TYPE_EXTENSION,
-            promoted: null,
+            promoted: [],
             created: new Date(0),
             last_updated: null,
             status: 'unknown-non-public',

@@ -527,7 +527,7 @@ describe(__filename, () => {
     });
 
     it('does not display a promoted icon when the add-on is not promoted', async () => {
-      const result = createFakeAutocompleteResult({ promoted: null });
+      const result = createFakeAutocompleteResult({ promoted: [] });
       render();
 
       await typeInSearch('test');
