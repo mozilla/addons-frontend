@@ -52,14 +52,15 @@ export const SearchSuggestionBase = ({
       <span className="SearchSuggestion-name">
         {loading ? <LoadingText minWidth={20} /> : name}
       </span>
-      {promotedCategories.forEach((category) => {
+      {promotedCategories.map((category) => (
         <IconPromotedBadge
+          key={`${suggestion.name}-${category}`}
           category={category}
           className="SearchSuggestion-icon-promoted"
           showAlt
           size="small"
-        />;
-      })}
+        />
+      ))}
       <Icon
         alt={arrowAlt}
         className="SearchSuggestion-icon-arrow"

@@ -53,8 +53,12 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     return (
       <div className="AddonBadges">
-        {promotedCategories.forEach((category) => (
-          <PromotedBadge category={category} size="large" />
+        {promotedCategories.map((category) => (
+          <PromotedBadge
+            key={`${addon.name}-${category}`}
+            category={category}
+            size="large"
+          />
         ))}
         {addon.is_experimental ? (
           <Badge type="experimental" label={i18n.gettext('Experimental')} />
