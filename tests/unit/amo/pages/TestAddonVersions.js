@@ -1050,7 +1050,7 @@ describe(__filename, () => {
           addon: {
             ...fakeAddon,
             slug: defaultSlug,
-            promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
+            promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] }],
           },
         });
 
@@ -1067,7 +1067,7 @@ describe(__filename, () => {
           addon: {
             ...fakeAddon,
             slug: defaultSlug,
-            promoted: { category: STRATEGIC, apps: [CLIENT_APP_FIREFOX] },
+            promoted: [{ category: STRATEGIC, apps: [CLIENT_APP_FIREFOX] }],
           },
         });
 

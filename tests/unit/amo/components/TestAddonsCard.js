@@ -631,7 +631,7 @@ describe(__filename, () => {
     it('displays a promoted badge when an add-on is promoted', () => {
       renderWithResult({
         addonProps: {
-          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+          promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
         },
       });
 
@@ -651,7 +651,7 @@ describe(__filename, () => {
     it('passes an onClick function which stops propagation to PromotedBadge', () => {
       renderWithResult({
         addonProps: {
-          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+          promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
         },
       });
 
@@ -669,7 +669,7 @@ describe(__filename, () => {
     it('does not display a promoted badge when showPromotedBadge is false', () => {
       renderWithResult({
         addonProps: {
-          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+          promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
         },
         props: { showPromotedBadge: false },
       });

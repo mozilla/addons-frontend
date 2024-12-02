@@ -207,11 +207,11 @@ describe(__filename, () => {
     it('returns the empty list if the addon is not promoted for the specified app', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+        promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
       });
       const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({
-          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+          promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
         }),
       );
 
@@ -230,11 +230,11 @@ describe(__filename, () => {
       const category = RECOMMENDED;
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        promoted: { category, apps: [CLIENT_APP_ANDROID] },
+        promoted: [{ category, apps: [CLIENT_APP_ANDROID] }],
       });
       const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({
-          promoted: { category, apps: [CLIENT_APP_ANDROID] },
+          promoted: [{ category, apps: [CLIENT_APP_ANDROID] }],
         }),
       );
 
@@ -255,7 +255,7 @@ describe(__filename, () => {
         (category) => {
           const addon = createInternalAddonWithLang({
             ...fakeAddon,
-            promoted: { category, apps: [CLIENT_APP_ANDROID] },
+            promoted: [{ category, apps: [CLIENT_APP_ANDROID] }],
           });
 
           expect(

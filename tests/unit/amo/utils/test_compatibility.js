@@ -147,7 +147,7 @@ describe(__filename, () => {
           _isCompatibleWithUserAgent({
             addon: createInternalAddonWithLang({
               ...fakeAddon,
-              promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+              promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
             }),
             userAgentInfo: UAParser(userAgent),
           }),
@@ -321,7 +321,7 @@ describe(__filename, () => {
         _isCompatibleWithUserAgent({
           addon: createInternalAddonWithLang({
             ...fakeAddon,
-            promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+            promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
           }),
           currentVersion,
           userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
@@ -909,7 +909,7 @@ describe(__filename, () => {
     it('returns true if the add-on is recommended on android', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+        promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
       });
 
       expect(isAndroidInstallable({ addon })).toEqual(true);
@@ -918,10 +918,12 @@ describe(__filename, () => {
     it('returns true if the add-on is recommended on android and desktop', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        promoted: {
-          category: RECOMMENDED,
-          apps: [CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX],
-        },
+        promoted: [
+          {
+            category: RECOMMENDED,
+            apps: [CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX],
+          },
+        ],
       });
 
       expect(isAndroidInstallable({ addon })).toEqual(true);
@@ -932,7 +934,7 @@ describe(__filename, () => {
       (type) => {
         const addon = createInternalAddonWithLang({
           ...fakeAddon,
-          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+          promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
           type,
         });
 
@@ -945,7 +947,7 @@ describe(__filename, () => {
     )('returns true when the add-on is %s on android', (category) => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        promoted: { category, apps: [CLIENT_APP_ANDROID] },
+        promoted: [{ category, apps: [CLIENT_APP_ANDROID] }],
       });
 
       expect(isAndroidInstallable({ addon })).toEqual(true);
