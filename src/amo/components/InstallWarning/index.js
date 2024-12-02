@@ -86,7 +86,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       !correctedLocation &&
       isFirefox({ userAgentInfo }) &&
       addon.type === ADDON_TYPE_EXTENSION &&
-      promotedCategories.some(
+      promotedCategories.every(
         (promoted) => !EXCLUDE_WARNING_CATEGORIES.includes(promoted),
       )
     );

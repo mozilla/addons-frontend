@@ -330,7 +330,10 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
         // If the add-on is trusted, send an additional event for trusted
         // add-on install.
         const promotedCategories = _getPromotedCategories({ addon, clientApp });
-        if (addon.type === ADDON_TYPE_EXTENSION && promotedCategories) {
+        if (
+          addon.type === ADDON_TYPE_EXTENSION &&
+          promotedCategories.length > 0
+        ) {
           _tracking.sendEvent({
             action: promotedCategories.join(', '),
             category: INSTALL_TRUSTED_EXTENSION_CATEGORY,
