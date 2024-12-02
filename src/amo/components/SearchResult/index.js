@@ -201,13 +201,14 @@ export class SearchResultBase extends React.Component<InternalProps> {
             <h2 className="SearchResult-name">
               {addonTitle}
               {showPromotedBadge && addon
-                ? promotedCategories.forEach((category) => {
+                ? promotedCategories.map((category) => (
                     <PromotedBadge
+                      key={`${addon.name}-${category}`}
                       category={category}
                       onClick={(e) => e.stopPropagation()}
                       size="small"
-                    />;
-                  })
+                    />
+                  ))
                 : null}
             </h2>
             {summary}

@@ -240,18 +240,18 @@ describe(__filename, () => {
 
       expect(
         getPromotedCategories({ addon, clientApp: CLIENT_APP_ANDROID }),
-      ).toEqual(category);
+      ).toEqual([category]);
       expect(
         getPromotedCategories({
           addon: suggestion,
           clientApp: CLIENT_APP_ANDROID,
         }),
-      ).toEqual(category);
+      ).toEqual([category]);
     });
 
     describe('forBadging === true', () => {
       it.each([SPOTLIGHT, STRATEGIC])(
-        'returns null if the category is not one for badges, category: %s',
+        'returns the empty list if the category is not one for badges, category: %s',
         (category) => {
           const addon = createInternalAddonWithLang({
             ...fakeAddon,
@@ -264,7 +264,7 @@ describe(__filename, () => {
               clientApp: CLIENT_APP_ANDROID,
               forBadging: true,
             }),
-          ).toEqual(null);
+          ).toEqual([]);
         },
       );
     });

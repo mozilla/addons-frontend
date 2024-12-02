@@ -226,10 +226,10 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       });
 
       if (!loading) {
-        if (RECOMMENDED in promotedCategories) {
+        if (promotedCategories.includes(RECOMMENDED)) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
           titleText = i18n.gettext('RECOMMENDED');
-        } else if (LINE in promotedCategories) {
+        } else if (promotedCategories.includes(LINE)) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
           titleText = i18n.gettext('BY FIREFOX');
         } else {
@@ -242,7 +242,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           <div className="HeroRecommendation-title-text">
             {titleText || <LoadingText width={20} />}
           </div>
-          {!['LINE', 'RECOMMENDED'].some((item) =>
+          {![LINE, RECOMMENDED].some((item) =>
             promotedCategories.includes(item),
           ) && !loading ? (
             <a

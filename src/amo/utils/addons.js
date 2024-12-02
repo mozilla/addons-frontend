@@ -121,17 +121,20 @@ export const getPromotedCategories = ({
   clientApp: string,
   forBadging?: boolean,
 |}): Array<PromotedCategoryType> => {
-  let category = [];
-  if (addon) {
-    for (const promoted of addon.promoted) {
-      if (promoted.apps.includes(clientApp)) category.push(promoted.category);
+  let categories: Array<PromotedCategoryType> = [];
+  addon?.promoted.forEach((promo) => {
+    if (promo.apps.includes(clientApp)) {
+      categories.push(promo.category);
     }
-  }
+  });
 
   // Special logic if we're using the category for badging.
-  if (forBadging && !BADGE_CATEGORIES.includes(category)) {
-    category = [];
+  if (
+    forBadging &&
+    !BADGE_CATEGORIES.some((item) => categories.includes(item))
+  ) {
+    categories = [];
   }
 
-  return category;
+  return categories;
 };
