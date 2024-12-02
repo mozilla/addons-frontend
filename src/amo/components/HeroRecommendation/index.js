@@ -23,7 +23,7 @@ import {
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import tracking from 'amo/tracking';
-import { getPromotedCategory } from 'amo/utils/addons';
+import { getPromotedCategories } from 'amo/utils/addons';
 import { addQueryParams } from 'amo/utils/url';
 import LoadingText from 'amo/components/LoadingText';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
@@ -53,7 +53,7 @@ export type PropsFromState = {|
 
 export type DefaultProps = {|
   _checkInternalURL: typeof checkInternalURL,
-  _getPromotedCategory: typeof getPromotedCategory,
+  _getPromotedCategories: typeof getPromotedCategories,
   _tracking: typeof tracking,
 |};
 
@@ -67,7 +67,7 @@ export type InternalProps = {|
 export class HeroRecommendationBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     _checkInternalURL: checkInternalURL,
-    _getPromotedCategory: getPromotedCategory,
+    _getPromotedCategories: getPromotedCategories,
     _tracking: tracking,
   };
 
@@ -142,7 +142,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   render(): null | React.Node {
     const {
       _checkInternalURL,
-      _getPromotedCategory,
+      _getPromotedCategories,
       clientApp,
       i18n,
       errorHandler,
@@ -219,17 +219,17 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
       let titleText = null;
 
-      const promotedCategory = _getPromotedCategory({
+      const promotedCategories = _getPromotedCategories({
         addon,
         clientApp,
         forBadging: true,
       });
 
       if (!loading) {
-        if (promotedCategory === RECOMMENDED) {
+        if (RECOMMENDED in promotedCategories) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
           titleText = i18n.gettext('RECOMMENDED');
-        } else if (promotedCategory === LINE) {
+        } else if (LINE in promotedCategories) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
           titleText = i18n.gettext('BY FIREFOX');
         } else {
@@ -242,7 +242,9 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           <div className="HeroRecommendation-title-text">
             {titleText || <LoadingText width={20} />}
           </div>
-          {![LINE, RECOMMENDED].includes(promotedCategory) && !loading ? (
+          {!['LINE', 'RECOMMENDED'].some((item) =>
+            promotedCategories.includes(item),
+          ) && !loading ? (
             <a
               className="HeroRecommendation-title-link"
               href={`${getPromotedBadgesLinkUrl({

@@ -18,7 +18,7 @@ export type ExternalSuggestion = {|
   icon_url: string,
   id: number,
   name: LocalizedString,
-  promoted: PromotedType | null,
+  promoted: Array<PromotedType>,
   type: string,
   url: string,
 |};
@@ -27,7 +27,7 @@ export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
   name: string,
-  promoted: PromotedType | null,
+  promoted: Array<PromotedType>,
   type: string,
   url: string,
 |};

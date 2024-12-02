@@ -2908,7 +2908,7 @@ describe(__filename, () => {
 
   describe('Tests for PromotedBadge', () => {
     const renderWithPromotedCategory = (category = RECOMMENDED) => {
-      addon.promoted = { category, apps: [clientApp] };
+      addon.promoted = [{ category, apps: [clientApp] }];
       renderWithAddon();
     };
 

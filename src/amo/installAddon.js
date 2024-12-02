@@ -37,7 +37,7 @@ import {
 import * as addonManager from 'amo/addonManager';
 import { getVersionById } from 'amo/reducers/versions';
 import { getDisplayName } from 'amo/utils';
-import { getFileHash, getPromotedCategory } from 'amo/utils/addons';
+import { getFileHash, getPromotedCategories } from 'amo/utils/addons';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AddonType } from 'amo/types/addons';
@@ -128,7 +128,7 @@ type WithInstallHelpersPropsFromState = {|
 
 type WithInstallHelpersDefaultProps = {|
   _addonManager: typeof addonManager,
-  _getPromotedCategory: typeof getPromotedCategory,
+  _getPromotedCategories: typeof getPromotedCategories,
   _log: typeof log,
   _tracking: typeof tracking,
 |};
@@ -158,7 +158,7 @@ export type WithInstallHelpersInjectedProps = {|
 export class WithInstallHelpers extends React.Component<WithInstallHelpersInternalProps> {
   static defaultProps: WithInstallHelpersDefaultProps = {
     _addonManager: addonManager,
-    _getPromotedCategory: getPromotedCategory,
+    _getPromotedCategories: getPromotedCategories,
     _log: log,
     _tracking: tracking,
   };
@@ -269,7 +269,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   install(): Promise<void> {
     const {
       _addonManager,
-      _getPromotedCategory,
+      _getPromotedCategories,
       _log,
       _tracking,
       addon,
@@ -329,10 +329,10 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 
         // If the add-on is trusted, send an additional event for trusted
         // add-on install.
-        const promotedCategory = _getPromotedCategory({ addon, clientApp });
-        if (addon.type === ADDON_TYPE_EXTENSION && promotedCategory) {
+        const promotedCategories = _getPromotedCategories({ addon, clientApp });
+        if (addon.type === ADDON_TYPE_EXTENSION && promotedCategories) {
           _tracking.sendEvent({
-            action: promotedCategory,
+            action: promotedCategories.join(', '),
             category: INSTALL_TRUSTED_EXTENSION_CATEGORY,
             label: guid,
           });

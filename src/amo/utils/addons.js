@@ -112,7 +112,7 @@ export const getAddonJsonLinkedData = ({
   });
 };
 
-export const getPromotedCategory = ({
+export const getPromotedCategories = ({
   addon,
   clientApp,
   forBadging = false,
@@ -120,15 +120,17 @@ export const getPromotedCategory = ({
   addon: AddonType | CollectionAddonType | SuggestionType | null | void,
   clientApp: string,
   forBadging?: boolean,
-|}): PromotedCategoryType | null => {
-  let category = null;
-  if (addon && addon.promoted && addon.promoted.apps.includes(clientApp)) {
-    category = addon.promoted.category;
+|}): Array<PromotedCategoryType> => {
+  let category = [];
+  if (addon) {
+    for (const promoted of addon.promoted) {
+      if (promoted.apps.includes(clientApp)) category.push(promoted.category);
+    }
   }
 
   // Special logic if we're using the category for badging.
   if (forBadging && !BADGE_CATEGORIES.includes(category)) {
-    category = null;
+    category = [];
   }
 
   return category;

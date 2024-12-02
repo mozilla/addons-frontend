@@ -14,7 +14,7 @@ import {
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
-import { getPromotedCategory } from 'amo/utils/addons';
+import { getPromotedCategories } from 'amo/utils/addons';
 import { addQueryParams } from 'amo/utils/url';
 import Icon from 'amo/components/Icon';
 import LoadingText from 'amo/components/LoadingText';
@@ -52,7 +52,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  _getPromotedCategory: typeof getPromotedCategory,
+  _getPromotedCategories: typeof getPromotedCategories,
   history: ReactRouterHistoryType,
   i18n: I18nType,
 |};
@@ -60,9 +60,9 @@ type InternalProps = {|
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps: {|
     ...DefaultProps,
-    _getPromotedCategory: typeof getPromotedCategory,
+    _getPromotedCategories: typeof getPromotedCategories,
   |} = {
-    _getPromotedCategory: getPromotedCategory,
+    _getPromotedCategories: getPromotedCategories,
     showFullSizePreview: false,
     showMetadata: true,
     showPromotedBadge: true,
@@ -98,7 +98,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
   renderResult(): React.Node {
     const {
-      _getPromotedCategory,
+      _getPromotedCategories,
       addon,
       addonInstallSource,
       clientApp,
@@ -172,7 +172,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       summary = <p className="SearchResult-summary" {...summaryProps} />;
     }
 
-    const promotedCategory = _getPromotedCategory({
+    const promotedCategories = _getPromotedCategories({
       addon,
       clientApp,
       forBadging: true,
@@ -200,13 +200,15 @@ export class SearchResultBase extends React.Component<InternalProps> {
           <div className="SearchResult-contents">
             <h2 className="SearchResult-name">
               {addonTitle}
-              {showPromotedBadge && addon && promotedCategory ? (
-                <PromotedBadge
-                  category={promotedCategory}
-                  onClick={(e) => e.stopPropagation()}
-                  size="small"
-                />
-              ) : null}
+              {showPromotedBadge && addon
+                ? promotedCategories.forEach((category) => {
+                    <PromotedBadge
+                      category={category}
+                      onClick={(e) => e.stopPropagation()}
+                      size="small"
+                    />;
+                  })
+                : null}
             </h2>
             {summary}
 

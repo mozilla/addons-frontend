@@ -133,7 +133,7 @@ export type ExternalAddonType = {|
   locale_disambiguation?: string,
   name: LocalizedString,
   previews?: Array<ExternalPreviewType>,
-  promoted: PromotedType | null,
+  promoted: Array<PromotedType>,
   ratings: {|
     average: number,
     bayesian_average: number,
