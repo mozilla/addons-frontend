@@ -249,6 +249,49 @@ describe(__filename, () => {
       ).toEqual([category]);
     });
 
+    it('returns the empty list if the addon is not promoted via null', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        promoted: null,
+      });
+      const suggestion = createInternalSuggestionWithLang(
+        createFakeAutocompleteResult({ promoted: null }),
+      );
+
+      expect(
+        getPromotedCategories({ addon, clientApp: CLIENT_APP_ANDROID }),
+      ).toEqual([]);
+      expect(
+        getPromotedCategories({
+          addon: suggestion,
+          clientApp: CLIENT_APP_ANDROID,
+        }),
+      ).toEqual([]);
+    });
+
+    it('returns the category if the addon is promoted for the specified app if passed PromotedType directly', () => {
+      const category = RECOMMENDED;
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        promoted: { category, apps: [CLIENT_APP_ANDROID] },
+      });
+      const suggestion = createInternalSuggestionWithLang(
+        createFakeAutocompleteResult({
+          promoted: { category, apps: [CLIENT_APP_ANDROID] },
+        }),
+      );
+
+      expect(
+        getPromotedCategories({ addon, clientApp: CLIENT_APP_ANDROID }),
+      ).toEqual([category]);
+      expect(
+        getPromotedCategories({
+          addon: suggestion,
+          clientApp: CLIENT_APP_ANDROID,
+        }),
+      ).toEqual([category]);
+    });
+
     describe('forBadging === true', () => {
       it.each([SPOTLIGHT, STRATEGIC])(
         'returns the empty list if the category is not one for badges, category: %s',
