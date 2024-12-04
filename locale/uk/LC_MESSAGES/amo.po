@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-19 13:53+0000\n"
+"POT-Creation-Date: 2024-12-04 14:33+0000\n"
 "PO-Revision-Date: 2024-11-10 08:41+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
@@ -2927,20 +2927,19 @@ msgstr ""
 "завантаження з addons.mozilla.org. Його буде автоматично вимкнено та більше "
 "не можна використовувати у Firefox."
 
-#: src/amo/pages/Block/index.js:192
+#: src/amo/pages/Block/index.js:189
+msgid "How does Mozilla enforce its policies?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:194
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
-"software that seriously compromises Firefox security, stability, or "
-"performance and meets %(criteriaStartLink)scertain "
+"software that seriously compromise Firefox security, stability, or "
+"performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
 "general use. For more information, please read %(supportStartLink)sthis "
 "support article%(supportEndLink)s."
 msgstr ""
-"Коли Mozilla стає відомо про додатки, плагіни чи інші сторонні програми, які "
-"становлять загрозу безпеці, стабільності чи швидкодії та відповідають "
-"%(criteriaStartLink)sпевним критеріям%(criteriaEndLink)s, то їх використання "
-"може бути заблоковане чи обмежене. Для отримання додаткової інформації "
-"ознайомтеся з %(supportStartLink)sцією статтею%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
@@ -4083,6 +4082,21 @@ msgstr "сумісність мого додатка не може бути он
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "сумісність мого додатка успішно оновлена"
+
+#~ msgid ""
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
+#~ "software that seriously compromises Firefox security, stability, or "
+#~ "performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked or restricted "
+#~ "from general use. For more information, please read "
+#~ "%(supportStartLink)sthis support article%(supportEndLink)s."
+#~ msgstr ""
+#~ "Коли Mozilla стає відомо про додатки, плагіни чи інші сторонні програми, "
+#~ "які становлять загрозу безпеці, стабільності чи швидкодії та відповідають "
+#~ "%(criteriaStartLink)sпевним критеріям%(criteriaEndLink)s, то їх "
+#~ "використання може бути заблоковане чи обмежене. Для отримання додаткової "
+#~ "інформації ознайомтеся з %(supportStartLink)sцією "
+#~ "статтею%(supportEndLink)s."
 
 #~ msgid "%(addonName)s is restricted for violating Mozilla policies."
 #~ msgstr "%(addonName)s обмежено через порушення політики Mozilla."

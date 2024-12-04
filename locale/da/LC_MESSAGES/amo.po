@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-19 13:53+0000\n"
+"POT-Creation-Date: 2024-12-04 14:33+0000\n"
 "PO-Revision-Date: 2024-10-16 20:57+0000\n"
 "Last-Translator: Joergen <joradan0@gmail.com>\n"
 "Language-Team: none\n"
@@ -2824,11 +2824,15 @@ msgid ""
 "usable in Firefox."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:192
+#: src/amo/pages/Block/index.js:189
+msgid "How does Mozilla enforce its policies?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:194
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
-"software that seriously compromises Firefox security, stability, or "
-"performance and meets %(criteriaStartLink)scertain "
+"software that seriously compromise Firefox security, stability, or "
+"performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
 "general use. For more information, please read %(supportStartLink)sthis "
 "support article%(supportEndLink)s."
