@@ -185,13 +185,15 @@ export class BlockBase extends React.Component<InternalProps> {
                 It will be automatically disabled and no longer usable in
                 Firefox.`)}
             </p>
+
+            <h2>{i18n.gettext('How does Mozilla enforce its policies?')}</h2>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
                   i18n.gettext(`When Mozilla becomes aware of add-ons, plugins,
-                    or other third-party software that seriously compromises
-                    Firefox security, stability, or performance and meets
+                    or other third-party software that seriously compromise
+                    Firefox security, stability, or performance and meet
                     %(criteriaStartLink)scertain criteria%(criteriaEndLink)s,
                     the software may be blocked or restricted from general
                     use. For more information, please read
