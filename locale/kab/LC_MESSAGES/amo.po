@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-04 14:33+0000\n"
-"PO-Revision-Date: 2024-12-04 14:51+0000\n"
+"PO-Revision-Date: 2024-12-04 14:52+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1110,7 +1110,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "Wiyaḍ"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
@@ -1350,7 +1350,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
-msgstr ""
+msgstr "Talɣut n urmas"
 
 #: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
