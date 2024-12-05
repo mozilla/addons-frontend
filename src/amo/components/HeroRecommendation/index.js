@@ -237,14 +237,17 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
         }
       }
 
+      const RECOMMENDED_CATEGORIES = new Set([LINE, RECOMMENDED]);
+      const isLineOrRecommended =
+        !loading &&
+        promotedCategories.every((cat) => RECOMMENDED_CATEGORIES.has(cat));
+
       return (
         <div className="HeroRecommendation-title">
           <div className="HeroRecommendation-title-text">
             {titleText || <LoadingText width={20} />}
           </div>
-          {![LINE, RECOMMENDED].some((item) =>
-            promotedCategories.includes(item),
-          ) && !loading ? (
+          {isLineOrRecommended ? (
             <a
               className="HeroRecommendation-title-link"
               href={`${getPromotedBadgesLinkUrl({
