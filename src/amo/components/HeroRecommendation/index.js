@@ -240,7 +240,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       const RECOMMENDED_CATEGORIES = new Set([LINE, RECOMMENDED]);
       const isLineOrRecommended =
         !loading &&
-        promotedCategories.every((cat) => RECOMMENDED_CATEGORIES.has(cat));
+        promotedCategories.every((item) => !RECOMMENDED_CATEGORIES.has(item));
 
       return (
         <div className="HeroRecommendation-title">
