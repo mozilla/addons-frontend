@@ -328,8 +328,8 @@ export const SPOTLIGHT = 'spotlight';
 export const STRATEGIC = 'strategic';
 
 export const ALL_PROMOTED_CATEGORIES = [
-  LINE,
   RECOMMENDED,
+  LINE,
   SPOTLIGHT,
   STRATEGIC,
 ];

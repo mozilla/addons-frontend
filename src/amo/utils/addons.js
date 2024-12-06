@@ -10,6 +10,7 @@ import {
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
+  ALL_PROMOTED_CATEGORIES,
 } from 'amo/constants';
 import log from 'amo/logger';
 import { getPreviewImage } from 'amo/imageUtils';
@@ -135,12 +136,15 @@ export const getPromotedCategories = ({
   });
 
   // Special logic if we're using the category for badging.
-  if (
-    forBadging &&
-    categories.every((item) => !BADGE_CATEGORIES.includes(item))
-  ) {
-    categories = [];
+  // We shouldn't add badges that are in BADGE_CATEGORIES.
+  if (forBadging) {
+    categories = categories.filter((category) =>
+      BADGE_CATEGORIES.includes(category),
+    );
   }
 
-  return categories;
+  return categories.sort(
+    (a, b) =>
+      ALL_PROMOTED_CATEGORIES.indexOf(a) - ALL_PROMOTED_CATEGORIES.indexOf(b),
+  );
 };

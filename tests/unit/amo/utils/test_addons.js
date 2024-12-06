@@ -249,6 +249,70 @@ describe(__filename, () => {
       ).toEqual([category]);
     });
 
+    it('returns multiple categories if the addon is promoted for the specified app', () => {
+      const categories = [RECOMMENDED, STRATEGIC, SPOTLIGHT];
+      const promoted = categories.map((category) => ({
+        category,
+        apps: [CLIENT_APP_ANDROID],
+      }));
+
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        promoted,
+      });
+      const suggestion = createInternalSuggestionWithLang(
+        createFakeAutocompleteResult({
+          promoted,
+        }),
+      );
+
+      expect(
+        getPromotedCategories({
+          addon,
+          clientApp: CLIENT_APP_ANDROID,
+        }),
+      ).toEqual(categories);
+      expect(
+        getPromotedCategories({
+          addon: suggestion,
+          clientApp: CLIENT_APP_ANDROID,
+        }),
+      ).toEqual(categories);
+    });
+
+    it('returns the filtered categories if forBadging is True and the addon is promoted for the specified app', () => {
+      const categories = [RECOMMENDED, STRATEGIC, SPOTLIGHT];
+      const promoted = categories.map((category) => ({
+        category,
+        apps: [CLIENT_APP_ANDROID],
+      }));
+
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        promoted,
+      });
+      const suggestion = createInternalSuggestionWithLang(
+        createFakeAutocompleteResult({
+          promoted,
+        }),
+      );
+
+      expect(
+        getPromotedCategories({
+          addon,
+          clientApp: CLIENT_APP_ANDROID,
+          forBadging: true,
+        }),
+      ).toEqual([categories[0]]);
+      expect(
+        getPromotedCategories({
+          addon: suggestion,
+          clientApp: CLIENT_APP_ANDROID,
+          forBadging: true,
+        }),
+      ).toEqual([categories[0]]);
+    });
+
     it('returns the empty list if the addon is not promoted via null', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
