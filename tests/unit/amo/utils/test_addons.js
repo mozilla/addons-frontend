@@ -250,7 +250,7 @@ describe(__filename, () => {
     });
 
     it('returns multiple categories if the addon is promoted for the specified app', () => {
-      const categories = [RECOMMENDED, STRATEGIC, SPOTLIGHT];
+      const categories = [RECOMMENDED, SPOTLIGHT, STRATEGIC];
       const promoted = categories.map((category) => ({
         category,
         apps: [CLIENT_APP_ANDROID],
