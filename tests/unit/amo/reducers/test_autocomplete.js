@@ -73,7 +73,7 @@ describe(__filename, () => {
 
     it('sets the suggestion properties', () => {
       const name = 'My addon';
-      const promoted = { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] };
+      const promoted = [{ category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] }];
       const result = createFakeAutocompleteResult({ promoted, name });
       const results = [result];
 

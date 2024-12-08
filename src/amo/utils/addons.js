@@ -10,6 +10,7 @@ import {
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
+  ALL_PROMOTED_CATEGORIES,
 } from 'amo/constants';
 import log from 'amo/logger';
 import { getPreviewImage } from 'amo/imageUtils';
@@ -112,7 +113,7 @@ export const getAddonJsonLinkedData = ({
   });
 };
 
-export const getPromotedCategory = ({
+export const getPromotedCategories = ({
   addon,
   clientApp,
   forBadging = false,
@@ -120,16 +121,30 @@ export const getPromotedCategory = ({
   addon: AddonType | CollectionAddonType | SuggestionType | null | void,
   clientApp: string,
   forBadging?: boolean,
-|}): PromotedCategoryType | null => {
-  let category = null;
-  if (addon && addon.promoted && addon.promoted.apps.includes(clientApp)) {
-    category = addon.promoted.category;
-  }
+|}): Array<PromotedCategoryType> => {
+  if (!addon?.promoted) return [];
+
+  let categories: Array<PromotedCategoryType> = [];
+  const promoted = Array.isArray(addon.promoted)
+    ? addon.promoted
+    : [addon.promoted];
+
+  promoted.forEach((promo) => {
+    if (promo.apps.includes(clientApp)) {
+      categories.push(promo.category);
+    }
+  });
 
   // Special logic if we're using the category for badging.
-  if (forBadging && !BADGE_CATEGORIES.includes(category)) {
-    category = null;
+  // We shouldn't add badges that are in BADGE_CATEGORIES.
+  if (forBadging) {
+    categories = categories.filter((category) =>
+      BADGE_CATEGORIES.includes(category),
+    );
   }
 
-  return category;
+  return categories.sort(
+    (a, b) =>
+      ALL_PROMOTED_CATEGORIES.indexOf(a) - ALL_PROMOTED_CATEGORIES.indexOf(b),
+  );
 };
