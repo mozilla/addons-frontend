@@ -245,7 +245,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           <div className="HeroRecommendation-title-text">
             {titleText || <LoadingText width={20} />}
           </div>
-          {(isRecommended || isLine) && !loading ? (
+          {!(isRecommended || isLine) && !loading ? (
             <a
               className="HeroRecommendation-title-link"
               href={`${getPromotedBadgesLinkUrl({
