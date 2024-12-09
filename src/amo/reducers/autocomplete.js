@@ -3,7 +3,10 @@ import invariant from 'invariant';
 
 import { getAddonIconUrl } from 'amo/imageUtils';
 import { SET_LANG } from 'amo/reducers/api';
-import { selectLocalizedContent } from 'amo/reducers/utils';
+import {
+  makeInternalPromoted,
+  selectLocalizedContent,
+} from 'amo/reducers/utils';
 import type { PromotedType } from 'amo/types/addons';
 import type { LocalizedString } from 'amo/types/api';
 
@@ -27,7 +30,7 @@ export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
   name: string,
-  promoted: Array<PromotedType> | PromotedType | null,
+  promoted: Array<PromotedType> | null,
   type: string,
   url: string,
 |};
@@ -108,7 +111,7 @@ export const createInternalSuggestion = (
     addonId: externalSuggestion.id,
     iconUrl: getAddonIconUrl(externalSuggestion),
     name: selectLocalizedContent(externalSuggestion.name, lang),
-    promoted: externalSuggestion.promoted,
+    promoted: makeInternalPromoted(externalSuggestion.promoted),
     type: externalSuggestion.type,
     url: externalSuggestion.url,
   };

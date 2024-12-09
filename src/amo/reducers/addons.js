@@ -11,6 +11,7 @@ import type {
   UpdateRatingCountsAction,
 } from 'amo/actions/reviews';
 import {
+  makeInternalPromoted,
   selectLocalizedContent,
   selectCategoryObject,
 } from 'amo/reducers/utils';
@@ -236,7 +237,7 @@ export function createInternalAddon(
     previews: apiAddon.previews
       ? createInternalPreviews(apiAddon.previews, lang)
       : undefined,
-    promoted: apiAddon.promoted,
+    promoted: makeInternalPromoted(apiAddon.promoted),
     ratings: apiAddon.ratings,
     requires_payment: apiAddon.requires_payment,
     review_url: apiAddon.review_url,

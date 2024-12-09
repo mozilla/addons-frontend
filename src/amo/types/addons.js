@@ -174,6 +174,8 @@ export type AddonType = {|
   summary: string | null,
   support_email: string | null,
   support_url: UrlWithOutgoing | null,
+  // normalized promoted categories,
+  promoted: Array<PromotedType>,
   // Here are some custom properties for our internal representation.
   currentVersionId: VersionIdType | null,
   isMozillaSignedExtension: boolean,

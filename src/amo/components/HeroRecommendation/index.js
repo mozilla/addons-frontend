@@ -225,11 +225,14 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
         forBadging: true,
       });
 
+      const isRecommended = promotedCategories.includes(RECOMMENDED);
+      const isLine = promotedCategories.includes(LINE);
+
       if (!loading) {
-        if (promotedCategories.includes(RECOMMENDED)) {
+        if (isRecommended) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
           titleText = i18n.gettext('RECOMMENDED');
-        } else if (promotedCategories.includes(LINE)) {
+        } else if (isLine) {
           // L10n: If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
           titleText = i18n.gettext('BY FIREFOX');
         } else {
@@ -237,17 +240,12 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
         }
       }
 
-      const RECOMMENDED_CATEGORIES = new Set([LINE, RECOMMENDED]);
-      const isLineOrRecommended =
-        !loading &&
-        promotedCategories.every((item) => !RECOMMENDED_CATEGORIES.has(item));
-
       return (
         <div className="HeroRecommendation-title">
           <div className="HeroRecommendation-title-text">
             {titleText || <LoadingText width={20} />}
           </div>
-          {isLineOrRecommended ? (
+          {(isRecommended || isLine) && !loading ? (
             <a
               className="HeroRecommendation-title-link"
               href={`${getPromotedBadgesLinkUrl({

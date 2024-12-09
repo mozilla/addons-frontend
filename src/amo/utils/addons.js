@@ -124,27 +124,20 @@ export const getPromotedCategories = ({
 |}): Array<PromotedCategoryType> => {
   if (!addon?.promoted) return [];
 
-  let categories: Array<PromotedCategoryType> = [];
-  const promoted = Array.isArray(addon.promoted)
-    ? addon.promoted
-    : [addon.promoted];
-
-  promoted.forEach((promo) => {
-    if (promo.apps.includes(clientApp)) {
-      categories.push(promo.category);
-    }
-  });
-
-  // Special logic if we're using the category for badging.
-  // We shouldn't add badges that are in BADGE_CATEGORIES.
-  if (forBadging) {
-    categories = categories.filter((category) =>
-      BADGE_CATEGORIES.includes(category),
+  const categories: Array<PromotedCategoryType> = addon.promoted
+    .filter((promoted) => {
+      if (!promoted.apps.includes(clientApp)) {
+        return false;
+      }
+      // Special logic if we're using the category for badging.
+      // We shouldn't add badges that are in BADGE_CATEGORIES.
+      return forBadging ? BADGE_CATEGORIES.includes(promoted.category) : true;
+    })
+    .map((promoted) => promoted.category)
+    .sort(
+      (a, b) =>
+        ALL_PROMOTED_CATEGORIES.indexOf(a) - ALL_PROMOTED_CATEGORIES.indexOf(b),
     );
-  }
 
-  return categories.sort(
-    (a, b) =>
-      ALL_PROMOTED_CATEGORIES.indexOf(a) - ALL_PROMOTED_CATEGORIES.indexOf(b),
-  );
+  return categories;
 };
