@@ -87,7 +87,7 @@ describe(__filename, () => {
           addonId: result.id,
           iconUrl: result.icon_url,
           name,
-          promoted,
+          promoted: [promoted],
           url: result.url,
         },
       ]);

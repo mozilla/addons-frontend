@@ -327,9 +327,10 @@ export const RECOMMENDED = 'recommended';
 export const SPOTLIGHT = 'spotlight';
 export const STRATEGIC = 'strategic';
 
+// This array is sorted by "importance".
 export const ALL_PROMOTED_CATEGORIES = [
-  LINE,
   RECOMMENDED,
+  LINE,
   SPOTLIGHT,
   STRATEGIC,
 ];
