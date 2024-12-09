@@ -196,7 +196,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
         addonId: undefined,
         iconUrl: getAddonIconUrl(),
         name: this.props.i18n.gettext('Loading'),
-        promoted: [],
+        promoted: null,
         url: undefined,
       });
     }

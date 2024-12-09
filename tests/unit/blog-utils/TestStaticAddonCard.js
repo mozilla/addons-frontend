@@ -42,7 +42,7 @@ describe(__filename, () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
       name: createLocalizedString(name),
-      promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] }],
+      promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
     });
 
     render({ addon });

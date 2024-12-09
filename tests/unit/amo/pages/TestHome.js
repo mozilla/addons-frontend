@@ -156,7 +156,7 @@ describe(__filename, () => {
   };
 
   const addonForPromotedCategory = (category = RECOMMENDED) => {
-    return { ...fakeAddon, promoted: [{ category, apps: [defaultClientApp] }] };
+    return { ...fakeAddon, promoted: { category, apps: [defaultClientApp] } };
   };
 
   describe('Tests for SecondaryHero', () => {

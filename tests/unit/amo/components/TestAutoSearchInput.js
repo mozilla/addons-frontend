@@ -515,7 +515,7 @@ describe(__filename, () => {
   describe('Tests for SearchSuggestion', () => {
     it('displays a promoted icon when the add-on is promoted', async () => {
       const result = createFakeAutocompleteResult({
-        promoted: [{ category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] }],
+        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
       });
       render();
 
