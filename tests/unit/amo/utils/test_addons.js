@@ -249,7 +249,7 @@ describe(__filename, () => {
       ).toEqual([category]);
     });
 
-    it('returns multiple categories if the addon is promoted for the specified app', () => {
+    it('returns only the most important category if the addon is promoted for the specified app', () => {
       const categories = [RECOMMENDED, SPOTLIGHT, STRATEGIC];
       const promoted = categories.map((category) => ({
         category,
@@ -271,13 +271,13 @@ describe(__filename, () => {
           addon,
           clientApp: CLIENT_APP_ANDROID,
         }),
-      ).toEqual(categories);
+      ).toEqual([categories[0]]);
       expect(
         getPromotedCategories({
           addon: suggestion,
           clientApp: CLIENT_APP_ANDROID,
         }),
-      ).toEqual(categories);
+      ).toEqual([categories[0]]);
     });
 
     it('returns the filtered categories if forBadging is True and the addon is promoted for the specified app', () => {
