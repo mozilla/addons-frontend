@@ -682,7 +682,7 @@ describe(__filename, () => {
     });
 
     it('does not display a promoted badge when the addon is not promoted', () => {
-      renderWithResult({ addonProps: { promoted: [] } });
+      renderWithResult({ addonProps: { promoted: null } });
 
       expect(
         screen.queryByRole('link', {

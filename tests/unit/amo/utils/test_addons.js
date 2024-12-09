@@ -190,7 +190,7 @@ describe(__filename, () => {
         promoted: null,
       });
       const suggestion = createInternalSuggestionWithLang(
-        createFakeAutocompleteResult({ promoted: [] }),
+        createFakeAutocompleteResult({ promoted: null }),
       );
 
       expect(

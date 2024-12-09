@@ -918,12 +918,10 @@ describe(__filename, () => {
     it('returns true if the add-on is recommended on android and desktop', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        promoted: [
-          {
-            category: RECOMMENDED,
-            apps: [CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX],
-          },
-        ],
+        promoted: {
+          category: RECOMMENDED,
+          apps: [CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX],
+        },
       });
 
       expect(isAndroidInstallable({ addon })).toEqual(true);

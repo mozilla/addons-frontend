@@ -1321,16 +1321,16 @@ describe(__filename, () => {
 
       it.each([
         // An unpromoted add-on.
-        { ...fakeAddon, promoted: [] },
+        { ...fakeAddon, promoted: null },
         // An add-on which is promoted, but not for the current app.
         {
           ...fakeAddon,
-          promoted: [{ apps: [CLIENT_APP_ANDROID], category: RECOMMENDED }],
+          promoted: { apps: [CLIENT_APP_ANDROID], category: RECOMMENDED },
         },
         // A non-extension which is promoted.
         {
           ...fakeAddon,
-          promoted: [{ apps: [CLIENT_APP_FIREFOX], category: RECOMMENDED }],
+          promoted: { apps: [CLIENT_APP_FIREFOX], category: RECOMMENDED },
           type: ADDON_TYPE_DICT,
         },
       ])('tracks an untrusted addon install', async (addonOverride) => {
@@ -1378,7 +1378,7 @@ describe(__filename, () => {
           const clientApp = CLIENT_APP_FIREFOX;
           _dispatchClientMetadata({ clientApp });
 
-          addon.promoted = [{ apps: [clientApp], category }];
+          addon.promoted = { apps: [clientApp], category };
 
           const fakeTracking = createFakeTracking();
 
@@ -1459,11 +1459,11 @@ describe(__filename, () => {
 
       it.each([
         // An unpromoted theme.
-        { ...fakeAddon, promoted: [] },
+        { ...fakeAddon, promoted: null },
         // A promoted theme.
         {
           ...fakeAddon,
-          promoted: [{ apps: [CLIENT_APP_FIREFOX], category: RECOMMENDED }],
+          promoted: { apps: [CLIENT_APP_FIREFOX], category: RECOMMENDED },
         },
       ])('tracks a static theme install', async (addonOverride) => {
         addon = addonOverride;
