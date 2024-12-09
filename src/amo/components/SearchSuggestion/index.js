@@ -4,7 +4,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { getPromotedCategories } from 'amo/utils/addons';
+import { getPromotedCategory } from 'amo/utils/addons';
 import Icon from 'amo/components/Icon';
 import IconPromotedBadge from 'amo/components/IconPromotedBadge';
 import LoadingText from 'amo/components/LoadingText';
@@ -26,11 +26,11 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  _getPromotedCategories: typeof getPromotedCategories,
+  _getPromotedCategory: typeof getPromotedCategory,
 |};
 
 export const SearchSuggestionBase = ({
-  _getPromotedCategories = getPromotedCategories,
+  _getPromotedCategory = getPromotedCategory,
   arrowAlt,
   clientApp,
   loading,
@@ -38,7 +38,7 @@ export const SearchSuggestionBase = ({
 }: InternalProps): React.Node => {
   const { iconUrl, name, type } = suggestion;
 
-  const promotedCategories = _getPromotedCategories({
+  const promotedCategory = _getPromotedCategory({
     addon: suggestion,
     clientApp,
     forBadging: true,
@@ -52,15 +52,14 @@ export const SearchSuggestionBase = ({
       <span className="SearchSuggestion-name">
         {loading ? <LoadingText minWidth={20} /> : name}
       </span>
-      {promotedCategories.map((category) => (
+      {promotedCategory ? (
         <IconPromotedBadge
-          key={`${suggestion.name}-${category}`}
-          category={category}
+          category={promotedCategory}
           className="SearchSuggestion-icon-promoted"
           showAlt
           size="small"
         />
-      ))}
+      ) : null}
       <Icon
         alt={arrowAlt}
         className="SearchSuggestion-icon-arrow"

@@ -37,7 +37,7 @@ import {
 import * as addonManager from 'amo/addonManager';
 import { getVersionById } from 'amo/reducers/versions';
 import { getDisplayName } from 'amo/utils';
-import { getFileHash, getPromotedCategories } from 'amo/utils/addons';
+import { getFileHash, getPromotedCategory } from 'amo/utils/addons';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AddonType } from 'amo/types/addons';
@@ -128,7 +128,7 @@ type WithInstallHelpersPropsFromState = {|
 
 type WithInstallHelpersDefaultProps = {|
   _addonManager: typeof addonManager,
-  _getPromotedCategories: typeof getPromotedCategories,
+  _getPromotedCategory: typeof getPromotedCategory,
   _log: typeof log,
   _tracking: typeof tracking,
 |};
@@ -158,7 +158,7 @@ export type WithInstallHelpersInjectedProps = {|
 export class WithInstallHelpers extends React.Component<WithInstallHelpersInternalProps> {
   static defaultProps: WithInstallHelpersDefaultProps = {
     _addonManager: addonManager,
-    _getPromotedCategories: getPromotedCategories,
+    _getPromotedCategory: getPromotedCategory,
     _log: log,
     _tracking: tracking,
   };
@@ -269,7 +269,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   install(): Promise<void> {
     const {
       _addonManager,
-      _getPromotedCategories,
+      _getPromotedCategory,
       _log,
       _tracking,
       addon,
@@ -329,13 +329,10 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 
         // If the add-on is trusted, send an additional event for trusted
         // add-on install.
-        const promotedCategories = _getPromotedCategories({ addon, clientApp });
-        if (
-          addon.type === ADDON_TYPE_EXTENSION &&
-          promotedCategories.length > 0
-        ) {
+        const promotedCategory = _getPromotedCategory({ addon, clientApp });
+        if (addon.type === ADDON_TYPE_EXTENSION && promotedCategory) {
           _tracking.sendEvent({
-            action: promotedCategories.join(', '),
+            action: promotedCategory,
             category: INSTALL_TRUSTED_EXTENSION_CATEGORY,
             label: guid,
           });

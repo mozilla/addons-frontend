@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
-import { getPromotedCategories } from 'amo/utils/addons';
+import { getPromotedCategory } from 'amo/utils/addons';
 import Badge from 'amo/components/Badge';
 import PromotedBadge from 'amo/components/PromotedBadge';
 import type { AppState } from 'amo/store';
@@ -19,7 +19,7 @@ type Props = {|
 |};
 
 type DefaultProps = {|
-  _getPromotedCategories: typeof getPromotedCategories,
+  _getPromotedCategory: typeof getPromotedCategory,
 |};
 
 type PropsFromState = {|
@@ -35,17 +35,17 @@ type InternalProps = {|
 
 export class AddonBadgesBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
-    _getPromotedCategories: getPromotedCategories,
+    _getPromotedCategory: getPromotedCategory,
   };
 
   render(): null | React.Node {
-    const { _getPromotedCategories, addon, clientApp, i18n } = this.props;
+    const { _getPromotedCategory, addon, clientApp, i18n } = this.props;
 
     if (!addon) {
       return null;
     }
 
-    const promotedCategories = _getPromotedCategories({
+    const promotedCategory = _getPromotedCategory({
       addon,
       clientApp,
       forBadging: true,
@@ -53,13 +53,9 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     return (
       <div className="AddonBadges">
-        {promotedCategories.map((category) => (
-          <PromotedBadge
-            key={`${addon.name}-${category}`}
-            category={category}
-            size="large"
-          />
-        ))}
+        {promotedCategory ? (
+          <PromotedBadge category={promotedCategory} size="large" />
+        ) : null}
         {addon.is_experimental ? (
           <Badge type="experimental" label={i18n.gettext('Experimental')} />
         ) : null}

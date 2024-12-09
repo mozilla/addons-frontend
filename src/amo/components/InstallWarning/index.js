@@ -11,7 +11,7 @@ import {
   EXCLUDE_WARNING_CATEGORIES,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
-import { getPromotedCategories } from 'amo/utils/addons';
+import { getPromotedCategory } from 'amo/utils/addons';
 import {
   correctedLocationForPlatform,
   isFirefox,
@@ -36,7 +36,7 @@ type PropsFromState = {|
 
 type DefaultProps = {|
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
-  _getPromotedCategories: typeof getPromotedCategories,
+  _getPromotedCategory: typeof getPromotedCategory,
 |};
 
 type InternalProps = {|
@@ -55,13 +55,13 @@ const WARNING_LINK_DESTINATION = getPromotedBadgesLinkUrl({
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
-    _getPromotedCategories: getPromotedCategories,
+    _getPromotedCategory: getPromotedCategory,
   };
 
   couldShowWarning: () => boolean = () => {
     const {
       _correctedLocationForPlatform,
-      _getPromotedCategories,
+      _getPromotedCategory,
       addon,
       clientApp,
       lang,
@@ -77,7 +77,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       userAgentInfo,
     });
 
-    const promotedCategories = _getPromotedCategories({
+    const promotedCategory = _getPromotedCategory({
       addon,
       clientApp,
     });
@@ -86,9 +86,8 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       !correctedLocation &&
       isFirefox({ userAgentInfo }) &&
       addon.type === ADDON_TYPE_EXTENSION &&
-      promotedCategories.every(
-        (promoted) => !EXCLUDE_WARNING_CATEGORIES.includes(promoted),
-      )
+      (!promotedCategory ||
+        !EXCLUDE_WARNING_CATEGORIES.includes(promotedCategory))
     );
   };
 

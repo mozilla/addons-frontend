@@ -113,7 +113,7 @@ export const getAddonJsonLinkedData = ({
   });
 };
 
-export const getPromotedCategories = ({
+export const getPromotedCategory = ({
   addon,
   clientApp,
   forBadging = false,
@@ -121,8 +121,8 @@ export const getPromotedCategories = ({
   addon: AddonType | CollectionAddonType | SuggestionType | null | void,
   clientApp: string,
   forBadging?: boolean,
-|}): Array<PromotedCategoryType> => {
-  if (!addon?.promoted) return [];
+|}): PromotedCategoryType | null => {
+  if (!addon?.promoted) return null;
 
   const categories: Array<PromotedCategoryType> = addon.promoted
     .filter((promoted) => {
@@ -140,5 +140,5 @@ export const getPromotedCategories = ({
     );
 
   // Return only the 'most important' badge.
-  return categories.length > 0 ? [categories[0]] : [];
+  return categories.length > 0 ? categories[0] : null;
 };

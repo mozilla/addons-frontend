@@ -14,7 +14,7 @@ import {
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
-import { getPromotedCategories } from 'amo/utils/addons';
+import { getPromotedCategory } from 'amo/utils/addons';
 import { addQueryParams } from 'amo/utils/url';
 import Icon from 'amo/components/Icon';
 import LoadingText from 'amo/components/LoadingText';
@@ -52,7 +52,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  _getPromotedCategories: typeof getPromotedCategories,
+  _getPromotedCategory: typeof getPromotedCategory,
   history: ReactRouterHistoryType,
   i18n: I18nType,
 |};
@@ -60,9 +60,9 @@ type InternalProps = {|
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps: {|
     ...DefaultProps,
-    _getPromotedCategories: typeof getPromotedCategories,
+    _getPromotedCategory: typeof getPromotedCategory,
   |} = {
-    _getPromotedCategories: getPromotedCategories,
+    _getPromotedCategory: getPromotedCategory,
     showFullSizePreview: false,
     showMetadata: true,
     showPromotedBadge: true,
@@ -98,7 +98,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
   renderResult(): React.Node {
     const {
-      _getPromotedCategories,
+      _getPromotedCategory,
       addon,
       addonInstallSource,
       clientApp,
@@ -172,7 +172,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       summary = <p className="SearchResult-summary" {...summaryProps} />;
     }
 
-    const promotedCategories = _getPromotedCategories({
+    const promotedCategory = _getPromotedCategory({
       addon,
       clientApp,
       forBadging: true,
@@ -200,16 +200,13 @@ export class SearchResultBase extends React.Component<InternalProps> {
           <div className="SearchResult-contents">
             <h2 className="SearchResult-name">
               {addonTitle}
-              {showPromotedBadge && addon
-                ? promotedCategories.map((category) => (
-                    <PromotedBadge
-                      key={`${addon.name}-${category}`}
-                      category={category}
-                      onClick={(e) => e.stopPropagation()}
-                      size="small"
-                    />
-                  ))
-                : null}
+              {showPromotedBadge && addon && promotedCategory ? (
+                <PromotedBadge
+                  category={promotedCategory}
+                  onClick={(e) => e.stopPropagation()}
+                  size="small"
+                />
+              ) : null}
             </h2>
             {summary}
 
