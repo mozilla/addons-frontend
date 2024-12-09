@@ -139,5 +139,6 @@ export const getPromotedCategories = ({
         ALL_PROMOTED_CATEGORIES.indexOf(a) - ALL_PROMOTED_CATEGORIES.indexOf(b),
     );
 
-  return categories;
+  // Return only the 'most important' badge.
+  return categories.length > 0 ? [categories[0]] : [];
 };
