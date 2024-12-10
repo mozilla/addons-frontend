@@ -249,28 +249,8 @@ describe(__filename, () => {
       ).toEqual(category);
     });
 
-    it('returns null if the addon is not promoted via null', () => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        promoted: null,
-      });
-      const suggestion = createInternalSuggestionWithLang(
-        createFakeAutocompleteResult({ promoted: null }),
-      );
-
-      expect(
-        getPromotedCategory({ addon, clientApp: CLIENT_APP_ANDROID }),
-      ).toEqual(null);
-      expect(
-        getPromotedCategory({
-          addon: suggestion,
-          clientApp: CLIENT_APP_ANDROID,
-        }),
-      ).toEqual(null);
-    });
-
     it('returns only the most important category if the addon is promoted in multiple categories for the specified app', () => {
-      const categories = [RECOMMENDED, SPOTLIGHT, STRATEGIC];
+      const categories = [SPOTLIGHT, STRATEGIC, RECOMMENDED];
       const promoted = categories.map((category) => ({
         category,
         apps: [CLIENT_APP_ANDROID],
@@ -291,13 +271,44 @@ describe(__filename, () => {
           addon,
           clientApp: CLIENT_APP_ANDROID,
         }),
-      ).toEqual(categories[0]);
+      ).toEqual(categories[2]);
       expect(
         getPromotedCategory({
           addon: suggestion,
           clientApp: CLIENT_APP_ANDROID,
         }),
-      ).toEqual(categories[0]);
+      ).toEqual(categories[2]);
+    });
+
+    it('returns null if the addon is promoted in multiple categories, but not for the specified app', () => {
+      const categories = [RECOMMENDED, SPOTLIGHT, STRATEGIC];
+      const promoted = categories.map((category) => ({
+        category,
+        apps: [CLIENT_APP_FIREFOX],
+      }));
+
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        promoted,
+      });
+      const suggestion = createInternalSuggestionWithLang(
+        createFakeAutocompleteResult({
+          promoted,
+        }),
+      );
+
+      expect(
+        getPromotedCategory({
+          addon,
+          clientApp: CLIENT_APP_ANDROID,
+        }),
+      ).toEqual(null);
+      expect(
+        getPromotedCategory({
+          addon: suggestion,
+          clientApp: CLIENT_APP_ANDROID,
+        }),
+      ).toEqual(null);
     });
 
     it('returns null if the addon is not promoted via empty list', () => {
