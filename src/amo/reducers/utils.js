@@ -3,7 +3,7 @@ import invariant from 'invariant';
 import type { LocalizedString } from 'amo/types/api';
 
 import type { CategoryEntry } from './categories';
-import type { ExternalAddonType } from '../types/addons';
+import type { ExternalAddonType, PromotedType } from '../types/addons';
 
 export const selectLocalizedContent = (
   field: LocalizedString,
@@ -25,4 +25,13 @@ export const selectCategoryObject = (
   apiAddon: ExternalAddonType,
 ): CategoryEntry => {
   return apiAddon.categories;
+};
+
+export const makeInternalPromoted = (
+  promoted: Array<PromotedType> | PromotedType | null,
+): Array<PromotedType> => {
+  if (!promoted) {
+    return [];
+  }
+  return Array.isArray(promoted) ? promoted : [promoted];
 };

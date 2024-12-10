@@ -10,6 +10,7 @@ import {
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
+  ALL_PROMOTED_CATEGORIES,
 } from 'amo/constants';
 import log from 'amo/logger';
 import { getPreviewImage } from 'amo/imageUtils';
@@ -121,15 +122,25 @@ export const getPromotedCategory = ({
   clientApp: string,
   forBadging?: boolean,
 |}): PromotedCategoryType | null => {
-  let category = null;
-  if (addon && addon.promoted && addon.promoted.apps.includes(clientApp)) {
-    category = addon.promoted.category;
+  if (!addon?.promoted) {
+    return null;
   }
 
-  // Special logic if we're using the category for badging.
-  if (forBadging && !BADGE_CATEGORIES.includes(category)) {
-    category = null;
-  }
+  const categories: Array<PromotedCategoryType> = addon.promoted
+    .filter((promoted) => {
+      if (!promoted.apps.includes(clientApp)) {
+        return false;
+      }
+      // Special logic if we're using the category for badging.
+      // We shouldn't add badges that are in BADGE_CATEGORIES.
+      return forBadging ? BADGE_CATEGORIES.includes(promoted.category) : true;
+    })
+    .map((promoted) => promoted.category)
+    .sort(
+      (a, b) =>
+        ALL_PROMOTED_CATEGORIES.indexOf(a) - ALL_PROMOTED_CATEGORIES.indexOf(b),
+    );
 
-  return category;
+  // Return only the 'most important' badge.
+  return categories.shift() || null;
 };

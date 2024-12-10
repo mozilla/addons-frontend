@@ -27,6 +27,9 @@ import {
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   INSTALLING,
   RECOMMENDED,
+  LINE,
+  SPOTLIGHT,
+  STRATEGIC,
   REVIEWER_TOOLS_VIEW,
   SET_VIEW_CONTEXT,
   STATIC_THEMES_REVIEW,
@@ -2964,6 +2967,18 @@ describe(__filename, () => {
         }
       },
     );
+
+    it('does not render the strategic or spotlight badges and correctly renders only the most important badge (RECOMMENDED)', () => {
+      const categories = [LINE, RECOMMENDED, STRATEGIC, SPOTLIGHT];
+      addon.promoted = categories.map((category) => ({
+        category,
+        apps: [clientApp],
+      }));
+      renderWithAddon();
+      const badges = screen.getAllByClassName('PromotedBadge');
+      expect(badges).toHaveLength(1);
+      expect(badges[0]).toHaveClass(`PromotedBadge--recommended`);
+    });
 
     // See https://github.com/mozilla/addons-frontend/issues/8285.
     it('does not pass an alt property to IconPromotedBadge', () => {
