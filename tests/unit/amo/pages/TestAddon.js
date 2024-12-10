@@ -2975,9 +2975,9 @@ describe(__filename, () => {
         apps: [clientApp],
       }));
       renderWithAddon();
-      expect(screen.getByClassName('PromotedBadge')).toHaveClass(
-        `PromotedBadge--recommended`,
-      );
+      const badges = screen.getAllByClassName('PromotedBadge');
+      expect(badges).toHaveLength(1);
+      expect(badges[0]).toHaveClass(`PromotedBadge--recommended`);
     });
 
     // See https://github.com/mozilla/addons-frontend/issues/8285.

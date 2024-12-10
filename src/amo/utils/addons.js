@@ -140,5 +140,5 @@ export const getPromotedCategory = ({
     );
 
   // Return only the 'most important' badge.
-  return categories.length > 0 ? categories[0] : null;
+  return categories.shift() || null;
 };

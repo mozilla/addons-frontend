@@ -30,7 +30,7 @@ export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
   name: string,
-  promoted: Array<PromotedType> | null,
+  promoted: Array<PromotedType>,
   type: string,
   url: string,
 |};
