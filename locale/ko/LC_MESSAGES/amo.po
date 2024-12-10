@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 14:33+0000\n"
+"POT-Creation-Date: 2024-12-10 17:08+0000\n"
 "PO-Revision-Date: 2024-12-01 14:07+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
@@ -3832,27 +3832,27 @@ msgstr "%(application)s %(minVersion)s ~ %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "%(listOfApplicatonsAndVersions)s에서 작동"
 
-#: src/amo/utils/addons.js:34
+#: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "부가 기능이 손상된 것으로 판단되어 설치가 중단되었습니다."
 
-#: src/amo/utils/addons.js:38
+#: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
 msgstr "설치하지 못했습니다. 다시 시도해 주세요."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
 msgstr "다운로드에 실패했습니다. 접속 상태를 확인 해 주세요."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:43
 msgid "An unexpected error occurred during installation."
 msgstr "설치 중에 예기치 못한 오류 발생됨"
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:45
 msgid "An unexpected error occurred during uninstallation."
 msgstr "제거 중에 예기치 못한 오류 발생됨"
 
-#: src/amo/utils/addons.js:49
+#: src/amo/utils/addons.js:50
 msgid "An unexpected error occurred."
 msgstr "예기치 못한 오류 발생됨."
 

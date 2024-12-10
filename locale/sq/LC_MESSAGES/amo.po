@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 14:33+0000\n"
+"POT-Creation-Date: 2024-12-10 17:08+0000\n"
 "PO-Revision-Date: 2024-11-19 14:57+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -3973,27 +3973,27 @@ msgstr "%(application)s %(minVersion)s deri te %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Funksionon me %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:34
+#: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Instalimi u ndërpre, ngaqë shtesa duket të jetë e dëmtuar."
 
-#: src/amo/utils/addons.js:38
+#: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
 msgstr "Instalimi dështoi. Ju lutemi, riprovoni."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
 msgstr "Shkarkimi dështoi. Ju lutemi, kontrolloni lidhjen tuaj."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:43
 msgid "An unexpected error occurred during installation."
 msgstr "Ndodhi një gabim të panjohur gjatë instalimit."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:45
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ndodhi një gabim të panjohur gjatë çinstalimit."
 
-#: src/amo/utils/addons.js:49
+#: src/amo/utils/addons.js:50
 msgid "An unexpected error occurred."
 msgstr "Ndodhi një gabim të papritur."
 

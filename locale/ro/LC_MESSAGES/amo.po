@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 14:33+0000\n"
+"POT-Creation-Date: 2024-12-10 17:08+0000\n"
 "PO-Revision-Date: 2022-06-25 13:19+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -3976,27 +3976,27 @@ msgstr "%(application)s %(minVersion)s până %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Funcționează cu %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:34
+#: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Instalare abandonată din cauză că suplimentul pare să fie corupt."
 
-#: src/amo/utils/addons.js:38
+#: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
 msgstr "Instalare eșuată. Te rugăm să încerci din nou."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
 msgstr "Descărcare eșuată. Te rugăm să îți verifici conexiunea."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:43
 msgid "An unexpected error occurred during installation."
 msgstr "S-a produs o eroare neașteptată în timpul instalării."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:45
 msgid "An unexpected error occurred during uninstallation."
 msgstr "S-a produs o eroare neașteptată în timpul dezinstalării."
 
-#: src/amo/utils/addons.js:49
+#: src/amo/utils/addons.js:50
 msgid "An unexpected error occurred."
 msgstr "S-a produs o eroare neașteptată."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 14:33+0000\n"
+"POT-Creation-Date: 2024-12-10 17:08+0000\n"
 "PO-Revision-Date: 2024-08-19 02:19+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3835,27 +3835,27 @@ msgstr "%(application)s %(minVersion)s ਤੋਂ %(maxVersion)s ਤੱਕ"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "%(listOfApplicatonsAndVersions)s ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ"
 
-#: src/amo/utils/addons.js:34
+#: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ ਕੀਤੀ ਗਈ ਕਿਉਂਕਿ ਐਡ-ਆਨ ਭ੍ਰਿਸ਼ਟ ਜਾਪਦੀ ਹੈ।"
 
-#: src/amo/utils/addons.js:38
+#: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
 msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ। ਮੁੜ ਕੋਸ਼ਿਸ ਕਰੋ ਜੀੀ।"
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
 msgstr "ਡਾਊਨਲੋਡ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:43
 msgid "An unexpected error occurred during installation."
 msgstr "ਇੰਸਟੌਲੇਸ਼ਨ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚਾਨਕ ਤਰੁੱਟੀ ਪੈਦਾ ਹੋਈ।"
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:45
 msgid "An unexpected error occurred during uninstallation."
 msgstr "ਅਣ-ਇੰਸਟਾਲ ਹੋਣ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚਾਨਕ ਗਲਤੀ ਆਈ।"
 
-#: src/amo/utils/addons.js:49
+#: src/amo/utils/addons.js:50
 msgid "An unexpected error occurred."
 msgstr "ਅਚਾਨਕ ਗਲਤੀ ਆਈ ਹੈ।"
 

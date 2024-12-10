@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 14:33+0000\n"
+"POT-Creation-Date: 2024-12-10 17:08+0000\n"
 "PO-Revision-Date: 2021-08-22 17:37+0000\n"
 "Last-Translator: cfatls <cfatls@gmail.com>\n"
 "Language-Team: none\n"
@@ -3949,27 +3949,27 @@ msgstr "%(application)s %(minVersion)s a la %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Compatible con %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:34
+#: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Se abortó la instalación porque parece que el complemento está dañado."
 
-#: src/amo/utils/addons.js:38
+#: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
 msgstr "Falló la instalación. Vuelve a intentarlo."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
 msgstr "Falló la descarga. Comprueba tu conexión."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:43
 msgid "An unexpected error occurred during installation."
 msgstr "Se ha producido un error inesperado durante la instalación."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:45
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Se ha producido un error inesperado durante la desinstalación."
 
-#: src/amo/utils/addons.js:49
+#: src/amo/utils/addons.js:50
 msgid "An unexpected error occurred."
 msgstr "Se ha producido un error inesperado."
 

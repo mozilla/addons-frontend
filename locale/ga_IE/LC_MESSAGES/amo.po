@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 14:33+0000\n"
+"POT-Creation-Date: 2024-12-10 17:08+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -4023,29 +4023,29 @@ msgstr ""
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
 
-#: src/amo/utils/addons.js:34
+#: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr ""
 
-#: src/amo/utils/addons.js:38
+#: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:43
 #, fuzzy
 msgid "An unexpected error occurred during installation."
 msgstr "Tharla earráid gan choinne"
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:45
 #, fuzzy
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Tharla earráid gan choinne"
 
-#: src/amo/utils/addons.js:49
+#: src/amo/utils/addons.js:50
 #, fuzzy
 msgid "An unexpected error occurred."
 msgstr "Tharla earráid gan choinne"

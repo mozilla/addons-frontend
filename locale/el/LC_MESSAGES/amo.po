@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 14:33+0000\n"
+"POT-Creation-Date: 2024-12-10 17:08+0000\n"
 "PO-Revision-Date: 2024-11-19 20:45+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -4008,28 +4008,28 @@ msgstr "%(application)s %(minVersion)s έως %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Λειτουργεί με %(listOfApplicatonsAndVersions)s"
 
-#: src/amo/utils/addons.js:34
+#: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr ""
 "Η εγκατάσταση ακυρώθηκε, επειδή το πρόσθετο φαίνεται να έχει καταστραφεί."
 
-#: src/amo/utils/addons.js:38
+#: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
 msgstr "Αποτυχία εγκατάστασης. Παρακαλούμε δοκιμάστε ξανά."
 
-#: src/amo/utils/addons.js:40
+#: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
 msgstr "Αποτυχία λήψης. Παρακαλούμε ελέγξτε τη σύνδεσή σας."
 
-#: src/amo/utils/addons.js:42
+#: src/amo/utils/addons.js:43
 msgid "An unexpected error occurred during installation."
 msgstr "Προέκυψε απροσδόκητο σφάλμα κατά την εγκατάσταση."
 
-#: src/amo/utils/addons.js:44
+#: src/amo/utils/addons.js:45
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Προέκυψε απροσδόκητο σφάλμα κατά την αφαίρεση."
 
-#: src/amo/utils/addons.js:49
+#: src/amo/utils/addons.js:50
 msgid "An unexpected error occurred."
 msgstr "Προέκυψε απροσδόκητο σφάλμα."
 
