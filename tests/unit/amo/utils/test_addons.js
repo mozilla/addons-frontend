@@ -271,13 +271,13 @@ describe(__filename, () => {
           addon,
           clientApp: CLIENT_APP_ANDROID,
         }),
-      ).toEqual(categories[2]);
+      ).toEqual(RECOMMENDED);
       expect(
         getPromotedCategory({
           addon: suggestion,
           clientApp: CLIENT_APP_ANDROID,
         }),
-      ).toEqual(categories[2]);
+      ).toEqual(RECOMMENDED);
     });
 
     it('returns null if the addon is promoted in multiple categories, but not for the specified app', () => {

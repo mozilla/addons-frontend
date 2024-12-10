@@ -122,7 +122,9 @@ export const getPromotedCategory = ({
   clientApp: string,
   forBadging?: boolean,
 |}): PromotedCategoryType | null => {
-  if (!addon?.promoted) return null;
+  if (!addon?.promoted) {
+    return null;
+  }
 
   const categories: Array<PromotedCategoryType> = addon.promoted
     .filter((promoted) => {
