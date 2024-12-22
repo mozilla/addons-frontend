@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2024-12-22 20:50+0000\n"
+"PO-Revision-Date: 2024-12-22 20:57+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1658,7 +1658,7 @@ msgstr "ვრცლად"
 
 #: src/amo/components/InstallWarning/index.js:106
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "ამ დამატების უსაფრთხოებას არ ზედამხედველობს Mozilla. დარწმუნდით სანდოობაში დაყენებამდე."
+msgstr "ამ დამატების უსაფრთხოებას არ ამოწმებს Mozilla. დარწმუნდით სანდოობაში დაყენებამდე."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
