@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2024-12-22 20:57+0000\n"
+"PO-Revision-Date: 2024-12-23 09:35+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2470,7 +2470,7 @@ msgstr "ეკრანის სურათები"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr "გამოხმაურება ან საჩივარი დამატების შესახებ Mozilla-სთვის"
+msgstr "გამოხმაურება ან საჩივარი დამატების შესახებ Mozilla-ს"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2662,7 +2662,7 @@ msgstr "ჩამოტვირთეთ და შექმენით Firefo
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr "გამოხმაურება ან საჩივარი კრებულის შესახებ Mozilla-სთვის"
+msgstr "გამოხმაურება ან საჩივარი კრებულის შესახებ Mozilla-ს"
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
@@ -2834,7 +2834,7 @@ msgstr "ლექსიკონები"
 
 #: src/amo/pages/RatingFeedback/index.js:125
 msgid "Submit feedback or report a review to Mozilla"
-msgstr "გამოხმაურება ან საჩივარი მიმოხილვის შესახებ Mozilla-სთვის"
+msgstr "გამოხმაურება ან საჩივარი მიმოხილვის შესახებ Mozilla-ს"
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
@@ -3122,7 +3122,7 @@ msgstr "დამატებები ჭდეებით %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
-msgstr "გამოხმაურება ან საჩივარი მომხმარებლის შესახებ Mozilla-სთვის"
+msgstr "გამოხმაურება ან საჩივარი მომხმარებლის შესახებ Mozilla-ს"
 
 #: src/amo/pages/UserFeedback/index.js:143 src/amo/pages/UserProfile/index.js:381
 msgid "User since"
