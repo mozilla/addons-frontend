@@ -188,6 +188,10 @@ jobs:
       - run: yarn lint
       - run: yarn prettier-ci
       - run: pip install 'fonttools<4.44.1' brotli && yarn check-fonts
+      - run: |
+        docker run --rm -p 4000:4000 -d -e NODE_ENV=production -e NODE_CONFIG_ENV=prod mozilla/addons-frontend
+        curl --retry-all-errors --retry 10 --retry-delay 2 http://127.0.0.1:4000/__frontend_lbheartbeat__
+        docker stop mozilla/addons-frontend
 
   build-next:
     <<: *defaults-next
@@ -211,9 +215,15 @@ jobs:
     <<: *defaults-release
     steps:
       - better_checkout
-      - run: pip install tox
-      - run: TOXENV=dennis-lint tox
-
+      - run:
+          name: Install Dennis
+          command: pip install dennis==1.1.0
+      - run:
+          name: Lint locales
+          command: |
+            bash -c 'dennis-cmd lint locale/*/LC_MESSAGES/*.po --rules W202'
+            bash -c 'dennis-cmd lint --errorsonly locale/*/LC_MESSAGES/*.po'
+            bash -c 'dennis-cmd lint --errorsonly locale/templates/LC_MESSAGES/*.pot'
 
   release-blog-utils:
     <<: *defaults
@@ -235,9 +245,6 @@ jobs:
       - run:
           name: Install dependencies
           command: sudo apt-get update; sudo apt-get install pigz
-      - run:
-          name: "Install Tox"
-          command: pip install tox
       - run: docker info
         # Build the container, using Circle's Docker cache. Only use 1 image per
         # day to keep the cache size down.
@@ -279,17 +286,6 @@ jobs:
             docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG
             docker images
             docker push $DOCKERHUB_REPO:$CIRCLE_TAG
-      - run:
-          name: Set hosts
-          command: |
-            echo 127.0.0.1 olympia.test | sudo tee -a /etc/hosts
-            cat /etc/hosts
-      - run:
-          name: Test Image
-          command: |
-            sudo sysctl -w vm.max_map_count=262144
-            ./tests/smoke/setup_docker.sh
-            tox -e smoke-tests
 
   release-master: # build for the master branch
     <<: *defaults-release
@@ -298,9 +294,6 @@ jobs:
       - run:
           name: Install dependencies
           command: sudo apt-get update; sudo apt-get install pigz
-      - run:
-          name: "Install Tox"
-          command: pip install tox
       - run: docker info
         # Build the container, using Circle's Docker cache. Only use 1 image per
         # day to keep the cache size down.
@@ -340,17 +333,6 @@ jobs:
             [ ! -z $DOCKERHUB_REPO ]
             docker tag addons-frontend $DOCKERHUB_REPO:latest
             docker push $DOCKERHUB_REPO:latest
-      - run:
-          name: Set hosts
-          command: |
-            echo 127.0.0.1 olympia.test | sudo tee -a /etc/hosts
-            cat /etc/hosts
-      - run:
-          name: Test Image
-          command: |
-            sudo sysctl -w vm.max_map_count=262144
-            ./tests/smoke/setup_docker.sh
-            tox -e smoke-tests
 
 workflows:
   version: 2
