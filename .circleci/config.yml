@@ -277,8 +277,8 @@ jobs:
       - run:
           name: Check image works
           command: |
-            docker run --rm -p 4000:4000 -d -e NODE_ENV=production -e NODE_CONFIG_ENV=prod  addons-frontend
-            sleep 30
+            docker run --rm -p 4000:4000 -d -e NODE_ENV=production -e NODE_CONFIG_ENV=prod  addons-frontend sh -c "yarn build && yarn start"
+            sleep 60
             curl --retry 3 --retry-delay 2 http://127.0.0.1:4000/__frontend_lbheartbeat__
       - run:
           name: Push to repo
@@ -332,8 +332,8 @@ jobs:
       - run:
           name: Check image works
           command: |
-            docker run --rm -p 4000:4000 -d -e NODE_ENV=production -e NODE_CONFIG_ENV=prod addons-frontend
-            sleep 30
+            docker run --rm -p 4000:4000 -d -e NODE_ENV=production -e NODE_CONFIG_ENV=prod  addons-frontend sh -c "yarn build && yarn start"
+            sleep 60
             curl --retry 3 --retry-delay 2 http://127.0.0.1:4000/__frontend_lbheartbeat__
       - run:
           name: Push to repo
