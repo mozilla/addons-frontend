@@ -191,7 +191,8 @@ jobs:
 
   check-image:
     <<: *defaults-release
-    steps:    
+    steps:
+      - better_checkout
       - run:
           name: Build the docker image
           command: |
