@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-01-07 01:26+0000\n"
+"PO-Revision-Date: 2025-01-07 13:02+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1495,11 +1495,11 @@ msgstr "Informacije"
 
 #: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
 msgid "Firefox Add-ons Blog"
-msgstr "Blog Firefox dodataka"
+msgstr "Blog za Firefox dodatke"
 
 #: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
-msgstr "Radionica proširenja"
+msgstr "Radionica za proširenja"
 
 #: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
@@ -2316,7 +2316,7 @@ msgstr "Rječnici i jezični paketi"
 
 #: src/amo/components/SectionLinks/index.js:136
 msgid "Other Browser Sites"
-msgstr "Ostale web-stranice preglednika"
+msgstr "Druge stranice preglednika"
 
 #: src/amo/components/SectionLinks/index.js:146
 msgid "Add-ons for Android"
