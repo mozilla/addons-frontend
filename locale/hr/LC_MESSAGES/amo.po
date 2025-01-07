@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-01-07 01:22+0000\n"
+"PO-Revision-Date: 2025-01-07 01:26+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2596,11 +2596,11 @@ msgstr "Ovaj je dodatak blokiran zbog kršenja Mozillinih pravila"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
-msgstr ""
+msgstr "Zašto se ovo dogodilo?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "Ovo proširenje, tema ili dodatak krši %(startLink)sMozillina pravila za dodatke%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2618,7 +2618,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
-msgstr ""
+msgstr "Kako Mozilla provodi svoja pravila?"
 
 #: src/amo/pages/Block/index.js:194
 msgid ""
