@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -34,8 +34,8 @@ msgstr "Створити нову збірку"
 msgid "Added to %(collectionName)s"
 msgstr "Додано до %(collectionName)s"
 
-#. This is a header for a list meaning Add to [some collection name]
 # This is a header for a list meaning Add to [some collection name]
+#. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
 msgid "Add to…"
 msgstr "Додати до…"
@@ -118,26 +118,26 @@ msgstr "Надішліть відгук про додаток"
 msgid "Report the add-on because it's illegal or incompliant"
 msgstr "Повідомте про додаток, оскільки він є незаконним або не відповідає вимогам"
 
-#. please keep the fox emoji next to "Firefox".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Отримати це розширення для 🦊 Firefox (%(locale)s)"
 
-#. please keep the fox emoji next to "Firefox".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Отримати цей мовний пакунок для 🦊 Firefox (%(locale)s)"
 
-#. please keep the fox emoji next to "Firefox".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Отримати цю тему для 🦊 Firefox (%(locale)s)"
 
-#. please keep the fox emoji next to "Firefox".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Отримати цей додаток для 🦊 Firefox (%(locale)s)"
@@ -146,38 +146,38 @@ msgstr "%(addonName)s – Отримати цей додаток для 🦊 Fir
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "Завантажте %(addonName)s для Firefox. %(summary)s"
 
-#. please keep the fox emoji next to "Firefox Android".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Отримайте цей словник для 🦊 Firefox на Android (%(locale)s)"
 
-#. please keep the fox emoji next to "Firefox Android".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Отримайте це розширення для 🦊 Firefox на Android (%(locale)s)"
 
-#. please keep the fox emoji next to "Firefox Android".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Отримайте цей мовний пакунок для 🦊 Firefox на Android (%(locale)s)"
 
-#. please keep the fox emoji next to "Firefox Android".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Отримайте цю тему для 🦊 Firefox на Android (%(locale)s)"
 
-#. please keep the fox emoji next to "Firefox Android".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Отримайте цей додаток для 🦊 Firefox на Android (%(locale)s)"
 
-#. please keep the fox emoji next to "Firefox".
 # please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Отримати цей словник для 🦊 Firefox (%(locale)s)"
@@ -584,14 +584,14 @@ msgstr[0] "Оцінка %(rating)s з 5"
 msgstr[1] "Оцінка %(rating)s з 5"
 msgstr[2] "Оцінка %(rating)s з 5"
 
-#. A comma, used in a list of authors: a1, a2, a3.
 # A comma, used in a list of authors: a1, a2, a3.
+#. A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
 msgstr ","
 
-#. Example: add-on "by" some authors
 # Example: add-on "by" some authors
+#. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
 msgstr "автор"
@@ -1608,8 +1608,8 @@ msgstr "Редагувати мій профіль"
 msgid "Get the extension"
 msgstr "Отримати розширення"
 
-#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 # If uppercase does not work in your locale, change it to lowercase.
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 #: src/amo/components/HeroRecommendation/index.js:231
 msgid "RECOMMENDED"
 msgstr "РЕКОМЕНДОВАНО"
@@ -3405,8 +3405,8 @@ msgstr "Відписатися"
 msgid "You are successfully unsubscribed!"
 msgstr "Ви успішно відписалися!"
 
-#. a list of notifications will be displayed under this prompt.
 # a list of notifications will be displayed under this prompt.
+#. a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
 msgstr "На адресу %(strongStart)s%(email)s%(strongEnd)s більше не надсилатимуться повідомлення, коли:"
@@ -3419,20 +3419,20 @@ msgstr "Ви можете редагувати налаштування спов
 msgid "(no name)"
 msgstr "(без назви)"
 
-#. This is application compatibility information, such as "firefox 41 and later"
 # This is application compatibility information, such as "firefox 41 and later"
+#. This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s і новіше"
 
-#. This is application compatibility information, such as "firefox 41 to 45"
 # This is application compatibility information, such as "firefox 41 to 45"
+#. This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:309
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s від %(minVersion)s до %(maxVersion)s"
 
-#. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:329
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Працює з %(listOfApplicatonsAndVersions)s"

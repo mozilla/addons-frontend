@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -34,8 +34,8 @@ msgstr "Stvori novu zbirku"
 msgid "Added to %(collectionName)s"
 msgstr "Dodano u %(collectionName)s"
 
-#. This is a header for a list meaning Add to [some collection name]
 # This is a header for a list meaning Add to [some collection name]
+#. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
 msgid "Add to…"
 msgstr "Dodaj u …"
@@ -44,38 +44,38 @@ msgstr "Dodaj u …"
 msgid "Add to collection"
 msgstr "Dodaj u zbirku"
 
-#. This action allows a reviewer to perform a content review of an add-on.
 # This action allows a reviewer to perform a content review of an add-on.
+#. This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:105
 msgid "Content review add-on"
 msgstr "Dodatak za pregled sadržaja"
 
-#. This action allows a reviewer to perform a review of a theme.
 # This action allows a reviewer to perform a review of a theme.
+#. This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:113
 msgid "Review theme"
 msgstr "Pregled teme"
 
-#. This action allows a reviewer to perform a review of an add-on's code.
 # This action allows a reviewer to perform a review of an add-on's code.
+#. This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:115
 msgid "Review add-on code"
 msgstr "Pregledaj kȏd dodatka"
 
-#. This is a list of links to administrative functions.
 # This is a list of links to administrative functions.
+#. This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:135
 msgid "Admin Links"
 msgstr "Administratorske poveznice"
 
-#. This action allows the add-on developer or an admin to edit an add-on's properties.
 # This action allows the add-on developer or an admin to edit an add-on's properties.
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:77 src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
 msgstr "Uredi dodatak"
 
-#. This action allows an admin to maintain an add-on.
 # This action allows an admin to maintain an add-on.
+#. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:91
 msgid "Admin add-on"
 msgstr "Administratorski dodatak"
@@ -243,8 +243,8 @@ msgstr "Posjeti nadzornu ploču statistike"
 msgid "Custom License"
 msgstr "Prilagođena licenca"
 
-#. This will output, in English: "2 months ago (Dec 12 2016)"
 # This will output, in English:
+#. This will output, in English: "2 months ago (Dec 12 2016)"
 #: src/amo/components/AddonMoreInfo/index.js:216
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
@@ -390,20 +390,20 @@ msgstr "Aktualiziranje odgovora"
 msgid "Publishing reply"
 msgstr "Objavljivanje odgovora"
 
-#. Example in English: "posted last week"
 # Example in English: "posted last week"
+#. Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "objavljeno %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#. Example in English: "by UserName123, last week"
 # Example in English: "by UserName123, last week"
+#. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:371
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "od %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#. Example in English: "by UserName123, last week"
 # Example in English: "by UserName123, last week"
+#. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:375
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -576,8 +576,8 @@ msgstr "Daljnja nevjerojatna proširenja za slike, fotografije i medije"
 msgid "Add-on icon"
 msgstr "Ikona dodatka"
 
-#. roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 # roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
+#. roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:78
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
@@ -585,14 +585,14 @@ msgstr[0] "%(rating)s od 5 zvjezdica"
 msgstr[1] "%(rating)s od 5 zvjezdica"
 msgstr[2] "%(rating)s zvjezdica od 5"
 
-#. A comma, used in a list of authors: a1, a2, a3.
 # A comma, used in a list of authors: a1, a2, a3.
+#. A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
 msgstr ","
 
-#. Example: add-on "by" some authors
 # Example: add-on "by" some authors
+#. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
 msgstr "od"
@@ -1572,8 +1572,8 @@ msgstr "Upravljanje mojim prijavama"
 msgid "Reviewer Tools"
 msgstr "Alati za recenzente"
 
-#. "Firefox" should not be translated. :-)
 # "Firefox" should not be translated. :-)
+#. "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:186
 msgid "Firefox Browser Add-ons"
 msgstr "Dodaci za preglednik Firefox"
@@ -1606,8 +1606,8 @@ msgstr "Uredi moj profil"
 msgid "Get the extension"
 msgstr "Preuzmi proširenje"
 
-#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 # If uppercase does not work in your locale, change it to lowercase.
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 #: src/amo/components/HeroRecommendation/index.js:231
 msgid "RECOMMENDED"
 msgstr "PREPORUČENO"
@@ -3219,8 +3219,8 @@ msgstr "Biografija"
 msgid "Edit profile"
 msgstr "Uredi profil"
 
-#. This action allows an admin to maintain a user.
 # This action allows an admin to maintain a user.
+#. This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:449
 msgid "Admin user"
 msgstr "Administratorski korisnik"
@@ -3313,8 +3313,8 @@ msgstr "Profil"
 msgid "This field is required"
 msgstr "Ovo je obavezno polje."
 
-#. the star is used to indicate a required field
 # the star is used to indicate a required field
+#. the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:655
 msgid "Display Name *"
 msgstr "Prikazano ime *"
@@ -3401,8 +3401,8 @@ msgstr "Odjavi pretplatu"
 msgid "You are successfully unsubscribed!"
 msgstr "Uspješno si odjavljen/a!"
 
-#. a list of notifications will be displayed under this prompt.
 # a list of notifications will be displayed under this prompt.
+#. a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
 msgstr "E-adresa %(strongStart)s%(email)s%(strongEnd)s više neće primati poruke u sljedećim prilikama:"
@@ -3415,20 +3415,20 @@ msgstr "Postavke obavijesti možeš urediti %(linkStart)suređivanjem svog profi
 msgid "(no name)"
 msgstr "(bez imena)"
 
-#. This is application compatibility information, such as "firefox 41 and later"
 # This is application compatibility information, such as "firefox 41 and later"
+#. This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s i novije verzije"
 
-#. This is application compatibility information, such as "firefox 41 to 45"
 # This is application compatibility information, such as "firefox 41 to 45"
+#. This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:309
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
 
-#. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:329
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Radi s %(listOfApplicatonsAndVersions)s"

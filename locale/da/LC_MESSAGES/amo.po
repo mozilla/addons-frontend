@@ -40,8 +40,7 @@ msgstr "Føjet til %(collectionName)s"
 msgid "Add to…"
 msgstr "Føj til…"
 
-#: src/amo/components/AddAddonToCollection/index.js:274
-#: src/amo/components/CollectionAddAddon/index.js:183
+#: src/amo/components/AddAddonToCollection/index.js:274 src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
 msgstr "Føj til samling"
 
@@ -69,8 +68,7 @@ msgid "Admin Links"
 msgstr "Tilføjelses-links"
 
 #. This action allows the add-on developer or an admin to edit an add-on's properties.
-#: src/amo/components/AddonAdminLinks/index.js:77
-#: src/amo/components/AddonAuthorLinks/index.js:51
+#: src/amo/components/AddonAdminLinks/index.js:77 src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
 msgstr "Rediger tilføjelse"
 
@@ -104,8 +102,7 @@ msgstr "Denne tilføjelse er ikke kompatibel med din version af Firefox."
 msgid "This add-on is not available on your platform."
 msgstr "Denne tilføjelse er ikke tilgængelig på din platform."
 
-#: src/amo/components/AddonFeedbackForm/index.js:148
-#: src/amo/components/SearchResult/index.js:248
+#: src/amo/components/AddonFeedbackForm/index.js:148 src/amo/components/SearchResult/index.js:248
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s bruger"
@@ -155,37 +152,31 @@ msgstr "Hent %(addonName)s til Firefox. %(summary)s"
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
-"%(addonName)s – Hent denne ordbog til 🦊 Firefox til Android (%(locale)s)"
+msgstr "%(addonName)s – Hent denne ordbog til 🦊 Firefox til Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
-"%(addonName)s – Hent denne udvidelse til 🦊 Firefox til Android(%(locale)s)"
+msgstr "%(addonName)s – Hent denne udvidelse til 🦊 Firefox til Android(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
-msgid ""
-"%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
-"%(addonName)s – Hent denne sprogpakke til 🦊 Firefox til Android (%(locale)s)"
+msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Hent denne sprogpakke til 🦊 Firefox til Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
-"%(addonName)s – Hent dette tema til 🦊 Firefox til Android (%(locale)s)"
+msgstr "%(addonName)s – Hent dette tema til 🦊 Firefox til Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
-"%(addonName)s – Hent denne tilføjelse til 🦊 Firefox til Android (%(locale)s)"
+msgstr "%(addonName)s – Hent denne tilføjelse til 🦊 Firefox til Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
@@ -235,10 +226,7 @@ msgstr "Ingen anmeldelser"
 msgid "Used by"
 msgstr "Brugt af"
 
-#: src/amo/components/AddonMoreInfo/index.js:103
-#: src/amo/pages/UserProfile/index.js:356
-#: src/amo/pages/UserProfile/index.js:359
-#: src/amo/pages/UserProfileEdit/index.js:676
+#: src/amo/components/AddonMoreInfo/index.js:103 src/amo/pages/UserProfile/index.js:356 src/amo/pages/UserProfile/index.js:359 src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr "Hjemmeside"
 
@@ -287,9 +275,7 @@ msgstr "Version"
 msgid "Size"
 msgstr "Størrelse"
 
-#: src/amo/components/AddonMoreInfo/index.js:333
-#: src/amo/components/CollectionDetails/index.js:87
-#: src/amo/pages/CollectionFeedback/index.js:159
+#: src/amo/components/AddonMoreInfo/index.js:333 src/amo/components/CollectionDetails/index.js:87 src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
 msgstr "Senest opdateret"
 
@@ -341,18 +327,15 @@ msgstr "Rediger svar"
 msgid "Edit review"
 msgstr "Rediger anmeldelse"
 
-#: src/amo/components/AddonReviewCard/index.js:220
-#: src/amo/components/AddonReviewCard/index.js:252
+#: src/amo/components/AddonReviewCard/index.js:220 src/amo/components/AddonReviewCard/index.js:252
 msgid "Delete reply"
 msgstr "Slet svar"
 
-#: src/amo/components/AddonReviewCard/index.js:224
-#: src/amo/components/AddonReviewCard/index.js:256
+#: src/amo/components/AddonReviewCard/index.js:224 src/amo/components/AddonReviewCard/index.js:256
 msgid "Delete rating"
 msgstr "Slet bedømmelse"
 
-#: src/amo/components/AddonReviewCard/index.js:227
-#: src/amo/components/AddonReviewCard/index.js:259
+#: src/amo/components/AddonReviewCard/index.js:227 src/amo/components/AddonReviewCard/index.js:259
 msgid "Delete review"
 msgstr "Slet anmeldelse"
 
@@ -368,17 +351,12 @@ msgstr "Vil du virkelig slette denne bedømmelse?"
 msgid "Do you really want to delete this review?"
 msgstr "Vil du virkelig slette denne anmeldelse?"
 
-#: src/amo/components/AddonReviewCard/index.js:248
-#: src/amo/components/DismissibleTextForm/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:248 src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
 msgstr "Slet"
 
-#: src/amo/components/AddonReviewCard/index.js:266
-#: src/amo/components/AddonReviewManager/index.js:146
-#: src/amo/components/CollectionManager/index.js:324
-#: src/amo/components/ConfirmationDialog/index.js:61
-#: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:899
+#: src/amo/components/AddonReviewCard/index.js:266 src/amo/components/AddonReviewManager/index.js:146 src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/ConfirmationDialog/index.js:61 src/amo/components/DismissibleTextForm/index.js:221 src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -421,12 +399,8 @@ msgstr "skrevet %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:371
-msgid ""
-"by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
-"%(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
-"af %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
-"%(linkStart)s%(timestamp)s%(linkEnd)s"
+msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "af %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:375
@@ -442,12 +416,8 @@ msgid "Reply to this review"
 msgstr "Svar på denne anmeldelse"
 
 #: src/amo/components/AddonReviewCard/index.js:551
-msgid ""
-"This rating or review has been deleted. You are only seeing it because of "
-"elevated permissions."
-msgstr ""
-"Denne bedømmelse eller anmeldelse er blevet slettet. Du ser den kun på grund "
-"af forhøjede tilladelser."
+msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
+msgstr "Denne bedømmelse eller anmeldelse er blevet slettet. Du ser den kun på grund af forhøjede tilladelser."
 
 #: src/amo/components/AddonReviewCard/index.js:597
 msgid "Write a review"
@@ -589,8 +559,7 @@ msgstr ""
 msgid "More incredible download managers"
 msgstr ""
 
-#: src/amo/components/AddonSuggestions/index.js:80
-#: src/amo/components/AddonSuggestions/index.js:85
+#: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
 msgstr ""
 
@@ -621,8 +590,7 @@ msgstr ","
 
 # Example: add-on "by" some authors
 #. Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:93
-#: src/amo/components/AddonTitle/index.js:98
+#: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
 msgstr "af"
 
@@ -654,8 +622,7 @@ msgstr "Udgivet %(dateReleased)s - %(fileSize)s"
 msgid "Enable"
 msgstr "Aktivér"
 
-#: src/amo/components/AMInstallButton/index.js:136
-#: src/amo/components/EditableCollectionAddon/index.js:142
+#: src/amo/components/AMInstallButton/index.js:136 src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "Fjern"
 
@@ -687,28 +654,23 @@ msgstr "Installer tema"
 msgid "Add to Firefox"
 msgstr "Føj til Firefox"
 
-#: src/amo/components/App/index.js:122
-#: src/amo/components/HeadMetaTags/index.js:93
+#: src/amo/components/App/index.js:122 src/amo/components/HeadMetaTags/index.js:93
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Tilføjelser til Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:126
-#: src/amo/components/HeadMetaTags/index.js:87
+#: src/amo/components/App/index.js:126 src/amo/components/HeadMetaTags/index.js:87
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Tilføjelser til Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:134
-#: src/amo/components/HeadMetaTags/index.js:92
+#: src/amo/components/App/index.js:134 src/amo/components/HeadMetaTags/index.js:92
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Tilføjelser til Firefox til Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:138
-#: src/amo/components/HeadMetaTags/index.js:86
+#: src/amo/components/App/index.js:138 src/amo/components/HeadMetaTags/index.js:86
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Tilføjelser til Firefox til Android (%(locale)s)"
 
-#: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:151
+#: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:151
 msgid "Log out"
 msgstr "Log ud"
 
@@ -716,12 +678,9 @@ msgstr "Log ud"
 msgid "Log in"
 msgstr "Log ind"
 
-#: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:146
-msgid ""
-"This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
-"Denne handling er ikke tilgængelig lige nu. Genindlæs sider om et øjeblik."
+#: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:146
+msgid "This action is currently unavailable. Please reload the page in a moment."
+msgstr "Denne handling er ikke tilgængelig lige nu. Genindlæs sider om et øjeblik."
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
@@ -731,8 +690,7 @@ msgstr "Indlæser"
 msgid "Find add-ons"
 msgstr "Find tilføjelser"
 
-#: src/amo/components/AutoSearchInput/index.js:323
-#: src/amo/components/AutoSearchInput/index.js:351
+#: src/amo/components/AutoSearchInput/index.js:323 src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
 msgstr "Søg"
 
@@ -772,9 +730,7 @@ msgstr "Rediger detaljer for samlingen"
 msgid "Back to collection"
 msgstr "Tilbage til samling"
 
-#: src/amo/components/CollectionDetails/index.js:77
-#: src/amo/components/Footer/index.js:59
-#: src/amo/pages/CollectionFeedback/index.js:155
+#: src/amo/components/CollectionDetails/index.js:77 src/amo/components/Footer/index.js:59 src/amo/pages/CollectionFeedback/index.js:155
 msgid "Add-ons"
 msgstr "Tilføjelser"
 
@@ -839,20 +795,12 @@ msgid "Support these developers"
 msgstr "Støt disse udviklere"
 
 #: src/amo/components/ContributeCard/index.js:51
-msgid ""
-"The developer of this extension asks that you help support its continued "
-"development by making a small contribution."
-msgstr ""
-"Udvikleren af denne udvidelse beder dig støtte udvidelsens fortsatte "
-"udvikling ved at donere et mindre beløb."
+msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
+msgstr "Udvikleren af denne udvidelse beder dig støtte udvidelsens fortsatte udvikling ved at donere et mindre beløb."
 
 #: src/amo/components/ContributeCard/index.js:53
-msgid ""
-"The developers of this extension ask that you help support its continued "
-"development by making a small contribution."
-msgstr ""
-"Udviklerne af denne udvidelse beder dig støtte udvidelsens fortsatte "
-"udvikling ved at donere et mindre beløb."
+msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
+msgstr "Udviklerne af denne udvidelse beder dig støtte udvidelsens fortsatte udvikling ved at donere et mindre beløb."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
@@ -863,20 +811,12 @@ msgid "Support these artists"
 msgstr "Støt disse kunstnere"
 
 #: src/amo/components/ContributeCard/index.js:65
-msgid ""
-"The artist of this theme asks that you help support its continued creation "
-"by making a small contribution."
-msgstr ""
-"Kunstneren bag dette tema beder dig støtte temaets fortsatte udvikling ved "
-"at donere et mindre beløb."
+msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
+msgstr "Kunstneren bag dette tema beder dig støtte temaets fortsatte udvikling ved at donere et mindre beløb."
 
 #: src/amo/components/ContributeCard/index.js:67
-msgid ""
-"The artists of this theme ask that you help support its continued creation "
-"by making a small contribution."
-msgstr ""
-"Kunstnerne bag dette tema beder dig støtte temaets fortsatte udvikling ved "
-"at donere et mindre beløb."
+msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
+msgstr "Kunstnerne bag dette tema beder dig støtte temaets fortsatte udvikling ved at donere et mindre beløb."
 
 #: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
@@ -887,20 +827,12 @@ msgid "Support these authors"
 msgstr "Støt disse udviklere"
 
 #: src/amo/components/ContributeCard/index.js:79
-msgid ""
-"The author of this add-on asks that you help support its continued work by "
-"making a small contribution."
-msgstr ""
-"Udvikleren af denne tilføjelse beder dig støtte tilføjelsens fortsatte "
-"udvikling ved at donere et mindre beløb."
+msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
+msgstr "Udvikleren af denne tilføjelse beder dig støtte tilføjelsens fortsatte udvikling ved at donere et mindre beløb."
 
 #: src/amo/components/ContributeCard/index.js:81
-msgid ""
-"The authors of this add-on ask that you help support its continued work by "
-"making a small contribution."
-msgstr ""
-"Udviklerne af denne tilføjelse beder dig støtte tilføjelsens fortsatte "
-"udvikling ved at donere et mindre beløb."
+msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
+msgstr "Udviklerne af denne tilføjelse beder dig støtte tilføjelsens fortsatte udvikling ved at donere et mindre beløb."
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -914,8 +846,7 @@ msgstr "Indsend"
 msgid "Submitting"
 msgstr "Indsender"
 
-#: src/amo/components/EditableCollectionAddon/index.js:132
-#: src/amo/components/EditableCollectionAddon/index.js:150
+#: src/amo/components/EditableCollectionAddon/index.js:132 src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
 msgstr "Tilføj en kommentar"
 
@@ -960,48 +891,29 @@ msgid "Error code: %(status)s."
 msgstr "Fejlkode: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
-msgid ""
-"Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
-"continue without authentication, or login again using the Log In link at the "
-"top of the page."
-msgstr ""
-"Login-godkendelse er udløbet. %(startLink)sGenindlæs siden%(endLink)s for at "
-"fortsætte uden godkendelse, eller log på igen ved hjælp af log ind-linket "
-"øverst på siden."
+msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
+msgstr "Login-godkendelse er udløbet. %(startLink)sGenindlæs siden%(endLink)s for at fortsætte uden godkendelse, eller log på igen ved hjælp af log ind-linket øverst på siden."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
 msgstr "Login udløbet"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
-msgid ""
-"If you are signed in and think this message is an error, please <a "
-"href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you "
-"were trying to access, and we'll fix the issue."
-msgstr ""
-"Hvis du er logget ind og mener, at denne meddelelse er en fejl, så <a "
-"href=\"%(url)s\">indberet fejlen</a>. Fortæl os, hvor du kom fra, og hvor du "
-"prøvede at komme hen, så vil vi løse problemet."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr "Hvis du er logget ind og mener, at denne meddelelse er en fejl, så <a href=\"%(url)s\">indberet fejlen</a>. Fortæl os, hvor du kom fra, og hvor du prøvede at komme hen, så vil vi løse problemet."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
 msgstr "Ikke godkendt"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:36
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Beklager, men du har ikke tilladelse til at se denne side. Hvis du ikke er "
-"logget ind, så prøv at logge ind ved hjælp af linket øverst på siden."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Beklager, men du har ikke tilladelse til at se denne side. Hvis du ikke er logget ind, så prøv at logge ind ved hjælp af linket øverst på siden."
 
 #: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
-"Try visiting the page later, as the theme or extension may become available "
-"again. Alternatively, you may be able to find what you’re looking for in one "
-"of the available %(extensionStart)sextensions%(extensionEnd)s or "
-"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
-"%(communityStart)scommunity forums%(communityEnd)s."
+"Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:78
@@ -1009,59 +921,38 @@ msgid "Oops! We can’t find that page"
 msgstr "Hovsa! Vi kan ikke finde den side"
 
 #: src/amo/components/Errors/NotFound/index.js:81
-msgid ""
-"If you’ve followed a link from another site for an extension or theme, that "
-"item is no longer available. This could be because:"
-msgstr ""
-"Hvis du har fulgt et link fra et andet websted til en udvidelse eller et "
-"tema, er det ikke længere tilgængeligt. Dette kan skyldes:"
+msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
+msgstr "Hvis du har fulgt et link fra et andet websted til en udvidelse eller et tema, er det ikke længere tilgængeligt. Dette kan skyldes:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
-msgid ""
-"The developer removed it. Developers commonly do this because they no longer "
-"support the extension or theme, or have replaced it."
-msgstr ""
-"Udvikleren fjernede udvidelsen eller temaet. Udviklere gør normalt dette, "
-"fordi de ikke længere understøtter udvidelsen eller temaet, eller fordi de "
-"har lavet en erstatning."
+msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
+msgstr "Udvikleren fjernede udvidelsen eller temaet. Udviklere gør normalt dette, fordi de ikke længere understøtter udvidelsen eller temaet, eller fordi de har lavet en erstatning."
 
 #: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
-"Mozilla removed it. This can happen when issues are found during the review "
-"of the extension or theme, or the extension or theme has been abusing the "
-"terms and conditions for addons.mozilla.org. The developer has the "
-"opportunity to resolve the issues and make the add-on available again."
+"Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
+" developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a "
-"href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an "
-"issue</a>. Tell us what steps you took that lead to the error and we'll do "
-"our best to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Hvis du har yderligere information, der kan hjælpe os, kan du <a "
-"href=\"https://github.com/mozilla/addons-frontend/issues/new/\">indberette "
-"fejlen</a>. Fortæl os, hvilke trin du foretog dig, der førte til fejlen, så "
-"vil vi gøre vores bedste for at rette den."
+"Hvis du har yderligere information, der kan hjælpe os, kan du <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">indberette fejlen</a>. Fortæl os, hvilke trin du foretog dig, der "
+"førte til fejlen, så vil vi gøre vores bedste for at rette den."
 
 #: src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
 msgstr "Serverfejl"
 
 #: src/amo/components/Errors/ServerError/index.js:32
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Beklager, men der var en fejl med vores server, og vi kunne ikke gennemføre "
-"din forespørgsel. Vi har registreret fejlen og vil undersøge den."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Beklager, men der var en fejl med vores server, og vi kunne ikke gennemføre din forespørgsel. Vi har registreret fejlen og vil undersøge den."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 msgid ""
-"You may be able to find what you’re looking for in one of the available "
-"%(extensionStart)sextensions%(extensionEnd)s or "
-"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 
@@ -1090,10 +981,7 @@ msgid "The review was not found."
 msgstr "Anmeldelsen blev ikke fundet."
 
 #: src/amo/components/FeedbackForm/index.js:1014
-msgid ""
-"By submitting this report I certify, under penalty of perjury, that the "
-"allegations it contains are complete and accurate, to the best of my "
-"knowledge."
+msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:105
@@ -1101,9 +989,7 @@ msgid "It doesn’t work, breaks websites, or slows down Firefox"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:108
-msgid ""
-"Example: Features are slow, hard to use, or don’t work; parts of websites "
-"won't load or look unusual."
+msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:113
@@ -1119,9 +1005,7 @@ msgid "It violates Add-on Policies"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:123
-msgid ""
-"Example: It compromised my data without informing or asking me, or it "
-"changed my search engine or home page without informing or asking me."
+msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:129
@@ -1138,14 +1022,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid ""
-"Example: Fraud. (If you wish to report a copyright or trademark "
-"infringement, you can learn more about how to do so in our "
-"%(startLink)sCopyright or Trademark Infringement Reporting "
+"Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:151
-#: src/amo/components/FeedbackForm/index.js:536
+#: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
 msgstr ""
 
@@ -1246,13 +1127,11 @@ msgid "Non-compliance with pricing regulations"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:255
-msgid ""
-"Hidden advertisement or commercial communication, including by influencers"
+msgid "Hidden advertisement or commercial communication, including by influencers"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:261
-msgid ""
-"Misleading information about the characteristics of the goods and services"
+msgid "Misleading information about the characteristics of the goods and services"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:267
@@ -1284,9 +1163,7 @@ msgid "Discrimination"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:305
-msgid ""
-"Illegal incitement to violence and hatred based on protected characteristics "
-"(hate speech)"
+msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:318
@@ -1314,9 +1191,7 @@ msgid "Violation of national law relevant to civic discourse or elections"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:353
-msgid ""
-"Misinformation, disinformation, foreign information manipulation and "
-"interference"
+msgid "Misinformation, disinformation, foreign information manipulation and interference"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:366
@@ -1324,9 +1199,7 @@ msgid "Non-consensual image sharing"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:370
-msgid ""
-"Non-consensual items containing deepfake or similar technology using a third "
-"party's features"
+msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:376
@@ -1474,9 +1347,7 @@ msgid "Provide more details"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:879
-msgid ""
-"Please provide any additional information that may help us to understand "
-"your report (including which policy you believe has been violated)."
+msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:887
@@ -1488,9 +1359,7 @@ msgid "File report anonymously"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:906
-msgid ""
-"Filing an anonymous report will prevent us from communicating with you about "
-"the report’s status, or about any options for appeal."
+msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:927
@@ -1537,8 +1406,7 @@ msgstr "Spam"
 msgid "Flagged as spam"
 msgstr "Anmeldt som spam"
 
-#: src/amo/components/FlagReviewMenu/index.js:73
-#: src/amo/components/FlagReviewMenu/index.js:91
+#: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
 msgid "Login required"
 msgstr ""
 
@@ -1592,22 +1460,17 @@ msgstr "Juridisk"
 
 #: src/amo/components/Footer/index.js:300
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. "
-"Android is a trademark of Google LLC."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version. Android is a trademark of Google LLC."
 msgstr ""
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
 msgstr ""
-"Hvis intet andet er %(startNotedLink)sangivet%(endNotedLink)s, hører "
-"indholdet på dette websted under %(startLicenseLink)slicensen Creative "
-"Commons Attribution Share-Alike License v3.0%(endLicenseLink)s eller en "
-"nyere version."
+"Hvis intet andet er %(startNotedLink)sangivet%(endNotedLink)s, hører indholdet på dette websted under %(startLicenseLink)slicensen Creative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s eller en nyere version."
 
 #: src/amo/components/Footer/index.js:38
 msgid "Go to Mozilla's homepage"
@@ -1632,17 +1495,12 @@ msgid "Developer Hub"
 msgstr "Udviklercentral"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
-msgid ""
-"To use these add-ons, you'll need to %(downloadLinkStart)sdownload "
-"Firefox%(downloadLinkEnd)s."
+msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxBanner/index.js:125
-#: src/amo/components/WrongPlatformWarning/index.js:127
+#: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
-"To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
-"Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
-"%(linkStart)svisit our desktop site%(linkEnd)s."
+"To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:146
@@ -1723,13 +1581,11 @@ msgstr "Min konto"
 msgid "View My Collections"
 msgstr "Vis mine samlinger"
 
-#: src/amo/components/Header/index.js:89
-#: src/amo/pages/UserProfileEdit/index.js:563
+#: src/amo/components/Header/index.js:89 src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
 msgstr "Vis min profil"
 
-#: src/amo/components/Header/index.js:97
-#: src/amo/pages/UserProfileEdit/index.js:569
+#: src/amo/components/Header/index.js:97 src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
 msgstr "Rediger min profil"
 
@@ -1753,12 +1609,8 @@ msgid "PROMOTED"
 msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:253
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox anbefaler kun udvidelser, der opfylder vores standarder for "
-"sikkerhed og ydelse."
+msgid "Firefox only recommends extensions that meet our standards for security and performance."
+msgstr "Firefox anbefaler kun udvidelser, der opfylder vores standarder for sikkerhed og ydelse."
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
@@ -1776,15 +1628,11 @@ msgstr "Tilgå dine data for websteder på domænet %(param)s"
 msgid "Access your data for %(param)s"
 msgstr "Tilgå dine data for %(param)s"
 
-#: src/amo/components/IconPromotedBadge/index.js:41
-#: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:212
+#: src/amo/components/IconPromotedBadge/index.js:41 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
 msgstr "Af Firefox"
 
-#: src/amo/components/IconPromotedBadge/index.js:42
-#: src/amo/components/PromotedBadge/index.js:49
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/IconPromotedBadge/index.js:42 src/amo/components/PromotedBadge/index.js:49 src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
 msgstr "Anbefalet"
 
@@ -1792,15 +1640,12 @@ msgstr "Anbefalet"
 msgid "Download file"
 msgstr "Hent fil"
 
-#: src/amo/components/InstallWarning/index.js:102
-#: src/amo/components/PermissionsCard/index.js:68
+#: src/amo/components/InstallWarning/index.js:102 src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "Læs mere"
 
 #: src/amo/components/InstallWarning/index.js:106
-msgid ""
-"This add-on is not actively monitored for security by Mozilla. Make sure you "
-"trust it before installing."
+msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
 msgstr ""
 
 #: src/amo/components/LanguagePicker/index.js:52
@@ -1865,8 +1710,7 @@ msgstr "Læse din browser-historik"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
-"Udvide udviklerværktøjerne til at have adgang til data i åbne faneblade"
+msgstr "Udvide udviklerværktøjerne til at have adgang til data i åbne faneblade"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Download files and read and modify the browser’s download history"
@@ -1884,8 +1728,7 @@ msgstr "Læse teksten i de åbne faneblade"
 msgid "Access your location"
 msgstr "Se min position"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
-#: src/amo/components/PermissionsCard/permissions.js:58
+#: src/amo/components/PermissionsCard/permissions.js:44 src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access browsing history"
 msgstr "Tilgå browserhistorik"
 
@@ -1934,20 +1777,12 @@ msgid "Access browser activity during navigation"
 msgstr "Tilgå browser-aktivitet under navigation"
 
 #: src/amo/components/PromotedBadge/index.js:42
-msgid ""
-"Official add-on built by Mozilla Firefox. Meets security and performance "
-"standards."
-msgstr ""
-"Officiel tilføjelse udviklet af Mozilla Firefox. Overholder standarder for "
-"sikkerhed og ydelse."
+msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
+msgstr "Officiel tilføjelse udviklet af Mozilla Firefox. Overholder standarder for sikkerhed og ydelse."
 
 #: src/amo/components/PromotedBadge/index.js:50
-msgid ""
-"Firefox only recommends add-ons that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox anbefaler kun tilføjelser, der opfylder vores standarder for "
-"sikkerhed og ydelse."
+msgid "Firefox only recommends add-ons that meet our standards for security and performance."
+msgstr "Firefox anbefaler kun tilføjelser, der opfylder vores standarder for sikkerhed og ydelse."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -2029,8 +1864,7 @@ msgstr[1] "Læs alle %(total)s en-stjernede anmeldelser"
 msgid "There are no one-star reviews"
 msgstr "Der er ingen en-stjernede anmeldelser"
 
-#: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:375
+#: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
 msgstr "Der er ingen anmeldelser"
 
@@ -2065,12 +1899,8 @@ msgid "You reported this add-on"
 msgstr "Du har rapporteret denne tilføjelse"
 
 #: src/amo/components/ReportAbuseButton/index.js:48
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
-msgstr ""
-"Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende "
-"denne tilføjelse med os."
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
+msgstr "Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende denne tilføjelse med os."
 
 #: src/amo/components/ReportAbuseButton/index.js:71
 msgid "Report this add-on"
@@ -2081,29 +1911,22 @@ msgid "You reported this user"
 msgstr "Du har rapporteret denne bruger"
 
 #: src/amo/components/ReportUserAbuse/index.js:52
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this user."
-msgstr ""
-"Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende "
-"denne bruger med os."
+msgid "We have received your report. Thanks for letting us know about your concerns with this user."
+msgstr "Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende denne bruger med os."
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
 msgstr "Rapportér denne bruger"
 
-#: src/amo/components/Search/index.js:138
-#: src/amo/components/SearchResults/index.js:71
+#: src/amo/components/Search/index.js:138 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "Søgeresultater"
 
-#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162
-#: src/amo/pages/LandingPage/index.js:122
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162 src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Anbefalede udvidelser"
 
-#: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:154
+#: src/amo/components/Search/index.js:147 src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "Anbefalede temaer"
 
@@ -2135,13 +1958,11 @@ msgstr "Tjekkede temaer"
 msgid "Reviewed add-ons"
 msgstr "Tjekkede tilføjelser"
 
-#: src/amo/components/Search/index.js:180
-#: src/amo/pages/LandingPage/index.js:132
+#: src/amo/components/Search/index.js:180 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Trending udvidelser"
 
-#: src/amo/components/Search/index.js:183
-#: src/amo/pages/LandingPage/index.js:164
+#: src/amo/components/Search/index.js:183 src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "Trending temaer"
 
@@ -2149,13 +1970,11 @@ msgstr "Trending temaer"
 msgid "Trending add-ons"
 msgstr "Trending tilføjelser"
 
-#: src/amo/components/Search/index.js:192
-#: src/amo/pages/LandingPage/index.js:142
+#: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Bedst bedømte udvidelser"
 
-#: src/amo/components/Search/index.js:195
-#: src/amo/pages/LandingPage/index.js:173
+#: src/amo/components/Search/index.js:195 src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Bedst bedømte temaer"
 
@@ -2200,22 +2019,16 @@ msgstr[1] "%(count)s udvidelser blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:134
 #, fuzzy
-msgid ""
-"%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgid_plural ""
-"%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-"%(count)s tema med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
-msgstr[1] ""
-"%(count)s temaer med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s tema med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[1] "%(count)s temaer med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-"%(count)s tema med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
-msgstr[1] ""
-"%(count)s temaer med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[0] "%(count)s tema med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[1] "%(count)s temaer med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
 #, fuzzy
@@ -2234,10 +2047,8 @@ msgstr[1] "%(count)s temaer i kategorien %(categoryName)s blev fundet"
 #, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-"%(count)s tema med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
-msgstr[1] ""
-"%(count)s temaer med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[0] "%(count)s tema med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[1] "%(count)s temaer med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -2294,28 +2105,16 @@ msgstr "Søger efter tilføjelser"
 
 #: src/amo/components/SearchContextCard/index.js:59
 #, fuzzy
-msgid ""
-"%(count)s extension found for \"%(query)s\" with tag %(tag)s in "
-"%(categoryName)s"
-msgid_plural ""
-"%(count)s extensions found for \"%(query)s\" with tag %(tag)s in "
-"%(categoryName)s"
-msgstr[0] ""
-"%(count)s udvidelse med \"%(query)s\" blev fundet i kategorien "
-"%(categoryName)s"
-msgstr[1] ""
-"%(count)s udvidelser med \"%(query)s\" blev fundet i kategorien "
-"%(categoryName)s"
+msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s udvidelse med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[1] "%(count)s udvidelser med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-"%(count)s udvidelse med \"%(query)s\" blev fundet i kategorien "
-"%(categoryName)s"
-msgstr[1] ""
-"%(count)s udvidelser med \"%(query)s\" blev fundet i kategorien "
-"%(categoryName)s"
+msgstr[0] "%(count)s udvidelse med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[1] "%(count)s udvidelser med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
 #, fuzzy
@@ -2334,12 +2133,8 @@ msgstr[1] "%(count)s udvidelser i kategorien %(categoryName)s blev fundet"
 #, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-"%(count)s udvidelse med \"%(query)s\" blev fundet i kategorien "
-"%(categoryName)s"
-msgstr[1] ""
-"%(count)s udvidelser med \"%(query)s\" blev fundet i kategorien "
-"%(categoryName)s"
+msgstr[0] "%(count)s udvidelse med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[1] "%(count)s udvidelser med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "All"
@@ -2473,9 +2268,7 @@ msgstr "Der blev ikke fundet nogen forekomster af \"%(query)s\"."
 msgid "No results were found."
 msgstr "Der blev ikke fundet nogen."
 
-#: src/amo/components/SectionLinks/index.js:112
-#: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:228
+#: src/amo/components/SectionLinks/index.js:112 src/amo/pages/CategoryPage/index.js:60 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "Temaer"
 
@@ -2499,9 +2292,7 @@ msgstr "Andre browser-websteder"
 msgid "Add-ons for Android"
 msgstr "Tilføjelser til Android"
 
-#: src/amo/components/SectionLinks/index.js:96
-#: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/components/SectionLinks/index.js:96 src/amo/pages/CategoryPage/index.js:66 src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "Udvidelser"
 
@@ -2518,12 +2309,8 @@ msgid "Signed in as %(username)s"
 msgstr "Logget ind som %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
-msgid ""
-"Some features are temporarily disabled while we perform website maintenance. "
-"We'll be back to full capacity shortly."
-msgstr ""
-"Nogle funktioner er midlertidig deaktiveret mens vi udfører vedligeholdelse "
-"af webstedet. Vi vil være tilbage med fuld kapacitet om kort tid."
+msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
+msgstr "Nogle funktioner er midlertidig deaktiveret mens vi udfører vedligeholdelse af webstedet. Vi vil være tilbage med fuld kapacitet om kort tid."
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
@@ -2584,31 +2371,20 @@ msgid "Save 50% with a full year subscription"
 msgstr "Spar 50% med et årsabonnement"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
-msgid ""
-"Protect your online data—and choose a VPN subscription plan that works for "
-"you."
-msgstr ""
-"Beskyt dine online-data - vælg et VPN-abonnement, der passer til dine behov."
+msgid "Protect your online data—and choose a VPN subscription plan that works for you."
+msgstr "Beskyt dine online-data - vælg et VPN-abonnement, der passer til dine behov."
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
 msgstr "Hent Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
-msgid ""
-"To find extensions compatible with Firefox for Android, %(linkStart)sclick "
-"here%(linkEnd)s."
-msgstr ""
-"For at finde udvidelser, der er kompatible med Firefox til Android, "
-"%(linkStart)sklik her%(linkEnd)s."
+msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
+msgstr "For at finde udvidelser, der er kompatible med Firefox til Android, %(linkStart)sklik her%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
-msgid ""
-"Add-ons are not compatible with Firefox for iOS. Try installing them on "
-"Firefox for desktop."
-msgstr ""
-"Tilføjelser er ikke kompatible med Firefox til iOS. Prøv at installere dem i "
-"Firefox til computer."
+msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
+msgstr "Tilføjelser er ikke kompatible med Firefox til iOS. Prøv at installere dem i Firefox til computer."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -2632,8 +2408,7 @@ msgstr "%(localizedSize)s TB"
 
 #: src/amo/pages/Addon/index.js:211
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
-"Denne tilføjelse kan ikke bedømmes, fordi ingen versioner er blevet udgivet."
+msgstr "Denne tilføjelse kan ikke bedømmes, fordi ingen versioner er blevet udgivet."
 
 #: src/amo/pages/Addon/index.js:222
 msgid "Read %(count)s review"
@@ -2678,9 +2453,7 @@ msgid "Release notes for %(addonVersion)s"
 msgstr "Udgivelsesnoter for %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:506
-msgid ""
-"This is not a public listing. You are only seeing it because of elevated "
-"permissions."
+msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr ""
 
 #: src/amo/pages/Addon/index.js:530
@@ -2708,12 +2481,8 @@ msgid "Privacy policy for %(addonName)s"
 msgstr "Privatlivspolitik for %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:199
-msgid ""
-"Reviews and ratings for %(addonName)s. Find out what other users think about "
-"%(addonName)s and add it to your Firefox Browser."
-msgstr ""
-"Anmeldelser og bedømmelser af %(addonName)s. Find ud af, hvad andre brugere "
-"synes om %(addonName)s, og føj den til din Firefox-browser."
+msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
+msgstr "Anmeldelser og bedømmelser af %(addonName)s. Find ud af, hvad andre brugere synes om %(addonName)s, og føj den til din Firefox-browser."
 
 #: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show all reviews"
@@ -2756,12 +2525,8 @@ msgstr[0] "%(addonName)s versions-historik - %(total)s version"
 msgstr[1] "%(addonName)s versions-historik - %(total)s versioner"
 
 #: src/amo/pages/AddonVersions/index.js:166
-msgid ""
-"Be careful with old versions! These versions are displayed for testing and "
-"reference purposes."
-msgstr ""
-"Vær forsigtig med ældre versioner! Disse versioner vises som reference og "
-"til testformål."
+msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
+msgstr "Vær forsigtig med ældre versioner! Disse versioner vises som reference og til testformål."
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "You should always use the latest version of an add-on."
@@ -2800,9 +2565,7 @@ msgid "Why did this happen?"
 msgstr ""
 
 #: src/amo/pages/Block/index.js:163
-msgid ""
-"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
-"policies%(endLink)s."
+msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:175
@@ -2811,17 +2574,12 @@ msgstr "Hvad betyder det?"
 
 #: src/amo/pages/Block/index.js:178
 msgid ""
-"Until the violation is resolved, this add-on won't be available for download "
-"from addons.mozilla.org. If it’s already installed, it will be disabled and "
-"users will be informed about the violation. They may choose to enable the "
-"add-on again at their own risk."
+"Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
+"They may choose to enable the add-on again at their own risk."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:183
-msgid ""
-"Until the violation is resolved, this add-on won't be available for download "
-"from addons.mozilla.org. It will be automatically disabled and no longer "
-"usable in Firefox."
+msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:189
@@ -2830,12 +2588,8 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:194
 msgid ""
-"When Mozilla becomes aware of add-ons, plugins, or other third-party "
-"software that seriously compromise Firefox security, stability, or "
-"performance and meet %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
-"general use. For more information, please read %(supportStartLink)sthis "
-"support article%(supportEndLink)s."
+"When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:97
@@ -2871,12 +2625,8 @@ msgid "You reported this collection"
 msgstr "Du har rapporteret denne samling"
 
 #: src/amo/pages/Collection/index.js:427
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this collection."
-msgstr ""
-"Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende "
-"denne samling med os."
+msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
+msgstr "Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende denne samling med os."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
@@ -2892,28 +2642,19 @@ msgstr "Log ind for at redigere denne samling"
 
 #: src/amo/pages/Collection/index.js:495
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
-"Opret først din samling. Derefter kan du føje udvidelser og temaer til den."
+msgstr "Opret først din samling. Derefter kan du føje udvidelser og temaer til den."
 
 #: src/amo/pages/Collection/index.js:498
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Søg efter udvidelser og temaer, du kan føje til din samling."
 
 #: src/amo/pages/Collection/index.js:559
-msgid ""
-"Download and create Firefox collections to keep track of favorite extensions "
-"and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
-"Hent og opret samlinger til Firefox, og hold styr på dine favoritudvidelser "
-"og temaer. Udforsk %(collectionName)s—%(collectionDescription)s."
+msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
+msgstr "Hent og opret samlinger til Firefox, og hold styr på dine favoritudvidelser og temaer. Udforsk %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:562
-msgid ""
-"Download and create Firefox collections to keep track of favorite extensions "
-"and themes. Explore the %(collectionName)s."
-msgstr ""
-"Hent og opret samlinger til Firefox, og hold styr på dine favoritudvidelser "
-"og temaer. Udforsk %(collectionName)s."
+msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
+msgstr "Hent og opret samlinger til Firefox, og hold styr på dine favoritudvidelser og temaer. Udforsk %(collectionName)s."
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
@@ -2948,12 +2689,8 @@ msgid "Log in to view your collections"
 msgstr "Log ind for at se dine samlinger"
 
 #: src/amo/pages/CollectionList/index.js:133
-msgid ""
-"Collections make it easy to keep track of favorite add-ons and share your "
-"perfectly customized browser with others."
-msgstr ""
-"Samlinger gør det nemt at holde styr på favorittilføjelser og dele din "
-"perfekt tilpassede browser med andre."
+msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
+msgstr "Samlinger gør det nemt at holde styr på favorittilføjelser og dele din perfekt tilpassede browser med andre."
 
 #: src/amo/pages/CollectionList/index.js:143
 msgid "Create a collection"
@@ -2996,14 +2733,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Skift udseende på Firefox ved hjælp af temaer."
 
 #: src/amo/pages/Home/index.js:208
-msgid ""
-"Download Firefox extensions and themes. They’re like apps for your browser. "
-"They can block annoying ads, protect passwords, change browser appearance, "
-"and more."
-msgstr ""
-"Hent udvidelser og temaer til Firefox. De er som apps til din browser. De "
-"kan blokere irriterende reklamer, beskytte adgangskoder, ændre din browsers "
-"udseende og meget mere."
+msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
+msgstr "Hent udvidelser og temaer til Firefox. De er som apps til din browser. De kan blokere irriterende reklamer, beskytte adgangskoder, ændre din browsers udseende og meget mere."
 
 #: src/amo/pages/Home/index.js:84
 msgid "Abstract"
@@ -3038,34 +2769,20 @@ msgid "See more top rated themes"
 msgstr "Se flere bedst bedømte temaer"
 
 #: src/amo/pages/LandingPage/index.js:205
-msgid ""
-"Download themes to change how Firefox looks. Tailor your experience to your "
-"tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
-"options."
+msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:210
-msgid ""
-"Download Firefox Extensions to add features that customize browsing. Protect "
-"passwords, find deals, enhance video, and block annoying ads with browser "
-"apps."
+msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:232
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Skift din browsers udseende. Vælg mellem tusindvis af temaer, og giv Firefox "
-"det udseende, du ønsker."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Skift din browsers udseende. Vælg mellem tusindvis af temaer, og giv Firefox det udseende, du ønsker."
 
 #: src/amo/pages/LandingPage/index.js:234
-msgid ""
-"Explore powerful tools and features to customize Firefox and make the "
-"browser all your own."
-msgstr ""
-"Udforsk kraftfulde værktøjer og funktioner til at tilpasse Firefox, og gør "
-"den til din helt egen."
+msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
+msgstr "Udforsk kraftfulde værktøjer og funktioner til at tilpasse Firefox, og gør den til din helt egen."
 
 #: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
@@ -3080,29 +2797,16 @@ msgid "Dictionaries and Language Packs"
 msgstr "Ordbøger og sprogpakker"
 
 #: src/amo/pages/LanguageTools/index.js:155
-msgid ""
-"Download Firefox dictionaries and language pack extensions. Add a new "
-"language option to your browser spell-checker, or change the browser's "
-"interface language."
-msgstr ""
-"Hent ordbøger og sprogpakker til Firefox. Tilføj et nyt sprog til din "
-"browsers stavekontrol, eller skift sproget i browserens brugerflade."
+msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
+msgstr "Hent ordbøger og sprogpakker til Firefox. Tilføj et nyt sprog til din browsers stavekontrol, eller skift sproget i browserens brugerflade."
 
 #: src/amo/pages/LanguageTools/index.js:166
-msgid ""
-"Installing a dictionary add-on will add a new language option to your spell-"
-"checker, which checks your spelling as you type in Firefox."
-msgstr ""
-"Hvis du installerer en ordbog, tilføjes et nyt sprog til din stavekontrol, "
-"som kontrollerer din stavning, mens du skriver i Firefox."
+msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
+msgstr "Hvis du installerer en ordbog, tilføjes et nyt sprog til din stavekontrol, som kontrollerer din stavning, mens du skriver i Firefox."
 
 #: src/amo/pages/LanguageTools/index.js:171
-msgid ""
-"Language packs change your browser's interface language, including menu "
-"options and settings."
-msgstr ""
-"Sprogpakker ændrer sproget i din browsers brugerflade, herunder menuer og "
-"indstillinger."
+msgid "Language packs change your browser's interface language, including menu options and settings."
+msgstr "Sprogpakker ændrer sproget i din browsers brugerflade, herunder menuer og indstillinger."
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "All Locales"
@@ -3138,51 +2842,29 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
-"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
-"the %(startAddonsServerDocumentation)sAdd-ons Servers "
-"documentation%(endAddonsServerDocumentation)s for details about the APIs "
-"used by AMO and the %(startAddonsManager)sAdd-ons "
-"Manager%(endAddonsManager)s."
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
+"APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:140
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
-msgstr ""
-"Hvis du vil bidrage, men ikke er så teknisk anlagt, er det stadig muligt at "
-"hjælpe:"
+msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
+msgstr "Hvis du vil bidrage, men ikke er så teknisk anlagt, er det stadig muligt at hjælpe:"
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "Deltag i vores %(startLink)sforum%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:162
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"Efterlad feedback om dine foretrukne tilføjelser. Udviklerne af tilføjelser "
-"er mere tilbøjelige til at forbedre deres tilføjelser og lave nye, hvis de "
-"ved, at deres arbejde værdsættes."
+msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
+msgstr "Efterlad feedback om dine foretrukne tilføjelser. Udviklerne af tilføjelser er mere tilbøjelige til at forbedre deres tilføjelser og lave nye, hvis de ved, at deres arbejde værdsættes."
 
 #: src/amo/pages/StaticPages/About/index.js:167
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"Fortæl dine venner og familie, at Firefox er en hurtig, sikker browser, der "
-"beskytter deres privatliv, og at de kan tilpasse den med tilføjelser, så den "
-"opfylder lige netop deres behov."
+msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
+msgstr "Fortæl dine venner og familie, at Firefox er en hurtig, sikker browser, der beskytter deres privatliv, og at de kan tilpasse den med tilføjelser, så den opfylder lige netop deres behov."
 
 #: src/amo/pages/StaticPages/About/index.js:175
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s."
-msgstr ""
-"For at se flere måder, hvorpå du kan bidrage til fællesskabet omkring "
-"tilføjelser, besøg vores %(startLink)swiki%(endLink)s."
+msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
+msgstr "For at se flere måder, hvorpå du kan bidrage til fællesskabet omkring tilføjelser, besøg vores %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Report an issue"
@@ -3193,26 +2875,17 @@ msgid "About Firefox Add-ons"
 msgstr "Om tilføjelser til Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
-msgid ""
-"If you find a problem with the site, we'd love to fix it. Please file an "
-"%(startIssueLink)sissue%(endIssueLink)s and include as much detail as "
-"possible."
+msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
-msgid ""
-"The official Mozilla site for downloading Firefox extensions and themes. Add "
-"new features and change the browser’s appearance to customize your web "
-"experience."
+msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
-"To report a security vulnerability for an extension, even if it is not "
-"hosted on this site, please file an "
-"%(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email "
-"%(startMailLink)samo-admins@mozilla.com%(endMailLink)s. All security "
-"vulnerability reports are %(startLink)sconfidential%(endLink)s."
+"To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
+"admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:232
@@ -3221,47 +2894,28 @@ msgstr "Få support"
 
 #: src/amo/pages/StaticPages/About/index.js:237
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit "
-"%(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an answer "
-"there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
+"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Hvis du vil lære mere om, hvordan du håndterer tilføjelser i Firefox, eller "
-"du har brug for generel hjælp til Firefox, så besøg "
-"%(startSUMOLink)sMozillas support%(endSUMOLink)s. Hvis du ikke finder et "
-"svar der, kan du %(startForumLink)sspørge i vores forum%(endForumLink)s."
+"Hvis du vil lære mere om, hvordan du håndterer tilføjelser i Firefox, eller du har brug for generel hjælp til Firefox, så besøg %(startSUMOLink)sMozillas support%(endSUMOLink)s. Hvis du ikke finder "
+"et svar der, kan du %(startForumLink)sspørge i vores forum%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:258
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
-msgstr ""
-"%(startLink)sHer kan du finde information om, hvordan du kontakter holdet "
-"bag Mozilla-tilføjelser%(endLink)s."
+msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
+msgstr "%(startLink)sHer kan du finde information om, hvordan du kontakter holdet bag Mozilla-tilføjelser%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
+"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO) er Mozillas officielle websted til at finde og "
-"installere tilføjelser til Firefox. Tilføjelser hjælper dig med at tilpasse "
-"og personliggøre din Firefox ved at tilføje nye funktioner og ved at "
-"forbedre håndteringen af indhold på internettet. Du kan også ændre udseendet "
-"på Firefox."
+"Addons.mozilla.org (AMO) er Mozillas officielle websted til at finde og installere tilføjelser til Firefox. Tilføjelser hjælper dig med at tilpasse og personliggøre din Firefox ved at tilføje nye "
+"funktioner og ved at forbedre håndteringen af indhold på internettet. Du kan også ændre udseendet på Firefox."
 
 #: src/amo/pages/StaticPages/About/index.js:37
-msgid ""
-"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
+msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 msgstr ""
-"Hvis du leder efter tilføjelser til Thunderbird eller SeaMonkey, så besøg "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s eller "
-"%(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
+"Hvis du leder efter tilføjelser til Thunderbird eller SeaMonkey, så besøg %(startTBLink)saddons.thunderbird.net%(endTBLink)s eller %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
@@ -3270,14 +2924,9 @@ msgstr "Et fællesskab af udviklere"
 #: src/amo/pages/StaticPages/About/index.js:56
 #, fuzzy
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publicly "
-"listed."
-msgstr ""
-"De mange tilføjelser er skabt af tusindvis af udviklere over hele verden. "
-"Lige fra individuelle på hobbyplan til store virksomheder."
+"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
+"been automatically published and may be subject to review by a team of editors once publicly listed."
+msgstr "De mange tilføjelser er skabt af tusindvis af udviklere over hele verden. Lige fra individuelle på hobbyplan til store virksomheder."
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
@@ -3285,65 +2934,40 @@ msgstr "Bliv involveret"
 
 #: src/amo/pages/StaticPages/About/index.js:67
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
+"the following ways:"
 msgstr ""
-"Mozilla er en nonprofit-forkæmper for det åbne internet. Vi udvikler Firefox "
-"for at holde nettet sundt, åbent og tilgængeligt for alle. Tilføjelser "
-"understøtter valgfrihed og tilpasning i Firefox, og du kan bidrage på "
-"følgende måder:"
+"Mozilla er en nonprofit-forkæmper for det åbne internet. Vi udvikler Firefox for at holde nettet sundt, åbent og tilgængeligt for alle. Tilføjelser understøtter valgfrihed og tilpasning i Firefox, "
+"og du kan bidrage på følgende måder:"
 
 #: src/amo/pages/StaticPages/About/index.js:77
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)sLav din egen tilføjelse%(endLink)s. Vi leverer gratis hosting "
-"og opdateringsservice, og kan hjælpe dig med at nå en stor kreds af brugere."
+msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
+msgstr "%(startLink)sLav din egen tilføjelse%(endLink)s. Vi leverer gratis hosting og opdateringsservice, og kan hjælpe dig med at nå en stor kreds af brugere."
 
 #: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and "
-"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
-"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
-"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
-"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
-"Github."
+"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
+"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
-"Hjælp med at forbedre dette websted. Koden er frit tilgængelig, og du kan "
-"oprette bugs og indsende rettelser. Du kan starte med at indsende "
-"%(startGoodFirstBugLink)sen bug%(endGoodFirstBugLink)s, eller du kan "
-"gennemse alle eksisterende bugs for AMO's "
-"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s og "
-"%(startAddonsFrontendRepoLink)sbrugerflade%(endAddonsFrontendRepoLink)s på "
+"Hjælp med at forbedre dette websted. Koden er frit tilgængelig, og du kan oprette bugs og indsende rettelser. Du kan starte med at indsende %(startGoodFirstBugLink)sen bug%(endGoodFirstBugLink)s, "
+"eller du kan gennemse alle eksisterende bugs for AMO's %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s og %(startAddonsFrontendRepoLink)sbrugerflade%(endAddonsFrontendRepoLink)s på "
 "Github."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
-msgid ""
-"Include your own or anyone else’s email, phone number, or other personal "
-"details."
-msgstr ""
-"Inkludere dit eget eller andres mailadresse, telefonnummer eller andre "
-"personlige detaljer."
+msgid "Include your own or anyone else’s email, phone number, or other personal details."
+msgstr "Inkludere dit eget eller andres mailadresse, telefonnummer eller andre personlige detaljer."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
-"Anmelde en tilføjelse, som du selv eller din organisation har skrevet eller "
-"repræsenterer."
+msgstr "Anmelde en tilføjelse, som du selv eller din organisation har skrevet eller repræsenterer."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving "
-"a negative review of an add-on for displaying ads or requiring data "
-"gathering, when that is the intended purpose of the add-on, or the add-on "
-"requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
+"add-on, or the add-on requires gathering data to function."
 msgstr ""
-"Kritisere en tilføjelse for noget, den er beregnet til at gøre. Fx give en "
-"negativ anmeldelse af en tilføjelse, der viser reklamer eller kræver "
-"indsamling af data, når det er formålet med tilføjelsen eller nødvendigt for "
-"at tilføjelsen virker."
+"Kritisere en tilføjelse for noget, den er beregnet til at gøre. Fx give en negativ anmeldelse af en tilføjelse, der viser reklamer eller kræver indsamling af data, når det er formålet med "
+"tilføjelsen eller nødvendigt for at tilføjelsen virker."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
@@ -3355,69 +2979,47 @@ msgstr "Hvordan kan jeg rapportere en problematisk anmeldelse?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this "
-"review\" and it will be submitted to the site for moderation. Our moderation "
-"team will use the Review Guidelines to evaluate whether or not to delete the "
-"review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
+"evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
-"Rapportér eventuelt tvivlsomme anmeldelser ved at klikke på \"Rapportér "
-"denne anmeldelse\", og den vil blive forelagt webstedet for moderation. "
-"Vores moderatorer vil bruge Retningslinjer for anmeldelser til at vurdere, "
-"om anmeldelsen skal slettes eller genindsættes på webstedet."
+"Rapportér eventuelt tvivlsomme anmeldelser ved at klikke på \"Rapportér denne anmeldelse\", og den vil blive forelagt webstedet for moderation. Vores moderatorer vil bruge Retningslinjer for "
+"anmeldelser til at vurdere, om anmeldelsen skal slettes eller genindsættes på webstedet."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "Jeg er forfatter til en tilføjelse. Kan jeg svare på anmeldelser?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
-msgid ""
-"Yes, add-on authors can provide a single response to a review. You can set "
-"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
-"additional discussion or follow-up."
-msgstr ""
-"Ja, udviklere af tilføjelser kan svare på en anmeldelse. Du kan desuden "
-"oprette en debat i vores %(startLink)sforum%(endLink)s for at følge op eller "
-"indbyde til yderligere debat."
+msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
+msgstr "Ja, udviklere af tilføjelser kan svare på en anmeldelse. Du kan desuden oprette en debat i vores %(startLink)sforum%(endLink)s for at følge op eller indbyde til yderligere debat."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
-"Jeg er forfatter til en tilføjelse. Kan jeg slette negative anmeldelser og "
-"bedømmelser?"
+msgstr "Jeg er forfatter til en tilføjelse. Kan jeg slette negative anmeldelser og bedømmelser?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
-"In general, no. But if the review did not meet the review guidelines "
-"outlined above, you can click \"Report this review\" and have it moderated. "
-"If a review included a complaint that is no longer valid due to a new "
-"release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
+"valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
-"Som udgangspunkt, nej. Men hvis anmeldelsen ikke overholder vores "
-"retningslinjer, som angivet ovenfor, kan du klikke på \"Rapporter denne "
-"anmeldelse\" for at få en moderator til at se på den. Hvis en anmeldelse "
-"indeholder en klage over en fejl, som er blevet rettet i en ny version, vil "
-"vi overveje at slette anmeldelsen."
+"Som udgangspunkt, nej. Men hvis anmeldelsen ikke overholder vores retningslinjer, som angivet ovenfor, kan du klikke på \"Rapporter denne anmeldelse\" for at få en moderator til at se på den. Hvis "
+"en anmeldelse indeholder en klage over en fejl, som er blevet rettet i en ny version, vil vi overveje at slette anmeldelsen."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
 msgstr "Retningslinjer for anmeldelser"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
-msgid ""
-"Guidelines, tips, and Frequently Asked Questions to leave a review for the "
-"extensions and themes you’ve downloaded and used on Firefox."
+msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
 msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons "
-"you’ve installed and used. Our review moderation team reserves the right to "
-"refuse or remove any review that does not comply with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
+" with these guidelines."
 msgstr ""
-"Anmeldelser af tilføjelser er en måde, hvorpå du kan dele din mening om de "
-"tilføjelser, du har installeret og brugt. Vores moderatorer forbeholder sig "
-"retten til at afvise eller slette alle anmeldelser, der ikke er i "
-"overensstemmelse med vores retningslinjer."
+"Anmeldelser af tilføjelser er en måde, hvorpå du kan dele din mening om de tilføjelser, du har installeret og brugt. Vores moderatorer forbeholder sig retten til at afvise eller slette alle "
+"anmeldelser, der ikke er i overensstemmelse med vores retningslinjer."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
@@ -3428,8 +3030,7 @@ msgid "Do:"
 msgstr "Husk at:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
-msgid ""
-"Write like you are telling a friend about your experience with the add-on."
+msgid "Write like you are telling a friend about your experience with the add-on."
 msgstr "Skrive som hvis du fortalte en ven om din oplevelse af tilføjelsen."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
@@ -3461,11 +3062,8 @@ msgid "Will you continue to use this add-on?"
 msgstr "Vil du fortsætte med at bruge denne tilføjelse?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
-msgid ""
-"Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
-"Brug lidt tid på at gennemgå din anmeldelse, inden du sender den ind, for at "
-"minimere slåfejl."
+msgid "Take a moment to read your review before submitting it to minimize typos."
+msgstr "Brug lidt tid på at gennemgå din anmeldelse, inden du sender den ind, for at minimere slåfejl."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
@@ -3473,45 +3071,31 @@ msgstr "Lad være med at:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
-"Indsende anmeldelser på ét ord som fx \"Fantastisk!\", \"vidunderlig\" eller "
-"\"dårlig\"."
+msgstr "Indsende anmeldelser på ét ord som fx \"Fantastisk!\", \"vidunderlig\" eller \"dårlig\"."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the "
-"available support options for each add-on, if available. You can find them "
-"in the \"More information\" section in the sidebar on the add-on's detail "
-"page."
+"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
+" on the add-on's detail page."
 msgstr ""
-"Skrive om tekniske problemer, bede om hjælp eller foreslå funktioner. Brug "
-"de tilgængelige supportmuligheder for hver tilføjelse, hvis de er "
-"tilgængelige. Du finder dem i afsnittet \"Mere information\" på siden med "
-"detaljer om tilføjelsen."
+"Skrive om tekniske problemer, bede om hjælp eller foreslå funktioner. Brug de tilgængelige supportmuligheder for hver tilføjelse, hvis de er tilgængelige. Du finder dem i afsnittet \"Mere "
+"information\" på siden med detaljer om tilføjelsen."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Skrive anmeldelser af tilføjelser, som du ikke selv har brugt."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
+msgid "Use profanity, sexual language or language that can be construed as hateful."
 msgstr "Bruge sjofelt eller fjendtligt sprog."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
-msgstr ""
-"Inkludere HTML, links, kildekode eller kodestykker. Anmeldelser bør kun "
-"bestå af tekst."
+msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
+msgstr "Inkludere HTML, links, kildekode eller kodestykker. Anmeldelser bør kun bestå af tekst."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
-"Give falske udtalelser, nedgøre tilføjelsens udviklere eller komme med "
-"personlige fornærmelser."
+msgid "Make false statements, disparage add-on authors or personally insult them."
+msgstr "Give falske udtalelser, nedgøre tilføjelsens udviklere eller komme med personlige fornærmelser."
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
@@ -3521,8 +3105,7 @@ msgstr ""
 msgid "Submit feedback or report a user to Mozilla"
 msgstr ""
 
-#: src/amo/pages/UserFeedback/index.js:143
-#: src/amo/pages/UserProfile/index.js:381
+#: src/amo/pages/UserFeedback/index.js:143 src/amo/pages/UserProfile/index.js:381
 msgid "User since"
 msgstr "Bruger siden"
 
@@ -3543,22 +3126,15 @@ msgid "My reviews"
 msgstr "Mine anmeldelser"
 
 #: src/amo/pages/UserProfile/index.js:270
-msgid ""
-"The profile of %(user)s, a Firefox extension and theme author. Find other "
-"apps by %(user)s, including average ratings, tenure, and the option to "
-"report issues."
+msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:274
-msgid ""
-"The profile of %(user)s, Firefox extension author. Find other extensions by "
-"%(user)s, including average ratings, tenure, and the option to report issues."
+msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:278
-msgid ""
-"The profile of %(user)s, Firefox theme author. Find other themes by "
-"%(user)s, including average ratings, tenure, and the option to report issues."
+msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:308
@@ -3573,8 +3149,7 @@ msgstr "Udvikler af tilføjelser"
 msgid "Theme artist"
 msgstr "Kunstner bag tema"
 
-#: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:551
+#: src/amo/pages/UserProfile/index.js:335 src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
 msgstr "Brugerprofil for %(user)s"
 
@@ -3582,13 +3157,11 @@ msgstr "Brugerprofil for %(user)s"
 msgid "User Profile"
 msgstr "Brugerprofil"
 
-#: src/amo/pages/UserProfile/index.js:366
-#: src/amo/pages/UserProfileEdit/index.js:693
+#: src/amo/pages/UserProfile/index.js:366 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr "Sted"
 
-#: src/amo/pages/UserProfile/index.js:374
-#: src/amo/pages/UserProfileEdit/index.js:708
+#: src/amo/pages/UserProfile/index.js:374 src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr "Beskæftigelse"
 
@@ -3600,8 +3173,7 @@ msgstr "Antal tilføjelser"
 msgid "Average rating of developer’s add-ons"
 msgstr "Gennemsnitlig bedømmelse af udviklerens tilføjelser"
 
-#: src/amo/pages/UserProfile/index.js:412
-#: src/amo/pages/UserProfileEdit/index.js:730
+#: src/amo/pages/UserProfile/index.js:412 src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr "Biografi"
 
@@ -3620,22 +3192,12 @@ msgid "Picture successfully deleted"
 msgstr "Billede slettet"
 
 #: src/amo/pages/UserProfileEdit/index.js:459
-msgid ""
-"Tell users a bit more information about yourself. Most fields are optional, "
-"but they'll help other users get to know you better."
-msgstr ""
-"Fortæl brugerne lidt mere om dig selv. Det er valgfrit, om du vil udfylde "
-"alle felterne - men det vil hjælpe andre brugere med at lære dig bedre at "
-"kende."
+msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
+msgstr "Fortæl brugerne lidt mere om dig selv. Det er valgfrit, om du vil udfylde alle felterne - men det vil hjælpe andre brugere med at lære dig bedre at kende."
 
 #: src/amo/pages/UserProfileEdit/index.js:463
-msgid ""
-"Tell users a bit more information about this user. Most fields are optional, "
-"but they'll help other users get to know %(userName)s better."
-msgstr ""
-"Fortæl brugerne lidt mere om denne bruger. Det er valgfrit, om du vil "
-"udfylde alle felterne - men det vil hjælpe andre brugere med at lære "
-"%(userName)s bedre at kende."
+msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
+msgstr "Fortæl brugerne lidt mere om denne bruger. Det er valgfrit, om du vil udfylde alle felterne - men det vil hjælpe andre brugere med at lære %(userName)s bedre at kende."
 
 #: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
@@ -3698,12 +3260,8 @@ msgid "Email address cannot be changed here"
 msgstr "Mailadresse kan ikke ændres her"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
-msgid ""
-"You can change your email address on Mozilla accounts. %(startLink)sNeed "
-"help?%(endLink)s"
-msgstr ""
-"Du kan ændre din mailadresse på din Mozilla-konto. %(startLink)sHar du brug "
-"for hjælp?%(endLink)s"
+msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
+msgstr "Du kan ændre din mailadresse på din Mozilla-konto. %(startLink)sHar du brug for hjælp?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
@@ -3735,37 +3293,22 @@ msgid "Notifications"
 msgstr "Beskeder"
 
 #: src/amo/pages/UserProfileEdit/index.js:773
-msgid ""
-"From time to time, Mozilla may send you email about upcoming releases and "
-"add-on events. Please select the topics you are interested in."
-msgstr ""
-"Fra tid til anden kan Mozilla sende dig mail om kommende udgivelser og "
-"arrangementer vedrørende tilføjelser. Vælg de emner, du er interesseret i."
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr "Fra tid til anden kan Mozilla sende dig mail om kommende udgivelser og arrangementer vedrørende tilføjelser. Vælg de emner, du er interesseret i."
 
 #: src/amo/pages/UserProfileEdit/index.js:778
-msgid ""
-"From time to time, Mozilla may send this user email about upcoming releases "
-"and add-on events. Please select the topics this user may be interested in."
-msgstr ""
-"Fra tid til anden kan Mozilla sende denne bruger mail om kommende udgivelser "
-"og arrangementer vedrørende tilføjelser. Vælg de emner, denne bruger er "
-"interesseret i."
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+msgstr "Fra tid til anden kan Mozilla sende denne bruger mail om kommende udgivelser og arrangementer vedrørende tilføjelser. Vælg de emner, denne bruger er interesseret i."
 
 #: src/amo/pages/UserProfileEdit/index.js:793
-msgid ""
-"Mozilla reserves the right to contact you individually about specific "
-"concerns with your hosted add-ons."
-msgstr ""
-"Mozilla forbeholder sig retten til at kontakte dig individuelt vedrørende "
-"dine tilføjelser, som er hosted her."
+msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
+msgstr "Mozilla forbeholder sig retten til at kontakte dig individuelt vedrørende dine tilføjelser, som er hosted her."
 
-#: src/amo/pages/UserProfileEdit/index.js:819
-#: src/amo/pages/UserProfileEdit/index.js:891
+#: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
 msgstr "Slet min profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:820
-#: src/amo/pages/UserProfileEdit/index.js:892
+#: src/amo/pages/UserProfileEdit/index.js:820 src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
 msgstr "Slet profil"
 
@@ -3779,48 +3322,35 @@ msgstr "VIGTIGT: Sletning af denne profil på dette websted kan ikke fortrydes."
 
 #: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
-"Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation), "
-"notification preferences, reviews, and collections."
+"Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Dine data vil blive fjernet permanent herunder profildetaljer "
-"(profilbillede, brugernavn, vis navn, sted, hjemmeside, biografi og "
-"beskæftigelse), indstillinger for beskeder, anmeldelser og samlinger."
+"Dine data vil blive fjernet permanent herunder profildetaljer (profilbillede, brugernavn, vis navn, sted, hjemmeside, biografi og beskæftigelse), indstillinger for beskeder, anmeldelser og "
+"samlinger."
 
 #: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
-"The user’s data will be permanently removed, including profile details "
-"(picture, user name, display name, location, home page, biography, "
-"occupation), notification preferences, reviews, and collections."
+"The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
+"collections."
 msgstr ""
-"Brugerens data vil blive fjernet permanent herunder profildetaljer "
-"(profilbillede, brugernavn, vis navn, sted, hjemmeside, biografi og "
-"beskæftigelse), indstillinger for beskeder, anmeldelser og samlinger."
+"Brugerens data vil blive fjernet permanent herunder profildetaljer (profilbillede, brugernavn, vis navn, sted, hjemmeside, biografi og beskæftigelse), indstillinger for beskeder, anmeldelser og "
+"samlinger."
 
 #: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
-"If you authored any add-ons they will also be deleted, unless you share "
-"ownership with other authors. In that case, you will be removed as an author "
-"and the remaining authors will maintain ownership of the add-on."
+"If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
+" of the add-on."
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
-"If the user authored any add-ons they will also be deleted, unless ownership "
-"is shared with other authors. In that case, the user will be removed as an "
-"author and the remaining authors will maintain ownership of the add-on."
+"If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
+" ownership of the add-on."
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:875
 #, fuzzy
-msgid ""
-"When you use this email address to log in again to addons.mozilla.org, your "
-"profile on Firefox Add-ons will not have access to any of its previous "
-"content."
-msgstr ""
-"Hvis du senere bruger denne mailadresse til at logge ind på addons.mozilla."
-"org, vil du få oprettet en helt ny profil på webstedet. Den vil ikke "
-"indeholde oplysninger fra den gamle profil."
+msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
+msgstr "Hvis du senere bruger denne mailadresse til at logge ind på addons.mozilla.org, vil du få oprettet en helt ny profil på webstedet. Den vil ikke indeholde oplysninger fra den gamle profil."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:103
 msgid "Unsubscribe"
@@ -3833,20 +3363,12 @@ msgstr "Du abonnerer ikke længere!"
 # a list of notifications will be displayed under this prompt.
 #. a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
-msgid ""
-"The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
-"messages when:"
-msgstr ""
-"Mailadressen %(strongStart)s%(email)s%(strongEnd)s vil ikke længere modtage "
-"meddelelser når:"
+msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
+msgstr "Mailadressen %(strongStart)s%(email)s%(strongEnd)s vil ikke længere modtage meddelelser når:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
-msgid ""
-"You can edit your notification settings by %(linkStart)sediting your "
-"profile%(linkEnd)s."
-msgstr ""
-"Du kan ændre dine indstillinger for beskeder ved at %(linkStart)sredigere "
-"din profil%(linkEnd)s."
+msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
+msgstr "Du kan ændre dine indstillinger for beskeder ved at %(linkStart)sredigere din profil%(linkEnd)s."
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
@@ -3872,8 +3394,7 @@ msgstr "Virker med %(listOfApplicatonsAndVersions)s"
 
 #: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
-"Installationen blev afbrudt, fordi tilføjelsen ser ud til at være beskadiget."
+msgstr "Installationen blev afbrudt, fordi tilføjelsen ser ud til at være beskadiget."
 
 #: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
@@ -3896,12 +3417,8 @@ msgid "An unexpected error occurred."
 msgstr "Der opstod en uventet fejl."
 
 #: src/amo/utils/notifications.js:10
-msgid ""
-"stay up-to-date with news and events relevant to add-on developers "
-"(including the about:addons newsletter)"
-msgstr ""
-"hold dig opdateret om nyheder og arrangementer, der er relevante for "
-"udviklere af tilføjelser (herunder nyhedsbrevet about:addons)"
+msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
+msgstr "hold dig opdateret om nyheder og arrangementer, der er relevante for udviklere af tilføjelser (herunder nyhedsbrevet about:addons)"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -3943,33 +3460,18 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Why was it blocked?"
 #~ msgstr "Hvorfor blev den blokeret?"
 
-#~ msgid ""
-#~ "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-#~ msgstr ""
-#~ "Denne tilføjelse krænker %(startLink)sMozillas retningslinjer for "
-#~ "tilføjelser%(endLink)s."
+#~ msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+#~ msgstr "Denne tilføjelse krænker %(startLink)sMozillas retningslinjer for tilføjelser%(endLink)s."
+
+#~ msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
+#~ msgstr "Den problematiske tilføjelse eller plugin bliver automatisk deaktiveret og vil ikke kunne bruges."
 
 #~ msgid ""
-#~ "The problematic add-on or plugin will be automatically disabled and no "
-#~ "longer usable."
+#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
+#~ "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 #~ msgstr ""
-#~ "Den problematiske tilføjelse eller plugin bliver automatisk deaktiveret "
-#~ "og vil ikke kunne bruges."
-
-#~ msgid ""
-#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party "
-#~ "software that seriously compromises Firefox security, stability, or "
-#~ "performance and meets %(criteriaStartLink)scertain "
-#~ "criteria%(criteriaEndLink)s, the software may be blocked from general "
-#~ "use. For more information, please read %(supportStartLink)sthis support "
-#~ "article%(supportEndLink)s."
-#~ msgstr ""
-#~ "Når Mozilla bliver opmærksom på tilføjelser, plugins eller andet "
-#~ "tredjeparts-software, der alvorligt kompromitterer Firefox sikkerhed, "
-#~ "stabilitet eller ydelse, og opfylder %(criteriaStartLink)svisse "
-#~ "kriterier%(criteriaEndLink)s, kan softwaren blive blokeret for generel "
-#~ "brug. For mere information, læs %(supportStartLink)sdenne support-"
-#~ "artikel%(supportEndLink)s."
+#~ "Når Mozilla bliver opmærksom på tilføjelser, plugins eller andet tredjeparts-software, der alvorligt kompromitterer Firefox sikkerhed, stabilitet eller ydelse, og opfylder %(criteriaStartLink)svisse"
+#~ " kriterier%(criteriaEndLink)s, kan softwaren blive blokeret for generel brug. For mere information, læs %(supportStartLink)sdenne support-artikel%(supportEndLink)s."
 
 #~ msgid "Blocked on %(date)s."
 #~ msgstr "Blokeret den %(date)s."
@@ -3980,12 +3482,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Verified"
 #~ msgstr "Verificeret"
 
-#~ msgid ""
-#~ "This add-on has been reviewed to meet our standards for security and "
-#~ "performance."
-#~ msgstr ""
-#~ "Denne tilføjelse er blevet tjekket for, om den overholder vores "
-#~ "standarder for sikkerhed og ydelse."
+#~ msgid "This add-on has been reviewed to meet our standards for security and performance."
+#~ msgstr "Denne tilføjelse er blevet tjekket for, om den overholder vores standarder for sikkerhed og ydelse."
 
 #~ msgid "Verified extensions"
 #~ msgstr "Verificerede udvidelser"
@@ -3996,12 +3494,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Verified add-ons"
 #~ msgstr "Verificerede tilføjelser"
 
-#~ msgid ""
-#~ "You can change your email address on Firefox Accounts. %(startLink)sNeed "
-#~ "help?%(endLink)s"
-#~ msgstr ""
-#~ "Du kan ændre din mailadresse på din Firefox-konto. %(startLink)sHar du "
-#~ "brug for hjælp?%(endLink)s"
+#~ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
+#~ msgstr "Du kan ændre din mailadresse på din Firefox-konto. %(startLink)sHar du brug for hjælp?%(endLink)s"
 
 #~ msgid "Manage Firefox Accounts…"
 #~ msgstr "Håndter Firefox-konti…"
@@ -4027,29 +3521,16 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "This is spam"
 #~ msgstr "Dette er spam"
 
-#~ msgid ""
-#~ "We can't respond to every abuse report but we'll look into this issue."
-#~ msgstr ""
-#~ "Vi kan ikke svare på alle rapporter om misbrug, men vi vil undersøge "
-#~ "problemet."
+#~ msgid "We can't respond to every abuse report but we'll look into this issue."
+#~ msgstr "Vi kan ikke svare på alle rapporter om misbrug, men vi vil undersøge problemet."
 
-#~ msgid ""
-#~ "If you think this add-on violates %(linkTagStart)sMozilla's add-on "
-#~ "policies%(linkTagEnd)s or has security or privacy issues, please report "
-#~ "these issues to Mozilla using this form."
+#~ msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 #~ msgstr ""
-#~ "Hvis du mener, at denne tilføjelse krænker %(linkTagStart)sMozillas "
-#~ "retningslinjer for tilføjelser%(linkTagEnd)s, privatlivets fred eller "
-#~ "udgør et sikkerhedsproblem, bedes du rapportere problemerne til Mozilla "
-#~ "ved hjælp af denne formular."
+#~ "Hvis du mener, at denne tilføjelse krænker %(linkTagStart)sMozillas retningslinjer for tilføjelser%(linkTagEnd)s, privatlivets fred eller udgør et sikkerhedsproblem, bedes du rapportere problemerne "
+#~ "til Mozilla ved hjælp af denne formular."
 
-#~ msgid ""
-#~ "Please don't use this form to report bugs or request add-on features; "
-#~ "this report will be sent to Mozilla and not to the add-on developer."
-#~ msgstr ""
-#~ "Brug ikke denne formular til fejlrapporter eller forslag til funktioner. "
-#~ "Denne rapport vil blive sendt til Mozilla - ikke til udvikleren, der har "
-#~ "lavet tilføjelsen."
+#~ msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
+#~ msgstr "Brug ikke denne formular til fejlrapporter eller forslag til funktioner. Denne rapport vil blive sendt til Mozilla - ikke til udvikleren, der har lavet tilføjelsen."
 
 #~ msgid "Send abuse report"
 #~ msgstr "Send rapport om misbrug"
@@ -4063,38 +3544,20 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Explain how this add-on is violating our policies."
 #~ msgstr "Forklar hvordan denne tilføjelse krænker vores retningslinjer."
 
-#~ msgid ""
-#~ "If you think this user is violating %(linkTagStart)sMozilla's Add-on "
-#~ "Policies%(linkTagEnd)s, please report this user to Mozilla."
-#~ msgstr ""
-#~ "Hvis du mener, at denne bruger krænker %(linkTagStart)sMozillas "
-#~ "retningslinjer for tilføjelser%(linkTagEnd)s, bedes du rapportere "
-#~ "problemerne til Mozilla."
+#~ msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
+#~ msgstr "Hvis du mener, at denne bruger krænker %(linkTagStart)sMozillas retningslinjer for tilføjelser%(linkTagEnd)s, bedes du rapportere problemerne til Mozilla."
 
-#~ msgid ""
-#~ "Please don't use this form to report bugs or contact this user; your "
-#~ "report will only be sent to Mozilla and not to this user."
-#~ msgstr ""
-#~ "Brug ikke denne formular til fejlrapporter eller til at kontakte denne "
-#~ "bruger. Din rapport vil kun blive sendt til Mozilla - ikke til denne "
-#~ "bruger."
+#~ msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
+#~ msgstr "Brug ikke denne formular til fejlrapporter eller til at kontakte denne bruger. Din rapport vil kun blive sendt til Mozilla - ikke til denne bruger."
 
 #~ msgid "Explain how this user is violating our policies."
 #~ msgstr "Forklar hvordan denne bruger krænker vores retningslinjer."
 
-#~ msgid ""
-#~ "To use these add-ons, you'll need to %(linkStart)sdownload "
-#~ "Firefox%(linkEnd)s"
-#~ msgstr ""
-#~ "For at bruge disse tilføjelser, skal du %(linkStart)shente "
-#~ "Firefox%(linkEnd)s"
+#~ msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
+#~ msgstr "For at bruge disse tilføjelser, skal du %(linkStart)shente Firefox%(linkEnd)s"
 
-#~ msgid ""
-#~ "To find add-ons compatible with Firefox for Android, <a "
-#~ "href=\"%(newLocation)s\">click here</a>."
-#~ msgstr ""
-#~ "For at finde tilføjelser, der er kompatible med Firefox til Android, <a "
-#~ "href=\"%(newLocation)s\">klik her</a>."
+#~ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
+#~ msgstr "For at finde tilføjelser, der er kompatible med Firefox til Android, <a href=\"%(newLocation)s\">klik her</a>."
 
 #~ msgid "Report this add-on for abuse"
 #~ msgstr "Rapportér denne tilføjelse for misbrug"
@@ -4120,12 +3583,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Also available on Firefox for Android"
 #~ msgstr "Også tilgængelig på Firefox til Android"
 
-#~ msgid ""
-#~ "Sorry, but there was an error and we couldn't complete your request. We "
-#~ "have logged this error and will investigate it."
-#~ msgstr ""
-#~ "Beklager, men der var en fejl, og vi kunne ikke gennemføre din "
-#~ "forespørgsel. Vi har registreret fejlen og vil undersøge den."
+#~ msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+#~ msgstr "Beklager, men der var en fejl, og vi kunne ikke gennemføre din forespørgsel. Vi har registreret fejlen og vil undersøge den."
 
 #~ msgid "Dictionaries by %(author)s"
 #~ msgstr "Ordbøger af %(author)s"
@@ -4184,12 +3643,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Not compatible with Firefox Quantum"
 #~ msgstr "Ikke kompatibel med Firefox Quantum"
 
-#~ msgid ""
-#~ "Your version of Firefox does not support this add-on because it requires "
-#~ "a restart."
-#~ msgstr ""
-#~ "Din version af Firefox understøtter ikke denne tilføjelse, fordi den "
-#~ "kræver en genstart."
+#~ msgid "Your version of Firefox does not support this add-on because it requires a restart."
+#~ msgstr "Din version af Firefox understøtter ikke denne tilføjelse, fordi den kræver en genstart."
 
 #~ msgid "Developer Blog"
 #~ msgstr "Udvikler-blog"
@@ -4206,22 +3661,11 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "OK"
 #~ msgstr "OK"
 
-#~ msgid ""
-#~ "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of "
-#~ "Firefox</a> (at least version %(minVersion)s). You are using Firefox "
-#~ "%(yourVersion)s."
-#~ msgstr ""
-#~ "Denne tilføjelse kræver en <a href=\"%(downloadUrl)s\">nyere version af "
-#~ "Firefox</a> (mindst version %(minVersion)s). Du bruger Firefox "
-#~ "%(yourVersion)s."
+#~ msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+#~ msgstr "Denne tilføjelse kræver en <a href=\"%(downloadUrl)s\">nyere version af Firefox</a> (mindst version %(minVersion)s). Du bruger Firefox %(yourVersion)s."
 
-#~ msgid ""
-#~ "Your browser does not support add-ons. You can <a "
-#~ "href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-#~ msgstr ""
-#~ "Din browser understøtter ikke tilføjelser. Du kan <a "
-#~ "href=\"%(downloadUrl)s\">hente Firefox</a> for at installere denne "
-#~ "tilføjelse."
+#~ msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+#~ msgstr "Din browser understøtter ikke tilføjelser. Du kan <a href=\"%(downloadUrl)s\">hente Firefox</a> for at installere denne tilføjelse."
 
 #~ msgid "Only with Firefox—Get Firefox Now"
 #~ msgstr "Kun med Firefox — Hent Firefox nu"
@@ -4271,52 +3715,26 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "What is this?"
 #~ msgstr "Hvad er det?"
 
-#~ msgid ""
-#~ "You can install this add-on in the Add-ons Manager. Learn more about <a "
-#~ "href=\"%(newLocation)s\">add-ons for Android</a>."
-#~ msgstr ""
-#~ "Ikke tilgængelig på Firefox til Android. Du kan bruge denne tilføjelse "
-#~ "med Firefox til computer. Læs mere om <a "
-#~ "href=\"%(newLocation)s\">tilføjelser til Android</a>."
+#~ msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
+#~ msgstr "Ikke tilgængelig på Firefox til Android. Du kan bruge denne tilføjelse med Firefox til computer. Læs mere om <a href=\"%(newLocation)s\">tilføjelser til Android</a>."
 
 #~ msgid "This is an official add-on built by the creators of Mozilla Firefox."
-#~ msgstr ""
-#~ "Dette er en officiel tilføjelse bygget af udviklerne bag Mozilla Firefox."
+#~ msgstr "Dette er en officiel tilføjelse bygget af udviklerne bag Mozilla Firefox."
 
 #~ msgid "Unavailable for legal reasons"
 #~ msgstr "Tilgængelig på dit sprog"
 
-#~ msgid ""
-#~ "To find add-ons compatible with Firefox on desktop, <a "
-#~ "href=\"%(newLocation)s\">visit our desktop site</a>."
-#~ msgstr ""
-#~ "Besøg vores <a href=\"%(newLocation)s\">desktop-version af siden</a>, "
-#~ "hvis du vil finde tilføjelser, der er kompatible med Firefox til computer."
+#~ msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
+#~ msgstr "Besøg vores <a href=\"%(newLocation)s\">desktop-version af siden</a>, hvis du vil finde tilføjelser, der er kompatible med Firefox til computer."
 
-#~ msgid ""
-#~ "Not available on Firefox for Android. You can use this add-on with "
-#~ "Firefox for Desktop,  or look for similar <a "
-#~ "href=\"%(newLocation)s\">Android add-ons</a>."
-#~ msgstr ""
-#~ "Ikke tilgængelig på Firefox til Android. Du kan bruge denne tilføjelse "
-#~ "med Firefox til computer, eller se efter lignende <a "
-#~ "href=\"%(newLocation)s\">tilføjelser til Android</a>."
+#~ msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
+#~ msgstr "Ikke tilgængelig på Firefox til Android. Du kan bruge denne tilføjelse med Firefox til computer, eller se efter lignende <a href=\"%(newLocation)s\">tilføjelser til Android</a>."
 
-#~ msgid ""
-#~ "To find add-ons compatible with Firefox on Android, <a "
-#~ "href=\"%(newLocation)s\">visit our mobile site</a>."
-#~ msgstr ""
-#~ "Besøg vores <a href=\"%(newLocation)s\">mobil-version af siden</a>, hvis "
-#~ "du vil finde tilføjelser, der er kompatible med Firefox til Android."
+#~ msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
+#~ msgstr "Besøg vores <a href=\"%(newLocation)s\">mobil-version af siden</a>, hvis du vil finde tilføjelser, der er kompatible med Firefox til Android."
 
-#~ msgid ""
-#~ "Not available on Firefox for Android. You can use this add-on with "
-#~ "Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons "
-#~ "for Android</a>."
-#~ msgstr ""
-#~ "Ikke tilgængelig på Firefox til Android. Du kan bruge denne tilføjelse "
-#~ "med Firefox til computer. Læs mere om <a "
-#~ "href=\"%(newLocation)s\">tilføjelser til Android</a>."
+#~ msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
+#~ msgstr "Ikke tilgængelig på Firefox til Android. Du kan bruge denne tilføjelse med Firefox til computer. Læs mere om <a href=\"%(newLocation)s\">tilføjelser til Android</a>."
 
 #~ msgid "Promoted Add-Ons"
 #~ msgstr "Bedst bedømte tilføjelser"
@@ -4336,19 +3754,11 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Extensions are like apps for your browser."
 #~ msgstr "Udvidelser er som apps til din browser."
 
-#~ msgid ""
-#~ "They add features to Firefox to make browsing faster, smarter, or just "
-#~ "plain fun."
-#~ msgstr ""
-#~ "De føjer funktioner til Firefox, der gør din browsing hurtigere, smartere "
-#~ "eller sjovere."
+#~ msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
+#~ msgstr "De føjer funktioner til Firefox, der gør din browsing hurtigere, smartere eller sjovere."
 
-#~ msgid ""
-#~ "Access 30,000+ radio stations from all over the globe, always just a "
-#~ "click away."
-#~ msgstr ""
-#~ "Få adgang til mere end 30.000 radiostationer fra hele verden - kun et "
-#~ "klik borte."
+#~ msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
+#~ msgstr "Få adgang til mere end 30.000 radiostationer fra hele verden - kun et klik borte."
 
 #~ msgid "Create and manage strong passwords"
 #~ msgstr "Opret og håndtér stærke adgangskoder"
@@ -4368,23 +3778,14 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgstr[1] "%(total)s tilføjelser"
 
 #~ msgid ""
-#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you "
-#~ "are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-#~ "%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-#~ "before you can delete your profile."
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
+#~ " add-ons before you can delete your profile."
 #~ msgstr ""
-#~ "%(strongStart)sBemærk:%(strongEnd)s Du kan ikke slette din profil, hvis "
-#~ "du er udvikler og %(linkStart)sstår som ejer af tilføjelser%(linkEnd)s. "
-#~ "Du skal %(docLinkStart)soverføre ejerskabet%(docLinkEnd)s eller slette "
-#~ "tilføjelsen, inden du kan slette din profil."
+#~ "%(strongStart)sBemærk:%(strongEnd)s Du kan ikke slette din profil, hvis du er udvikler og %(linkStart)sstår som ejer af tilføjelser%(linkEnd)s. Du skal %(docLinkStart)soverføre "
+#~ "ejerskabet%(docLinkEnd)s eller slette tilføjelsen, inden du kan slette din profil."
 
-#~ msgid ""
-#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if "
-#~ "the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-#~ msgstr ""
-#~ "%(strongStart)sBemærk:%(strongEnd)s Du kan ikke slette en brugers profil, "
-#~ "hvis brugeren er udvikler og %(linkStart)sstår som ejer af "
-#~ "tilføjelser%(linkEnd)s."
+#~ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+#~ msgstr "%(strongStart)sBemærk:%(strongEnd)s Du kan ikke slette en brugers profil, hvis brugeren er udvikler og %(linkStart)sstår som ejer af tilføjelser%(linkEnd)s."
 
 #~ msgid "Access your data in %(param)s other domain"
 #~ msgid_plural "Access your data in %(param)s other domains"
@@ -4408,11 +3809,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
 #~ msgstr "%(addonName)s – Hent dette søgeværktøj til 🦊 Firefox (%(locale)s)"
 
-#~ msgid ""
-#~ "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-#~ msgstr ""
-#~ "%(addonName)s – Hent dette søgeværktøj til 🦊 Firefox til Android "
-#~ "(%(locale)s)"
+#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
+#~ msgstr "%(addonName)s – Hent dette søgeværktøj til 🦊 Firefox til Android (%(locale)s)"
 
 #~ msgid "Android Browser"
 #~ msgstr "Browser til Android"
@@ -4448,9 +3846,7 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Focus Browser"
 #~ msgstr "Firefox Focus"
 
-#~ msgid ""
-#~ "This add-on is not compatible with Firefox for Android. <a "
-#~ "href=\"%(newLocation)s\">Learn more</a>."
+#~ msgid "This add-on is not compatible with Firefox for Android. <a href=\"%(newLocation)s\">Learn more</a>."
 #~ msgstr "Denne tilføjelse er ikke kompatibel med din version af Firefox."
 
 #~ msgid "Search Tool"
@@ -4460,14 +3856,11 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgstr "Firefox Preview understøtter i øjeblikket ikke tilføjelser."
 
 #~ msgid ""
-#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help "
-#~ "us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where "
-#~ "you came from and what you were looking for, and we'll get it sorted."
+#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
+#~ "we'll get it sorted."
 #~ msgstr ""
-#~ "Hvis du fulgte et link på dette websted, har du fundet en fejl. Hjælp os "
-#~ "med at rette linket ved at <a href=\"%(url)s\">indberette fejlen</a>. "
-#~ "Fortæl os, hvilket side du kom fra, og hvad du ledte efter - så retter vi "
-#~ "fejlen."
+#~ "Hvis du fulgte et link på dette websted, har du fundet en fejl. Hjælp os med at rette linket ved at <a href=\"%(url)s\">indberette fejlen</a>. Fortæl os, hvilket side du kom fra, og hvad du ledte "
+#~ "efter - så retter vi fejlen."
 
 #~ msgid "Featured Extension"
 #~ msgstr "Udvalgt udvidelse"
@@ -4505,8 +3898,7 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Watching videos"
 #~ msgstr "At se videoer"
 
-#~ msgid ""
-#~ "Customize the way Firefox works with extensions. Are you interested in…"
+#~ msgid "Customize the way Firefox works with extensions. Are you interested in…"
 #~ msgstr "Få nye funktioner ved hjælp af udvidelser. Er du interesseret i…"
 
 #~ msgid "See more productivity extensions"
@@ -4533,8 +3925,7 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "%(categoryName)s – Themes"
 #~ msgstr "%(categoryName)s – Temaer"
 
-#~ msgid ""
-#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgid "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
 #~ msgstr "Kildekode udgivet under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #~ msgid "See more VPN solutions"
@@ -4738,12 +4129,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Multi-Account Containers"
 #~ msgstr "Multi-Account Containers"
 
-#~ msgid ""
-#~ "Keep different parts of your online life—work, personal, etc.—separated "
-#~ "by color-coded tabs"
-#~ msgstr ""
-#~ "Hold forskellige dele af dit liv på nettet adskilt med farvekodede "
-#~ "faneblade (arbejde, personligt osv.)."
+#~ msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
+#~ msgstr "Hold forskellige dele af dit liv på nettet adskilt med farvekodede faneblade (arbejde, personligt osv.)."
 
 #~ msgid "Universal Bypass"
 #~ msgstr "Universal Bypass"
@@ -4838,37 +4225,20 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Social media customization"
 #~ msgstr "Se flere bedst bedømte udvidelser"
 
-#~ msgid ""
-#~ "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install "
-#~ "this add-on."
-#~ msgstr ""
-#~ "Du skal <a href=\"%(downloadUrl)s\">hente Firefox</a> for at installere "
-#~ "denne tilføjelse."
+#~ msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+#~ msgstr "Du skal <a href=\"%(downloadUrl)s\">hente Firefox</a> for at installere denne tilføjelse."
 
-#~ msgid ""
-#~ "Tell the world why you think this extension is fantastic! Please follow "
-#~ "our %(linkStart)sreview guidelines%(linkEnd)s."
-#~ msgstr ""
-#~ "Fortæl verden, hvorfor du synes denne udvidelse er fantastisk! Følg vores "
-#~ "%(linkStart)sretningslinjer for anmeldelser%(linkEnd)s."
+#~ msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+#~ msgstr "Fortæl verden, hvorfor du synes denne udvidelse er fantastisk! Følg vores %(linkStart)sretningslinjer for anmeldelser%(linkEnd)s."
 
 #~ msgid "Tell us what you love about this extension. Be specific and concise."
-#~ msgstr ""
-#~ "Fortæl os, hvad du kan lide ved denne udvidelse. Vær konkret og "
-#~ "kortfattet."
+#~ msgstr "Fortæl os, hvad du kan lide ved denne udvidelse. Vær konkret og kortfattet."
 
-#~ msgid ""
-#~ "Tell the world about this extension. Please follow our "
-#~ "%(linkStart)sreview guidelines%(linkEnd)s."
-#~ msgstr ""
-#~ "Fortæl verden om denne udvidelse! Følg vores %(linkStart)sretningslinjer "
-#~ "for anmeldelser%(linkEnd)s."
+#~ msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+#~ msgstr "Fortæl verden om denne udvidelse! Følg vores %(linkStart)sretningslinjer for anmeldelser%(linkEnd)s."
 
-#~ msgid ""
-#~ "Tell us about your experience with this extension. Be specific and "
-#~ "concise."
-#~ msgstr ""
-#~ "Fortæl os om din oplevelse med denne udvidelse. Vær konkret og kortfattet."
+#~ msgid "Tell us about your experience with this extension. Be specific and concise."
+#~ msgstr "Fortæl os om din oplevelse med denne udvidelse. Vær konkret og kortfattet."
 
 #~ msgid "Review text"
 #~ msgstr "Anmeldelsestekst"
@@ -5076,8 +4446,7 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Black Menu for Google"
 #~ msgstr "Black Menu for Google"
 
-#~ msgid ""
-#~ "Easy drop-down menu access to Google services like Search and Translate"
+#~ msgid "Easy drop-down menu access to Google services like Search and Translate"
 #~ msgstr "Enkel rullemenu med adgang til Google-tjenester som Søg og Oversæt"
 
 #~ msgid "Image Search Options"
@@ -5098,12 +4467,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Worldwide Radio"
 #~ msgstr "Worldwide Radio"
 
-#~ msgid ""
-#~ "Quantum Extensions Challenge winner! Listen to live radio from around the "
-#~ "world"
-#~ msgstr ""
-#~ "Vinder af Quantum Extensions Challenge! Lyt til direkte radio fra hele "
-#~ "verden"
+#~ msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
+#~ msgstr "Vinder af Quantum Extensions Challenge! Lyt til direkte radio fra hele verden"
 
 #~ msgid "Update user's profile"
 #~ msgstr "Opdater brugers profil"
@@ -5117,19 +4482,11 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Attention: You are about to delete a profile. Are you sure?"
 #~ msgstr "OBS: Du er ved at slette en profil. Er du sikker?"
 
-#~ msgid ""
-#~ "Important: if you own add-ons, you have to transfer them to other users "
-#~ "or to delete them before you can delete your profile."
-#~ msgstr ""
-#~ "Vigtigt: Hvis du er angivet som ejer tilføjelser, skal du overføre dem "
-#~ "til andre brugere eller slette dem, inden du kan slette din profil."
+#~ msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
+#~ msgstr "Vigtigt: Hvis du er angivet som ejer tilføjelser, skal du overføre dem til andre brugere eller slette dem, inden du kan slette din profil."
 
-#~ msgid ""
-#~ "Important: a user profile can only be deleted if the user does not own "
-#~ "any add-ons."
-#~ msgstr ""
-#~ "Vigtigt: En brugerprofil kan kun slettes, hvis brugeren ikke er angivet "
-#~ "som ejer nogen tilføjelser."
+#~ msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
+#~ msgstr "Vigtigt: En brugerprofil kan kun slettes, hvis brugeren ikke er angivet som ejer nogen tilføjelser."
 
 #~ msgid "Yes, delete my profile"
 #~ msgstr "Ja, slet min profil"
@@ -5266,12 +4623,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "See all the new featured extensions"
 #~ msgstr "Se alle de nye udvalgte udvidelser"
 
-#~ msgid ""
-#~ "Automatically delete data (cookies, local storage, etc.) on all sites you "
-#~ "visit except those on your whitelist."
-#~ msgstr ""
-#~ "Slet automatisk data (cookies, lokalt lager osv.) fra alle websteder, du "
-#~ "besøger, undtagen dem på din hvidliste."
+#~ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
+#~ msgstr "Slet automatisk data (cookies, lokalt lager osv.) fra alle websteder, du besøger, undtagen dem på din hvidliste."
 
 #~ msgid "Zoom for Firefox"
 #~ msgstr "Zoom for Firefox"
@@ -5310,9 +4663,7 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgstr "Grammarly"
 
 #~ msgid "Remove ads, promoted content, and other clutter from your feed."
-#~ msgstr ""
-#~ "Fjern reklamer, promoveret indhold og andet distraherende indhold fra dit "
-#~ "feed."
+#~ msgstr "Fjern reklamer, promoveret indhold og andet distraherende indhold fra dit feed."
 
 #~ msgid "LastPass Password Manager"
 #~ msgstr "Håndtér adgangskoder med LastPass"
@@ -5329,11 +4680,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "See more add-ons that protect your privacy"
 #~ msgstr "Se flere tilføjelser, der beskytter dit privatliv"
 
-#~ msgid ""
-#~ "Translate a word, phrase, even an entire page. Supports 100+ languages."
-#~ msgstr ""
-#~ "Oversæt et ord, en sætning eller en hel side. Understøtter mere end 100 "
-#~ "sprog."
+#~ msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
+#~ msgstr "Oversæt et ord, en sætning eller en hel side. Understøtter mere end 100 sprog."
 
 #~ msgid "Search by Image"
 #~ msgstr "Søg efter temaer"
@@ -5357,16 +4705,10 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgstr "YouTube High Definition"
 
 #~ msgid "Play videos in HD, turn off annotations, change player size & more"
-#~ msgstr ""
-#~ "Afspil videoer i HD, slå anmærkninger fra, ændre størrelse på afspilleren "
-#~ "med mere"
+#~ msgstr "Afspil videoer i HD, slå anmærkninger fra, ændre størrelse på afspilleren med mere"
 
-#~ msgid ""
-#~ "From ad blockers to anti-trackers, here are some impressive privacy "
-#~ "extensions"
-#~ msgstr ""
-#~ "Fra ad-blokkere til anti-sporing: Fantastiske udvidelser til at beskytte "
-#~ "dit privatliv"
+#~ msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
+#~ msgstr "Fra ad-blokkere til anti-sporing: Fantastiske udvidelser til at beskytte dit privatliv"
 
 #~ msgid "An extremely powerful ad blocker that’s simple to use"
 #~ msgstr "En meget effektiv ad-blokker, der er nem at bruge"
@@ -5392,14 +4734,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "All written reviews"
 #~ msgstr "Alle skrevne anmeldelser"
 
-#~ msgid ""
-#~ "Sorry, but we can't find anything at the address you entered. If you "
-#~ "followed a link to an add-on, it's possible that add-on has been removed "
-#~ "by its author."
-#~ msgstr ""
-#~ "Vi beklager, men vi kan ikke finde noget på adressen, du indtastede. Hvis "
-#~ "du fulgte et link til en tilføjelse, er det muligt, at tilføjelsen er "
-#~ "blevet fjernet af dens udvikler."
+#~ msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+#~ msgstr "Vi beklager, men vi kan ikke finde noget på adressen, du indtastede. Hvis du fulgte et link til en tilføjelse, er det muligt, at tilføjelsen er blevet fjernet af dens udvikler."
 
 #~ msgid "Manage API Keys"
 #~ msgstr "Håndter API Keys"
@@ -5407,12 +4743,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Themes change how Firefox looks"
 #~ msgstr "Nyt udseende"
 
-#~ msgid ""
-#~ "This ID is useful for debugging and identifying your add-on to site "
-#~ "administrators."
-#~ msgstr ""
-#~ "Dette ID kan anvendes til at fejlsøge, og kan bruges af websteds-"
-#~ "administratorer til at identificere din tilføjelse."
+#~ msgid "This ID is useful for debugging and identifying your add-on to site administrators."
+#~ msgstr "Dette ID kan anvendes til at fejlsøge, og kan bruges af websteds-administratorer til at identificere din tilføjelse."
 
 #~ msgid "Site Identifier"
 #~ msgstr "Websteds-identifikator"
@@ -5450,12 +4782,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "…or what it looks like"
 #~ msgstr "… eller hvordan den ser ud"
 
-#~ msgid ""
-#~ "Install powerful tools that make browsing faster and safer, add-ons make "
-#~ "your browser yours."
-#~ msgstr ""
-#~ "Installer effektive værktøjer, der gør surfing hurtigere og mere sikker, "
-#~ "tilføjelser gør din browser til din egen."
+#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+#~ msgstr "Installer effektive værktøjer, der gør surfing hurtigere og mere sikker, tilføjelser gør din browser til din egen."
 
 #~ msgid "Browse in your language"
 #~ msgstr "Surf på dit sprog"
@@ -5469,12 +4797,8 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Browse by category"
 #~ msgstr "Gennemse efter kategori"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "Udvidelser er specielle funktioner, du kan føje til Firefox. Temaer lader "
-#~ "dig ændre din browsers udseende."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Udvidelser er specielle funktioner, du kan føje til Firefox. Temaer lader dig ændre din browsers udseende."
 
 #~ msgid "Fashionable"
 #~ msgstr "Moderne"
@@ -5512,8 +4836,7 @@ msgstr "min tilføjelses kompatibilitet er opgraderet"
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
 #~ msgstr[0] "Din søgning efter \"%(query)s\" returnerede %(count)s resultat."
-#~ msgstr[1] ""
-#~ "Din søgning efter \"%(query)s\" returnerede %(count)s resultater."
+#~ msgstr[1] "Din søgning efter \"%(query)s\" returnerede %(count)s resultater."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Angiv en gyldig søgning"
