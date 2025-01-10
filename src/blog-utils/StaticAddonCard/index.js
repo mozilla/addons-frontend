@@ -4,7 +4,6 @@ import makeClassName from 'classnames';
 
 import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { getAddonIconUrl } from 'amo/imageUtils';
-import { nl2br, sanitizeHTML } from 'amo/utils';
 import AddonBadges from 'amo/components/AddonBadges';
 import AddonTitle from 'amo/components/AddonTitle';
 import GetFirefoxButton from 'amo/components/GetFirefoxButton';
@@ -33,7 +32,6 @@ export const StaticAddonCardBase = ({
     return null;
   }
 
-  const summary = addon.summary ? addon.summary : addon.description;
   const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
 
   return (
@@ -64,10 +62,7 @@ export const StaticAddonCardBase = ({
       <AddonBadges addon={addon} />
 
       <div className="StaticAddonCard-summary">
-        <p
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={sanitizeHTML(nl2br(summary), ['a', 'br'])}
-        />
+        <p>{addon.summary}</p>
       </div>
 
       <div className="StaticAddonCard-metadata">

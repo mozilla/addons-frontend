@@ -661,11 +661,9 @@ describe(__filename, () => {
     ).toBeTruthy();
   });
 
-  it('sanitizes a summary', () => {
-    const summaryText = 'some summary text';
-    addon.summary = createLocalizedString(
-      `${summaryText}<script>alert(document.cookie);</script>`,
-    );
+  it('renders html as plaintext', () => {
+    const summaryText = '<script>alert(document.cookie);</script>';
+    addon.summary = createLocalizedString(summaryText);
     renderWithAddon();
 
     // Verify that the summary text exists without the script tag.
@@ -674,30 +672,6 @@ describe(__filename, () => {
     const addonSummary = screen.getByClassName('Addon-summary');
     expect(
       within(addonSummary).queryByTagName('script'),
-    ).not.toBeInTheDocument();
-  });
-
-  it('adds <br> tags for newlines in a summary', () => {
-    addon.summary = createLocalizedString('Hello\nI am an\n add-on.');
-    renderWithAddon();
-
-    const addonSummary = screen.getByClassName('Addon-summary');
-    expect(within(addonSummary).queryAllByTagName('br')).toHaveLength(2);
-  });
-
-  it('sanitizes bad description HTML', () => {
-    const descriptionText = 'some description text';
-    addon.summary = createLocalizedString(
-      `${descriptionText}<script>alert(document.cookie);</script>`,
-    );
-    renderWithAddon();
-
-    // Verify that the summary text exists without the script tag.
-    expect(screen.getByText(descriptionText)).toBeInTheDocument();
-    // Verify that no script tags exist in the summary.
-    const addonDescription = screen.getByClassName('AddonDescription');
-    expect(
-      within(addonDescription).queryByTagName('script'),
     ).not.toBeInTheDocument();
   });
 
@@ -935,18 +909,16 @@ describe(__filename, () => {
     expect(screen.getByText(summary)).toBeInTheDocument();
   });
 
-  it('renders a summary with links', () => {
-    const summaryText = 'some summary text';
-    const linkText = 'link destination';
-    addon.summary = createLocalizedString(
-      `${summaryText} <a href="http://foo.com/">${linkText}</a>`,
-    );
+  it('does not render links in a summary', () => {
+    const linkText = 'click me!';
+    const summaryText = `blah blah <a href="http://foo.com/">${linkText}</a>`;
+    addon.summary = createLocalizedString(summaryText);
     renderWithAddon();
 
+    expect(screen.getByTextAcrossTags(summaryText)).toBeInTheDocument();
     expect(
-      screen.getByTextAcrossTags(`${summaryText} ${linkText}`),
-    ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: linkText })).toBeInTheDocument();
+      screen.queryByRole('link', { name: linkText }),
+    ).not.toBeInTheDocument();
   });
 
   it('renders an amo icon image', () => {

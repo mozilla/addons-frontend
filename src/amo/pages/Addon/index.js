@@ -445,12 +445,9 @@ export class AddonBase extends React.Component {
 
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
-    const showSummary = !addon || addon.summary.length;
-
+    const showSummary = !addon || addon.summary?.length;
     const summary = (
-      <p className="SearchResult-summary">
-        {addon ? addon.summary : <LoadingText />}
-      </p>
+      <p className="Addon-summary">{addon ? addon.summary : <LoadingText />}</p>
     );
 
     const addonPreviews = addon ? addon.previews : [];
