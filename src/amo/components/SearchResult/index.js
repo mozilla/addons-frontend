@@ -160,17 +160,11 @@ export class SearchResultBase extends React.Component<InternalProps> {
       );
     }
 
-    let summary = null;
-    if (showSummary) {
-      const summaryProps = {};
-      if (addon) {
-        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(addon.summary);
-      } else {
-        summaryProps.children = <LoadingText />;
-      }
-
-      summary = <p className="SearchResult-summary" {...summaryProps} />;
-    }
+    const summary = (
+      <p className="SearchResult-summary">
+        {addon ? addon.summary : <LoadingText />}
+      </p>
+    );
 
     const promotedCategory = _getPromotedCategory({
       addon,
@@ -208,7 +202,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
                 />
               ) : null}
             </h2>
-            {summary}
+            {showSummary ? summary : null}
 
             {showMetadata ? (
               <div className="SearchResult-metadata">
