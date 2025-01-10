@@ -197,7 +197,10 @@ module.exports = {
     'en-CA',
     'en-GB',
     'en-US',
-    'es',
+    'es-AR',
+    'es-CL',
+    'es-ES',
+    'es-MX',
     'et',
     'eu',
     'fa',
@@ -261,6 +264,7 @@ module.exports = {
   hrefLangsMap: {
     'x-default': 'en-US',
     en: 'en-US',
+    es: 'es-ES',
     pt: 'pt-PT',
   },
   // Map of langs, usually short to longer ones but can also be used to
@@ -268,6 +272,7 @@ module.exports = {
   langMap: {
     'bn-BD': 'bn',
     en: 'en-US',
+    es: 'es-ES',
     ga: 'ga-IE',
     pt: 'pt-PT',
     sv: 'sv-SE',
