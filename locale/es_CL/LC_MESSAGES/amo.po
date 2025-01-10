@@ -1,0 +1,5010 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: amo\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-12-10 17:08+0000\n"
+"PO-Revision-Date: 2022-04-05 18:15+0000\n"
+"Last-Translator: cfatls <cfatls@gmail.com>\n"
+"Language-Team: none\n"
+"Language: es_CL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
+
+#: src/amo/components/AddAddonToCollection/index.js:187
+msgid "Loading…"
+msgstr "Cargando…"
+
+#: src/amo/components/AddAddonToCollection/index.js:189
+msgid "Adding…"
+msgstr "Añadiendo…"
+
+#: src/amo/components/AddAddonToCollection/index.js:205
+msgid "Select a collection…"
+msgstr "Seleccionar una colección…"
+
+#: src/amo/components/AddAddonToCollection/index.js:212
+msgid "Create new collection"
+msgstr "Crear nueva colección"
+
+#: src/amo/components/AddAddonToCollection/index.js:253
+msgid "Added to %(collectionName)s"
+msgstr "Se añadió a %(collectionName)s"
+
+# This is a header for a list meaning Add to [some collection name]
+#. This is a header for a list meaning Add to [some collection name]
+#: src/amo/components/AddAddonToCollection/index.js:269
+msgid "Add to…"
+msgstr "Añadir a…"
+
+#: src/amo/components/AddAddonToCollection/index.js:274 src/amo/components/CollectionAddAddon/index.js:183
+msgid "Add to collection"
+msgstr "Añadir a la colección"
+
+#. This action allows a reviewer to perform a content review of an add-on.
+#: src/amo/components/AddonAdminLinks/index.js:105
+msgid "Content review add-on"
+msgstr "Complemento de revisión de contenido"
+
+#. This action allows a reviewer to perform a review of a theme.
+#: src/amo/components/AddonAdminLinks/index.js:113
+msgid "Review theme"
+msgstr "Revisar tema"
+
+#. This action allows a reviewer to perform a review of an add-on's code.
+#: src/amo/components/AddonAdminLinks/index.js:115
+msgid "Review add-on code"
+msgstr "Revisar código del complemento"
+
+#. This is a list of links to administrative functions.
+#: src/amo/components/AddonAdminLinks/index.js:135
+msgid "Admin Links"
+msgstr "Enlaces de administrador"
+
+#. This action allows the add-on developer or an admin to edit an add-on's properties.
+#: src/amo/components/AddonAdminLinks/index.js:77 src/amo/components/AddonAuthorLinks/index.js:51
+msgid "Edit add-on"
+msgstr "Editar complemento"
+
+#. This action allows an admin to maintain an add-on.
+#: src/amo/components/AddonAdminLinks/index.js:91
+msgid "Admin add-on"
+msgstr "Complemento de administrador"
+
+#. This is a list of links to Developer functions.
+#: src/amo/components/AddonAuthorLinks/index.js:62
+msgid "Author Links"
+msgstr "Enlaces de autor"
+
+#: src/amo/components/AddonBadges/index.js:60
+msgid "Experimental"
+msgstr "Experimental"
+
+#: src/amo/components/AddonBadges/index.js:65
+msgid "Some features may require payment"
+msgstr "Algunas características pueden ser de pago"
+
+#: src/amo/components/AddonBadges/index.js:71
+msgid "Available on Firefox for Android™"
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:91
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr "Este complemento no es compatible con tu versión de Firefox."
+
+#: src/amo/components/AddonCompatibilityError/index.js:93
+msgid "This add-on is not available on your platform."
+msgstr "Este complemento no está disponible en tu plataforma."
+
+#: src/amo/components/AddonFeedbackForm/index.js:148 src/amo/components/SearchResult/index.js:248
+msgid "%(total)s user"
+msgid_plural "%(total)s users"
+msgstr[0] "%(total)s usuario"
+msgstr[1] "%(total)s usuarios"
+
+#: src/amo/components/AddonFeedbackForm/index.js:209
+msgid "Report this add-on to Mozilla"
+msgstr ""
+
+#: src/amo/components/AddonFeedbackForm/index.js:210
+msgid "Send some feedback about the add-on"
+msgstr ""
+
+#: src/amo/components/AddonFeedbackForm/index.js:211
+msgid "Report the add-on because it's illegal or incompliant"
+msgstr ""
+
+# please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:102
+msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Consigue esta extensión para 🦊 Firefox (%(locale)s)"
+
+# please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:107
+msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Consigue este idioma para 🦊 Firefox (%(locale)s)"
+
+# please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:112
+msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Consigue este tema para 🦊 Firefox (%(locale)s)"
+
+# please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:117
+msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Consigue este complemento para 🦊 Firefox (%(locale)s)"
+
+#: src/amo/components/AddonHead/index.js:131
+msgid "Download %(addonName)s for Firefox. %(summary)s"
+msgstr "Descargar %(addonName)s para Firefox. %(summary)s"
+
+#. please keep the fox emoji next to "Firefox Android".
+#: src/amo/components/AddonHead/index.js:69
+msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Consigue este diccionario para 🦊 Firefox Android (%(locale)s)"
+
+#. please keep the fox emoji next to "Firefox Android".
+#: src/amo/components/AddonHead/index.js:74
+msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Consigue esta extensión para 🦊 Firefox Android (%(locale)s)"
+
+#. please keep the fox emoji next to "Firefox Android".
+#: src/amo/components/AddonHead/index.js:79
+msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Consigue este paquete de idioma para 🦊 Firefox Android (%(locale)s)"
+
+#. please keep the fox emoji next to "Firefox Android".
+#: src/amo/components/AddonHead/index.js:84
+msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Consigue este tema para 🦊 Firefox Android (%(locale)s)"
+
+#. please keep the fox emoji next to "Firefox Android".
+#: src/amo/components/AddonHead/index.js:90
+msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Consigue este complemento para 🦊 Firefox Android (%(locale)s)"
+
+# please keep the fox emoji next to "Firefox".
+#. please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:97
+msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Consigue este diccionario para 🦊 Firefox (%(locale)s)"
+
+#: src/amo/components/AddonMeta/index.js:119
+msgid "%(total)s Star"
+msgid_plural "%(total)s Stars"
+msgstr[0] "%(total)s estrella"
+msgstr[1] "%(total)s estrellas"
+
+#: src/amo/components/AddonMeta/index.js:128
+msgid "Not rated yet"
+msgstr "Aún no ha sido valorado"
+
+#: src/amo/components/AddonMeta/index.js:49
+msgid "Users"
+msgstr "Usuarios"
+
+#: src/amo/components/AddonMeta/index.js:52
+msgid "User"
+msgid_plural "Users"
+msgstr[0] "Usuario"
+msgstr[1] "Usuarios"
+
+#: src/amo/components/AddonMeta/index.js:54
+msgid "No Users"
+msgstr "No hay usuarios"
+
+#: src/amo/components/AddonMeta/index.js:61
+msgid "Reviews"
+msgstr "Comentarios"
+
+#: src/amo/components/AddonMeta/index.js:64
+msgid "Review"
+msgid_plural "Reviews"
+msgstr[0] "Comentario"
+msgstr[1] "Comentarios"
+
+#: src/amo/components/AddonMeta/index.js:66
+msgid "No Reviews"
+msgstr "Sin comentarios"
+
+#: src/amo/components/AddonMeta/index.js:92
+msgid "Used by"
+msgstr "Utilizado por"
+
+#: src/amo/components/AddonMoreInfo/index.js:103 src/amo/pages/UserProfile/index.js:356 src/amo/pages/UserProfile/index.js:359 src/amo/pages/UserProfileEdit/index.js:676
+msgid "Homepage"
+msgstr "Página de inicio"
+
+#: src/amo/components/AddonMoreInfo/index.js:120
+msgid "Support site"
+msgstr "Ayuda del sitio"
+
+#: src/amo/components/AddonMoreInfo/index.js:134
+msgid "Support Email"
+msgstr "Correo de ayuda"
+
+#: src/amo/components/AddonMoreInfo/index.js:152
+msgid "Visit stats dashboard"
+msgstr "Visitar el panel de estadísticas"
+
+#: src/amo/components/AddonMoreInfo/index.js:172
+msgid "Custom License"
+msgstr "Custom License"
+
+#. This will output, in English: "2 months ago (Dec 12 2016)"
+#: src/amo/components/AddonMoreInfo/index.js:216
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo/index.js:233
+msgid "Read the privacy policy for this add-on"
+msgstr "Leer la política de privacidad de este complemento"
+
+#: src/amo/components/AddonMoreInfo/index.js:245
+msgid "Read the license agreement for this add-on"
+msgstr "Lee el acuerdo de licencia de este complemento"
+
+#: src/amo/components/AddonMoreInfo/index.js:258
+msgid "See all versions"
+msgstr "Ver todas las versiones"
+
+#: src/amo/components/AddonMoreInfo/index.js:305
+msgid "Add-on Links"
+msgstr "Enlaces del complemento"
+
+#: src/amo/components/AddonMoreInfo/index.js:317
+msgid "Version"
+msgstr "Versión"
+
+#: src/amo/components/AddonMoreInfo/index.js:325
+msgid "Size"
+msgstr "Tamaño"
+
+#: src/amo/components/AddonMoreInfo/index.js:333 src/amo/components/CollectionDetails/index.js:87 src/amo/pages/CollectionFeedback/index.js:159
+msgid "Last updated"
+msgstr "Última actualización"
+
+#: src/amo/components/AddonMoreInfo/index.js:341
+#, fuzzy
+msgid "Related Categories"
+msgstr "Categorías"
+
+#: src/amo/components/AddonMoreInfo/index.js:351
+msgid "License"
+msgstr "Licencia"
+
+#: src/amo/components/AddonMoreInfo/index.js:359
+msgid "Privacy Policy"
+msgstr "Política de privacidad"
+
+#: src/amo/components/AddonMoreInfo/index.js:367
+msgid "End-User License Agreement"
+msgstr "Acuerdo de licencia de usuario final"
+
+#: src/amo/components/AddonMoreInfo/index.js:375
+msgid "Version History"
+msgstr "Historial de versiones"
+
+#: src/amo/components/AddonMoreInfo/index.js:385
+msgid "Usage Statistics"
+msgstr "Estadísticas de uso"
+
+#: src/amo/components/AddonMoreInfo/index.js:393
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: src/amo/components/AddonMoreInfo/index.js:409
+msgid "More information"
+msgstr "Más información"
+
+#: src/amo/components/AddonRecommendations/index.js:134
+msgid "Other users with this extension also installed"
+msgstr "Otros usuarios que también han instalado esta extensión"
+
+#: src/amo/components/AddonRecommendations/index.js:135
+msgid "Other popular extensions"
+msgstr "Otras extensiones populares"
+
+#: src/amo/components/AddonReviewCard/index.js:210
+msgid "Edit reply"
+msgstr "Editar respuesta"
+
+#: src/amo/components/AddonReviewCard/index.js:213
+msgid "Edit review"
+msgstr "Editar revisión"
+
+#: src/amo/components/AddonReviewCard/index.js:220 src/amo/components/AddonReviewCard/index.js:252
+msgid "Delete reply"
+msgstr "Eliminar respuesta"
+
+#: src/amo/components/AddonReviewCard/index.js:224 src/amo/components/AddonReviewCard/index.js:256
+msgid "Delete rating"
+msgstr "Eliminar valoración"
+
+#: src/amo/components/AddonReviewCard/index.js:227 src/amo/components/AddonReviewCard/index.js:259
+msgid "Delete review"
+msgstr "Eliminar revisión"
+
+#: src/amo/components/AddonReviewCard/index.js:234
+msgid "Do you really want to delete this reply?"
+msgstr "¿De verdad quieres eliminar esta foto?"
+
+#: src/amo/components/AddonReviewCard/index.js:238
+msgid "Do you really want to delete this rating?"
+msgstr "¿De verdad quieres eliminar esta foto?"
+
+#: src/amo/components/AddonReviewCard/index.js:241
+msgid "Do you really want to delete this review?"
+msgstr "¿De verdad quieres eliminar esta foto?"
+
+#: src/amo/components/AddonReviewCard/index.js:248 src/amo/components/DismissibleTextForm/index.js:236
+msgid "Delete"
+msgstr "Eliminar"
+
+#: src/amo/components/AddonReviewCard/index.js:266 src/amo/components/AddonReviewManager/index.js:146 src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/ConfirmationDialog/index.js:61 src/amo/components/DismissibleTextForm/index.js:221 src/amo/pages/UserProfileEdit/index.js:899
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/amo/components/AddonReviewCard/index.js:270
+msgid "Keep reply"
+msgstr "Mantener respuesta"
+
+#: src/amo/components/AddonReviewCard/index.js:274
+msgid "Keep rating"
+msgstr "Mantener valoración"
+
+#: src/amo/components/AddonReviewCard/index.js:277
+msgid "Keep review"
+msgstr "Mantener revisión"
+
+#: src/amo/components/AddonReviewCard/index.js:313
+msgid "Write a reply to this review."
+msgstr "Escribir una respuesta a esta revisión."
+
+#: src/amo/components/AddonReviewCard/index.js:316
+msgid "Update reply"
+msgstr "Actualizar la respuesta"
+
+#: src/amo/components/AddonReviewCard/index.js:317
+msgid "Publish reply"
+msgstr "Publicar respuesta"
+
+#: src/amo/components/AddonReviewCard/index.js:321
+msgid "Updating reply"
+msgstr "Actualizando la respuesta"
+
+#: src/amo/components/AddonReviewCard/index.js:322
+msgid "Publishing reply"
+msgstr "Publicando la respuesta"
+
+#. Example in English: "posted last week"
+#: src/amo/components/AddonReviewCard/index.js:368
+msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "publicado el %(linkStart)s%(timestamp)s%(linkEnd)s"
+
+#. Example in English: "by UserName123, last week"
+#: src/amo/components/AddonReviewCard/index.js:371
+#, fuzzy
+msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "por %(authorName)s, el %(linkStart)s%(timestamp)s%(linkEnd)s"
+
+#. Example in English: "by UserName123, last week"
+#: src/amo/components/AddonReviewCard/index.js:375
+msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "por %(authorName)s, el %(linkStart)s%(timestamp)s%(linkEnd)s"
+
+#: src/amo/components/AddonReviewCard/index.js:490
+msgid "Deleting…"
+msgstr "Eliminando…"
+
+#: src/amo/components/AddonReviewCard/index.js:521
+msgid "Reply to this review"
+msgstr "Responder a esta revisión"
+
+#: src/amo/components/AddonReviewCard/index.js:551
+msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
+msgstr "Se ha eliminado esta valoración o comentario. Solo la ves porque tienes permisos suficientes."
+
+#: src/amo/components/AddonReviewCard/index.js:597
+msgid "Write a review"
+msgstr "Escribe un comentario"
+
+#: src/amo/components/AddonReviewManager/index.js:112
+msgid "Write about your experience with this add-on."
+msgstr "Escribe tu opinión sobre este complemento."
+
+#: src/amo/components/AddonReviewManager/index.js:116
+msgid "Submit review"
+msgstr "Enviar comentario"
+
+#: src/amo/components/AddonReviewManager/index.js:117
+msgid "Submitting review"
+msgstr "Enviando revisión"
+
+#: src/amo/components/AddonReviewManager/index.js:119
+msgid "Update review"
+msgstr "Actualizar revisión"
+
+#: src/amo/components/AddonReviewManager/index.js:120
+msgid "Updating review"
+msgstr "Actualizando revisión"
+
+#: src/amo/components/AddonReviewManager/index.js:140
+msgid "Saving"
+msgstr "Guardando"
+
+#: src/amo/components/AddonReviewManager/index.js:141
+msgid "Saved"
+msgstr "Guardado"
+
+#: src/amo/components/AddonReviewManager/index.js:90
+msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr "Por favor, sigue nuestras %(linkStart)sguías de revisión%(linkEnd)s."
+
+#: src/amo/components/AddonReviewManagerRating/index.js:35
+msgid "Your star rating:"
+msgstr "Tu valoración:"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:253
+msgid "More dictionaries by %(author)s"
+msgstr "Más diccionarios de %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:256
+msgid "More dictionaries by these translators"
+msgstr "Más diccionarios de estos traductores"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:263
+msgid "More extensions by %(author)s"
+msgstr "Más extensiones de %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:266
+msgid "More extensions by these developers"
+msgstr "Más extensiones de estos desarrolladores"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:270
+msgid "Extensions by %(author)s"
+msgstr "Extensiones de %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:273
+msgid "Extensions by these developers"
+msgstr "Extensiones de estos desarrolladores"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:279
+msgid "More language packs by %(author)s"
+msgstr "Más paquetes de idiomas de %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:282
+msgid "More language packs by these translators"
+msgstr "Más paquetes de idiomas de estos traductores"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:289
+msgid "More themes by %(author)s"
+msgstr "Más temas de %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:292
+msgid "More themes by these artists"
+msgstr "Más temas de estos artistas"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:296
+msgid "Themes by %(author)s"
+msgstr "Temas de %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:299
+msgid "Themes by these artists"
+msgstr "Temas de estos artistas"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:305
+msgid "More add-ons by %(author)s"
+msgstr "Más complementos de %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:308
+msgid "More add-ons by these developers"
+msgstr "Más complementos de estos desarrolladores"
+
+#: src/amo/components/AddonSuggestions/index.js:100
+msgid "More powerful tools for translations, writing & grammar support"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:107
+msgid "More amazing extensions to change the way Firefox looks"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:114
+msgid "More incredible social media extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:119
+msgid "More excellent search extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:124
+msgid "More great extensions for feeds, news & media"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:129
+msgid "More great notification extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:138
+msgid "More great tools for web developers"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:268
+msgid "See Firefox Staff Picks"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:57
+msgid "Explore our 'Starter Pack' to get started with extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:69
+msgid "More powerful privacy & security extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:74
+msgid "More incredible download managers"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
+msgid "More fantastic tab & bookmark extensions"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:90
+msgid "More great extensions for games & entertainment"
+msgstr ""
+
+#: src/amo/components/AddonSuggestions/index.js:95
+msgid "More amazing image, photo & media extensions"
+msgstr ""
+
+#: src/amo/components/AddonSummaryCard/index.js:52
+msgid "Add-on icon"
+msgstr "Icono del complemento"
+
+#. roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
+#: src/amo/components/AddonSummaryCard/index.js:78
+msgid "%(rating)s Star out of 5"
+msgid_plural "%(rating)s Stars out of 5"
+msgstr[0] "%(rating)s estrella de 5"
+msgstr[1] "%(rating)s estrellas de 5"
+
+# A comma, used in a list of authors: a1, a2, a3.
+#. A comma, used in a list of authors: a1, a2, a3.
+#: src/amo/components/AddonTitle/index.js:49
+msgid ","
+msgstr ","
+
+# Example: add-on "by" some authors
+#. Example: add-on "by" some authors
+#: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
+msgid "by"
+msgstr "por"
+
+#: src/amo/components/AddonVersionCard/index.js:114
+msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
+msgstr "Se publicó el código fuente bajo la licencia %(linkStart)s%(licenseName)s%(linkEnd)s"
+
+#: src/amo/components/AddonVersionCard/index.js:125
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
+msgstr "Se publicó el código fuente bajo la licencia %(linkStart)sCustom License%(linkEnd)s"
+
+#: src/amo/components/AddonVersionCard/index.js:152
+msgid "Source code released under %(licenseName)s"
+msgstr "Se publicó el código fuente bajo la licencia %(licenseName)s"
+
+#: src/amo/components/AddonVersionCard/index.js:62
+msgid "No version found"
+msgstr "No se encontró ninguna versión"
+
+#: src/amo/components/AddonVersionCard/index.js:70
+msgid "Version %(versionNumber)s"
+msgstr "Versión %(versionNumber)s"
+
+#: src/amo/components/AddonVersionCard/index.js:94
+msgid "Released %(dateReleased)s - %(fileSize)s"
+msgstr "Lanzada el %(dateReleased)s - %(fileSize)s"
+
+#: src/amo/components/AMInstallButton/index.js:133
+msgid "Enable"
+msgstr "Habilitar"
+
+#: src/amo/components/AMInstallButton/index.js:136 src/amo/components/EditableCollectionAddon/index.js:142
+msgid "Remove"
+msgstr "Eliminar"
+
+#: src/amo/components/AMInstallButton/index.js:138
+msgid "Enabling"
+msgstr "Habilitando"
+
+#: src/amo/components/AMInstallButton/index.js:140
+msgid "Disabling"
+msgstr "Deshabilitando"
+
+#: src/amo/components/AMInstallButton/index.js:142
+msgid "Downloading"
+msgstr "Descargando"
+
+#: src/amo/components/AMInstallButton/index.js:144
+msgid "Installing"
+msgstr "Instalando"
+
+#: src/amo/components/AMInstallButton/index.js:146
+msgid "Uninstalling"
+msgstr "Desinstalando"
+
+#: src/amo/components/AMInstallButton/index.js:154
+msgid "Install Theme"
+msgstr "Instalar tema"
+
+#: src/amo/components/AMInstallButton/index.js:155
+msgid "Add to Firefox"
+msgstr "Agregar a Firefox"
+
+#: src/amo/components/App/index.js:122 src/amo/components/HeadMetaTags/index.js:93
+msgid "Add-ons for Firefox (%(locale)s)"
+msgstr "Complementos para Firefox (%(locale)s)"
+
+#: src/amo/components/App/index.js:126 src/amo/components/HeadMetaTags/index.js:87
+msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
+msgstr "%(title)s – Complementos para Firefox (%(locale)s)"
+
+#: src/amo/components/App/index.js:134 src/amo/components/HeadMetaTags/index.js:92
+msgid "Add-ons for Firefox Android (%(locale)s)"
+msgstr "Complementos para Firefox para Android (%(locale)s)"
+
+#: src/amo/components/App/index.js:138 src/amo/components/HeadMetaTags/index.js:86
+msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
+msgstr "%(title)s – Complementos para Firefox para Android (%(locale)s)"
+
+#: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:151
+msgid "Log out"
+msgstr "Cerrar sesión"
+
+#: src/amo/components/AuthenticateButton/index.js:93
+#, fuzzy
+msgid "Log in"
+msgstr "Cerrar sesión"
+
+#: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:146
+msgid "This action is currently unavailable. Please reload the page in a moment."
+msgstr "Esta acción no está disponible actualmente. Vuelve a cargar la página en unos minutos."
+
+#: src/amo/components/AutoSearchInput/index.js:198
+msgid "Loading"
+msgstr "Cargando"
+
+#: src/amo/components/AutoSearchInput/index.js:298
+msgid "Find add-ons"
+msgstr "Buscar complementos"
+
+#: src/amo/components/AutoSearchInput/index.js:323 src/amo/components/AutoSearchInput/index.js:351
+msgid "Search"
+msgstr "Buscar"
+
+#: src/amo/components/Categories/index.js:106
+msgid "Categories"
+msgstr "Categorías"
+
+#: src/amo/components/Categories/index.js:111
+msgid "Loading categories."
+msgstr "Cargando las categorías."
+
+#: src/amo/components/Categories/index.js:99
+msgid "No categories found."
+msgstr "No se encontró ninguna categoría."
+
+#: src/amo/components/CollectionAddAddon/index.js:169
+msgid "Added to collection"
+msgstr "Se añadió a la colección"
+
+#: src/amo/components/CollectionAddAddon/index.js:170
+msgid "Removed from collection"
+msgstr "Eliminado de la colección"
+
+#: src/amo/components/CollectionAddAddon/index.js:179
+msgid "Find an add-on to include in this collection"
+msgstr "Encuentra un complemento para incluir en esta colección"
+
+#: src/amo/components/CollectionDetails/index.js:101
+msgid "Edit this collection"
+msgstr "Editar esta colección"
+
+#: src/amo/components/CollectionDetails/index.js:112
+msgid "Edit collection details"
+msgstr "Editar los detalles de la colección"
+
+#: src/amo/components/CollectionDetails/index.js:124
+msgid "Back to collection"
+msgstr "Regresar a la colección"
+
+#: src/amo/components/CollectionDetails/index.js:77 src/amo/components/Footer/index.js:59 src/amo/pages/CollectionFeedback/index.js:155
+msgid "Add-ons"
+msgstr "Complementos"
+
+#: src/amo/components/CollectionDetails/index.js:81
+msgid "Creator"
+msgstr "Creador/a"
+
+#: src/amo/components/CollectionManager/index.js:248
+msgid "Create collection"
+msgstr "Crear colección"
+
+#: src/amo/components/CollectionManager/index.js:249
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+#: src/amo/components/CollectionManager/index.js:258
+msgid "Collection name"
+msgstr "Nombre de la colección"
+
+#: src/amo/components/CollectionManager/index.js:272
+msgid "Description"
+msgstr "Decripción"
+
+#: src/amo/components/CollectionManager/index.js:284
+msgid "Custom URL"
+msgstr "URL personalizada"
+
+#: src/amo/components/CollectionSort/index.js:108
+msgid "Sort add-ons by"
+msgstr "Ordenar complementos por"
+
+#: src/amo/components/CollectionSort/index.js:84
+msgid "Newest first"
+msgstr "Las más nuevas primero"
+
+#: src/amo/components/CollectionSort/index.js:88
+msgid "Oldest first"
+msgstr "Las más antiguas primero"
+
+#: src/amo/components/CollectionSort/index.js:92
+msgid "Name"
+msgstr "Nombre"
+
+#: src/amo/components/CollectionSort/index.js:96
+msgid "Popularity"
+msgstr "Popularidad"
+
+#: src/amo/components/ConfirmationDialog/index.js:53
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: src/amo/components/ContributeCard/index.js:112
+msgid "Contribute now"
+msgstr "Contribuir ahora"
+
+#: src/amo/components/ContributeCard/index.js:46
+msgid "Support this developer"
+msgstr "Ayudar a este desarrollador"
+
+#: src/amo/components/ContributeCard/index.js:47
+msgid "Support these developers"
+msgstr "Ayudar a estos desarrolladores"
+
+#: src/amo/components/ContributeCard/index.js:51
+msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
+msgstr "El desarrollador de esta extensión te pide le ayudes a seguir con el desarrollo haciendo una pequeña contribución."
+
+#: src/amo/components/ContributeCard/index.js:53
+msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
+msgstr "El desarrollador de esta extensión te pide le ayudes a seguir con el desarrollo haciendo una pequeña contribución."
+
+#: src/amo/components/ContributeCard/index.js:60
+msgid "Support this artist"
+msgstr "Ayudar a este artista"
+
+#: src/amo/components/ContributeCard/index.js:61
+msgid "Support these artists"
+msgstr "Ayudar a estos artistas"
+
+#: src/amo/components/ContributeCard/index.js:65
+msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
+msgstr "El artista de este tema te pide le ayudes a seguir con su creación haciendo una pequeña contribución."
+
+#: src/amo/components/ContributeCard/index.js:67
+msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
+msgstr "El artista de este tema te pide le ayudes a seguir con su creación haciendo una pequeña contribución."
+
+#: src/amo/components/ContributeCard/index.js:74
+msgid "Support this author"
+msgstr "Ayudar a este autor"
+
+#: src/amo/components/ContributeCard/index.js:75
+msgid "Support these authors"
+msgstr "Ayudar a estos autores"
+
+#: src/amo/components/ContributeCard/index.js:79
+msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
+msgstr "El autor de este complemento te pide le ayudes a seguir con su trabajo haciendo una pequeña contribución."
+
+#: src/amo/components/ContributeCard/index.js:81
+msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
+msgstr "El autor de este complemento te pide le ayudes a seguir con su trabajo haciendo una pequeña contribución."
+
+#: src/amo/components/DismissibleTextForm/index.js:199
+msgid "Enter text."
+msgstr "Escribe el texto."
+
+#: src/amo/components/DismissibleTextForm/index.js:200
+msgid "Submit"
+msgstr "Enviar"
+
+#: src/amo/components/DismissibleTextForm/index.js:202
+msgid "Submitting"
+msgstr "Enviando"
+
+#: src/amo/components/EditableCollectionAddon/index.js:132 src/amo/components/EditableCollectionAddon/index.js:150
+msgid "Leave a note"
+msgstr "Dejar una nota"
+
+#: src/amo/components/EditableCollectionAddon/index.js:151
+msgid "Collector's note"
+msgstr "Nota del recolector"
+
+#: src/amo/components/EditableCollectionAddon/index.js:166
+msgid "Add a comment about this add-on."
+msgstr "Agregar un comentario sobre este complemento."
+
+#: src/amo/components/EditableCollectionAddon/index.js:167
+msgid "Save"
+msgstr "Guardar"
+
+#: src/amo/components/EditableCollectionAddon/index.js:188
+msgid "Edit"
+msgstr "Editar"
+
+#: src/amo/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Tu sesión ha expirado"
+
+#: src/amo/components/ErrorList/index.js:51
+msgid "An unexpected error occurred"
+msgstr "Se ha producido un error inesperado"
+
+#: src/amo/components/ErrorList/index.js:59
+msgid "Reload To Continue"
+msgstr "Recarga la página para continuar"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:27
+msgid "Page not found"
+msgstr "No se encontró la página"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:29
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "Lo sentimos, pero no hemos encontrado nada en la URL que has introducido."
+
+#: src/amo/components/ErrorPage/NotFound/index.js:35
+msgid "Error code: %(status)s."
+msgstr "Código de error: %(status)s."
+
+#: src/amo/components/Errors/AuthExpired/index.js:44
+#, fuzzy
+msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
+msgstr "Lo sentimos, pero no estás autorizado para acceder a esta página. Si no has iniciado sesión, puedes hacerlo utilizando el enlace de la parte superior de la página."
+
+#: src/amo/components/Errors/AuthExpired/index.js:68
+msgid "Login Expired"
+msgstr ""
+
+#: src/amo/components/Errors/NotAuthorized/index.js:23
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr ""
+"Si has iniciado sesión y crees que este mensaje es un error, por favor <a href=\"%(url)s\">informa del problema</a>. Dinos de dónde venías y a qué intentabas acceder, y solucionaremos el problema."
+
+#: src/amo/components/Errors/NotAuthorized/index.js:34
+msgid "Not Authorized"
+msgstr "No autorizado"
+
+#: src/amo/components/Errors/NotAuthorized/index.js:36
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Lo sentimos, pero no estás autorizado para acceder a esta página. Si no has iniciado sesión, puedes hacerlo utilizando el enlace de la parte superior de la página."
+
+#: src/amo/components/Errors/NotFound/index.js:25
+msgid ""
+"Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
+msgstr ""
+"Intenta volver a la página más tarde, puede que el tema o extensión esté disponible en unos minutos. También puedes probar a buscar entre las %(extensionStart)sextensiones%(extensionEnd)s o "
+"%(themeStart)stemas%(themeEnd)s ya disponibles o pidiendo ayuda en los %(communityStart)sforos de la comunidad%(communityEnd)s."
+
+#: src/amo/components/Errors/NotFound/index.js:78
+msgid "Oops! We can’t find that page"
+msgstr "¡Vaya! No pudimos encontrar la página"
+
+#: src/amo/components/Errors/NotFound/index.js:81
+msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
+msgstr "Si venías buscando una extensión o tema siguiendo un enlace desde otro sitio, ya no está disponible. Podría deberse a:"
+
+#: src/amo/components/Errors/NotFound/index.js:87
+msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
+msgstr "El desarrollador lo eliminó. Suelen hacerlo porque ya no siguen manteniendo la extensión o tema o porque los han reemplazado."
+
+#: src/amo/components/Errors/NotFound/index.js:92
+msgid ""
+"Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
+" developer has the opportunity to resolve the issues and make the add-on available again."
+msgstr ""
+"Mozilla lo eliminó. Suele pasar cuando se encuentran problemas durante la revisión del tema o extensión o porque va en contra de los términos y condiciones de addons.mozzila.org. El desarrollador "
+"tiene la oportunidad de resolver los problemas y que el complemento vuelva a estar disponible."
+
+#: src/amo/components/Errors/ServerError/index.js:22
+msgid ""
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
+msgstr ""
+"Si tienes información adicional que nos pueda ayudar, puedes <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">informar del problema</a>. Dinos qué pasos has seguido para llegar "
+"hasta el error y haremos todo lo posible para solucionarlo."
+
+#: src/amo/components/Errors/ServerError/index.js:30
+msgid "Server Error"
+msgstr "Error del servidor"
+
+#: src/amo/components/Errors/ServerError/index.js:32
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Lo sentimos, pero ha habido un error con nuestro servidor y no hemos podido completar tu petición. Hemos registrado el error y vamos a investigarlo."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
+#, fuzzy
+msgid ""
+"You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"%(communityStart)scommunity forums%(communityEnd)s."
+msgstr ""
+"Intenta volver a la página más tarde, puede que el tema o extensión esté disponible en unos minutos. También puedes probar a buscar entre las %(extensionStart)sextensiones%(extensionEnd)s o "
+"%(themeStart)stemas%(themeEnd)s ya disponibles o pidiendo ayuda en los %(communityStart)sforos de la comunidad%(communityEnd)s."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
+#, fuzzy
+msgid "That page is not available in your region"
+msgstr "Este complemento no está disponible en tu plataforma."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
+msgid "The page you tried to access is not available in your region."
+msgstr "La página a la que intentaste acceder no está disponible en tu región."
+
+#: src/amo/components/ExpandableCard/index.js:58
+msgid "Toggle contents"
+msgstr "Activar contenidos"
+
+#: src/amo/components/FeaturedAddonReview/index.js:78
+msgid "Response by %(userName)s"
+msgstr "Respuesta de %(userName)s"
+
+#: src/amo/components/FeaturedAddonReview/index.js:79
+msgid "Review by %(userName)s"
+msgstr "Revisado por %(userName)s"
+
+#: src/amo/components/FeaturedAddonReview/index.js:91
+msgid "The review was not found."
+msgstr "No se ha encontrado la revisión."
+
+#: src/amo/components/FeedbackForm/index.js:1014
+msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:105
+msgid "It doesn’t work, breaks websites, or slows down Firefox"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:108
+msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:113
+msgid "It’s spam"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:114
+msgid "Example: The listing advertises unrelated products or services."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:122
+msgid "It violates Add-on Policies"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:123
+msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:129
+msgid "It contains hateful, violent, deceptive, or other inappropriate content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:131
+msgid "Example: It contains racist imagery."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:135
+msgid "It violates the law or contains content that violates the law"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:139
+msgid ""
+"Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
+"article%(endLink)s)."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
+msgid "Something else"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:152
+msgid "Anything that doesn’t fit into the other categories."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:164
+msgid "Select place"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:166
+msgid "On the add-on's page on this website"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:169
+msgid "Inside the add-on"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:170
+msgid "Both locations"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:184
+msgid "Select type"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:185
+msgid "Animal welfare"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:188
+msgid "Consumer information infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:192
+msgid "Data protection and privacy violations"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:196
+msgid "Illegal or harmful speech"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:200
+msgid "Intellectual property infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:204
+msgid "Negative effects on civic discourse or elections"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:210
+msgid "Non-consensual behavior"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:214
+msgid "Pornography or sexualized content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:218
+msgid "Protection of minors"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:222
+msgid "Risk for public security"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:224
+msgid "Scams or fraud"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:225
+msgid "Self-harm"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:228
+msgid "Unsafe, non-compliant, or prohibited products"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:230
+msgid "Violence"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:231
+msgid "Other"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:239
+msgid "Select violation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:247
+msgid "Insufficient information on traders"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:251
+msgid "Non-compliance with pricing regulations"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:255
+msgid "Hidden advertisement or commercial communication, including by influencers"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:261
+msgid "Misleading information about the characteristics of the goods and services"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:267
+msgid "Misleading information about the consumer’s rights"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:280
+msgid "Biometric data breach"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:284
+msgid "Missing processing ground for data"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:288
+msgid "Right to be forgotten"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:292
+msgid "Data falsification"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:301
+msgid "Defamation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:302
+msgid "Discrimination"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:305
+msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:318
+msgid "Design infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:322
+msgid "Geographical indications infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:326
+msgid "Patent infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:330
+msgid "Trade secret infringements"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:341
+msgid "Violation of EU law relevant to civic discourse or elections"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:347
+msgid "Violation of national law relevant to civic discourse or elections"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:353
+msgid "Misinformation, disinformation, foreign information manipulation and interference"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:366
+msgid "Non-consensual image sharing"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:370
+msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:376
+msgid "Online bullying/intimidation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:378
+msgid "Stalking"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:388
+msgid "Adult sexual material"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:392
+msgid "Image-based sexual abuse (excluding content depicting minors)"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:405
+msgid "age-specific restrictions concerning minors"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:411
+msgid "Child sexual abuse material"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:415
+msgid "Grooming/sexual enticement of minors"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:426
+msgid "Illegal organizations"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:430
+msgid "Risk for environmental damage"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:434
+msgid "Risk for public health"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:438
+msgid "Terrorist content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:449
+msgid "Inauthentic accounts"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:453
+msgid "Inauthentic listings"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:457
+msgid "Inauthentic user reviews"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:461
+msgid "Impersonation or account hijacking"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:463
+msgid "Phishing"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:466
+msgid "Pyramid schemes"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:477
+msgid "Content promoting eating disorders"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:481
+msgid "Self-mutilation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:483
+msgid "Suicide"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:493
+msgid "Prohibited or restricted products"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:497
+msgid "Unsafe or non-compliant products"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:508
+msgid "Coordinated harm"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:512
+msgid "Gender-based violence"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:516
+msgid "Human exploitation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:520
+msgid "Human trafficking"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:524
+msgid "General calls or incitement to violence and/or hatred"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:671
+msgid "Report submitted"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:673
+msgid "We have received your report. Thanks for letting us know."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:768
+msgid "Submitting your report…"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:769
+msgid "Submit report"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:788
+msgid "Provide more information"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:796
+msgid "Place of the violation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:819
+msgid "Type of illegal content"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:846
+msgid "Specific violation"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:867
+msgid "Provide more details"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:879
+msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:887
+msgid "Contact information"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:903
+msgid "File report anonymously"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:906
+msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:927
+msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:930
+msgid "Your name %(spanStart)s(required)%(spanEnd)s"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:967
+msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
+msgstr ""
+
+#: src/amo/components/FeedbackForm/index.js:970
+msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:100
+msgid "Content that is illegal or that violates AMO's content policies"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:112
+msgid "Flagged"
+msgstr "Etiquetado"
+
+#: src/amo/components/FlagReviewMenu/index.js:112
+msgid "Flag"
+msgstr "Etiquetar"
+
+#: src/amo/components/FlagReviewMenu/index.js:115
+msgid "Flag this developer response"
+msgstr "Marcar esta respuesta del desarrollador"
+
+#: src/amo/components/FlagReviewMenu/index.js:116
+msgid "Flag this review"
+msgstr "Marcar esta revisión"
+
+#: src/amo/components/FlagReviewMenu/index.js:70
+msgid "Spam"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:71
+msgid "Flagged as spam"
+msgstr "Marcado como spam"
+
+#: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
+msgid "Login required"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:86
+msgid "Misplaced bug report or support request"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:87
+msgid "Flagged as misplaced bug report or support request"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:102
+msgid "Developer Policies"
+msgstr "Normativas para desarrolladores"
+
+#: src/amo/components/Footer/index.js:116
+msgid "Community Blog"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:121
+msgid "Forum"
+msgstr "Foro"
+
+#: src/amo/components/Footer/index.js:129
+msgid "Report a bug"
+msgstr "Informar de un error"
+
+#: src/amo/components/Footer/index.js:134
+msgid "Review Guide"
+msgstr "Guía de revisión"
+
+#: src/amo/components/Footer/index.js:141
+#, fuzzy
+msgid "Browsers"
+msgstr "Navegador para iOS"
+
+#: src/amo/components/Footer/index.js:186
+msgid "Products"
+msgstr "Productos"
+
+#: src/amo/components/Footer/index.js:273
+msgid "Privacy"
+msgstr "Privacidad"
+
+#: src/amo/components/Footer/index.js:281
+msgid "Cookies"
+msgstr "Cookies"
+
+#: src/amo/components/Footer/index.js:289
+msgid "Legal"
+msgstr "Legal"
+
+#: src/amo/components/Footer/index.js:300
+msgid ""
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version. Android is a trademark of Google LLC."
+msgstr ""
+
+#: src/amo/components/Footer/index.js:306
+msgid ""
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
+msgstr ""
+"A menos que se %(startNotedLink)sindique%(endNotedLink)s lo contrario, el contenido de este sitio está licenciado bajo la licencia %(startLicenseLink)sCreative Commons Reconocimiento Compartir-Igual"
+" v3.0%(endLicenseLink)s o una versión posterior."
+
+#: src/amo/components/Footer/index.js:38
+msgid "Go to Mozilla's homepage"
+msgstr "Ir a la página de inicio de Mozilla"
+
+#: src/amo/components/Footer/index.js:64
+msgid "About"
+msgstr "Acerca de"
+
+#: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
+#, fuzzy
+msgid "Firefox Add-ons Blog"
+msgstr "Acerca de los complementos de Firefox"
+
+#: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
+msgid "Extension Workshop"
+msgstr "Taller de extensiones"
+
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
+msgid "Developer Hub"
+msgstr "Central del desarrollador"
+
+#: src/amo/components/GetFirefoxBanner/index.js:123
+msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
+msgstr ""
+
+#: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
+msgid ""
+"To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:146
+#, fuzzy
+msgid "Download Firefox and get the theme"
+msgstr "Descargar Firefox"
+
+#: src/amo/components/GetFirefoxButton/index.js:147
+msgid "Download Firefox and get the extension"
+msgstr "Descarga Firefox y obtiene la extensión"
+
+#: src/amo/components/GetFirefoxButton/index.js:151
+#, fuzzy
+msgid "Download the new Firefox and get the theme"
+msgstr "Descargar Firefox"
+
+#: src/amo/components/GetFirefoxButton/index.js:152
+#, fuzzy
+msgid "Download the new Firefox and get the extension"
+msgstr "Descarga Firefox y obtiene la extensión"
+
+#: src/amo/components/GetFirefoxButton/index.js:156
+msgid "Download Firefox"
+msgstr "Descargar Firefox"
+
+#: src/amo/components/GetFirefoxButton/index.js:159
+#, fuzzy
+msgid "You'll need Firefox to use this theme"
+msgstr "Iniciar sesión para evaluar este tema"
+
+#: src/amo/components/GetFirefoxButton/index.js:160
+#, fuzzy
+msgid "You'll need Firefox to use this extension"
+msgstr "Inicia sesión para evaluar esta extensión"
+
+#: src/amo/components/GetFirefoxButton/index.js:164
+#, fuzzy
+msgid "You need an updated version of Firefox for this theme"
+msgstr "Iniciar sesión para evaluar este tema"
+
+#: src/amo/components/GetFirefoxButton/index.js:165
+#, fuzzy
+msgid "You need an updated version of Firefox for this extension"
+msgstr "Inicia sesión para evaluar esta extensión"
+
+#: src/amo/components/Header/index.js:101
+msgid "Tools"
+msgstr "Herramientas"
+
+#: src/amo/components/Header/index.js:107
+msgid "Submit a New Add-on"
+msgstr "Enviar un nuevo complemento"
+
+#: src/amo/components/Header/index.js:115
+msgid "Submit a New Theme"
+msgstr "Enviar un nuevo tema"
+
+#: src/amo/components/Header/index.js:124
+msgid "Manage My Submissions"
+msgstr "Administrar mis envíos"
+
+#: src/amo/components/Header/index.js:134
+msgid "Reviewer Tools"
+msgstr "Herramientas del revisor"
+
+#. "Firefox" should not be translated. :-)
+#: src/amo/components/Header/index.js:186
+msgid "Firefox Browser Add-ons"
+msgstr "Buscador de complementos para Firefox"
+
+#: src/amo/components/Header/index.js:214
+msgid "Learn how to create extensions and themes"
+msgstr "Descubre cómo crear extensiones y temas"
+
+#: src/amo/components/Header/index.js:224
+msgid "Submit and manage extensions and themes"
+msgstr "Enviar y administrar extensiones y temas"
+
+#: src/amo/components/Header/index.js:75
+msgid "My Account"
+msgstr "Mi cuenta"
+
+#: src/amo/components/Header/index.js:81
+msgid "View My Collections"
+msgstr "Ver Mis colecciones"
+
+#: src/amo/components/Header/index.js:89 src/amo/pages/UserProfileEdit/index.js:563
+msgid "View My Profile"
+msgstr "Ver Mi perfil"
+
+#: src/amo/components/Header/index.js:97 src/amo/pages/UserProfileEdit/index.js:569
+msgid "Edit My Profile"
+msgstr "Editar Mi perfil"
+
+#: src/amo/components/HeroRecommendation/index.js:180
+msgid "Get the extension"
+msgstr "Conseguir extensión"
+
+# If uppercase does not work in your locale, change it to lowercase.
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
+#: src/amo/components/HeroRecommendation/index.js:231
+msgid "RECOMMENDED"
+msgstr "RECOMENDADO"
+
+#. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
+#: src/amo/components/HeroRecommendation/index.js:234
+msgid "BY FIREFOX"
+msgstr "POR FIREFOX"
+
+#: src/amo/components/HeroRecommendation/index.js:236
+msgid "PROMOTED"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:253
+msgid "Firefox only recommends extensions that meet our standards for security and performance."
+msgstr "Firefox solo recomienda extensiones que cumplen nuestros estándares de seguridad y rendimiento."
+
+#: src/amo/components/HomepageShelves/index.js:75
+#, fuzzy
+msgid "See more %(categoryName)s"
+msgstr "%(categoryName)s"
+
+#: src/amo/components/HostPermissions/index.js:50
+msgid "Access your data for all websites"
+msgstr "Acceder a tus datos para todos los sitios web"
+
+#: src/amo/components/HostPermissions/index.js:53
+msgid "Access your data for sites in the %(param)s domain"
+msgstr "Acceder a tus datos en los sitios del %(param)s dominio"
+
+#: src/amo/components/HostPermissions/index.js:57
+msgid "Access your data for %(param)s"
+msgstr "Acceder a tus datos para %(param)s"
+
+#: src/amo/components/IconPromotedBadge/index.js:41 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:212
+#, fuzzy
+msgid "By Firefox"
+msgstr "para Firefox"
+
+#: src/amo/components/IconPromotedBadge/index.js:42 src/amo/components/PromotedBadge/index.js:49 src/amo/components/SearchFilters/index.js:210
+msgid "Recommended"
+msgstr "Recomendados"
+
+#: src/amo/components/InstallButtonWrapper/index.js:126
+msgid "Download file"
+msgstr "Descargar archivo"
+
+#: src/amo/components/InstallWarning/index.js:102 src/amo/components/PermissionsCard/index.js:68
+msgid "Learn more"
+msgstr "Saber más"
+
+#: src/amo/components/InstallWarning/index.js:106
+#, fuzzy
+msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
+msgstr "No es una extensión recomendada. Asegúrate de que confías en ella antes de instalarla."
+
+#: src/amo/components/LanguagePicker/index.js:52
+msgid "Change language"
+msgstr "Cambiar idioma"
+
+#: src/amo/components/Notice/index.js:154
+msgid "Dismiss this notice"
+msgstr "Ignorar este aviso"
+
+#: src/amo/components/Paginate/index.js:155
+msgid "Previous"
+msgstr "Anterior"
+
+#: src/amo/components/Paginate/index.js:174
+msgid "Next"
+msgstr "Siguiente"
+
+#: src/amo/components/Paginate/index.js:179
+msgid "Page %(thisPage)s of %(totalPages)s"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/index.js:59
+msgid "Permissions"
+msgstr "Permisos"
+
+#: src/amo/components/PermissionsCard/index.js:84
+#, fuzzy
+msgid "This add-on needs to:"
+msgstr "Este complemento puede:"
+
+#: src/amo/components/PermissionsCard/index.js:94
+#, fuzzy
+msgid "This add-on may also ask to:"
+msgstr "Este complemento puede:"
+
+#: src/amo/components/PermissionsCard/permissions.js:26
+msgid "Read and modify bookmarks"
+msgstr "Leer y modificar marcadores"
+
+#: src/amo/components/PermissionsCard/permissions.js:27
+msgid "Read and modify browser settings"
+msgstr "Leer y modificar los ajustes del navegador"
+
+#: src/amo/components/PermissionsCard/permissions.js:28
+msgid "Clear recent browsing history, cookies, and related data"
+msgstr "Limpiar el historial de navegación reciente, cookies y datos relacionados"
+
+#: src/amo/components/PermissionsCard/permissions.js:31
+msgid "Get data from the clipboard"
+msgstr "Obtener datos del portapapeles"
+
+#: src/amo/components/PermissionsCard/permissions.js:32
+msgid "Input data to the clipboard"
+msgstr "Introducir datos en el portapapeles"
+
+#: src/amo/components/PermissionsCard/permissions.js:33
+msgid "Block content on any page"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:34
+msgid "Read your browsing history"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:35
+msgid "Extend developer tools to access your data in open tabs"
+msgstr "Ampliar las herramientas para desarrolladores para acceder a tus datos en las pestañas abiertas"
+
+#: src/amo/components/PermissionsCard/permissions.js:38
+msgid "Download files and read and modify the browser’s download history"
+msgstr "Descargar archivos y leer y modificar el historial de descargas del navegador"
+
+#: src/amo/components/PermissionsCard/permissions.js:41
+msgid "Open files downloaded to your computer"
+msgstr "Abrir archivos descargados en tu equipo"
+
+#: src/amo/components/PermissionsCard/permissions.js:42
+msgid "Read the text of all open tabs"
+msgstr "Leer el texto de todas las pestañas abiertas"
+
+#: src/amo/components/PermissionsCard/permissions.js:43
+msgid "Access your location"
+msgstr "Acceder a tu ubicación"
+
+#: src/amo/components/PermissionsCard/permissions.js:44 src/amo/components/PermissionsCard/permissions.js:58
+msgid "Access browsing history"
+msgstr "Acceder al historial de navegación"
+
+#: src/amo/components/PermissionsCard/permissions.js:45
+msgid "Monitor extension usage and manage themes"
+msgstr "Monitorizar el uso de extensiones y administrar temas"
+
+#: src/amo/components/PermissionsCard/permissions.js:48
+msgid "Exchange messages with programs other than Firefox"
+msgstr "Intercambiar mensajes con otros programas"
+
+#: src/amo/components/PermissionsCard/permissions.js:51
+msgid "Display notifications to you"
+msgstr "Mostrarte notificaciones"
+
+#: src/amo/components/PermissionsCard/permissions.js:52
+msgid "Provide cryptographic authentication services"
+msgstr "Proporcionar servicios de autenticación criptográfica"
+
+#: src/amo/components/PermissionsCard/permissions.js:53
+msgid "Control browser proxy settings"
+msgstr "Controlar configuración proxy del navegador"
+
+#: src/amo/components/PermissionsCard/permissions.js:54
+msgid "Read and modify privacy settings"
+msgstr "Leer y modificar los ajustes de privacidad"
+
+#: src/amo/components/PermissionsCard/permissions.js:55
+msgid "Access recently closed tabs"
+msgstr "Acceder a las pestañas cerradas recientemente"
+
+#: src/amo/components/PermissionsCard/permissions.js:56
+msgid "Access browser tabs"
+msgstr "Acceder a las pestañas del navegador"
+
+#: src/amo/components/PermissionsCard/permissions.js:57
+msgid "Hide and show browser tabs"
+msgstr "Ocultar y mostrar pestañas del navegador"
+
+#: src/amo/components/PermissionsCard/permissions.js:59
+msgid "Store unlimited amount of client-side data"
+msgstr "Almacenar una cantidad ilimitada de datos en el lado del cliente"
+
+#: src/amo/components/PermissionsCard/permissions.js:62
+msgid "Access browser activity during navigation"
+msgstr "Acceder a la actividad del navegador mientras navegas"
+
+#: src/amo/components/PromotedBadge/index.js:42
+msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
+msgstr ""
+
+#: src/amo/components/PromotedBadge/index.js:50
+#, fuzzy
+msgid "Firefox only recommends add-ons that meet our standards for security and performance."
+msgstr "Firefox solo recomienda extensiones que cumplen nuestros estándares de seguridad y rendimiento."
+
+#: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
+msgid "Rated %(rating)s out of 5"
+msgstr "Se valoró con %(rating)s de 5"
+
+#: src/amo/components/Rating/index.js:109
+msgid "Update your rating to %(starRating)s out of 5"
+msgstr "Actualizar tu valoración a %(starRating)s de 5"
+
+#: src/amo/components/Rating/index.js:115
+msgid "Rate this add-on %(starRating)s out of 5"
+msgstr "Valorar este complemento con %(starRating)s de 5"
+
+#: src/amo/components/Rating/index.js:96
+msgid "There are no ratings yet"
+msgstr "Todavía no hay valoraciones"
+
+#: src/amo/components/RatingManager/index.js:129
+msgid "Log in to rate this dictionary"
+msgstr "Iniciar sesión para evaluar este diccionario"
+
+#: src/amo/components/RatingManager/index.js:131
+msgid "Log in to rate this language pack"
+msgstr "Iniciar sesión para evaluar este paquete de idioma"
+
+#: src/amo/components/RatingManager/index.js:133
+msgid "Log in to rate this theme"
+msgstr "Iniciar sesión para evaluar este tema"
+
+#: src/amo/components/RatingManager/index.js:135
+msgid "Log in to rate this extension"
+msgstr "Inicia sesión para evaluar esta extensión"
+
+#: src/amo/components/RatingManager/index.js:143
+msgid "Log in to rate this add-on"
+msgstr "Iniciar sesión para evaluar este complemento"
+
+#: src/amo/components/RatingManager/index.js:184
+msgid "Are you sure you want to delete your review of %(addonName)s?"
+msgstr "¿De verdad quieres eliminar tu revisión de %(addonName)s?"
+
+#: src/amo/components/RatingManager/index.js:189
+msgid "Are you sure you want to delete your rating of %(addonName)s?"
+msgstr "¿De verdad quieres eliminar tu valoración de %(addonName)s?"
+
+#: src/amo/components/RatingManager/index.js:194
+msgid "How are you enjoying %(addonName)s?"
+msgstr "¿Cuál es tu experiencia con %(addonName)s?"
+
+#: src/amo/components/RatingManager/index.js:237
+msgid "Saving star rating"
+msgstr "Guardando valoración"
+
+#: src/amo/components/RatingManager/index.js:238
+msgid "Star rating saved"
+msgstr "Se guardó la valoración"
+
+#: src/amo/components/RatingsByStar/index.js:103
+#, fuzzy
+msgid "There are no three-star reviews"
+msgstr "Todavía no hay revisiones"
+
+#: src/amo/components/RatingsByStar/index.js:108
+#, fuzzy
+msgid "Read the 1 two-star review"
+msgid_plural "Read all %(total)s two-star reviews"
+msgstr[0] "Leer todas las revisiones con 2 estrellas"
+msgstr[1] "Leer todas las revisiones con 2 estrellas"
+
+#: src/amo/components/RatingsByStar/index.js:118
+#, fuzzy
+msgid "There are no two-star reviews"
+msgstr "Todavía no hay revisiones"
+
+#: src/amo/components/RatingsByStar/index.js:123
+#, fuzzy
+msgid "Read the 1 one-star review"
+msgid_plural "Read all %(total)s one-star reviews"
+msgstr[0] "Leer todas las revisiones con 1 estrella"
+msgstr[1] "Leer todas las revisiones con 1 estrella"
+
+#: src/amo/components/RatingsByStar/index.js:133
+#, fuzzy
+msgid "There are no one-star reviews"
+msgstr "Todavía no hay revisiones"
+
+#: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:375
+msgid "There are no reviews"
+msgstr "Todavía no hay revisiones"
+
+#: src/amo/components/RatingsByStar/index.js:63
+#, fuzzy
+msgid "Read the 1 five-star review"
+msgid_plural "Read all %(total)s five-star reviews"
+msgstr[0] "Leer todas las revisiones de 5 estrellas"
+msgstr[1] "Leer todas las revisiones de 5 estrellas"
+
+#: src/amo/components/RatingsByStar/index.js:73
+#, fuzzy
+msgid "There are no five-star reviews"
+msgstr "Todavía no hay revisiones"
+
+#: src/amo/components/RatingsByStar/index.js:78
+#, fuzzy
+msgid "Read the 1 four-star review"
+msgid_plural "Read all %(total)s four-star reviews"
+msgstr[0] "Leer todas las revisiones con 4 estrellas"
+msgstr[1] "Leer todas las revisiones con 4 estrellas"
+
+#: src/amo/components/RatingsByStar/index.js:88
+#, fuzzy
+msgid "There are no four-star reviews"
+msgstr "Todavía no hay revisiones"
+
+#: src/amo/components/RatingsByStar/index.js:93
+#, fuzzy
+msgid "Read the 1 three-star review"
+msgid_plural "Read all %(total)s three-star reviews"
+msgstr[0] "Leer todas las revisiones de 3 estrellas"
+msgstr[1] "Leer todas las revisiones de 3 estrellas"
+
+#: src/amo/components/ReportAbuseButton/index.js:44
+msgid "You reported this add-on"
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:48
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
+msgstr "Hemos recibido tu notificación. Gracias por hacernos saber tus preocupaciones sobre este complemento."
+
+#: src/amo/components/ReportAbuseButton/index.js:71
+msgid "Report this add-on"
+msgstr ""
+
+#: src/amo/components/ReportUserAbuse/index.js:48
+msgid "You reported this user"
+msgstr ""
+
+#: src/amo/components/ReportUserAbuse/index.js:52
+msgid "We have received your report. Thanks for letting us know about your concerns with this user."
+msgstr "Hemos recibido tu notificación. Gracias por hacernos saber tu preocupación sobre este usuario."
+
+#: src/amo/components/ReportUserAbuse/index.js:64
+msgid "Report this user"
+msgstr ""
+
+#: src/amo/components/Search/index.js:138 src/amo/components/SearchResults/index.js:71
+msgid "Search results"
+msgstr "Resultados de la búsqueda"
+
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162 src/amo/pages/LandingPage/index.js:122
+msgid "Recommended extensions"
+msgstr "Extensiones recomendadas"
+
+#: src/amo/components/Search/index.js:147 src/amo/pages/LandingPage/index.js:154
+msgid "Recommended themes"
+msgstr "Temas recomendados"
+
+#: src/amo/components/Search/index.js:150
+msgid "Recommended add-ons"
+msgstr "Complementos recomendados"
+
+#: src/amo/components/Search/index.js:155
+#, fuzzy
+msgid "Extensions by Firefox"
+msgstr "Extensiones de %(author)s"
+
+#: src/amo/components/Search/index.js:158
+#, fuzzy
+msgid "Themes by Firefox"
+msgstr "para Firefox"
+
+#: src/amo/components/Search/index.js:161
+#, fuzzy
+msgid "Add-ons by Firefox"
+msgstr "Complementos para Firefox"
+
+#: src/amo/components/Search/index.js:166
+#, fuzzy
+msgid "Reviewed extensions"
+msgstr "Extensiones recomendadas"
+
+#: src/amo/components/Search/index.js:169
+#, fuzzy
+msgid "Reviewed themes"
+msgstr "Revisar tema"
+
+#: src/amo/components/Search/index.js:172
+#, fuzzy
+msgid "Reviewed add-ons"
+msgstr "Revisar código del complemento"
+
+#: src/amo/components/Search/index.js:180 src/amo/pages/LandingPage/index.js:132
+msgid "Trending extensions"
+msgstr "Extensiones más populares"
+
+#: src/amo/components/Search/index.js:183 src/amo/pages/LandingPage/index.js:164
+msgid "Trending themes"
+msgstr "Temas más populares"
+
+#: src/amo/components/Search/index.js:186
+msgid "Trending add-ons"
+msgstr "Complementos más populares"
+
+#: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:142
+msgid "Top rated extensions"
+msgstr "Extensiones más valoradas"
+
+#: src/amo/components/Search/index.js:195 src/amo/pages/LandingPage/index.js:173
+msgid "Top rated themes"
+msgstr "Temas más valorados"
+
+#: src/amo/components/Search/index.js:198
+msgid "Top rated add-ons"
+msgstr "Complementos mejor valorados"
+
+#: src/amo/components/Search/index.js:204
+msgid "Popular extensions"
+msgstr "Extensiones populares"
+
+#: src/amo/components/Search/index.js:207
+msgid "Popular themes"
+msgstr "Temas populares"
+
+#: src/amo/components/Search/index.js:210
+msgid "Popular add-ons"
+msgstr "Complementos populares"
+
+#: src/amo/components/Search/index.js:216
+msgid "Search results for \"%(query)s\""
+msgstr "Resultados de búsqueda de «%(query)s»"
+
+#: src/amo/components/SearchContextCard/index.js:104
+msgid "%(count)s extension found for \"%(query)s\""
+msgid_plural "%(count)s extensions found for \"%(query)s\""
+msgstr[0] "%(count)s extensión encontrada para \"%(query)s\""
+msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:113
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "%(count)s extensión encontrada en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:122
+msgid "%(count)s extension found"
+msgid_plural "%(count)s extensions found"
+msgstr[0] "%(count)s extensión encontrada"
+msgstr[1] "%(count)s extensiones encontradas"
+
+#: src/amo/components/SearchContextCard/index.js:134
+#, fuzzy
+msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s tema encontrado para \"%(query)s\" en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados para \"%(query)s\" en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:143
+msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
+msgstr[0] "%(count)s tema encontrado para \"%(query)s\" en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados para \"%(query)s\" en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:152
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s tema encontrado en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:161
+msgid "%(count)s theme found in %(categoryName)s"
+msgid_plural "%(count)s themes found in %(categoryName)s"
+msgstr[0] "%(count)s tema encontrado en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:170
+#, fuzzy
+msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "%(count)s tema encontrado para \"%(query)s\" en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados para \"%(query)s\" en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:179
+msgid "%(count)s theme found for \"%(query)s\""
+msgid_plural "%(count)s themes found for \"%(query)s\""
+msgstr[0] "%(count)s tema encontrado para \"%(query)s\""
+msgstr[1] "%(count)s temas encontrados para \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:188
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s"
+msgid_plural "%(count)s themes found with tag %(tag)s"
+msgstr[0] "%(count)s tema encontrado en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:197
+msgid "%(count)s theme found"
+msgid_plural "%(count)s themes found"
+msgstr[0] "%(count)s tema encontrado"
+msgstr[1] "%(count)s temas encontrados"
+
+#: src/amo/components/SearchContextCard/index.js:209
+#, fuzzy
+msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
+msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:218
+msgid "%(count)s result found for \"%(query)s\""
+msgid_plural "%(count)s results found for \"%(query)s\""
+msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
+msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:227
+#, fuzzy
+msgid "%(count)s result found with tag %(tag)s"
+msgid_plural "%(count)s results found with tag %(tag)s"
+msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
+msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:236
+msgid "%(count)s result found"
+msgid_plural "%(count)s results found"
+msgstr[0] "%(count)s resultado encontrado"
+msgstr[1] "%(count)s resultados encontrados"
+
+#: src/amo/components/SearchContextCard/index.js:247
+msgid "Searching for \"%(query)s\""
+msgstr "Buscando \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:251
+msgid "Searching for add-ons"
+msgstr "Buscando complementos"
+
+#: src/amo/components/SearchContextCard/index.js:59
+#, fuzzy
+msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:68
+msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:77
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:86
+msgid "%(count)s extension found in %(categoryName)s"
+msgid_plural "%(count)s extensions found in %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas en %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:95
+#, fuzzy
+msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
+
+#: src/amo/components/SearchFilters/index.js:178
+msgid "All"
+msgstr "Todos"
+
+#: src/amo/components/SearchFilters/index.js:179
+msgid "Extension"
+msgstr "Extensión"
+
+#: src/amo/components/SearchFilters/index.js:183
+msgid "Theme"
+msgstr "Tema"
+
+#: src/amo/components/SearchFilters/index.js:194
+msgid "Relevance"
+msgstr "Importancia"
+
+#: src/amo/components/SearchFilters/index.js:196
+msgid "Recently Updated"
+msgstr "Actualizados recientemente"
+
+#: src/amo/components/SearchFilters/index.js:199
+msgid "Most Users"
+msgstr "Más usuarios"
+
+#: src/amo/components/SearchFilters/index.js:200
+msgid "Top Rated"
+msgstr "Mejor valorados"
+
+#: src/amo/components/SearchFilters/index.js:201
+msgid "Trending"
+msgstr "Más popular"
+
+#: src/amo/components/SearchFilters/index.js:209
+msgid "Any"
+msgstr "Cualquiera"
+
+#: src/amo/components/SearchFilters/index.js:216
+#, fuzzy
+msgid "All Reviewed"
+msgstr "Comentario"
+
+#: src/amo/components/SearchFilters/index.js:229
+msgid "Black"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:234
+msgid "Gray"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:239
+msgid "White"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:244
+msgid "Red"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:249
+msgid "Yellow"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:254
+msgid "Green"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:259
+msgid "Cyan"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:264
+msgid "Blue"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:269
+msgid "Magenta"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:295
+msgid "Filter results"
+msgstr "Filtrar resultados"
+
+#: src/amo/components/SearchFilters/index.js:300
+msgid "Sort by"
+msgstr "Ordenar por"
+
+#: src/amo/components/SearchFilters/index.js:322
+msgid "Add-on Type"
+msgstr "Tipo de complemento"
+
+#: src/amo/components/SearchFilters/index.js:344
+msgid "Theme Color"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:391
+msgid "Clear"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:420
+msgid "Badging"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:65
+#, fuzzy
+msgid "Firefox Add-ons for Android"
+msgstr "Complementos para Android"
+
+#: src/amo/components/SearchForm/index.js:66
+#, fuzzy
+msgid "Firefox Add-ons"
+msgstr "Acerca de los complementos de Firefox"
+
+#: src/amo/components/SearchForm/index.js:89
+msgid "Go to the add-on page"
+msgstr "Ir a la página del complemento"
+
+#: src/amo/components/SearchResult/index.js:195
+msgid "No theme preview available"
+msgstr "Vista previa del tema no disponible"
+
+#: src/amo/components/SearchResult/index.js:230
+msgid "Add-on note"
+msgstr "Nota del complemento"
+
+#: src/amo/components/SearchResults/index.js:45
+msgid "Searching…"
+msgstr "Buscando…"
+
+#: src/amo/components/SearchResults/index.js:50
+msgid "No results were found for \"%(query)s\"."
+msgstr "No se encontraron resultados para \"%(query)s\"."
+
+#: src/amo/components/SearchResults/index.js:56
+msgid "No results were found."
+msgstr "No se encontró ningún resultado."
+
+#: src/amo/components/SectionLinks/index.js:112 src/amo/pages/CategoryPage/index.js:60 src/amo/pages/LandingPage/index.js:228
+msgid "Themes"
+msgstr "Temas"
+
+#: src/amo/components/SectionLinks/index.js:118
+msgid "More…"
+msgstr "Más..."
+
+#: src/amo/components/SectionLinks/index.js:122
+msgid "for Firefox"
+msgstr "para Firefox"
+
+#: src/amo/components/SectionLinks/index.js:132
+msgid "Dictionaries & Language Packs"
+msgstr "Diccionarios y paquetes de idiomas"
+
+#: src/amo/components/SectionLinks/index.js:136
+msgid "Other Browser Sites"
+msgstr "Otros sitios de navegadores"
+
+#: src/amo/components/SectionLinks/index.js:146
+msgid "Add-ons for Android"
+msgstr "Complementos para Android"
+
+#: src/amo/components/SectionLinks/index.js:96 src/amo/pages/CategoryPage/index.js:66 src/amo/pages/LandingPage/index.js:229
+msgid "Extensions"
+msgstr "Extensiones"
+
+#: src/amo/components/ShowMoreCard/index.js:162
+msgid "Expand to read more"
+msgstr "Ampliar para leer más"
+
+#: src/amo/components/ShowMoreCard/index.js:167
+msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
+msgstr "<span class=\"visually-hidden\">Expandir a </span> Leer más"
+
+#: src/amo/components/SignedInUser/index.js:31
+msgid "Signed in as %(username)s"
+msgstr ""
+
+#: src/amo/components/SiteNotices/index.js:68
+msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
+msgstr "Hay algunas funciones deshabilitadas temporalmente mientras realizamos trabajos de mantenimiento en el sitio web. Pronto volverán a estar disponibles."
+
+#: src/amo/components/SiteNotices/index.js:83
+msgid "You have been logged out."
+msgstr ""
+
+#: src/amo/components/SuggestedPages/index.js:24
+msgid "Suggested Pages"
+msgstr "Páginas sugeridas"
+
+#: src/amo/components/SuggestedPages/index.js:29
+msgid "Browse all extensions"
+msgstr "Ver todas las extensiones"
+
+#: src/amo/components/SuggestedPages/index.js:34
+msgid "Browse all themes"
+msgstr "Ver todos los temas"
+
+#: src/amo/components/SuggestedPages/index.js:38
+msgid "Add-ons Home Page"
+msgstr "Página de inicio de complementos"
+
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:182
+msgid "Preview of %(title)s"
+msgstr "Vista previa de %(title)s"
+
+#: src/amo/components/UserCollection/index.js:46
+msgid "%(total)s add-on"
+msgid_plural "%(total)s add-ons"
+msgstr[0] "%(total)s complemento"
+msgstr[1] "%(total)s complementos"
+
+#: src/amo/components/UserProfileEditPicture/index.js:100
+msgid "Do you really want to delete this picture?"
+msgstr "¿De verdad quieres eliminar esta foto?"
+
+#: src/amo/components/UserProfileEditPicture/index.js:103
+msgid "Delete This Picture"
+msgstr "Eliminar esta foto"
+
+#: src/amo/components/UserProfileEditPicture/index.js:51
+msgid "Profile picture for %(name)s"
+msgstr "Foto del perfil de %(name)s"
+
+#: src/amo/components/UserProfileEditPicture/index.js:61
+msgid "Profile photo"
+msgstr "Foto del perfil"
+
+#: src/amo/components/UserProfileEditPicture/index.js:90
+msgid "Choose Photo…"
+msgstr "Elegir foto..."
+
+#: src/amo/components/UserReview/index.js:99
+msgid "Developer response"
+msgstr "Respuesta del desarrollador"
+
+#: src/amo/components/VPNPromoBanner/index.js:178
+msgid "Save 50% with a full year subscription"
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:179
+msgid "Protect your online data—and choose a VPN subscription plan that works for you."
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:206
+msgid "Get Mozilla VPN"
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:100
+msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:89
+#, fuzzy
+msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
+msgstr "Este complemento no es compatible con tu versión de Firefox."
+
+#: src/amo/i18n/utils.js:263
+msgid "%(localizedSize)s B"
+msgstr "%(localizedSize)s B"
+
+#: src/amo/i18n/utils.js:265
+msgid "%(localizedSize)s KB"
+msgstr "%(localizedSize)s KB"
+
+#: src/amo/i18n/utils.js:267
+msgid "%(localizedSize)s MB"
+msgstr "%(localizedSize)s MB"
+
+#: src/amo/i18n/utils.js:269
+msgid "%(localizedSize)s GB"
+msgstr "%(localizedSize)s GB"
+
+#: src/amo/i18n/utils.js:271
+msgid "%(localizedSize)s TB"
+msgstr "%(localizedSize)s TB"
+
+#: src/amo/pages/Addon/index.js:211
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr "No se puede calificar este complemento porque aún no se ha publicado ninguna versión."
+
+#: src/amo/pages/Addon/index.js:222
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "Leer %(count)s revisiones"
+msgstr[1] "Leer las %(count)s revisiones"
+
+#: src/amo/pages/Addon/index.js:243
+msgid "No reviews yet"
+msgstr "Aún no hay revisiones"
+
+#: src/amo/pages/Addon/index.js:253
+msgid "Rate your experience"
+msgstr "Califica tu experiencia"
+
+#: src/amo/pages/Addon/index.js:272
+msgid "About this dictionary"
+msgstr "Sobre este diccionario"
+
+#: src/amo/pages/Addon/index.js:275
+msgid "About this extension"
+msgstr "Sobre esta extensión"
+
+#: src/amo/pages/Addon/index.js:278
+msgid "About this language pack"
+msgstr "Sobre este paquete de idioma"
+
+#: src/amo/pages/Addon/index.js:281
+msgid "About this theme"
+msgstr "Sobre este tema"
+
+#: src/amo/pages/Addon/index.js:284
+msgid "About this add-on"
+msgstr "Sobre este complemento"
+
+#: src/amo/pages/Addon/index.js:328
+#, fuzzy
+msgid "Developer comments"
+msgstr "Normativas para desarrolladores"
+
+#: src/amo/pages/Addon/index.js:351
+msgid "Release notes for %(addonVersion)s"
+msgstr "Notas de prensa para %(addonVersion)s"
+
+#: src/amo/pages/Addon/index.js:506
+msgid "This is not a public listing. You are only seeing it because of elevated permissions."
+msgstr "Esta lista no es pública. La puedes ver porque tienes permisos elevados."
+
+#: src/amo/pages/Addon/index.js:530
+msgid "Extension Metadata"
+msgstr "Metadata de la extensión"
+
+#: src/amo/pages/Addon/index.js:555
+msgid "Screenshots"
+msgstr "Capturas de pantalla"
+
+#: src/amo/pages/AddonFeedback/index.js:88
+msgid "Submit feedback or report an add-on to Mozilla"
+msgstr ""
+
+#: src/amo/pages/AddonInfo/index.js:152
+msgid "Custom License for %(addonName)s"
+msgstr "Licencia personalizada para %(addonName)s"
+
+#: src/amo/pages/AddonInfo/index.js:164
+msgid "End-User License Agreement for %(addonName)s"
+msgstr "Acuerdo de licencia de usuario final para %(addonName)s"
+
+#: src/amo/pages/AddonInfo/index.js:168
+msgid "Privacy policy for %(addonName)s"
+msgstr "Aviso de privacidad para %(addonName)s"
+
+#: src/amo/pages/AddonReviewList/index.js:199
+msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
+msgstr "Revisiones y valoraciones de %(addonName)s. Descubre la opinión de otros usuarios sobre %(addonName)s y agrégalo a Firefox."
+
+#: src/amo/pages/AddonReviewList/index.js:234
+msgid "Show all reviews"
+msgstr "Mostrar todas las revisiones"
+
+#: src/amo/pages/AddonReviewList/index.js:236
+msgid "Show only five-star reviews"
+msgstr "Mostrar solo las revisiones con 5 estrellas"
+
+#: src/amo/pages/AddonReviewList/index.js:237
+msgid "Show only four-star reviews"
+msgstr "Mostrar solo las revisiones con 4 estrellas"
+
+#: src/amo/pages/AddonReviewList/index.js:239
+msgid "Show only three-star reviews"
+msgstr "Mostrar solo las revisiones con 3 estrellas"
+
+#: src/amo/pages/AddonReviewList/index.js:241
+msgid "Show only two-star reviews"
+msgstr "Mostrar solo las revisiones con 2 estrellas"
+
+#: src/amo/pages/AddonReviewList/index.js:242
+msgid "Show only one-star reviews"
+msgstr "Mostrar solo las revisiones con 1 estrella"
+
+#: src/amo/pages/AddonReviewList/index.js:263
+msgid "Reviews for %(addonName)s"
+msgstr "Revisiones de %(addonName)s"
+
+#: src/amo/pages/AddonReviewList/index.js:273
+msgid "%(total)s review"
+msgid_plural "%(total)s reviews"
+msgstr[0] "%(total)s revisión"
+msgstr[1] "%(total)s revisiones"
+
+#: src/amo/pages/AddonVersions/index.js:132
+msgid "%(addonName)s version history - %(total)s version"
+msgid_plural "%(addonName)s version history - %(total)s versions"
+msgstr[0] "Historial de versiones de %(addonName)s - %(total)s versión"
+msgstr[1] "Historial de versiones de %(addonName)s - %(total)s versiones"
+
+#: src/amo/pages/AddonVersions/index.js:166
+msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
+msgstr "¡Ten cuidad con las versiones antiguas! Se suelen mostrar para pruebas y a modo de referencia."
+
+#: src/amo/pages/AddonVersions/index.js:172
+msgid "You should always use the latest version of an add-on."
+msgstr "Deberías usar siempre la última versión disponible de un complemento."
+
+#: src/amo/pages/AddonVersions/index.js:186
+msgid "Versions"
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:198
+msgid "Latest version"
+msgstr "Última versión"
+
+#: src/amo/pages/AddonVersions/index.js:208
+msgid "Older versions"
+msgstr "Versiones antiguas"
+
+#: src/amo/pages/Block/index.js:123
+msgid "%(addonName)s is restricted for violating Mozilla policies"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:130
+msgid "This add-on is restricted for violating Mozilla policies"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:137
+msgid "%(addonName)s is blocked for violating Mozilla policies"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:144
+msgid "This add-on is blocked for violating Mozilla policies"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:158
+msgid "Why did this happen?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:163
+msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:175
+msgid "What does this mean?"
+msgstr "¿Qué significa esto?"
+
+#: src/amo/pages/Block/index.js:178
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
+"They may choose to enable the add-on again at their own risk."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:183
+msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:189
+msgid "How does Mozilla enforce its policies?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:194
+msgid ""
+"When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:97
+msgid "View block request"
+msgstr "Ver solicitud de bloqueo"
+
+#: src/amo/pages/CategoriesPage/index.js:35
+msgid "All extension categories"
+msgstr "Todas las categorías de extensiones"
+
+#: src/amo/pages/CategoriesPage/index.js:37
+msgid "All theme categories"
+msgstr "Todas las categorías de temas"
+
+#: src/amo/pages/CategoryPage/index.js:57
+#, fuzzy
+msgid "Themes in %(categoryName)s"
+msgstr "%(categoryName)s"
+
+#: src/amo/pages/CategoryPage/index.js:63
+#, fuzzy
+msgid "Extensions in %(categoryName)s"
+msgstr "%(count)s extensión encontrada en %(categoryName)s"
+
+#: src/amo/pages/Collection/index.js:404
+msgid "Do you really want to delete this collection?"
+msgstr "¿Estás seguro de que quieres eliminar esta colección?"
+
+#: src/amo/pages/Collection/index.js:407
+msgid "Delete this collection"
+msgstr "Eliminar esta colección"
+
+#: src/amo/pages/Collection/index.js:423
+msgid "You reported this collection"
+msgstr ""
+
+#: src/amo/pages/Collection/index.js:427
+msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
+msgstr ""
+
+#: src/amo/pages/Collection/index.js:441
+msgid "Report this collection"
+msgstr ""
+
+#: src/amo/pages/Collection/index.js:460
+msgid "Log in to create a collection"
+msgstr "Inicia sesión para crear una colección"
+
+#: src/amo/pages/Collection/index.js:461
+msgid "Log in to edit this collection"
+msgstr "Inicia sesión para editar esta colección"
+
+#: src/amo/pages/Collection/index.js:495
+msgid "First, create your collection. Then you can add extensions and themes."
+msgstr "Primero, crea una colección. Después podrás añadir extensiones y temas."
+
+#: src/amo/pages/Collection/index.js:498
+msgid "Search for extensions and themes to add to your collection."
+msgstr "Busca extensiones y temas para añadirlos a tu colección."
+
+#: src/amo/pages/Collection/index.js:559
+msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
+msgstr "Descarga y crea colecciones de Firefox para estar al tanto de tus extensiones y temas favoritos. Descubre %(collectionName)s—%(collectionDescription)s."
+
+#: src/amo/pages/Collection/index.js:562
+msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
+msgstr "Descarga y crea colecciones de Firefox para estar al tanto de tus extensiones y temas favoritos. Descubre %(collectionName)s."
+
+#: src/amo/pages/CollectionFeedback/index.js:129
+msgid "Submit feedback or report a collection to Mozilla"
+msgstr ""
+
+#: src/amo/pages/CollectionFeedback/index.js:144
+msgid "by %(authorName)s"
+msgstr ""
+
+#: src/amo/pages/CollectionFeedback/index.js:171
+msgid "Report this collection to Mozilla"
+msgstr ""
+
+#: src/amo/pages/CollectionFeedback/index.js:172
+msgid "Send some feedback about the collection"
+msgstr ""
+
+#: src/amo/pages/CollectionFeedback/index.js:175
+msgid "Report the collection because it's illegal or incompliant"
+msgstr ""
+
+#: src/amo/pages/CollectionList/index.js:105
+msgid "My collections"
+msgstr "Mis colecciones"
+
+#: src/amo/pages/CollectionList/index.js:123
+msgid "Collections"
+msgstr "Colecciones"
+
+#: src/amo/pages/CollectionList/index.js:128
+msgid "Log in to view your collections"
+msgstr "Inicia sesión para ver tus colecciones"
+
+#: src/amo/pages/CollectionList/index.js:133
+msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
+msgstr "Con las colecciones es muy fácil seguirle el rastro a tus complementos favoritos y compartir con otros tu navegador perfectamente personalizado."
+
+#: src/amo/pages/CollectionList/index.js:143
+msgid "Create a collection"
+msgstr "Crear una colección"
+
+#: src/amo/pages/CollectionList/index.js:70
+msgid "You do not have any collections."
+msgstr "No tienes ninguna colección."
+
+#: src/amo/pages/Home/index.js:104
+msgid "Music"
+msgstr "Música"
+
+#: src/amo/pages/Home/index.js:109
+msgid "Seasonal"
+msgstr "Estacional"
+
+#: src/amo/pages/Home/index.js:141
+msgid "Firefox for Android extensions"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:144
+msgid "Personalize Firefox for Android with powerful extensions."
+msgstr ""
+
+#: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
+msgid "See more recommended extensions"
+msgstr "Ver más extensiones recomendadas"
+
+#: src/amo/pages/Home/index.js:180
+msgid "Explore all Android extensions"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
+msgid "See more trending extensions"
+msgstr "Ver más extensiones de moda"
+
+#: src/amo/pages/Home/index.js:199
+msgid "Change the way Firefox looks with themes."
+msgstr "Cambia la apariencia de Firefox con los temas."
+
+#: src/amo/pages/Home/index.js:208
+msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
+msgstr "Descarga extensiones y temas de Firefox. Son como aplicaciones para tu navegador. Pueden bloquear anuncios molestos, proteger contraseñas, cambiar la apariencia del navegador y mucho más."
+
+#: src/amo/pages/Home/index.js:84
+msgid "Abstract"
+msgstr "Abstracto"
+
+#: src/amo/pages/Home/index.js:89
+msgid "Nature"
+msgstr "Naturaleza"
+
+#: src/amo/pages/Home/index.js:94
+msgid "Film & TV"
+msgstr "Películas y TV"
+
+#: src/amo/pages/Home/index.js:99
+msgid "Scenery"
+msgstr "Vistas"
+
+#: src/amo/pages/LandingPage/index.js:151
+msgid "See more top rated extensions"
+msgstr "Ver más extensiones mejor valoradas"
+
+#: src/amo/pages/LandingPage/index.js:163
+msgid "See more recommended themes"
+msgstr "Ver más temas recomendados"
+
+#: src/amo/pages/LandingPage/index.js:172
+msgid "See more trending themes"
+msgstr "Ver más temas de moda"
+
+#: src/amo/pages/LandingPage/index.js:181
+msgid "See more top rated themes"
+msgstr "Ver más temas más valorados"
+
+#: src/amo/pages/LandingPage/index.js:205
+msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
+msgstr "Descarga temas para cambiar la apariencia de Firefox. Combina tu experiencia con tus gustos. Robots malvados, gatitos, paisajes alucinantes... tienes miles de opciones."
+
+#: src/amo/pages/LandingPage/index.js:210
+msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
+msgstr ""
+"Descarga extensiones de Firefox para agregar funciones y personalizar tu navegación. Protege tus contraseñas, busca ofertas, mejora la calidad de los vídeos, bloquea anuncios molestos y mucho más "
+"con aplicaciones para el navegador."
+
+#: src/amo/pages/LandingPage/index.js:232
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Cambia la apariencia de tu navegador. Elije entre miles de temas y dale a Firefox la apariencia que desees."
+
+#: src/amo/pages/LandingPage/index.js:234
+msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
+msgstr "Descubre potentes herramientas y funciones para personalizar Firefox y hacer tuyo tu navegador."
+
+#: src/amo/pages/LandingPage/index.js:274
+msgid "Explore all categories"
+msgstr "Explorar todas las categorías"
+
+#: src/amo/pages/LanguageTools/index.js:118
+msgid "Available for your locale"
+msgstr "Disponible para tu idioma"
+
+#: src/amo/pages/LanguageTools/index.js:145
+msgid "Dictionaries and Language Packs"
+msgstr "Diccionarios y paquetes de idiomas"
+
+#: src/amo/pages/LanguageTools/index.js:155
+msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
+msgstr "Descarga extensiones de Firefox sobre diccionarios y paquetes de idiomas. Agrega una nueva opción de idioma a tu corrector ortográfico o cambia el idioma de la interfaz del navegador."
+
+#: src/amo/pages/LanguageTools/index.js:166
+msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
+msgstr "Si instalas un diccionario se agregará una nueva opción de idioma a tu corrector, que comprobará tu ortografía cada vez que escribas en Firefox."
+
+#: src/amo/pages/LanguageTools/index.js:171
+msgid "Language packs change your browser's interface language, including menu options and settings."
+msgstr "Los paquetes de idiomas cambian el idioma de la interfaz del navegador, incluidas las opciones del menú y los ajustes."
+
+#: src/amo/pages/LanguageTools/index.js:178
+msgid "All Locales"
+msgstr "Todos los idiomas"
+
+#: src/amo/pages/LanguageTools/index.js:185
+msgid "Locale Name"
+msgstr "Nombre del idioma"
+
+#: src/amo/pages/LanguageTools/index.js:188
+msgid "Language Packs"
+msgstr "Paquetes de idioma"
+
+#: src/amo/pages/LanguageTools/index.js:191
+msgid "Dictionaries"
+msgstr "Diccionarios"
+
+#: src/amo/pages/RatingFeedback/index.js:125
+msgid "Submit feedback or report a review to Mozilla"
+msgstr ""
+
+#: src/amo/pages/RatingFeedback/index.js:155
+msgid "by %(userName)s, %(timestamp)s"
+msgstr ""
+
+#: src/amo/pages/RatingFeedback/index.js:171
+msgid "Report this review to Mozilla"
+msgstr ""
+
+#: src/amo/pages/RatingFeedback/index.js:175
+msgid "Report the review because it is illegal or incompliant"
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:119
+msgid ""
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
+"APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+msgstr ""
+"¿Quieres interactuar con addons.mozilla.org (AMO) en términos de programación? Consulta la %(startAddonsServerDocumentation)sdocumentación de los servidores de "
+"complementos%(endAddonsServerDocumentation)s para obtener más detalles sobre las APIs que usan AMO y el %(startAddonsManager)sAdministrador de complementos%(endAddonsManager)s."
+
+#: src/amo/pages/StaticPages/About/index.js:140
+msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
+msgstr "Si quieres colaborar pero no tienes un perfil tan técnico, existen otras formas de hacerlo:"
+
+#: src/amo/pages/StaticPages/About/index.js:149
+msgid "Participate in our %(startLink)sforum%(endLink)s."
+msgstr "Participar en nuestro %(startLink)sforo%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:162
+msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
+msgstr "Dejar comentarios en tus complementos favoritos. Los autores de complementos siempre están dispuestos a mejorarlos y crear nuevos cuando saben que la gente valora su trabajo."
+
+#: src/amo/pages/StaticPages/About/index.js:167
+msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
+msgstr "Contarle a amigos y familiares que Firefox es un navegador rápido y seguro que protege su privacidad y ¡que pueden utilizar complementos para personalizarlo!"
+
+#: src/amo/pages/StaticPages/About/index.js:175
+msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
+msgstr "Para ver otras formas de colaborar con la comunidad de complementos, visita nuestra %(startLink)swiki%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:189
+#, fuzzy
+msgid "Report an issue"
+msgstr "Informar de un error"
+
+#: src/amo/pages/StaticPages/About/index.js:19
+msgid "About Firefox Add-ons"
+msgstr "Acerca de los complementos de Firefox"
+
+#: src/amo/pages/StaticPages/About/index.js:194
+msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:20
+msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
+msgstr "El sitio web oficial de Mozilla para descargar extensiones y temas de Firefox. Agrega nuevas funciones y cambia la apariencia del navegador para personalizar tu experiencia web."
+
+#: src/amo/pages/StaticPages/About/index.js:210
+msgid ""
+"To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
+"admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:232
+msgid "Get support"
+msgstr "Obtener ayuda"
+
+#: src/amo/pages/StaticPages/About/index.js:237
+msgid ""
+"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
+"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
+msgstr ""
+"Si quieres saber más sobre cómo gestionamos los complementos en Firefox o necesitas ayuda en general, visita la %(startSUMOLink)sAyuda%(endSUMOLink)s de Mozilla. Si no encuentras tu respuesta, "
+"siempre puedes %(startForumLink)spreguntar en el foro de la comunidad.%(endForumLink)s"
+
+#: src/amo/pages/StaticPages/About/index.js:258
+msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
+msgstr "%(startLink)sAquí encontrarás información sobre cómo ponerte en contacto con el equipo de complementos de Mozilla%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:27
+msgid ""
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
+"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
+msgstr ""
+"Addons.mozilla.org (AMO) es el sitio oficial de Mozilla para descubrir e instalar complementos en Firefox. Los complementos te ayudan a modificar y personalizar tu experiencia de navegación "
+"agregando nuevas funciones a Firefox, mejorando tu interacción con el contenido web y cambiando la apariencia de tu navegador."
+
+#: src/amo/pages/StaticPages/About/index.js:37
+msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
+msgstr "Si buscas complementos para Thunderbird o SeaMonkey, vista la página %(startTBLink)saddons.thunderbird.net%(endTBLink)s o %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:54
+msgid "A community of creators"
+msgstr "Una comunidad de creadores"
+
+#: src/amo/pages/StaticPages/About/index.js:56
+msgid ""
+"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
+"been automatically published and may be subject to review by a team of editors once publicly listed."
+msgstr ""
+"Los complementos que aparecen aquí los han creado miles de desarrolladores y diseñadores de temas de todo el mundo, desde usuarios aficionados hasta grandes corporaciones. Puede que algunos "
+"complementos se publiquen automáticamente en AMO y estén sujetos a revisión por parte del equipo de revisores una vez publicado."
+
+#: src/amo/pages/StaticPages/About/index.js:65
+msgid "Get involved"
+msgstr "Involúcrate"
+
+#: src/amo/pages/StaticPages/About/index.js:67
+msgid ""
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
+"the following ways:"
+msgstr ""
+"Mozilla es un héroe de Internet sin ánimo de lucro. Creamos Firefox para que Internet siga siendo saludable, gratis y accesible. Los complementos apoyan las elecciones de los usuarios y la "
+"personalización de Firefox y puedes colaborar así:"
+
+#: src/amo/pages/StaticPages/About/index.js:77
+msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
+msgstr "%(startLink)sCrea tu propio complemento%(endLink)s. Te proporcionamos alojamiento gratuito y servicios de actualización y te ayudamos a llegar al mayor número de usuarios."
+
+#: src/amo/pages/StaticPages/About/index.js:93
+msgid ""
+"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
+"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
+msgstr ""
+"Ayuda a mejorar esta página. Es de código abierto y puedes enviar informes de error y parches. Puedes iniciar con un %(startGoodFirstBugLink)sbuen primer error%(endGoodFirstBugLink)s o ver todos los"
+" que haya abierto sobre el %(startAddonsServerRepoLink)sservidor%(endAddonsServerRepoLink)s de AMO y el %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s en Github."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:101
+msgid "Include your own or anyone else’s email, phone number, or other personal details."
+msgstr "Incluir tu dirección de correo o la de otra persona, número de teléfono o cualquier otra información personal."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:106
+msgid "Post reviews for an add-on you or your organization wrote or represent."
+msgstr "Comentarios a posteriori sobre un complemento que tú o tu organización creásteis o representáis."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:111
+msgid ""
+"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
+"add-on, or the add-on requires gathering data to function."
+msgstr ""
+"Criticar un complemento por su propia función. Por ejemplo, dejar un comentario negativo sobre un complemento por incluir publicidad o recopilación de información cuando ese es el propio objetivo "
+"del complemento o necesita esa información para ejecutarse."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
+msgid "Frequently Asked Questions about Reviews"
+msgstr "Preguntas más frecuentes sobre las revisiones"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:122
+msgid "How can I report a problematic review?"
+msgstr "¿Cómo puedo informar de una revisión problemática?"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:124
+msgid ""
+"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
+"evaluate whether or not to delete the review or restore it back to the site."
+msgstr ""
+"Informa o marca cualquier comentario dudoso a través de la opción \"Denunciar este comentario\" y se le someterá a una investigación. Nuestro equipo de moderación lo evaluará confirme a las Normas "
+"de revisión para determinar si eliminarlo o volver a publicarlo."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:131
+msgid "I'm an add-on author, can I respond to reviews?"
+msgstr "Soy un autor de complemento, ¿puedo responder a los comentarios?"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:137
+msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
+msgstr "Sí, los autores pueden responder una sola vez a los comentarios. Puedes crear un tema de discusión en nuestro %(startLink)sforo%(endLink)s para iniciar una conversación o seguimiento."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
+msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
+msgstr "Soy un autor de complemento, ¿puedo eliminar comentarios o revisiones negativas?"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:156
+msgid ""
+"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
+"valid due to a new release of your add-on, we may consider deleting the review."
+msgstr ""
+"En general, no. Pero si el comentario no cumple con las normas expuestas más arriba, puedes hacer clic en \"Denunciar este comentario\" y se investigará. Si un comentario incluye una queja que ya no"
+" es válida tras el lanzamiento de una nueva versión del complemento, puede que eliminemos ese comentario."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:19
+msgid "Review Guidelines"
+msgstr "Directrices de revisión"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:20
+msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
+msgstr "Guías, consejos y preguntas más frecuentes para dejar tu opinión sobre los temas y extensiones que has descargado y usado en Firefox."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:28
+msgid ""
+"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
+" with these guidelines."
+msgstr ""
+"Tus comentarios sobre los complementos son una forma de compartir tu opinión sobre los complementos que has instalado y usado. Nuestro equipo de moderación se reserva el derecho para rechazar y "
+"eliminar todo lo que no cumpla con estas normas."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:33
+msgid "Tips for writing a great review"
+msgstr "Consejos para escribir una excelente reseña"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:34
+msgid "Do:"
+msgstr "Sí:"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:37
+msgid "Write like you are telling a friend about your experience with the add-on."
+msgstr "Escribe como si le contaras a un amigo tu experiencia con el complemento."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
+msgid "Keep reviews concise and easy to understand."
+msgstr "Mantén las reseñas concisas y fáciles de entender."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:45
+msgid "Give specific and helpful details. For example:"
+msgstr "Da detalles específicos y útiles. Por ejemplo:"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:50
+msgid "Did the add-on work as you expected it to?"
+msgstr "¿El complemento funcionó como esperabas?"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:53
+msgid "What features did you like or dislike?"
+msgstr "¿Qué características te gustaron o cuáles no?"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:55
+msgid "Was it useful?"
+msgstr "¿Ha sido útil?"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
+msgid "Was it easy to use?"
+msgstr "¿Ha sido fácil de usar?"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:58
+msgid "Will you continue to use this add-on?"
+msgstr "¿Seguirás utilizando este complemento?"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:63
+msgid "Take a moment to read your review before submitting it to minimize typos."
+msgstr "Tómate un momento para leer tu reseña antes de enviarla para minimizar los errores tipográficos."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:68
+msgid "Don't:"
+msgstr "No:"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:71
+msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
+msgstr "Envíes reseñas de una sola palabra, como \"¡Genial!\", \"maravilloso\" o \"malo\"."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:76
+msgid ""
+"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
+" on the add-on's detail page."
+msgstr ""
+"Problemas técnicos a posteriori, solicitudes de ayuda o sugerencia de funciones. Para ello, utiliza las opciones disponibles para cada complemento, que podrás encontrar en la sección \"Más "
+"información\", en la barra lateral de la página de cada complemento."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:81
+msgid "Write reviews for add-ons which you have not personally used."
+msgstr "Escribir opiniones sobre los complementos que no has usado."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:86
+msgid "Use profanity, sexual language or language that can be construed as hateful."
+msgstr "Utilizar idioma sexual o que pueda ser considerado como de odio."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:91
+msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
+msgstr "Incluir HTML, enlaces, código fuente o snippets. Los comentarios solo deben ser de texto."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:96
+msgid "Make false statements, disparage add-on authors or personally insult them."
+msgstr "Hacer alegaciones falsas, denigrar o insultar a los autores de complementos."
+
+#: src/amo/pages/TagPage/index.js:43
+msgid "Add-ons tagged with %(tag)s"
+msgstr ""
+
+#: src/amo/pages/UserFeedback/index.js:124
+msgid "Submit feedback or report a user to Mozilla"
+msgstr ""
+
+#: src/amo/pages/UserFeedback/index.js:143 src/amo/pages/UserProfile/index.js:381
+msgid "User since"
+msgstr "Usuario desde"
+
+#: src/amo/pages/UserFeedback/index.js:154
+msgid "Report this user to Mozilla"
+msgstr ""
+
+#: src/amo/pages/UserFeedback/index.js:155
+msgid "Send some feedback about the user profile"
+msgstr ""
+
+#: src/amo/pages/UserFeedback/index.js:158
+msgid "Report the user profile because it's illegal or incompliant"
+msgstr ""
+
+#: src/amo/pages/UserProfile/index.js:242
+msgid "My reviews"
+msgstr "Mis revisiones"
+
+#: src/amo/pages/UserProfile/index.js:270
+msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
+msgstr "El perfil de %(user)s, autor de una extensión y un tema de Firefox. Encuentra otras aplicaciones de %(user)s, incluida la valoración media y la opción de informar de problemas."
+
+#: src/amo/pages/UserProfile/index.js:274
+msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
+msgstr "El perfil de %(user)s, autor de una extensión de Firefox. Encuentra otras aplicaciones de %(user)s, incluida la valoración media y la opción de informar de problemas."
+
+#: src/amo/pages/UserProfile/index.js:278
+msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
+msgstr "El perfil de %(user)s, autor de un tema de Firefox. Encuentra otras aplicaciones de %(user)s, incluida la valoración media y la opción de informar de problemas."
+
+#: src/amo/pages/UserProfile/index.js:308
+#, fuzzy
+msgid "User Avatar"
+msgstr "Laser Cat"
+
+#: src/amo/pages/UserProfile/index.js:315
+msgid "Add-ons developer"
+msgstr "Desarrollador del complemento"
+
+#: src/amo/pages/UserProfile/index.js:321
+msgid "Theme artist"
+msgstr "Creador del tema"
+
+#: src/amo/pages/UserProfile/index.js:335 src/amo/pages/UserProfileEdit/index.js:551
+msgid "User Profile for %(user)s"
+msgstr "Perfil del usuario %(user)s"
+
+#: src/amo/pages/UserProfile/index.js:338
+msgid "User Profile"
+msgstr "Perfil del usuario"
+
+#: src/amo/pages/UserProfile/index.js:366 src/amo/pages/UserProfileEdit/index.js:693
+msgid "Location"
+msgstr "Ubicación"
+
+#: src/amo/pages/UserProfile/index.js:374 src/amo/pages/UserProfileEdit/index.js:708
+msgid "Occupation"
+msgstr "Profesión"
+
+#: src/amo/pages/UserProfile/index.js:391
+msgid "Number of add-ons"
+msgstr "Número de complementos"
+
+#: src/amo/pages/UserProfile/index.js:397
+msgid "Average rating of developer’s add-ons"
+msgstr "Valoración media de los complementos del desarrollador"
+
+#: src/amo/pages/UserProfile/index.js:412 src/amo/pages/UserProfileEdit/index.js:730
+msgid "Biography"
+msgstr "Biografía"
+
+#: src/amo/pages/UserProfile/index.js:436
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#. This action allows an admin to maintain a user.
+#: src/amo/pages/UserProfile/index.js:449
+msgid "Admin user"
+msgstr "Usuario administrador"
+
+#: src/amo/pages/UserProfileEdit/index.js:211
+msgid "Picture successfully deleted"
+msgstr "Se eliminó correctamente la foto"
+
+#: src/amo/pages/UserProfileEdit/index.js:459
+msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
+msgstr "Cuéntale a los usuarios algo más sobre ti. Estos campos no son obligatorios, pero ayudarán a los demás usuarios a conocerte mejor."
+
+#: src/amo/pages/UserProfileEdit/index.js:463
+msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
+msgstr "Cuéntale a los usuarios algo más sobre este usuario. Estos campos no son obligatorios, pero ayudarán a los demás usuarios a conocer mejor a %(userName)s."
+
+#: src/amo/pages/UserProfileEdit/index.js:478
+msgid "Introduce yourself to the community if you like"
+msgstr "Si quieres, preséntate en la comunidad"
+
+#: src/amo/pages/UserProfileEdit/index.js:479
+msgid "Introduce %(userName)s to the community"
+msgstr "Introduce a %(userName)s en la comunidad"
+
+#: src/amo/pages/UserProfileEdit/index.js:505
+msgid "Log in to edit the profile"
+msgstr "Iniciar sesión para editar perfil"
+
+#: src/amo/pages/UserProfileEdit/index.js:527
+msgid "Creating your profile…"
+msgstr "Creando tu perfil…"
+
+#: src/amo/pages/UserProfileEdit/index.js:528
+msgid "Create My Profile"
+msgstr "Crear mi perfil"
+
+#: src/amo/pages/UserProfileEdit/index.js:532
+msgid "Updating your profile…"
+msgstr "Actualizando tu perfil…"
+
+#: src/amo/pages/UserProfileEdit/index.js:533
+msgid "Update My Profile"
+msgstr "Actualizar mi perfil"
+
+#: src/amo/pages/UserProfileEdit/index.js:536
+msgid "Updating profile…"
+msgstr "Actualizando perfil…"
+
+#: src/amo/pages/UserProfileEdit/index.js:537
+msgid "Update Profile"
+msgstr "Actualizar perfil"
+
+#: src/amo/pages/UserProfileEdit/index.js:564
+msgid "View user's profile"
+msgstr "Ver perfil del usuario"
+
+#: src/amo/pages/UserProfileEdit/index.js:570
+msgid "Edit user's profile"
+msgstr "Editar perfil del usuario"
+
+#: src/amo/pages/UserProfileEdit/index.js:588
+msgid "Account"
+msgstr "Cuenta"
+
+#: src/amo/pages/UserProfileEdit/index.js:589
+msgid "Account for %(userName)s"
+msgstr "Cuenta de %(userName)s"
+
+#: src/amo/pages/UserProfileEdit/index.js:596
+msgid "Email Address"
+msgstr "Dirección de correo electrónico"
+
+#: src/amo/pages/UserProfileEdit/index.js:604
+msgid "Email address cannot be changed here"
+msgstr "Aquí no se puede cambiar la dirección de correo electrónico"
+
+#: src/amo/pages/UserProfileEdit/index.js:615
+msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:634
+msgid "Manage Mozilla accounts…"
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:642
+msgid "Profile"
+msgstr "Perfil"
+
+#: src/amo/pages/UserProfileEdit/index.js:651
+msgid "This field is required"
+msgstr "Este campo es obligatorio"
+
+#. the star is used to indicate a required field
+#: src/amo/pages/UserProfileEdit/index.js:655
+msgid "Display Name *"
+msgstr "Nombre para mostrar *"
+
+#: src/amo/pages/UserProfileEdit/index.js:688
+msgid "This URL will only be visible for users who are developers."
+msgstr "Esta URL solo será visible para los usuarios que sean desarrolladores."
+
+#: src/amo/pages/UserProfileEdit/index.js:745
+msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
+msgstr "Es compatible con algún HTML: %(htmlTags)s. Los enlaces están prohibidos."
+
+#: src/amo/pages/UserProfileEdit/index.js:769
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: src/amo/pages/UserProfileEdit/index.js:773
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr "De vez en cuando, puede que Mozilla te envíe un correo sobre los próximos lanzamientos y eventos sobre complementos. Selecciona los temas que te interesan."
+
+#: src/amo/pages/UserProfileEdit/index.js:778
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+msgstr "De vez en cuando, puede que Mozilla te envíe un correo sobre los próximos lanzamientos y eventos sobre complementos. Selecciona los temas que te interesan."
+
+#: src/amo/pages/UserProfileEdit/index.js:793
+msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
+msgstr "Mozilla se reserva el derecho a ponerse en contacto contigo de forma individual sobre distintos temas relativos a tus complementos."
+
+#: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:891
+msgid "Delete My Profile"
+msgstr "Eliminar mi perfil"
+
+#: src/amo/pages/UserProfileEdit/index.js:820 src/amo/pages/UserProfileEdit/index.js:892
+msgid "Delete Profile"
+msgstr "Eliminar perfil"
+
+#: src/amo/pages/UserProfileEdit/index.js:832
+msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
+msgstr "IMPORTANTE: Si eliminas tu perfil de los Complementos de Firefox, no lo podrás deshacer."
+
+#: src/amo/pages/UserProfileEdit/index.js:835
+msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
+msgstr "IMPORTANTE: Si eliminas este perfil de los Complementos de Firefox, no lo podrás deshacer."
+
+#: src/amo/pages/UserProfileEdit/index.js:844
+#, fuzzy
+msgid ""
+"Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
+msgstr ""
+"Tus datos se eliminarán de forma permanente, incluidos los datos del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación) y las preferencias sobre las notificaciones. "
+"Tus comentarios y calificaciones pasarán a ser anónimos y no se podrán volver a editar."
+
+#: src/amo/pages/UserProfileEdit/index.js:850
+#, fuzzy
+msgid ""
+"The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
+"collections."
+msgstr ""
+"Los datos del usuario se eliminarán de forma permanente, incluidos los datos del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación) y las preferencias sobre las "
+"notificaciones. Tus comentarios y calificaciones pasarán a ser anónimos y no se podrán volver a editar."
+
+#: src/amo/pages/UserProfileEdit/index.js:859
+msgid ""
+"If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
+" of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:865
+msgid ""
+"If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
+" ownership of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:875
+#, fuzzy
+msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
+msgstr ""
+"Cuando uses esta dirección de correo electrónico para iniciar sesión de nuevo en addons.mozilla.org, se creará un nuevo perfil de Complementos de Firefox que no estará asociado de ninguna manera con"
+" el perfil que eliminaste."
+
+#: src/amo/pages/UsersUnsubscribe/index.js:103
+msgid "Unsubscribe"
+msgstr "Cancelar suscripción"
+
+#: src/amo/pages/UsersUnsubscribe/index.js:112
+msgid "You are successfully unsubscribed!"
+msgstr "¡Se canceló correctamente la suscripción!"
+
+# a list of notifications will be displayed under this prompt.
+#. a list of notifications will be displayed under this prompt.
+#: src/amo/pages/UsersUnsubscribe/index.js:125
+msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
+msgstr "Ya no enviaremos más correos a la dirección de correo %(strongStart)s%(email)s%(strongEnd)s cuando:"
+
+#: src/amo/pages/UsersUnsubscribe/index.js:83
+msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
+msgstr "Puedes editar los ajustes de notificaciones %(linkStart)seditando tu perfil%(linkEnd)s."
+
+#: src/amo/reducers/collections.js:1022
+msgid "(no name)"
+msgstr "(sin nombre)"
+
+# This is application compatibility information, such as "firefox 41 and later"
+#. This is application compatibility information, such as "firefox 41 and later"
+#: src/amo/reducers/versions.js:305
+msgid "%(application)s %(minVersion)s and later"
+msgstr "%(application)s %(minVersion)s y superiores"
+
+# This is application compatibility information, such as "firefox 41 to 45"
+#. This is application compatibility information, such as "firefox 41 to 45"
+#: src/amo/reducers/versions.js:309
+msgid "%(application)s %(minVersion)s to %(maxVersion)s"
+msgstr "%(application)s %(minVersion)s a la %(maxVersion)s"
+
+# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#: src/amo/reducers/versions.js:329
+msgid "Works with %(listOfApplicatonsAndVersions)s"
+msgstr "Compatible con %(listOfApplicatonsAndVersions)s"
+
+#: src/amo/utils/addons.js:35
+msgid "Installation aborted because the add-on appears to be corrupt."
+msgstr "Se abortó la instalación porque parece que el complemento está dañado."
+
+#: src/amo/utils/addons.js:39
+msgid "Installation failed. Please try again."
+msgstr "Falló la instalación. Vuelve a intentarlo."
+
+#: src/amo/utils/addons.js:41
+msgid "Download failed. Please check your connection."
+msgstr "Falló la descarga. Comprueba tu conexión."
+
+#: src/amo/utils/addons.js:43
+msgid "An unexpected error occurred during installation."
+msgstr "Se ha producido un error inesperado durante la instalación."
+
+#: src/amo/utils/addons.js:45
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Se ha producido un error inesperado durante la desinstalación."
+
+#: src/amo/utils/addons.js:50
+msgid "An unexpected error occurred."
+msgstr "Se ha producido un error inesperado."
+
+#: src/amo/utils/notifications.js:10
+msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
+msgstr "mantente al día de las noticias y eventos más importantes para los desarrolladores de complementos (incluido el boletín de noticias de about:addons)"
+
+#: src/amo/utils/notifications.js:13
+msgid "Mozilla needs to contact me about my individual add-on"
+msgstr "Mozilla necesita ponerse en contacto conmigo sobre mi complemento si"
+
+#: src/amo/utils/notifications.js:16
+msgid "new add-ons or Firefox features are available"
+msgstr "hay nuevos complementos o funciones de Firefox"
+
+#: src/amo/utils/notifications.js:18
+msgid "someone writes a review of my add-on"
+msgstr "alguien ha escrito un comentario sobre mi complemento"
+
+#: src/amo/utils/notifications.js:20
+msgid "an add-on developer replies to my review"
+msgstr "un desarrollador de complementos responde a mi comentario"
+
+#: src/amo/utils/notifications.js:22
+msgid "my add-on is reviewed by a reviewer"
+msgstr "un revisor ha revisado mi complemento"
+
+#: src/amo/utils/notifications.js:24
+msgid "my add-on's compatibility cannot be upgraded"
+msgstr "no se puede actualizar la compatibilidad de mi complemento"
+
+#: src/amo/utils/notifications.js:26
+msgid "my add-on's compatibility is upgraded successfully"
+msgstr "se ha actualizado correctamente la compatibilidad de mi complemento"
+
+#, fuzzy
+#~ msgid "Versions blocked: all versions."
+#~ msgstr "Ver todas las versiones"
+
+#, fuzzy
+#~ msgid "This add-on has been blocked for your protection."
+#~ msgstr "El autor eliminó este complemento."
+
+#~ msgid "Blocked on %(date)s."
+#~ msgstr "Bloqueado en %(date)s."
+
+# If uppercase does not work in your locale,
+#~ msgid "SPONSORED"
+#~ msgstr "PATROCINADO"
+
+#~ msgid "Verified"
+#~ msgstr "Verificado"
+
+#, fuzzy
+#~ msgid "This add-on has been reviewed to meet our standards for security and performance."
+#~ msgstr "Firefox solo recomienda extensiones que cumplen nuestros estándares de seguridad y rendimiento."
+
+#, fuzzy
+#~ msgid "Verified extensions"
+#~ msgstr "Extensiones promocionadas"
+
+#, fuzzy
+#~ msgid "Verified themes"
+#~ msgstr "Temas promocionados"
+
+#, fuzzy
+#~ msgid "Verified add-ons"
+#~ msgstr "Complementos promocionados"
+
+#~ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
+#~ msgstr "Puedes cambiar la dirección de correo en tu cuenta de Firefox. %(startLink)s¿Necesitas ayuda?%(endLink)s"
+
+#~ msgid "Manage Firefox Accounts…"
+#~ msgstr "Gestionar las cuentas de Firefox..."
+
+#~ msgid "This is a bug report or support request"
+#~ msgstr "Este es un informe de error o solicitud de ayuda"
+
+#~ msgid "Flagged as a bug report or support request"
+#~ msgstr "Marcado como informe de error o solicitud de ayuda"
+
+#~ msgid "This contains inappropriate language"
+#~ msgstr "Contiene lenaguaje inapropiado"
+
+#~ msgid "Flagged for inappropriate language"
+#~ msgstr "Marcado como lenguaje inapropiado"
+
+#~ msgid "Log in to flag this response"
+#~ msgstr "Iniciar sesión para marcar esta respuesta"
+
+#~ msgid "Log in to flag this review"
+#~ msgstr "Iniciar sesión para marcar esta revisión"
+
+#~ msgid "This is spam"
+#~ msgstr "Esto es spam"
+
+#~ msgid "We can't respond to every abuse report but we'll look into this issue."
+#~ msgstr "No podemos responder a todos los informes de uso indebido pero examinaremos este problema."
+
+#~ msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
+#~ msgstr ""
+#~ "Si crees que este complemento viola las %(linkTagStart)spolíticas de complementos de Mozilla%(linkTagEnd)s o tiene problemas de seguridad o privacidad, por favor informa a Mozilla utilizando este "
+#~ "formulario."
+
+#~ msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
+#~ msgstr "Por favor, no utilices este formulario para informar de fallos en el complemento o solicitar nuevas funcionalidades; este informe se enviará a Mozilla y no al desarrollador del complemento."
+
+#~ msgid "Send abuse report"
+#~ msgstr "Enviar informe de uso indebido"
+
+#~ msgid "Sending abuse report"
+#~ msgstr "Enviando el informe de uso indebido"
+
+#~ msgid "Dismiss"
+#~ msgstr "Descartar"
+
+#~ msgid "Explain how this add-on is violating our policies."
+#~ msgstr "Explica de qué manera este complemento viola nuestras políticas."
+
+#~ msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
+#~ msgstr "Si crees que este usuario viola las %(linkTagStart)spolíticas de complementos de Mozilla%(linkTagEnd)s, por favor informa a Mozilla."
+
+#~ msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
+#~ msgstr "Por favor, no utilices este formulario para informar de fallos o ponerte en contacto con el usuario; este informe solo se enviará a Mozilla y no al usuario."
+
+#~ msgid "Explain how this user is violating our policies."
+#~ msgstr "Explica de qué manera este usuario viola nuestras políticas."
+
+#~ msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
+#~ msgstr "Para usar estos complementos, necesitas %(linkStart)sdescargar Firefox%(linkEnd)s"
+
+#, fuzzy
+#~ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
+#~ msgstr "Para buscar complementos compatibles con Firefox para Android, <a href=\"%(newLocation)s\">visita nuestro sitio móvil</a>."
+
+#~ msgid "Report this add-on for abuse"
+#~ msgstr "Informar de un uso indebido en este complemento"
+
+#~ msgid "Report this user for abuse"
+#~ msgstr "Denunciar a este usuario por abuso"
+
+#~ msgid "You reported this add-on for abuse"
+#~ msgstr "Has comunicado un uso indebido en este complemento"
+
+#~ msgid "You reported this user for abuse"
+#~ msgstr "Has informado sobre este usuario por abuso"
+
+#, fuzzy
+#~ msgid "Get %(addonName)s for Android"
+#~ msgstr "Complementos para Android"
+
+#, fuzzy
+#~ msgid "Dismiss this message"
+#~ msgstr "Ignorar este aviso"
+
+#~ msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+#~ msgstr "Lo sentimos, pero hubo un error y no hemos podido completar tu petición. Hemos registrado este error y vamos a investigarlo."
+
+#~ msgid "Dictionaries by %(author)s"
+#~ msgstr "Diccionarios de %(author)s"
+
+#~ msgid "Dictionaries by these translators"
+#~ msgstr "Diccionarios de estos traductores"
+
+#~ msgid "Language packs by %(author)s"
+#~ msgstr "Paquetes de idiomas de %(author)s"
+
+#~ msgid "Language packs by these translators"
+#~ msgstr "Paquetes de idiomas de estos traductores"
+
+#~ msgid "Add-ons by %(author)s"
+#~ msgstr "Complementos de %(author)s"
+
+#~ msgid "Add-ons by these developers"
+#~ msgstr "Complementos de estos desarrolladores"
+
+#~ msgid "Page %(currentPage)s of %(totalPages)s"
+#~ msgstr "Página %(currentPage)s de %(totalPages)s"
+
+#~ msgid "You cannot flag your own response"
+#~ msgstr "No puedes marcar tu propia respuesta"
+
+#~ msgid "You cannot flag your own review"
+#~ msgstr "No puedes marcar tu propio comentario"
+
+#~ msgid "Add-ons for Firefox"
+#~ msgstr "Complementos para Firefox"
+
+#~ msgid "for Android"
+#~ msgstr "para Android"
+
+#~ msgid "Site Status"
+#~ msgstr "Estado del sitio web"
+
+#, fuzzy
+#~ msgid "Login authentication has expired."
+#~ msgstr "Tu sesión ha expirado"
+
+#~ msgid "Reviewer Name"
+#~ msgstr "Nombre del revisor"
+
+#, fuzzy
+#~ msgid "Register or log in"
+#~ msgstr "Registrarse o iniciar sesión"
+
+#, fuzzy
+#~ msgid "Firefox Add-on Reviews"
+#~ msgstr "Acerca de los complementos de Firefox"
+
+#~ msgid "Explore"
+#~ msgstr "Explorar"
+
+#~ msgid "Restart Required"
+#~ msgstr "Tienes que reiniciar"
+
+#~ msgid "Not compatible with Firefox Quantum"
+#~ msgstr "No es compatible con Firefox Quantum"
+
+#~ msgid "Your version of Firefox does not support this add-on because it requires a restart."
+#~ msgstr "Tu versión de Firefox no admite este complemento porque necesita reiniciarse."
+
+#~ msgid "Developer Blog"
+#~ msgstr "Central del desarrollador"
+
+#~ msgid "Blog"
+#~ msgstr "Blog"
+
+#~ msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+#~ msgstr "Se ha agregado %(strongStart)s%(name)s%(strongEnd)s"
+
+#~ msgid "Manage your add-ons by clicking Add-ons in the menu."
+#~ msgstr "Gestiona tus complementos haciendo clic en Complementos en el menú."
+
+#~ msgid "OK"
+#~ msgstr "Vale"
+
+#~ msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+#~ msgstr "Este complemento requiere una <a href=\"%(downloadUrl)s\">versión más reciente de Firefox</a> (al menos la versión %(minVersion)s). Estás usando Firefox %(yourVersion)s."
+
+#~ msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+#~ msgstr "Tu navegador no es compatible con los complementos. Puedes <a href=\"%(downloadUrl)s\">descargar Firefox</a> para instalar este complemento."
+
+#~ msgid "Only with Firefox—Get Firefox Now"
+#~ msgstr "Solo con Firefox: ¡Consíguelo ya!"
+
+#~ msgid "Learn more about permissions"
+#~ msgstr "Saber más sobre permisos"
+
+#~ msgid "See more popular themes"
+#~ msgstr "Ver más temas populares"
+
+#~ msgid "See more popular extensions"
+#~ msgstr "Ver más extensiones populares"
+
+#~ msgid "See more enhanced privacy extensions"
+#~ msgstr "Ver más extensiones sobre privacidad"
+
+#~ msgid "Enhanced privacy extensions"
+#~ msgstr "Mejores extensiones de privacidad"
+
+#~ msgid "See more recommended password managers"
+#~ msgstr "Ver más administradores de contraseña recomendados"
+
+#~ msgid "Recommended password managers"
+#~ msgstr "Administradores de contraseñas recomendados"
+
+#~ msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
+#~ msgstr "Descarga extensiones de Firefox para personalizar tus búsquedas: desde búsquedas mejoradas a búsquedas específicas en sitios web, búsqueda de imágenes y mucho más."
+
+#~ msgid "Search Tools"
+#~ msgstr "Herramientas de búsqueda"
+
+#~ msgid "Take short survey"
+#~ msgstr "Hacer una breve encuesta"
+
+#~ msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
+#~ msgstr "¡Gracias por visitar este sitio! Por favor, tómate un minuto o dos para contarle tu experiencia a Firefox."
+
+#~ msgid "Windows"
+#~ msgstr "Windows"
+
+#~ msgid "macOS"
+#~ msgstr "macOS"
+
+#~ msgid "Linux"
+#~ msgstr "Linux"
+
+#~ msgid "Operating System"
+#~ msgstr "Sistema operativo"
+
+#~ msgid "Sponsored extensions"
+#~ msgstr "Extensiones más valoradas"
+
+#~ msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
+#~ msgstr "No se admite esa lista en esta plataforma. <a href=\"%(newLocation)s\">Busca complementos para Firefox para Android</a>."
+
+#~ msgid "Unavailable for legal reasons"
+#~ msgstr "Disponible para tu idioma"
+
+#~ msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
+#~ msgstr "Para buscar complementos compatibles con Firefox para escritorio, <a href=\"%(newLocation)s\">visita nuestro sitio web para escritorio</a>."
+
+#~ msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
+#~ msgstr "No disponible en Firefox para Android. Puedes usar este complemento con Firefox para escritorio o buscar <a href=\"%(newLocation)s\">Complementos de Android</a> similares."
+
+#~ msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
+#~ msgstr "Para buscar complementos compatibles con Firefox para Android, <a href=\"%(newLocation)s\">visita nuestro sitio móvil</a>."
+
+#~ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
+#~ msgstr "No se admite esa lista en esta plataforma. <a href=\"%(newLocation)s\">Busca complementos para Firefox para Android</a>."
+
+#~ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
+#~ msgstr "No se admite esa lista en esta plataforma. <a href=\"%(newLocation)s\">Busca complementos para Firefox para escritorio</a>."
+
+#~ msgid "Promoted Add-Ons"
+#~ msgstr "Complementos mejor valorados"
+
+#~ msgid "Recommended add-ons only"
+#~ msgstr "Solo complementos recomendados"
+
+#~ msgid "Admin add-on status"
+#~ msgstr "Estado del administrador del complemento"
+
+#~ msgid "Stay Safe Online"
+#~ msgstr "Mantente protegido en línea"
+
+#~ msgid "Organize Tabs & Bookmarks"
+#~ msgstr "Organizar pestañas y marcadores"
+
+#~ msgid "Enhance Your Media Experience"
+#~ msgstr "Mejorar tu experiencia multimedia"
+
+#~ msgid "Extensions are like apps for your browser."
+#~ msgstr "Las extensiones son como aplicaciones para tu navegador."
+
+#~ msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
+#~ msgstr "Agregan funciones a Firefox para que navegues más rápido, más fácil o simplemente de forma más divertida."
+
+#~ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
+#~ msgstr "Un bloqueador de publicidad ligero y muy efectivo. uBlock Origin utiliza miles de filtros de contenido sin consumir apenas memoria."
+
+#~ msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
+#~ msgstr "Descubre más %(linkStart)sbloqueadores de publicidad%(linkEnd)s."
+
+#~ msgid "Stop online trackers from stalking you"
+#~ msgstr "Impide que los rastreadores te persigan"
+
+#~ msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
+#~ msgstr "Los anunciantes rastrean tu actividad en la web para recopilar información sobre ti y tus intereses. Las extensiones te pueden ayudar a ocultar tu rastro digital."
+
+#~ msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
+#~ msgstr "Aisla tu identidad en Facebook en un “contenedor” separado para impedir que Facebook rastree tu actividad fuera de la plataforma social."
+
+#~ msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
+#~ msgstr "Descubre más extensiones recomendadas %(linkStart)sde privacidad y seguridad%(linkEnd)s."
+
+#~ msgid "Reimagine tab management"
+#~ msgstr "Reinventa la gestión de pestañas"
+
+#~ msgid ""
+#~ "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
+#~ " creative solutions for streamlining tab management."
+#~ msgstr ""
+#~ "Si sueles trabajar con muchas pestañas abiertas, tienes que saber lo frustrante que es intentar buscar algo en una lista interminable de pestañas hasta encontrar lo que necesitas. Las extensiones te"
+#~ " ofrecen soluciones creativas para agilizar la gestión de pestañas."
+
+#~ msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
+#~ msgstr "Ordena y visualiza tus pestañas en un estilo “árbol” en cascada en la barra lateral de Firefox."
+
+#~ msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
+#~ msgstr "Descubre más extensiones sobre%(linkStart)spestañas%(linkEnd)s."
+
+#~ msgid "Better browsing with improved bookmarks"
+#~ msgstr "Mejor navegación con marcadores mejorados"
+
+#~ msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
+#~ msgstr "Las extensiones te pueden ayudar a organizar tus intereses en línea. Los administradores de contraseñas son muy útiles para aquellos que siguen mucho contenido."
+
+#~ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
+#~ msgstr "DIsfruta de la mejor forma de organizar marcadores creando varias carpetas de marcadores."
+
+#~ msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
+#~ msgstr "Descubre más extensiones sobre %(linkStart)smarcadores%(linkEnd)s."
+
+#~ msgid "Enjoy a fresh new tab experience"
+#~ msgstr "Disfruta de una nueva experiencia de pestañas"
+
+#~ msgid "Start each browsing session tailored just for you by customizing your new tab experience."
+#~ msgstr "Personaliza tu experiencia con las pestañas y podrás disfrutar de una sesión de navegación personalizada solo para ti."
+
+#~ msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
+#~ msgstr "Disfruta de una bonita nueva página con fondos personalizables, información sobre el tiempo local y más."
+
+#~ msgid "Improve videos"
+#~ msgstr "Mejorar vídeos"
+
+#~ msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
+#~ msgstr ""
+#~ "Si disfrutas de los contenidos de video, las extensiones te ofrecen varias formas de optimizar tu experiencia, incluida la personalización de YouTube a tu gusto y la reproducción de videos en modo "
+#~ "teatro."
+
+#~ msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
+#~ msgstr "Agrega una barra de control a todas las páginas de video de YouTube para ajustar el volumen, alterar la velocidad de reproducción, el tamaño, bloquear anuncios y mucho más."
+
+#~ msgid "Get more out of media"
+#~ msgstr "Sácale provecho al contenido multimedia"
+
+#~ msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
+#~ msgstr ""
+#~ "Las extensiones pueden cubrir una amplia variedad de necesidades e intereses de nichos de medios, como la búsqueda de imágenes, la administración de descargas y los lectores de texto, entre otros."
+
+#~ msgid ""
+#~ "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
+#~ " reverse image searches through a variety of engines."
+#~ msgstr ""
+#~ "¿Alguna vez te has topado con una imagen intrigante en la web y quieres saber más sobre ella, como quién es la persona en la foto? ¿Hay imágenes relacionadas? Esta extensión te permite realizar "
+#~ "búsquedas inversas de imágenes de forma rápida y sencilla a través de una variedad de motores."
+
+#~ msgid "Bring media right into the browser"
+#~ msgstr "Atrae el contenido multimedia a tu navegador"
+
+#~ msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
+#~ msgstr "Las extensiones pueden convertir Firefox en tu propio centro de entretenimiento, brindándote acceso instantáneo a música, captura de imágenes, juegos y más."
+
+#~ msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
+#~ msgstr "Accede a más de 30,000 estaciones de radio de todo el mundo, con solo un clic."
+
+#~ msgid ""
+#~ "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
+#~ "online privacy and security."
+#~ msgstr ""
+#~ "La web es un lugar maravilloso, pero salvaje. Pueden usar tus datos personales sin tu consentimiento, pueden espiar lo que haces y robar tus contraseñas. Por suerte, las extensiones te ayudan a "
+#~ "fortalecer tu privacidad y seguridad en línea."
+
+#~ msgid ""
+#~ "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
+#~ " deal with tabs and bookmarks."
+#~ msgstr ""
+#~ "¿Trabajas con demasiadas pestañas abiertas o un número increíble de marcadores? ¡Las extensiones son tus aliadas! Desde ayudarte a organizar hasta ofrecerte funciones nuevas y divertidas; las "
+#~ "extensiones pueden cambiar drásticamente la forma en la que manejamos las pestañas y los marcadores."
+
+#~ msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
+#~ msgstr "Las extensiones pueden aumentar los contenidos multimedia en línea de muchas formas interesantes, desde viendo videos hasta gestionando imágenes, música y más."
+
+#~ msgid "Create and manage strong passwords"
+#~ msgstr "Crea y gestiona contraseñas seguras"
+
+#~ msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
+#~ msgstr "Los administradores de contraseñas te ayudan a crear contraseñas seguras, guardarlas de forma segura y ofrecerte acceso fácil a tus credenciales de inicio de sesión, estés donde estés."
+
+#~ msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
+#~ msgstr "Protección de contraseña totalmente encriptada. Guarda tu información de forma segura y accede a tus inicios de sesión en todos tus dispositivos."
+
+#~ msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
+#~ msgstr "Descubre más %(linkStart)sadministradores de contraseñas%(linkEnd)s."
+
+#~ msgid "Block annoying ads"
+#~ msgstr "Bloquear anuncios molestos"
+
+#~ msgid ""
+#~ "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
+#~ msgstr ""
+#~ "La web de hoy está llena de anuncios no deseados que se interponen en tu camino y te ralentizan. Las extensiones de bloqueo de anuncios pueden bloquear o filtrar esos anuncios para que puedas seguir"
+#~ " navegando sin distracciones."
+
+#~ msgid "No Downloads"
+#~ msgstr "Descargando"
+
+#~ msgid "%(total)s download"
+#~ msgid_plural "%(total)s downloads"
+#~ msgstr[0] "%(total)s complemento"
+#~ msgstr[1] "%(total)s complementos"
+
+#~ msgid ""
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
+#~ " add-ons before you can delete your profile."
+#~ msgstr ""
+#~ "%(strongStart)sNOTA:%(strongEnd)s No puedes eliminar tu perfil si eres el %(linkStart)sautor de algún complemento%(linkEnd)s. Primero tienes que %(docLinkStart)stransferir la propiedad%(docLinkEnd)s"
+#~ " o eliminar el complemento y después proceder a eliminar tu perfil."
+
+#~ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+#~ msgstr "%(strongStart)sNOTA:%(strongEnd)s No puedes eliminar el perfil de un usuario si este último es el %(linkStart)sautor de algún complemento%(linkEnd)s."
+
+#~ msgid "Access your data in %(param)s other domain"
+#~ msgid_plural "Access your data in %(param)s other domains"
+#~ msgstr[0] "Acceder a tus datos en %(param)s otro dominio"
+#~ msgstr[1] "Acceder a tus datos en %(param)s otros dominios"
+
+#~ msgid "Access your data on %(param)s other site"
+#~ msgid_plural "Access your data on %(param)s other sites"
+#~ msgstr[0] "Acceder a tus datos en %(param)s otro sitio"
+#~ msgstr[1] "Acceder a tus datos en %(param)s otros sitios"
+
+#~ msgid "Firefox Add-ons (%(locale)s)"
+#~ msgstr "Complementos para Firefox (%(locale)s)"
+
+#~ msgid "Firefox Add-ons for Android (%(locale)s)"
+#~ msgstr "Complementos para Firefox para Android (%(locale)s)"
+
+#~ msgid "Your version of Firefox does not support search plugins."
+#~ msgstr "Tu versión de Firefox no admite los plugins de búsqueda."
+
+#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
+#~ msgstr "%(addonName)s – Consigue esta herramienta de búsqueda para 🦊 Firefox (%(locale)s)"
+
+#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
+#~ msgstr "%(addonName)s – Consigue esta herramienta de búsqueda para 🦊 Firefox Android (%(locale)s)"
+
+#~ msgid "Android Browser"
+#~ msgstr "Navegador para Android"
+
+#~ msgid "iOS Browser"
+#~ msgstr "Navegador para iOS"
+
+#~ msgid "Desktop Browser"
+#~ msgstr "Navegador de escritorio"
+
+#~ msgid "Beta, Nightly, Developer Edition"
+#~ msgstr "Beta, Nightly, Developer Edition"
+
+#~ msgid "Log in to rate this search plugin"
+#~ msgstr "Iniciar sesión para evaluar este plugin de búsqueda"
+
+#~ msgid "%(count)s Search Tool found"
+#~ msgid_plural "%(count)s Search Tools found"
+#~ msgstr[0] "%(count)s herramienta de búsqueda encontrada"
+#~ msgstr[1] "%(count)s herramientas de búsqueda encontradas"
+
+#~ msgid "%(count)s Search Tool found for \"%(query)s\""
+#~ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
+#~ msgstr[0] "%(count)s herramienta de búsqueda encontrada para \"%(query)s\""
+#~ msgstr[1] "%(count)s herramientas de búsqueda encontradas para \"%(query)s\""
+
+#~ msgid "About this search plugin"
+#~ msgstr "Sobre este plugin de búsqueda"
+
+#~ msgid "Firefox for iOS does not currently support add-ons."
+#~ msgstr "Actualmente, Firefox para iOS no es compatible con los complementos."
+
+#~ msgid "Focus Browser"
+#~ msgstr "Navegador Focus"
+
+#~ msgid "This add-on is not compatible with Firefox for Android. <a href=\"%(newLocation)s\">Learn more</a>."
+#~ msgstr "Para buscar complementos compatibles con Firefox para Android, <a href=\"%(newLocation)s\">visita nuestro sitio móvil</a>."
+
+#~ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+#~ msgstr "Mozilla no supervisa esta extensión. Asegúrate de que confías en ella antes de instalarla."
+
+#~ msgid "Search Tool"
+#~ msgstr "Herramienta de búsqueda"
+
+#~ msgid "Firefox Preview does not currently support add-ons."
+#~ msgstr "Actualmente, Firefox Preview no es compatible con los complementos."
+
+#~ msgid ""
+#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
+#~ "we'll get it sorted."
+#~ msgstr "Si has seguido un enlace desde otro sitio, <a href=\"%(url)s\">informa del problema</a>. Dinos de dónde has venido y lo que estabas buscando, y haremos todo lo posible por arreglarlo."
+
+#~ msgid "Featured Extension"
+#~ msgstr "Extensión promocionada"
+
+#~ msgid "Featured Theme"
+#~ msgstr "Tema promocionado"
+
+#~ msgid "Featured Add-on"
+#~ msgstr "Complemento promocionado"
+
+#~ msgid "Featured add-ons only"
+#~ msgstr "Solo complementos promocionados"
+
+#~ msgid "See more featured extensions"
+#~ msgstr "Ver más extensiones destacadas"
+
+#~ msgid "See more featured themes"
+#~ msgstr "Ver más temas destacados"
+
+#~ msgid "User comment"
+#~ msgstr "Comentario del usuario"
+
+#~ msgid "Staff Pick"
+#~ msgstr "Elecciones de nuestros trabajadores"
+
+#~ msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
+#~ msgstr "Descubre más %(linkStart)sgestores de pestañas%(linkEnd)s seleccionados por el personal."
+
+#~ msgid ""
+#~ "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
+#~ " favorite online content in a powerful repository that syncs across devices."
+#~ msgstr ""
+#~ "¿Necesitas ayuda para organizar todas tus recetas de comida, artículos de ayuda, vídeos de YouTube o simplemente para encontrar algo en la web? OneNote Web Clipper te permite recopilar y almacenar "
+#~ "tu contenido en línea favorito en un gran repositorio que puedes sincronizar con tus otros dispositivos."
+
+#~ msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
+#~ msgstr "Descubre otras %(linkStart)sformas divertidas de cambiar tus pestañas%(linkEnd)s con estas selecciones del personal."
+
+#~ msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
+#~ msgstr "Descubre más %(linkStart)sextensiones para vídeo%(linkEnd)s elegidas por nuestros trabajadores."
+
+#~ msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
+#~ msgstr "Descubre más %(linkStart)sextensiones para multimedia%(linkEnd)s elegidas por nuestros trabajadores."
+
+#~ msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
+#~ msgstr "Navega entre miles de %(linkStart)sextensiones de foto, música y vídeo%(linkEnd)s."
+
+#~ msgid "Bookmarks"
+#~ msgstr "Marcadores"
+
+#~ msgid "Ad blockers"
+#~ msgstr "Bloqueadores de publicidad"
+
+#~ msgid "Smarter shopping"
+#~ msgstr "Compras inteligentes"
+
+#~ msgid "Watching videos"
+#~ msgstr "Ver videos"
+
+#~ msgid "Customize the way Firefox works with extensions. Are you interested in…"
+#~ msgstr "Personaliza el funcionamiento de Firefox con extensiones. Te interesan…"
+
+#~ msgid "See more productivity extensions"
+#~ msgstr "Ver más extensiones de productividad"
+
+#~ msgid "Productivity extensions"
+#~ msgstr "Extensiones de productividad"
+
+#~ msgid "See more YouTube extensions"
+#~ msgstr "Ver más extensiones de pestañas"
+
+#~ msgid "YouTube boosters"
+#~ msgstr "Potenciadores de YouTube"
+
+#~ msgid "See more feed readers"
+#~ msgstr "Ver más lectores de canales"
+
+#~ msgid "Feed readers"
+#~ msgstr "Lectores de canales"
+
+#~ msgid "%(categoryName)s – Extensions"
+#~ msgstr "%(categoryName)s - Extensiones"
+
+#~ msgid "%(categoryName)s – Themes"
+#~ msgstr "%(categoryName)s – Temas"
+
+#~ msgid "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "Se publicó el código fuente bajo una %(linkStart)slicencia no identificada%(linkEnd)s"
+
+#~ msgid "See more VPN solutions"
+#~ msgstr "Ver más soluciones de VPN"
+
+#~ msgid "VPN solutions"
+#~ msgstr "Soluciones de VPN"
+
+#~ msgid "Change up your tabs"
+#~ msgstr "Cambia tus pestañas"
+
+#~ msgid "See more video extensions"
+#~ msgstr "Ver más extensiones sobre vídeos"
+
+#~ msgid "Extensions for enhancing video"
+#~ msgstr "Extensiones para mejorar vídeo"
+
+#~ msgid "See more spring themes"
+#~ msgstr "Ver más temas de primavera"
+
+#~ msgid "Spring themes"
+#~ msgstr "Temas de primavera"
+
+#~ msgid "See more Wikipedia boosters"
+#~ msgstr "Ver más potenciadores de Wikipedia"
+
+#~ msgid "Wikipedia boosters"
+#~ msgstr "Potenciadores de Wikipedia"
+
+#~ msgid "See more tools"
+#~ msgstr "Ver más herramientas"
+
+#~ msgid "Note-taking & time management tools"
+#~ msgstr "Herramientas de gestión del tiempo y toma de notas"
+
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "Ver más extensiones sobre salud y bienestar"
+
+#~ msgid "Health & Wellness"
+#~ msgstr "Salud y bienestar"
+
+#~ msgid "Please enter a search term to search Firefox Add-ons."
+#~ msgstr "Introduce un término de búsqueda para buscar complementos de Firefox."
+
+#~ msgid "my sdk-based add-on cannot be upgraded"
+#~ msgstr "no se puede actualizar mi complemento basado en sdk"
+
+#~ msgid "my sdk-based add-on is upgraded successfully"
+#~ msgstr "se ha actualizado correctamente mi complemento basado en sdk"
+
+#~ msgid "Be more productive"
+#~ msgstr "Sé más productivo"
+
+#~ msgid "Highly customizable text highlighter"
+#~ msgstr "Resaltador de texto totalmente personalizable"
+
+#~ msgid "Watch2Gether"
+#~ msgstr "Watch2Gether"
+
+#~ msgid "Context Search"
+#~ msgstr "Wikipedia Context Menu Search"
+
+#~ msgid "Highlight text on any webpage to easily search the term"
+#~ msgstr "Resalta texto en cualquier página web para que te aparezca un menú de búsqueda muy útil"
+
+#~ msgid "Stylus"
+#~ msgstr "Stylus"
+
+#~ msgid "Give your favorite websites a new look"
+#~ msgstr "Dale una nueva apariencia a tus sitios web favoritos "
+
+#~ msgid "Search Encrypt"
+#~ msgstr "Resultados de la búsqueda"
+
+#~ msgid "Privacy protection for your search data"
+#~ msgstr "Protección de la privacidad"
+
+#~ msgid "Auto Tab Discard"
+#~ msgstr "Auto Tab Discard"
+
+#~ msgid "Save memory by disabling inactive tabs"
+#~ msgstr "Ahorra memoria deshabilitando pestañas inactivas"
+
+#~ msgid "Update Scanner"
+#~ msgstr "Actualizar la respuesta"
+
+#~ msgid "Get notified when your selected websites update with new content"
+#~ msgstr "Recibe una notificación cuando tus sitios web seleccionados se actualicen con contenido nuevo"
+
+#~ msgid "Auto Fullscreen"
+#~ msgstr "Auto Fullscreen"
+
+#~ msgid "Automatically start Firefox in full screen mode"
+#~ msgstr "Busca automáticamente códigos de descuento"
+
+#~ msgid "Video Speed Controller"
+#~ msgstr "Video Speed Controller"
+
+#~ msgid "Adjust video playback speeds with shortcuts"
+#~ msgstr "Ajusta la velocidad de reproducción de vídeo con accesos directos"
+
+#~ msgid "View Image"
+#~ msgstr "View Image"
+
+#~ msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
+#~ msgstr "Resucita los botones ‘Ver imagen’ y ‘Buscar por imagen’ en Google Images"
+
+#~ msgid "Neat URL"
+#~ msgstr "Neat URL"
+
+#~ msgid "Clean up links for easy sharing"
+#~ msgstr "Limpia enlaces para compartirlos fácilmente"
+
+#~ msgid "Glitter Drag"
+#~ msgstr "Glitter Drag"
+
+#~ msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
+#~ msgstr "Arrastra texto, imágenes o enlaces para realizar acciones como copiar, abrir, buscar y más"
+
+#~ msgid "Behind The Overlay Revival"
+#~ msgstr "Behind The Overlay Revival"
+
+#~ msgid "Auto-Sort Bookmarks"
+#~ msgstr "Marcadores"
+
+#~ msgid "Search Preview"
+#~ msgstr "Vista previa de búsqueda"
+
+#~ msgid "Search Site"
+#~ msgstr "Buscar sitio"
+
+#~ msgid "Search within just the domain you’re visiting"
+#~ msgstr "Busca en el dominio que estás visitando"
+
+#~ msgid "Push to Kindle"
+#~ msgstr "Push to Kindle"
+
+#~ msgid "Send any Web page to your Kindle device"
+#~ msgstr "Envía cualquier página web a tu Kindle"
+
+#~ msgid "New Tab Homepage"
+#~ msgstr "Página de inicio"
+
+#~ msgid "OneNote Web Clipper"
+#~ msgstr "Notebook Web Clipper"
+
+#~ msgid "FoxyGestures"
+#~ msgstr "FoxyGestures"
+
+#~ msgid "Customized mouse gestures"
+#~ msgstr "Desplazamientos personalizados de ratón"
+
+#~ msgid "Facebook Container"
+#~ msgstr "Contenedor de Facebook"
+
+#~ msgid "CookieBro"
+#~ msgstr "Cookies"
+
+#~ msgid "Prevent Facebook from tracking you around the web"
+#~ msgstr "Evita que Facebook te rastree por toda la web"
+
+#~ msgid "Group Speed Dial"
+#~ msgstr "Marcación rápido en grupo"
+
+#~ msgid "Visual bookmarks for your favorite places on the web"
+#~ msgstr "Marcadores visuales para tus lugares favoritos de la web"
+
+#~ msgid "Undo Close Tab Button"
+#~ msgstr "Botón deshacer cerrar pestaña"
+
+#~ msgid "Never lose a page again"
+#~ msgstr "No vuelvas a perder nunca una página."
+
+#~ msgid "Private Bookmarks"
+#~ msgstr "Marcadores"
+
+#~ msgid "Multi-Account Containers"
+#~ msgstr "Contenedores de múltiples cuentas"
+
+#~ msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
+#~ msgstr "Mantén las distintas partes de tu vida en línea (trabajo, personal, etc.) separadas por pestañas de colores"
+
+#~ msgid "Universal Bypass"
+#~ msgstr "Universal Bypass"
+
+#~ msgid "Automatically skip annoying link shorteners"
+#~ msgstr "Busca automáticamente códigos de descuento"
+
+#~ msgid "Tree Style Tab"
+#~ msgstr "Estilo árbol para pestañas"
+
+#~ msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
+#~ msgstr "¿Tienes un montón de pestañas abiertas? Organízalos en una barra lateral"
+
+#~ msgid "Imagus"
+#~ msgstr "Imagus"
+
+#~ msgid "Enlarge images by hovering your mouse over it"
+#~ msgstr "Amplíe las imágenes pasando el ratón sobre ellas"
+
+#~ msgid "Privacy Possum"
+#~ msgstr "Política de privacidad"
+
+#~ msgid "Protect yourself against the sneakiest trackers"
+#~ msgstr "Protégete contra los rastreadores más escurridizos"
+
+#~ msgid "Default Bookmark Folder"
+#~ msgstr "Carpeta de marcador predeterminada"
+
+#~ msgid "Change the default destination for your bookmarks"
+#~ msgstr "Cambia el destino predeterminado de tus marcadores"
+
+#~ msgid "Textmarker"
+#~ msgstr "Textmarker"
+
+#~ msgid "No add-ons found"
+#~ msgstr "No se ha encontrado ningún complemento"
+
+#~ msgid "%(count)s dictionary found for \"%(query)s\""
+#~ msgid_plural "%(count)s dictionaries found for \"%(query)s\""
+#~ msgstr[0] "%(count)s diccionario encontrado para \"%(query)s\""
+#~ msgstr[1] "%(count)s diccionarios encontrados para \"%(query)s\""
+
+#~ msgid "%(count)s language pack found for \"%(query)s\""
+#~ msgid_plural "%(count)s language packs found for \"%(query)s\""
+#~ msgstr[0] "%(count)s paquete de idiomas encontrado para \"%(query)s\""
+#~ msgstr[1] "%(count)s paquetes de idiomas encontrados para \"%(query)s\""
+
+#~ msgid "See more weather reports"
+#~ msgstr "Ver más temas destacados"
+
+#~ msgid "Weather reports"
+#~ msgstr "Enviar informe de uso indebido"
+
+#~ msgid "%(averageRating)s star average"
+#~ msgstr "%(averageRating)s de 5"
+
+#~ msgid "This add-on has been disabled by an administrator."
+#~ msgstr "Un administrador deshabilitó este complemento."
+
+#~ msgid "Sorry, but we can't find anything at the address you entered."
+#~ msgstr "Lo sentimos, pero no hemos encontrado nada en la dirección web que has introducido."
+
+#~ msgid "View classic desktop site"
+#~ msgstr "Ver en página de escritorio"
+
+#~ msgid "%(total)s review for this add-on"
+#~ msgid_plural "%(total)s reviews for this add-on"
+#~ msgstr[0] "%(total)s comentario para este complemento"
+#~ msgstr[1] "%(total)s comentarios para este complemento"
+
+#~ msgid "No reviews"
+#~ msgstr "Sin comentarios"
+
+#~ msgid "Username"
+#~ msgstr "Nombre de usuario"
+
+#~ msgid "Add"
+#~ msgstr "Complementos"
+
+#~ msgid "Organize Your Tabs"
+#~ msgstr "Cambiar tus pestañas"
+
+#~ msgid "See more privacy & security extensions"
+#~ msgstr "Ver más extensiones de privacidad"
+
+#~ msgid "Privacy & security"
+#~ msgstr "Política de privacidad"
+
+#~ msgid "See more social media customization"
+#~ msgstr "Ver más extensiones para personalizar redes sociales"
+
+#~ msgid "Social media customization"
+#~ msgstr "Personalización de redes sociales"
+
+#~ msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+#~ msgstr "Necesitas <a href=\"%(downloadUrl)s\">descargar Firefox</a> para instalar este complemento."
+
+#~ msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+#~ msgstr "¡Dile al mundo por qué crees que esta extensión es genial! Para ello, sigue nuestra %(linkStart)sguía para revisiones%(linkEnd)s."
+
+#~ msgid "Tell us what you love about this extension. Be specific and concise."
+#~ msgstr "Dinos qué te gusta de esta extensión. Sé específico y preciso."
+
+#~ msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+#~ msgstr "Háblale a todo el mundo de esta extensión. Para ello, sigue nuestra %(linkStart)sguía para revisiones%(linkEnd)s."
+
+#~ msgid "Tell us about your experience with this extension. Be specific and concise."
+#~ msgstr "Cuéntanos tu experiencia con esta extensión. Sé específico y conciso."
+
+#~ msgid "Review text"
+#~ msgstr "Texto del comentario"
+
+#~ msgid "See more parental controls"
+#~ msgstr "Ver más herramientas de traducción"
+
+#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
+#~ msgstr "%s – Complementos para Firefox"
+
+#~ msgid "%(title)s – Add-ons for Android (%(locale)s)"
+#~ msgstr "%s - Complementos para Android"
+
+#~ msgid "Browse all add-ons in this category."
+#~ msgstr "Ver todos los complementos en esta categoría."
+
+#~ msgid "Browse all themes in this category."
+#~ msgstr "Ver todos los temas en esta categoría."
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Descargando %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Instalando %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "Se ha instalado %(name)s y está activo. Haz clic para desinstarlo."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "Se ha desactivado %(name)s. Haz clic para activarlo."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Desinstalando %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "Se ha desinstalado %(name)s. Haz clic para instalar."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Se desconoce el estado de instalación de %(name)s."
+
+#~ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+#~ msgstr "%(addonName)s%(startSpan)s por %(authorList)s%(endSpan)s"
+
+#~ msgid "Report Trademark Abuse"
+#~ msgstr "Informar de un uso indebido de marca registrada"
+
+#~ msgid "IP Address and Domain Information"
+#~ msgstr "Dirección IP e información del dominio"
+
+#~ msgid "See detailed info about every website you visit—IP address, location, provider & more"
+#~ msgstr "Consulta información detallada sobre cada sitio web que visites—dirección IP, ubicación, proveedor y más"
+
+#~ msgid "Render images on transparent backgrounds"
+#~ msgstr "Renderizar imágenes en fondos transparentes"
+
+#~ msgid "by %(authorList)s"
+#~ msgstr "por %(authorList)s"
+
+#~ msgid "Translation tools"
+#~ msgstr "Herramientas de traducción"
+
+#~ msgid "Nevermind, I don't want to write a review"
+#~ msgstr "No importa, no quiero escribir una reseña"
+
+#~ msgid "Nevermind, I don't want to edit my review"
+#~ msgstr "No importa, no quiero editar mi reseña"
+
+#~ msgid "Fall themes"
+#~ msgstr "Buscar temas"
+
+#~ msgid "Go to this review"
+#~ msgstr "Responder a esta revisión"
+
+#~ msgid "Browse the reviews for this add-on"
+#~ msgstr "Ver las revisiones de este complemento"
+
+#~ msgid "See more exceptional search tools"
+#~ msgstr "Ver más extensiones imprescindibles"
+
+#~ msgid "See more reading extensions"
+#~ msgstr "Ver más extensiones de moda"
+
+#~ msgid "Turbo Download Manager"
+#~ msgstr "Administrador de descargas Turbo"
+
+#~ msgid "Authenticator"
+#~ msgstr "Autenticador"
+
+#~ msgid "Save collection"
+#~ msgstr "Guardar colección"
+
+#~ msgid "Ratings"
+#~ msgstr "Valoraciones"
+
+#~ msgid "Rating"
+#~ msgid_plural "Ratings"
+#~ msgstr[0] "Valoración"
+#~ msgstr[1] "Valoraciones"
+
+#~ msgid "No Ratings"
+#~ msgstr "Sin valoraciones"
+
+#~ msgid "Overall Rating"
+#~ msgstr "Clasificación global"
+
+#~ msgid "See more dynamic downloaders"
+#~ msgstr "Ver más gestores de descarga dinámicos"
+
+#~ msgid "Dynamic downloaders"
+#~ msgstr "Gestores de descarga dinámicos"
+
+#~ msgid "See more summer themes"
+#~ msgstr "Ver más temas de verano"
+
+#~ msgid "See more must-have media extensions"
+#~ msgstr "Ver más extensiones de moda"
+
+#~ msgid "Page Translate"
+#~ msgstr "Traductor de páginas"
+
+#~ msgid "Translate an entire web page with a couple clicks"
+#~ msgstr "Traduce una página web completa con un par de clics"
+
+#~ msgid "Forget Me Not"
+#~ msgstr "Forget Me Not"
+
+#~ msgid "Make Firefox forget website data like cookies & local storage"
+#~ msgstr "Haz que Firefox olvide datos de sitios web, como las cookies o el almacenamiento local"
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "Tu complemento está listo"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Ahora puedes acceder a %(name)s desde la barra de herramientas."
+
+#~ msgid "A powerful way to find archived versions of older web pages"
+#~ msgstr "Una forma muy potente de encontrar versiones archivadas de antiguas páginas web"
+
+#~ msgid "uBlock Origin"
+#~ msgstr "uBlock Origin"
+
+#~ msgid "Efficient, powerful ad blocker"
+#~ msgstr "Bloqueador de publicidad eficaz y potente"
+
+#~ msgid "Ghostery"
+#~ msgstr "Ghostery"
+
+#~ msgid "Popular anti-tracking extension now has ad blocking ability"
+#~ msgstr "Popular extensión antirastreo que ahora incluye bloqueadores de publicidad"
+
+#~ msgid "Put a social media ‘Share’ button into Firefox toolbar"
+#~ msgstr "Agrega un botón de ‘Compartir’ en redes sociales en la barra de herramientas de Firefox"
+
+#~ msgid "View Page Archive & Cache"
+#~ msgstr "Ver archivos de la página y caché"
+
+#~ msgid "Update My Account"
+#~ msgstr "Actualizar mi cuenta"
+
+#~ msgid "Updating this account…"
+#~ msgstr "Actualizando la cuenta…"
+
+#~ msgid "Update This Account"
+#~ msgstr "Actualizar la cuenta"
+
+#~ msgid "Delete My Account"
+#~ msgstr "Eliminar mi cuenta"
+
+#~ msgid "Delete This Account"
+#~ msgstr "Eliminar esta cuenta"
+
+#~ msgid "Cancel preview"
+#~ msgstr "Cancelar vista previa"
+
+#~ msgid "Tap to preview"
+#~ msgstr "Presiona para ver la vista previa"
+
+#~ msgid "Privacy matters"
+#~ msgstr "La privacidad importa"
+
+#~ msgid "Black Menu for Google"
+#~ msgstr "Black Menu para Google"
+
+#~ msgid "Easy drop-down menu access to Google services like Search and Translate"
+#~ msgstr "Menú desplegable sencillo para acceder a los servicios de Google, como Buscar o Traducir"
+
+#~ msgid "Image Search Options"
+#~ msgstr "Opciones de la búsqueda de imágenes"
+
+#~ msgid "PrivacyBadger"
+#~ msgstr "PrivacyBadger"
+
+#~ msgid "Block sneaky spying ads and trackers"
+#~ msgstr "Bloquea rastreadores y anuncios que te espían furtivamente"
+
+#~ msgid "Web Security"
+#~ msgstr "Seguridad web"
+
+#~ msgid "Worldwide Radio"
+#~ msgstr "Radio mundial"
+
+#~ msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
+#~ msgstr "¡Ganador del Reto de extensiones Quantum! Escucha en directo la radio de cualquier parte del mundo"
+
+#~ msgid "Update user's profile"
+#~ msgstr "Actualizar el perfil del usuario"
+
+#~ msgid "Delete user's profile"
+#~ msgstr "Eliminar el perfil del usuario"
+
+#~ msgid "Yes, delete my profile"
+#~ msgstr "Sí, eliminar mi perfil"
+
+#~ msgid "Essential extensions"
+#~ msgstr "Extensiones imprescindibles"
+
+#~ msgid "Envify"
+#~ msgstr "Envify"
+
+#~ msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
+#~ msgstr "¡Ganador del Reto de extensiones Quantum! Diferentes colores de pestañas para diferentes entornos de desarrollo"
+
+#~ msgid "For moments on the internet when you need to fire lasers out of a cat"
+#~ msgstr "Para esos momentos en Internet cuando necesitas un gato disparando rayos láser"
+
+#~ msgid "Manage downloads from a tidy status bar"
+#~ msgstr "Gestiona tu descargas desde una barra de estado ordenada"
+
+#~ msgid "Session Sync"
+#~ msgstr "Sincronización de sesiones"
+
+#~ msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
+#~ msgstr "¡Ganador del Reto de extensiones Quantum! Guarda tus sesiones como marcadores y accede a ellas desde distintos dispositivos"
+
+#~ msgid "Profile successfully updated"
+#~ msgstr "Se actualizó correctamente el perfil"
+
+#~ msgid "Top-rated themes"
+#~ msgstr "Temas más valorados"
+
+#~ msgid "See more highly rated themes"
+#~ msgstr "Ver más de los temas mejor valorados"
+
+#~ msgid "“Extensions Challenge” honorees"
+#~ msgstr "Galardonados de “Extensions Challenge”"
+
+#~ msgid "See more “Extensions Challenge” honorees"
+#~ msgstr "Ver más galardonados de “Extensions Challenge”"
+
+#~ msgid "SHINE for Reddit"
+#~ msgstr "SHINE para Reddit"
+
+#~ msgid "Experience Reddit with alternative designs"
+#~ msgstr "Prueba Reddit con diseños alternativos"
+
+#~ msgid "LeechBlock NG"
+#~ msgstr "LeechBlock NG"
+
+#~ msgid "Block time-wasting sites"
+#~ msgstr "Bloquea sitios que hacen perder el tiempo"
+
+#~ msgid "Tranquility Reader"
+#~ msgstr "Tranquility Reader"
+
+#~ msgid "Remove clutter and improve readability"
+#~ msgstr "Elimina el desorden y mejora la legibilidad"
+
+#~ msgid "AutoFormer+"
+#~ msgstr "AutoFormer+"
+
+#~ msgid "Fill out a lot of forms? This might help"
+#~ msgstr "¿Rellenas muchos formularios? Quizás necesites ayuda"
+
+#~ msgid "Flagfox"
+#~ msgstr "Flagfox"
+
+#~ msgid "Displays a website’s server location by country flag"
+#~ msgstr "Mostrar la ubicación del servidor de un sitio web con la bandera del país"
+
+#~ msgid "This add-on has not been rated yet."
+#~ msgstr "Este complemento aún no tiene valoraciones."
+
+#~ msgid "See all beta versions"
+#~ msgstr "Ver todas las versiones beta"
+
+#~ msgid "Good time tabs"
+#~ msgstr "Pestañas para pasar un buen rato"
+
+#~ msgid "See more good time tabs extensions"
+#~ msgstr "Ver más extensiones para pestañas"
+
+#~ msgid "AliTools"
+#~ msgstr "AliTools"
+
+#~ msgid "Online shopping assistance"
+#~ msgstr "Asistencia de compras en línea"
+
+#~ msgid "Snake Game"
+#~ msgstr "Snake Game"
+
+#~ msgid "The classic game, always a click away"
+#~ msgstr "El juego clásico, siempre a un clic de distancia"
+
+#~ msgid "Tab Invaders"
+#~ msgstr "Tab Invaders"
+
+#~ msgid "Space Invaders meets smart tab management"
+#~ msgstr "Space Invaders se encuentra con la gestión inteligente de pestañas"
+
+#~ msgid "Wikiwand"
+#~ msgstr "Wikiwand"
+
+#~ msgid "Give Wikipedia a gorgeous makeover"
+#~ msgstr "Dale a Wikipedia un espléndido cambio de imagen"
+
+#~ msgid "Honey"
+#~ msgstr "Honey"
+
+#~ msgid "Facebook Video Downloader"
+#~ msgstr "Descargadores de videos de Facebook"
+
+#~ msgid "Download with a single click"
+#~ msgstr "Descargar con un solo click"
+
+#~ msgid "Myki Password Manager & Authenticator"
+#~ msgstr "Myki Password Manager & Authenticator"
+
+#~ msgid "Cutting edge security"
+#~ msgstr "Seguridad de vanguardia"
+
+#~ msgid "Click to rate this add-on"
+#~ msgstr "Haz clic para evaluar este complemento"
+
+#~ msgid "Collection name cannot be blank"
+#~ msgstr "El nombre de la colección no se puede dejar en blanco"
+
+#~ msgid "Access your data in 1 other domain"
+#~ msgstr "Acceder a tus datos en otro dominio"
+
+#~ msgid "Access your data on 1 other site"
+#~ msgstr "Acceder a tus datos en otro sitio"
+
+#~ msgid "No ratings"
+#~ msgstr "Sin valoraciones"
+
+#~ msgid "Saving collection"
+#~ msgstr "Guardando colección"
+
+#~ msgid "OneTab"
+#~ msgstr "OneTab"
+
+#~ msgid "Convert your open tabs into a list and save precious memory"
+#~ msgstr "Convierte tus pestañas abiertas en una lista y ahorra memoria"
+
+#~ msgid "Click to close"
+#~ msgstr "Clic para cerrar"
+
+#~ msgid "Re-imagine search"
+#~ msgstr "Vuelve a imaginar la búsqueda"
+
+#~ msgid "February’s new featured extensions"
+#~ msgstr "Las nuevas extensiones más destacadas de febrero"
+
+#~ msgid "See all the new featured extensions"
+#~ msgstr "Ver todas las nuevas extensiones destacadas"
+
+#~ msgid "Enhance search results with thumbnail previews, popularity ranks & more."
+#~ msgstr "Mejora los resultados de búsqueda con vistas previas en miniatura, rankings de popularidad y más."
+
+#~ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
+#~ msgstr "Elimina datos automáticamente (cookies, almacenamiento local, etc.) en todos los sitios que visites, excepto en aquellos de tu lista segura."
+
+#~ msgid "Zoom for Firefox"
+#~ msgstr "Zoom para Firefox"
+
+#~ msgid "Simple zoom in/out tool for a close-up view of any web content."
+#~ msgstr "Herramienta para aumentar y disminuir la visualización de contenido web."
+
+#~ msgid "Temporary Containers"
+#~ msgstr "Contenedores temporales"
+
+#~ msgid "Open pages with disposable data containers."
+#~ msgstr "Abrir páginas con contenedores de datos desechables."
+
+#~ msgid "Momentum"
+#~ msgstr "Momentum"
+
+#~ msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
+#~ msgstr "Cambia tu nueva pestaña por un tablero personal: cosas que hacer, previsión del tiempo y mucho más."
+
+#~ msgid "Kimetrak"
+#~ msgstr "Kimetrak"
+
+#~ msgid "Track who’s tracking you."
+#~ msgstr "Rastrea a quien te rastree."
+
+#~ msgid "Mailvelope"
+#~ msgstr "Mailvelope"
+
+#~ msgid "Secure encryption for webmail."
+#~ msgstr "Cifrado seguro para correo web."
+
+#~ msgid "Point-and-click instant translations."
+#~ msgstr "Traducciones instantáneas en un clic."
+
+#~ msgid "Top-rated Extensions"
+#~ msgstr "Extensiones mejor puntuadas"
+
+#~ msgid "See more highly rated Extensions"
+#~ msgstr "Ver más de las extensiones mejor valoradas"
+
+#~ msgid "Display tabs in a space-saving “tree” layout."
+#~ msgstr "Mostrar pestañas en forma de “árbol” para ahorrar espacio."
+
+#~ msgid "Highlight any text and search Wikipedia."
+#~ msgstr "Resalta texto y búscalo en la Wikipedia."
+
+#~ msgid "Grammarly"
+#~ msgstr "Gramáticamente"
+
+#~ msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
+#~ msgstr "Obtén ayuda de ortografía cuando escribas en la Web: redes sociales, correo, documentos y mucho más."
+
+#~ msgid "Remove ads, promoted content, and other clutter from your feed."
+#~ msgstr "Elimina publicidad, contenido patrocinado y mucho más de tus canales."
+
+#~ msgid "LastPass Password Manager"
+#~ msgstr "Administrador de contraseñas LastPass"
+
+#~ msgid "Easily manage all your passwords for all devices from one spot"
+#~ msgstr "Gestiona todas tus contraseñas de todos tus dispositivos en un mismo sitio"
+
+#~ msgid "Top-rated Themes"
+#~ msgstr "Temas más valorados"
+
+#~ msgid "Productivity tools"
+#~ msgstr "Herramientas de productividad"
+
+#~ msgid "See more add-ons that protect your privacy"
+#~ msgstr "Ver más complementos que protegen tu privacidad"
+
+#~ msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
+#~ msgstr "Traduce palabras, frases e incluso páginas completas. Incluye más de 100 idiomas."
+
+#~ msgid "Search by Image"
+#~ msgstr "Buscar por imagen"
+
+#~ msgid "Reverse image search using various search engines."
+#~ msgstr "Búsqueda inversa de imágenes con varios motores de búsqueda."
+
+#~ msgid "FireShot"
+#~ msgstr "FireShot"
+
+#~ msgid "Capture full-page screenshots."
+#~ msgstr "Capturas de pantalla de páginas completas."
+
+#~ msgid "Easily download video from hundreds of popular websites."
+#~ msgstr "Descarga vídeos de una forma sencilla desde cientos de páginas web."
+
+#~ msgid "Decentraleyes"
+#~ msgstr "Decentraleyes"
+
+#~ msgid "Tracking protection against third-party sites aiming to mark your every online move."
+#~ msgstr "Protección contra rastreo frente a sitios de terceros que quieren seguir todos tus pasos en línea."
+
+#~ msgid "Excellent extensions for all situations"
+#~ msgstr "Excelentes extensiones para todas las ocasiones"
+
+#~ msgid "YouTube High Definition"
+#~ msgstr "YouTube High Definition"
+
+#~ msgid "Play videos in HD, turn off annotations, change player size & more"
+#~ msgstr "Reproduce videos en HD, desactiva las anotaciones, cambia el tamaño del reproductor y más"
+
+#~ msgid "Tools for making the Web work harder for you"
+#~ msgstr "Herramientas para que la Web trabaje más duro y solo para ti"
+
+#~ msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
+#~ msgstr "Desde bloqueadores de publicidad a antirastreadores, estas son algunas de las increíbles extensiones de privacidad"
+
+#~ msgid "An extremely powerful ad blocker that’s simple to use"
+#~ msgstr "Un bloqueador de anuncios extremadamente potente y muy fácil de usar"
+
+#~ msgid "Most Popular Extensions"
+#~ msgstr "Extensiones más populares"
+
+#~ msgid "Up & Coming Extensions"
+#~ msgstr "Próximas extensiones"
+
+#~ msgid "Find dictionary"
+#~ msgstr "Buscar diccionario"
+
+#~ msgid "Find language pack"
+#~ msgstr "Buscar paquete de idioma"
+
+#~ msgid "Click to view statistics"
+#~ msgstr "Haz clic para ver las estadísticas"
+
+#~ msgid "Tell the world about this extension."
+#~ msgstr "Háblale a todo el mundo de esta extensión."
+
+#~ msgid "All written reviews"
+#~ msgstr "Todos los comentarios enviados"
+
+#~ msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+#~ msgstr "Lo sentimos, pero no podemos encontrar nada en la dirección que has introducido. Si has seguido un enlace a un complemento, es posible que el autor lo haya eliminado."
+
+#~ msgid "Manage API Keys"
+#~ msgstr "Gestionar claves API"
+
+#~ msgid "Themes change how Firefox looks"
+#~ msgstr "Los temas cambian la apariencia de Firefox"
+
+#~ msgid "This ID is useful for debugging and identifying your add-on to site administrators."
+#~ msgstr "Este ID es útil para depuración e identificación de tu complemento para los administradores del sitio web."
+
+#~ msgid "Site Identifier"
+#~ msgstr "Identificador del sitio web"
+
+#~ msgid "I'm interested in…"
+#~ msgstr "Estoy interesado en…"
+
+#~ msgid "More Featured Extensions"
+#~ msgstr "Más extensiones promocionadas"
+
+#~ msgid "More Featured Themes"
+#~ msgstr "Más temas promocionados"
+
+#~ msgid "Be social"
+#~ msgstr "Ser sociable"
+
+#~ msgid "Screenshot"
+#~ msgstr "Captura de pantalla"
+
+#~ msgid "Find news"
+#~ msgstr "Buscar noticias"
+
+#~ msgid "Shop online"
+#~ msgstr "Comprar en línea"
+
+#~ msgid "Wild"
+#~ msgstr "Salvaje"
+
+#~ msgid "Holiday"
+#~ msgstr "Festivo"
+
+#~ msgid "Sporty"
+#~ msgstr "Deportivo"
+
+#~ msgid "Solid"
+#~ msgstr "Sólido"
+
+#~ msgid "…or what it looks like"
+#~ msgstr "…o lo que parezca"
+
+#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+#~ msgstr "Instala potentes herramientas que hacen la navegación más rápida y segura, los complementos personalizan tu navegador."
+
+#~ msgid "Browse in your language"
+#~ msgstr "Navega en tu idioma"
+
+#~ msgid "Log in/Sign up"
+#~ msgstr "Iniciar sesión / Registrarse"
+
+#~ msgid "Failed to load categories."
+#~ msgstr "Error al cargar las categorías."
+
+#~ msgid "Browse by category"
+#~ msgstr "Navegar por categoría"
+
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Las extensiones son funciones especiales que puedes agregar a Firefox. Los temas te permiten cambiar la apariencia de tu navegador."
+
+#~ msgid "Fashionable"
+#~ msgstr "Actual"
+
+#~ msgid "Website"
+#~ msgstr "Sitio web"
+
+#~ msgid "Sentiment"
+#~ msgstr "Sentimiento"
+
+#~ msgid "Back"
+#~ msgstr "Atrás"
+
+#~ msgid "Please enter some text"
+#~ msgstr "Por favor, escribe algo"
+
+#~ msgid "screenshot %(imageNumber)s of %(totalImages)s"
+#~ msgstr "captura de pantalla %(imageNumber)s de %(totalImages)s"
+
+#~ msgid "What do you want Firefox to do?"
+#~ msgstr "¿Qué quieres que haga Firefox?"
+
+#~ msgid "Save stuff"
+#~ msgstr "Guardar cosas"
+
+#~ msgid "Share stuff"
+#~ msgstr "Compartir cosas"
+
+#~ msgid "How do you want Firefox to look?"
+#~ msgstr "¿Qué aspecto quieres que tenga Firefox?"
+
+#~ msgid "Mystical"
+#~ msgstr "Místico"
+
+#~ msgid "Your search for \"%(query)s\" returned %(count)s result."
+#~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
+#~ msgstr[0] "Tu búsqueda \"%(query)s\" obtuvo %(count)s resultado."
+#~ msgstr[1] "Tu búsqueda \"%(query)s\" obtuvo %(count)s resultados."
+
+#~ msgid "Please supply a valid search"
+#~ msgstr "Por favor, introduce una búsqueda válida"
