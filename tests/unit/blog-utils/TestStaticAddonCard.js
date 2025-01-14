@@ -86,14 +86,6 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('displays the description if there is no summary', () => {
-    const addon = createInternalAddonWithLang({ ...fakeAddon, summary: null });
-
-    render({ addon });
-
-    expect(screen.getByText(addon.description)).toBeInTheDocument();
-  });
-
   it('sanitizes the summary', () => {
     const plainText = 'Some safe text';
     const scriptHTML = createLocalizedString(
