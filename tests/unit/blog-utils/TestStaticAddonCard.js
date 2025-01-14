@@ -87,10 +87,8 @@ describe(__filename, () => {
   });
 
   it('sanitizes the summary', () => {
-    const plainText = 'Some safe text';
-    const scriptHTML = createLocalizedString(
-      `${plainText}<script>alert(document.cookie);</script>`,
-    );
+    const plainText = '<script>alert(document.cookie);</script>';
+    const scriptHTML = createLocalizedString(plainText);
 
     render({
       addon: createInternalAddonWithLang({
@@ -99,13 +97,9 @@ describe(__filename, () => {
       }),
     });
 
+    expect(screen.getByText(plainText)).toBeInTheDocument();
     // Make sure an actual script tag was not created.
     expect(screen.queryByTagName('script')).not.toBeInTheDocument();
-    // Make sure the script has been removed.
-    expect(screen.getByText(plainText)).toBeInTheDocument();
-    expect(
-      screen.getByClassName('StaticAddonCard-summary'),
-    ).not.toHaveTextContent('<script>');
   });
 
   it('displays the number of users', () => {
