@@ -86,7 +86,7 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('sanitizes the summary', () => {
+  it('renders html as plaintext', () => {
     const plainText = '<script>alert(document.cookie);</script>';
     const scriptHTML = createLocalizedString(plainText);
 
