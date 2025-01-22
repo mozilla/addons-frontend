@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-01-07 15:06+0000\n"
+"PO-Revision-Date: 2025-01-22 20:46+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2611,10 +2611,12 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Dok se kršenje ne riješi, ovaj dodatak neće biti dostupan za preuzimanje s addons.mozilla.org. Ako je već instaliran, deaktivirat će se, a korisnici će biti obaviješteni o kršenju. Mogu odlučiti da "
+"ponovo aktiviraju dodatak na vlastitu odgovornost."
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Dok se kršenje ne riješi, ovaj dodatak neće biti dostupan za preuzimanje s addons.mozilla.org. Bit će automatski deaktiviran i više se neće moći koristiti u Firefoxu."
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
@@ -2625,6 +2627,8 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Kad Mozilla sazna za dodatke, priključke ili drugi softver treće strane koji ozbiljno ugrožavaju Firefoxovu sigurnost, stabilnost ili performanse i koji zadovoljavaju %(criteriaStartLink)sodređene "
+"kriterije%(criteriaEndLink)s, softver može biti blokiran za opću upotrebu. Za više informacija pročitaj %(supportStartLink)sovaj članak podrške%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
