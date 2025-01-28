@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-24 16:16+0000\n"
+"POT-Creation-Date: 2025-01-28 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,7 +99,7 @@ msgid "This add-on is not available on your platform."
 msgstr ""
 
 #: src/amo/components/AddonFeedbackForm/index.js:148
-#: src/amo/components/SearchResult/index.js:248
+#: src/amo/components/SearchResult/index.js:242
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] ""
@@ -2348,11 +2348,11 @@ msgstr ""
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:195
+#: src/amo/components/SearchResult/index.js:189
 msgid "No theme preview available"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:230
+#: src/amo/components/SearchResult/index.js:224
 msgid "Add-on note"
 msgstr ""
 
@@ -2565,17 +2565,17 @@ msgstr ""
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:506
+#: src/amo/pages/Addon/index.js:492
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:530
+#: src/amo/pages/Addon/index.js:514
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:555
+#: src/amo/pages/Addon/index.js:539
 msgid "Screenshots"
 msgstr ""
 
