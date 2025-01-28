@@ -33,7 +33,7 @@ import {
 } from 'amo/experiments/20221130_amo_detail_category';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { getAddonURL, nl2br, sanitizeHTML, sanitizeUserHTML } from 'amo/utils';
+import { getAddonURL, sanitizeUserHTML } from 'amo/utils';
 import { getVersionById } from 'amo/reducers/versions';
 import {
   fetchAddon,
@@ -445,24 +445,10 @@ export class AddonBase extends React.Component {
 
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
-    const summaryProps = {};
-    let showSummary = false;
-    if (addon) {
-      // Themes lack a summary so we do the inverse :-/
-      // TODO: We should file an API bug about this...
-      const summary = addon.summary ? addon.summary : addon.description;
-
-      if (summary && summary.length) {
-        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(nl2br(summary), [
-          'a',
-          'br',
-        ]);
-        showSummary = true;
-      }
-    } else {
-      summaryProps.children = <LoadingText width={100} />;
-      showSummary = true;
-    }
+    const showSummary = !addon || addon.summary?.length;
+    const summary = (
+      <p className="Addon-summary">{addon ? addon.summary : <LoadingText />}</p>
+    );
 
     const addonPreviews = addon ? addon.previews : [];
 
@@ -519,9 +505,7 @@ export class AddonBase extends React.Component {
                 {addon && <InstallWarning addon={addon} />}
 
                 <div className="Addon-summary-and-install-button-wrapper">
-                  {showSummary ? (
-                    <p className="Addon-summary" {...summaryProps} />
-                  ) : null}
+                  {showSummary ? summary : null}
 
                   <InstallButtonWrapper addon={addon} />
                 </div>
