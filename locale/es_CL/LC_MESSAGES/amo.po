@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-28 15:20+0000\n"
+"POT-Creation-Date: 2024-12-10 17:08+0000\n"
 "PO-Revision-Date: 2022-04-05 18:15+0000\n"
 "Last-Translator: cfatls <cfatls@gmail.com>\n"
 "Language-Team: none\n"
-"Language: es\n"
+"Language: es_CL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -99,7 +99,7 @@ msgstr "Este complemento no es compatible con tu versión de Firefox."
 msgid "This add-on is not available on your platform."
 msgstr "Este complemento no está disponible en tu plataforma."
 
-#: src/amo/components/AddonFeedbackForm/index.js:148 src/amo/components/SearchResult/index.js:242
+#: src/amo/components/AddonFeedbackForm/index.js:148 src/amo/components/SearchResult/index.js:248
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s usuario"
@@ -2284,11 +2284,11 @@ msgstr "Acerca de los complementos de Firefox"
 msgid "Go to the add-on page"
 msgstr "Ir a la página del complemento"
 
-#: src/amo/components/SearchResult/index.js:189
+#: src/amo/components/SearchResult/index.js:195
 msgid "No theme preview available"
 msgstr "Vista previa del tema no disponible"
 
-#: src/amo/components/SearchResult/index.js:224
+#: src/amo/components/SearchResult/index.js:230
 msgid "Add-on note"
 msgstr "Nota del complemento"
 
@@ -2490,15 +2490,15 @@ msgstr "Normativas para desarrolladores"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Notas de prensa para %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:492
+#: src/amo/pages/Addon/index.js:506
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Esta lista no es pública. La puedes ver porque tienes permisos elevados."
 
-#: src/amo/pages/Addon/index.js:514
+#: src/amo/pages/Addon/index.js:530
 msgid "Extension Metadata"
 msgstr "Metadata de la extensión"
 
-#: src/amo/pages/Addon/index.js:539
+#: src/amo/pages/Addon/index.js:555
 msgid "Screenshots"
 msgstr "Capturas de pantalla"
 

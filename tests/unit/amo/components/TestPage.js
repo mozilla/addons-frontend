@@ -989,31 +989,31 @@ describe(__filename, () => {
     });
 
     it('changes the language in the URL on change', async () => {
-      _dispatchClientMetadata({ lang: 'fr' });
-      render({ location: '/fr/firefox/' });
-      expect(window.location.pathname).toEqual('/fr/firefox/');
+      _dispatchClientMetadata({ lang: 'de' });
+      render({ location: '/de/firefox/' });
+      expect(window.location.pathname).toEqual('/de/firefox/');
 
       await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
-        screen.getByRole('option', { name: 'Español' }),
+        screen.getByRole('option', { name: 'Français' }),
       );
 
-      expect(window.location).toEqual('/es/firefox/');
+      expect(window.location).toEqual('/fr/firefox/');
     });
 
     it('changes the language in the URL on change with a query', async () => {
-      _dispatchClientMetadata({ lang: 'fr' });
+      _dispatchClientMetadata({ lang: 'de' });
       render({
-        location: '/fr/firefox/?page=1&q=something',
+        location: '/de/firefox/?page=1&q=something',
       });
-      expect(window.location.pathname).toEqual('/fr/firefox/');
+      expect(window.location.pathname).toEqual('/de/firefox/');
 
       await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
-        screen.getByRole('option', { name: 'Español' }),
+        screen.getByRole('option', { name: 'Français' }),
       );
 
-      expect(window.location).toEqual('/es/firefox/?page=1&q=something');
+      expect(window.location).toEqual('/fr/firefox/?page=1&q=something');
     });
 
     it('only changes the locale section of the URL', async () => {
