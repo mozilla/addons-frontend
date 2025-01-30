@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-28 15:20+0000\n"
-"PO-Revision-Date: 2025-01-30 10:29+0000\n"
+"PO-Revision-Date: 2025-01-30 13:25+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -93,7 +93,7 @@ msgstr "זמין ב־Firefox עבור ™Android"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr "תוספת זו אינה נתמכת ע״י הגרסה המותקנת של Firefox."
+msgstr "תוספת זו אינה נתמכת על־ידי הגרסה המותקנת של Firefox."
 
 #: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
@@ -221,7 +221,7 @@ msgstr "אין סקירות"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Used by"
-msgstr "בשימוש ע״י"
+msgstr "בשימוש על־ידי"
 
 #: src/amo/components/AddonMoreInfo/index.js:103 src/amo/pages/UserProfile/index.js:356 src/amo/pages/UserProfile/index.js:359 src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
