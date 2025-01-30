@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-28 15:20+0000\n"
-"PO-Revision-Date: 2024-12-04 21:30+0000\n"
+"PO-Revision-Date: 2025-01-30 10:29+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -3379,7 +3379,7 @@ msgstr "ההתקנה בוטלה מכיוון שנראה שהתוספת פגומ�
 
 #: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
-msgstr "ההתקנה נכשלה. נא לנסות שנית."
+msgstr "ההתקנה נכשלה. נא לנסות שוב."
 
 #: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
