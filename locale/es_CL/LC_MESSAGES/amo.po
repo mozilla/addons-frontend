@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-03 10:41+0000\n"
+"PO-Revision-Date: 2025-02-03 10:45+0000\n"
 "Last-Translator: ravmn <ravmn@ravmn.cl>\n"
 "Language-Team: none\n"
 "Language: es_CL\n"
@@ -1353,35 +1353,35 @@ msgstr "Por favor, proporciona cualquier información adicional que pueda ayudar
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
-msgstr ""
+msgstr "Información de contacto"
 
 #: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
-msgstr ""
+msgstr "Presentar reporte de forma anónima"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "La presentación de un reporte anónimo nos impedirá comunicarnos contigo acerca del estado del reporte o sobre cualquier opción de apelación."
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Tu nombre %(spanStart)s(opcional)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:930
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Tu nombre %(spanStart)s(requerido)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Tu dirección de correo electrónico %(spanStart)s(opcional)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:970
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Tu dirección de correo electrónico %(spanStart)s(requerido)%(spanEnd)s"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "Contenido ilegal o que viola las políticas de contenido de AMO"
 
 #: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flagged"
@@ -1401,7 +1401,7 @@ msgstr "Marcar esta revisión"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "Contenido no deseado"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
@@ -1409,7 +1409,7 @@ msgstr "Marcado como spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
 msgid "Login required"
-msgstr ""
+msgstr "Se requiere conectarse"
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
@@ -1425,7 +1425,7 @@ msgstr "Normativas para desarrolladores"
 
 #: src/amo/components/Footer/index.js:116
 msgid "Community Blog"
-msgstr ""
+msgstr "Blog de la comunidad"
 
 #: src/amo/components/Footer/index.js:121
 msgid "Forum"
@@ -1440,9 +1440,8 @@ msgid "Review Guide"
 msgstr "Guía de revisión"
 
 #: src/amo/components/Footer/index.js:141
-#, fuzzy
 msgid "Browsers"
-msgstr "Navegador para iOS"
+msgstr "Navegadores"
 
 #: src/amo/components/Footer/index.js:186
 msgid "Products"
@@ -1483,9 +1482,8 @@ msgid "About"
 msgstr "Acerca de"
 
 #: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
-#, fuzzy
 msgid "Firefox Add-ons Blog"
-msgstr "Acerca de los complementos de Firefox"
+msgstr "Blog de complementos de Firefox"
 
 #: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
@@ -1497,55 +1495,50 @@ msgstr "Central del desarrollador"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "Para usar estos complementos, necesitarás %(downloadLinkStart)sbajar Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Para usar extensiones de Android, necesitarás %(downloadLinkStart)sFirefox para Android%(downloadLinkEnd)s. Para explorar los complementos de Firefox para escritorio, %(linkStart)svisita nuestro "
+"sitio para escritorio%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:146
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Descargar Firefox"
+msgstr "Bajar Firefox y obtener el tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:147
 msgid "Download Firefox and get the extension"
 msgstr "Descarga Firefox y obtiene la extensión"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
-#, fuzzy
 msgid "Download the new Firefox and get the theme"
-msgstr "Descargar Firefox"
+msgstr "Bajar el nuevo Firefox y obtener el tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:152
-#, fuzzy
 msgid "Download the new Firefox and get the extension"
-msgstr "Descarga Firefox y obtiene la extensión"
+msgstr "Bajar Firefox y obtener la extensión"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox"
 msgstr "Descargar Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:159
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Iniciar sesión para evaluar este tema"
+msgstr "Necesitarás Firefox para usar este tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:160
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Inicia sesión para evaluar esta extensión"
+msgstr "Necesitarás Firefox para usar esta extensión"
 
 #: src/amo/components/GetFirefoxButton/index.js:164
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "Iniciar sesión para evaluar este tema"
+msgstr "Necesitas una versión actualizada de Firefox para este tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:165
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "Inicia sesión para evaluar esta extensión"
+msgstr "Necesitas una versión actualizada de Firefox para esta extensión"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
@@ -2208,39 +2201,39 @@ msgstr "Comentario"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "Negro"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "Gris"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "Blanco"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "Rojo"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "Amarillo"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "Verde"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "Celeste"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "Azul"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -2256,25 +2249,23 @@ msgstr "Tipo de complemento"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
-msgstr ""
+msgstr "Color del tema"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
-msgstr ""
+msgstr "Limpiar"
 
 #: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
 msgstr ""
 
 #: src/amo/components/SearchForm/index.js:65
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Complementos para Android"
+msgstr "Complementos de Firefox para Android"
 
 #: src/amo/components/SearchForm/index.js:66
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Acerca de los complementos de Firefox"
+msgstr "Complementos de Firefox"
 
 #: src/amo/components/SearchForm/index.js:89
 msgid "Go to the add-on page"
@@ -2338,7 +2329,7 @@ msgstr "<span class=\"visually-hidden\">Expandir a </span> Leer más"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "Conectado como %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2346,7 +2337,7 @@ msgstr "Hay algunas funciones deshabilitadas temporalmente mientras realizamos t
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
-msgstr ""
+msgstr "Te has desconectado."
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2400,7 +2391,7 @@ msgstr "Respuesta del desarrollador"
 
 #: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "Ahorra 50% con una suscripción de un año completo"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
