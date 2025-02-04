@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-04 05:51+0000\n"
+"PO-Revision-Date: 2025-02-04 06:01+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -107,11 +107,11 @@ msgstr[1] "%(total)s usuarios"
 
 #: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
-msgstr ""
+msgstr "Informar de este complemento a Mozilla"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
-msgstr ""
+msgstr "Enviar comentarios sobre el complemento"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
@@ -121,25 +121,25 @@ msgstr ""
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Consigue esta extensión para 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Conseguí esta extensión para 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Consigue este idioma para 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Conseguí este idioma para 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Consigue este tema para 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Conseguí este tema para 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Consigue este complemento para 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Conseguí este complemento para 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:131
 msgid "Download %(addonName)s for Firefox. %(summary)s"
@@ -148,33 +148,33 @@ msgstr "Descargar %(addonName)s para Firefox. %(summary)s"
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Consigue este diccionario para 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Conseguí este diccionario para 🦊 Firefox Android (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Consigue esta extensión para 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Conseguí esta extensión para 🦊 Firefox Android (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Consigue este paquete de idioma para 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Conseguí este paquete de idioma para 🦊 Firefox Android (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Consigue este tema para 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Conseguí este tema para 🦊 Firefox Android (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Consigue este complemento para 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Conseguí este complemento para 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Consigue este diccionario para 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Conseguí este diccionario para 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
@@ -184,7 +184,7 @@ msgstr[1] "%(total)s estrellas"
 
 #: src/amo/components/AddonMeta/index.js:128
 msgid "Not rated yet"
-msgstr "Aún no ha sido valorado"
+msgstr "Todavía no ha sido valorado"
 
 #: src/amo/components/AddonMeta/index.js:49
 msgid "Users"
@@ -202,21 +202,21 @@ msgstr "No hay usuarios"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
-msgstr "Comentarios"
+msgstr "Revisiones"
 
 #: src/amo/components/AddonMeta/index.js:64
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "Comentario"
-msgstr[1] "Comentarios"
+msgstr[0] "Revisión"
+msgstr[1] "Revisiones"
 
 #: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
-msgstr "Sin comentarios"
+msgstr "Sin revisiones"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Used by"
-msgstr "Utilizado por"
+msgstr "Usado por"
 
 #: src/amo/components/AddonMoreInfo/index.js:103 src/amo/pages/UserProfile/index.js:356 src/amo/pages/UserProfile/index.js:359 src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
@@ -224,11 +224,11 @@ msgstr "Página de inicio"
 
 #: src/amo/components/AddonMoreInfo/index.js:120
 msgid "Support site"
-msgstr "Ayuda del sitio"
+msgstr "Sitio de soporte"
 
 #: src/amo/components/AddonMoreInfo/index.js:134
 msgid "Support Email"
-msgstr "Correo de ayuda"
+msgstr "Correo de soporte"
 
 #: src/amo/components/AddonMoreInfo/index.js:152
 msgid "Visit stats dashboard"
@@ -236,7 +236,7 @@ msgstr "Visitar el panel de estadísticas"
 
 #: src/amo/components/AddonMoreInfo/index.js:172
 msgid "Custom License"
-msgstr "Custom License"
+msgstr "Licencia personalizada"
 
 #. This will output, in English: "2 months ago (Dec 12 2016)"
 #: src/amo/components/AddonMoreInfo/index.js:216
