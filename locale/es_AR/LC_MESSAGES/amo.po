@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-01-29 11:53+0000\n"
-"Last-Translator: cfatls <cfatls@gmail.com>\n"
+"PO-Revision-Date: 2025-02-04 05:51+0000\n"
+"Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr "Cargando…"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 msgid "Adding…"
-msgstr "Añadiendo…"
+msgstr "Agregando…"
 
 #: src/amo/components/AddAddonToCollection/index.js:205
 msgid "Select a collection…"
@@ -32,17 +32,17 @@ msgstr "Crear nueva colección"
 
 #: src/amo/components/AddAddonToCollection/index.js:253
 msgid "Added to %(collectionName)s"
-msgstr "Se añadió a %(collectionName)s"
+msgstr "Se agregó a %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
 #. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
 msgid "Add to…"
-msgstr "Añadir a…"
+msgstr "Agregar a…"
 
 #: src/amo/components/AddAddonToCollection/index.js:274 src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
-msgstr "Añadir a la colección"
+msgstr "Agregar a la colección"
 
 #. This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:105
@@ -89,7 +89,7 @@ msgstr "Algunas características pueden ser de pago"
 
 #: src/amo/components/AddonBadges/index.js:71
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "Disponible en Firefox para Android™"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
