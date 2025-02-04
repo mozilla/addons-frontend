@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-28 15:20+0000\n"
-"PO-Revision-Date: 2024-12-10 19:30+0000\n"
+"PO-Revision-Date: 2025-02-04 12:26+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1562,7 +1562,7 @@ msgstr "Új téma beküldése"
 
 #: src/amo/components/Header/index.js:124
 msgid "Manage My Submissions"
-msgstr "Beküldései kezelése"
+msgstr "Saját beküldések kezelése"
 
 #: src/amo/components/Header/index.js:134
 msgid "Reviewer Tools"
