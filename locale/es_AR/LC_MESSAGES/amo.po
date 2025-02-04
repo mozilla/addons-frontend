@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-04 06:01+0000\n"
+"PO-Revision-Date: 2025-02-04 06:03+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -249,7 +249,7 @@ msgstr "Leer la política de privacidad de este complemento"
 
 #: src/amo/components/AddonMoreInfo/index.js:245
 msgid "Read the license agreement for this add-on"
-msgstr "Lee el acuerdo de licencia de este complemento"
+msgstr "Leer el acuerdo de licencia de este complemento"
 
 #: src/amo/components/AddonMoreInfo/index.js:258
 msgid "See all versions"
@@ -272,9 +272,8 @@ msgid "Last updated"
 msgstr "Última actualización"
 
 #: src/amo/components/AddonMoreInfo/index.js:341
-#, fuzzy
 msgid "Related Categories"
-msgstr "Categorías"
+msgstr "Categorías relacionadas"
 
 #: src/amo/components/AddonMoreInfo/index.js:351
 msgid "License"
