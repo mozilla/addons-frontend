@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-05 05:39+0000\n"
+"PO-Revision-Date: 2025-02-05 05:48+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -333,15 +333,15 @@ msgstr "Eliminar revisión"
 
 #: src/amo/components/AddonReviewCard/index.js:234
 msgid "Do you really want to delete this reply?"
-msgstr "¿De verdad quieres eliminar esta foto?"
+msgstr "¿Realmente querés eliminar esta respuesta?"
 
 #: src/amo/components/AddonReviewCard/index.js:238
 msgid "Do you really want to delete this rating?"
-msgstr "¿De verdad quieres eliminar esta foto?"
+msgstr "¿Realmente querés eliminar esta valoración?"
 
 #: src/amo/components/AddonReviewCard/index.js:241
 msgid "Do you really want to delete this review?"
-msgstr "¿De verdad quieres eliminar esta foto?"
+msgstr "¿Realmente querés eliminar esta revisión?"
 
 #: src/amo/components/AddonReviewCard/index.js:248 src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
@@ -391,9 +391,8 @@ msgstr "publicado el %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:371
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "por %(authorName)s, el %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "por %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, el %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:375
@@ -410,15 +409,15 @@ msgstr "Responder a esta revisión"
 
 #: src/amo/components/AddonReviewCard/index.js:551
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr "Se ha eliminado esta valoración o comentario. Solo la ves porque tienes permisos suficientes."
+msgstr "Se ha eliminado esta valoración o revisión. Solo la ves porque tenés permisos suficientes."
 
 #: src/amo/components/AddonReviewCard/index.js:597
 msgid "Write a review"
-msgstr "Escribe un comentario"
+msgstr "Escribí una revisión"
 
 #: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
-msgstr "Escribe tu opinión sobre este complemento."
+msgstr "Escribí sobre tu experiencia con este complemento."
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
