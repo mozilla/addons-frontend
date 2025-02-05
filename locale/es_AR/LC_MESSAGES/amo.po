@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-04 06:03+0000\n"
+"PO-Revision-Date: 2025-02-05 05:39+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -422,7 +422,7 @@ msgstr "Escribe tu opinión sobre este complemento."
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
-msgstr "Enviar comentario"
+msgstr "Enviar revisión"
 
 #: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
@@ -446,7 +446,7 @@ msgstr "Guardado"
 
 #: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Por favor, sigue nuestras %(linkStart)sguías de revisión%(linkEnd)s."
+msgstr "Seguí nuestras %(linkStart)sguías de revisión%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
