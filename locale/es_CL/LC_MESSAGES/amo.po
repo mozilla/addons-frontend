@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-03 10:45+0000\n"
+"PO-Revision-Date: 2025-02-05 10:31+0000\n"
 "Last-Translator: ravmn <ravmn@ravmn.cl>\n"
 "Language-Team: none\n"
 "Language: es_CL\n"
@@ -1213,39 +1213,39 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
-msgstr ""
+msgstr "Material sexual para adultos"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "Abuso sexual basado en imágenes (excluido el contenido que muestre a menores)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
-msgstr ""
+msgstr "Restricciones específicas de edad para menores"
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
-msgstr ""
+msgstr "Material de abuso sexual infantil"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
-msgstr ""
+msgstr "Acoso/incitación sexual a menores"
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
-msgstr ""
+msgstr "Organizaciones ilegales"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr ""
+msgstr "Riesgo de daño ambiental"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "Riesgo para la salud pública"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
-msgstr ""
+msgstr "Contenido terrorista"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
@@ -1261,7 +1261,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
-msgstr ""
+msgstr "Suplantación de identidad o secuestro de cuenta"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
@@ -1309,7 +1309,7 @@ msgstr "Trata de personas"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Llamados generales o incitaciones a la violencia y/o al odio"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
@@ -1630,9 +1630,8 @@ msgid "Access your data for %(param)s"
 msgstr "Acceder a tus datos para %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:41 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:212
-#, fuzzy
 msgid "By Firefox"
-msgstr "para Firefox"
+msgstr "Por Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:42 src/amo/components/PromotedBadge/index.js:49 src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
@@ -1847,7 +1846,6 @@ msgid "Star rating saved"
 msgstr "Se guardó la valoración"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
 msgstr "Todavía no hay revisiones"
 
@@ -1859,9 +1857,8 @@ msgstr[0] "Leer todas las revisiones con 2 estrellas"
 msgstr[1] "Leer todas las revisiones con 2 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "Todavía no hay revisiones de dos estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:123
 #, fuzzy
@@ -2399,7 +2396,7 @@ msgstr ""
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
-msgstr ""
+msgstr "Obtener VPN de Mozilla"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
@@ -2559,7 +2556,7 @@ msgstr "Deberías usar siempre la última versión disponible de un complemento.
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Versions"
-msgstr ""
+msgstr "Versiones"
 
 #: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
@@ -2571,7 +2568,7 @@ msgstr "Versiones antiguas"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s está restringido por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
@@ -2630,14 +2627,12 @@ msgid "All theme categories"
 msgstr "Todas las categorías de temas"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Temas en %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "%(count)s extensión encontrada en %(categoryName)s"
+msgstr "Extensiones en %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
@@ -2649,15 +2644,15 @@ msgstr "Eliminar esta colección"
 
 #: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
-msgstr ""
+msgstr "Reportaste esta colección"
 
 #: src/amo/pages/Collection/index.js:427
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Hemos recibido tu reporte. Gracias por hacernos saber acerca de tus inquietudes con esta colección."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
-msgstr ""
+msgstr "Reportar esta colección"
 
 #: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
@@ -2685,23 +2680,23 @@ msgstr "Descarga y crea colecciones de Firefox para estar al tanto de tus extens
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Envía comentarios o reporta una colección a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "por %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Reportar esta colección a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:172
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Enviar algunos comentarios acerca de la colección"
 
 #: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Reportar la colección porque es ilegal o no cumple con las normas"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2737,11 +2732,11 @@ msgstr "Estacional"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "Extensiones de Firefox para Android"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "Personaliza Firefox para Android con potentes extensiones."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2749,7 +2744,7 @@ msgstr "Ver más extensiones recomendadas"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Explora todas las extensiones de Android"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2859,15 +2854,15 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "por %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Reportar esta reseña a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Reportar la reseña porque es ilegal o no cumple con las normas"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2898,9 +2893,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "Para ver otras formas de colaborar con la comunidad de complementos, visita nuestra %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "Informar de un error"
+msgstr "Reportar un error"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2908,7 +2902,7 @@ msgstr "Acerca de los complementos de Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr ""
+msgstr "Si encuentras un problema con el sitio, nos encantaría solucionarlo. Por favor, presenta un %(startIssueLink)sproblema%(endIssueLink)s e incluye tantos detalles como sea posible."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -3130,11 +3124,11 @@ msgstr "Hacer alegaciones falsas, denigrar o insultar a los autores de complemen
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Complementos etiquetados con %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Enviar comentarios o denunciar a un usuario a Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:143 src/amo/pages/UserProfile/index.js:381
 msgid "User since"
@@ -3142,15 +3136,15 @@ msgstr "Usuario desde"
 
 #: src/amo/pages/UserFeedback/index.js:154
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Reportar este usuario a Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:155
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "Enviar algunos comentarios sobre el perfil de usuario"
 
 #: src/amo/pages/UserFeedback/index.js:158
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "Reportar el perfil de usuario porque es ilegal o no cumple con las normas"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
@@ -3169,9 +3163,8 @@ msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(use
 msgstr "El perfil de %(user)s, autor de un tema de Firefox. Encuentra otras aplicaciones de %(user)s, incluida la valoración media y la opción de informar de problemas."
 
 #: src/amo/pages/UserProfile/index.js:308
-#, fuzzy
 msgid "User Avatar"
-msgstr "Laser Cat"
+msgstr "Avatar de usuario"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
@@ -3292,11 +3285,11 @@ msgstr "Aquí no se puede cambiar la dirección de correo electrónico"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Puedes cambiar tu dirección de correo electrónico en las cuentas de Mozilla. %(startLink)s¿Necesitas ayuda?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Administrar cuentas de Mozilla…"
 
 #: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
