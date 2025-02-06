@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-06 05:29+0000\n"
+"PO-Revision-Date: 2025-02-06 05:41+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -909,27 +909,27 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Intenta volver a la página más tarde, puede que el tema o extensión esté disponible en unos minutos. También puedes probar a buscar entre las %(extensionStart)sextensiones%(extensionEnd)s o "
+"Probá volver a la página más tarde, porque el tema o extensión puede estar disponible de nuevo. También podés probar buscar entre las %(extensionStart)sextensiones%(extensionEnd)s o "
 "%(themeStart)stemas%(themeEnd)s ya disponibles o pidiendo ayuda en los %(communityStart)sforos de la comunidad%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
-msgstr "¡Vaya! No pudimos encontrar la página"
+msgstr "¡Epa! No pudimos encontrar la página"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr "Si venías buscando una extensión o tema siguiendo un enlace desde otro sitio, ya no está disponible. Podría deberse a:"
+msgstr "Si venías buscando una extensión o tema siguiendo un enlace desde otro sitio, ya no está disponible. Esto podría ser porque:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr "El desarrollador lo eliminó. Suelen hacerlo porque ya no siguen manteniendo la extensión o tema o porque los han reemplazado."
+msgstr "El desarrollador lo eliminó. Suelen hacerlo porque ya no siguen soportando la extensión o tema o porque los han reemplazado."
 
 #: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
-"Mozilla lo eliminó. Suele pasar cuando se encuentran problemas durante la revisión del tema o extensión o porque va en contra de los términos y condiciones de addons.mozzila.org. El desarrollador "
+"Mozilla lo eliminó. Suele pasar cuando se encuentran problemas durante la revisión del tema o extensión o porque va en contra de los términos y condiciones de addons.mozilla.org. El desarrollador "
 "tiene la oportunidad de resolver los problemas y que el complemento vuelva a estar disponible."
 
 #: src/amo/components/Errors/ServerError/index.js:22
@@ -937,8 +937,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
-"Si tienes información adicional que nos pueda ayudar, puedes <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">informar del problema</a>. Dinos qué pasos has seguido para llegar "
-"hasta el error y haremos todo lo posible para solucionarlo."
+"Si tenés información adicional que nos pueda ayudar, podés <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">informar del problema</a>. Decinos qué pasos seguiste para llegar hasta "
+"el error y haremos todo lo posible para solucionarlo."
 
 #: src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
@@ -949,18 +949,16 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Lo sentimos, pero ha habido un error con nuestro servidor y no hemos podido completar tu petición. Hemos registrado el error y vamos a investigarlo."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Intenta volver a la página más tarde, puede que el tema o extensión esté disponible en unos minutos. También puedes probar a buscar entre las %(extensionStart)sextensiones%(extensionEnd)s o "
-"%(themeStart)stemas%(themeEnd)s ya disponibles o pidiendo ayuda en los %(communityStart)sforos de la comunidad%(communityEnd)s."
+"Podés encontrar lo que estás buscando entre las %(extensionStart)sextensiones%(extensionEnd)s o %(themeStart)stemas%(themeEnd)s ya disponibles o pidiendo ayuda en los %(communityStart)sforos de la "
+"comunidad%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
-#, fuzzy
 msgid "That page is not available in your region"
-msgstr "Este complemento no está disponible en tu plataforma."
+msgstr "Esa página no está disponible en tu región"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
 msgid "The page you tried to access is not available in your region."
@@ -968,7 +966,7 @@ msgstr "La página a la que intentaste acceder no está disponible en tu región
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
-msgstr "Activar contenidos"
+msgstr "Alternar contenidos"
 
 #: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Response by %(userName)s"
