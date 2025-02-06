@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-05 06:06+0000\n"
+"PO-Revision-Date: 2025-02-06 04:49+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -565,7 +565,7 @@ msgstr "Más extensiones sorprendentes de imágenes, fotos y medios"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
-msgstr "Icono del complemento"
+msgstr "Icono de complemento"
 
 #. roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:78
