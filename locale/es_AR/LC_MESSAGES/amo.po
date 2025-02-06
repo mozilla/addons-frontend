@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-06 04:49+0000\n"
+"PO-Revision-Date: 2025-02-06 05:11+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -667,13 +667,12 @@ msgid "Log out"
 msgstr "Cerrar sesión"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Log in"
-msgstr "Cerrar sesión"
+msgstr "Iniciar sesióni"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:146
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr "Esta acción no está disponible actualmente. Vuelve a cargar la página en unos minutos."
+msgstr "Esta acción no está disponible actualmente. Recargá la página en unos minutos."
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
@@ -701,7 +700,7 @@ msgstr "No se encontró ninguna categoría."
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
-msgstr "Se añadió a la colección"
+msgstr "Se agregó a la colección"
 
 #: src/amo/components/CollectionAddAddon/index.js:170
 msgid "Removed from collection"
@@ -709,7 +708,7 @@ msgstr "Eliminado de la colección"
 
 #: src/amo/components/CollectionAddAddon/index.js:179
 msgid "Find an add-on to include in this collection"
-msgstr "Encuentra un complemento para incluir en esta colección"
+msgstr "Buscar un complemento para incluir en esta colección"
 
 #: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
@@ -757,11 +756,11 @@ msgstr "Ordenar complementos por"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Newest first"
-msgstr "Las más nuevas primero"
+msgstr "Los más nuevos primero"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Oldest first"
-msgstr "Las más antiguas primero"
+msgstr "Los más antiguos primero"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Name"
