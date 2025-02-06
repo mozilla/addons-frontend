@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-06 05:11+0000\n"
+"PO-Revision-Date: 2025-02-06 05:20+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -788,11 +788,11 @@ msgstr "Ayudar a estos desarrolladores"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "El desarrollador de esta extensión te pide le ayudes a seguir con el desarrollo haciendo una pequeña contribución."
+msgstr "El desarrollador de esta extensión te pide lo ayudés a seguir con el desarrollo haciendo una pequeña contribución."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "El desarrollador de esta extensión te pide le ayudes a seguir con el desarrollo haciendo una pequeña contribución."
+msgstr "Los desarrolladores de esta extensión te piden que los ayudés a seguir con el desarrollo haciendo una pequeña contribución."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
@@ -804,11 +804,11 @@ msgstr "Ayudar a estos artistas"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr "El artista de este tema te pide le ayudes a seguir con su creación haciendo una pequeña contribución."
+msgstr "El artista de este tema te pide que lo ayudés a seguir con su creación haciendo una pequeña contribución."
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr "El artista de este tema te pide le ayudes a seguir con su creación haciendo una pequeña contribución."
+msgstr "Los artistas de este tema te piden que los ayudés a seguir con su creación haciendo una pequeña contribución."
 
 #: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
@@ -820,15 +820,15 @@ msgstr "Ayudar a estos autores"
 
 #: src/amo/components/ContributeCard/index.js:79
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr "El autor de este complemento te pide le ayudes a seguir con su trabajo haciendo una pequeña contribución."
+msgstr "El autor de este complemento te pide que lo ayudés a seguir con su trabajo haciendo una pequeña contribución."
 
 #: src/amo/components/ContributeCard/index.js:81
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr "El autor de este complemento te pide le ayudes a seguir con su trabajo haciendo una pequeña contribución."
+msgstr "Los autores de este complemento te piden que los ayudés a seguir con su trabajo haciendo una pequeña contribución."
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
-msgstr "Escribe el texto."
+msgstr "Ingresar texto."
 
 #: src/amo/components/DismissibleTextForm/index.js:200
 msgid "Submit"
@@ -844,7 +844,7 @@ msgstr "Dejar una nota"
 
 #: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
-msgstr "Nota del recolector"
+msgstr "Nota del coleccionista"
 
 #: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
@@ -868,7 +868,7 @@ msgstr "Se ha producido un error inesperado"
 
 #: src/amo/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr "Recarga la página para continuar"
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
