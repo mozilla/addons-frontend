@@ -234,10 +234,6 @@
   @include permission-icon($name: 'top-sites');
 }
 
-.Icon-permission-unlimitedStorage {
-  @include permission-icon($name: 'storage');
-}
-
 .Icon-permission-webNavigation {
   @include permission-icon($name: 'navigation');
 }
