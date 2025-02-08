@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-08 06:01+0000\n"
+"PO-Revision-Date: 2025-02-08 06:10+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -1684,9 +1684,8 @@ msgid "This add-on needs to:"
 msgstr "Este complemento necesita:"
 
 #: src/amo/components/PermissionsCard/index.js:94
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Este complemento puede:"
+msgstr "Este complemento también puede pedir:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
@@ -1710,11 +1709,11 @@ msgstr "Introducir datos en el portapapeles"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Block content on any page"
-msgstr ""
+msgstr "Bloquear contenido en cualquier página"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Read your browsing history"
-msgstr ""
+msgstr "Leer historial de navegación"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Extend developer tools to access your data in open tabs"
@@ -1786,12 +1785,11 @@ msgstr "Acceder a la actividad del navegador mientras navegas"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr ""
+msgstr "Complemento oficial construida por Mozilla Firefox. Cumple con los estándares de seguridad y rendimiento."
 
 #: src/amo/components/PromotedBadge/index.js:50
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox solo recomienda extensiones que cumplen nuestros estándares de seguridad y rendimiento."
+msgstr "Firefox solo recomienda complementos que cumplen nuestros estándares de seguridad y rendimiento."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1850,9 +1848,8 @@ msgid "Star rating saved"
 msgstr "Se guardó la valoración"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "No hay revisiones con 3 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:108
 #, fuzzy
@@ -1862,9 +1859,8 @@ msgstr[0] "Leer todas las revisiones con 2 estrellas"
 msgstr[1] "Leer todas las revisiones con 2 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "No hay revisiones con 2 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:123
 #, fuzzy
@@ -1874,9 +1870,8 @@ msgstr[0] "Leer todas las revisiones con 1 estrella"
 msgstr[1] "Leer todas las revisiones con 1 estrella"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "No hay revisiones con 1 estrella"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
@@ -1890,9 +1885,8 @@ msgstr[0] "Leer todas las revisiones de 5 estrellas"
 msgstr[1] "Leer todas las revisiones de 5 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "No hay revisiones con 5 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:78
 #, fuzzy
@@ -1902,9 +1896,8 @@ msgstr[0] "Leer todas las revisiones con 4 estrellas"
 msgstr[1] "Leer todas las revisiones con 4 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "No hay revisiones con 4 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:93
 #, fuzzy
@@ -1954,19 +1947,16 @@ msgid "Recommended add-ons"
 msgstr "Complementos recomendados"
 
 #: src/amo/components/Search/index.js:155
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Extensiones de %(author)s"
+msgstr "Extensiones de Firefox"
 
 #: src/amo/components/Search/index.js:158
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "para Firefox"
+msgstr "Temas de Firefox"
 
 #: src/amo/components/Search/index.js:161
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Complementos para Firefox"
+msgstr "Complementos de Firefox"
 
 #: src/amo/components/Search/index.js:166
 #, fuzzy
@@ -2204,39 +2194,39 @@ msgstr "Comentario"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "Negro"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "Gris"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "Blanco"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "Rojo"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "Amarillo"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "Verde"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "Cian"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "Azul"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -2252,7 +2242,7 @@ msgstr "Tipo de complemento"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
-msgstr ""
+msgstr "Color del tema"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
