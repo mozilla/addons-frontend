@@ -11742,10 +11742,10 @@ yocto-queue@^1.0.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-zx@^8.2.4:
-  version "8.2.4"
-  resolved "https://registry.yarnpkg.com/zx/-/zx-8.2.4.tgz#28bc6a5c37d623b63a3a1c40198e0aaf9d2d136a"
-  integrity sha512-g9wVU+5+M+zVen/3IyAZfsZFmeqb6vDfjqFggakviz5uLK7OAejOirX+jeTOkyvAh/OYRlCgw+SdqzN7F61QVQ==
+zx@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/zx/-/zx-8.3.2.tgz#0526f890b14978bd7a3ef02d094c10e26697d7e7"
+  integrity sha512-qjTunv1NClO05jDaUjrNZfpqC9yvNCchge/bzOcQevsh1aM5qE3TG6MY24kuQKlOWx+7vNuhqO2wa9nQCIGvZA==
   optionalDependencies:
     "@types/fs-extra" ">=11"
     "@types/node" ">=20"
