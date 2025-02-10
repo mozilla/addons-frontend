@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-10 04:51+0000\n"
+"PO-Revision-Date: 2025-02-10 05:02+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -2579,7 +2579,7 @@ msgstr "¿Por qué pasó esto?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "Esta extensión, tema o plugin viola las %(startLink)spolíticas de complementos de Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2590,20 +2590,24 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Hasta que se resuelva la violación, este complemento no estará disponible para su descarga desde addons.mozilla.org. Si ya está instalado, se deshabilitará y los usuarios serán informados sobre la "
+"violación. Pueden optar por habilitar el complemento de nuevo bajo su propio riesgo."
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Hasta que se resuelva la violación, este complemento no estará disponible para su descarga desde addons.mozilla.org. Será deshabilitado automáticamente y ya no se podrá usar en Firefox."
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
-msgstr ""
+msgstr "¿Cómo aplica Mozilla sus políticas?"
 
 #: src/amo/pages/Block/index.js:194
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Cuando Mozilla detecta complementos, plugins o software de terceros que comprometen seriamente la seguridad, la estabilidad o el rendimiento de Firefox y cumplen con %(criteriaStartLink)sciertos "
+"criterios%(criteriaEndLink)s, es posible que el software se bloquee o restrinja para el uso general. Para más información, ler %(supportStartLink)seste artículo de ayuda%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
@@ -2618,14 +2622,12 @@ msgid "All theme categories"
 msgstr "Todas las categorías de temas"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Temas en %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "%(count)s extensión encontrada en %(categoryName)s"
+msgstr "Extensiones en %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
@@ -2677,7 +2679,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "por %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
@@ -2725,11 +2727,11 @@ msgstr "Estacional"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "Extensiones de Firefox para Android"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "Personalizá Firefox para Android con potentes extensiones."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2737,7 +2739,7 @@ msgstr "Ver más extensiones recomendadas"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Explorar todas las extensiones para Android"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2847,7 +2849,7 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "por %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
