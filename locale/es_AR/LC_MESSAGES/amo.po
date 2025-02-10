@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-10 05:05+0000\n"
+"PO-Revision-Date: 2025-02-10 05:30+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -1855,7 +1855,7 @@ msgstr "No hay revisiones con 3 estrellas"
 #, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Leer todas las revisiones con 2 estrellas"
+msgstr[0] "Leer la revisión con 2 estrellas"
 msgstr[1] "Leer todas las revisiones con 2 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:118
