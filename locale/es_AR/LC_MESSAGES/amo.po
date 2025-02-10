@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-10 04:38+0000\n"
+"PO-Revision-Date: 2025-02-10 04:51+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -1877,33 +1877,30 @@ msgid "There are no reviews"
 msgstr "Todavía no hay revisiones"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
 msgstr[0] "Leer la revisión con 5 estrellas"
-msgstr[1] "Leer todas las revisiones de 5 estrellas"
+msgstr[1] "Leer todas las %(total)s revisiones con 5 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
 msgstr "No hay revisiones con 5 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Leer todas las revisiones con 4 estrellas"
-msgstr[1] "Leer todas las revisiones con 4 estrellas"
+msgstr[0] "Leer la revisión con 4 estrellas"
+msgstr[1] "Leer todas las %(total)s revisiones con 4 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:88
 msgid "There are no four-star reviews"
 msgstr "No hay revisiones con 4 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Leer todas las revisiones de 3 estrellas"
-msgstr[1] "Leer todas las revisiones de 3 estrellas"
+msgstr[0] "Leer la revisión con 3 estrellas"
+msgstr[1] "Leer todas las %(total)s revisiones con 3 estrellas"
 
 #: src/amo/components/ReportAbuseButton/index.js:44
 msgid "You reported this add-on"
@@ -2252,14 +2249,12 @@ msgid "Badging"
 msgstr ""
 
 #: src/amo/components/SearchForm/index.js:65
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Complementos para Android"
+msgstr "Complementos de Firefox para Android"
 
 #: src/amo/components/SearchForm/index.js:66
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Acerca de los complementos de Firefox"
+msgstr "Complementos de Firefox"
 
 #: src/amo/components/SearchForm/index.js:89
 msgid "Go to the add-on page"
@@ -2323,7 +2318,7 @@ msgstr "<span class=\"visually-hidden\">Expandir a </span> Leer más"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "Conectado como %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2385,24 +2380,23 @@ msgstr "Respuesta del desarrollador"
 
 #: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "Ahorrá un 50% con una suscripción de todo un año"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "Protegé tus datos en línea y elegí un plan de suscripción a la VPN que se adapte a tus necesidades."
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
-msgstr ""
+msgstr "Obtener Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Para buscar extensiones compatibles con Firefox para Android, %(linkStart)shacé clic acá%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Este complemento no es compatible con tu versión de Firefox."
+msgstr "Los complementos no son compatibles con Firefox para iOS. Probá instalarlos en Firefox para escritorio."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -2553,7 +2547,7 @@ msgstr "Deberías usar siempre la última versión disponible de un complemento.
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Versions"
-msgstr ""
+msgstr "Versiones"
 
 #: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
@@ -2565,23 +2559,23 @@ msgstr "Versiones antiguas"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s está restringido por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "Este complemento está restringido por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s está bloqueado por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "Este complemento está bloqueado por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
-msgstr ""
+msgstr "¿Por qué pasó esto?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
