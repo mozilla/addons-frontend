@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-10 17:08+0000\n"
-"PO-Revision-Date: 2025-02-10 05:02+0000\n"
+"PO-Revision-Date: 2025-02-10 05:05+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -3159,9 +3159,8 @@ msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(use
 msgstr "El perfil de %(user)s, autor de un tema de Firefox. Encuentra otras aplicaciones de %(user)s, incluida la valoración media y la opción de informar de problemas."
 
 #: src/amo/pages/UserProfile/index.js:308
-#, fuzzy
 msgid "User Avatar"
-msgstr "Laser Cat"
+msgstr "Avatar del usuario"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
@@ -3282,11 +3281,11 @@ msgstr "Aquí no se puede cambiar la dirección de correo electrónico"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Podés cambiar tu dirección de correo electrónico en las cuentas de Mozilla. %(startLink)s¿Necesitás ayuda?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Administrar cuentas de Mozilla…"
 
 #: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
@@ -3369,6 +3368,8 @@ msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Si el usuario fue el autor de algún complemento, también se eliminará, a menos que la propiedad se comparta con otros autores. En ese caso, el usuario será eliminado como autor y el resto de los "
+"autores mantendrán la propiedad del complemento."
 
 #: src/amo/pages/UserProfileEdit/index.js:875
 #, fuzzy
