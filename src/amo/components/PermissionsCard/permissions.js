@@ -19,9 +19,10 @@ export class PermissionUtils {
 
   constructor(i18n: I18nType) {
     this.i18n = i18n;
-    // These should be kept in sync with Firefox's strings for webextension permissions
-    // which can be found in
-    // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
+    // These should be kept in sync with Firefox's strings for webextension
+    // permissions which can be found in:
+    // https://searchfox.org/mozilla-central/rev/b0b003e992b199fd8e13999bd5d06d06c84a3fd2/toolkit/components/extensions/ExtensionPermissionMessages.sys.mjs#32
+    // https://searchfox.org/mozilla-central/rev/b0b003e992b199fd8e13999bd5d06d06c84a3fd2/toolkit/locales/en-US/toolkit/global/extensionPermissions.ftl
     this.permissionStrings = {
       bookmarks: i18n.gettext('Read and modify bookmarks'),
       browserSettings: i18n.gettext('Read and modify browser settings'),
@@ -56,9 +57,6 @@ export class PermissionUtils {
       tabs: i18n.gettext('Access browser tabs'),
       tabHide: i18n.gettext('Hide and show browser tabs'),
       topSites: i18n.gettext('Access browsing history'),
-      unlimitedStorage: i18n.gettext(
-        'Store unlimited amount of client-side data',
-      ),
       webNavigation: i18n.gettext('Access browser activity during navigation'),
     };
   }
