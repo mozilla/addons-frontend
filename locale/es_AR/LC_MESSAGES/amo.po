@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 13:17+0000\n"
-"PO-Revision-Date: 2025-02-10 05:35+0000\n"
+"PO-Revision-Date: 2025-02-11 05:01+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -1170,19 +1170,19 @@ msgstr "Incitación ilegal a la violencia y al odio basadas en características 
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
-msgstr ""
+msgstr "Infracciones de diseño"
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
-msgstr ""
+msgstr "Infracciones de indicaciones geográficas"
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "Infracciones de patente"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "Infracciones de secretos comerciales"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
@@ -1202,7 +1202,7 @@ msgstr "Compartir imágenes sin consentimiento"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "Elementos no consentidos que contienen tecnología deepfake o similar que utilizan funciones de terceros"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
@@ -1314,19 +1314,19 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
-msgstr ""
+msgstr "Informe enviado"
 
 #: src/amo/components/FeedbackForm/index.js:673
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "Hemos recibido tu informe. Gracias por hacérnoslo saber."
 
 #: src/amo/components/FeedbackForm/index.js:768
 msgid "Submitting your report…"
-msgstr ""
+msgstr "Enviando tu informe…"
 
 #: src/amo/components/FeedbackForm/index.js:769
 msgid "Submit report"
-msgstr ""
+msgstr "Enviar informe"
 
 #: src/amo/components/FeedbackForm/index.js:788
 msgid "Provide more information"
@@ -1334,15 +1334,15 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:796
 msgid "Place of the violation"
-msgstr ""
+msgstr "Lugar de la violación"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Tipo de contenido ilegal"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Violación específica"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
@@ -1354,23 +1354,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
-msgstr ""
+msgstr "Informacion de contacto"
 
 #: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
-msgstr ""
+msgstr "Presentar el informe de forma anónima"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Enviar un informe anónimo evitará que nos comuniquemos con vos sobre el estado del informe o sobre cualquier opción para apelar."
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Tu nombre %(spanStart)s(opcional)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:930
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Tu nombre %(spanStart)s(requerido)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
