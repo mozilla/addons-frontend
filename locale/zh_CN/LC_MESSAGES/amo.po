@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 13:17+0000\n"
-"PO-Revision-Date: 2024-12-04 16:35+0000\n"
+"PO-Revision-Date: 2025-02-12 07:39+0000\n"
 "Last-Translator: Olvcpr423 <oliverchan86@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1603,15 +1603,15 @@ msgstr "浏览更多 %(categoryName)s 结果"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr "存取您在所有网站的数据"
+msgstr "访问您在所有网站的数据"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "存取您在 %(param)s 域名的数据"
+msgstr "访问您在 %(param)s 域名的数据"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
-msgstr "存取您在 %(param)s 的数据"
+msgstr "访问您在 %(param)s 的数据"
 
 #: src/amo/components/IconPromotedBadge/index.js:41 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:212
 msgid "By Firefox"
