@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 13:17+0000\n"
-"PO-Revision-Date: 2024-12-23 09:35+0000\n"
+"PO-Revision-Date: 2025-02-13 20:31+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1034,6 +1034,8 @@ msgid ""
 "Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
 msgstr ""
+"მაგალითად: თაღლითობა. (თუ გსურთ მოგვახსენოთ საავტორო უფლების ან სასაქონლო ნიშნის დარღვევის შესახებ, იხილეთ ვრცლად ჩვენს %(startLink)sსაავტორო უფლების ან სასაქონლო ნიშნის დარღვევის შესახებ "
+"სტატიაში%(endLink)s)."
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
@@ -1061,11 +1063,11 @@ msgstr "ორივე ადგილას"
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "სახეობის არჩევა"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
-msgstr ""
+msgstr "ცხოველთა დაცვა"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
