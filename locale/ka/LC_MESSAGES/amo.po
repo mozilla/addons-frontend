@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 13:17+0000\n"
-"PO-Revision-Date: 2025-02-13 20:31+0000\n"
+"PO-Revision-Date: 2025-02-13 20:41+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1071,63 +1071,63 @@ msgstr "ცხოველთა დაცვა"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
-msgstr ""
+msgstr "მომხმარებლის მონაცემების ხელყოფა"
 
 #: src/amo/components/FeedbackForm/index.js:192
 msgid "Data protection and privacy violations"
-msgstr ""
+msgstr "მონაცემთა დაცვისა და პირადულობის დარღვევები"
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
-msgstr ""
+msgstr "მართლსაწინააღმდეგო ან მავნე სიტყვები"
 
 #: src/amo/components/FeedbackForm/index.js:200
 msgid "Intellectual property infringements"
-msgstr ""
+msgstr "ინტელექტუალური საკუთრების ხელყოფა"
 
 #: src/amo/components/FeedbackForm/index.js:204
 msgid "Negative effects on civic discourse or elections"
-msgstr ""
+msgstr "უარყოფითი ზეგავლენა სამოქალაქო ურთიერთობებზე ან არჩევნებზე"
 
 #: src/amo/components/FeedbackForm/index.js:210
 msgid "Non-consensual behavior"
-msgstr ""
+msgstr "შეუთანხმებელი მოქმედება"
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
-msgstr ""
+msgstr "უხამსი ან სქესობრივი შინაარსის მასალები"
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
-msgstr ""
+msgstr "არასრულწლოვანთა დაცვა"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
-msgstr ""
+msgstr "სახიფათო საზოგადოებრივი უსაფრთხოებისთვის"
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
-msgstr ""
+msgstr "სიყალბე ან თაღლითობა"
 
 #: src/amo/components/FeedbackForm/index.js:225
 msgid "Self-harm"
-msgstr ""
+msgstr "თვითდაზიანება"
 
 #: src/amo/components/FeedbackForm/index.js:228
 msgid "Unsafe, non-compliant, or prohibited products"
-msgstr ""
+msgstr "სახიფათო, მართლსაწინააღმდეგო ან აკრძალული ნაწარმი"
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
-msgstr ""
+msgstr "ძალადობა"
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "სხვა"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "დარღვევის მითითება"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
