@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 13:17+0000\n"
-"PO-Revision-Date: 2025-02-13 21:19+0000\n"
+"PO-Revision-Date: 2025-02-13 21:30+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1283,43 +1283,43 @@ msgstr "პირამიდული სქემები"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "კვებითი აშლილობისგენ წამქეზებელი მასალები"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "თვითდასახიჩრება"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "თვითმკვლელობა"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "აკრძალული ან შეზღუდული ნაწარმი"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "სახიფათო ან მართლსაწინააღმდეგო ნაწარმი"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
-msgstr ""
+msgstr "შეთანხმებული მოქმედებით ზიანი"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "სქესობრივი ნიშნით ძალადობა"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "ადამიანთა შრომის არაკეთილსინდისიერი გამოყენება"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "ადამიანებით ვაჭრობა"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "საერთო მოწოდებები ან წაქეზება ძალადობისა და/ან სიძულვილისკენ"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
@@ -1359,7 +1359,7 @@ msgstr "უფრო ვრცლად დააზუსტეთ"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "გთხოვთ, მოგვაწოდოთ დამატებითი ინფორმაცია, რომელიც მეტად დაგვეხმარება თქვენი მოხსენების უკეთ გარჩევაში (მათ შორის ის, თუ რომელი დებულება დაირღვა, თქვენი აზრით)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
@@ -1620,7 +1620,7 @@ msgstr "FIREFOX-ᲘᲡᲒᲐᲜ"
 
 #: src/amo/components/HeroRecommendation/index.js:236
 msgid "PROMOTED"
-msgstr ""
+msgstr "ᲓᲐᲛᲙᲕᲔᲗᲘᲡᲒᲐᲜ"
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
