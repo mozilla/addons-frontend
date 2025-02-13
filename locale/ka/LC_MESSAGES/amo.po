@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 13:17+0000\n"
-"PO-Revision-Date: 2025-02-13 20:43+0000\n"
+"PO-Revision-Date: 2025-02-13 20:55+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1219,27 +1219,27 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "დევნა"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
-msgstr ""
+msgstr "ზრდასრულთა სქესობრივი ხასიათის მასალები"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "სურათების მეშვეობით სქესობრივი ძალადობა (გარდა არასრულწლოვანების ამსახველი მასალებისა)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
-msgstr ""
+msgstr "ასაკობრივი შეზღუდვები არასრულწლოვანებისთვის"
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
-msgstr ""
+msgstr "ბავშვთა სქესობრივი ძალადობის მასალები"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
-msgstr ""
+msgstr "არასრულწლოვანთა ცდუნება/შემზადება სქესობრივი კუთხით"
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
