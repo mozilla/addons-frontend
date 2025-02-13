@@ -66,7 +66,7 @@ describe(__filename, () => {
           exclude_addons: undefined, // `callApi` will internally unset this
           page: '1',
           page_size: pageSize,
-          sort: SEARCH_SORT_TRENDING,
+          sort: SEARCH_SORT_POPULAR,
         },
       })
       .once()
@@ -111,7 +111,7 @@ describe(__filename, () => {
           exclude_addons: slug,
           page: '1',
           page_size: pageSize,
-          sort: SEARCH_SORT_TRENDING,
+          sort: SEARCH_SORT_POPULAR,
         },
       })
       .once()
@@ -183,7 +183,7 @@ describe(__filename, () => {
           exclude_addons: slug,
           page: '1',
           page_size: pageSize,
-          sort: SEARCH_SORT_TRENDING,
+          sort: SEARCH_SORT_POPULAR,
         },
       })
       .once()
@@ -227,7 +227,7 @@ describe(__filename, () => {
           exclude_addons: undefined, // `callApi` will internally unset this
           page,
           page_size: pageSize,
-          sort: SEARCH_SORT_TRENDING,
+          sort: SEARCH_SORT_POPULAR,
         },
       })
       .once()
@@ -256,7 +256,7 @@ describe(__filename, () => {
     const addons = [fakeAddon];
     const authorIds = [123, 456];
     const pageSize = EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
-    const sort = SEARCH_SORT_POPULAR;
+    const sort = SEARCH_SORT_TRENDING;
 
     const state = sagaTester.getState();
 

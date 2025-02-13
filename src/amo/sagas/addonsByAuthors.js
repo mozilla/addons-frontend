@@ -1,7 +1,7 @@
 /* @flow */
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 
-import { SEARCH_SORT_TRENDING } from 'amo/constants';
+import { SEARCH_SORT_POPULAR } from 'amo/constants';
 import {
   FETCH_ADDONS_BY_AUTHORS,
   loadAddonsByAuthors,
@@ -41,7 +41,7 @@ export function* fetchAddonsByAuthors({
         exclude_addons: forAddonSlug,
         page: page || '1',
         page_size: pageSize,
-        sort: sort || SEARCH_SORT_TRENDING,
+        sort: sort || SEARCH_SORT_POPULAR,
       },
     };
     const response = yield call(searchApi, params);
