@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 13:17+0000\n"
-"PO-Revision-Date: 2025-02-13 21:30+0000\n"
+"PO-Revision-Date: 2025-02-13 21:40+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1131,27 +1131,27 @@ msgstr "დარღვევის მითითება"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
-msgstr ""
+msgstr "არასაკმარისი ინფორმაცია ვაჭრების შესახებ"
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "დაწესებული ფასების შეუსაბამო"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
-msgstr ""
+msgstr "ფარული სარეკლამო ან მომგებიანი ურთიერთობა, თუნდაც სოცქსელის გავლენიანი მომხმარებლებისგან"
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
-msgstr ""
+msgstr "შემაცდენელი ინფორმაცია საქონლისა და მომსახურების მახასიათებლების შესახებ"
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "შემაცდენელი ინფორმაცია მომხმარებლის უფლებების თაობაზე"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
-msgstr ""
+msgstr "ბიომეტრიულ მონაცემთა მიტაცება"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
@@ -1159,19 +1159,19 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr ""
+msgstr "მეხსიერებიდან ამოშლის უფლება"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
-msgstr ""
+msgstr "მონაცემთა გაყალბება"
 
 #: src/amo/components/FeedbackForm/index.js:301
 msgid "Defamation"
-msgstr ""
+msgstr "ცილისწამება"
 
 #: src/amo/components/FeedbackForm/index.js:302
 msgid "Discrimination"
-msgstr ""
+msgstr "განმასხვავებელი ნიშნით გამოყოფა"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
