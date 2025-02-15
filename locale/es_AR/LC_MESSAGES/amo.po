@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 13:17+0000\n"
-"PO-Revision-Date: 2025-02-15 05:19+0000\n"
+"PO-Revision-Date: 2025-02-15 05:30+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -2067,11 +2067,10 @@ msgstr[0] "%(count)s tema encontrado"
 msgstr[1] "%(count)s temas encontrados"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] "%(count)s resultado encontrado para \"%(query)s\" con la etiqueta %(tag)s"
-msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
+msgstr[1] "%(count)s resultados encontrados para \"%(query)s\" con la etiqueta %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -2080,11 +2079,10 @@ msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
 msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:227
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
-msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
+msgstr[0] "%(count)s resultado encontrado con la etiqueta %(tag)s"
+msgstr[1] "%(count)s resultados encontrados con la etiqueta %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
@@ -2101,11 +2099,10 @@ msgid "Searching for add-ons"
 msgstr "Buscando complementos"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)s"
-msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" con la etiqueta %(tag)s en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" con la etiqueta %(tag)s en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -2114,11 +2111,10 @@ msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)
 msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s extensión encontrada en %(categoryName)s"
-msgstr[1] "%(count)s extensiones encontradas en %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada con la etiqueta %(tag)s en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas con la etiqueta %(tag)s en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -2127,11 +2123,10 @@ msgstr[0] "%(count)s extensión encontrada en %(categoryName)s"
 msgstr[1] "%(count)s extensiones encontradas en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)s"
-msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" con la etiqueta %(tag)s"
+msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" con la etiqueta %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "All"
@@ -2228,7 +2223,7 @@ msgstr "Color del tema"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
-msgstr ""
+msgstr "Limpiar"
 
 #: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
@@ -2443,9 +2438,8 @@ msgid "About this add-on"
 msgstr "Sobre este complemento"
 
 #: src/amo/pages/Addon/index.js:328
-#, fuzzy
 msgid "Developer comments"
-msgstr "Normativas para desarrolladores"
+msgstr "Comentarios del desarrollador"
 
 #: src/amo/pages/Addon/index.js:351
 msgid "Release notes for %(addonVersion)s"
@@ -2465,7 +2459,7 @@ msgstr "Capturas de pantalla"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Enviar opinión o informar sobre un complemento a Mozilla"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2625,7 +2619,7 @@ msgstr "Eliminar esta colección"
 
 #: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
-msgstr ""
+msgstr "Informaste sobre esta colección"
 
 #: src/amo/pages/Collection/index.js:427
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
@@ -2633,7 +2627,7 @@ msgstr "Hemos recibido tu informe. Gracias por hacernos saber tus preocupaciones
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
-msgstr ""
+msgstr "Informar está colección"
 
 #: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
