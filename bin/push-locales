@@ -29,13 +29,15 @@ export GIT_COMMITTER_EMAIL="$ROBOT_EMAIL"
 DATE=$(date -u +%Y-%m-%d)
 REV=$(git rev-parse --short HEAD)
 MESSAGE="Extracted l10n messages from $DATE at $REV"
-DIFF_WITH_ONE_LINE_CHANGE="2 files changed, 2 insertions(+), 2 deletions(-)"
+DIFF_WITH_ONE_LINE_CHANGE="1 file changed, 1 insertion(+), 1 deletion(-)"
 
 git_diff_stat=$(git diff --shortstat locale/templates/LC_MESSAGES)
 
 info "git_diff_stat: $git_diff_stat"
 
 # IF there are no uncommitted local changes, exit early.
+# DIFF_WITH_ONE_LINE_CHANGE is there to take into account changes to the
+# POT-Creation-Date on the amo.pot file.
 if [[ -z "$git_diff_stat" ]] || [[ "$git_diff_stat" == *"$DIFF_WITH_ONE_LINE_CHANGE"* ]]; then
   info """
     No substantial changes to l10n strings found. Exiting the process.
