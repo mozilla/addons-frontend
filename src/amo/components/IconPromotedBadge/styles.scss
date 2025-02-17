@@ -11,32 +11,6 @@ $icon-promoted-small-size: 16px;
   width: auto;
 }
 
-.IconPromotedBadge-svg {
-  box-sizing: border-box;
-  height: $default-icon-size;
-  width: $default-icon-size;
-}
-
-.IconPromotedBadge-circle-bgColor--line {
-  fill: $grey-30;
-}
-
-.IconPromotedBadge-innerCircle-bgColor {
-  fill: $white;
-}
-
-.IconPromotedBadge-circle-bgColor--recommended {
-  fill: $orange-50;
-}
-
-.IconPromotedBadge-iconPath {
-  transform-origin: 50% 50%;
-}
-
-.IconPromotedBadge-iconPath--recommended {
-  fill: $white;
-}
-
 .IconPromotedBadge-large {
   background-size: $icon-promoted-large-size;
   height: $icon-promoted-large-size;
