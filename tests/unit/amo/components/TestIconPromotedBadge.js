@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import IconPromotedBadge, { paths } from 'amo/components/IconPromotedBadge';
+import IconPromotedBadge from 'amo/components/IconPromotedBadge';
 import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -20,25 +20,6 @@ describe(__filename, () => {
     const { root } = render({ size });
 
     expect(root).toHaveClass(className);
-  });
-
-  it('adds the expected classes for category="%s"', () => {
-    const category = 'recommended';
-    render({ category });
-
-    expect(screen.getByTagName('circle')).toHaveClass(
-      `IconPromotedBadge-circle-bgColor--${category}`,
-    );
-    expect(screen.getByTagName('path')).toHaveClass(
-      `IconPromotedBadge-iconPath--${category}`,
-    );
-  });
-
-  it('uses the expected path for category="%s"', () => {
-    const category = 'recommended';
-    render({ category });
-
-    expect(screen.getByTagName('path')).toHaveAttribute('d', paths[category]);
   });
 
   it('adds a custom class', () => {
@@ -68,10 +49,10 @@ describe(__filename, () => {
     expect(screen.queryByClassName('visually-hidden')).not.toBeInTheDocument();
   });
 
-  it('sets the icon with category="recommended" to inline content', () => {
+  it('does not use inline-content but a real icon (image) for the category="recommended"', () => {
     const { root } = render({ category: 'recommended' });
 
-    expect(root).toHaveClass('Icon-inline-content');
+    expect(root).toHaveClass('Icon-recommended');
   });
 
   it('does not use inline-content but a real icon (image) for the category="line"', () => {

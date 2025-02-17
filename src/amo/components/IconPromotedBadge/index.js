@@ -46,7 +46,7 @@ export const IconPromotedBadgeBase = ({
         'IconPromotedBadge-small': size === 'small',
       })}
       name={category}
-    ></Icon>
+    />
   );
 };
 
