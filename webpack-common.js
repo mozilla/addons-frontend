@@ -29,6 +29,18 @@ export function getStyleRules({
       plugins: postCssPlugins,
     },
   };
+  const sassLoaderOptions = {
+    sassOptions: {
+      quietDeps: true,
+      silenceDeprecations: [
+        'import', // https://sass-lang.com/documentation/breaking-changes/import/
+        'global-builtin', // https://sass-lang.com/documentation/breaking-changes/import/
+        'mixed-decls', // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
+        'color-functions', // https://sass-lang.com/documentation/breaking-changes/color-functions/
+        'slash-div', // https://sass-lang.com/documentation/breaking-changes/slash-div/
+      ],
+    },
+  };
 
   if (bundleStylesWithJs) {
     // In development, we bundle styles with the JS.
@@ -39,7 +51,7 @@ export function getStyleRules({
           { loader: 'style-loader' },
           { loader: 'css-loader', options: cssLoaderOptions },
           { loader: 'postcss-loader', options: postcssLoaderOptions },
-          { loader: 'sass-loader' },
+          { loader: 'sass-loader', options: sassLoaderOptions },
         ],
       },
     ];
@@ -53,7 +65,7 @@ export function getStyleRules({
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: cssLoaderOptions },
           { loader: 'postcss-loader', options: postcssLoaderOptions },
-          { loader: 'sass-loader' },
+          { loader: 'sass-loader', options: sassLoaderOptions },
         ],
       },
     ];
