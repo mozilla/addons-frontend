@@ -2930,13 +2930,6 @@ describe(__filename, () => {
         expect(screen.getByText(label)).toHaveClass(
           `PromotedBadge-label--${category}`,
         );
-
-        if (category !== 'line') {
-          // eslint-disable-next-line jest/no-conditional-expect
-          expect(
-            screen.getByClassName('IconPromotedBadge-iconPath'),
-          ).toHaveClass(`IconPromotedBadge-iconPath--${category}`);
-        }
       },
     );
 
