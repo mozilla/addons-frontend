@@ -1,7 +1,7 @@
 #
 # Build
 #
-FROM node:18.20-slim AS builder
+FROM node:23.8-slim AS builder
 
 WORKDIR /srv/node
 COPY package.json yarn.lock /srv/node/
@@ -12,7 +12,7 @@ RUN yarn install --pure-lockfile
 #
 # Install
 #
-FROM node:18.20-slim
+FROM node:23.8-slim
 
 ARG app_uid=9500
 ARG app_dir=/app
