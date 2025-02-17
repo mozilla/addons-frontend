@@ -5,7 +5,6 @@
   align-items: flex-start;
   display: flex;
   font-size: $font-size-xs;
-  margin-bottom: 6px;
 
   &.PromotedBadge-large {
     font-size: $font-size-default;
@@ -33,80 +32,32 @@
 
 .PromotedBadge-link {
   align-items: center;
+  border: 1px solid $color-light-gray-40;
   border-radius: 20px;
   box-sizing: border-box;
+  color: $color-dark-gray-05;
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  max-height: $icon-promoted-small-size;
-
-  .PromotedBadge-large & {
-    max-height: $icon-promoted-large-size;
-  }
+  padding: 3px;
 
   &,
   &:link,
   &:visited {
+    color: $color-dark-gray-05;
     font-weight: normal;
     text-decoration: none;
   }
-}
-
-.PromotedBadge-link--line {
-  border: 1px solid $grey-30;
-
-  @include border-start(0);
-
-  &,
-  &:link,
-  &:visited {
-    color: $grey-30;
-  }
 
   &:active,
   &:focus,
   &:hover {
-    border-color: $grey-40;
-    color: $grey-40;
-
-    .IconPromotedBadge-circle-bgColor--line {
-      fill: $grey-40;
-    }
-  }
-}
-
-.PromotedBadge-link--recommended {
-  border: 1px solid $orange-50;
-
-  @include border-start(0);
-
-  &,
-  &:link,
-  &:visited {
-    color: $orange-50;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
-    border-color: $orange-60;
-    color: $orange-60;
-
-    .IconPromotedBadge-circle-bgColor--recommended {
-      fill: $orange-60;
-    }
+    border-color: $color-light-gray-90;
+    color: $color-dark-gray-05;
   }
 }
 
 .PromotedBadge-label {
   @include margin-start(6px);
   @include margin-end(8px);
-}
-
-.PromotedBadge-label--line {
-  color: $grey-90;
-}
-
-.PromotedBadge-label--recommended {
-  color: $orange-80;
 }

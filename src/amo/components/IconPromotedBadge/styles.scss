@@ -38,41 +38,18 @@ $icon-promoted-small-size: 16px;
 }
 
 .IconPromotedBadge-large {
-  .IconPromotedBadge-svg {
-    height: $icon-promoted-large-size;
-    width: $icon-promoted-large-size;
-  }
+  background-size: $icon-promoted-large-size;
+  height: $icon-promoted-large-size;
+  width: $icon-promoted-large-size;
 
-  &.Icon-line {
-    background-size: $icon-promoted-large-size - 4;
-    border: 1px solid $grey-30;
-    border-radius: $icon-promoted-large-size / 2;
-    height: $icon-promoted-large-size;
-    width: $icon-promoted-large-size;
-  }
-
-  .IconPromotedBadge-iconPath--recommended {
+  &.Icon-recommended {
     // Nudge the trophy into the center of the circle.
-    transform: translate(2px, 2.5px) scale(1.1);
+    transform: translate(2px, 0px) scale(0.8);
   }
 }
 
 .IconPromotedBadge-small {
-  .IconPromotedBadge-svg {
-    height: $icon-promoted-small-size;
-    width: $icon-promoted-small-size;
-  }
-
-  .IconPromotedBadge-iconPath--recommended {
-    // Nudge the trophy into the center of the circle.
-    transform: translate(-1.5px, -1.5px) scale(0.8);
-  }
-
-  &.Icon-line {
-    background-size: $icon-promoted-small-size - 2;
-    border: 1px solid $grey-30;
-    border-radius: $icon-promoted-small-size / 2;
-    height: $icon-promoted-small-size;
-    width: $icon-promoted-small-size;
-  }
+  background-size: $icon-promoted-small-size;
+  height: $icon-promoted-small-size;
+  width: $icon-promoted-small-size;
 }

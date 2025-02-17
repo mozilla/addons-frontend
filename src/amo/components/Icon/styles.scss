@@ -254,6 +254,10 @@
   @include icon($name: 'line');
 }
 
+.Icon-recommended {
+  @include icon($name: 'recommended');
+}
+
 .Icon-android {
   @include icon($name: 'android');
 }
