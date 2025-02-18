@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-10 13:17+0000\n"
+"POT-Creation-Date: 2025-02-18 12:27+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1818,14 +1818,14 @@ msgstr ""
 msgid "Access your data for %(param)s"
 msgstr ""
 
-#: src/amo/components/IconPromotedBadge/index.js:41
+#: src/amo/components/IconPromotedBadge/index.js:36
 #: src/amo/components/PromotedBadge/index.js:41
 #: src/amo/components/SearchFilters/index.js:212
 #, fuzzy
 msgid "By Firefox"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/IconPromotedBadge/index.js:42
+#: src/amo/components/IconPromotedBadge/index.js:37
 #: src/amo/components/PromotedBadge/index.js:49
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
