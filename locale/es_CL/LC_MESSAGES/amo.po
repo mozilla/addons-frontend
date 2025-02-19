@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-19 02:44+0000\n"
+"PO-Revision-Date: 2025-02-19 16:01+0000\n"
 "Last-Translator: ravmn <ravmn@ravmn.cl>\n"
 "Language-Team: none\n"
 "Language: es_CL\n"
@@ -1166,7 +1166,7 @@ msgstr "Discriminación"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
-msgstr ""
+msgstr "Incitación ilegal a la violencia y al odio basadas en características protegidas (discurso de odio)"
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
@@ -1206,7 +1206,7 @@ msgstr "Elementos no consentidos que contienen tecnología deepfake o similar qu
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Acoso/intimidación en línea"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
@@ -1250,15 +1250,15 @@ msgstr "Contenido terrorista"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "Cuentas falsas"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
-msgstr ""
+msgstr "Publicaciones falsas"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "Reseñas de usuario falsas"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
@@ -1290,7 +1290,7 @@ msgstr "Productos prohibidos o restringidos"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Productos inseguros o que no cumplen"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
@@ -2162,9 +2162,8 @@ msgid "Any"
 msgstr "Cualquiera"
 
 #: src/amo/components/SearchFilters/index.js:216
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Comentario"
+msgstr "Todo lo revisado"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
@@ -2362,7 +2361,7 @@ msgstr "Ahorra 50% con una suscripción de un año completo"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "Protege tus datos en línea—y elige un plan de suscripción a VPN que funcione para ti."
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
@@ -2370,12 +2369,11 @@ msgstr "Obtener VPN de Mozilla"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Para encontrar extensiones compatibles con Firefox para Android, %(linkStart)shaz clic aquí%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Este complemento no es compatible con tu versión de Firefox."
+msgstr "Los complementos no son compatibles con Firefox para iOS. Prueba a instalarlos en Firefox para escritorio."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -2436,9 +2434,8 @@ msgid "About this add-on"
 msgstr "Sobre este complemento"
 
 #: src/amo/pages/Addon/index.js:328
-#, fuzzy
 msgid "Developer comments"
-msgstr "Normativas para desarrolladores"
+msgstr "Comentarios del desarrollador"
 
 #: src/amo/pages/Addon/index.js:351
 msgid "Release notes for %(addonVersion)s"
@@ -2458,7 +2455,7 @@ msgstr "Capturas de pantalla"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Envía comentarios o reporta un complemento a Mozilla"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2542,7 +2539,7 @@ msgstr "%(addonName)s está restringido por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "Este complemento está restringido por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
@@ -2820,7 +2817,7 @@ msgstr "Diccionarios"
 
 #: src/amo/pages/RatingFeedback/index.js:125
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Enviar comentarios o reportar una reseña a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
@@ -2883,6 +2880,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Para reportar una vulnerabilidad de seguridad en una extensión, incluso si no está alojada en este sitio, envía un %(startSecIssueLink)ssue%(endSecIssueLink)s en Bugzilla o envía un correo a "
+"%(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Todos los reportes de vulnerabilidad de seguridad son %(startLink)sconfidenciales%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
@@ -3315,33 +3314,35 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANTE: Si eliminas este perfil de los Complementos de Firefox, no lo podrás deshacer."
 
 #: src/amo/pages/UserProfileEdit/index.js:844
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Tus datos se eliminarán de forma permanente, incluidos los datos del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación) y las preferencias sobre las notificaciones. "
-"Tus comentarios y calificaciones pasarán a ser anónimos y no se podrán volver a editar."
+"Tus datos se eliminarán de forma permanente, incluidos los detalles del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación), preferencias de notificación, reseñas y "
+"colecciones."
 
 #: src/amo/pages/UserProfileEdit/index.js:850
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Los datos del usuario se eliminarán de forma permanente, incluidos los datos del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación) y las preferencias sobre las "
-"notificaciones. Tus comentarios y calificaciones pasarán a ser anónimos y no se podrán volver a editar."
+"Los datos del usuario se eliminarán de forma permanente, incluidos los detalles del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación), preferencias de notificación,"
+" reseñas y colecciones."
 
 #: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Si creaste algún complemento también se eliminará, a menos que compartas la propiedad con otros autores. En ese caso, serás eliminado como autor y los autores restantes mantendrán la propiedad del "
+"complemento."
 
 #: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Si el usuario creó algún complemento, este también será eliminado, a menos que la propiedad se comparta con otros autores. En ese caso, el usuario será eliminado como autor y los autores restantes "
+"mantendrán la propiedad del complemento."
 
 #: src/amo/pages/UserProfileEdit/index.js:875
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
