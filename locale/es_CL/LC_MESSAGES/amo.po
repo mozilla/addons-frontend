@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-19 16:01+0000\n"
+"PO-Revision-Date: 2025-02-19 16:03+0000\n"
 "Last-Translator: ravmn <ravmn@ravmn.cl>\n"
 "Language-Team: none\n"
 "Language: es_CL\n"
@@ -1146,7 +1146,7 @@ msgstr "Filtración de datos biométricos"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "Se necesita espacio para el procesamiento de datos"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
@@ -2566,10 +2566,12 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Hasta que se resuelva la violación, este complemento no estará disponible para su descarga desde addons.mozilla.org. Si ya está instalado, se deshabilitará y se informará a los usuarios sobre la "
+"infracción. Ellos podrán optar por habilitar el complemento nuevamente bajo su propia responsabilidad."
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Hasta que se resuelva la infracción, este complemento no estará disponible para su descarga desde addons.mozilla.org. Se deshabilitará automáticamente y ya no se podrá utilizar en Firefox."
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
@@ -2580,6 +2582,8 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Cuando Mozilla detecta complementos u otro software de terceros que comprometen seriamente la seguridad, la estabilidad o el rendimiento de Firefox y se cumplen %(criteriaStartLink)sciertos "
+"criterios%(criteriaEndLink)s, el software puede ser bloqueado o restringirse para su uso general. Para obtener más información, revisa %(supportStartLink)seste artículo de soporte%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
