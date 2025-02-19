@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-17 00:37+0000\n"
+"PO-Revision-Date: 2025-02-19 02:44+0000\n"
 "Last-Translator: ravmn <ravmn@ravmn.cl>\n"
 "Language-Team: none\n"
 "Language: es_CL\n"
@@ -1170,39 +1170,39 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
-msgstr ""
+msgstr "Infracciones de diseño"
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
-msgstr ""
+msgstr "Infracciones de indicaciones geográficas"
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "Infracciones de patente"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "Infracciones de secretos comerciales"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Violación de la legislación de la UE relevante para el discurso cívico o las elecciones"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Violación de la ley nacional relevante para el discurso cívico o las elecciones"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "Malinformación, desinformación, manipulación e interferencia de información externa"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
-msgstr ""
+msgstr "Compartir imágenes sin consentimiento"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "Elementos no consentidos que contienen tecnología deepfake o similar que utilizan funciones de terceros"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
@@ -1414,11 +1414,11 @@ msgstr "Se requiere conectarse"
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
-msgstr ""
+msgstr "Reporte de error o petición de asistencia en una ubicación incorrecta"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Marcado como reporte de error o solicitud de soporte fuera de lugar"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
@@ -1465,6 +1465,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Excepto que %(startNotedLink)sindique lo contrario%(endNotedLink)s, el contenido de este sitio tiene la licencia %(startLicenseLink)sCreative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s o cualquier versión posterior. Android es una marca comercial de Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1607,16 +1609,15 @@ msgstr "POR FIREFOX"
 
 #: src/amo/components/HeroRecommendation/index.js:236
 msgid "PROMOTED"
-msgstr ""
+msgstr "PROMOCIONADO"
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
 msgstr "Firefox solo recomienda extensiones que cumplen nuestros estándares de seguridad y rendimiento."
 
 #: src/amo/components/HomepageShelves/index.js:75
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Ver más %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1647,9 +1648,8 @@ msgid "Learn more"
 msgstr "Saber más"
 
 #: src/amo/components/InstallWarning/index.js:106
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "No es una extensión recomendada. Asegúrate de que confías en ella antes de instalarla."
+msgstr "Mozilla no supervisa activamente la seguridad de este complemento. Asegúrate de confiar en él antes de instalarlo."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1669,21 +1669,19 @@ msgstr "Siguiente"
 
 #: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Página %(thisPage)s de %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
 msgstr "Permisos"
 
 #: src/amo/components/PermissionsCard/index.js:84
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "Este complemento puede:"
+msgstr "Este complemento necesita:"
 
 #: src/amo/components/PermissionsCard/index.js:94
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Este complemento puede:"
+msgstr "Este complemento también puede solicitar:"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify bookmarks"
@@ -1707,7 +1705,7 @@ msgstr "Introducir datos en el portapapeles"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Block content on any page"
-msgstr ""
+msgstr "Bloquear contenido en cualquier página"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Read your browsing history"
@@ -2578,7 +2576,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
-msgstr ""
+msgstr "¿Cómo aplica Mozilla sus políticas?"
 
 #: src/amo/pages/Block/index.js:194
 msgid ""
