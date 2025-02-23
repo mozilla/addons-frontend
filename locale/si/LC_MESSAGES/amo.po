@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2024-11-22 11:09+0000\n"
+"PO-Revision-Date: 2025-02-23 00:57+0000\n"
 "Last-Translator: හෙළබස සමූහය (HelaBasa Group) <firefox-helabasa@yalu.lk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: si\n"
@@ -605,7 +605,7 @@ msgstr "%(licenseName)s යටතේ ප්‍රභව කේතය නික�
 
 #: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
-msgstr "අනුවාදයක් හමු නොවිණි"
+msgstr "අනුවාදයක් හමු නොවුණි"
 
 #: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
@@ -701,7 +701,7 @@ msgstr "ප්‍රවර්ග පූරණය වෙමින්."
 
 #: src/amo/components/Categories/index.js:99
 msgid "No categories found."
-msgstr "ප්‍රවර්ග හමු නොවිණි."
+msgstr "ප්‍රවර්ග හමු නොවුණි."
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
@@ -881,7 +881,7 @@ msgstr "පිටුව හමු නොවුණි"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "කණගාටුයි, ඔබ ඇතුල් කළ ඒ.ස.නි. හි කිසිවක් හමු නොවිණි."
+msgstr "කණගාටුයි, ඔබ ඇතුල් කළ ඒ.ස.නි. හි කිසිවක් හමු නොවුණි."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
@@ -919,7 +919,7 @@ msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
-msgstr "අපොයි, එම පිටුව හමු නොවිණි"
+msgstr "අපොයි, එම පිටුව හමු නොවුණි"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -2249,11 +2249,11 @@ msgstr "සොයමින්…"
 
 #: src/amo/components/SearchResults/index.js:50
 msgid "No results were found for \"%(query)s\"."
-msgstr "\"%(query)s\" සඳහා ප්‍රතිඵල හමු නොවිණි."
+msgstr "\"%(query)s\" සඳහා ප්‍රතිඵල හමු නොවුණි."
 
 #: src/amo/components/SearchResults/index.js:56
 msgid "No results were found."
-msgstr "ප්‍රතිඵල හමු නොවිණි."
+msgstr "ප්‍රතිඵල හමු නොවුණි."
 
 #: src/amo/components/SectionLinks/index.js:112 src/amo/pages/CategoryPage/index.js:60 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
