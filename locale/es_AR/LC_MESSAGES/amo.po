@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-24 05:45+0000\n"
+"PO-Revision-Date: 2025-02-24 05:53+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -1773,7 +1773,7 @@ msgstr "Ocultar y mostrar pestañas del navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
-msgstr "Acceder a la actividad del navegador mientras navegas"
+msgstr "Acceder a actividad del navegador durante la navegación"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
@@ -2898,8 +2898,8 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Si quieres saber más sobre cómo gestionamos los complementos en Firefox o necesitas ayuda en general, visita la %(startSUMOLink)sAyuda%(endSUMOLink)s de Mozilla. Si no encuentras tu respuesta, "
-"siempre puedes %(startForumLink)spreguntar en el foro de la comunidad.%(endForumLink)s"
+"Si quieres saber más sobre cómo administrar los complementos en Firefox o necesitás encontrar soporte general para Firefox, visitá la %(startSUMOLink)sSoporte%(endSUMOLink)s de Mozilla. Si no "
+"encontrás tu respuesta, siempre podés %(startForumLink)spreguntar en el foro de la comunidad%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
