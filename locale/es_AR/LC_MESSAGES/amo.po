@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-24 05:31+0000\n"
+"PO-Revision-Date: 2025-02-24 05:36+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -1809,15 +1809,15 @@ msgstr "Iniciar sesión para calificar este paquete de idioma"
 
 #: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
-msgstr "Iniciar sesión para evaluar este tema"
+msgstr "Iniciar sesión para calificar este tema"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
-msgstr "Inicia sesión para evaluar esta extensión"
+msgstr "Iniciar sesión para calificar esta extensión"
 
 #: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
-msgstr "Iniciar sesión para evaluar este complemento"
+msgstr "Iniciar sesión para calificar este complemento"
 
 #: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
@@ -1974,11 +1974,11 @@ msgstr "Complementos más populares"
 
 #: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
-msgstr "Extensiones más valoradas"
+msgstr "Extensiones mejor valoradas"
 
 #: src/amo/components/Search/index.js:195 src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
-msgstr "Temas más valorados"
+msgstr "Temas mejor valorados"
 
 #: src/amo/components/Search/index.js:198
 msgid "Top rated add-ons"
@@ -2763,7 +2763,7 @@ msgstr "Ver más temas de moda"
 
 #: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
-msgstr "Ver más temas más valorados"
+msgstr "Ver más temas mejor valorados"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2931,7 +2931,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
-msgstr "Involúcrate"
+msgstr "Involucrate"
 
 #: src/amo/pages/StaticPages/About/index.js:67
 msgid ""
@@ -3002,8 +3002,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
-"En general, no. Pero si el comentario no cumple con las normas expuestas más arriba, puedes hacer clic en \"Denunciar este comentario\" y se investigará. Si un comentario incluye una queja que ya no"
-" es válida tras el lanzamiento de una nueva versión del complemento, puede que eliminemos ese comentario."
+"En general, no. Pero si la revisión no cumple con las normas expuestas más arriba, podés hacer clic en \"Denunciar este comentario\" y se moderará. Si una revisión incluye una queja que ya no es "
+"válida tras el lanzamiento de una nueva versión del complemento, puede que consideremos eliminar la revisión."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
