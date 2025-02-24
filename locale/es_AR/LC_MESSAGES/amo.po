@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-24 05:36+0000\n"
+"PO-Revision-Date: 2025-02-24 05:45+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -1645,7 +1645,7 @@ msgstr "Descargar archivo"
 
 #: src/amo/components/InstallWarning/index.js:102 src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
-msgstr "Saber más"
+msgstr "Conocer más"
 
 #: src/amo/components/InstallWarning/index.js:106
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
