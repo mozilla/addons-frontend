@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-22 05:53+0000\n"
+"PO-Revision-Date: 2025-02-24 05:17+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -1494,7 +1494,7 @@ msgstr "Taller de extensiones"
 
 #: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
-msgstr "Central del desarrollador"
+msgstr "Centro de desarrolladores"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
@@ -3143,7 +3143,7 @@ msgstr "Avatar del usuario"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
-msgstr "Desarrollador del complemento"
+msgstr "Desarrollador de complementos"
 
 #: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
