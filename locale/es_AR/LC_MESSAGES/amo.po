@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-24 05:17+0000\n"
+"PO-Revision-Date: 2025-02-24 05:31+0000\n"
 "Last-Translator: Marcelo Poli <enzomatrix@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -72,7 +72,7 @@ msgstr "Editar complemento"
 #. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:91
 msgid "Admin add-on"
-msgstr "Complemento de administrador"
+msgstr "Administrar complemento"
 
 #. This is a list of links to Developer functions.
 #: src/amo/components/AddonAuthorLinks/index.js:62
@@ -85,7 +85,7 @@ msgstr "Experimental"
 
 #: src/amo/components/AddonBadges/index.js:65
 msgid "Some features may require payment"
-msgstr "Algunas características pueden ser de pago"
+msgstr "Algunas características pueden requerir pago"
 
 #: src/amo/components/AddonBadges/index.js:71
 msgid "Available on Firefox for Android™"
@@ -1801,11 +1801,11 @@ msgstr "Todavía no hay valoraciones"
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
-msgstr "Iniciar sesión para evaluar este diccionario"
+msgstr "Iniciar sesión para calificar este diccionario"
 
 #: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
-msgstr "Iniciar sesión para evaluar este paquete de idioma"
+msgstr "Iniciar sesión para calificar este paquete de idioma"
 
 #: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
@@ -2415,7 +2415,7 @@ msgstr "Aún no hay revisiones"
 
 #: src/amo/pages/Addon/index.js:253
 msgid "Rate your experience"
-msgstr "Califica tu experiencia"
+msgstr "Calificá tu experiencia"
 
 #: src/amo/pages/Addon/index.js:272
 msgid "About this dictionary"
