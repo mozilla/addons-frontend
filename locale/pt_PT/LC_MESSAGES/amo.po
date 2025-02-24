@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2024-06-22 21:15+0000\n"
+"PO-Revision-Date: 2025-02-24 14:34+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -89,7 +89,7 @@ msgstr "Algumas funcionalidades podem requerer pagamento"
 
 #: src/amo/components/AddonBadges/index.js:71
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "Disponível no Firefox para Android™"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -111,7 +111,7 @@ msgstr "Reportar este extra à Mozilla"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
-msgstr ""
+msgstr "Enviar algum feedback sobre o extra"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
