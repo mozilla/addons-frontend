@@ -12,3 +12,7 @@ updates:
     ignore:
       - dependency-name: "ua-parser-js"
         versions: ["2.x"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: daily
