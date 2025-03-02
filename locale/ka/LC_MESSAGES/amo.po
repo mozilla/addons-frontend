@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-13 22:04+0000\n"
+"PO-Revision-Date: 2025-03-02 16:13+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -123,25 +123,25 @@ msgstr "საჩივარი დამატების შესახე�
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – გაფართოების გადმოწერა 🦊 Firefox-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ გაფართოება 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – ენის ნაკრების გადმოწერა 🦊 Firefox-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ ენის 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – თემის გადმოწერა 🦊 Firefox-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ გაფორმება 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – დამატების გადმოწერა 🦊 Firefox-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ დამატება 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:131
 msgid "Download %(addonName)s for Firefox. %(summary)s"
@@ -151,37 +151,37 @@ msgstr "%(addonName)s დამატების ჩამოტვირთვ
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – ლექსიკონის გადმოწერა 🦊 Firefox Android-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ ლექსიკონი 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – გაფართოების გადმოწერა 🦊 Firefox Android-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ გაფართოება 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – ენის კრებულის გადმოწერა 🦊 Firefox Android-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ ენის კრებული 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – თემის გადმოწერა 🦊 Firefox Android-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ გაფორმება 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – დამატების გადმოწერა 🦊 Firefox Android-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ დამატება 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – ლექსიკონის გადმოწერა 🦊 Firefox-ისთვის (%(locale)s)"
+msgstr "%(addonName)s – გადმოწერეთ ლექსიკონი 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
