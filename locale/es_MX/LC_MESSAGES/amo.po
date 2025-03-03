@@ -392,7 +392,7 @@ msgstr "publicado el %(linkStart)s%(timestamp)s%(linkEnd)s"
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:371
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "por %(authorName)s, el %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "por %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, el %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:375
@@ -884,7 +884,7 @@ msgstr "Código de error: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Lo sentimos, pero no estás autorizado para acceder a esta página. Si no has iniciado sesión, puedes hacerlo utilizando el enlace de la parte superior de la página."
+msgstr ""
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
