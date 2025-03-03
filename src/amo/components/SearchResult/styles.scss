@@ -116,7 +116,7 @@ $icon-default-size: 32px;
 .SearchResult-name {
   @include font-medium;
 
-  align-items: flex-start;
+  align-items: center;
   color: $type-black;
   display: flex;
   flex-flow: column wrap;
