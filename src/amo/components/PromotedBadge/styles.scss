@@ -62,3 +62,7 @@
   @include margin-start(6px);
   @include margin-end(6px);
 }
+
+.PromotedBadge-small .PromotedBadge-label {
+  @include margin-end(4px);
+}
