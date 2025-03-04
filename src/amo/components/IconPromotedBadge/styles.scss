@@ -23,6 +23,10 @@ $icon-promoted-small-size: 16px;
   &.Icon-recommended {
     // Nudge the trophy into the center of the circle.
     transform: translate(2px, 0) scale(0.8);
+
+    [dir='rtl'] & {
+      transform: translate(-2px, 0) scale(0.8);
+    }
   }
 }
 
