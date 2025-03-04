@@ -116,7 +116,7 @@ $icon-default-size: 32px;
 .SearchResult-name {
   @include font-medium;
 
-  align-items: center;
+  align-items: flex-start;
   color: $type-black;
   display: flex;
   flex-flow: column wrap;
@@ -131,15 +131,16 @@ $icon-default-size: 32px;
 
   .PromotedBadge {
     justify-content: flex-start;
-    margin-top: 6px;
+    margin-bottom: 6px;
   }
 
   @include respond-to(extraLarge) {
+    align-items: center;
     flex-direction: row;
     margin-top: 0;
 
     .PromotedBadge {
-      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 
