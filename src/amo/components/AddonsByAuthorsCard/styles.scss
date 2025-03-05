@@ -47,13 +47,14 @@
     }
   }
 
-  // Override the wide window styles from SearchResult because
-  // the AddonsByAuthorsCard panel always has a short width.
-  .SearchResult-name {
-    flex-direction: column;
-
-    .PromotedBadge {
-      margin: 0 0 6px;
+  // Override the wide window styles from SearchResult because the
+  // AddonsByAuthorsCard panel in the "More add-ons" card always has
+  // a short width.
+  &.Addon-MoreAddonsCard {
+    .SearchResult-name {
+      .PromotedBadge {
+        margin: 0 0 6px;
+      }
     }
   }
 }
