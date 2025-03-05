@@ -14,13 +14,13 @@ references:
     working_directory: ~/addons-frontend
     docker:
       # This is the NodeJS version we run in production.
-      - image: cimg/node:18.20
+      - image: cimg/node:20.18
 
   defaults-next: &defaults-next
     working_directory: ~/addons-frontend
     docker:
       # This is the next NodeJS version we will support.
-      - image: cimg/node:20.12
+      - image: cimg/node:22.14
 
   defaults-release: &defaults-release
     machine:
