@@ -7,6 +7,7 @@ import config from 'config';
 import { globSync } from 'glob';
 
 import { langToLocale, localeToLang } from 'amo/i18n/utils';
+import { unfilteredLanguages } from 'amo/languages';
 
 const langs = config.get('langs');
 const basePath = config.get('basePath');
@@ -18,6 +19,7 @@ describe(__filename, () => {
   it.each(langs)('should have a corresponding %s dir in locale', (lang) => {
     fs.lstatSync(path.join(basePath, 'locale', langToLocale(lang)));
   });
+  const allKnownLanguages = Object.keys(unfilteredLanguages);
 
   for (const localeDir of globSync('locale/*')) {
     const locale = path.basename(localeDir);
@@ -26,8 +28,8 @@ describe(__filename, () => {
       continue;
     }
     // eslint-disable no-loop-func
-    it(`should have a "${lang}" entry for locale dir in config.langs`, () =>
-      expect(langs).toContain(lang));
+    it(`should have a "${lang}" entry in unfilteredLanguages because locale dir exists`, () =>
+      expect(allKnownLanguages).toContain(lang));
   }
 
   describe('Check Locale JS files', () => {
