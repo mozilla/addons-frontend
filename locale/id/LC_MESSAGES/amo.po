@@ -83,7 +83,7 @@ msgstr "Beberapa fitur mungkin berbayar"
 
 #: src/amo/components/AddonBadges/index.js:71
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "Tersedia di Firefox untuk Android™"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -100,7 +100,7 @@ msgstr[0] "%(total)s pengguna"
 
 #: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
-msgstr ""
+msgstr "Laporkan pengaya ini ke Mozilla"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
@@ -108,7 +108,7 @@ msgstr ""
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "Laporkan pengaya karena ilegal atau tidak sesuai"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -257,9 +257,8 @@ msgid "Last updated"
 msgstr "Terakhir dimutakhirkan"
 
 #: src/amo/components/AddonMoreInfo/index.js:341
-#, fuzzy
 msgid "Related Categories"
-msgstr "Kategori"
+msgstr "Kategori Terkait"
 
 #: src/amo/components/AddonMoreInfo/index.js:351
 msgid "License"
