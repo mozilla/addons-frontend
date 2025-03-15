@@ -2865,7 +2865,7 @@ msgstr "Σχετικά με τα Πρόσθετα Firefox"
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
 msgstr ""
-"Εάν εντοπίσετε κάποιο πρόβλημα με τον ιστότοπο, θα θέλαμε να το διορθώσουμε. Παρακαλούμε αναφέρετε ένα %(startIssueLink)sζήτημα%(endIssueLink)s και συμπεριλάβετε όσο το δυνατόν περισσότερες "
+"Εάν εντοπίσετε κάποιο πρόβλημα με τον ιστότοπο, θα θέλαμε να το διορθώσουμε. Υποβάλετε μια %(startIssueLink)sαναφορά ζητήματος%(endIssueLink)s και συμπεριλάβετε όσο το δυνατόν περισσότερες "
 "λεπτομέρειες."
 
 #: src/amo/pages/StaticPages/About/index.js:20
@@ -2879,8 +2879,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
-"Για να αναφέρετε ένα κενό ασφαλείας για κάποια επέκταση, ακόμη κι αν δεν φιλοξενείται σε αυτόν τον ιστότοπο, παρακαλούμε υποβάλετε ένα %(startSecIssueLink)sζήτημα%(endSecIssueLink)s στο Bugzilla ή "
-"στείλτε email στο %(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Όλες οι αναφορές κενών ασφαλείας είναι %(startLink)sεμπιστευτικές%(endLink)s."
+"Για να αναφέρετε ένα κενό ασφαλείας για κάποια επέκταση, ακόμα κι αν δεν φιλοξενείται σε αυτόν τον ιστότοπο, υποβάλετε μια %(startSecIssueLink)sαναφορά ζητήματος%(endSecIssueLink)s στο Bugzilla ή "
+"στείλτε ένα email στο %(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Όλες οι αναφορές κενών ασφαλείας είναι %(startLink)sεμπιστευτικές%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
@@ -2978,8 +2978,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
-"Παρακαλούμε αναφέρετε ή επισημάνετε οποιαδήποτε αμφισβητήσιμη κριτική, κάνοντας κλικ στο «Αναφορά κριτικής» και θα υποβληθεί στον ιστότοπο για έλεγχο. Η ομάδα μας θα χρησιμοποιήσει τους κανόνες "
-"αξιολόγησης για να αποφανθεί αν θα διαγραφεί η κριτική."
+"Αναφέρετε ή επισημάνετε οποιαδήποτε αμφισβητήσιμη κριτική επιλέγοντας «Αναφορά κριτικής», ώστε να υποβληθεί στον ιστότοπο για έλεγχο. Η ομάδα μας θα χρησιμοποιήσει τους κανόνες αξιολόγησης για να "
+"αποφανθεί αν θα διαγραφεί η κριτική."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -3402,7 +3402,7 @@ msgstr "Η εγκατάσταση ακυρώθηκε, επειδή το πρόσ
 
 #: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
-msgstr "Αποτυχία εγκατάστασης. Παρακαλούμε δοκιμάστε ξανά."
+msgstr "Η εγκατάσταση απέτυχε. Δοκιμάστε ξανά."
 
 #: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
