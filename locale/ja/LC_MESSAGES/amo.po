@@ -502,23 +502,23 @@ msgstr "Firefox の外観を変える素晴らしい拡張機能がさらに追�
 
 #: src/amo/components/AddonSuggestions/index.js:114
 msgid "More incredible social media extensions"
-msgstr ""
+msgstr "さらに素晴らしいソーシャルメディア拡張機能"
 
 #: src/amo/components/AddonSuggestions/index.js:119
 msgid "More excellent search extensions"
-msgstr ""
+msgstr "さらに優れた検索拡張機能"
 
 #: src/amo/components/AddonSuggestions/index.js:124
 msgid "More great extensions for feeds, news & media"
-msgstr ""
+msgstr "フィード、ニュース、メディア向けの優れた拡張機能"
 
 #: src/amo/components/AddonSuggestions/index.js:129
 msgid "More great notification extensions"
-msgstr ""
+msgstr "さらに優れた通知拡張機能"
 
 #: src/amo/components/AddonSuggestions/index.js:138
 msgid "More great tools for web developers"
-msgstr ""
+msgstr "ウェブ開発者向けの優れたツール"
 
 #: src/amo/components/AddonSuggestions/index.js:268
 msgid "See Firefox Staff Picks"
@@ -530,23 +530,23 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
-msgstr ""
+msgstr "より強力なプライバシーとセキュリティの拡張機能"
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
-msgstr ""
+msgstr "さらに素晴らしいダウンロードマネージャー"
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
-msgstr ""
+msgstr "さらに素晴らしいタブとブックマークの拡張機能"
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
-msgstr ""
+msgstr "さらに優れたゲームとエンターテイメントのための拡張機能"
 
 #: src/amo/components/AddonSuggestions/index.js:95
 msgid "More amazing image, photo & media extensions"
-msgstr ""
+msgstr "さらに素晴らしい画像、写真、メディア拡張機能"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -896,17 +896,17 @@ msgstr "申し訳ございません。ページを見つけることができま
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "別のサイトから拡張機能やテーマのリンクをたどってきた場合、そのアイテムが利用できなくなっています。これには次の理由が考えられます:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "開発者が削除しました。一般的には、開発者が拡張機能やテーマをサポートしなくなった場合や別のものと置き換えた場合に、この操作が行われます。"
 
 #: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
-msgstr ""
+msgstr "Mozilla が削除しました。これは、拡張機能やテーマのレビュー中に問題が見つかった場合、または拡張機能やテーマが addons.mozilla.org の利用規約に違反している場合に行われることがあります。開発者には、問題を解決してアドオンを再び利用できるようにする機会があります。"
 
 #: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
@@ -926,7 +926,7 @@ msgstr "申し訳ありませんが、サーバー上でエラーが発生した
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
-msgstr ""
+msgstr "お探しのものは、利用可能な %(extensionStart)s拡張機能%(extensionEnd)s または %(themeStart)sテーマ%(themeEnd)s のいずれかで見つかる可能性があります。または、%(communityStart)sコミュニティフォーラム%(communityEnd)s でサポートを求めることで見つかる可能性があります。"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
@@ -954,15 +954,15 @@ msgstr "レビューが見つかりませんでした。"
 
 #: src/amo/components/FeedbackForm/index.js:1014
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
-msgstr ""
+msgstr "この報告書を提出することにより、私は偽証罪に問われることを覚悟の上で、報告書に含まれる申し立てが私の知る限り完全かつ正確であることを証明します。"
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr ""
+msgstr "動作しない、ウェブサイトが壊れる、Firefox の速度が遅くなる"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
-msgstr ""
+msgstr "例: 機能の動作が遅い、使うのが困難、まったく動作しない、ウェブサイトの一部が読み込まれない、または表示が異常。"
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It’s spam"
@@ -970,7 +970,7 @@ msgstr "これはスパムです"
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: The listing advertises unrelated products or services."
-msgstr ""
+msgstr "例: 無関係の製品やサービスの広告を掲載している。"
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "It violates Add-on Policies"
