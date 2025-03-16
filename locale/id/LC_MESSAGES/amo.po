@@ -1392,15 +1392,15 @@ msgstr "Ditandai sebagai spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
 msgid "Login required"
-msgstr ""
+msgstr "Login diperlukan"
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
-msgstr ""
+msgstr "Laporan bug atau permintaan layanan dukungan salah tempat"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Ditandai sebagai laporan bug atau permintaan dukungan yang keliru penempatannya"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
@@ -1587,7 +1587,7 @@ msgstr "OLEH FIREFOX"
 
 #: src/amo/components/HeroRecommendation/index.js:236
 msgid "PROMOTED"
-msgstr ""
+msgstr "DIPROMOSIKAN"
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
@@ -2617,15 +2617,15 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Laporkan koleksi ini ke Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:172
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Kirim umpan balik tentang koleksi"
 
 #: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Laporkan koleksi karena ilegal atau tidak sesuai"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2661,7 +2661,7 @@ msgstr "Musiman"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "Firefox untuk ekstensi Android"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
@@ -2673,7 +2673,7 @@ msgstr "Lihat lebih banyak ekstensi yang disarankan"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Jelajahi semua ekstensi Android"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2779,11 +2779,11 @@ msgstr "Kamus"
 
 #: src/amo/pages/RatingFeedback/index.js:125
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Kirimkan umpan balik atau laporkan ulasan ke Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "oleh %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
@@ -2791,7 +2791,7 @@ msgstr "Laporkan ulasan ini ke Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Laporkan ulasan karena ilegal atau tidak sesuai"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -3063,7 +3063,7 @@ msgstr "Pengaya yang diberi tag %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Kirimkan umpan balik atau laporkan pengguna ke Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:143 src/amo/pages/UserProfile/index.js:381
 msgid "User since"
@@ -3075,11 +3075,11 @@ msgstr "Laporkan pengguna ini ke Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:155
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "Kirim umpan balik tentang profil pengguna"
 
 #: src/amo/pages/UserFeedback/index.js:158
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "Laporkan profil pengguna karena ilegal atau tidak sesuai"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
@@ -3221,11 +3221,11 @@ msgstr "Alamat surel tidak dapat diubah di sini"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Anda dapat mengubah alamat surel Anda di akun Mozilla. %(startLink)sPerlu bantuan?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Kelola akun Mozilla…"
 
 #: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
