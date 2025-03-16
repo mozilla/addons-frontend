@@ -542,7 +542,7 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
-msgstr ""
+msgstr "Ekstensi hebat lainnya untuk permainan & hiburan"
 
 #: src/amo/components/AddonSuggestions/index.js:95
 msgid "More amazing image, photo & media extensions"
@@ -1648,7 +1648,7 @@ msgstr "Selanjutnya"
 
 #: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Laman %(thisPage)s dari %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
@@ -2512,11 +2512,11 @@ msgstr "Pengaya ini diblokir karena melanggar kebijakan Mozilla"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
-msgstr ""
+msgstr "Mengapa ini terjadi?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "Pengaya ini melanggar %(startLink)sKebijakan Pengaya Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2527,20 +2527,25 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Sampai pelanggaran teratasi, pengaya ini tidak akan tersedia untuk diunduh dari addons.mozilla.org. Jika sudah terpasang, itu akan dinonaktifkan dan pengguna akan diberitahu tentang pelanggaran. "
+"Mereka dapat memilih untuk mengaktifkan kembali pengaya dengan risiko mereka sendiri."
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Sampai pelanggaran teratasi, pengaya ini tidak akan tersedia untuk diunduh dari addons.mozilla.org. Ini akan dinonaktifkan secara otomatis dan tidak lagi dapat digunakan di Firefox."
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
-msgstr ""
+msgstr "Bagaimana Mozilla menegakkan kebijakannya?"
 
 #: src/amo/pages/Block/index.js:194
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Saat Mozilla menyadari keberadaan pengaya, plugin atau perangkat lunak pihak ketiga lainnya yang sungguh-sungguh membahayakan keamanan, stabilitas, atau performa Firefox dan memenuhi "
+"%(criteriaStartLink)ssejumlah kriteria%(criteriaEndLink)s, perangkat lunak tersebut akan diblokir atau dibatasi untuk penggunaan umum. Keterangan lebih lanjut, silakan baca "
+"%(supportStartLink)sartikel pendukung ini%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
@@ -2572,11 +2577,11 @@ msgstr "Hapus koleksi ini"
 
 #: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
-msgstr ""
+msgstr "Anda melaporkan koleksi ini"
 
 #: src/amo/pages/Collection/index.js:427
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Kami telah menerima laporan Anda. Terima kasih telah memberi tahu kami tentang masalah Anda dengan koleksi ini."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
@@ -2608,11 +2613,11 @@ msgstr "Unduh dan buat koleksi Firefox untuk mengikuti ekstensi dan tema favorit
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Kirimkan umpan balik atau laporkan koleksi ke Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "oleh %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
