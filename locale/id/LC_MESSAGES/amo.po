@@ -530,7 +530,7 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
-msgstr ""
+msgstr "Ekstensi privasi & keamanan yang lebih kuat"
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
@@ -1862,9 +1862,8 @@ msgid_plural "Read all %(total)s four-star reviews"
 msgstr[0] "Baca semua ulasan bintang empat"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Belum ada ulasan"
+msgstr "Belum ada ulasan bintang-empat"
 
 #: src/amo/components/RatingsByStar/index.js:93
 #, fuzzy
@@ -1886,7 +1885,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
-msgstr ""
+msgstr "Anda melaporkan pengguna ini"
 
 #: src/amo/components/ReportUserAbuse/index.js:52
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1894,7 +1893,7 @@ msgstr "Kami telah menerima laporan Anda. Terima kasih telah memberitahu kami te
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
-msgstr ""
+msgstr "Laporkan pengguna ini"
 
 #: src/amo/components/Search/index.js:138 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
@@ -2046,10 +2045,9 @@ msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "%(count)s hasil ditemukan untuk \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:227
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "%(count)s hasil ditemukan untuk \"%(query)s\""
+msgstr[0] "%(count)s hasil ditemukan dengan tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
@@ -3060,7 +3058,7 @@ msgstr "Membuat pernyataan yang salah, meremehkan penulis pengaya atau secara pr
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Pengaya yang diberi tag %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
@@ -3072,7 +3070,7 @@ msgstr "Pengguna sejak"
 
 #: src/amo/pages/UserFeedback/index.js:154
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Laporkan pengguna ini ke Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:155
 msgid "Send some feedback about the user profile"
@@ -3099,9 +3097,8 @@ msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(use
 msgstr "Profil %(user)s, pembuat tema Firefox. Temukan tema lainnya oleh %(user)s, termasuk peringkat rata-rata, kepemilikan, dan opsi untuk melaporkan masalah."
 
 #: src/amo/pages/UserProfile/index.js:308
-#, fuzzy
 msgid "User Avatar"
-msgstr "Laser Cat"
+msgstr "Avatar Pengguna"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"

@@ -1172,75 +1172,75 @@ msgstr "同意のない画像共有"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "ディープフェイクや第三者の機能を使用した類似の技術を含む、同意のないアイテム"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "ネット上のいじめ・脅迫"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "ストーカー行為"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
-msgstr ""
+msgstr "成人向け性的コンテンツ"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "画像による性的虐待 (未成年者を描写したコンテンツを除く)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
-msgstr ""
+msgstr "未成年者に関する年齢制限"
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
-msgstr ""
+msgstr "児童性的虐待に関する資料"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
-msgstr ""
+msgstr "未成年者への性的誘惑"
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
-msgstr ""
+msgstr "違法組織"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr ""
+msgstr "環境破壊のリスク"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "公衆衛生へのリスク"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
-msgstr ""
+msgstr "テロリストコンテンツ"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "偽アカウント"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
-msgstr ""
+msgstr "偽造品リスト"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "偽のユーザーレビュー"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
-msgstr ""
+msgstr "なりすましやアカウントの乗っ取り"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "フィッシング詐欺"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "ねずみ講"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
@@ -2137,7 +2137,7 @@ msgstr "青"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "マゼンタ"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -2153,11 +2153,11 @@ msgstr "アドオンの種類"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
-msgstr ""
+msgstr "テーマカラー"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
-msgstr ""
+msgstr "消去"
 
 #: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
@@ -2298,7 +2298,7 @@ msgstr "年間サブスクリプションで 50% 割引"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "オンラインデータを保護し、自分に合った VPN サブスクリプションのプランを選択してください。"
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"
@@ -2457,7 +2457,7 @@ msgstr "常に最新バージョンのアドオンを使用してください。
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Versions"
-msgstr ""
+msgstr "バージョン"
 
 #: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
@@ -2469,11 +2469,11 @@ msgstr "以前のバージョン"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s は Mozilla ポリシーに違反しているため制限されています"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "このアドオンは Mozilla ポリシーに違反しているため制限されています"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
@@ -2553,7 +2553,7 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
-msgstr ""
+msgstr "このコレクションを報告"
 
 #: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
@@ -2585,19 +2585,19 @@ msgstr "コレクションのフィードバックやレポートを Mozilla に
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "作者: %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "このコレクションを Mozilla に報告する"
 
 #: src/amo/pages/CollectionFeedback/index.js:172
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "コレクションについてのフィードバックをお送りください"
 
 #: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "このコレクションを違法もしくは不適切として報告する"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2757,11 +2757,11 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "このレビューを Mozilla に報告する"
 
 #: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "このレビューを違法もしくは不適切として報告する"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -3015,15 +3015,15 @@ msgstr "ユーザー登録日"
 
 #: src/amo/pages/UserFeedback/index.js:154
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "このユーザーを Mozilla に報告する"
 
 #: src/amo/pages/UserFeedback/index.js:155
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "ユーザープロファイルについてのフィードバックをお送りください"
 
 #: src/amo/pages/UserFeedback/index.js:158
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "このユーザーを違法もしくは不適切として報告する"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
@@ -3042,9 +3042,8 @@ msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(use
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:308
-#, fuzzy
 msgid "User Avatar"
-msgstr "Laser Cat"
+msgstr "ユーザーアバター"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
@@ -3270,7 +3269,7 @@ msgstr "%(linkStart)sユーザープロファイルを編集%(linkEnd)s して�
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
-msgstr ""
+msgstr "(名前なし)"
 
 #. This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
