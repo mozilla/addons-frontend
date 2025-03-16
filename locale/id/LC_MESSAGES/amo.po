@@ -502,7 +502,7 @@ msgstr "Ekstensi hebat lainnya untuk mengubah tampilan Firefox"
 
 #: src/amo/components/AddonSuggestions/index.js:114
 msgid "More incredible social media extensions"
-msgstr "Ekstensi media sosial lainnya yang luar biasa"
+msgstr "Ekstensi media sosial luar biasa lainnya"
 
 #: src/amo/components/AddonSuggestions/index.js:119
 msgid "More excellent search extensions"
@@ -522,7 +522,7 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:268
 msgid "See Firefox Staff Picks"
-msgstr ""
+msgstr "Lihat Pilihan Staf Firefox"
 
 #: src/amo/components/AddonSuggestions/index.js:57
 msgid "Explore our 'Starter Pack' to get started with extensions"
@@ -1095,11 +1095,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "Lainnya"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "Pilih pelanggaran"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
@@ -1107,7 +1107,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "Ketidakpatuhan terhadap peraturan penetapan harga"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
@@ -1143,11 +1143,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:302
 msgid "Discrimination"
-msgstr ""
+msgstr "Diskriminasi"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
-msgstr ""
+msgstr "Penghasutan ilegal untuk kekerasan dan kebencian berdasarkan karakteristik yang dilindungi (ujaran kebencian)"
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
@@ -1163,43 +1163,43 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "Pelanggaran rahasia dagang"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Pelanggaran hukum UE yang relevan dengan wacana sipil atau pemilihan"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Pelanggaran hukum nasional yang relevan dengan wacana sipil atau pemilu"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "Misinformasi, disinformasi, manipulasi dan campur tangan informasi asing"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
-msgstr ""
+msgstr "Berbagi gambar tanpa persetujuan"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "Item non-konsensual yang mengandung deepfake atau teknologi serupa yang menggunakan fitur pihak ketiga"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Penindasan/intimidasi daring"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "Menguntit"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
-msgstr ""
+msgstr "Materi seksual dewasa"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "Pelecehan seksual berbasis gambar (tidak termasuk konten yang menggambarkan anak di bawah umur)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
@@ -1215,23 +1215,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
-msgstr ""
+msgstr "Organisasi ilegal"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr ""
+msgstr "Risiko kerusakan lingkungan"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "Risiko bagi kesehatan masyarakat"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
-msgstr ""
+msgstr "Konten teroris"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "Akun tidak autentik"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
@@ -1247,63 +1247,63 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "Phising"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "Skema piramida"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "Konten yang mempromosikan gangguan makan"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "Mutilasi diri"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "Bunuh diri"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "Produk yang dilarang atau dibatasi"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Produk tidak aman atau tidak sesuai"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
-msgstr ""
+msgstr "Kerusakan terkoordinasi"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "Kekerasan berbasis gender"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "Eksploitasi manusia"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "Perdagangan manusia"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Panggilan umum atau hasutan untuk melakukan kekerasan dan/atau kebencian"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
-msgstr ""
+msgstr "Laporan dikirim"
 
 #: src/amo/components/FeedbackForm/index.js:673
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "Kami telah menerima laporan Anda. Terima kasih telah memberi tahu kami."
 
 #: src/amo/components/FeedbackForm/index.js:768
 msgid "Submitting your report…"
-msgstr ""
+msgstr "Mengirimkan laporan Anda…"
 
 #: src/amo/components/FeedbackForm/index.js:769
 msgid "Submit report"
@@ -1311,23 +1311,23 @@ msgstr "Kirimkan laporan"
 
 #: src/amo/components/FeedbackForm/index.js:788
 msgid "Provide more information"
-msgstr ""
+msgstr "Berikan informasi lebih lanjut"
 
 #: src/amo/components/FeedbackForm/index.js:796
 msgid "Place of the violation"
-msgstr ""
+msgstr "Tempat pelanggaran"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Jenis konten ilegal"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Pelanggaran spesifik"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
-msgstr ""
+msgstr "Jelaskan lebih lanjut"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
@@ -2134,39 +2134,39 @@ msgstr "Semua yang Sudah Ditinjau"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "Hitam"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "Kelabu"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "Putih"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "Merah"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "Kuning"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "Hijau"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "Sian"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "Biru"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -2182,11 +2182,11 @@ msgstr "Tipe Pengaya"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
-msgstr ""
+msgstr "Warna Tema"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
-msgstr ""
+msgstr "Hapus"
 
 #: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
@@ -2262,7 +2262,7 @@ msgstr "<span class=\"visually-hidden\">Bentangkan untuk</span> Baca lebih lanju
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "Masuk sebagai %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2323,11 +2323,11 @@ msgstr "Balasan pengembang"
 
 #: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "Hemat 50% dengan berlangganan setahun penuh"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "Lindungi data daring Anda — dan pilih paket langganan VPN yang sesuai untuk Anda."
 
 #: src/amo/components/VPNPromoBanner/index.js:206
 msgid "Get Mozilla VPN"

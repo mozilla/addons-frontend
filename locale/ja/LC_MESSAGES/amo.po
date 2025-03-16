@@ -526,7 +526,7 @@ msgstr "Firefox スタッフのおすすめを見る"
 
 #: src/amo/components/AddonSuggestions/index.js:57
 msgid "Explore our 'Starter Pack' to get started with extensions"
-msgstr ""
+msgstr "拡張機能を使い始めるには、「スターターパック」をご覧ください"
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
@@ -1088,87 +1088,87 @@ msgstr "その他"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "違反内容を選択してください"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
-msgstr ""
+msgstr "トレーダーに関する情報が不十分"
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "価格規制の不遵守"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
-msgstr ""
+msgstr "インフルエンサーによるものも含め、隠れた広告や商業的なコミュニケーション"
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
-msgstr ""
+msgstr "商品やサービスの特性に関する誤解を招く情報"
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "消費者の権利に関する誤解を招く情報"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
-msgstr ""
+msgstr "生体認証データ侵害"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "データ処理基盤が欠如している"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr ""
+msgstr "忘れられる権利"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
-msgstr ""
+msgstr "データの改竄"
 
 #: src/amo/components/FeedbackForm/index.js:301
 msgid "Defamation"
-msgstr ""
+msgstr "名誉毀損"
 
 #: src/amo/components/FeedbackForm/index.js:302
 msgid "Discrimination"
-msgstr ""
+msgstr "差別"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
-msgstr ""
+msgstr "保護特性に基づく暴力や憎悪の違法な扇動 (ヘイトスピーチ)"
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
-msgstr ""
+msgstr "意匠権侵害"
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
-msgstr ""
+msgstr "地理的表示の侵害"
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "特許侵害"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "営業秘密侵害"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "市民の議論や選挙に関連する EU 法の違反"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "市民の議論や選挙に関連する国内法の違反"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "誤報、偽情報、外国の情報操作と干渉"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
-msgstr ""
+msgstr "同意のない画像共有"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
@@ -1434,7 +1434,7 @@ msgstr "法的情報"
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
-msgstr ""
+msgstr "特に %(startNotedLink)s明記されている%(endNotedLink)s 場合を除き、当サイト上のコンテンツは %(startLicenseLink)sCreative Commons 表示・継承ライセンス v3.0%(endLicenseLink)s あるいはそれ以降のバージョンでライセンスされています。Android は Google LLC の登録商標です。"
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1464,12 +1464,12 @@ msgstr "開発者センター"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "これらのアドオンを使用するには、%(downloadLinkStart)sFirefox をダウンロード%(downloadLinkEnd)s する必要があります。"
 
 #: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
-msgstr ""
+msgstr "Android 拡張機能を使用するには、%(downloadLinkStart)sAndroid 版 Firefox%(downloadLinkEnd)s が必要です。デスクトップ版 Firefox のアドオンを探すには、%(linkStart)sデスクトップサイト%(linkEnd)s にアクセスしてください。"
 
 #: src/amo/components/GetFirefoxButton/index.js:146
 msgid "Download Firefox and get the theme"
@@ -1568,15 +1568,15 @@ msgstr "おすすめ"
 #. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 #: src/amo/components/HeroRecommendation/index.js:234
 msgid "BY FIREFOX"
-msgstr ""
+msgstr "BY FIREFOX"
 
 #: src/amo/components/HeroRecommendation/index.js:236
 msgid "PROMOTED"
-msgstr ""
+msgstr "PROMOTED"
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox は Mozilla が定めた安全性とパフォーマンスの基準に適合する拡張機能のみをおすすめします。"
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
@@ -1632,7 +1632,7 @@ msgstr "次へ"
 
 #: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "%(totalPages)s ページ中 %(thisPage)s ページ目"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
@@ -1668,11 +1668,11 @@ msgstr "クリップボードへのデータ入力"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Block content on any page"
-msgstr ""
+msgstr "任意のページのコンテンツをブロックする"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Read your browsing history"
-msgstr ""
+msgstr "閲覧履歴の読み取り"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Extend developer tools to access your data in open tabs"
@@ -1740,11 +1740,11 @@ msgstr "ナビゲーション中のブラウザーアクティビティへのア
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr ""
+msgstr "Mozilla Firefox により制作された公式アドオンです。安全性とパフォーマンスの基準に適合します。"
 
 #: src/amo/components/PromotedBadge/index.js:50
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox は、セキュリティとパフォーマンスの基準を満たすアドオンのみを推奨します。"
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1853,7 +1853,7 @@ msgstr[0] "%(total)s 件の 3 つ星のレビューをすべて読む"
 
 #: src/amo/components/ReportAbuseButton/index.js:44
 msgid "You reported this add-on"
-msgstr ""
+msgstr "このアドオンを報告しました"
 
 #: src/amo/components/ReportAbuseButton/index.js:48
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1865,7 +1865,7 @@ msgstr "このアドオンを報告"
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
-msgstr ""
+msgstr "このユーザーを報告しました"
 
 #: src/amo/components/ReportUserAbuse/index.js:52
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -2105,35 +2105,35 @@ msgstr "すべてレビュー済み"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "黒"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "グレー"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "白"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "赤"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "黄"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "緑"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "シアン"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "青"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
@@ -2233,11 +2233,11 @@ msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "%(username)s としてログインしています"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "サイトメンテナンスの間、いくつかの機能が一時的に無効になっています。まもなく復旧する予定です。"
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
@@ -2294,7 +2294,7 @@ msgstr "開発者の返信"
 
 #: src/amo/components/VPNPromoBanner/index.js:178
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "年間サブスクリプションで 50% 割引"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
@@ -2306,7 +2306,7 @@ msgstr "Mozilla VPN を入手"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Android 版 Firefox と互換性のある拡張機能を見つけるには、%(linkStart)sここをクリック%(linkEnd)sしてください。"
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
