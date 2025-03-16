@@ -538,7 +538,7 @@ msgstr "Pengelola unduhan yang mumpuni lainnya"
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
-msgstr ""
+msgstr "Ekstensi tab & markah fantastis lainnya"
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
@@ -1447,6 +1447,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Terkecuali saat %(startNotedLink)sdicatat%(endNotedLink)s berbeda, konten dalam situs ini dilisensikan di bawah %(startLicenseLink)sCreative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s atau versi lain yang lebih baru. Android adalah merek dagang dari Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1991,10 +1993,9 @@ msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s ekstensi ditemukan"
 
 #: src/amo/components/SearchContextCard/index.js:134
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s tema ditemukan untuk \"%(query)s\" pada %(categoryName)s"
+msgstr[0] "%(count)s tema ditemukan untuk \"%(query)s\" dengan tag %(tag)s di %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -2002,10 +2003,9 @@ msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s tema ditemukan untuk \"%(query)s\" pada %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s tema ditemukan pada %(categoryName)s"
+msgstr[0] "%(count)s tema ditemukan dengan tag %(tag)s di %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
@@ -2013,10 +2013,9 @@ msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "%(count)s tema ditemukan pada %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:170
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s tema ditemukan untuk \"%(query)s\" pada %(categoryName)s"
+msgstr[0] "%(count)s tema ditemukan untuk \"%(query)s\" dengan tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -2034,10 +2033,9 @@ msgid_plural "%(count)s themes found"
 msgstr[0] "%(count)s tema ditemukan"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s hasil ditemukan untuk \"%(query)s\""
+msgstr[0] "%(count)s hasil ditemukan untuk \"%(query)s\" dengan tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -2063,10 +2061,9 @@ msgid "Searching for add-ons"
 msgstr "Mencari pengaya"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s ekstensi ditemukan untuk \"%(query)s\" pada %(categoryName)s"
+msgstr[0] "%(count)s ekstensi ditemukan untuk \"%(query)s\" dengan tag %(tag)s di %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -2074,10 +2071,9 @@ msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s ekstensi ditemukan untuk \"%(query)s\" pada %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s ekstensi ditemukan pada %(categoryName)s"
+msgstr[0] "%(count)s ekstensi ditemukan dengan tag %(tag)s di %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -2085,10 +2081,9 @@ msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "%(count)s ekstensi ditemukan pada %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s ekstensi ditemukan untuk \"%(query)s\" pada %(categoryName)s"
+msgstr[0] "%(count)s ekstensi ditemukan untuk \"%(query)s\" dengan tag %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "All"
@@ -2333,7 +2328,7 @@ msgstr "Dapatkan VPN Mozilla"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Untuk menemukan ekstensi yang kompatibel dengan Firefox untuk Android, %(linkStart)sklik di sini%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
