@@ -546,7 +546,7 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:95
 msgid "More amazing image, photo & media extensions"
-msgstr ""
+msgstr "Ekstensi gambar, foto & media yang menakjubkan lainnya"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -865,9 +865,8 @@ msgid "Error code: %(status)s."
 msgstr "Kode galat: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
-#, fuzzy
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Maaf, tapi Anda tidak berwenang mengakses laman ini. Jika Anda tidak masuk, coba masuk menggunakan tautan di bagian atas laman."
+msgstr "Autentikasi proses masuk telah kedaluwarsa. %(startLink)sMuat ulang laman%(endLink)s untuk melanjutkan tanpa autentikasi, atau masuk kembali menggunakan tautan Masuk di bagian atas laman."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
@@ -1027,71 +1026,71 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
-msgstr ""
+msgstr "Di dalam pengaya"
 
 #: src/amo/components/FeedbackForm/index.js:170
 msgid "Both locations"
-msgstr ""
+msgstr "Kedua lokasi"
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "Pilih jenis"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
-msgstr ""
+msgstr "Kesejahteraan hewan"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
-msgstr ""
+msgstr "Pelanggaran informasi konsumen"
 
 #: src/amo/components/FeedbackForm/index.js:192
 msgid "Data protection and privacy violations"
-msgstr ""
+msgstr "Perlindungan data dan pelanggaran privasi"
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
-msgstr ""
+msgstr "Ucapan ilegal atau berbahaya"
 
 #: src/amo/components/FeedbackForm/index.js:200
 msgid "Intellectual property infringements"
-msgstr ""
+msgstr "Pelanggaran kekayaan intelektual"
 
 #: src/amo/components/FeedbackForm/index.js:204
 msgid "Negative effects on civic discourse or elections"
-msgstr ""
+msgstr "Efek negatif pada wacana sipil atau pemilihan"
 
 #: src/amo/components/FeedbackForm/index.js:210
 msgid "Non-consensual behavior"
-msgstr ""
+msgstr "Perilaku non-konsensual"
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
-msgstr ""
+msgstr "Konten pornografi atau seksual"
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
-msgstr ""
+msgstr "Perlindungan anak di bawah umur"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
-msgstr ""
+msgstr "Risiko bagi keamanan publik"
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
-msgstr ""
+msgstr "Penipuan atau kecurangan"
 
 #: src/amo/components/FeedbackForm/index.js:225
 msgid "Self-harm"
-msgstr ""
+msgstr "Melukai diri sendiri"
 
 #: src/amo/components/FeedbackForm/index.js:228
 msgid "Unsafe, non-compliant, or prohibited products"
-msgstr ""
+msgstr "Produk yang tidak aman, tidak sesuai, atau dilarang"
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
-msgstr ""
+msgstr "Kekerasan"
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
