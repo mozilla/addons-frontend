@@ -996,17 +996,19 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:131
 msgid "Example: It contains racist imagery."
-msgstr ""
+msgstr "Contoh: Berisi gambar rasis."
 
 #: src/amo/components/FeedbackForm/index.js:135
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Itu melanggar hukum atau mengandung konten yang melanggar hukum"
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid ""
 "Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
 msgstr ""
+"Contoh: Penipuan. (Jika Anda ingin melaporkan pelanggaran hak cipta atau merek dagang, Anda dapat mempelajari lebih lanjut tentang bagaimana melakukannya di %(startLink)sartikel Pelaporan "
+"Pelanggaran Hak Cipta atau Merek Dagang%(endLink)s kami)."
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
@@ -1014,7 +1016,7 @@ msgstr "Lainnya"
 
 #: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "Apa pun yang tidak sesuai dengan kategori lainnya."
 
 #: src/amo/components/FeedbackForm/index.js:164
 msgid "Select place"
@@ -1022,7 +1024,7 @@ msgstr "Pilih tempat"
 
 #: src/amo/components/FeedbackForm/index.js:166
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "Pada laman pengaya di situs web ini"
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
