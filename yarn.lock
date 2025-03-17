@@ -4905,10 +4905,10 @@ expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-express-http-context@1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/express-http-context/-/express-http-context-1.2.4.tgz#49769d0e260836278996e728d9a3e7f3735f0531"
-  integrity sha512-jPpBbF1MWWdRcUU1rxsX0CPnA8ueEj8xgWvpRGHoXWGI4l5KqhPY4Bq+Gt6s2IhqHQQ0g0wIvJ3jFfbUuJJycQ==
+express-http-context@1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/express-http-context/-/express-http-context-1.2.5.tgz#0b34f13833da332bf1fe5a66231ca8e640e40485"
+  integrity sha512-3wH4zvH7hkD/b0EJfAM7fafMzPqr7tKqWaVXJrEt6GH+U1a0WykIjoFY3pJbAke9Z78q6znz1Cpgm+Q5VsQsmw==
   dependencies:
     "@types/cls-hooked" "^4.2.1"
     "@types/express" "^4.16.0"
