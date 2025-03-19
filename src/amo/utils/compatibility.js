@@ -16,6 +16,7 @@ import {
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OLD_ROOT_CERT_VERSION,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -75,6 +76,25 @@ export const isFirefox = ({
   invariant(userAgentInfo, 'userAgentInfo is required');
 
   return userAgentInfo.browser.name === 'Firefox';
+};
+
+export const isFirefoxWithOldRootCerts = ({
+  userAgentInfo,
+}: {|
+  userAgentInfo: UserAgentInfoType,
+|}): boolean => {
+  // If the userAgent is false there was likely a programming error.
+  invariant(userAgentInfo, 'userAgentInfo is required');
+
+  const majorAppVersion = parseInt(userAgentInfo.browser?.version, 10);
+
+  return (
+    isFirefox({ userAgentInfo }) &&
+    // Firefox 128 and higher or latest Firefox ESR 115 have the updated root.
+    // We can't single out ESR but excluding 115 entirely is good enough.
+    majorAppVersion < 128 &&
+    majorAppVersion !== 115
+  );
 };
 
 export const isDesktop = ({
@@ -171,6 +191,10 @@ export function isCompatibleWithUserAgent({
       compatible: false,
       reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
     };
+  }
+
+  if (isFirefoxWithOldRootCerts({ userAgentInfo })) {
+    return { compatible: false, reason: INCOMPATIBLE_OLD_ROOT_CERT_VERSION };
   }
 
   // Do version checks, if this add-on has minimum or maximum version

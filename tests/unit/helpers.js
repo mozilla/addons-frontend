@@ -806,6 +806,8 @@ export const userAgentsByPlatform = {
       Firefox/69.0`,
     firefox70: oneLine`Mozilla/5.0 (Android 9; Mobile; rv:70.0) Gecko/70.0
       Firefox/70.0`,
+    firefox136: oneLine`Mozilla/5.0 (Android 15; Mobile; rv:136.0) Gecko/136.0
+      Firefox/136.0`,
   },
   bsd: {
     firefox40FreeBSD: oneLine`Mozilla/5.0 (X11; FreeBSD amd64; rv:40.0)
@@ -842,6 +844,10 @@ export const userAgentsByPlatform = {
       Gecko/20100101 Firefox/61.0`,
     firefox69: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:69.0)
       Gecko/20100101 Firefox/69.0`,
+    firefox128: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 14.7; rv:128.0)
+      Gecko/20100101 Firefox/128.0`,
+    firefox136: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 14.7; rv:136.0)
+      Gecko/20100101 Firefox/136.0`,
   },
   unix: {
     firefox51: oneLine`Mozilla/51.0.2 (X11; Unix x86_64; rv:29.0)
@@ -850,6 +856,8 @@ export const userAgentsByPlatform = {
   windows: {
     firefox40: oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0)
       Gecko/20100101 Firefox/40.1`,
+    firefox115: oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:115.0)
+      Gecko/20100101 Firefox/115.0`,
   },
 };
 
