@@ -9,6 +9,7 @@ import {
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OLD_ROOT_CERT_VERSION,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -27,6 +28,7 @@ import {
   isFirefox,
   isFirefoxForAndroid,
   isFirefoxForIOS,
+  isFirefoxWithOldRootCerts,
 } from 'amo/utils/compatibility';
 import {
   createFakeLocation,
@@ -87,6 +89,40 @@ describe(__filename, () => {
       userAgents.firefoxIOS.forEach((userAgent) => {
         expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
       });
+    });
+  });
+
+  describe('isFirefoxWithOldRootCerts', () => {
+    it.each([
+      ...userAgents.androidWebkit,
+      ...userAgents.chromeAndroid,
+      ...userAgents.chrome,
+    ])('returns false for %s', (userAgent) => {
+      expect(
+        isFirefoxWithOldRootCerts({ userAgentInfo: UAParser(userAgent) }),
+      ).toEqual(false);
+    });
+
+    it.each([
+      userAgentsByPlatform.windows.firefox115,
+      userAgentsByPlatform.mac.firefox128,
+      userAgentsByPlatform.mac.firefox136,
+      userAgentsByPlatform.android.firefox136,
+    ])('returns false for %s', (userAgent) => {
+      expect(
+        isFirefoxWithOldRootCerts({ userAgentInfo: UAParser(userAgent) }),
+      ).toEqual(false);
+    });
+
+    it.each([
+      userAgentsByPlatform.windows.firefox40,
+      userAgentsByPlatform.mac.firefox69,
+      userAgentsByPlatform.linux.firefox10,
+      userAgentsByPlatform.android.firefox70,
+    ])('returns true for %s', (userAgent) => {
+      expect(
+        isFirefoxWithOldRootCerts({ userAgentInfo: UAParser(userAgent) }),
+      ).toEqual(true);
     });
   });
 
@@ -316,6 +352,37 @@ describe(__filename, () => {
         compatible: false,
         reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
       });
+    });
+
+    it('is incompatible with Firefox < 128 because of root cert expiration', () => {
+      const userAgentInfo = {
+        browser: { name: 'Firefox', version: '127.0' },
+        os: { name: 'Windows' },
+      };
+      // Would normally be considered compatible, but because Firefox is < 128
+      // (and not 115, see test below) it's not.
+      expect(
+        _isCompatibleWithUserAgent({
+          minVersion: '57.0',
+          userAgentInfo,
+        }),
+      ).toEqual({
+        compatible: false,
+        reason: INCOMPATIBLE_OLD_ROOT_CERT_VERSION,
+      });
+    });
+
+    it('is still compatible with Firefox 115', () => {
+      const userAgentInfo = {
+        browser: { name: 'Firefox', version: '115.0' },
+        os: { name: 'Windows' },
+      };
+      expect(
+        _isCompatibleWithUserAgent({
+          minVersion: '57.0',
+          userAgentInfo,
+        }),
+      ).toEqual({ compatible: true, reason: null });
     });
   });
 
