@@ -52,23 +52,24 @@ export type NotificationsType = Array<NotificationType>;
 export type NotificationsUpdateType = { [name: string]: boolean };
 
 export type BaseExternalUserType = {|
-  average_addon_rating: number,
-  biography: string | null,
-  created: string,
-  has_anonymous_display_name: boolean,
-  has_anonymous_username: boolean,
-  homepage: string | null,
   id: number,
-  is_addon_developer: boolean,
-  is_artist: boolean,
-  location: string | null,
   name: string,
-  num_addons_listed: number,
-  occupation: string | null,
-  picture_type: string | null,
-  picture_url: string | null,
   username: string,
-  // Properties returned if we are accessing our own profile or the current
+  // Properties returned for a developer
+  average_addon_rating?: number,
+  biography?: string | null,
+  created?: string,
+  has_anonymous_display_name?: boolean,
+  has_anonymous_username?: boolean,
+  homepage?: string | null,
+  is_addon_developer?: boolean,
+  is_artist?: boolean,
+  location?: string | null,
+  num_addons_listed?: number,
+  occupation?: string | null,
+  picture_type?: string | null,
+  picture_url?: string | null,
+  // Further Properties returned if we are accessing our own profile or the current
   // user has the `Users:Edit` permission.
   deleted?: boolean,
   display_name: string | null,
@@ -453,7 +454,7 @@ export const isDeveloper = (user: UserType | null): boolean => {
     return false;
   }
 
-  return user.is_addon_developer || user.is_artist;
+  return user.is_addon_developer || user.is_artist || false;
 };
 
 export const hasPermission = (state: AppState, permission: string): boolean => {

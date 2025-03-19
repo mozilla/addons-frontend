@@ -1116,14 +1116,16 @@ describe(__filename, () => {
       ).toHaveTextContent(i18n.moment(review.created).fromNow());
     });
 
-    it('renders a byLine with an author by default', () => {
+    it('renders a linkified byLine with an author by default', () => {
       const name = 'some_user';
       const review = signInAndDispatchSavedReview({
         reviewUserProps: { name },
       });
       render({ review });
 
-      expect(screen.getByText(`by ${name},`)).toBeInTheDocument();
+      expect(
+        screen.getByRole('link', { name: review.userName }),
+      ).toHaveAttribute('href', `/en-US/android/user/${review.userId}/`);
     });
 
     it('renders a short byLine for replies by default', () => {
@@ -1145,29 +1147,6 @@ describe(__filename, () => {
           `posted ${i18n.moment(review.created).fromNow()}`,
         ),
       ).toBeInTheDocument();
-    });
-
-    it('linkifies username if current user is an admin', () => {
-      dispatchSignInActionsWithStore({
-        store,
-        userProps: { permissions: [ALL_SUPER_POWERS] },
-      });
-
-      const review = _setReview(fakeReview);
-      render({ review });
-
-      expect(
-        screen.getByRole('link', { name: review.userName }),
-      ).toHaveAttribute('href', `/en-US/android/user/${review.userId}/`);
-    });
-
-    it('does not linkify username if current user is not an admin', () => {
-      const review = _setReview(fakeReview);
-      render({ review });
-
-      expect(
-        screen.queryByRole('link', { name: review.userName }),
-      ).not.toBeInTheDocument();
     });
   });
 
@@ -1232,10 +1211,13 @@ describe(__filename, () => {
     it('does not include a user name in the byline', () => {
       const replyUserName = 'Bob';
       const reviewUserName = 'Daniel';
+      const reviewUserId = 123;
 
-      renderNestedReply({ replyUserName, reviewUserName });
+      renderNestedReply({ replyUserName, reviewUserName, reviewUserId });
 
-      expect(screen.getByText(`by ${reviewUserName},`)).toBeInTheDocument();
+      expect(
+        screen.getByRole('link', { name: reviewUserName }),
+      ).toHaveAttribute('href', `/en-US/android/user/${reviewUserId}/`);
       expect(screen.queryByText(replyUserName)).not.toBeInTheDocument();
     });
 
