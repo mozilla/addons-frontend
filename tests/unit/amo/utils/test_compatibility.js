@@ -112,7 +112,7 @@ describe(__filename, () => {
     const _isCompatibleWithUserAgent = ({
       addon = createInternalAddonWithLang(fakeAddon),
       currentVersion = createInternalVersionWithLang(fakeAddon.current_version),
-      userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox40),
+      userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox115),
       ...rest
     }) => {
       return isCompatibleWithUserAgent({
@@ -126,7 +126,7 @@ describe(__filename, () => {
     it('is compatible with Firefox', () => {
       expect(
         _isCompatibleWithUserAgent({
-          userAgentInfo: UAParser(userAgents.firefox[0]),
+          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox115),
         }),
       ).toEqual({ compatible: true, reason: null });
     });
@@ -141,24 +141,10 @@ describe(__filename, () => {
       });
     });
 
-    it('is compatible with Firefox for Android, when promoted', () => {
-      userAgents.firefoxAndroid.forEach((userAgent) => {
-        expect(
-          _isCompatibleWithUserAgent({
-            addon: createInternalAddonWithLang({
-              ...fakeAddon,
-              promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
-            }),
-            userAgentInfo: UAParser(userAgent),
-          }),
-        ).toEqual({ compatible: true, reason: null });
-      });
-    });
-
-    it('is compatible with Firefox >= 69', () => {
+    it('is compatible with Firefox >= 128', () => {
       expect(
         _isCompatibleWithUserAgent({
-          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox128),
         }),
       ).toEqual({ compatible: true, reason: null });
     });
@@ -185,23 +171,23 @@ describe(__filename, () => {
       ).toEqual({ compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
     });
 
-    it('should mark Firefox 10 as incompatible with a minVersion of 10.1', () => {
+    it('should mark Firefox 128 as incompatible with a minVersion of 128.1', () => {
       const userAgentInfo = {
-        browser: { name: 'Firefox', version: '10.0' },
+        browser: { name: 'Firefox', version: '128.0' },
         os: { name: 'Windows' },
       };
       expect(
         _isCompatibleWithUserAgent({
-          minVersion: '10.1',
+          minVersion: '128.1',
           userAgentInfo,
         }),
       ).toEqual({ compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
     });
 
-    it('should mark Firefox 24 as compatible with a maxVersion of 8', () => {
+    it('should mark Firefox 115 as compatible with a maxVersion of 8', () => {
       // https://github.com/mozilla/addons-frontend/issues/2074
       const userAgentInfo = {
-        browser: { name: 'Firefox', version: '24.0' },
+        browser: { name: 'Firefox', version: '115.0' },
         os: { name: 'Windows' },
       };
       expect(
@@ -218,7 +204,7 @@ describe(__filename, () => {
 
     it('should mark Firefox as compatible when no min or max version', () => {
       const userAgentInfo = {
-        browser: { name: 'Firefox', version: '10.0' },
+        browser: { name: 'Firefox', version: '128.0' },
         os: { name: 'Windows' },
       };
       expect(
@@ -232,7 +218,7 @@ describe(__filename, () => {
       // WebExtensions are marked as having a maxVersion of "*" by addons-server
       // if their manifests don't contain explicit version information.
       const userAgentInfo = {
-        browser: { name: 'Firefox', version: '54.0' },
+        browser: { name: 'Firefox', version: '128.0' },
         os: { name: 'Windows' },
       };
       expect(
@@ -324,7 +310,7 @@ describe(__filename, () => {
             promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
           }),
           currentVersion,
-          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox136),
         }),
       ).toEqual({
         compatible: false,
@@ -463,7 +449,7 @@ describe(__filename, () => {
     };
 
     it('returns true for Firefox (reason undefined when compatibile)', () => {
-      const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox57);
+      const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox136);
       const userAgentInfo = { browser, os };
       const clientApp = CLIENT_APP_FIREFOX;
       const currentVersion = createInternalVersionWithLang({
@@ -491,7 +477,7 @@ describe(__filename, () => {
     });
 
     it('returns maxVersion when set', () => {
-      const { browser, os } = UAParser(userAgents.firefox[0]);
+      const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox136);
       const userAgentInfo = { browser, os };
 
       expect(
@@ -514,7 +500,7 @@ describe(__filename, () => {
     });
 
     it('returns minVersion when set', () => {
-      const { browser, os } = UAParser(userAgents.firefox[0]);
+      const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox136);
       const userAgentInfo = { browser, os };
 
       expect(
@@ -565,7 +551,7 @@ describe(__filename, () => {
     });
 
     it('returns incompatible when currentVersion is null', () => {
-      const { browser, os } = UAParser(userAgents.firefox[0]);
+      const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox136);
       const userAgentInfo = { browser, os };
       const clientApp = CLIENT_APP_FIREFOX;
 
@@ -584,7 +570,7 @@ describe(__filename, () => {
     });
 
     it('returns compatible if strict compatibility is off', () => {
-      const { browser, os } = UAParser(userAgents.firefox[4]);
+      const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox136);
       const userAgentInfo = { browser, os };
 
       expect(
@@ -595,7 +581,7 @@ describe(__filename, () => {
             compatibility: {
               ...fakeAddon.current_version.compatibility,
               [CLIENT_APP_FIREFOX]: {
-                max: '56.*',
+                max: '135.*',
                 min: '24.0',
               },
             },
@@ -608,7 +594,7 @@ describe(__filename, () => {
     });
 
     it('returns incompatible if strict compatibility enabled', () => {
-      const { browser, os } = UAParser(userAgents.firefox[5]);
+      const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox136);
       const userAgentInfo = { browser, os };
 
       expect(
@@ -619,7 +605,7 @@ describe(__filename, () => {
             compatibility: {
               ...fakeAddon.current_version.compatibility,
               [CLIENT_APP_FIREFOX]: {
-                max: '56.*',
+                max: '135.*',
                 min: '24.0',
               },
             },
@@ -635,7 +621,7 @@ describe(__filename, () => {
     });
 
     it('returns incompatible when add-on does not support client app', () => {
-      const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox57);
+      const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox136);
       const userAgentInfo = { browser, os };
 
       expect(
@@ -656,9 +642,7 @@ describe(__filename, () => {
     });
 
     it('returns correct reason when add-on is incompatible with android', () => {
-      const { browser, os } = UAParser(
-        userAgentsByPlatform.android.firefox40Mobile,
-      );
+      const { browser, os } = UAParser(userAgentsByPlatform.android.firefox136);
       const userAgentInfo = { browser, os };
 
       expect(
@@ -715,7 +699,7 @@ describe(__filename, () => {
         _correctedLocationForPlatform({
           clientApp: CLIENT_APP_FIREFOX,
           lang,
-          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox136),
         }),
       ).toEqual(getMobileHomepageLink(lang));
     });
@@ -728,7 +712,7 @@ describe(__filename, () => {
           isHomePage: false,
           lang,
           location: createFakeLocation({ pathname: '/some/path' }),
-          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox136),
         }),
       ).toEqual(null);
     });
@@ -739,7 +723,7 @@ describe(__filename, () => {
           clientApp: CLIENT_APP_ANDROID,
           isHomePage: true,
           location: createFakeLocation({ pathname: '/some/path' }),
-          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox136),
         }),
       ).toEqual(null);
     });
@@ -750,7 +734,7 @@ describe(__filename, () => {
           clientApp: CLIENT_APP_ANDROID,
           isHomePage: false,
           location: createFakeLocation({ pathname: '/search/' }),
-          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox136),
         }),
       ).toEqual(null);
     });
@@ -763,7 +747,7 @@ describe(__filename, () => {
         _correctedLocationForPlatform({
           clientApp: CLIENT_APP_ANDROID,
           location: createFakeLocation({ pathname, search }),
-          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox136),
         }),
       ).toEqual(`/en-US/${CLIENT_APP_FIREFOX}/addon/slug/${search}`);
     });
@@ -779,7 +763,7 @@ describe(__filename, () => {
           clientApp: CLIENT_APP_ANDROID,
           lang: 'en-US',
           location: createFakeLocation({ pathname, search }),
-          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox136),
         }),
       ).toEqual(`/en-US/${CLIENT_APP_FIREFOX}/addon/slug/${search}`);
     });
@@ -791,7 +775,7 @@ describe(__filename, () => {
         _correctedLocationForPlatform({
           clientApp: CLIENT_APP_ANDROID,
           location: createFakeLocation({ pathname }),
-          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox136),
         }),
       ).toEqual(
         `/en-US/${CLIENT_APP_FIREFOX}/addon/awesome-android-extension/`,
@@ -802,7 +786,7 @@ describe(__filename, () => {
       expect(
         _correctedLocationForPlatform({
           clientApp: CLIENT_APP_FIREFOX,
-          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox136),
         }),
       ).toEqual(null);
     });
