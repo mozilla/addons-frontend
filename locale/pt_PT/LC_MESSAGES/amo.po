@@ -2,17 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2025-02-24 14:34+0000\n"
-"Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
-"Language-Team: none\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pontoon\n"
+"Generated-By: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:187
 msgid "Loading…"
@@ -34,7 +29,6 @@ msgstr "Criar nova coleção"
 msgid "Added to %(collectionName)s"
 msgstr "Adicionado a %(collectionName)s"
 
-# This is a header for a list meaning Add to [some collection name]
 #. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
 msgid "Add to…"
@@ -117,25 +111,21 @@ msgstr "Enviar algum feedback sobre o extra"
 msgid "Report the add-on because it's illegal or incompliant"
 msgstr ""
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Obtenha esta extensão para o 🦊 Firefox (%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Obtenha este pacote de idioma para o 🦊 Firefox (%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Obtenha este tema para o 🦊 Firefox (%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
@@ -145,37 +135,31 @@ msgstr "%(addonName)s – Obtenha este extra para o 🦊 Firefox (%(locale)s)"
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "Transfira %(addonName)s para o Firefox. %(summary)s"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Obtenha este dicionário para o 🦊 Firefox Android (%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Obtenha esta extensão para o 🦊 Firefox Android (%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Obtenha este pacote de idioma para o 🦊 Firefox Android (%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Obtenha este tema para o 🦊 Firefox Android (%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Obtenha este extra para o 🦊 Firefox Android (%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
@@ -579,13 +563,11 @@ msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "%(rating)s estrela de 5"
 msgstr[1] "%(rating)s estrelas de 5"
 
-# A comma, used in a list of authors: a1, a2, a3.
 #. A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
 msgstr ","
 
-# Example: add-on "by" some authors
 #. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
@@ -1031,7 +1013,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
-msgstr ""
+msgstr "Outra coisa"
 
 #: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
@@ -1403,7 +1385,7 @@ msgstr "Marcar esta análise"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
@@ -1593,7 +1575,6 @@ msgstr "Editar o meu perfil"
 msgid "Get the extension"
 msgstr "Obter a extensão"
 
-# If uppercase does not work in your locale, change it to lowercase.
 #. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 #: src/amo/components/HeroRecommendation/index.js:231
 msgid "RECOMMENDED"
@@ -2164,39 +2145,39 @@ msgstr "Todos os analisados"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "Preto"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "Cinzento"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "Branco"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "Vermelho"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "Amarelo"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "Verde"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "Ciano"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "Azul"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -2520,7 +2501,7 @@ msgstr "Deve sempre utilizar a versão mais recente de um extra."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Versions"
-msgstr ""
+msgstr "Versões"
 
 #: src/amo/pages/AddonVersions/index.js:198
 msgid "Latest version"
@@ -2648,7 +2629,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "por %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
@@ -2819,7 +2800,7 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "por %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
@@ -3359,7 +3340,6 @@ msgstr "Cancelar subscrição"
 msgid "You are successfully unsubscribed!"
 msgstr "A sua subscrição foi cancelada com sucesso!"
 
-# a list of notifications will be displayed under this prompt.
 #. a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
@@ -3373,19 +3353,16 @@ msgstr "Pode editar as suas definições de notificação ao %(linkStart)seditar
 msgid "(no name)"
 msgstr "(sem nome)"
 
-# This is application compatibility information, such as "firefox 41 and later"
 #. This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s e superior"
 
-# This is application compatibility information, such as "firefox 41 to 45"
 #. This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:309
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s até %(maxVersion)s"
 
-# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:329
 msgid "Works with %(listOfApplicatonsAndVersions)s"
@@ -3446,1732 +3423,3 @@ msgstr "a compatibilidade do meu extra não pode ser atualizada"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a compatibilidade do meu extra é atualizada com sucesso"
-
-#~ msgid "Store unlimited amount of client-side data"
-#~ msgstr "Armazenar montantes ilimitados de dados do lado do cliente"
-
-#~ msgid "Versions blocked: all versions."
-#~ msgstr "Versões bloqueadas: todas as versões."
-
-#~ msgid "%(addonName)s has been blocked for your protection."
-#~ msgstr "%(addonName)s foi bloqueado para a sua proteção."
-
-#~ msgid "This add-on has been blocked for your protection."
-#~ msgstr "Para sua proteção, este extra foi bloqueado."
-
-#~ msgid "Why was it blocked?"
-#~ msgstr "Porque foi bloqueado?"
-
-#~ msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-#~ msgstr "Este extra viola as %(startLink)spolíticas de extras da Mozilla%(endLink)s."
-
-#~ msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-#~ msgstr "Os extras ou plugins problemáticos serão automaticamente desativados e deixarão ser utilizáveis."
-
-#~ msgid ""
-#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
-#~ "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
-#~ msgstr ""
-#~ "Quando a Mozilla toma conhecimento de extras, plugins, ou software de terceiros que comprometem seriamente a segurança, estabilidade ou desempenho do Firefox e que reúnam "
-#~ "%(criteriaStartLink)sdeterminados critérios%(criteriaEndLink)s, a utilização geral do software pode ser impedida. Para obter mais informações, por favor consulte %(supportStartLink)seste artigo de "
-#~ "apoio%(supportEndLink)s."
-
-#~ msgid "Blocked on %(date)s."
-#~ msgstr "Bloqueado a %(date)s."
-
-# If uppercase does not work in your locale,
-#~ msgid "SPONSORED"
-#~ msgstr "PATROCINADO"
-
-#~ msgid "Verified"
-#~ msgstr "Verificado"
-
-#~ msgid "This add-on has been reviewed to meet our standards for security and performance."
-#~ msgstr "Este extra foi revisto para cumprir os nossos padrões de segurança e desempenho."
-
-#~ msgid "Verified extensions"
-#~ msgstr "Extensões verificadas"
-
-#~ msgid "Verified themes"
-#~ msgstr "Temas verificados"
-
-#~ msgid "Verified add-ons"
-#~ msgstr "Extras verificados"
-
-#~ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-#~ msgstr "Pode alterar o seu endereço de email no Contas Firefox. %(startLink)sPrecisa de ajuda?%(endLink)s"
-
-#~ msgid "Manage Firefox Accounts…"
-#~ msgstr "Gerir Contas Firefox…"
-
-#~ msgid "This is a bug report or support request"
-#~ msgstr "Isto é um relatório de bug ou pedido de apoio"
-
-#~ msgid "Flagged as a bug report or support request"
-#~ msgstr "Marcado como relatório de erro ou pedido de apoio"
-
-#~ msgid "This contains inappropriate language"
-#~ msgstr "Isto contém linguagem imprópria"
-
-#~ msgid "Flagged for inappropriate language"
-#~ msgstr "Marcado por linguagem imprópria"
-
-#~ msgid "Log in to flag this response"
-#~ msgstr "Iniciar sessão para marcar esta resposta"
-
-#~ msgid "Log in to flag this review"
-#~ msgstr "Iniciar sessão para marcar esta análise"
-
-#~ msgid "This is spam"
-#~ msgstr "Isto é spam"
-
-#~ msgid "We can't respond to every abuse report but we'll look into this issue."
-#~ msgstr "Não podemos responder a todos os relatórios de abuso mas iremos examinar este problema."
-
-#~ msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-#~ msgstr ""
-#~ "Se pensa que este extra viola as %(linkTagStart)spolíticas de extras da Mozilla%(linkTagEnd)s ou possui problemas de segurança ou privacidade, por favor reporte estes problemas para a Mozilla "
-#~ "utilizando este formulário."
-
-#~ msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-#~ msgstr "Por favor não utilize este formulário para reportar bugs ou solicitar funcionalidades de extras; este relatório irá ser enviado para a Mozilla e não para o programador do extra."
-
-#~ msgid "Send abuse report"
-#~ msgstr "Enviar relatório de abuso"
-
-#~ msgid "Sending abuse report"
-#~ msgstr "Enviar relatório de abuso"
-
-#~ msgid "Dismiss"
-#~ msgstr "Dispensar"
-
-#~ msgid "Explain how this add-on is violating our policies."
-#~ msgstr "Explique como é que este extra está a violar as nossas políticas."
-
-#~ msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-#~ msgstr "Se pensa que este utilizador está a violar as %(linkTagStart)sPolíticas de extras da Mozilla%(linkTagEnd)s, por favor reporte este utilizador à Mozilla."
-
-#~ msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-#~ msgstr "Por favor não utilize este formulário para reportar bugs ou contactar este utilizador; o seu relatório irá apenas ser enviado para a Mozilla e não para este utilizador."
-
-#~ msgid "Explain how this user is violating our policies."
-#~ msgstr "Explique como é que este utilizador está a violar as nossas políticas."
-
-#~ msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-#~ msgstr "Para utilizar estes extras, precisará de %(linkStart)stransferir o Firefox%(linkEnd)s"
-
-#~ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-#~ msgstr "Para encontrar extras compatíveis com o Firefox para Android, <a href=\"%(newLocation)s\">clique aqui</a>."
-
-#~ msgid "Report this add-on for abuse"
-#~ msgstr "Reportar este extra por abuso"
-
-#~ msgid "Report this user for abuse"
-#~ msgstr "Reportar este utilizador por abuso"
-
-#~ msgid "You reported this add-on for abuse"
-#~ msgstr "Reportou este extra por abuso"
-
-#~ msgid "You reported this user for abuse"
-#~ msgstr "Reportou este utilizador por abuso"
-
-#~ msgid "Versions blocked: %(min)s to %(max)s."
-#~ msgstr "Versões bloqueadas: %(min)s a %(max)s."
-
-#~ msgid "Get %(addonName)s for Android"
-#~ msgstr "Obter %(addonName)s para Android"
-
-#~ msgid "Dismiss this message"
-#~ msgstr "Ignorar esta mensagem"
-
-#~ msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
-#~ msgstr "Para obter %(addonName)s no Firefox para Android, aponte a câmara do seu dispositivo para o código acima ou copie %(linkStart)sesta ligação%(linkEnd)s"
-
-#~ msgid "Also available on Firefox for Android"
-#~ msgstr "Também disponível no Firefox para Android"
-
-#~ msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-#~ msgstr "Desculpe, mas ocorreu um erro e não conseguimos completar o seu pedido. Registámos este erro e vamos investigá-lo."
-
-#~ msgid "Dictionaries by %(author)s"
-#~ msgstr "Dicionários por %(author)s"
-
-#~ msgid "Dictionaries by these translators"
-#~ msgstr "Dicionários por estes tradutores"
-
-#~ msgid "Language packs by %(author)s"
-#~ msgstr "Pacotes de idiomas por %(author)s"
-
-#~ msgid "Language packs by these translators"
-#~ msgstr "Pacotes de idiomas por estes tradutores"
-
-#~ msgid "Add-ons by %(author)s"
-#~ msgstr "Extras por %(author)s"
-
-#~ msgid "Add-ons by these developers"
-#~ msgstr "Extras por estes programadores"
-
-#~ msgid "Page %(currentPage)s of %(totalPages)s"
-#~ msgstr "Página %(currentPage)s de %(totalPages)s"
-
-#~ msgid "You cannot flag your own response"
-#~ msgstr "Não pode marcar a sua própria resposta"
-
-#~ msgid "You cannot flag your own review"
-#~ msgstr "Não pode marcar a sua própria análise"
-
-#~ msgid "Add-ons for Firefox"
-#~ msgstr "Extras para o Firefox"
-
-#~ msgid "for Android"
-#~ msgstr "para Android"
-
-#~ msgid "Site Status"
-#~ msgstr "Estado do site"
-
-#~ msgid "Login authentication has expired."
-#~ msgstr "A sua sessão expirou"
-
-#~ msgid "Reviewer Name"
-#~ msgstr "Nome de analizador"
-
-#~ msgid "Register or log in"
-#~ msgstr "Registar ou entrar"
-
-#~ msgid "Firefox Add-on Reviews"
-#~ msgstr "Comentários de extras do Firefox"
-
-#~ msgid "Explore"
-#~ msgstr "Explorar"
-
-#~ msgid "Restart Required"
-#~ msgstr "Reinício necessário"
-
-#~ msgid "Not compatible with Firefox Quantum"
-#~ msgstr "Não compatível com o Firefox Quantum"
-
-#~ msgid "Your version of Firefox does not support this add-on because it requires a restart."
-#~ msgstr "A sua versão do Firefox não suporta este extra porque o mesmo requer um reinício."
-
-#~ msgid "Developer Blog"
-#~ msgstr "Blogue de programadores"
-
-#~ msgid "Blog"
-#~ msgstr "Blogue"
-
-#~ msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-#~ msgstr "%(strongStart)s%(name)s%(strongEnd)s foi adicionado"
-
-#~ msgid "Manage your add-ons by clicking Add-ons in the menu."
-#~ msgstr "Gira os seus extras ao clicar em Extras no menu."
-
-#~ msgid "OK"
-#~ msgstr "OK"
-
-#~ msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-#~ msgstr "Este extra requer uma <a href=\"%(downloadUrl)s\">versão mais recente do Firefox</a> (pelo menos a versão %(minVersion)s). Está a utilizar o Firefox %(yourVersion)s."
-
-#~ msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-#~ msgstr "O seu navegador não suporta extras. Pode <a href=\"%(downloadUrl)s\">transferir o Firefox</a> para instalar este extra."
-
-#~ msgid "Only with Firefox—Get Firefox Now"
-#~ msgstr "Apenas com o Firefox—Obtenha o Firefox agora"
-
-#~ msgid "Learn more about permissions"
-#~ msgstr "Saber mais acerca de permissões"
-
-#~ msgid "See more popular themes"
-#~ msgstr "Ver mais temas populares"
-
-#~ msgid "See more popular extensions"
-#~ msgstr "Ver mais extensões conhecidas"
-
-#~ msgid "See more enhanced privacy extensions"
-#~ msgstr "Ver mais extensões de reforço da privacidade"
-
-#~ msgid "Enhanced privacy extensions"
-#~ msgstr "Extensões para reforço da privacidade"
-
-#~ msgid "See more recommended password managers"
-#~ msgstr "Ver mais gestores de palavra-passe recomendados"
-
-#~ msgid "Recommended password managers"
-#~ msgstr "Gestores de palavras-passe recomendados"
-
-#~ msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-#~ msgstr "Transfira extensões do Firefox para personalizar a maneira como pesquisa — tudo, desde pesquisas com privacidade melhorada a pesquisas específicas em sites, pesquisa de imagens e muito mais."
-
-#~ msgid "Search Tools"
-#~ msgstr "Ferramentas de pesquisa"
-
-#~ msgid "Take short survey"
-#~ msgstr "Preencher pequeno inquérito"
-
-#~ msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-#~ msgstr "Obrigado por visitar este site! Por favor tire um minuto ou dois para dizer ao Firefox acerca da sua experiência."
-
-#~ msgid "Windows"
-#~ msgstr "Windows"
-
-#~ msgid "macOS"
-#~ msgstr "macOS"
-
-#~ msgid "Linux"
-#~ msgstr "Linux"
-
-#~ msgid "Operating System"
-#~ msgstr "Sistema operativo"
-
-#~ msgid "Sponsored extensions"
-#~ msgstr "Extensões patrocinadas"
-
-#~ msgid "What is this?"
-#~ msgstr "O que é isto?"
-
-#~ msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-#~ msgstr "Pode instalar este extra no Gestor de extras. Saiba mais sobre <a href=\"%(newLocation)s\">extras para o Android</a>."
-
-#~ msgid "This is an official add-on built by the creators of Mozilla Firefox."
-#~ msgstr "Este é um extra oficial desenvolvido pelos autores do Mozilla Firefox."
-
-#~ msgid "Unavailable for legal reasons"
-#~ msgstr "Disponível para o seu idioma"
-
-#~ msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-#~ msgstr "Para encontrar extras compatíveis com o Firefox para computadores, <a href=\"%(newLocation)s\">visite o nosso site para computadores</a>."
-
-#~ msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-#~ msgstr "Não disponível no Firefox para Android. Pode utilizar este extra com o Firefox para computadores ou procurar <a href=\"%(newLocation)s\">extras semelhantes para o Android</a>."
-
-#~ msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-#~ msgstr "Para encontrar extras compatíveis com o Firefox para Android, <a href=\"%(newLocation)s\">visite o nosso site para dispositivos móveis</a>."
-
-#~ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-#~ msgstr "Este catálogo não é vocacionado para esta plataforma. <a href=\"%(newLocation)s\">Navegue nos extras para o Firefox para Android</a>."
-
-#~ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-#~ msgstr "Este catálogo não é vocacionado para esta plataforma. <a href=\"%(newLocation)s\">Navegue nos extras para o Firefox para computadores</a>."
-
-#~ msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-#~ msgstr "Não disponível no Firefox para Android. Pode utilizar este extra no Firefox para computadores. Saber mais sobre <a href=\"%(newLocation)s\">extras para o Android</a>."
-
-#~ msgid "Promoted Add-Ons"
-#~ msgstr "Extras promovidos"
-
-#~ msgid "This extension was created by the makers of Firefox."
-#~ msgstr "Esta extensão foi criada pelos autores do Firefox."
-
-#~ msgid "This extension has been code-reviewed for safety."
-#~ msgstr "Por segurança, o código-fonte desta extensão foi revisto."
-
-#~ msgid "Recommended add-ons only"
-#~ msgstr "Apenas extras recomendados"
-
-#~ msgid "Admin add-on status"
-#~ msgstr "Estado do extra de administrador"
-
-#~ msgid "Stay Safe Online"
-#~ msgstr "Fique seguro(a) online"
-
-#~ msgid "Organize Tabs & Bookmarks"
-#~ msgstr "Organize separadores e marcadores"
-
-#~ msgid "Enhance Your Media Experience"
-#~ msgstr "Melhore a sua experiência multimédia"
-
-#~ msgid "Extensions are like apps for your browser."
-#~ msgstr "As extensões são como aplicações para o seu navegador."
-
-#~ msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-#~ msgstr "Estes adicionam funcionalidades ao Firefox para tornar a navegação mais rápida, mais inteligente ou simplesmente divertida."
-
-#~ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-#~ msgstr "Bloqueador de anúncios leve e altamente eficaz. O uBlock Origin impõe milhares de filtros de conteúdo sem mastigar um monte de memória."
-
-#~ msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-#~ msgstr "Explore mais %(linkStart)sbloqueadores de publicidade%(linkEnd)s."
-
-#~ msgid "Stop online trackers from stalking you"
-#~ msgstr "Impeça que os rastreadores da Internet o persigam"
-
-#~ msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-#~ msgstr "Os anunciantes online podem acompanhar a sua atividade de um site para o outro, reunindo informação sobre si e os seus interesses. As extensões podem ajudar a esconder o seu rasto digital."
-
-#~ msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-#~ msgstr "Isole a sua identidade do Facebook num “contentor” separado para impedir que o Facebook monitorize a sua atividade fora da rede social."
-
-#~ msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-#~ msgstr "Explore mais extensões recomendadas de %(linkStart)sprivacidade e segurança%(linkEnd)s."
-
-#~ msgid "Reimagine tab management"
-#~ msgstr "Reimagine a gestão de separadores"
-
-#~ msgid ""
-#~ "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
-#~ " creative solutions for streamlining tab management."
-#~ msgstr ""
-#~ "Se costuma trabalhar com muitas separadores abertos, provavelmente já está familiarizado(a) com a frustração de pesquisar por uma linha de separadores não identificáveis, ​​procurando apenas aquele "
-#~ "que precisa. As extensões podem oferecer soluções criativas para simplificar a gestão de separadores."
-
-#~ msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-#~ msgstr "Organize e visualize os seus separadores num formato de estilo em cascata de “árvore” na barra lateral do Firefox."
-
-#~ msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-#~ msgstr "Explore mais extensões de %(linkStart)sseparadores%(linkEnd)s."
-
-#~ msgid "Better browsing with improved bookmarks"
-#~ msgstr "Melhor navegação com marcadores melhorados"
-
-#~ msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-#~ msgstr "As extensões podem ajudar-lhe a organizar os seus interesses online. Os gestores de marcadores são ideais para pessoas com muito conteúdo para acompanhar."
-
-#~ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-#~ msgstr "Desfrute de uma maneira melhor de organizar os seus marcadores se mantiver várias pastas de marcadores."
-
-#~ msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-#~ msgstr "Explore mais extensões de %(linkStart)smarcadores%(linkEnd)s."
-
-#~ msgid "Enjoy a fresh new tab experience"
-#~ msgstr "Desfrute de uma nova experiência de novo separador"
-
-#~ msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-#~ msgstr "Inicie cada sessão de navegação personalizada apenas para si ao personalizar a experiência de novo separador."
-
-#~ msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-#~ msgstr "Desfrute de uma bonita nova página com fundos personalizáveis, informação de meteorologia local e mais."
-
-#~ msgid "Improve videos"
-#~ msgstr "Melhore vídeos"
-
-#~ msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-#~ msgstr "Se desfruta de conteúdo de vídeo, as extensões oferecem várias maneiras para otimizar a sua experiência, incluindo personalizar o YouTube a seu gosto e reproduzir vídeos no modo cinema."
-
-#~ msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
-#~ msgstr ""
-#~ "Adicione uma barra de controlo em todas as páginas de vídeo do YouTube para que possa ajustar facilmente o volume, a velocidade de reprodução, o tamanho do reprodutor de vídeo, bloqueio de "
-#~ "publicidade e anotações, e outras funcionalidades."
-
-#~ msgid "Get more out of media"
-#~ msgstr "Obtenha mais da multimédia"
-
-#~ msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-#~ msgstr ""
-#~ "As extensões podem responder a uma ampla variedade de necessidades e interesses de nicho de multimédia, como pesquisa de imagens, gestão de transferências, e leitores de texto, para citar alguns."
-
-#~ msgid ""
-#~ "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
-#~ " reverse image searches through a variety of engines."
-#~ msgstr ""
-#~ "Já se deparou com uma imagem intrigante na web e quer saber mais acerca da mesma, tal como quem é a pessoa na fotografia? Existem imagens relacionadas? Esta extensão permite-lhe realizar pesquisas "
-#~ "inversas de imagem rápidas e fáceis por meio de vários motores."
-
-#~ msgid "Bring media right into the browser"
-#~ msgstr "Traga a multimédia diretamente para o navegador"
-
-#~ msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-#~ msgstr "As extensões podem transformar o Firefox no seu próprio ponto central de entretenimento que oferece acesso instantâneo a música, captura de imagens, jogos, e mais."
-
-#~ msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-#~ msgstr "Aceda a mais de 30.000 estações de rádio de todo o mundo, sempre à distância de um clique."
-
-#~ msgid ""
-#~ "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
-#~ "online privacy and security."
-#~ msgstr ""
-#~ "A web é um lugar maravilhoso mas selvagem. Os seus dados pessoais podem ser utilizados ​​sem o seu consentimento, as suas atividades espiadas e as suas palavras-passe roubadas. Felizmente, as "
-#~ "extensões podem ajudar a fortalecer a sua privacidade e segurança online."
-
-#~ msgid ""
-#~ "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
-#~ " deal with tabs and bookmarks."
-#~ msgstr ""
-#~ "Lida com demasiados separadores abertos ou com um número estonteante de marcadores? As extensões podem ajudar! Desde assistência na organização até ao fornecimento de novas funcionalidades "
-#~ "divertidas, as extensões podem mudar drasticamente a maneira como lida com separadores e marcadores."
-
-#~ msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-#~ msgstr "As extensões podem aumentar a multimédia online de várias maneiras interessantes, desde o assistir a vídeos até manusear imagens, músicas, e mais."
-
-#~ msgid "Create and manage strong passwords"
-#~ msgstr "Crie e gira palavras-passe fortes"
-
-#~ msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-#~ msgstr ""
-#~ "Os gestores de palavras-passe podem ajudar-lhe a criar palavras-passe seguras, armazenar as suas palavras-passe (com segurança) num só lugar e dar-lhe acesso fácil às suas credenciais de início de "
-#~ "sessão onde quer que esteja."
-
-#~ msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-#~ msgstr "Proteção de palavras-passe totalmente encriptada. Armazene os seus dados com segurança e aceda a credenciais entre dispositivos."
-
-#~ msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-#~ msgstr "Explore mais excelentes %(linkStart)sgestores de palavras-passe%(linkEnd)s."
-
-#~ msgid "Block annoying ads"
-#~ msgstr "Bloqueie anúncios irritantes"
-
-#~ msgid ""
-#~ "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
-#~ msgstr ""
-#~ "A web de hoje está repleta de anúncios indesejados que lhe atrapalham e abrandam. As extensões de bloqueio de anúncios podem bloquear ou filtrar esses anúncios para que possa voltar à navegação sem "
-#~ "distrações."
-
-#~ msgid "Verified Sponsor"
-#~ msgstr "Patrocinador verificado"
-
-#~ msgid "No Downloads"
-#~ msgstr "Sem transferências"
-
-#~ msgid "%(total)s download"
-#~ msgid_plural "%(total)s downloads"
-#~ msgstr[0] "%(total)s transferência"
-#~ msgstr[1] "%(total)s transferências"
-
-#~ msgid ""
-#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
-#~ " add-ons before you can delete your profile."
-#~ msgstr ""
-#~ "%(strongStart)sNOTA:%(strongEnd)s Não pode apagar o seu perfil se é o %(linkStart)sautor de quaisquer extras%(linkEnd)s. Tem de %(docLinkStart)stransferir a propriedade%(docLinkEnd)s ou apagar os "
-#~ "extras antes de apagar a sua conta."
-
-#~ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-#~ msgstr "%(strongStart)sNOTA:%(strongEnd)s Não pode apagar o perfil de um utilizador se o mesmo é o %(linkStart)sautor de quaisquer extras%(linkEnd)s."
-
-#~ msgid "Access your data in %(param)s other domain"
-#~ msgid_plural "Access your data in %(param)s other domains"
-#~ msgstr[0] "Aceder aos seus dados em %(param)s outro domínio"
-#~ msgstr[1] "Aceder aos seus dados em %(param)s outros domínios"
-
-#~ msgid "Access your data on %(param)s other site"
-#~ msgid_plural "Access your data on %(param)s other sites"
-#~ msgstr[0] "Aceder aos seus dados em %(param)s outro site"
-#~ msgstr[1] "Aceder aos seus dados em %(param)s outros sites"
-
-#~ msgid "Firefox Add-ons (%(locale)s)"
-#~ msgstr "Extras para o Firefox (%(locale)s)"
-
-#~ msgid "Firefox Add-ons for Android (%(locale)s)"
-#~ msgstr "Extras para o Firefox para Android (%(locale)s)"
-
-#~ msgid "Your version of Firefox does not support search plugins."
-#~ msgstr "A sua versão do Firefox não suporta plugins de pesquisa."
-
-#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-#~ msgstr "%(addonName)s – Obtenha esta ferramenta de pesquisa para o 🦊 Firefox (%(locale)s)"
-
-#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-#~ msgstr "%(addonName)s – Obtenha esta ferramenta de pesquisa para o 🦊 Firefox Android (%(locale)s)"
-
-#~ msgid "Android Browser"
-#~ msgstr "Navegador para Android"
-
-#~ msgid "iOS Browser"
-#~ msgstr "Navegador para iOS"
-
-#~ msgid "Desktop Browser"
-#~ msgstr "Navegador para Computador"
-
-#~ msgid "Beta, Nightly, Developer Edition"
-#~ msgstr "Beta, Nightly, Developer Edition"
-
-#~ msgid "Log in to rate this search plugin"
-#~ msgstr "Iniciar sessão para avaliar este plugin de pesquisa"
-
-#~ msgid "%(count)s Search Tool found"
-#~ msgid_plural "%(count)s Search Tools found"
-#~ msgstr[0] "%(count)s ferramenta de pesquisa encontrada"
-#~ msgstr[1] "%(count)s ferramentas de pesquisa encontradas"
-
-#~ msgid "%(count)s Search Tool found for \"%(query)s\""
-#~ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-#~ msgstr[0] "%(count)s ferramenta de pesquisa encontrada para \"%(query)s\""
-#~ msgstr[1] "%(count)s ferramentas de pesquisa encontradas para \"%(query)s\""
-
-#~ msgid "About this search plugin"
-#~ msgstr "Acerca deste plugin de pesquisa"
-
-#~ msgid "Firefox for iOS does not currently support add-ons."
-#~ msgstr "O Firefox para iOS atualmente não suporta extras."
-
-#~ msgid "Focus Browser"
-#~ msgstr "Navegador Focus"
-
-#~ msgid "This add-on is not compatible with Firefox for Android. <a href=\"%(newLocation)s\">Learn more</a>."
-#~ msgstr "Este extra não é compatível com o Firefox para Android. <a href=\"%(newLocation)s\">Saber mais</a>."
-
-#~ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-#~ msgstr "Esta extensão não é monitorizada pela Mozilla. Certifique-se que confia na extensão antes de a instalar."
-
-#~ msgid "Search Tool"
-#~ msgstr "Ferramenta de pesquisa"
-
-#~ msgid "Firefox Preview does not currently support add-ons."
-#~ msgstr "O Firefox Preview atualmente não suporta extras."
-
-#~ msgid ""
-#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
-#~ "we'll get it sorted."
-#~ msgstr ""
-#~ "Se seguiu uma ligação neste site, encontrou um erro. Ajude-nos a corrigir a ligação ao <a href=\"%(url)s\">submeter um problema</a>. Diga-nos de onde veio e o que estava à procura, e faremos o "
-#~ "melhor para corrigir."
-
-#~ msgid "Featured Extension"
-#~ msgstr "Extensão em destaque"
-
-#~ msgid "Featured Theme"
-#~ msgstr "Tema em destaque"
-
-#~ msgid "Featured Add-on"
-#~ msgstr "Extra em destaque"
-
-#~ msgid "Featured add-ons only"
-#~ msgstr "Extras em destaque apenas"
-
-#~ msgid "See more featured extensions"
-#~ msgstr "Ver mais extensões em destaque"
-
-#~ msgid "See more featured themes"
-#~ msgstr "Ver mais temas em destaque"
-
-#~ msgid "Get Started"
-#~ msgstr "Começar"
-
-#~ msgid "User comment"
-#~ msgstr "Comentário de utilizador"
-
-#~ msgid "Staff Pick"
-#~ msgstr "Escolha da equipa"
-
-#~ msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-#~ msgstr "Explore mais escolhas da equipa de %(linkStart)sgestão de separadores%(linkEnd)s."
-
-#~ msgid ""
-#~ "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
-#~ " favorite online content in a powerful repository that syncs across devices."
-#~ msgstr ""
-#~ "Precisa de ajuda para organizar todas as suas receitas de culinária online favoritas, artigos de instruções, vídeos do YouTube, ou praticamente tudo que encontrar na web? OneNote Web Clipper "
-#~ "permite-lhe recolher e armazenar todo o seu conteúdo online favorito num repositório poderoso que sincroniza entre dispositivos."
-
-#~ msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-#~ msgstr "Explore mais %(linkStart)smaneiras divertidas de alterar os seus separadores%(linkEnd)s com estas escolhas da equipa."
-
-#~ msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-#~ msgstr "Explore mais escolhas da equipa de %(linkStart)sextensões de vídeo%(linkEnd)s."
-
-#~ msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-#~ msgstr "Explore mais escolhas da equipa de %(linkStart)sextensões de multimédia%(linkEnd)s."
-
-#~ msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-#~ msgstr "Explore entre milhares de %(linkStart)sextensões de fotografia, música e vídeo%(linkEnd)s."
-
-#~ msgid "Bookmarks"
-#~ msgstr "Marcadores"
-
-#~ msgid "Ad blockers"
-#~ msgstr "Bloqueadores de anúncios"
-
-#~ msgid "Smarter shopping"
-#~ msgstr "Compras mais inteligentes"
-
-#~ msgid "Watching videos"
-#~ msgstr "Ver vídeos"
-
-#~ msgid "Customize the way Firefox works with extensions. Are you interested in…"
-#~ msgstr "Personalize a maneira como o Firefox funciona com extensões. Estaria interessado(a) em…"
-
-#~ msgid "See more productivity extensions"
-#~ msgstr "Ver mais extensões de produtividade"
-
-#~ msgid "Productivity extensions"
-#~ msgstr "Extensões de produtividade"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "Ver mais extensões do YouTube"
-
-#~ msgid "YouTube boosters"
-#~ msgstr "\"Boosters\" do YouTube"
-
-#~ msgid "See more feed readers"
-#~ msgstr "Ver mais leitores de fontes"
-
-#~ msgid "Feed readers"
-#~ msgstr "Leitores de fontes"
-
-#~ msgid "%(categoryName)s – Extensions"
-#~ msgstr "%(categoryName)s – Extensões"
-
-#~ msgid "%(categoryName)s – Themes"
-#~ msgstr "%(categoryName)s – Temas"
-
-#~ msgid "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
-#~ msgstr "Código fonte lançado sob %(linkStart)suma licença não identificada%(linkEnd)s"
-
-#~ msgid "See more VPN solutions"
-#~ msgstr "Ver mais soluções VPN"
-
-#~ msgid "VPN solutions"
-#~ msgstr "Soluções VPN"
-
-#~ msgid "Change up your tabs"
-#~ msgstr "Altere os seus separadores"
-
-#~ msgid "See more video extensions"
-#~ msgstr "Ver mais extensões de vídeo"
-
-#~ msgid "Extensions for enhancing video"
-#~ msgstr "Extensões para melhorar vídeo"
-
-#~ msgid "See more spring themes"
-#~ msgstr "Ver mais temas de primavera"
-
-#~ msgid "Spring themes"
-#~ msgstr "Temas de primavera"
-
-#~ msgid "See more Wikipedia boosters"
-#~ msgstr "Ver mais \"boosters\" para Wikipédia"
-
-#~ msgid "Wikipedia boosters"
-#~ msgstr "Boosters para Wikipédia"
-
-#~ msgid "See more tools"
-#~ msgstr "Ver mais ferramentas"
-
-#~ msgid "Note-taking & time management tools"
-#~ msgstr "Ferramentas de anotação e gestão de tempo"
-
-#~ msgid "See more health & wellness extensions"
-#~ msgstr "Ver mais extensões de saúde e bem-estar"
-
-#~ msgid "Health & Wellness"
-#~ msgstr "Saúde e bem-estar"
-
-#~ msgid "Please enter a search term to search Firefox Add-ons."
-#~ msgstr "Por favor introduza um termo de pesquisa para pesquisar nos Extras do Firefox."
-
-#~ msgid "my sdk-based add-on cannot be upgraded"
-#~ msgstr "o meu extra baseado em sdk não pode ser atualizado"
-
-#~ msgid "my sdk-based add-on is upgraded successfully"
-#~ msgstr "o meu extra baseado em sdk é atualizado com sucesso"
-
-#~ msgid "See more YouTube boosters"
-#~ msgstr "Ver mais \"boosters\" do YouTube"
-
-#~ msgid "Be more productive"
-#~ msgstr "Seja mais produtivo(a)"
-
-#~ msgid "Highly customizable text highlighter"
-#~ msgstr "Marcador de texto altamente personalizável"
-
-#~ msgid "Watch2Gether"
-#~ msgstr "Watch2Gether"
-
-#~ msgid "Watch videos simultaneously with others"
-#~ msgstr "Veja vídeos simultaneamente com outros"
-
-#~ msgid "Context Search"
-#~ msgstr "Context Search"
-
-#~ msgid "Highlight text on any webpage to easily search the term"
-#~ msgstr "Destaque texto em qualquer página web para pesquisar o termo facilmente"
-
-#~ msgid "Stylus"
-#~ msgstr "Stylus"
-
-#~ msgid "Give your favorite websites a new look"
-#~ msgstr "Dê um novo visual aos seus websites favoritos"
-
-#~ msgid "Search Encrypt"
-#~ msgstr "Search Encrypt"
-
-#~ msgid "Privacy protection for your search data"
-#~ msgstr "Proteção de privacidade para os seus dados de pesquisa"
-
-#~ msgid "Auto Tab Discard"
-#~ msgstr "Auto Tab Discard"
-
-#~ msgid "Save memory by disabling inactive tabs"
-#~ msgstr "Guarde memória ao desativar separadores inativos"
-
-#~ msgid "Update Scanner"
-#~ msgstr "Update Scanner"
-
-#~ msgid "Get notified when your selected websites update with new content"
-#~ msgstr "Seja notificado(a) quando os seus websites selecionados atualizam com novo conteúdo"
-
-#~ msgid "Auto Fullscreen"
-#~ msgstr "Auto Fullscreen"
-
-#~ msgid "Automatically start Firefox in full screen mode"
-#~ msgstr "Comece o Firefox automaticamente em modo de ecrã completo"
-
-#~ msgid "Video Speed Controller"
-#~ msgstr "Video Speed Controller"
-
-#~ msgid "Adjust video playback speeds with shortcuts"
-#~ msgstr "Ajuste velocidades de reprodução de vídeo com atalhos"
-
-#~ msgid "View Image"
-#~ msgstr "View Image"
-
-#~ msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-#~ msgstr "Reviva os botões ‘Ver imagem’ e ‘Pesquisar por imagem’ no Google Imagens"
-
-#~ msgid "Neat URL"
-#~ msgstr "Neat URL"
-
-#~ msgid "Clean up links for easy sharing"
-#~ msgstr "Limpe ligações para partilha fácil"
-
-#~ msgid "Glitter Drag"
-#~ msgstr "Glitter Drag"
-
-#~ msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-#~ msgstr "Arraste texto, imagens, ou ligações para realizar ações como copiar, abrir, pesquisar, e mais"
-
-#~ msgid "Behind The Overlay Revival"
-#~ msgstr "Behind The Overlay Revival"
-
-#~ msgid "Click a button to close annoying pop-ups"
-#~ msgstr "Clique num botão para fechar pop-ups irritantes"
-
-#~ msgid "Auto-Sort Bookmarks"
-#~ msgstr "Auto-Sort Bookmarks"
-
-#~ msgid "Automatically sorts bookmarks so they’re in your preferred position"
-#~ msgstr "Ordena marcadores automaticamente para que estes estejam na sua posição preferida"
-
-#~ msgid "Search Preview"
-#~ msgstr "Search Preview"
-
-#~ msgid "Enjoy thumbnail images alongside your search returns"
-#~ msgstr "Desfrute de miniaturas ao lado dos seus resultados de pesquisas"
-
-#~ msgid "Copy PlainText"
-#~ msgstr "Copy PlainText"
-
-#~ msgid "Remove formatting when saving text to your clipboard"
-#~ msgstr "Remova formatação ao guardar texto para a sua área de transferência"
-
-#~ msgid "Official Media Bias Fact Check Icon"
-#~ msgstr "Official Media Bias Fact Check Icon"
-
-#~ msgid "Indicates the political bias of news sites with a tidy icon"
-#~ msgstr "Indica a viés política de sites de notícias com um ícone arrumado"
-
-#~ msgid "Vertical Tabs Reloaded"
-#~ msgstr "Vertical Tabs Reloaded"
-
-#~ msgid "Arrange tabs in a vertical fashion"
-#~ msgstr "Arrume os separadores de forma vertical"
-
-#~ msgid "Search Site"
-#~ msgstr "Search Site"
-
-#~ msgid "Search within just the domain you’re visiting"
-#~ msgstr "Pesquise dentro do domínio que está a visitar"
-
-#~ msgid "Push to Kindle"
-#~ msgstr "Push to Kindle"
-
-#~ msgid "Send any Web page to your Kindle device"
-#~ msgstr "Envie qualquer página Web para o seu dispositivo Kindle"
-
-#~ msgid "New Tab Homepage"
-#~ msgstr "New Tab Homepage"
-
-#~ msgid "Designate a custom home page for your new tabs"
-#~ msgstr "Designe uma página inicial personalizada para os seus novos separadores"
-
-#~ msgid "OneNote Web Clipper"
-#~ msgstr "OneNote Web Clipper"
-
-#~ msgid "Save, annotate & organize web content"
-#~ msgstr "Guarde, anote e organize conteúdo web"
-
-#~ msgid "FoxyGestures"
-#~ msgstr "FoxyGestures"
-
-#~ msgid "Customized mouse gestures"
-#~ msgstr "Gestos de rato personalizáveis"
-
-#~ msgid "Dark Reader"
-#~ msgstr "Dark Reader"
-
-#~ msgid "Go dark for a better web viewing experience"
-#~ msgstr "Modo escuro para uma melhor experiência de visualização web"
-
-#~ msgid "Facebook Container"
-#~ msgstr "Facebook Container"
-
-#~ msgid "CookieBro"
-#~ msgstr "CookieBro"
-
-#~ msgid "Automatically delete unwanted cookies"
-#~ msgstr "Apague cookies indesejados automaticamente"
-
-#~ msgid "Prevent Facebook from tracking you around the web"
-#~ msgstr "Impeça o Facebook de monitorizar-lhe pela web"
-
-#~ msgid "Text MultiCopy"
-#~ msgstr "Text MultiCopy"
-
-#~ msgid "Save snippets of text to paste & organize later"
-#~ msgstr "Guarde excertos de texto para colar e organizar mais tarde"
-
-#~ msgid "Group Speed Dial"
-#~ msgstr "Group Speed Dial"
-
-#~ msgid "Visual bookmarks for your favorite places on the web"
-#~ msgstr "Marcadores visuais para os seus sítios favoritos da web"
-
-#~ msgid "Undo Close Tab Button"
-#~ msgstr "Undo Close Tab Button"
-
-#~ msgid "Never lose a page again"
-#~ msgstr "Nunca perca uma página novamente"
-
-#~ msgid "Ad Analysis for Facebook"
-#~ msgstr "Ad Analysis for Facebook"
-
-#~ msgid "See how Facebook ads target you"
-#~ msgstr "Veja como os anúncios do Facebook lhe segmentam"
-
-#~ msgid "SoundFixer"
-#~ msgstr "SoundFixer"
-
-#~ msgid "Adjust audio levels for sounds you encounter around web"
-#~ msgstr "Ajuste os níveis de áudio para sons que encontra na Web"
-
-#~ msgid "Lilo"
-#~ msgstr "Lilo"
-
-#~ msgid "Fund social causes by simply using Lilo search"
-#~ msgstr "Financie causas sociais utilizando simplesmente a pesquisa Lilo"
-
-#~ msgid "Iridium for YouTube"
-#~ msgstr "Iridium for YouTube"
-
-#~ msgid "Play videos in a pop-out window, take video screenshots & more"
-#~ msgstr "Reproduza vídeos numa janela pop-out, tire capturas de ecrã de vídeos e mais"
-
-#~ msgid "Private Bookmarks"
-#~ msgstr "Private Bookmarks"
-
-#~ msgid "Password-protect your personal bookmarks"
-#~ msgstr "Proteja por palavra-passe os seus marcadores pessoais"
-
-#~ msgid "New Tab Override"
-#~ msgstr "New Tab Override"
-
-#~ msgid "Choose the page you see every time you open a new tab"
-#~ msgstr "Escolha a página que vê de cada vez que abre um novo separador"
-
-#~ msgid "Forecastfox"
-#~ msgstr "Forecastfox"
-
-#~ msgid "Get instant global weather information right in Firefox"
-#~ msgstr "Obtenha informações meteorológicas globais instantâneas diretamente a partir do Firefox"
-
-#~ msgid "Multi-Account Containers"
-#~ msgstr "Multi-Account Containers"
-
-#~ msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-#~ msgstr "Mantenha diferentes partes da sua vida online—trabalho, pessoal, etc.—separadas por separadores codificados por cores"
-
-#~ msgid "Universal Bypass"
-#~ msgstr "Universal Bypass"
-
-#~ msgid "Automatically skip annoying link shorteners"
-#~ msgstr "Salte encurtadores de ligações irritantes automaticamente"
-
-#~ msgid "Tree Style Tab"
-#~ msgstr "Tree Style Tab"
-
-#~ msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-#~ msgstr "Tem uma enorme quantidade de separadores abertos? Organize-os numa barra lateral"
-
-#~ msgid "Imagus"
-#~ msgstr "Imagus"
-
-#~ msgid "Enlarge images by hovering your mouse over it"
-#~ msgstr "Amplie imagens colocando o rato sob as mesmas"
-
-#~ msgid "Privacy Possum"
-#~ msgstr "Privacy Possum"
-
-#~ msgid "Protect yourself against the sneakiest trackers"
-#~ msgstr "Proteja-se contra os trackers mais sorrateiros"
-
-#~ msgid "Default Bookmark Folder"
-#~ msgstr "Default Bookmark Folder"
-
-#~ msgid "Change the default destination for your bookmarks"
-#~ msgstr "Altere o destino predefinido para os seus marcadores"
-
-#~ msgid "Textmarker"
-#~ msgstr "Textmarker"
-
-#~ msgid "No add-ons found"
-#~ msgstr "Não foram encontrados extras"
-
-#~ msgid "%(count)s dictionary found for \"%(query)s\""
-#~ msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-#~ msgstr[0] "%(count)s dicionário encontrado para \"%(query)s\""
-#~ msgstr[1] "%(count)s dicionários encontrados para \"%(query)s\""
-
-#~ msgid "%(count)s language pack found for \"%(query)s\""
-#~ msgid_plural "%(count)s language packs found for \"%(query)s\""
-#~ msgstr[0] "%(count)s pacote de idiomas encontrado para \"%(query)s\""
-#~ msgstr[1] "%(count)s pacotes de idiomas encontrados para \"%(query)s\""
-
-#~ msgid "See more weather reports"
-#~ msgstr "Ver mais relatórios de meteorologia"
-
-#~ msgid "Weather reports"
-#~ msgstr "Relatórios de meteorologia"
-
-#~ msgid "%(averageRating)s star average"
-#~ msgstr "%(averageRating)s média de estrelas"
-
-#~ msgid "This add-on has been disabled by an administrator."
-#~ msgstr "Este extra foi desativado por um administrador."
-
-#~ msgid "Sorry, but we can't find anything at the address you entered."
-#~ msgstr "Desculpe, mas não conseguimos encontrar nada no endereço que introduziu."
-
-#~ msgid "View classic desktop site"
-#~ msgstr "Ver site clássico para computadores"
-
-#~ msgid "%(total)s review for this add-on"
-#~ msgid_plural "%(total)s reviews for this add-on"
-#~ msgstr[0] "%(total)s análise para este extra"
-#~ msgstr[1] "%(total)s análises para este extra"
-
-#~ msgid "No reviews"
-#~ msgstr "Sem comentários"
-
-#~ msgid "Username"
-#~ msgstr "Nome de utilizador"
-
-#~ msgid "Add"
-#~ msgstr "Adicionar"
-
-#~ msgid "Organize Your Tabs"
-#~ msgstr "Organize os seus separadores"
-
-#~ msgid "See more privacy & security extensions"
-#~ msgstr "Ver mais privacidade e extensões de segurança"
-
-#~ msgid "Privacy & security"
-#~ msgstr "Privacidade e segurança"
-
-#~ msgid "See more social media customization"
-#~ msgstr "Ver mais personalização de redes sociais"
-
-#~ msgid "Social media customization"
-#~ msgstr "Personalização de redes sociais"
-
-#~ msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-#~ msgstr "Tem de <a href=\"%(downloadUrl)s\">transferir o Firefox</a> para instalar este extra."
-
-#~ msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-#~ msgstr "Diga ao mundo porquê que acha que esta extensão é fantástica! Por favor siga as nossas %(linkStart)sdiretrizes de análises%(linkEnd)s."
-
-#~ msgid "Tell us what you love about this extension. Be specific and concise."
-#~ msgstr "Diga-nos o que mais gostou acerca desta extensão. Seja específico(a) e conciso(a)."
-
-#~ msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-#~ msgstr "Diga ao mundo acerca desta extensão. Por favor siga as nossas %(linkStart)sdiretrizes de análises%(linkEnd)s."
-
-#~ msgid "Tell us about your experience with this extension. Be specific and concise."
-#~ msgstr "Diga-nos o que gostou mais acerca desta extensão. Seja específico e conciso."
-
-#~ msgid "Review text"
-#~ msgstr "Texto da análise"
-
-#~ msgid "See more parental controls"
-#~ msgstr "Ver mais controlos parentais"
-
-#~ msgid "Parental controls"
-#~ msgstr "Controlos parentais"
-
-#~ msgid "%(addonName)s – Get this Extension for 🦊 Android (%(locale)s)"
-#~ msgstr "%(addonName)s – Obtenha esta extensão para o 🦊 Android (%(locale)s)"
-
-#~ msgid "%(addonName)s – Get this Language Pack for 🦊 Android (%(locale)s)"
-#~ msgstr "%(addonName)s – Obtenha este pacote de idioma para o 🦊 Android (%(locale)s)"
-
-#~ msgid "%(addonName)s – Get this Theme for 🦊 Android (%(locale)s)"
-#~ msgstr "%(addonName)s – Obtenha este tema para o 🦊 Android (%(locale)s)"
-
-#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
-#~ msgstr "%(addonName)s – Obtenha esta ferramenta de pesquisa para o 🦊 Android (%(locale)s)"
-
-#~ msgid "%(addonName)s – Get this Add-on for 🦊 Android (%(locale)s)"
-#~ msgstr "%(addonName)s – Obtenha este extra para o 🦊 Android (%(locale)s)"
-
-#~ msgid "%(title)s – Add-ons for Android (%(locale)s)"
-#~ msgstr "%(title)s – Extras para Android (%(locale)s)"
-
-#~ msgid "Browse all add-ons in this category."
-#~ msgstr "Navegue todos os extras nesta categoria."
-
-#~ msgid "Browse all themes in this category."
-#~ msgstr "Navegue todos os temas nesta categoria."
-
-#~ msgid "Downloading %(name)s."
-#~ msgstr "A transferir %(name)s."
-
-#~ msgid "Installing %(name)s."
-#~ msgstr "A instalar %(name)s."
-
-#~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr "%(name)s está instalado e ativado. Clique para desinstalar."
-
-#~ msgid "%(name)s is disabled. Click to enable."
-#~ msgstr "%(name)s está desativado. Clique para ativar."
-
-#~ msgid "Uninstalling %(name)s."
-#~ msgstr "A desinstalar %(name)s."
-
-#~ msgid "%(name)s is uninstalled. Click to install."
-#~ msgstr "%(name)s está desinstalado. Clique para instalar."
-
-#~ msgid "Install state for %(name)s is unknown."
-#~ msgstr "O estado de instalação para %(name)s é desconhecido."
-
-#~ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-#~ msgstr "%(addonName)s %(startSpan)spor %(authorList)s%(endSpan)s"
-
-#~ msgid "Report Trademark Abuse"
-#~ msgstr "Reportar abuso de marca registada"
-
-#~ msgid "Midnight Lizard"
-#~ msgstr "Midnight Lizard"
-
-#~ msgid "Give the entire internet a new look"
-#~ msgstr "Dê um novo visual à internet inteira"
-
-#~ msgid "IP Address and Domain Information"
-#~ msgstr "IP Address and Domain Information"
-
-#~ msgid "See detailed info about every website you visit—IP address, location, provider & more"
-#~ msgstr "Veja informação detalhada acerca de todos os websites que visita—endereço de IP, localização, operador e mais"
-
-#~ msgid "Transparent Standalone Images"
-#~ msgstr "Transparent Standalone Images"
-
-#~ msgid "Render images on transparent backgrounds"
-#~ msgstr "Renderize imagens em fundos transparentes"
-
-#~ msgid "by %(authorList)s"
-#~ msgstr "por %(authorList)s"
-
-#~ msgid "Translation tools"
-#~ msgstr "Ferramentas de tradução"
-
-#~ msgid "Nevermind, I don't want to write a review"
-#~ msgstr "Esqueça, não quero escrever uma análise"
-
-#~ msgid "Nevermind, I don't want to edit my review"
-#~ msgstr "Esqueça, não quero editar a minha análise"
-
-#~ msgid "Fall themes"
-#~ msgstr "Temas de outono"
-
-#~ msgid "Go to this review"
-#~ msgstr "Ir para esta análise"
-
-#~ msgid "Browse the reviews for this add-on"
-#~ msgstr "Navegar as análises para este extra"
-
-#~ msgid "See more exceptional search tools"
-#~ msgstr "Ver mais ferramentas de pesquisa excecionais"
-
-#~ msgid "Exceptional search tools"
-#~ msgstr "Ferramentas de pesquisa excecionais"
-
-#~ msgid "See more reading extensions"
-#~ msgstr "Ver mais extensões de leitura"
-
-#~ msgid "Refined reading"
-#~ msgstr "Leitura refinada"
-
-#~ msgid "Britannica Insights"
-#~ msgstr "Britannica Insights"
-
-#~ msgid "Add Britannica facts to your search results"
-#~ msgstr "Adicione fatos da Britannica automaticamente aos seus resultados de pesquisa"
-
-#~ msgid "Turbo Download Manager"
-#~ msgstr "Turbo Download Manager"
-
-#~ msgid "Increase download speeds with multi-threading support"
-#~ msgstr "Aumente as velocidades de download com suporte a multi-threading"
-
-#~ msgid "Authenticator"
-#~ msgstr "Authenticator"
-
-#~ msgid "Generate 2-step verification codes right in Firefox"
-#~ msgstr "Gere códigos de verificação de 2 passos mesmo no Firefox"
-
-#~ msgid "Tabliss"
-#~ msgstr "Tabliss"
-
-#~ msgid "Save collection"
-#~ msgstr "Guardar coleção"
-
-#~ msgid "Ratings"
-#~ msgstr "Avaliações"
-
-#~ msgid "Rating"
-#~ msgid_plural "Ratings"
-#~ msgstr[0] "Avaliação"
-#~ msgstr[1] "Avaliações"
-
-#~ msgid "No Ratings"
-#~ msgstr "Sem avaliações"
-
-#~ msgid "%(rating)s star average"
-#~ msgstr "%(rating)s média de estrelas"
-
-#~ msgid "Overall Rating"
-#~ msgstr "Avaliação geral"
-
-#~ msgid "See more dynamic downloaders"
-#~ msgstr "Ver mais transferidores dinâmicos"
-
-#~ msgid "Dynamic downloaders"
-#~ msgstr "Transferidores dinâmicos"
-
-#~ msgid "See more summer themes"
-#~ msgstr "Ver mais temas de verão"
-
-#~ msgid "See more must-have media extensions"
-#~ msgstr "Ver mais extensões de multimédia essenciais"
-
-#~ msgid "Must-have media"
-#~ msgstr "Multimédia essencial"
-
-#~ msgid "Page Translate"
-#~ msgstr "Page Translate"
-
-#~ msgid "Translate an entire web page with a couple clicks"
-#~ msgstr "Traduza uma página web com alguns cliques"
-
-#~ msgid "Forget Me Not"
-#~ msgstr "Forget Me Not"
-
-#~ msgid "Make Firefox forget website data like cookies & local storage"
-#~ msgstr "Faça o Firefox esquecer de dados de websites como cookies e armazenamento local"
-
-#~ msgid "Your add-on is ready"
-#~ msgstr "O seu extra está preparado"
-
-#~ msgid "Now you can access %(name)s from the toolbar."
-#~ msgstr "Agora pode aceder a %(name)s a partir da barra de ferramentas."
-
-#~ msgid "A powerful way to find archived versions of older web pages"
-#~ msgstr "Uma maneira poderosa de encontrar versões arquivadas de páginas web mais antigas"
-
-#~ msgid "uBlock Origin"
-#~ msgstr "uBlock Origin"
-
-#~ msgid "Efficient, powerful ad blocker"
-#~ msgstr "Bloqueador de anúncios eficiente e poderoso"
-
-#~ msgid "Ghostery"
-#~ msgstr "Ghostery"
-
-#~ msgid "Popular anti-tracking extension now has ad blocking ability"
-#~ msgstr "Extensão popular anti-monitorização agora tem habilidade de bloqueio de anúncios"
-
-#~ msgid "Share Backported"
-#~ msgstr "Share Backported"
-
-#~ msgid "Put a social media ‘Share’ button into Firefox toolbar"
-#~ msgstr "Coloque um botão ‘Partilhar’ de redes sociais na barra de ferramentas do Firefox"
-
-#~ msgid "View Page Archive & Cache"
-#~ msgstr "View Page Archive & Cache"
-
-#~ msgid "Update My Account"
-#~ msgstr "Atualizar a minha conta"
-
-#~ msgid "Updating this account…"
-#~ msgstr "A atualizar esta conta…"
-
-#~ msgid "Update This Account"
-#~ msgstr "Atualizar esta conta"
-
-#~ msgid "Delete My Account"
-#~ msgstr "Apanhar a minha conta"
-
-#~ msgid "Delete This Account"
-#~ msgstr "Apagar esta conta"
-
-#~ msgid "Cancel preview"
-#~ msgstr "Cancelar pré-visualização"
-
-#~ msgid "Tap to preview"
-#~ msgstr "Pressionar para pré-visualizar"
-
-#~ msgid "Privacy matters"
-#~ msgstr "A privacidade importa"
-
-#~ msgid "Black Menu for Google"
-#~ msgstr "Black Menu for Google"
-
-#~ msgid "Easy drop-down menu access to Google services like Search and Translate"
-#~ msgstr "Menu suspenso de acesso fácil para serviços Google como Pesquisa e Tradução"
-
-#~ msgid "Image Search Options"
-#~ msgstr "Image Search Options"
-
-#~ msgid "Access reverse image search options in a context menu"
-#~ msgstr "Aceda a opções de pesquisa inversa de imagem num menu de contexto"
-
-#~ msgid "PrivacyBadger"
-#~ msgstr "PrivacyBadger"
-
-#~ msgid "Block sneaky spying ads and trackers"
-#~ msgstr "Bloqueie anúncios e trackers espiões e sorrateiros"
-
-#~ msgid "Swift Selection Search"
-#~ msgstr "Swift Selection Search"
-
-#~ msgid "Web Security"
-#~ msgstr "Web Security"
-
-#~ msgid "Protection against malware and data phishing scams"
-#~ msgstr "Proteção contra malware e fraudes de phishing de dados"
-
-#~ msgid "Worldwide Radio"
-#~ msgstr "Worldwide Radio"
-
-#~ msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-#~ msgstr "Vencedor do Desafio Extensões Quantum! Oiça rádio em direto do mundo inteiro"
-
-#~ msgid "Update user's profile"
-#~ msgstr "Atualizar perfil do utilizador"
-
-#~ msgid "Delete user's profile"
-#~ msgstr "Apagar o perfil do utilizador"
-
-#~ msgid "Attention: You are about to delete your profile. Are you sure?"
-#~ msgstr "Atenção: está prestes a apagar o seu perfil. Tem a certeza?"
-
-#~ msgid "Attention: You are about to delete a profile. Are you sure?"
-#~ msgstr "Atenção: está prestes a apagar um perfil. Tem a certeza?"
-
-#~ msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-#~ msgstr "Importante: se for dono de extras, tem de os transferir para outros utilizadores ou apagá-los antes de apagar o seu perfil."
-
-#~ msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-#~ msgstr "Importante: um perfil de utilizador apenas pode ser apagado se o utilizador não for dono de nenhum extra."
-
-#~ msgid "Yes, delete my profile"
-#~ msgstr "Sim, apagar o meu perfil"
-
-#~ msgid "Yes, delete this profile"
-#~ msgstr "Sim, apagar este perfil"
-
-#~ msgid "Essential extensions"
-#~ msgstr "Extensões essenciais"
-
-#~ msgid "Envify"
-#~ msgstr "Envify"
-
-#~ msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-#~ msgstr "Vencedor do Desafio Extensões Quantum! Cores de separadores diferentes para diferentes ambientes de programador"
-
-#~ msgid "For moments on the internet when you need to fire lasers out of a cat"
-#~ msgstr "Para momentos na internet de quando precisa de disparar lasers de um gato"
-
-#~ msgid "Manage downloads from a tidy status bar"
-#~ msgstr "Gira transferências a partir de uma barra de estado arrumada"
-
-#~ msgid "Session Sync"
-#~ msgstr "Session Sync"
-
-#~ msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-#~ msgstr "Vencedor do Desafio Extensões Quantum! Guarde sessões como marcadores e aceda-lhes entre dispositivos"
-
-#~ msgid "Profile successfully updated"
-#~ msgstr "Perfil atualizado com sucesso"
-
-#~ msgid "Top-rated themes"
-#~ msgstr "Temas no top de avaliações"
-
-#~ msgid "See more highly rated themes"
-#~ msgstr "Ver mais temas altamente avaliados"
-
-#~ msgid "“Extensions Challenge” honorees"
-#~ msgstr "Homenageados do “Desafio de Extensões”"
-
-#~ msgid "See more “Extensions Challenge” honorees"
-#~ msgstr "Ver mais homenageados do “Desafio de Extensões”"
-
-#~ msgid "SHINE for Reddit"
-#~ msgstr "SHINE for Reddit"
-
-#~ msgid "Experience Reddit with alternative designs"
-#~ msgstr "Experimente o Reddit com designs alternativos"
-
-#~ msgid "LeechBlock NG"
-#~ msgstr "LeechBlock NG"
-
-#~ msgid "Block time-wasting sites"
-#~ msgstr "Bloqueie sites de desperdício de tempo"
-
-#~ msgid "Tranquility Reader"
-#~ msgstr "Tranquility Reader"
-
-#~ msgid "Remove clutter and improve readability"
-#~ msgstr "Remova confusão e melhore a legibilidade"
-
-#~ msgid "AutoFormer+"
-#~ msgstr "AutoFormer+"
-
-#~ msgid "Fill out a lot of forms? This might help"
-#~ msgstr "Preenche muitos formulários? Isto pode ajudar"
-
-#~ msgid "Flagfox"
-#~ msgstr "Flagfox"
-
-#~ msgid "Displays a website’s server location by country flag"
-#~ msgstr "Mostra a localização do servidor de um website com uma bandeira de país"
-
-#~ msgid "This add-on has not been rated yet."
-#~ msgstr "Este extra ainda não foi avaliado."
-
-#~ msgid "See all beta versions"
-#~ msgstr "Ver todas as versões beta"
-
-#~ msgid "Good time tabs"
-#~ msgstr "Novo separador"
-
-#~ msgid "See more good time tabs extensions"
-#~ msgstr "Ver mais extensões para o novo separador"
-
-#~ msgid "AliTools"
-#~ msgstr "AliTools"
-
-#~ msgid "Online shopping assistance"
-#~ msgstr "Assistência de compras online"
-
-#~ msgid "Snake Game"
-#~ msgstr "Snake Game"
-
-#~ msgid "The classic game, always a click away"
-#~ msgstr "O jogo clássico, sempre a um clique de distância"
-
-#~ msgid "Tab Invaders"
-#~ msgstr "Tab Invaders"
-
-#~ msgid "Space Invaders meets smart tab management"
-#~ msgstr "O Space Invaders junta-se à gestão de separadores inteligente"
-
-#~ msgid "Wikiwand"
-#~ msgstr "Wikiwand"
-
-#~ msgid "Give Wikipedia a gorgeous makeover"
-#~ msgstr "Dê uma maravilhosa reforma à Wikipédia"
-
-#~ msgid "Honey"
-#~ msgstr "Honey"
-
-#~ msgid "Facebook Video Downloader"
-#~ msgstr "Facebook Video Downloader"
-
-#~ msgid "Download with a single click"
-#~ msgstr "Transfira com um único clique"
-
-#~ msgid "Myki Password Manager & Authenticator"
-#~ msgstr "Myki Password Manager & Authenticator"
-
-#~ msgid "Cutting edge security"
-#~ msgstr "Segurança de ponta"
-
-#~ msgid "Click to rate this add-on"
-#~ msgstr "Clicar para avaliar este extra"
-
-#~ msgid "Collection name cannot be blank"
-#~ msgstr "O nome da coleção não pode estar em branco"
-
-#~ msgid "Access your data in 1 other domain"
-#~ msgstr "Aceder aos seus dados em 1 outro domínio"
-
-#~ msgid "Access your data on 1 other site"
-#~ msgstr "Aceder aos seus dados em 1 outro site"
-
-#~ msgid "No ratings"
-#~ msgstr "Sem avaliações"
-
-#~ msgid "Saving collection"
-#~ msgstr "A guardar coleção"
-
-#~ msgid "OneTab"
-#~ msgstr "OneTab"
-
-#~ msgid "Convert your open tabs into a list and save precious memory"
-#~ msgstr "Converta os seus separadores abertos numa lista e guarde memória preciosa"
-
-#~ msgid "Click to close"
-#~ msgstr "Clicar para fechar"
-
-#~ msgid "Re-imagine search"
-#~ msgstr "Re-imagine search"
-
-#~ msgid "February’s new featured extensions"
-#~ msgstr "Novas extensões em destaque de fevereiro"
-
-#~ msgid "See all the new featured extensions"
-#~ msgstr "Ver todas as novas extensões em destaque"
-
-#~ msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-#~ msgstr "Melhore os resultados de pesquisa com pré-visualizações de miniaturas, classificações de popularidade e mais."
-
-#~ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-#~ msgstr "Apague dados automaticamente (cookies, armazenamento local, etc.) em todos os sites que visita exceto aqueles da sua lista branca."
-
-#~ msgid "Zoom for Firefox"
-#~ msgstr "Zoom para o Firefox"
-
-#~ msgid "Simple zoom in/out tool for a close-up view of any web content."
-#~ msgstr "Simples ferramenta de ampliação/redução de zoom para uma vista de perto de qualquer conteúdo web."
-
-#~ msgid "Temporary Containers"
-#~ msgstr "Temporary Containers"
-
-#~ msgid "Open pages with disposable data containers."
-#~ msgstr "Abra páginas com contentores de dados descartáveis."
-
-#~ msgid "Momentum"
-#~ msgstr "Momentum"
-
-#~ msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-#~ msgstr "Substitua o seu novo separador com um painel de controlo pessoal—listas de tarefas, previsões do tempo e mais."
-
-#~ msgid "Kimetrak"
-#~ msgstr "Kimetrak"
-
-#~ msgid "Track who’s tracking you."
-#~ msgstr "Monitorize quem lhe monitoriza."
-
-#~ msgid "Mailvelope"
-#~ msgstr "Mailvelope"
-
-#~ msgid "Secure encryption for webmail."
-#~ msgstr "Encriptação segura para webmail."
-
-#~ msgid "Point-and-click instant translations."
-#~ msgstr "Traduções instantâneas apontar-e-clicar."
-
-#~ msgid "Top-rated Extensions"
-#~ msgstr "Extensões no top de avaliações"
-
-#~ msgid "See more highly rated Extensions"
-#~ msgstr "Ver mais extensões altamente avaliadas"
-
-#~ msgid "Display tabs in a space-saving “tree” layout."
-#~ msgstr "Mostra separadores num esquema em “árvore” que economiza espaço."
-
-#~ msgid "Highlight any text and search Wikipedia."
-#~ msgstr "Destaque qualquer texto e pesquise na Wikipédia."
-
-#~ msgid "Grammarly"
-#~ msgstr "Grammarly"
-
-#~ msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-#~ msgstr "Obtenha ajuda na gramática em qualquer lugar que escreva na web—redes sociais, emails, documentos e mais."
-
-#~ msgid "Remove ads, promoted content, and other clutter from your feed."
-#~ msgstr "Remova anúncios, conteúdo promovido, e outras distrações do seu feed."
-
-#~ msgid "LastPass Password Manager"
-#~ msgstr "LastPass Password Manager"
-
-#~ msgid "Easily manage all your passwords for all devices from one spot"
-#~ msgstr "Gira facilmente todas as suas palavras-passe para todos os dispositivos a partir de um lugar"
-
-#~ msgid "Top-rated Themes"
-#~ msgstr "Temas no top de avaliações"
-
-#~ msgid "Productivity tools"
-#~ msgstr "Ferramentas de produtividade"
-
-#~ msgid "See more add-ons that protect your privacy"
-#~ msgstr "Ver mais extras que protegem a sua privacidade"
-
-#~ msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
-#~ msgstr "Traduza uma palavra, frase, até uma página inteira. Suporta 100+ idiomas."
-
-#~ msgid "Search by Image"
-#~ msgstr "Search by Image"
-
-#~ msgid "Reverse image search using various search engines."
-#~ msgstr "Pesquisa inversa de imagens utilizando vários motores de pesquisa."
-
-#~ msgid "FireShot"
-#~ msgstr "FireShot"
-
-#~ msgid "Capture full-page screenshots."
-#~ msgstr "Tire capturas de ecrã de ecrã completo."
-
-#~ msgid "Easily download video from hundreds of popular websites."
-#~ msgstr "Transfira vídeos facilmente a partir de centenas de websites populares."
-
-#~ msgid "Decentraleyes"
-#~ msgstr "Decentraleyes"
-
-#~ msgid "Tracking protection against third-party sites aiming to mark your every online move."
-#~ msgstr "Proteção contra monitorização contra sites de terceiros visando marcar todos os seus movimentos online."
-
-#~ msgid "Excellent extensions for all situations"
-#~ msgstr "Excelentes extensões para todas as situações"
-
-#~ msgid "YouTube High Definition"
-#~ msgstr "YouTube High Definition"
-
-#~ msgid "Play videos in HD, turn off annotations, change player size & more"
-#~ msgstr "Reproduza vídeos em HD, desligue anotações, altere o tamanho do reprodutor e mais"
-
-#~ msgid "Tools for making the Web work harder for you"
-#~ msgstr "Ferramentas para fazer a Web trabalhar mais por si"
-
-#~ msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-#~ msgstr "Desde bloqueadores de anúncios a anti-trackers, aqui estão algumas extensões de privacidade impressionantes"
-
-#~ msgid "An extremely powerful ad blocker that’s simple to use"
-#~ msgstr "Um bloqueador de anúncios extremamente poderoso que é simples de utilizar"
-
-#~ msgid "Most Popular Extensions"
-#~ msgstr "Extensões mais populares"
-
-#~ msgid "Up & Coming Extensions"
-#~ msgstr "Próximas extensões"
-
-#~ msgid "Find dictionary"
-#~ msgstr "Encontrar dicionário"
-
-#~ msgid "Find language pack"
-#~ msgstr "Encontrar pacote de idioma"
-
-#~ msgid "Click to view statistics"
-#~ msgstr "Clique para ver estatísticas"
-
-#~ msgid "Tell the world about this extension."
-#~ msgstr "Partilhe com o mundo esta extensão."
-
-#~ msgid "All written reviews"
-#~ msgstr "Todas as análises escritas"
-
-#~ msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-#~ msgstr "Desculpe, mas não conseguimos encontrar nada no endereço que introduziu. Se seguiu uma ligação para um extra, é possível que esse extra tenha sido removido pelo seu autor."
-
-#~ msgid "Manage API Keys"
-#~ msgstr "Gerir chaves de API"
-
-#~ msgid "Themes change how Firefox looks"
-#~ msgstr "Os temas alteram o aspeto do Firefox"
-
-#~ msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-#~ msgstr "Este ID é útil para depuração e identificação do seu extra para administradores do site."
-
-#~ msgid "Site Identifier"
-#~ msgstr "Identificador de site"
-
-#~ msgid "I'm interested in…"
-#~ msgstr "Estou interessado(a) em…"
-
-#~ msgid "More Featured Extensions"
-#~ msgstr "Mais extensões em destaque"
-
-#~ msgid "More Featured Themes"
-#~ msgstr "Mais temas em destaque"
-
-#~ msgid "Be social"
-#~ msgstr "Seja social"
-
-#~ msgid "Screenshot"
-#~ msgstr "Capture o ecrã"
-
-#~ msgid "Find news"
-#~ msgstr "Encontrar notícias"
-
-#~ msgid "Shop online"
-#~ msgstr "Compre online"
-
-#~ msgid "Wild"
-#~ msgstr "Selvagem"
-
-#~ msgid "Holiday"
-#~ msgstr "Férias"
-
-#~ msgid "Sporty"
-#~ msgstr "Desportivo"
-
-#~ msgid "Solid"
-#~ msgstr "Sólido"
-
-#~ msgid "…or what it looks like"
-#~ msgstr "…ou como se parece"
-
-#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-#~ msgstr "Instale ferramentas poderosas que fazem a navegação mais rápida e segura, os extras fazem o seu navegador seu."
-
-#~ msgid "Browse in your language"
-#~ msgstr "Navegar no seu idioma"
-
-#~ msgid "Log in/Sign up"
-#~ msgstr "Iniciar sessão/Registar"
-
-#~ msgid "Failed to load categories."
-#~ msgstr "O carregamento de categorias falhou."
-
-#~ msgid "Browse by category"
-#~ msgstr "Navegar por categoria"
-
-#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-#~ msgstr "As extensões são funcionalidades especiais que pode adicionar ao Firefox. Os temas deixam-lhe alterar a aparência do seu navegador."
-
-#~ msgid "Fashionable"
-#~ msgstr "Elegante"
-
-#~ msgid "Website"
-#~ msgstr "Website"
-
-#~ msgid "Sentiment"
-#~ msgstr "Sentimento"
-
-#~ msgid "Back"
-#~ msgstr "Retroceder"
-
-#~ msgid "Please enter some text"
-#~ msgstr "Por favor introduza algum texto"
-
-#~ msgid "screenshot %(imageNumber)s of %(totalImages)s"
-#~ msgstr "captura de ecrã %(imageNumber)s de %(totalImages)s"
-
-#~ msgid "What do you want Firefox to do?"
-#~ msgstr "O que quer que o Firefox faça?"
-
-#~ msgid "Save stuff"
-#~ msgstr "Guarde coisas"
-
-#~ msgid "Share stuff"
-#~ msgstr "Partilhe coisas"
-
-#~ msgid "How do you want Firefox to look?"
-#~ msgstr "Como quer que o Firefox se pareça?"
-
-#~ msgid "Mystical"
-#~ msgstr "Místico"
-
-#~ msgid "Your search for \"%(query)s\" returned %(count)s result."
-#~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] "A sua pesquisa para \"%(query)s\" retornou %(count)s resultado."
-#~ msgstr[1] "A sua pesquisa para \"%(query)s\" retornou %(count)s resultados."
-
-#~ msgid "Please supply a valid search"
-#~ msgstr "Por favor forneça uma pesquisa válida"
