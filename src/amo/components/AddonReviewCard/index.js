@@ -10,7 +10,7 @@ import Link from 'amo/components/Link';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { ADDONS_EDIT, USERS_EDIT } from 'amo/constants';
+import { ADDONS_EDIT } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
@@ -73,7 +73,6 @@ type PropsFromState = {|
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
   editingReview: boolean,
-  hasUsersEditPermission: boolean,
   replyingToReview: boolean,
   siteUser: UserType | null,
   siteUserCanManageReplies: boolean,
@@ -344,7 +343,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       editingReview,
       errorHandler,
       flaggable,
-      hasUsersEditPermission,
       i18n,
       location,
       replyingToReview,
@@ -359,21 +357,15 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     let byLine;
     const noAuthor = shortByLine || this.isReply();
-    const showUserProfileLink = !noAuthor && hasUsersEditPermission;
 
     if (review) {
       // eslint-disable-next-line no-nested-ternary
       const byLineString = noAuthor
         ? // L10n: Example in English: "posted last week"
           i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
-        : showUserProfileLink
-        ? // L10n: Example in English: "by UserName123, last week"
-          i18n.gettext(
-            'by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
-          )
         : // L10n: Example in English: "by UserName123, last week"
           i18n.gettext(
-            'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
+            'by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
           );
 
       // See https://github.com/mozilla/addons-frontend/issues/7322 for why we
@@ -415,7 +407,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         ],
       ];
 
-      if (showUserProfileLink) {
+      if (!noAuthor) {
         replacements.push([
           'linkUserProfileStart',
           'linkUserProfileEnd',
@@ -438,12 +430,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           // `<Link />` using `replaceStringsWithJSX`.
           linkEnd: '%(linkEnd)s',
           linkStart: '%(linkStart)s',
-          linkUserProfileStart: showUserProfileLink
+          linkUserProfileStart: !noAuthor
             ? '%(linkUserProfileStart)s'
             : undefined,
-          linkUserProfileEnd: showUserProfileLink
-            ? '%(linkUserProfileEnd)s'
-            : undefined,
+          linkUserProfileEnd: !noAuthor ? '%(linkUserProfileEnd)s' : undefined,
         }),
         replacements,
       });
@@ -625,7 +615,6 @@ function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
     beginningToDeleteReview,
     deletingReview,
     editingReview,
-    hasUsersEditPermission: hasPermission(state, USERS_EDIT),
     replyingToReview,
     siteUser: getCurrentUser(state.users),
     siteUserCanManageReplies: ownProps.siteUserCanReply || siteUserHasReplyPerm,

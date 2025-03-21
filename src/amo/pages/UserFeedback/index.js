@@ -141,7 +141,7 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
 
                 <div className="UserFeedback-header-metadata">
                   <span>{i18n.gettext('User since')}</span>
-                  {user ? (
+                  {user && user.created ? (
                     i18n.moment(user.created).format('ll')
                   ) : (
                     <LoadingText />

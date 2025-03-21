@@ -337,6 +337,11 @@ export class UserProfileBase extends React.Component<InternalProps> {
         })
       : i18n.gettext('User Profile');
 
+    const userCreatedDate =
+      user && user.created !== undefined
+        ? i18n.moment(user.created).format('ll')
+        : null;
+
     return (
       <Page errorHandler={errorHandler}>
         <div className="UserProfile">
@@ -376,36 +381,34 @@ export class UserProfileBase extends React.Component<InternalProps> {
                     {user.occupation}
                   </Definition>
                 ) : null}
-                <Definition
-                  className="UserProfile-user-since"
-                  term={i18n.gettext('User since')}
-                >
-                  {user ? (
-                    i18n.moment(user.created).format('ll')
-                  ) : (
-                    <LoadingText />
-                  )}
-                </Definition>
-                <Definition
-                  className="UserProfile-number-of-addons"
-                  term={i18n.gettext('Number of add-ons')}
-                >
-                  {user ? user.num_addons_listed : <LoadingText />}
-                </Definition>
-                <Definition
-                  className="UserProfile-rating-average"
-                  term={i18n.gettext('Average rating of developer’s add-ons')}
-                >
-                  {user ? (
+                {userCreatedDate ? (
+                  <Definition
+                    className="UserProfile-user-since"
+                    term={i18n.gettext('User since')}
+                  >
+                    {userCreatedDate}
+                  </Definition>
+                ) : null}
+                {user && user.num_addons_listed !== undefined ? (
+                  <Definition
+                    className="UserProfile-number-of-addons"
+                    term={i18n.gettext('Number of add-ons')}
+                  >
+                    {user.num_addons_listed}
+                  </Definition>
+                ) : null}
+                {user && user.average_addon_rating ? (
+                  <Definition
+                    className="UserProfile-rating-average"
+                    term={i18n.gettext('Average rating of developer’s add-ons')}
+                  >
                     <Rating
                       rating={user.average_addon_rating}
                       readOnly
                       styleSize="small"
                     />
-                  ) : (
-                    <LoadingText />
-                  )}
-                </Definition>
+                  </Definition>
+                ) : null}
                 {user && user.biography && user.biography.length ? (
                   <Definition
                     className="UserProfile-biography"

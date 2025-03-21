@@ -261,21 +261,6 @@ describe(__filename, () => {
     expect(
       within(screen.getByClassName('UserProfile-name')).getByRole('alert'),
     ).toBeInTheDocument();
-    expect(
-      within(screen.getByClassName('UserProfile-user-since')).getByRole(
-        'alert',
-      ),
-    ).toBeInTheDocument();
-    expect(
-      within(screen.getByClassName('UserProfile-number-of-addons')).getByRole(
-        'alert',
-      ),
-    ).toBeInTheDocument();
-    expect(
-      within(screen.getByClassName(`UserProfile-rating-average`)).getByRole(
-        'alert',
-      ),
-    ).toBeInTheDocument();
   });
 
   it("renders the user's homepage", () => {
@@ -334,11 +319,29 @@ describe(__filename, () => {
     expect(screen.getByText('Aug 15, 2000')).toBeInTheDocument();
   });
 
+  it("omits the user's account creation date if undefined", () => {
+    const user = createUserAccountResponse({ id: defaultUserId });
+    user.created = undefined;
+    store.dispatch(loadUserAccount({ user }));
+    renderUserProfile();
+
+    expect(screen.queryByText('User since')).not.toBeInTheDocument();
+  });
+
   it("renders the user's number of add-ons", () => {
     signInUserAndRenderUserProfile({ num_addons_listed: 70 });
 
     expect(screen.getByText('Number of add-ons')).toBeInTheDocument();
     expect(screen.getByText('70')).toBeInTheDocument();
+  });
+
+  it("omits the user's number of add-ons if undefined", () => {
+    const user = createUserAccountResponse({ id: defaultUserId });
+    user.num_addons_listed = undefined;
+    store.dispatch(loadUserAccount({ user }));
+    renderUserProfile();
+
+    expect(screen.queryByText('Number of add-ons')).not.toBeInTheDocument();
   });
 
   it("renders the user's average add-on rating", () => {
@@ -350,6 +353,17 @@ describe(__filename, () => {
       screen.getByText('Average rating of developer’s add-ons'),
     ).toBeInTheDocument();
     expect(screen.getAllByTitle('Rated 3.1 out of 5')).toHaveLength(6);
+  });
+
+  it("omits the user's average add-on rating if undefined", () => {
+    const user = createUserAccountResponse({ id: defaultUserId });
+    user.average_addon_rating = undefined;
+    store.dispatch(loadUserAccount({ user }));
+    renderUserProfile();
+
+    expect(
+      screen.queryByText('Average rating of developer’s add-ons'),
+    ).not.toBeInTheDocument();
   });
 
   it("renders the user's biography", () => {
