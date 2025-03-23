@@ -993,7 +993,7 @@ msgstr "Narusza zasady dotyczące dodatków"
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr "Przykład: Rozszerzenie naruszyło moje dane, nie informując mnie o tym ani nie pytając, albo zmieniło moją wyszukiwarkę lub stronę główną, nie informując mnie o tym ani nie pytając."
+msgstr "Przykład: rozszerzenie naruszyło moje dane, nie informując mnie o tym ani nie pytając, albo zmieniło moją wyszukiwarkę lub stronę startową, nie informując mnie o tym ani nie pytając."
 
 #: src/amo/components/FeedbackForm/index.js:129
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
@@ -1347,7 +1347,7 @@ msgstr "Zgłoś anonimowo"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr "Złożenie anonimowego zgłoszenia uniemożliwi nam komunikowanie się z Tobą w sprawie statusu zgłoszenia lub możliwości odwołania."
+msgstr "Złożenie anonimowego zgłoszenia uniemożliwi nam komunikowanie się z Tobą w sprawie stanu zgłoszenia lub możliwości odwołania."
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
