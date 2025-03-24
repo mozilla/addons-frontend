@@ -2,17 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-18 12:27+0000\n"
-"PO-Revision-Date: 2024-12-01 14:07+0000\n"
-"Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
-"Language-Team: none\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pontoon\n"
+"Generated-By: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:187
 msgid "Loading…"
@@ -34,7 +29,6 @@ msgstr "새 모음집 만들기"
 msgid "Added to %(collectionName)s"
 msgstr "%(collectionName)s에 추가됨"
 
-# This is a header for a list meaning Add to [some collection name]
 #. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:269
 msgid "Add to…"
@@ -116,25 +110,21 @@ msgstr "부가 기능에 대해 피드백 보내기"
 msgid "Report the add-on because it's illegal or incompliant"
 msgstr "불법 또는 규칙에 어긋난 부가 기능을 신고하기"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – 🦊 Firefox용 확장 기능 (%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – 🦊 Firefox용 언어팩(%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – 🦊 Firefox용 테마(%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
@@ -169,7 +159,6 @@ msgstr "%(addonName)s – 🦊 Firefox Android용 테마(%(locale)s)"
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – 🦊 Firefox Android용 부가 기능(%(locale)s)"
 
-# please keep the fox emoji next to "Firefox".
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
@@ -569,13 +558,11 @@ msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "%(rating)s / 5"
 
-# A comma, used in a list of authors: a1, a2, a3.
 #. A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
 msgstr ","
 
-# Example: add-on "by" some authors
 #. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
@@ -1576,7 +1563,6 @@ msgstr "내 프로필 수정"
 msgid "Get the extension"
 msgstr "확장 기능 받기"
 
-# If uppercase does not work in your locale, change it to lowercase.
 #. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 #: src/amo/components/HeroRecommendation/index.js:231
 msgid "RECOMMENDED"
@@ -2524,13 +2510,15 @@ msgstr "위반 사항이 해결될 때까지 이 부가 기능을 addons.mozilla
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
-msgstr ""
+msgstr "Mozilla는 정책을 어떻게 집행하나요?"
 
 #: src/amo/pages/Block/index.js:194
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Mozilla는 Firefox에 심각한 보안이나 안정성, 성능 저하 문제를 초래하고 %(criteriaStartLink)s특정 기준%(criteriaEndLink)s에 부합하는 부가 기능이나 플러그인, 기타 제3자 소프트웨어가 있을 경우 해당 소프트웨어의 일반적인 사용을 차단 또는 제한합니다. 더 자세한 정보를 보시려면 "
+"%(supportStartLink)s이 도움말%(supportEndLink)s을 읽어 보세요."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
@@ -3279,7 +3267,6 @@ msgstr "구독 취소"
 msgid "You are successfully unsubscribed!"
 msgstr "구독을 해제했습니다!"
 
-# a list of notifications will be displayed under this prompt.
 #. a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
@@ -3293,19 +3280,16 @@ msgstr "%(linkStart)s프로필을 수정하여%(linkEnd)s 알림 설정을 변�
 msgid "(no name)"
 msgstr "(이름 없음)"
 
-# This is application compatibility information, such as "firefox 41 and later"
 #. This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s 이상"
 
-# This is application compatibility information, such as "firefox 41 to 45"
 #. This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:309
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s ~ %(maxVersion)s"
 
-# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:329
 msgid "Works with %(listOfApplicatonsAndVersions)s"
@@ -3366,940 +3350,3 @@ msgstr "부가 기능 호환성을 업그레이드 할 수 없습니다"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "부가 기능 호환성이 업그레이드 되었습니다"
-
-#~ msgid "Store unlimited amount of client-side data"
-#~ msgstr "무제한 클라이언트 데이터 저장"
-
-#~ msgid ""
-#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
-#~ "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
-#~ msgstr ""
-#~ "Mozilla는 Firefox에 심각한 보안이나 안정성, 성능 저하 문제를 초래하고 %(criteriaStartLink)s특정 기준%(criteriaEndLink)s에 부합하는 부가 기능이나 플러그인, 기타 제3자 소프트웨어가 있을 경우 해당 소프트웨어의 일반적인 사용을 차단 또는 제한합니다. 더 자세한 정보를 보시려면 "
-#~ "%(supportStartLink)s이 도움말%(supportEndLink)s을 읽어 보세요."
-
-#~ msgid "%(addonName)s is restricted for violating Mozilla policies."
-#~ msgstr "%(addonName)s 부가 기능은 Mozilla 정책 위반으로 제한되었습니다."
-
-#~ msgid "This add-on is restricted for violating Mozilla policies."
-#~ msgstr "이 부가 기능은 Mozilla 정책 위반으로 제한되었습니다."
-
-#~ msgid "%(addonName)s is blocked for violating Mozilla policies."
-#~ msgstr "%(addonName)s 부가 기능은 Mozilla 정책 위반으로 차단되었습니다."
-
-#~ msgid "This add-on is blocked for violating Mozilla policies."
-#~ msgstr "이 부가 기능은 Mozilla 정책 위반으로 차단되었습니다."
-
-#~ msgid "This extension, theme, or plugin violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-#~ msgstr "이 확장 기능이나 테마, 플러그인은 %(startLink)sMozilla의 부가 기능 정책%(endLink)s을 위반합니다."
-
-#~ msgid "Versions blocked: all versions."
-#~ msgstr "차단된 버전: 모든 버전."
-
-#~ msgid "Versions blocked: %(versions)s."
-#~ msgstr "차단된 버전: %(versions)s."
-
-#~ msgid "%(addonName)s has been blocked for your protection."
-#~ msgstr "%(addonName)s은 사용자 보호를 위해 차단되었습니다."
-
-#~ msgid "This add-on has been blocked for your protection."
-#~ msgstr "이 부가 기능은 사용자 보호를 위해 차단되었습니다."
-
-#~ msgid "Why was it blocked?"
-#~ msgstr "왜 차단 되었습니까?"
-
-#~ msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-#~ msgstr "이 부가 기능은 %(startLink)sMozilla의 부가 기능 정책%(endLink)s을 위반합니다."
-
-#~ msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-#~ msgstr "문제가 발생한 부가 기능 및 플러그인은 자동으로 사용 중단 처리되어 더이상 사용할 수 없게 됩니다."
-
-#~ msgid ""
-#~ "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
-#~ "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
-#~ msgstr ""
-#~ "Mozilla에선 부가 기능, 플러그인, 기타 서드파티 소프트웨어에서 Firefox에 심각한 보안, 안정성, 성능 저하 문제를 초래하는 것이 있을 경우 %(criteriaStartLink)s규정%(criteriaEndLink)s에 의거, 해당 소프트웨어를 일반적인 사용을 할 수 없도록 차단하게 됩니다. 보다 자세한 정보를 보시려면 "
-#~ "%(supportStartLink)s이 도움말%(supportEndLink)s을 읽어보시기 바랍니다."
-
-#~ msgid "Blocked on %(date)s."
-#~ msgstr "%(date)s에 차단되었습니다."
-
-#~ msgid "SPONSORED"
-#~ msgstr "후원"
-
-#~ msgid "Verified"
-#~ msgstr "확인됨"
-
-#~ msgid "This add-on has been reviewed to meet our standards for security and performance."
-#~ msgstr "이 부가 기능은 보안 및 성능에 대한 표준을 충족하는 것으로 검토되었습니다."
-
-#~ msgid "Verified extensions"
-#~ msgstr "확인된 확장 기능"
-
-#~ msgid "Verified themes"
-#~ msgstr "확인된 테마"
-
-#~ msgid "Verified add-ons"
-#~ msgstr "확인된 부가 기능"
-
-#~ msgid "Firefox Accounts was renamed to Mozilla accounts on Nov 1"
-#~ msgstr "Firefox 계정은 11월 1일에 Mozilla 계정으로 이름이 변경되었습니다"
-
-#~ msgid "You will still sign in with the same username and password, and there are no other changes to the products that you use."
-#~ msgstr "동일한 사용자 이름과 비밀번호로 계속 로그인할 수 있으며, 사용하는 제품에는 다른 변경 사항이 없습니다."
-
-#~ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-#~ msgstr "Firefox 계정에서 이메일 주소를 변경할 수 있습니다. %(startLink)s도움이 필요하십니까?%(endLink)s"
-
-#~ msgid "Manage Firefox Accounts…"
-#~ msgstr "Firefox 계정 관리…"
-
-#~ msgid "This is a bug report or support request"
-#~ msgstr "버그 신고나 지원 요청입니다"
-
-#~ msgid "Flagged as a bug report or support request"
-#~ msgstr "버그 신고 또는 지원 요청으로 플래그 지정됨"
-
-#~ msgid "This contains inappropriate language"
-#~ msgstr "부적절한 언어가 포함되어 있습니다"
-
-#~ msgid "Flagged for inappropriate language"
-#~ msgstr "부적절한 언어로 플래그 지정됨"
-
-#~ msgid "Log in to flag this response"
-#~ msgstr "이 답글에 플래그를 지정하시려면 로그인하세요"
-
-#~ msgid "Log in to flag this review"
-#~ msgstr "이 리뷰에 플래그를 지정하시려면 로그인하세요"
-
-#~ msgid "This is spam"
-#~ msgstr "스팸입니다"
-
-#~ msgid "We can't respond to every abuse report but we'll look into this issue."
-#~ msgstr "모든 신고 사항에 대해 답변을 드릴 수는 없지만 문제는 조사될 것입니다."
-
-#~ msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-#~ msgstr "이 부가 기능이 %(linkTagStart)sMozilla의 부가 기능 정책%(linkTagEnd)s이나 안전, 개인정보 관련 문제로 위협한다고 생각되시면, 이 양식을 이용하여 Mozilla에 이 문제를 보고해 주십시오."
-
-#~ msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-#~ msgstr "이 양식을 버그 신고나 기능 추가 요청용으로 사용하지 마십시오. 이 보고서는 Mozilla에 전송되며 개발자에게 전달되지 않습니다."
-
-#~ msgid "Send abuse report"
-#~ msgstr "정책 위반 신고 보내기"
-
-#~ msgid "Sending abuse report"
-#~ msgstr "정책 위반 보고서 보내는 중"
-
-#~ msgid "Dismiss"
-#~ msgstr "닫기"
-
-#~ msgid "Explain how this add-on is violating our policies."
-#~ msgstr "이 부가 기능이 어떻게 정책을 위반하는지 알려주세요."
-
-#~ msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-#~ msgstr "이 사용자가 %(linkTagStart)sMozilla의 부가 기능 정책%(linkTagEnd)s을 위반한다고 생각하시면, Mozilla에 이 사용자를 신고해주십시오."
-
-#~ msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-#~ msgstr "이 양식을 버그 신고나 이 사용자 연락용으로 사용하지 마십시오. 신고는 Mozilla에게만 전송되며 이 사용자에게는 전달되지 않습니다."
-
-#~ msgid "Explain how this user is violating our policies."
-#~ msgstr "이 사용자가 정책을 어떻게 위반하는지 설명해주십시오."
-
-#~ msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-#~ msgstr "이 부가 기능들을 사용하시려면, Firefox를 %(linkStart)s다운로드%(linkEnd)s하세요"
-
-#~ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-#~ msgstr "Android 용 Firefox와 호환되는 부가 기능을 찾으려면 <a href=\"%(newLocation)s\">여기를 클릭</a>하세요."
-
-#~ msgid "Report this add-on for abuse"
-#~ msgstr "이 부가 기능 신고하기"
-
-#~ msgid "Report this user for abuse"
-#~ msgstr "이 사용자를 신고하기"
-
-#~ msgid "You reported this add-on for abuse"
-#~ msgstr "이 부가 기능을 신고하셨습니다"
-
-#~ msgid "You reported this user for abuse"
-#~ msgstr "이 사용자를 신고하셨습니다"
-
-#~ msgid "Versions blocked: %(min)s to %(max)s."
-#~ msgstr "차단된 버전: %(min)s ~ %(max)s."
-
-#~ msgid "Get %(addonName)s for Android"
-#~ msgstr "Android용 %(addonName)s 받기"
-
-#~ msgid "Dismiss this message"
-#~ msgstr "이 메시지 닫기"
-
-#~ msgid "Also available on Firefox for Android"
-#~ msgstr "Android용 Firefox에서도 사용 가능"
-
-#~ msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-#~ msgstr "죄송합니다. 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 빠르게 처리하겠습니다."
-
-#~ msgid "Dictionaries by %(author)s"
-#~ msgstr "%(author)s 님의 사전"
-
-#~ msgid "Dictionaries by these translators"
-#~ msgstr "이 번역자들의 사전"
-
-#~ msgid "Language packs by %(author)s"
-#~ msgstr "%(author)s 님의 언어 팩"
-
-#~ msgid "Language packs by these translators"
-#~ msgstr "이 번역자들의 언어 팩"
-
-#~ msgid "Add-ons by %(author)s"
-#~ msgstr "%(author)s 님의 부가 기능"
-
-#~ msgid "Add-ons by these developers"
-#~ msgstr "이 개발자의 부가 기능"
-
-#~ msgid "Page %(currentPage)s of %(totalPages)s"
-#~ msgstr "%(currentPage)s / %(totalPages)s 페이지"
-
-#~ msgid "You cannot flag your own response"
-#~ msgstr "본인의 답글에 플래그를 지정할 수 없습니다"
-
-#~ msgid "You cannot flag your own review"
-#~ msgstr "본인의 리뷰에 플래그를 지정할 수 없습니다"
-
-#~ msgid "Add-ons for Firefox"
-#~ msgstr "Firefox 부가 기능"
-
-#~ msgid "for Android"
-#~ msgstr "Android용"
-
-#~ msgid "Site Status"
-#~ msgstr "사이트 상태"
-
-#~ msgid "Login authentication has expired."
-#~ msgstr "세션이 만료되었습니다"
-
-#~ msgid "Reviewer Name"
-#~ msgstr "리뷰어 이름"
-
-#~ msgid "Register or log in"
-#~ msgstr "가입하기 또는 로그인"
-
-#~ msgid "Firefox Add-on Reviews"
-#~ msgstr "Firefox 부가 기능"
-
-#~ msgid "Explore"
-#~ msgstr "탐색"
-
-#~ msgid "Restart Required"
-#~ msgstr "재시작 필요"
-
-#~ msgid "Not compatible with Firefox Quantum"
-#~ msgstr "Firefox 퀀텀과 호환되지 않음"
-
-#~ msgid "Your version of Firefox does not support this add-on because it requires a restart."
-#~ msgstr "재시작이 필요하기 때문에 사용하고 계신 Firefox 버전은 이 부가 기능을 지원하지 않습니다."
-
-#~ msgid "Developer Blog"
-#~ msgstr "개발자 블로그"
-
-#~ msgid "Blog"
-#~ msgstr "블로그"
-
-#~ msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-#~ msgstr "%(strongStart)s%(name)s%(strongEnd)s가 추가되었습니다"
-
-#~ msgid "Manage your add-ons by clicking Add-ons in the menu."
-#~ msgstr "메뉴에서 [부가 기능]을 클릭하여 부가 기능을 관리하세요."
-
-#~ msgid "OK"
-#~ msgstr "확인"
-
-#~ msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-#~ msgstr "이 부가 기능은 <a href=\"%(downloadUrl)s\">새로운 버전의 Firefox</a>가 필요합니다(최소 버전 %(minVersion)s). 현재 Firefox %(yourVersion)s 버전을 사용하고 계십니다."
-
-#~ msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-#~ msgstr "사용하는 브라우저는 부가 기능을 지원하지 않습니다. 이 부가 기능을 설치하시려면 <a href=\"%(downloadUrl)s\">Firefox를 다운로드</a>하십시오."
-
-#~ msgid "Only with Firefox—Get Firefox Now"
-#~ msgstr "Firefox 전용 — Firefox를 설치하세요"
-
-#~ msgid "Learn more about permissions"
-#~ msgstr "권한에 대해 더 알아보기"
-
-#~ msgid "See more popular themes"
-#~ msgstr "인기 테마 더보기"
-
-#~ msgid "See more popular extensions"
-#~ msgstr "인기 확장 기능 더보기"
-
-#~ msgid "See more enhanced privacy extensions"
-#~ msgstr "향상된 개인 정보 보호 확장 기능 더보기"
-
-#~ msgid "Enhanced privacy extensions"
-#~ msgstr "향상된 개인 정보 보호 확장 기능"
-
-#~ msgid "See more recommended password managers"
-#~ msgstr "추천 비밀번호 관리자 더보기"
-
-#~ msgid "Recommended password managers"
-#~ msgstr "추천 비밀번호 관리자"
-
-#~ msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-#~ msgstr "Firefox 확장 기능을 내려받아 검색하는 방법을 바꿔보세요—사생활 보호를 중점으로 둔 검색부터 특정 웹사이트 내용 검색, 이미지 검색 등 모든 것을 변경할 수 있습니다."
-
-#~ msgid "Search Tools"
-#~ msgstr "검색 도구"
-
-#~ msgid "Take short survey"
-#~ msgstr "간단한 설문 참여"
-
-#~ msgid "Windows"
-#~ msgstr "Windows"
-
-#~ msgid "macOS"
-#~ msgstr "macOS"
-
-#~ msgid "Linux"
-#~ msgstr "Linux"
-
-#~ msgid "Operating System"
-#~ msgstr "운영체제"
-
-#~ msgid "Sponsored extensions"
-#~ msgstr "가장 평점이 높은 확장 기능"
-
-#~ msgid "What is this?"
-#~ msgstr "어떻게 되는건가요?"
-
-#~ msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-#~ msgstr "Android용 Firefox에서는 사용하실 수 없습니다. 이 부가 기능은 데스크톱용 Firefox에서 사용하실 수 있습니다. 자세한 사항은 <a href=\"%(newLocation)s\">Android용 부가기능</a>에서 확인하세요."
-
-#~ msgid "Unavailable for legal reasons"
-#~ msgstr "한글판 있음"
-
-#~ msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-#~ msgstr "데스크톱에서 Firefox와 호환되는 부가 기능을 찾으려면, <a href=\"%(newLocation)s\">데스크톱 사이트를 방문</a>하세요."
-
-#~ msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-#~ msgstr "Android용 Firefox에서는 사용하실 수 없습니다. 데스크톱용 Firefox에서 이 부가기능을 사용하시거나,   <a href=\"%(newLocation)s\">Android용 부가 기능 페이지</a>에서 비슷한 부가 기능을 찾아보세요."
-
-#~ msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-#~ msgstr "Android에서 Firefox와 호환되는 부가 기능을 찾으려면, <a href=\"%(newLocation)s\">모바일 사이트를 방문</a>하세요."
-
-#~ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-#~ msgstr "이 목록은 사용하고 계신 플랫폼을 위한 것이 아닙니다. <a href=\"%(newLocation)s\">Android용 Firefox를 위한 부가 기능을 찾아보세요</a>."
-
-#~ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-#~ msgstr "이 목록은 사용하고 계신 플랫폼을 위한 것이 아닙니다. <a href=\"%(newLocation)s\">데스크톱용 Firefox를 위한 부가 기능을 찾아보세요</a>."
-
-#~ msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-#~ msgstr "Android용 Firefox에서는 사용하실 수 없습니다. 이 부가 기능은 데스크톱용 Firefox에서 사용하실 수 있습니다. 자세한 사항은 <a href=\"%(newLocation)s\">Android용 부가기능</a>에서 확인하세요."
-
-#~ msgid "Promoted Add-Ons"
-#~ msgstr "가장 평점이 높은 부가 기능"
-
-#~ msgid "Recommended add-ons only"
-#~ msgstr "추천 부가 기능만 표시"
-
-#~ msgid "Admin add-on status"
-#~ msgstr "관리자 부가 기능 상태"
-
-#~ msgid "Stay Safe Online"
-#~ msgstr "더 안전한 서비스"
-
-#~ msgid "Organize Tabs & Bookmarks"
-#~ msgstr "탭 및 북마크 구성"
-
-#~ msgid "Enhance Your Media Experience"
-#~ msgstr "미디어 경험 향상"
-
-#~ msgid "Extensions are like apps for your browser."
-#~ msgstr "확장 기능은 브라우저용 앱과 같습니다."
-
-#~ msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-#~ msgstr "더 많은 우수한 %(linkStart)s광고 차단기%(linkEnd)s를 탐색하세요."
-
-#~ msgid "Stop online trackers from stalking you"
-#~ msgstr "사용자를 추적하는 온라인 추적기를 막으세요."
-
-#~ msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-#~ msgstr "더 많은 권장되는 %(linkStart)s개인 정보 및 보안%(linkEnd)s 확장 기능을 탐색하세요."
-
-#~ msgid "Reimagine tab management"
-#~ msgstr "탭 관리를 재정의하다"
-
-#~ msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-#~ msgstr "더 많은 %(linkStart)s탭%(linkEnd)s 확장 기능을 탐색하세요."
-
-#~ msgid "Better browsing with improved bookmarks"
-#~ msgstr "향상된 북마크로 더 나은 브라우징"
-
-#~ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-#~ msgstr "여러 개의 북마크 폴더를 유지하면 북마크를 더 효율적으로 구성 할 수 있습니다."
-
-#~ msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-#~ msgstr "더 많은 %(linkStart)s북마크%(linkEnd)s 확장 기능을 탐색하세요."
-
-#~ msgid "Enjoy a fresh new tab experience"
-#~ msgstr "새로운 탭 경험을 즐기세요"
-
-#~ msgid "Improve videos"
-#~ msgstr "동영상 기능 향상"
-
-#~ msgid "Create and manage strong passwords"
-#~ msgstr "강력한 비밀번호 생성 및 관리"
-
-#~ msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-#~ msgstr "더 많은 우수한 %(linkStart)s비밀번호 관리자%(linkEnd)s 확장 기능을 탐색하세요."
-
-#~ msgid "Block annoying ads"
-#~ msgstr "성가신 광고 차단"
-
-#~ msgid "No Downloads"
-#~ msgstr "다운로드 중"
-
-#~ msgid "%(total)s download"
-#~ msgid_plural "%(total)s downloads"
-#~ msgstr[0] "부가 기능 %(total)s개"
-
-#~ msgid "Access your data in %(param)s other domain"
-#~ msgid_plural "Access your data in %(param)s other domains"
-#~ msgstr[0] "%(param)s 다른 도메인에서 사용자의 데이터에 접근"
-
-#~ msgid "Access your data on %(param)s other site"
-#~ msgid_plural "Access your data on %(param)s other sites"
-#~ msgstr[0] "%(param)s 다른 사이트에서 사용자의 데이터에 접근"
-
-#~ msgid "Firefox Add-ons (%(locale)s)"
-#~ msgstr "Firefox 부가 기능"
-
-#~ msgid "Firefox Add-ons for Android (%(locale)s)"
-#~ msgstr "Android 용 Firefox 부가 기능 (%(locale)s)"
-
-#~ msgid "Your version of Firefox does not support search plugins."
-#~ msgstr "사용중인 Firefox 버전에서는 검색 플러그인을 지원하지 않습니다."
-
-#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-#~ msgstr "%(addonName)s – 🦊 Firefox 용 검색 도구(%(locale)s)"
-
-#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-#~ msgstr "%(addonName)s – 🦊 Firefox Android 용 검색 도구(%(locale)s)"
-
-#~ msgid "Android Browser"
-#~ msgstr "Android 브라우저"
-
-#~ msgid "iOS Browser"
-#~ msgstr "iOS 브라우저"
-
-#~ msgid "Desktop Browser"
-#~ msgstr "데스크톱 브라우저"
-
-#~ msgid "Beta, Nightly, Developer Edition"
-#~ msgstr "베타, 나이틀리, 개발자 버전"
-
-#~ msgid "Log in to rate this search plugin"
-#~ msgstr "로그인하여 이 검색 플러그인 평가하기"
-
-#~ msgid "%(count)s Search Tool found"
-#~ msgid_plural "%(count)s Search Tools found"
-#~ msgstr[0] "%(count)s개의 검색 도구를 찾았습니다"
-
-#~ msgid "%(count)s Search Tool found for \"%(query)s\""
-#~ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-#~ msgstr[0] "\"%(query)s\"에 대해 %(count)s개의 검색 도구를 찾았습니다"
-
-#~ msgid "About this search plugin"
-#~ msgstr "이 검색 플러그인 정보"
-
-#~ msgid "Firefox for iOS does not currently support add-ons."
-#~ msgstr "iOS 용 Firefox는 현재 부가 기능을 지원하지 않습니다."
-
-#~ msgid "Focus Browser"
-#~ msgstr "Focus 브라우저"
-
-#~ msgid "This add-on is not compatible with Firefox for Android. <a href=\"%(newLocation)s\">Learn more</a>."
-#~ msgstr "이 부가 기능은 현재 사용중인 Firefox 버전과 호환되지 않습니다."
-
-#~ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-#~ msgstr "이 확장 기능은 Mozilla에서 모니터링하지 않습니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
-
-#~ msgid "Search Tool"
-#~ msgstr "검색 도구"
-
-#~ msgid "Firefox Preview does not currently support add-ons."
-#~ msgstr "Firefox Preview는 현재 부가 기능을 지원하지 않습니다."
-
-#~ msgid ""
-#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
-#~ "we'll get it sorted."
-#~ msgstr "어딘가에 있는 링크에서 접근했다면 <a href=\"%(url)s\">이슈를 올려</a>주세요. 어디에서 왔으며 어떤 것을 찾으려 했는지 알려주시면 최선을 다해 고치도록 하겠습니다."
-
-#~ msgid "Featured Extension"
-#~ msgstr "추천 확장 기능"
-
-#~ msgid "Featured Theme"
-#~ msgstr "추천 테마"
-
-#~ msgid "Featured Add-on"
-#~ msgstr "추천 부가 기능"
-
-#~ msgid "Featured add-ons only"
-#~ msgstr "Firefox 부가 기능"
-
-#~ msgid "See more featured extensions"
-#~ msgstr "추천 확장 기능 더보기"
-
-#~ msgid "See more featured themes"
-#~ msgstr "추천 테마 더보기"
-
-#~ msgid "User comment"
-#~ msgstr "사용자 의견"
-
-#~ msgid "Staff Pick"
-#~ msgstr "운영진의 선택"
-
-#~ msgid "Bookmarks"
-#~ msgstr "북마크"
-
-#~ msgid "Ad blockers"
-#~ msgstr "광고 차단기"
-
-#~ msgid "Smarter shopping"
-#~ msgstr "더 똑똑한 쇼핑"
-
-#~ msgid "Watching videos"
-#~ msgstr "동영상 보기"
-
-#~ msgid "See more productivity extensions"
-#~ msgstr "인기 확장 기능 더보기"
-
-#~ msgid "Productivity extensions"
-#~ msgstr "인기 확장 기능 더보기"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "확장 기능 검색"
-
-#~ msgid "See more feed readers"
-#~ msgstr "추천 테마 더보기"
-
-#~ msgid "Feed readers"
-#~ msgstr "추천 테마 더보기"
-
-#~ msgid "%(categoryName)s – Extensions"
-#~ msgstr "%(categoryName)s – 확장 기능"
-
-#~ msgid "%(categoryName)s – Themes"
-#~ msgstr "%(categoryName)s – 테마"
-
-#~ msgid "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
-#~ msgstr "%(timestamp)s에 작성됨"
-
-#~ msgid "See more VPN solutions"
-#~ msgstr "가장 평점이 높은 확장 기능 더보기"
-
-#~ msgid "VPN solutions"
-#~ msgstr "VPN 솔루션"
-
-#~ msgid "See more video extensions"
-#~ msgstr "가장 평점이 높은 확장 기능 더보기"
-
-#~ msgid "See more spring themes"
-#~ msgstr "유행하는 테마 더보기"
-
-#~ msgid "Spring themes"
-#~ msgstr "유행하는 테마"
-
-#~ msgid "See more Wikipedia boosters"
-#~ msgstr "유행하는 테마 더보기"
-
-#~ msgid "See more tools"
-#~ msgstr "확장 기능 검색"
-
-#~ msgid "See more health & wellness extensions"
-#~ msgstr "추천 확장 기능 더보기"
-
-#~ msgid "Please enter a search term to search Firefox Add-ons."
-#~ msgstr "Firefox 부가 기능을 검색하려면 검색어를 입력해주세요."
-
-#~ msgid "Context Search"
-#~ msgstr "검색"
-
-#~ msgid "Search Encrypt"
-#~ msgstr "테마 검색"
-
-#~ msgid "Privacy protection for your search data"
-#~ msgstr "개인정보 보호정책"
-
-#~ msgid "Update Scanner"
-#~ msgstr "댓글 수정"
-
-#~ msgid "Auto-Sort Bookmarks"
-#~ msgstr "북마크"
-
-#~ msgid "Search Preview"
-#~ msgstr "검색"
-
-#~ msgid "Search Site"
-#~ msgstr "검색"
-
-#~ msgid "New Tab Homepage"
-#~ msgstr "홈 페이지"
-
-#~ msgid "Facebook Container"
-#~ msgstr "다시 로드"
-
-#~ msgid "CookieBro"
-#~ msgstr "쿠키"
-
-#~ msgid "Private Bookmarks"
-#~ msgstr "북마크"
-
-#~ msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-#~ msgstr "색상으로 구별된 탭을 통해 일, 개인, 등 여러분의 온라인 삶을 분류하여 관리하세요."
-
-#~ msgid "Privacy Possum"
-#~ msgstr "개인 정보 보호 정책"
-
-#~ msgid "No add-ons found"
-#~ msgstr "카테고리가 없습니다."
-
-#~ msgid "%(count)s dictionary found for \"%(query)s\""
-#~ msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-#~ msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
-
-#~ msgid "%(count)s language pack found for \"%(query)s\""
-#~ msgid_plural "%(count)s language packs found for \"%(query)s\""
-#~ msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
-
-#~ msgid "See more weather reports"
-#~ msgstr "추천 테마 더보기"
-
-#~ msgid "%(averageRating)s star average"
-#~ msgstr "평균 점수: 5 점 중 %(rating)s"
-
-#~ msgid "This add-on has been disabled by an administrator."
-#~ msgstr "이 부가 기능은 관리자에 의해 사용 정지 되었습니다."
-
-#~ msgid "Sorry, but we can't find anything at the address you entered."
-#~ msgstr "죄송합니다. 입력하신 URL에서 찾을 수가 없습니다."
-
-#~ msgid "View classic desktop site"
-#~ msgstr "기존 데스크톱 사이트 보기"
-
-#~ msgid "%(total)s review for this add-on"
-#~ msgid_plural "%(total)s reviews for this add-on"
-#~ msgstr[0] "이 부가기능에 대한 %(total)s개의 리뷰"
-
-#~ msgid "No reviews"
-#~ msgstr "평가 없음"
-
-#~ msgid "Username"
-#~ msgstr "사용자"
-
-#~ msgid "Add"
-#~ msgstr "부가 기능"
-
-#~ msgid "See more privacy & security extensions"
-#~ msgstr "확장 기능 검색"
-
-#~ msgid "Privacy & security"
-#~ msgstr "개인 정보 보호 정책"
-
-#~ msgid "See more social media customization"
-#~ msgstr "가장 평점이 높은 확장 기능 더보기"
-
-#~ msgid "Social media customization"
-#~ msgstr "가장 평점이 높은 확장 기능 더보기"
-
-#~ msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-#~ msgstr "이 부가 기능을 설치 하려면 <a href=\"%(downloadUrl)s\">Firefox를 다운로드</a>해야 합니다."
-
-#~ msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-#~ msgstr "이 확장 기능이 왜 환상적인지 공유해 주세요! %(linkStart)s리뷰 가이드라인%(linkEnd)s을 참고해 주세요."
-
-#~ msgid "Tell us what you love about this extension. Be specific and concise."
-#~ msgstr "이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
-
-#~ msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-#~ msgstr "이 확장 기능에 대해서 공유해 주세요. %(linkStart)s리뷰 가이드라인%(linkEnd)s을 참고해 주세요."
-
-#~ msgid "Tell us about your experience with this extension. Be specific and concise."
-#~ msgstr "이 확장 기능에 대한 여러분의 경험을 말해주세요. 구체적이고 간결하면 좋습니다."
-
-#~ msgid "Review text"
-#~ msgstr "리뷰 내용"
-
-#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
-#~ msgstr "%s – Firefox 부가 기능"
-
-#~ msgid "%(title)s – Add-ons for Android (%(locale)s)"
-#~ msgstr "%s – Android 부가 기능"
-
-#~ msgid "Browse all add-ons in this category."
-#~ msgstr "이 카테고리의 모든 부가 기능 탐색하기."
-
-#~ msgid "Browse all themes in this category."
-#~ msgstr "이 카테고리의 모든 테마 탐색하기."
-
-#~ msgid "Downloading %(name)s."
-#~ msgstr "%(name)s를 다운로드하는 중입니다."
-
-#~ msgid "Installing %(name)s."
-#~ msgstr "%(name)s를 설치하는 중입니다."
-
-#~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr "%(name)s가 설치되었고 활성화되었습니다. 제거하려면 클릭하세요."
-
-#~ msgid "%(name)s is disabled. Click to enable."
-#~ msgstr "%(name)s가 비활성되었습니다. 활성화하려면 클릭하세요."
-
-#~ msgid "Uninstalling %(name)s."
-#~ msgstr "%(name)s를 제거하는중입니다."
-
-#~ msgid "%(name)s is uninstalled. Click to install."
-#~ msgstr "%(name)s가 제거되었습니다. 설치하시려면 클릭하세요."
-
-#~ msgid "Install state for %(name)s is unknown."
-#~ msgstr "%(name)s의 설치 상태를 알 수 없습니다."
-
-#~ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-#~ msgstr "%(startSpan)s%(authorList)s에 의해 제작된%(endSpan)s %(addonName)s"
-
-#~ msgid "Report Trademark Abuse"
-#~ msgstr "상표권 남용 신고"
-
-#~ msgid "by %(authorList)s"
-#~ msgstr "%(authorList)s"
-
-#~ msgid "Translation tools"
-#~ msgstr "번역 도구"
-
-#~ msgid "Fall themes"
-#~ msgstr "추천 테마"
-
-#~ msgid "Go to this review"
-#~ msgstr "이 리뷰에 답변"
-
-#~ msgid "See more exceptional search tools"
-#~ msgstr "확장 기능 검색"
-
-#~ msgid "See more reading extensions"
-#~ msgstr "유행하는 확장 기능 더보기"
-
-#~ msgid "Turbo Download Manager"
-#~ msgstr "%(name)s를 다운로드하는 중입니다."
-
-#~ msgid "Save collection"
-#~ msgstr "이 콜렉션 수정"
-
-#~ msgid "Ratings"
-#~ msgstr "평가"
-
-#~ msgid "Rating"
-#~ msgid_plural "Ratings"
-#~ msgstr[0] "평가"
-
-#~ msgid "No Ratings"
-#~ msgstr "평가 없음"
-
-#~ msgid "Overall Rating"
-#~ msgstr "전반적인 점수"
-
-#~ msgid "See more summer themes"
-#~ msgstr "인기있는 테마 더보기"
-
-#~ msgid "See more must-have media extensions"
-#~ msgstr "유행하는 확장 기능 더보기"
-
-#~ msgid "Your add-on is ready"
-#~ msgstr "부가 기능이 준비되었습니다"
-
-#~ msgid "Now you can access %(name)s from the toolbar."
-#~ msgstr "이제 툴바에서 %(name)s를 사용할 수 있습니다."
-
-#~ msgid "Update My Account"
-#~ msgstr "내 계정"
-
-#~ msgid "Updating this account…"
-#~ msgstr "댓글 수정 중"
-
-#~ msgid "Delete My Account"
-#~ msgstr "내 계정"
-
-#~ msgid "Delete This Account"
-#~ msgstr "이 콜렉션 수정"
-
-#~ msgid "Cancel preview"
-#~ msgstr "미리보기 취소"
-
-#~ msgid "Tap to preview"
-#~ msgstr "탭하여 미리보기"
-
-#~ msgid "Privacy matters"
-#~ msgstr "개인 정보 보호 정책"
-
-#~ msgid "Image Search Options"
-#~ msgstr "확장 기능 검색"
-
-#~ msgid "PrivacyBadger"
-#~ msgstr "개인 정보"
-
-#~ msgid "Update user's profile"
-#~ msgstr "댓글 수정"
-
-#~ msgid "Delete user's profile"
-#~ msgstr "댓글 수정"
-
-#~ msgid "Yes, delete my profile"
-#~ msgstr "댓글 수정"
-
-#~ msgid "Essential extensions"
-#~ msgstr "모든 확장 기능 탐색하기"
-
-#~ msgid "Top-rated themes"
-#~ msgstr "가장 평점이 높은 테마"
-
-#~ msgid "See more highly rated themes"
-#~ msgstr "평점이 높은 테마 더보기"
-
-#~ msgid "“Extensions Challenge” honorees"
-#~ msgstr "Firefox 작동 방식을 변경할 수 있습니다…"
-
-#~ msgid "Flagfox"
-#~ msgstr "표시하기"
-
-#~ msgid "This add-on has not been rated yet."
-#~ msgstr "이 부가 기능 정보"
-
-#~ msgid "See all beta versions"
-#~ msgstr "모든 베타 버전 보기"
-
-#~ msgid "See more good time tabs extensions"
-#~ msgstr "가장 평점이 높은 확장 기능 더보기"
-
-#~ msgid "AliTools"
-#~ msgstr "도구"
-
-#~ msgid "Click to rate this add-on"
-#~ msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
-
-#~ msgid "No ratings"
-#~ msgstr "평가 없음"
-
-#~ msgid "Saving collection"
-#~ msgstr "이 콜렉션 수정"
-
-#~ msgid "February’s new featured extensions"
-#~ msgstr "추천 확장 기능 더보기"
-
-#~ msgid "See all the new featured extensions"
-#~ msgstr "추천 확장 기능 더보기"
-
-#~ msgid "Zoom for Firefox"
-#~ msgstr "Firefox 부가 기능"
-
-#~ msgid "Top-rated Extensions"
-#~ msgstr "가장 평점이 높은 확장 기능"
-
-#~ msgid "See more highly rated Extensions"
-#~ msgstr "평점이 높은 확장 기능 더보기"
-
-#~ msgid "Top-rated Themes"
-#~ msgstr "가장 평점이 높은 테마"
-
-#~ msgid "Productivity tools"
-#~ msgstr "가장 인기있는 확장 기능"
-
-#~ msgid "Search by Image"
-#~ msgstr "테마 검색"
-
-#~ msgid "Most Popular Extensions"
-#~ msgstr "가장 인기있는 확장 기능"
-
-#~ msgid "Up & Coming Extensions"
-#~ msgstr "추천 확장 기능"
-
-#~ msgid "Find language pack"
-#~ msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
-
-#~ msgid "Tell the world about this extension."
-#~ msgstr "이 멋진 확장 기능을 소개해주세요."
-
-#~ msgid "All written reviews"
-#~ msgstr "작성된 리뷰"
-
-#~ msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-#~ msgstr "죄송합니다. 입력하신 주소를 찾지 못했습니다. 부가 기능을 링크하셨다면, 부가 기능이 개발자에 의해 삭제되었을 수 있습니다."
-
-#~ msgid "Themes change how Firefox looks"
-#~ msgstr "Firefox 작동 방식을 변경할 수 있습니다…"
-
-#~ msgid "More Featured Extensions"
-#~ msgstr "추천 추가 기능 더 보기"
-
-#~ msgid "More Featured Themes"
-#~ msgstr "추천 테마 더 보기"
-
-#~ msgid "Be social"
-#~ msgstr "소셜 활동"
-
-#~ msgid "Screenshot"
-#~ msgstr "스크린샷"
-
-#~ msgid "Shop online"
-#~ msgstr "온라인 쇼핑"
-
-#~ msgid "Wild"
-#~ msgstr "거친"
-
-#~ msgid "Sporty"
-#~ msgstr "활발한"
-
-#~ msgid "Browse in your language"
-#~ msgstr "내 언어로 검색"
-
-#~ msgid "Log in/Sign up"
-#~ msgstr "로그인/가입하기"
-
-#~ msgid "Failed to load categories."
-#~ msgstr "카테고리를 불러오는데 실패했습니다."
-
-#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-#~ msgstr ""
-#~ "확장 기능은 Firefox에 추가해 쓸 수 있는 특별한 기능입니다.\n"
-#~ "테마는 브라우저의 모양을 바꿀 수 있습니다."
-
-#~ msgid "Fashionable"
-#~ msgstr "멋있는"
-
-#~ msgid "Sentiment"
-#~ msgstr "심리"
-
-#~ msgid "Back"
-#~ msgstr "뒤로가기"
-
-#~ msgid "Please enter some text"
-#~ msgstr "텍스트를 입력 해 주시기 바랍니다"
-
-#~ msgid "screenshot %(imageNumber)s of %(totalImages)s"
-#~ msgstr "스크린샷 %(totalImages)s 개 중 %(imageNumber)s 번 째"
-
-#~ msgid "What do you want Firefox to do?"
-#~ msgstr "Firefox가 무엇을 하길 바라십니까?"
-
-#~ msgid "Save stuff"
-#~ msgstr "저장하기"
-
-#~ msgid "Share stuff"
-#~ msgstr "공유하기"
-
-#~ msgid "How do you want Firefox to look?"
-#~ msgstr "파이어폭스가 어떻게 보여지길 바라십니까?"
-
-#~ msgid "Mystical"
-#~ msgstr "신비로운"
-
-#~ msgid "Your search for \"%(query)s\" returned %(count)s result."
-#~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] "\"%(query)s\"에 대한 검색결과가 %(count)s개 있습니다."
-
-#~ msgid "Please supply a valid search"
-#~ msgstr "유효한 검색어를 입력해 주세요"
