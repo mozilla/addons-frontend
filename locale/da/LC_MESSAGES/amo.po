@@ -1982,11 +1982,10 @@ msgstr[0] "%(count)s udvidelse med \"%(query)s\" blev fundet"
 msgstr[1] "%(count)s udvidelser med \"%(query)s\" blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:113
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s udvidelse i kategorien %(categoryName)s blev fundet"
-msgstr[1] "%(count)s udvidelser i kategorien %(categoryName)s blev fundet"
+msgstr[0] "%(count)s udvidelse med mærkatet %(tag)s blev fundet"
+msgstr[1] "%(count)s udvidelser med mærkatet %(tag)s blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
@@ -2034,11 +2033,10 @@ msgstr[0] "%(count)s tema med \"%(query)s\" blev fundet"
 msgstr[1] "%(count)s temaer med \"%(query)s\" blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:188
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "%(count)s tema i kategorien %(categoryName)s blev fundet"
-msgstr[1] "%(count)s temaer i kategorien %(categoryName)s blev fundet"
+msgstr[0] "%(count)s tema med mærkatet %(tag)s blev fundet"
+msgstr[1] "%(count)s temaer med mærkatet %(tag)s blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
@@ -3076,7 +3074,7 @@ msgstr "Give falske udtalelser, nedgøre tilføjelsens udviklere eller komme med
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Tilføjelser med mærkatet %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
