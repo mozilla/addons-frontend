@@ -6,12 +6,14 @@ import { withRouter } from 'react-router-dom';
 
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
+import AddonReportAbuseLink from 'amo/components/AddonReportAbuseLink';
 import Card from 'amo/components/Card';
 import DefinitionList, { Definition } from 'amo/components/DefinitionList';
 import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   STATS_VIEW,
 } from 'amo/constants';
@@ -398,6 +400,10 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         </DefinitionList>
         <AddonAdminLinks addon={addon} />
         <AddonAuthorLinks addon={addon} />
+
+        {addon && addon.type !== ADDON_TYPE_LANG && (
+          <AddonReportAbuseLink addon={addon} />
+        )}
       </>
     );
   }

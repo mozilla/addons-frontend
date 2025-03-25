@@ -21,10 +21,8 @@ import {
   updateAddonReview,
 } from 'amo/actions/reviews';
 import RatingManager from 'amo/components/RatingManager';
-import { loadAddonAbuseReport } from 'amo/reducers/abuse';
 import {
   createFailedErrorHandler,
-  createFakeAddonAbuseReport,
   createInternalAddonWithLang,
   createInternalVersionWithLang,
   createLocalizedString,
@@ -506,45 +504,6 @@ describe(__filename, () => {
       ).toBeInTheDocument();
       // With a null review we should not be in a loading state.
       expect(screen.getByRole('alert')).toBeInTheDocument();
-    });
-  });
-
-  describe('Tests for ReportAbuseButton', () => {
-    it('does not render an abuse button for a langpack', () => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        type: ADDON_TYPE_LANG,
-      });
-
-      render({ addon });
-
-      expect(
-        screen.queryByClassName('ReportAbuseButton'),
-      ).not.toBeInTheDocument();
-    });
-
-    it('allows a user to report an add-on for abuse', async () => {
-      render();
-
-      const link = screen.getByRole('link', { name: 'Report this add-on' });
-      expect(link).toHaveAttribute('rel', 'nofollow');
-    });
-
-    it('shows a success message when feedback has been submitted', () => {
-      const addon = fakeAddon;
-      const abuseResponse = createFakeAddonAbuseReport({
-        addon,
-        message: 'some report message',
-      });
-
-      store.dispatch(loadAddonAbuseReport(abuseResponse));
-      render({ addon });
-
-      expect(
-        screen.getByRole('heading', {
-          name: 'You reported this add-on',
-        }),
-      ).toBeInTheDocument();
     });
   });
 
