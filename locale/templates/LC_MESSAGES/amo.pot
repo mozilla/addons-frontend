@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-18 12:27+0000\n"
+"POT-Creation-Date: 2025-03-26 14:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -214,8 +214,8 @@ msgid "Used by"
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:103
-#: src/amo/pages/UserProfile/index.js:356
-#: src/amo/pages/UserProfile/index.js:359
+#: src/amo/pages/UserProfile/index.js:361
+#: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr ""
@@ -311,47 +311,47 @@ msgstr ""
 msgid "Other popular extensions"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:210
+#: src/amo/components/AddonReviewCard/index.js:209
 msgid "Edit reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:213
+#: src/amo/components/AddonReviewCard/index.js:212
 msgid "Edit review"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:220
-#: src/amo/components/AddonReviewCard/index.js:252
+#: src/amo/components/AddonReviewCard/index.js:219
+#: src/amo/components/AddonReviewCard/index.js:251
 msgid "Delete reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:224
-#: src/amo/components/AddonReviewCard/index.js:256
+#: src/amo/components/AddonReviewCard/index.js:223
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Delete rating"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:227
-#: src/amo/components/AddonReviewCard/index.js:259
+#: src/amo/components/AddonReviewCard/index.js:226
+#: src/amo/components/AddonReviewCard/index.js:258
 msgid "Delete review"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:234
+#: src/amo/components/AddonReviewCard/index.js:233
 msgid "Do you really want to delete this reply?"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:238
+#: src/amo/components/AddonReviewCard/index.js:237
 msgid "Do you really want to delete this rating?"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:241
+#: src/amo/components/AddonReviewCard/index.js:240
 msgid "Do you really want to delete this review?"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:248
+#: src/amo/components/AddonReviewCard/index.js:247
 #: src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:266
+#: src/amo/components/AddonReviewCard/index.js:265
 #: src/amo/components/AddonReviewManager/index.js:146
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
@@ -360,70 +360,65 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:270
+#: src/amo/components/AddonReviewCard/index.js:269
 msgid "Keep reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:274
+#: src/amo/components/AddonReviewCard/index.js:273
 msgid "Keep rating"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:277
+#: src/amo/components/AddonReviewCard/index.js:276
 msgid "Keep review"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:313
+#: src/amo/components/AddonReviewCard/index.js:312
 msgid "Write a reply to this review."
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:316
+#: src/amo/components/AddonReviewCard/index.js:315
 msgid "Update reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:317
+#: src/amo/components/AddonReviewCard/index.js:316
 msgid "Publish reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:321
+#: src/amo/components/AddonReviewCard/index.js:320
 msgid "Updating reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:322
+#: src/amo/components/AddonReviewCard/index.js:321
 msgid "Publishing reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:368
+#: src/amo/components/AddonReviewCard/index.js:365
 #. Example in English: "posted last week"
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:371
+#: src/amo/components/AddonReviewCard/index.js:367
 #. Example in English: "by UserName123, last week"
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:375
-#. Example in English: "by UserName123, last week"
-msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
-
-#: src/amo/components/AddonReviewCard/index.js:490
+#: src/amo/components/AddonReviewCard/index.js:480
 msgid "Deleting…"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:521
+#: src/amo/components/AddonReviewCard/index.js:511
 msgid "Reply to this review"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:551
+#: src/amo/components/AddonReviewCard/index.js:541
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:597
+#: src/amo/components/AddonReviewCard/index.js:587
 msgid "Write a review"
 msgstr ""
 
@@ -3302,7 +3297,7 @@ msgid "Submit feedback or report a user to Mozilla"
 msgstr ""
 
 #: src/amo/pages/UserFeedback/index.js:143
-#: src/amo/pages/UserProfile/index.js:381
+#: src/amo/pages/UserProfile/index.js:387
 msgid "User since"
 msgstr ""
 
@@ -3364,34 +3359,34 @@ msgstr ""
 msgid "User Profile"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:366
+#: src/amo/pages/UserProfile/index.js:371
 #: src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:374
+#: src/amo/pages/UserProfile/index.js:379
 #: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:391
+#: src/amo/pages/UserProfile/index.js:395
 msgid "Number of add-ons"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:397
+#: src/amo/pages/UserProfile/index.js:403
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:412
+#: src/amo/pages/UserProfile/index.js:415
 #: src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:436
+#: src/amo/pages/UserProfile/index.js:439
 msgid "Edit profile"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:449
+#: src/amo/pages/UserProfile/index.js:452
 #. This action allows an admin to maintain a user.
 msgid "Admin user"
 msgstr ""
