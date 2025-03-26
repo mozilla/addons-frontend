@@ -1448,10 +1448,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@mozilla-protocol/tokens@5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@mozilla-protocol/tokens/-/tokens-5.0.5.tgz#92bc2e5fe61e9706c95f9f3546bed556526dba2a"
-  integrity sha512-VJ2fYJs09m0x1yWHVGhbqp2ZBOfEZy8vbOGYqNXCVrsYriLZp20CdKJq3+jj/chEVz+S5b0wdIOKkLqvgqIr/A==
+"@mozilla-protocol/tokens@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@mozilla-protocol/tokens/-/tokens-6.0.0.tgz#098aa71f4553b40cf34db5798259acdd336cf3cf"
+  integrity sha512-8ThQsB+tqz36slV7jJ1egnp6yDOMhmn2vST4HTtTk3meshHD+qZK1MFfTsWC7UtJuF9JuNVUu5icaJxJm3Wf1A==
 
 "@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.3":
   version "2.1.8-no-fsevents.3"
