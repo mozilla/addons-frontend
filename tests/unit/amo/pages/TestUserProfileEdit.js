@@ -11,6 +11,7 @@ import {
   USERS_EDIT,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
+import { setAuthToken } from 'amo/reducers/api';
 import { clearError } from 'amo/reducers/errors';
 import {
   FETCH_USER_ACCOUNT,
@@ -23,6 +24,7 @@ import {
   finishUpdateUserAccount,
   getCurrentUser,
   getUserById,
+  loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
   logOutUser,
@@ -42,6 +44,7 @@ import {
   getElement,
   renderPage as defaultRender,
   screen,
+  userAuthSessionId,
   within,
 } from 'tests/unit/helpers';
 
@@ -422,6 +425,45 @@ describe(__filename, () => {
           occupation: user.occupation,
         },
         userId: user.id,
+      }),
+    );
+  });
+
+  it('dispatches updateUserAccount action with default values if undefined beforehand', async () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const displayName = 'Name';
+    const userId = defaultUserId;
+
+    store.dispatch(setAuthToken(userAuthSessionId()));
+    store.dispatch(
+      loadCurrentUserAccount({
+        user: {
+          id: userId,
+          display_name: displayName,
+          username: 'username-123',
+        },
+      }),
+    );
+    render({ userId });
+
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Update My Profile' }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
+      updateUserAccount({
+        errorHandlerId: getErrorHandlerId(userId),
+        notifications: {},
+        picture: null,
+        pictureData: null,
+        userFields: {
+          biography: '',
+          display_name: displayName,
+          homepage: '',
+          location: '',
+          occupation: '',
+        },
+        userId,
       }),
     );
   });

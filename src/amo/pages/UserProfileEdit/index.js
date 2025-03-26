@@ -410,11 +410,11 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
     }
 
     const {
-      biography,
+      biography = defaultFormValues.biography,
       display_name: displayName,
-      homepage,
-      location,
-      occupation,
+      homepage = defaultFormValues.homepage,
+      location = defaultFormValues.location,
+      occupation = defaultFormValues.occupation,
     } = user;
 
     return {
