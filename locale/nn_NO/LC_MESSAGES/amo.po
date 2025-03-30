@@ -1332,7 +1332,7 @@ msgstr "Oppgi fleire detaljar"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "Ver vennleg og oppgi eventuell tilleggsinformasjon som kan hjelpe oss med å forstå rapporten din (inkludert kva for retningslinjer du meiner har vorte brotne)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
@@ -2516,19 +2516,19 @@ msgstr "Eldre versjonar"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s er avgrensa for brot på Mozillas retningslinjer"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "Dette tillegget er avgrensa for brot på Mozillas retningslinjer"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s er blokkert for brot på Mozillas retningslinjer"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "Dette tillegget er blokkert for brot på Mozillas retningslinjer"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
@@ -2536,7 +2536,7 @@ msgstr "Kvifor skjedde dette?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "Denne utvidinga, temaet eller programtillegget bryt %(startLink)sMozillas retningslinjer for tillegg%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2547,6 +2547,8 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Før brotet er løyst, vil ikkje dette tillegget vere tilgjengeleg for nedlasting frå addons.mozilla.org. Viss det allereie er installert, vil det bli deaktiverte og brukarar vil bli informert om "
+"brotet. Dei kan velje å aktivere tillegget igjen på eigen risiko."
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
