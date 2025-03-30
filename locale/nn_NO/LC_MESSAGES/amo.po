@@ -2552,7 +2552,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Før brotet er løyst, vil ikkje dette tillegget vere tilgjengeleg for nedlasting frå addons.mozilla.org. Det blir automatisk deaktivert og kan ikkje lenger brukast i Firefox."
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
@@ -2563,6 +2563,8 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Når Mozilla blir merksam på tillegg, programtillegg eller anna tredjepartsprogramvare som alvorleg kompromitterer sikkerheita til Firefox, stabilitet eller yting og oppfyller %(criteriaStartLink)s "
+"visse kriterium%(criteriaEndLink)s, kan programvara blokkerast eller blir avgrensa frå generell bruk. For meir informasjon, les %(supportStartLink)sdenne støtteartikkelen%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
