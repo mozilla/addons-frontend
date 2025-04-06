@@ -1098,7 +1098,7 @@ msgstr "Muu"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "Valitse rikkomus"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
@@ -2519,19 +2519,19 @@ msgstr "Vanhemmat versiot"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s on rajoitettu Mozillan käytäntöjen rikkomisen vuoksi"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "Tämä lisäosa on rajoitettu Mozillan käytäntöjen rikkomisen vuoksi"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s on estetty Mozillan käytäntöjen rikkomisen vuoksi"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "Tämä lisäosa on estetty Mozillan käytäntöjen rikkomisen vuoksi"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
@@ -2539,7 +2539,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "Tämä laajennus, teema tai liitännäinen rikkoo %(startLink)sMozillan lisäosakäytäntöjä%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2635,7 +2635,7 @@ msgstr "Lähetä palautetta tai ilmoita kokoelmasta Mozillalle"
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "tekijä %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
@@ -2803,7 +2803,7 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "tekijä %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
