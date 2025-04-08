@@ -11,7 +11,6 @@ import type { AddonAbuseState } from 'amo/reducers/abuse';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 
@@ -21,19 +20,17 @@ type Props = {|
 
 type PropsFromState = {|
   abuseReport: AddonAbuseState | null,
-  loading: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  dispatch: DispatchFunc,
   i18n: I18nType,
 |};
 
 export class AddonReportAbuseLinkBase extends React.Component<InternalProps> {
   render(): null | React.Node {
-    const { abuseReport, addon, i18n, loading } = this.props;
+    const { abuseReport, addon, i18n } = this.props;
 
     invariant(addon, 'An add-on is required');
 
@@ -74,7 +71,6 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
       addon && state.abuse.byGUID[addon.guid]
         ? state.abuse.byGUID[addon.guid]
         : null,
-    loading: state.abuse.loading,
   };
 };
 
