@@ -1,5 +1,4 @@
 /* @flow */
-import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -51,7 +50,7 @@ export class AddonReportAbuseLinkBase extends React.Component<InternalProps> {
 
     /* eslint-disable react/no-danger */
     return (
-      <div className={makeClassName('AddonReportAbuseLink')}>
+      <div className="AddonReportAbuseLink">
         <div className="AddonReportAbuseLink--preview">
           <Link to={`/feedback/addon/${addon.slug}/`} rel="nofollow">
             {i18n.gettext('Report this add-on')}
