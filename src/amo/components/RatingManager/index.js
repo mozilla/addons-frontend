@@ -16,7 +16,6 @@ import {
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
-import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
 import {
@@ -268,7 +267,6 @@ export class RatingManagerBase extends React.Component<InternalProps> {
             slim
           />
         )}
-        {addon.type !== ADDON_TYPE_LANG && <ReportAbuseButton addon={addon} />}
       </div>
     );
   }
