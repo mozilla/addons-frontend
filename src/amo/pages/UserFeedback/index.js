@@ -139,14 +139,16 @@ export class UserFeedbackBase extends React.Component<InternalProps> {
                   {user ? user.name : <LoadingText />}
                 </h1>
 
-                <div className="UserFeedback-header-metadata">
-                  <span>{i18n.gettext('User since')}</span>
-                  {user && user.created ? (
-                    i18n.moment(user.created).format('ll')
-                  ) : (
-                    <LoadingText />
-                  )}
-                </div>
+                {(!user || user.created) && (
+                  <div className="UserFeedback-header-metadata">
+                    <span>{i18n.gettext('User since')}</span>
+                    {user && user.created ? (
+                      i18n.moment(user.created).format('ll')
+                    ) : (
+                      <LoadingText />
+                    )}
+                  </div>
+                )}
               </Card>
             }
             abuseIsLoading={isSubmitting}

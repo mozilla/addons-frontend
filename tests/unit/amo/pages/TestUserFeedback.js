@@ -211,6 +211,18 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
+  it('renders the feedback form for a non-developer user profile', () => {
+    const username = 'some user name';
+
+    render({ username, created: null });
+
+    // Header.
+    expect(screen.getByText(username)).toBeInTheDocument();
+    expect(
+      screen.queryByClassName('UserFeedback-header-metadata'),
+    ).not.toBeInTheDocument();
+  });
+
   it('renders the feedback form for a signed in user', () => {
     const signedInUsername = 'signed-in-username';
     const signedInEmail = 'signed-in-email';
