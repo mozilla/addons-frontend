@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-11 09:39+0000\n"
+"POT-Creation-Date: 2025-04-15 14:16+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -242,98 +242,98 @@ msgstr "Write a review"
 msgid "Used by"
 msgstr "Used by"
 
-#: src/amo/components/AddonMoreInfo/index.js:103
+#: src/amo/components/AddonMoreInfo/index.js:105
 #: src/amo/pages/UserProfile/index.js:361
 #: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:120
+#: src/amo/components/AddonMoreInfo/index.js:122
 msgid "Support site"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:134
+#: src/amo/components/AddonMoreInfo/index.js:136
 msgid "Support Email"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:154
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:172
+#: src/amo/components/AddonMoreInfo/index.js:174
 #, fuzzy
 msgid "Custom License"
 msgstr "No results were found for \"%(query)s\"."
 
 #. This will output, in English: "2 months ago (Dec 12 2016)"
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:218
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:233
+#: src/amo/components/AddonMoreInfo/index.js:235
 msgid "Read the privacy policy for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:245
+#: src/amo/components/AddonMoreInfo/index.js:247
 msgid "Read the license agreement for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:258
+#: src/amo/components/AddonMoreInfo/index.js:260
 #, fuzzy
 msgid "See all versions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/AddonMoreInfo/index.js:305
+#: src/amo/components/AddonMoreInfo/index.js:307
 #, fuzzy
 msgid "Add-on Links"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/AddonMoreInfo/index.js:317
+#: src/amo/components/AddonMoreInfo/index.js:319
 msgid "Version"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:325
+#: src/amo/components/AddonMoreInfo/index.js:327
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:333
+#: src/amo/components/AddonMoreInfo/index.js:335
 #: src/amo/components/CollectionDetails/index.js:87
 #: src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:341
+#: src/amo/components/AddonMoreInfo/index.js:343
 #, fuzzy
 msgid "Related Categories"
 msgstr "Category"
 
-#: src/amo/components/AddonMoreInfo/index.js:351
+#: src/amo/components/AddonMoreInfo/index.js:353
 msgid "License"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:359
+#: src/amo/components/AddonMoreInfo/index.js:361
 #, fuzzy
 msgid "Privacy Policy"
 msgstr "Privacy policy"
 
-#: src/amo/components/AddonMoreInfo/index.js:367
+#: src/amo/components/AddonMoreInfo/index.js:369
 msgid "End-User License Agreement"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:375
+#: src/amo/components/AddonMoreInfo/index.js:377
 msgid "Version History"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:385
+#: src/amo/components/AddonMoreInfo/index.js:387
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:393
+#: src/amo/components/AddonMoreInfo/index.js:395
 msgid "Tags"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:409
+#: src/amo/components/AddonMoreInfo/index.js:415
 msgid "More information"
 msgstr ""
 
@@ -345,6 +345,20 @@ msgstr ""
 #, fuzzy
 msgid "Other popular extensions"
 msgstr "Browse all extensions"
+
+#: src/amo/components/AddonReportAbuseLink/index.js:40
+msgid "You reported this add-on"
+msgstr ""
+
+#: src/amo/components/AddonReportAbuseLink/index.js:44
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
+msgstr ""
+
+#: src/amo/components/AddonReportAbuseLink/index.js:56
+msgid "Report this add-on"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:209
 #, fuzzy
@@ -1999,47 +2013,47 @@ msgstr "Average rating: %(rating)s out of 5"
 msgid "There are no ratings yet"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:128
 msgid "Log in to rate this dictionary"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this language pack"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:133
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this theme"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:135
+#: src/amo/components/RatingManager/index.js:134
 #, fuzzy
 msgid "Log in to rate this extension"
 msgstr "About this extension"
 
-#: src/amo/components/RatingManager/index.js:143
+#: src/amo/components/RatingManager/index.js:142
 msgid "Log in to rate this add-on"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:184
+#: src/amo/components/RatingManager/index.js:183
 #, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "Browse all extensions"
 
-#: src/amo/components/RatingManager/index.js:189
+#: src/amo/components/RatingManager/index.js:188
 #, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "Browse all extensions"
 
-#: src/amo/components/RatingManager/index.js:194
+#: src/amo/components/RatingManager/index.js:193
 #, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "How are you enjoying your experience with %(addonName)s?"
 
-#: src/amo/components/RatingManager/index.js:237
+#: src/amo/components/RatingManager/index.js:236
 msgid "Saving star rating"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:238
+#: src/amo/components/RatingManager/index.js:237
 msgid "Star rating saved"
 msgstr ""
 
@@ -2108,20 +2122,6 @@ msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "Write a review"
 msgstr[1] "Write a review"
-
-#: src/amo/components/ReportAbuseButton/index.js:44
-msgid "You reported this add-on"
-msgstr ""
-
-#: src/amo/components/ReportAbuseButton/index.js:48
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
-msgstr ""
-
-#: src/amo/components/ReportAbuseButton/index.js:71
-msgid "Report this add-on"
-msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
