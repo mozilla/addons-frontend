@@ -3,6 +3,7 @@ import * as React from 'react';
 import { createApiError } from 'amo/api';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import { ErrorHandler } from 'amo/errorHandler';
+import { loadAddonAbuseReport } from 'amo/reducers/abuse';
 import { setClientApp } from 'amo/reducers/api';
 import { loadCategories } from 'amo/reducers/categories';
 import { loadVersions } from 'amo/reducers/versions';
@@ -18,6 +19,7 @@ import {
 } from 'amo/constants';
 import { formatFilesize } from 'amo/i18n/utils';
 import {
+  createFakeAddonAbuseReport,
   createInternalAddonWithLang,
   createLocalizedString,
   createStubErrorHandler,
@@ -518,6 +520,45 @@ describe(__filename, () => {
     render({ addon });
 
     expect(screen.getByText('Author Links')).toBeInTheDocument();
+  });
+
+  describe('Tests for ReportAbuseLink', () => {
+    it('does not render an abuse link for a langpack', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        type: ADDON_TYPE_LANG,
+      });
+
+      render({ addon });
+
+      expect(
+        screen.queryByClassName('ReportAbuseLink'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('allows a user to report an add-on for abuse', async () => {
+      render();
+
+      const link = screen.getByRole('link', { name: 'Report this add-on' });
+      expect(link).toHaveAttribute('rel', 'nofollow');
+    });
+
+    it('shows a success message when feedback has been submitted', () => {
+      const addon = fakeAddon;
+      const abuseResponse = createFakeAddonAbuseReport({
+        addon,
+        message: 'some report message',
+      });
+
+      store.dispatch(loadAddonAbuseReport(abuseResponse));
+      render({ addon });
+
+      expect(
+        screen.getByRole('heading', {
+          name: 'You reported this add-on',
+        }),
+      ).toBeInTheDocument();
+    });
   });
 
   describe('related categories', () => {
