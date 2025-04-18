@@ -698,6 +698,61 @@ describe(__filename, () => {
         __html: '<a href="http://example.org">link</a>',
       });
     });
+
+    describe('custom `<li>` handling through hook', () => {
+      it('removes `<li>` if not allowed', () => {
+        const html = '<li>witness me!</li>';
+        expect(sanitizeHTML(html, [])).toEqual({
+          __html: 'witness me!',
+        });
+
+        expect(sanitizeHTML(html)).toEqual({
+          __html: 'witness me!',
+        });
+      });
+
+      it('does not wrap `<li>` inside a `<ul>` if not allowed', () => {
+        const html = '<li>witness me!</li>';
+        expect(sanitizeHTML(html, ['li'])).toEqual({
+          __html: '<li>witness me!</li>',
+        });
+      });
+
+      it('wraps `<li>` inside a `<ul>` if they dont already', () => {
+        const html = '<li>witness me!</li>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>witness me!</li></ul>',
+        });
+      });
+
+      it('wraps `<li>` inside a `<ul>` if their parent was not allowed', () => {
+        const html = '<ol><li>witness me!</li></ol>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>witness me!</li></ul>',
+        });
+      });
+
+      it('doesnt wrap `<li>` inside a `<ul>` if not necessary', () => {
+        const html = '<ul><li>witness me!</li></ul>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>witness me!</li></ul>',
+        });
+      });
+
+      it('doesnt wrap `<li>` inside a `<ul>` if not necessary with ol', () => {
+        const html = '<ol><li>witness me!</li></ol>';
+        expect(sanitizeHTML(html, ['li', 'ol', 'ul'])).toEqual({
+          __html: '<ol><li>witness me!</li></ol>',
+        });
+      });
+
+      it('doesnt wrap `<li>` inside a `<ul>` if not necessary with menu', () => {
+        const html = '<menu><li>witness me!</li></menu>';
+        expect(sanitizeHTML(html, ['li', 'menu'])).toEqual({
+          __html: '<menu><li>witness me!</li></menu>',
+        });
+      });
+    });
   });
 
   describe('removeProtocolFromURL', () => {
