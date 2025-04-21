@@ -2563,7 +2563,7 @@ msgstr "Dlaczego tak się stało?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "To rozszerzenie, motyw lub wtyczka narusza %(startLink)szasady dodatków Mozilli%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2574,10 +2574,13 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Dopóki naruszenie nie zostanie rozwiązane, ten dodatek nie będzie dostępny do pobrania z addons.mozilla.org. Jeśli jest już zainstalowany, zostanie wyłączony, a użytkownicy zostaną poinformowani "
+"o naruszeniu. Mogą zdecydować się na ponowne włączenie dodatku na własne ryzyko."
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
 msgstr ""
+"Dopóki naruszenie nie zostanie rozwiązane, ten dodatek nie będzie dostępny do pobrania z addons.mozilla.org. Zostanie automatycznie wyłączony i nie będzie można go używać w przeglądarce Firefox."
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
