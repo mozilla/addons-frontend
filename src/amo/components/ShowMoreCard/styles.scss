@@ -34,22 +34,14 @@
     max-height: none;
   }
 }
-
-.AddonDescription,
-.Addon-developer-comments {
-  .ShowMoreCard-contents {
-    @include respond-to(large) {
-      &::after {
-        height: 0;
-      }
-
-      max-height: none;
-    }
+.ShowMoreCard-contents {
+  @include respond-to(large) {
+    max-height: 780px;
   }
 
-  .Card-footer-link {
+  .ShowMoreCard--expanded & {
     @include respond-to(large) {
-      display: none;
+      max-height: none;
     }
   }
 }

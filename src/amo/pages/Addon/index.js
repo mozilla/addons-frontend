@@ -306,36 +306,15 @@ export class AddonBase extends React.Component {
         id={showMoreCardName}
       >
         <div className="AddonDescription-contents" {...descriptionProps} />
+        {addon && addon.developer_comments ? (
+          <div className="Addon-developer-comments">
+            <header className="Addon-developer-comments-header">{i18n.gettext('Developer comments')}</header>
+            <div className="Addon-developer-comments-contents" dangerouslySetInnerHTML={sanitizeUserHTML(addon.developer_comments)} />
+          </div>
+        ) : null}
       </ShowMoreCard>
     ) : null;
   }
-
-  renderDevCommentsCard = () => {
-    const { addon, i18n } = this.props;
-
-    if (!addon || !addon.developer_comments) {
-      return null;
-    }
-
-    const devComments = sanitizeUserHTML(addon.developer_comments);
-    const showMoreCardName = 'Addon-developer-comments';
-
-    /* eslint-disable react/no-danger */
-    return (
-      <ShowMoreCard
-        contentId={addon.id}
-        className={showMoreCardName}
-        header={i18n.gettext('Developer comments')}
-        id={showMoreCardName}
-      >
-        <div
-          className="Addon-developer-comments-contents"
-          dangerouslySetInnerHTML={devComments}
-        />
-      </ShowMoreCard>
-    );
-    /* eslint-enable react/no-danger */
-  };
 
   renderVersionReleaseNotes() {
     const { addon, i18n, currentVersion } = this.props;
@@ -543,8 +522,6 @@ export class AddonBase extends React.Component {
               ) : null}
 
               {this.renderShowMoreCard()}
-
-              {this.renderDevCommentsCard()}
 
               {this.renderRecommendations()}
             </div>
