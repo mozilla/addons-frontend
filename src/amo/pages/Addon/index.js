@@ -307,9 +307,17 @@ export class AddonBase extends React.Component {
       >
         <div className="AddonDescription-contents" {...descriptionProps} />
         {addon && addon.developer_comments ? (
+          /* eslint-disable react/no-danger */
           <div className="Addon-developer-comments">
-            <header className="Addon-developer-comments-header">{i18n.gettext('Developer comments')}</header>
-            <div className="Addon-developer-comments-contents" dangerouslySetInnerHTML={sanitizeUserHTML(addon.developer_comments)} />
+            <header className="Addon-developer-comments-header">
+              {i18n.gettext('Developer comments')}
+            </header>
+            <div
+              className="Addon-developer-comments-contents"
+              dangerouslySetInnerHTML={sanitizeUserHTML(
+                addon.developer_comments,
+              )}
+            />
           </div>
         ) : null}
       </ShowMoreCard>
