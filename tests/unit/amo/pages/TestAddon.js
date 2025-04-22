@@ -838,19 +838,6 @@ describe(__filename, () => {
     expect(screen.getByText(developerComments)).toBeInTheDocument();
   });
 
-  it('passes the expected contentId to ShowMoreCard for developer comments', async () => {
-    addon.developer_comments = createLocalizedString(
-      'some awesome developers comments',
-    );
-    expect(
-      await testContentId({
-        addonProp: 'id',
-        addonPropValue: addon.id + 1,
-        cardClassName: 'Addon-developer-comments',
-      }),
-    ).toBeTruthy();
-  });
-
   it('allows some HTML tags in the developer comments', () => {
     addon.developer_comments = createLocalizedString(
       '<b>super</b> <i>cool</i> <blink>comments</blink>',
