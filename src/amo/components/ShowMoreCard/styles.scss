@@ -26,23 +26,16 @@
   overflow: hidden;
   position: relative;
 
+  @include respond-to(large) {
+    max-height: 780px;
+  }
+
   .ShowMoreCard--expanded & {
     &::after {
       display: none;
     }
 
     max-height: none;
-  }
-}
-.ShowMoreCard-contents {
-  @include respond-to(large) {
-    max-height: 780px;
-  }
-
-  .ShowMoreCard--expanded & {
-    @include respond-to(large) {
-      max-height: none;
-    }
   }
 }
 
