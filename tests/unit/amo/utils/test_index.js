@@ -748,8 +748,44 @@ describe(__filename, () => {
 
       it('doesnt wrap `<li>` inside a `<ul>` if not necessary with menu', () => {
         const html = '<menu><li>witness me!</li></menu>';
-        expect(sanitizeHTML(html, ['li', 'menu'])).toEqual({
+        expect(sanitizeHTML(html, ['li', 'menu', 'ul'])).toEqual({
           __html: '<menu><li>witness me!</li></menu>',
+        });
+      });
+
+      it('handles multiple `<li>`', () => {
+        const html = '<li>foo</li><li>bar</li>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>foo</li><li>bar</li></ul>',
+        });
+      });
+
+      it('handles multiple `<li>` when one does not need fixing', () => {
+        const html = '<li>foo</li><ul><li>bar</li></ul>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>foo</li></ul><ul><li>bar</li></ul>',
+        });
+      });
+
+      it('handles multiple `<li>` in separate lists', () => {
+        const html = '<li>foo</li><code>alice</code><li>bar</li>';
+        expect(sanitizeHTML(html, ['li', 'ul', 'code'])).toEqual({
+          __html:
+            '<ul><li>foo</li></ul><code>alice</code><ul><li>bar</li></ul>',
+        });
+      });
+
+      it('handles no closing `</li>`', () => {
+        const html = '<li>foo<li>bar';
+        expect(sanitizeHTML(html, ['li', 'ul', 'p'])).toEqual({
+          __html: '<ul><li>foo</li><li>bar</li></ul>',
+        });
+      });
+
+      it('does not mess ordering`', () => {
+        const html = 'Before <li>foo</li><li>bar</li> After';
+        expect(sanitizeHTML(html, ['li', 'ul', 'p'])).toEqual({
+          __html: 'Before <ul><li>foo</li><li>bar</li></ul> After',
         });
       });
     });

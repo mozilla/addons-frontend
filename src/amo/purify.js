@@ -14,13 +14,17 @@ _purify.addHook('uponSanitizeElement', (node, data, config) => {
     _ALLOWED_TAGS.includes('li')
   ) {
     // If we find a <li> with no <ul>/<ol>/<menu> parent, create one for it.
-    // It's not ideal because this might create multiple independent lists for
-    // each item, but it's better than creating invalid HTML that would throw
-    // the virtual DOM off.
+    // Try to use the same <ul> if there are multiple <li> next to each other,
+    // otherwise create a new <ul>, it's better than creating invalid HTML that
+    // would throw the virtual DOM off anyway.
     const oldParent = node.parentNode;
-    const newParent = node.ownerDocument.createElement('ul');
+    const previousElement = node.previousElementSibling;
+    const newParent =
+      previousElement && previousElement.tagName === 'UL'
+        ? previousElement
+        : node.ownerDocument.createElement('ul');
+    oldParent.insertBefore(newParent, node);
     newParent.appendChild(node);
-    oldParent.appendChild(newParent);
   }
 });
 
