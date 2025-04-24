@@ -698,6 +698,97 @@ describe(__filename, () => {
         __html: '<a href="http://example.org">link</a>',
       });
     });
+
+    describe('custom `<li>` handling through hook', () => {
+      it('removes `<li>` if not allowed', () => {
+        const html = '<li>witness me!</li>';
+        expect(sanitizeHTML(html, [])).toEqual({
+          __html: 'witness me!',
+        });
+
+        expect(sanitizeHTML(html)).toEqual({
+          __html: 'witness me!',
+        });
+      });
+
+      it('does not wrap `<li>` inside a `<ul>` if not allowed', () => {
+        const html = '<li>witness me!</li>';
+        expect(sanitizeHTML(html, ['li'])).toEqual({
+          __html: '<li>witness me!</li>',
+        });
+      });
+
+      it('wraps `<li>` inside a `<ul>` if they dont already', () => {
+        const html = '<li>witness me!</li>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>witness me!</li></ul>',
+        });
+      });
+
+      it('wraps `<li>` inside a `<ul>` if their parent was not allowed', () => {
+        const html = '<ol><li>witness me!</li></ol>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>witness me!</li></ul>',
+        });
+      });
+
+      it('doesnt wrap `<li>` inside a `<ul>` if not necessary', () => {
+        const html = '<ul><li>witness me!</li></ul>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>witness me!</li></ul>',
+        });
+      });
+
+      it('doesnt wrap `<li>` inside a `<ul>` if not necessary with ol', () => {
+        const html = '<ol><li>witness me!</li></ol>';
+        expect(sanitizeHTML(html, ['li', 'ol', 'ul'])).toEqual({
+          __html: '<ol><li>witness me!</li></ol>',
+        });
+      });
+
+      it('doesnt wrap `<li>` inside a `<ul>` if not necessary with menu', () => {
+        const html = '<menu><li>witness me!</li></menu>';
+        expect(sanitizeHTML(html, ['li', 'menu', 'ul'])).toEqual({
+          __html: '<menu><li>witness me!</li></menu>',
+        });
+      });
+
+      it('handles multiple `<li>`', () => {
+        const html = '<li>foo</li><li>bar</li>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>foo</li><li>bar</li></ul>',
+        });
+      });
+
+      it('handles multiple `<li>` when one does not need fixing', () => {
+        const html = '<li>foo</li><ul><li>bar</li></ul>';
+        expect(sanitizeHTML(html, ['li', 'ul'])).toEqual({
+          __html: '<ul><li>foo</li></ul><ul><li>bar</li></ul>',
+        });
+      });
+
+      it('handles multiple `<li>` in separate lists', () => {
+        const html = '<li>foo</li><code>alice</code><li>bar</li>';
+        expect(sanitizeHTML(html, ['li', 'ul', 'code'])).toEqual({
+          __html:
+            '<ul><li>foo</li></ul><code>alice</code><ul><li>bar</li></ul>',
+        });
+      });
+
+      it('handles no closing `</li>`', () => {
+        const html = '<li>foo<li>bar';
+        expect(sanitizeHTML(html, ['li', 'ul', 'p'])).toEqual({
+          __html: '<ul><li>foo</li><li>bar</li></ul>',
+        });
+      });
+
+      it('does not mess ordering`', () => {
+        const html = 'Before <li>foo</li><li>bar</li> After';
+        expect(sanitizeHTML(html, ['li', 'ul', 'p'])).toEqual({
+          __html: 'Before <ul><li>foo</li><li>bar</li></ul> After',
+        });
+      });
+    });
   });
 
   describe('removeProtocolFromURL', () => {
