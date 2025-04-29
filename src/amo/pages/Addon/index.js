@@ -304,6 +304,7 @@ export class AddonBase extends React.Component {
         className={showMoreCardName}
         header={title}
         id={showMoreCardName}
+        maxHeight={300}
       >
         <div className="AddonDescription-contents" {...descriptionProps} />
         {addon && addon.developer_comments ? (

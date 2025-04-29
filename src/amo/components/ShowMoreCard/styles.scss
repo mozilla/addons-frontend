@@ -1,13 +1,5 @@
 @import '~amo/css/styles';
 
-.ShowMoreCard {
-  @include respond-to(large) {
-    .Card-contents {
-      border-radius: 0 0 $border-radius-default $border-radius-default;
-    }
-  }
-}
-
 .ShowMoreCard-contents {
   &::after {
     // rgba(255, 255, 255, 0%) instead of transparent prevents
@@ -26,10 +18,6 @@
   overflow: hidden;
   position: relative;
 
-  @include respond-to(large) {
-    max-height: 780px;
-  }
-
   .ShowMoreCard--expanded & {
     &::after {
       display: none;
@@ -39,12 +27,15 @@
   }
 }
 
+.AddonDescription,
 .PermissionsCard {
   .Card-contents {
     border-radius: 0;
   }
 
   .ShowMoreCard-contents {
+    // Keep in sync with `maxHeight` passed to the `ShowMoreCard` component in
+    // `Addon/index.js` and `PermissionCard/index.js`.
     max-height: 300px;
   }
 
@@ -53,6 +44,7 @@
   }
 }
 
+.AddonDescription.ShowMoreCard--expanded,
 .PermissionsCard.ShowMoreCard--expanded {
   .Card-contents {
     border-bottom-left-radius: $border-radius-default;
