@@ -112,8 +112,6 @@
 
   @include respond-to(medium) {
     @include margin-end(24px);
-
-    max-width: 550px;
   }
 }
 
@@ -165,11 +163,6 @@
         margin-top: 0;
       }
     }
-
-    .AddonDescription-contents,
-    .Addon-developer-comments-contents {
-      max-width: 550px;
-    }
   }
 
   .Addon-screenshots {
@@ -196,4 +189,10 @@
   @include respond-to(medium) {
     margin-top: 0;
   }
+}
+
+.Addon-developer-comments-header {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 24px 0 12px;
 }
