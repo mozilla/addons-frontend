@@ -870,7 +870,7 @@ msgstr "Η σελίδα δεν βρέθηκε"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "Συγγνώμη, αλλά δεν μπορούμε να βρούμε τίποτα στο URL που εισήγατε."
+msgstr "Δυστυχώς, δεν μπορούμε να βρούμε τίποτα στο URL που πληκτρολογήσατε."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
@@ -940,7 +940,7 @@ msgstr "Σφάλμα διακομιστή"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Λυπούμαστε, αλλά προέκυψε ένα σφάλμα στον εξυπηρετητή μας και δεν μπορέσαμε να ικανοποιήσουμε το αίτημα σας. Το σφάλμα αυτό έχει καταγραφεί και θα το διερευνήσουμε."
+msgstr "Δυστυχώς, προέκυψε σφάλμα στον διακομιστή μας και δεν μπορέσαμε να διεκπαιρεώσουμε το αίτημά σας. Έχουμε καταγράψει αυτό το σφάλμα και θα το διερευνήσουμε."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 msgid ""
