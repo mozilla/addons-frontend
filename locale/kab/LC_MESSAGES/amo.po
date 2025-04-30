@@ -578,7 +578,7 @@ msgstr ","
 #. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
-msgstr "sγur"
+msgstr "sɣur"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
@@ -2140,27 +2140,27 @@ msgstr "Ttuceggren i meṛṛa"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "Aberkan"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "Aɣiɣdi"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "Amellal"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "Azeggaɣ"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "Awraɣ"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "Adal"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
@@ -2168,7 +2168,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "Azegzaw"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
@@ -2188,11 +2188,11 @@ msgstr "Anaw n uzegrir"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
-msgstr ""
+msgstr "Ini n usentel"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
-msgstr ""
+msgstr "Sfeḍ"
 
 #: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
@@ -2624,7 +2624,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "sɣur %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
