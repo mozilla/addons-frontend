@@ -126,8 +126,8 @@ describe(__filename, () => {
   });
 
   it('handles RTL mode', () => {
-    // `fa` is a RTL language.
-    dispatchClientMetadata({ lang: 'ar', store });
+    // `he` is a RTL language.
+    dispatchClientMetadata({ lang: 'he', store });
 
     const author1 = {
       ...fakeAddon.authors[0],
@@ -149,9 +149,9 @@ describe(__filename, () => {
 
     expect(screen.getAllByRole('link')).toHaveLength(2);
     const link1 = screen.getByRole('link', { name: author1.name });
-    expect(link1).toHaveAttribute('href', `/ar/android/user/${author1.id}/`);
+    expect(link1).toHaveAttribute('href', `/he/android/user/${author1.id}/`);
     const link2 = screen.getByRole('link', { name: author2.name });
-    expect(link2).toHaveAttribute('href', `/ar/android/user/${author2.id}/`);
+    expect(link2).toHaveAttribute('href', `/he/android/user/${author2.id}/`);
 
     expect(screen.getByClassName('AddonTitle-author')).toHaveTextContent(
       `${author1.name} ,${author2.name} by`,
