@@ -83,7 +83,7 @@ msgstr "Algunas características pueden ser de pago"
 
 #: src/amo/components/AddonBadges/index.js:71
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "Disponible en Firefox para Android™"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -101,15 +101,15 @@ msgstr[1] "%(total)s usuarios"
 
 #: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
-msgstr ""
+msgstr "Informar de este complemento a Mozilla"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
-msgstr ""
+msgstr "Enviar comentarios sobre el complemento"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "Informar sobre el complemento porque es ilegal o no cumple"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -261,9 +261,8 @@ msgid "Last updated"
 msgstr "Última actualización"
 
 #: src/amo/components/AddonMoreInfo/index.js:343
-#, fuzzy
 msgid "Related Categories"
-msgstr "Categorías"
+msgstr "Categorías relacionadas"
 
 #: src/amo/components/AddonMoreInfo/index.js:353
 msgid "License"
@@ -393,9 +392,8 @@ msgstr "publicado el %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:367
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "por %(authorName)s, el %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "por %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:480
 msgid "Deleting…"
@@ -507,7 +505,7 @@ msgstr "Más complementos de estos desarrolladores"
 
 #: src/amo/components/AddonSuggestions/index.js:100
 msgid "More powerful tools for translations, writing & grammar support"
-msgstr ""
+msgstr "Herramientas más potentes para traducción, redacción y corrección gramatical"
 
 #: src/amo/components/AddonSuggestions/index.js:107
 msgid "More amazing extensions to change the way Firefox looks"
