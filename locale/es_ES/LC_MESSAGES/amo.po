@@ -1521,24 +1521,20 @@ msgid "Download Firefox"
 msgstr "Descargar Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:159
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Iniciar sesión para evaluar este tema"
+msgstr "Necesitarás Firefox para usar este tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:160
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Inicia sesión para evaluar esta extensión"
+msgstr "Necesitarás Firefox para usar esta extensión"
 
 #: src/amo/components/GetFirefoxButton/index.js:164
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "Iniciar sesión para evaluar este tema"
+msgstr "Necesitas una versión actualizada de Firefox para este tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:165
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "Inicia sesión para evaluar esta extensión"
+msgstr "Necesitas una versión actualizada de Firefox para esta extensión"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
@@ -1605,16 +1601,15 @@ msgstr "POR FIREFOX"
 
 #: src/amo/components/HeroRecommendation/index.js:236
 msgid "PROMOTED"
-msgstr ""
+msgstr "PROMOCIONADO"
 
 #: src/amo/components/HeroRecommendation/index.js:253
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
 msgstr "Firefox solo recomienda extensiones que cumplen nuestros estándares de seguridad y rendimiento."
 
 #: src/amo/components/HomepageShelves/index.js:75
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Ver más %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1629,9 +1624,8 @@ msgid "Access your data for %(param)s"
 msgstr "Acceder a tus datos para %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:36 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:212
-#, fuzzy
 msgid "By Firefox"
-msgstr "para Firefox"
+msgstr "Por Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:37 src/amo/components/PromotedBadge/index.js:49 src/amo/components/SearchFilters/index.js:210
 msgid "Recommended"
@@ -1646,9 +1640,8 @@ msgid "Learn more"
 msgstr "Saber más"
 
 #: src/amo/components/InstallWarning/index.js:106
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "No es una extensión recomendada. Asegúrate de que confías en ella antes de instalarla."
+msgstr "Mozilla no supervisa activamente la seguridad de este complemento. Asegúrate de confiar en él antes de instalarlo."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1668,21 +1661,19 @@ msgstr "Siguiente"
 
 #: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Página %(thisPage)s de %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
 msgstr "Permisos"
 
 #: src/amo/components/PermissionsCard/index.js:84
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "Este complemento puede:"
+msgstr "Este complemento necesita:"
 
 #: src/amo/components/PermissionsCard/index.js:94
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Este complemento puede:"
+msgstr "Este complemento también puede solicitar:"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify bookmarks"
@@ -1706,11 +1697,11 @@ msgstr "Introducir datos en el portapapeles"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Block content on any page"
-msgstr ""
+msgstr "Bloquear contenido en cualquier página"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Read your browsing history"
-msgstr ""
+msgstr "Leer tu historial de navegación"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Extend developer tools to access your data in open tabs"
@@ -1778,12 +1769,11 @@ msgstr "Acceder a la actividad del navegador mientras navegas"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr ""
+msgstr "Complemento oficial creado por Mozilla Firefox. Cumple con los estándares de seguridad y rendimiento."
 
 #: src/amo/components/PromotedBadge/index.js:50
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox solo recomienda extensiones que cumplen nuestros estándares de seguridad y rendimiento."
+msgstr "Firefox solo recomienda complementos que cumplan con nuestros estándares de seguridad y rendimiento."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1842,21 +1832,18 @@ msgid "Star rating saved"
 msgstr "Se guardó la valoración"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "No hay revisiones con 3 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Leer todas las revisiones con 2 estrellas"
-msgstr[1] "Leer todas las revisiones con 2 estrellas"
+msgstr[0] "Leer la revisión con 2 estrellas"
+msgstr[1] "Leer todas las %(total)s revisiones con 2 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "No hay revisiones con 2 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:123
 #, fuzzy
