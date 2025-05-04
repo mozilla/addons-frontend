@@ -1133,7 +1133,7 @@ msgstr "Información engañosa sobre las características de los bienes y servic
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "Información engañosa sobre los derechos del consumidor"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
@@ -1305,79 +1305,79 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Llamadas generales o incitaciones a la violencia y/o al odio"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
-msgstr ""
+msgstr "Informe enviado"
 
 #: src/amo/components/FeedbackForm/index.js:673
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "Hemos recibido tu informe. Gracias por informarnos."
 
 #: src/amo/components/FeedbackForm/index.js:768
 msgid "Submitting your report…"
-msgstr ""
+msgstr "Enviando tu informe…"
 
 #: src/amo/components/FeedbackForm/index.js:769
 msgid "Submit report"
-msgstr ""
+msgstr "Enviar informe"
 
 #: src/amo/components/FeedbackForm/index.js:788
 msgid "Provide more information"
-msgstr ""
+msgstr "Proporcionar más información"
 
 #: src/amo/components/FeedbackForm/index.js:796
 msgid "Place of the violation"
-msgstr ""
+msgstr "Lugar de la violación"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Tipo de contenido ilegal"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Violación específica"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
-msgstr ""
+msgstr "Proporcionar más detalles"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "Por favor, proporciona cualquier información adicional que pueda ayudarnos a comprender tu informe (incluida qué política que crees que se ha violado)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
-msgstr ""
+msgstr "Información de contacto"
 
 #: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
-msgstr ""
+msgstr "Presentar el informe de forma anónima"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "La presentación de un informe anónimo nos impedirá comunicarnos contigo acerca del estado del informe o sobre cualquier opción de apelación."
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Tu nombre %(spanStart)s(opcional)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:930
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Tu nombre %(spanStart)s(requerido)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Tu dirección de correo electrónico %(spanStart)s(opcional)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:970
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Tu dirección de correo electrónico %(spanStart)s(requerido)%(spanEnd)s"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "Contenido ilegal o que viola las políticas de contenido de AMO"
 
 #: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flagged"
@@ -1397,7 +1397,7 @@ msgstr "Marcar esta revisión"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
@@ -1405,15 +1405,15 @@ msgstr "Marcado como spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
 msgid "Login required"
-msgstr ""
+msgstr "Se requiere iniciar sesión"
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
-msgstr ""
+msgstr "Informe de problema o petición de asistencia en una ubicación incorrecta"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Marcado como informe de error o solicitud de asistencia fuera de lugar"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
@@ -1421,7 +1421,7 @@ msgstr "Normativas para desarrolladores"
 
 #: src/amo/components/Footer/index.js:116
 msgid "Community Blog"
-msgstr ""
+msgstr "Blog de la comunidad"
 
 #: src/amo/components/Footer/index.js:121
 msgid "Forum"
@@ -1436,9 +1436,8 @@ msgid "Review Guide"
 msgstr "Guía de revisión"
 
 #: src/amo/components/Footer/index.js:141
-#, fuzzy
 msgid "Browsers"
-msgstr "Navegador para iOS"
+msgstr "Navegadores"
 
 #: src/amo/components/Footer/index.js:186
 msgid "Products"
@@ -1479,9 +1478,8 @@ msgid "About"
 msgstr "Acerca de"
 
 #: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
-#, fuzzy
 msgid "Firefox Add-ons Blog"
-msgstr "Acerca de los complementos de Firefox"
+msgstr "Blog de complementos de Firefox"
 
 #: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
@@ -1493,31 +1491,30 @@ msgstr "Central del desarrollador"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "Para usar estos complementos, necesitarás %(downloadLinkStart)sdescargar Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
+"Para usar extensiones de Android, necesitarás %(downloadLinkStart)sFirefox para Android%(downloadLinkEnd)s. Para explorar los complementos de Firefox para escritorio, %(linkStart)svisita nuestro "
+"sitio para escritorio%(linkEnd)s."
 
 #: src/amo/components/GetFirefoxButton/index.js:146
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Descargar Firefox"
+msgstr "Descarga Firefox y obtén el tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:147
 msgid "Download Firefox and get the extension"
 msgstr "Descarga Firefox y obtiene la extensión"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
-#, fuzzy
 msgid "Download the new Firefox and get the theme"
-msgstr "Descargar Firefox"
+msgstr "Descarga el nuevo Firefox y obtén el tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:152
-#, fuzzy
 msgid "Download the new Firefox and get the extension"
-msgstr "Descarga Firefox y obtiene la extensión"
+msgstr "Descarga el nuevo Firefox y obtén la extensión"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox"
