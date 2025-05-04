@@ -1001,133 +1001,135 @@ msgstr "Viola las políticas de complementos"
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr ""
+msgstr "Por ejemplo: Comprometió mis datos sin informarme ni preguntarme, o cambió mi buscador o página de inicio sin informarme ni preguntarme."
 
 #: src/amo/components/FeedbackForm/index.js:129
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
-msgstr ""
+msgstr "Contiene contenido que incita al odio, es violento, engañoso o inapropiado"
 
 #: src/amo/components/FeedbackForm/index.js:131
 msgid "Example: It contains racist imagery."
-msgstr ""
+msgstr "Por ejemplo: contiene imágenes racistas."
 
 #: src/amo/components/FeedbackForm/index.js:135
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Viola la ley o contiene contenido que viola la ley"
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid ""
 "Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
 msgstr ""
+"Por ejemplo: fraude. (Si quieres informar una infracción de derechos de autor o marca registrada, puedes obtener más información sobre cómo hacerlo en nuestro %(startLink)sartículo sobre la denuncia"
+" infracciones de derechos de autor o de marca%(endLink)s)."
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
-msgstr ""
+msgstr "Otra cosa"
 
 #: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "Cualquier cosa que no encaje en las otras categorías."
 
 #: src/amo/components/FeedbackForm/index.js:164
 msgid "Select place"
-msgstr ""
+msgstr "Seleccionar lugar"
 
 #: src/amo/components/FeedbackForm/index.js:166
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "En la página del complemento en este sitio web"
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
-msgstr ""
+msgstr "Dentro del complemento"
 
 #: src/amo/components/FeedbackForm/index.js:170
 msgid "Both locations"
-msgstr ""
+msgstr "Ambas ubicaciones"
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "Seleccionar tipo"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
-msgstr ""
+msgstr "Bienestar animal"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
-msgstr ""
+msgstr "Infracciones de la información al consumidor"
 
 #: src/amo/components/FeedbackForm/index.js:192
 msgid "Data protection and privacy violations"
-msgstr ""
+msgstr "Violaciones de la protección de datos y de la privacidad"
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
-msgstr ""
+msgstr "Discurso ilegal o dañino"
 
 #: src/amo/components/FeedbackForm/index.js:200
 msgid "Intellectual property infringements"
-msgstr ""
+msgstr "Infracciones de propiedad intelectual"
 
 #: src/amo/components/FeedbackForm/index.js:204
 msgid "Negative effects on civic discourse or elections"
-msgstr ""
+msgstr "Efectos negativos sobre el discurso cívico o las elecciones"
 
 #: src/amo/components/FeedbackForm/index.js:210
 msgid "Non-consensual behavior"
-msgstr ""
+msgstr "Comportamiento no consensuado"
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
-msgstr ""
+msgstr "Pornografía o contenido sexualizado"
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
-msgstr ""
+msgstr "Protección de menores"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
-msgstr ""
+msgstr "Riesgo para la seguridad pública"
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
-msgstr ""
+msgstr "Estafas o fraudes"
 
 #: src/amo/components/FeedbackForm/index.js:225
 msgid "Self-harm"
-msgstr ""
+msgstr "Autolesión"
 
 #: src/amo/components/FeedbackForm/index.js:228
 msgid "Unsafe, non-compliant, or prohibited products"
-msgstr ""
+msgstr "Productos inseguros, que no cumplen las normas o están prohibidos"
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
-msgstr ""
+msgstr "Violencia"
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "Otro"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "Seleccionar violación"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
-msgstr ""
+msgstr "Información insuficiente sobre los comerciantes"
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "Incumplimiento de la normativa de precios"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
-msgstr ""
+msgstr "Publicidad o comunicación comercial oculta, incluso por parte de influencers"
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
-msgstr ""
+msgstr "Información engañosa sobre las características de los bienes y servicios"
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
