@@ -1027,11 +1027,11 @@ describe(__filename, () => {
 
       await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
-        screen.getByRole('option', { name: 'عربي' }),
+        screen.getByRole('option', { name: 'עברית' }),
       );
 
       expect(window.location).toEqual(
-        '/ar/firefox/en-US-to-en-GB-guide/?foo=en-US',
+        '/he/firefox/en-US-to-en-GB-guide/?foo=en-US',
       );
     });
   });

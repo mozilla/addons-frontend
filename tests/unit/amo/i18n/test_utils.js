@@ -14,7 +14,7 @@ describe(__filename, () => {
   describe('normalizeLang()', () => {
     it('should normalize standard languages', () => {
       expect(utils.normalizeLang('en-us')).toEqual('en-US');
-      expect(utils.normalizeLang('AR')).toEqual('ar');
+      expect(utils.normalizeLang('HE')).toEqual('he');
     });
 
     it('should cope with a locale input too', () => {
@@ -42,7 +42,7 @@ describe(__filename, () => {
   describe('normalizeLocale()', () => {
     it('should normalize a locale', () => {
       expect(utils.normalizeLocale('en_us')).toEqual('en_US');
-      expect(utils.normalizeLocale('AR')).toEqual('ar');
+      expect(utils.normalizeLocale('HE')).toEqual('he');
     });
 
     it('should cope with a language input too', () => {
@@ -103,7 +103,7 @@ describe(__filename, () => {
 
   describe('sanitizeLanguage()', () => {
     it('should get a standard language', () => {
-      expect(utils.sanitizeLanguage('ar')).toEqual('ar');
+      expect(utils.sanitizeLanguage('he')).toEqual('he');
     });
 
     it('should convert short form lang to longer', () => {
@@ -133,7 +133,7 @@ describe(__filename, () => {
 
   describe('getDirection()', () => {
     it('should see ar as rtl', () => {
-      expect(utils.getDirection('ar')).toEqual(RTL);
+      expect(utils.getDirection('he')).toEqual(RTL);
     });
 
     it('should see en-US as ltr', () => {
