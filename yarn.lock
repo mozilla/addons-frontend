@@ -31,10 +31,10 @@
     "@csstools/css-tokenizer" "^3.0.3"
     lru-cache "^10.4.3"
 
-"@babel/cli@^7.26.4":
-  version "7.26.4"
-  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.26.4.tgz#4101ff8ee5de8447a6c395397a97921056411d20"
-  integrity sha512-+mORf3ezU3p3qr+82WvJSnQNE1GAYeoCfEv4fik6B5/2cvKZ75AX8oawWQdXtM9MmndooQj15Jr9kelRFWsuRw==
+"@babel/cli@^7.27.2":
+  version "7.27.2"
+  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.27.2.tgz#d54560567a73a269b31d3201bedb70692ace8684"
+  integrity sha512-cfd7DnGlhH6OIyuPSSj3vcfIdnbXukhAyKY8NaZrFadC7pXyL9mOL5WgjcptiEJLi5k3j8aYvLIVCzezrWTaiA==
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.25"
     commander "^6.2.0"
