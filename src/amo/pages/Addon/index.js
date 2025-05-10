@@ -285,12 +285,12 @@ export class AddonBase extends React.Component {
       }
 
       const description = addon.description ? addon.description : addon.summary;
-      showAbout = description !== addon.summary;
+      showAbout = description !== addon.summary || addon.developer_comments;
 
-      if (!description || !description.length) {
-        return null;
+      if (description && description.length) {
+        descriptionProps.dangerouslySetInnerHTML =
+          sanitizeUserHTML(description);
       }
-      descriptionProps.dangerouslySetInnerHTML = sanitizeUserHTML(description);
     } else {
       title = <LoadingText width={40} />;
       descriptionProps.children = <LoadingText width={100} />;
