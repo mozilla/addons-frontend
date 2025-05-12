@@ -194,5 +194,11 @@
 .Addon-developer-comments-header {
   font-size: 15px;
   font-weight: 600;
-  margin: 24px 0 12px;
+  margin-bottom: 12px;
+}
+
+.AddonDescription-contents + .Addon-developer-comments {
+  .Addon-developer-comments-header {
+    margin-top: 24px;
+  }
 }

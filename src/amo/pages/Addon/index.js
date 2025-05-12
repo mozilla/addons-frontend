@@ -262,9 +262,9 @@ export class AddonBase extends React.Component {
   renderShowMoreCard() {
     const { addon, i18n } = this.props;
 
+    let showAbout;
     let title;
     const descriptionProps = {};
-    let showAbout = true;
 
     if (addon) {
       switch (addon.type) {
@@ -284,14 +284,14 @@ export class AddonBase extends React.Component {
           title = i18n.gettext('About this add-on');
       }
 
-      const description = addon.description ? addon.description : addon.summary;
-      showAbout = description !== addon.summary;
-
-      if (!description || !description.length) {
-        return null;
+      if (addon.description && addon.description.length) {
+        descriptionProps.dangerouslySetInnerHTML = sanitizeUserHTML(
+          addon.description,
+        );
       }
-      descriptionProps.dangerouslySetInnerHTML = sanitizeUserHTML(description);
+      showAbout = addon.description || addon.developer_comments;
     } else {
+      showAbout = true;
       title = <LoadingText width={40} />;
       descriptionProps.children = <LoadingText width={100} />;
     }
@@ -306,7 +306,9 @@ export class AddonBase extends React.Component {
         id={showMoreCardName}
         maxHeight={300}
       >
-        <div className="AddonDescription-contents" {...descriptionProps} />
+        {descriptionProps && Object.keys(descriptionProps).length ? (
+          <div className="AddonDescription-contents" {...descriptionProps} />
+        ) : null}
         {addon && addon.developer_comments ? (
           /* eslint-disable react/no-danger */
           <div className="Addon-developer-comments">
