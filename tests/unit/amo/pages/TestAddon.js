@@ -847,6 +847,18 @@ describe(__filename, () => {
     expect(screen.getByText('Developer comments')).toBeInTheDocument();
   });
 
+  it('shows the developer comments if present and description is null without duplicating summary', () => {
+    addon.description = null;
+    addon.summary = createLocalizedString('Bar');
+    addon.developer_comments = createLocalizedString('Foo');
+    renderWithAddon();
+
+    expect(screen.getByText('Developer comments')).toBeInTheDocument();
+    expect(
+      screen.queryByClassName('AddonDescription-contents'),
+    ).not.toBeInTheDocument();
+  });
+
   it('displays developer comments', () => {
     const developerComments = 'some awesome developers comments';
     addon.developer_comments = createLocalizedString(developerComments);
