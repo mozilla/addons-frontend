@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-29 14:37+0000\n"
+"POT-Creation-Date: 2025-05-12 15:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2548,25 +2548,25 @@ msgstr ""
 msgid "About this add-on"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:314
+#: src/amo/pages/Addon/index.js:316
 msgid "Developer comments"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:339
+#: src/amo/pages/Addon/index.js:341
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:480
+#: src/amo/pages/Addon/index.js:482
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:502
+#: src/amo/pages/Addon/index.js:504
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:527
+#: src/amo/pages/Addon/index.js:529
 msgid "Screenshots"
 msgstr ""
 
