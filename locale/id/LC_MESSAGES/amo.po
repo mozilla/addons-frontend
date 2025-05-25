@@ -1841,10 +1841,9 @@ msgid "There are no two-star reviews"
 msgstr "Tidak ada ulasan bintang dua"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Baca semua ulasan bintang satu"
+msgstr[0] "Baca 1 ulasan bintang satu"
 
 #: src/amo/components/RatingsByStar/index.js:133
 msgid "There are no one-star reviews"
@@ -1855,30 +1854,27 @@ msgid "There are no reviews"
 msgstr "Belum ada ulasan"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Baca semua ulasan bintang lima"
+msgstr[0] "Baca 1 ulasan bintang lima"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
 msgstr "Tidak ada ulasan bintang lima"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Baca semua ulasan bintang empat"
+msgstr[0] "Baca 1 ulasan bintang empat"
 
 #: src/amo/components/RatingsByStar/index.js:88
 msgid "There are no four-star reviews"
 msgstr "Belum ada ulasan bintang-empat"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Baca semua ulasan bintang tiga"
+msgstr[0] "Baca 1 ulasan bintang tiga"
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
