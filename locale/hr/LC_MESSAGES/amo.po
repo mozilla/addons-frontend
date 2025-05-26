@@ -213,11 +213,11 @@ msgstr "Korišteno od"
 
 #: src/amo/components/AddonMoreInfo/index.js:105 src/amo/pages/UserProfile/index.js:361 src/amo/pages/UserProfile/index.js:364 src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
-msgstr "Početna web-stranica"
+msgstr "Početna stranica"
 
 #: src/amo/components/AddonMoreInfo/index.js:122
 msgid "Support site"
-msgstr "Web-stranica podrške"
+msgstr "Stranica podrške"
 
 #: src/amo/components/AddonMoreInfo/index.js:136
 msgid "Support Email"
@@ -1617,11 +1617,11 @@ msgstr "Više iz kategorije %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr "Pristupiti tvojim podacima za sve web-stranice"
+msgstr "Pristupiti tvojim podacima za sve web stranice"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Pristupiti tvojim podacima za web-stranice na %(param)s domeni"
+msgstr "Pristupiti tvojim podacima za web stranice na domeni %(param)s"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
@@ -2308,7 +2308,7 @@ msgstr "Prijavljen/a kao %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr "Tijekom održavanja naših web-stranica, neke su funkcije privremeno deaktivirane. Uskoro ćemo uspostaviti puni kapacitet."
+msgstr "Tijekom održavanja naših web stranica, neke su funkcije privremeno deaktivirane. Uskoro ćemo uspostaviti puni kapacitet."
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
