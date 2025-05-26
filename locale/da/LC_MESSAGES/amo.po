@@ -1017,19 +1017,19 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
-msgstr ""
+msgstr "Andet"
 
 #: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "Alt, der ikke passer ind i de andre kategorier."
 
 #: src/amo/components/FeedbackForm/index.js:164
 msgid "Select place"
-msgstr ""
+msgstr "Vælg sted"
 
 #: src/amo/components/FeedbackForm/index.js:166
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "På tilføjelsens side på dette websted"
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
@@ -1041,11 +1041,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "Vælg type"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
-msgstr ""
+msgstr "Dyrevelfærd"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
@@ -1057,11 +1057,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
-msgstr ""
+msgstr "Ulovlig eller skadelig tale"
 
 #: src/amo/components/FeedbackForm/index.js:200
 msgid "Intellectual property infringements"
-msgstr ""
+msgstr "Krænkelser af intellektuel ejendomsret"
 
 #: src/amo/components/FeedbackForm/index.js:204
 msgid "Negative effects on civic discourse or elections"
@@ -1073,7 +1073,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
-msgstr ""
+msgstr "Pornografi eller seksualiseret indhold"
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
@@ -1085,11 +1085,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
-msgstr ""
+msgstr "Svindel eller bedrageri"
 
 #: src/amo/components/FeedbackForm/index.js:225
 msgid "Self-harm"
-msgstr ""
+msgstr "Selvskade"
 
 #: src/amo/components/FeedbackForm/index.js:228
 msgid "Unsafe, non-compliant, or prohibited products"
@@ -1097,15 +1097,15 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
-msgstr ""
+msgstr "Vold"
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "Andet"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "Vælg overtrædelse"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
@@ -1197,7 +1197,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "Stalking"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
@@ -1470,14 +1470,12 @@ msgid "About"
 msgstr "Om"
 
 #: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
-#, fuzzy
 msgid "Firefox Add-ons Blog"
-msgstr "Firefox-tilføjelser"
+msgstr ""
 
 #: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
-#, fuzzy
 msgid "Extension Workshop"
-msgstr "Udvidelser"
+msgstr ""
 
 #: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
@@ -2528,7 +2526,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "Denne tilføjelse er blokeret, fordi den overtræder Mozillas politikker"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
@@ -2536,7 +2534,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "Denne udvidelse, dette tema eller plugin krænker %(startLink)s Mozillas retningslinjer for tilføjelser%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2554,7 +2552,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
-msgstr ""
+msgstr "Hvordan håndhæver Mozilla sine politikker?"
 
 #: src/amo/pages/Block/index.js:194
 msgid ""
@@ -3153,9 +3151,8 @@ msgstr "Rediger profil"
 
 #. This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:452
-#, fuzzy
 msgid "Admin user"
-msgstr "Tilføjelses-links"
+msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:211
 msgid "Picture successfully deleted"
