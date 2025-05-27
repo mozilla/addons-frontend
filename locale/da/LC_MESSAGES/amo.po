@@ -2435,7 +2435,7 @@ msgstr "Skærmbilleder"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Send feedback eller rapporter en tilføjelse til Mozilla"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2515,15 +2515,15 @@ msgstr "Ældre versioner"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s er underlagt begrænsninger, fordi den overtræder Mozillas politikker"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "Denne tilføjelse er underlagt begrænsninger, fordi den overtræder Mozillas politikker"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s er blokeret, fordi den overtræder Mozillas politikker"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
@@ -2627,7 +2627,7 @@ msgstr "Hent og opret samlinger til Firefox, og hold styr på dine favoritudvide
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Send feedback eller rapporter en samling til Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
@@ -2639,7 +2639,7 @@ msgstr "Rapportér denne samling til Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:172
 msgid "Send some feedback about the collection"
-msgstr ""
+msgstr "Send feedback om samlingen"
 
 #: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
@@ -2691,7 +2691,7 @@ msgstr "Se flere anbefalede udvidelser"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Udforsk alle Android-udvidelser"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2795,7 +2795,7 @@ msgstr "Ordbøger"
 
 #: src/amo/pages/RatingFeedback/index.js:125
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Send feedback eller rapporter en anmeldelse til Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
@@ -2807,7 +2807,7 @@ msgstr "Rapportér denne anmeldelse til Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Rapportér anmeldelsen, fordi den er ulovlig eller ikke i overensstemmelse med reglerne"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -3072,7 +3072,7 @@ msgstr "Tilføjelser med mærkatet %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Send feedback eller rapporter en bruger til Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:144 src/amo/pages/UserProfile/index.js:387
 msgid "User since"
