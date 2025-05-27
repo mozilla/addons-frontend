@@ -107,7 +107,7 @@ msgstr "Rapportér denne tilføjelse til Mozilla"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
-msgstr ""
+msgstr "Send feedback om tilføjelsen"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
@@ -970,7 +970,7 @@ msgstr "Anmeldelsen blev ikke fundet."
 
 #: src/amo/components/FeedbackForm/index.js:1014
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
-msgstr ""
+msgstr "Ved at indsende denne rapport bekræfter jeg under straf for mened, at de indeholdte påstande er fuldstændige og nøjagtige efter min bedste overbevisning."
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
@@ -998,7 +998,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:129
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
-msgstr ""
+msgstr "Det indeholder hadefuldt, voldeligt, vildledende eller andet upassende indhold"
 
 #: src/amo/components/FeedbackForm/index.js:131
 msgid "Example: It contains racist imagery."
@@ -1006,13 +1006,15 @@ msgstr "Eksempel: Den indeholder racistiske billeder."
 
 #: src/amo/components/FeedbackForm/index.js:135
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Det overtræder loven eller indeholder indhold, der overtræder loven"
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid ""
 "Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
 msgstr ""
+"Eksempel: Bedrageri. (Hvis du ønsker at anmelde en krænkelse af ophavsret eller varemærker, kan du læse mere om, hvordan du gør det, i vores %(startLink)sartikel om indberetning af krænkelser af "
+"ophavsret eller varemærker%(endLink)s)."
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
@@ -1288,7 +1290,7 @@ msgstr "Kønsbaseret vold"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "Menneskelig udnyttelse"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
@@ -1320,11 +1322,11 @@ msgstr "Giv flere oplysninger"
 
 #: src/amo/components/FeedbackForm/index.js:796
 msgid "Place of the violation"
-msgstr ""
+msgstr "Sted for overtrædelsen"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Type af ulovligt indhold"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
@@ -1336,7 +1338,7 @@ msgstr "Giv flere detaljer"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "Angiv venligst eventuelle yderligere oplysninger, der kan hjælpe os med at forstå din rapport (herunder hvilken politik du mener er blevet overtrådt)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
@@ -1470,7 +1472,7 @@ msgstr "Om"
 
 #: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
 msgid "Firefox Add-ons Blog"
-msgstr ""
+msgstr "Blog om Firefox-tilføjelser"
 
 #: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
