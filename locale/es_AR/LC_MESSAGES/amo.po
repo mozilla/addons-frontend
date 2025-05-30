@@ -1932,9 +1932,8 @@ msgid "Reviewed extensions"
 msgstr "Extensiones recomendadas"
 
 #: src/amo/components/Search/index.js:169
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Revisar tema"
+msgstr "Temas revisados"
 
 #: src/amo/components/Search/index.js:172
 #, fuzzy
@@ -2146,9 +2145,8 @@ msgid "Any"
 msgstr "Cualquiera"
 
 #: src/amo/components/SearchFilters/index.js:216
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Comentario"
+msgstr "Todos revisados"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
