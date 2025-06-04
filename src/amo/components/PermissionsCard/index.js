@@ -81,7 +81,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         {requiredContent.length ? (
           <>
             <p className="PermissionsCard-subhead--required">
-              {i18n.gettext('This add-on needs to:')}
+              {i18n.gettext('Required permissions:')}
             </p>
             <ul className="PermissionsCard-list--required">
               {requiredContent}
@@ -91,7 +91,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         {optionalContent.length ? (
           <>
             <p className="PermissionsCard-subhead--optional">
-              {i18n.gettext('This add-on may also ask to:')}
+              {i18n.gettext('Optional permissions:')}
             </p>
             <ul className="PermissionsCard-list--optional">
               {optionalContent}
