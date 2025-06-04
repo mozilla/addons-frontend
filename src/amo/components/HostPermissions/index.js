@@ -76,7 +76,6 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
       // Add individual Permission components for the first 4 host permissions.
       hostPermissions.push(
         <Permission
-          type="hostPermission"
           description={this.getPermissionString({ messageType, param: item })}
           key={item}
         />,
@@ -128,7 +127,6 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
     if (allUrls) {
       hostPermissions.push(
         <Permission
-          type="hostPermission"
           description={this.getPermissionString({
             messageType: allUrlsMessageType,
           })}
