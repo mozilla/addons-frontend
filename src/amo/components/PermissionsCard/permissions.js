@@ -112,7 +112,6 @@ export class PermissionUtils {
     if (permissions.permissions.includes(nativeMessagingPermission)) {
       permissionsToDisplay.push(
         <Permission
-          type={nativeMessagingPermission}
           description={this.permissionStrings[nativeMessagingPermission]}
           key={nativeMessagingPermission}
         />,
@@ -132,7 +131,6 @@ export class PermissionUtils {
       if (this.permissionStrings[permission]) {
         permissionsToDisplay.push(
           <Permission
-            type={permission}
             description={this.permissionStrings[permission]}
             key={permission}
           />,

@@ -1838,15 +1838,12 @@ describe(__filename, () => {
         });
         renderWithAddon();
 
-        expect(screen.getByText('This add-on needs to:')).toHaveClass(
+        expect(screen.getByText('Required permissions:')).toHaveClass(
           'PermissionsCard-subhead--required',
         );
         expect(within(getPermissionsCard()).getByTagName('ul')).toHaveClass(
           'PermissionsCard-list--required',
         );
-        expect(
-          screen.getByClassName('Icon-permission-bookmarks'),
-        ).toBeInTheDocument();
         expect(
           screen.queryByClassName('PermissionsCard-subhead--optional'),
         ).not.toBeInTheDocument();
@@ -1862,15 +1859,12 @@ describe(__filename, () => {
         });
         renderWithAddon();
 
-        expect(screen.getByText('This add-on may also ask to:')).toHaveClass(
+        expect(screen.getByText('Optional permissions:')).toHaveClass(
           'PermissionsCard-subhead--optional',
         );
         expect(within(getPermissionsCard()).getByTagName('ul')).toHaveClass(
           'PermissionsCard-list--optional',
         );
-        expect(
-          screen.getByClassName('Icon-permission-bookmarks'),
-        ).toBeInTheDocument();
         expect(
           screen.getByText('Access your data for example.com'),
         ).toBeInTheDocument();
@@ -1890,18 +1884,12 @@ describe(__filename, () => {
         });
         renderWithAddon();
 
-        expect(screen.getByText('This add-on needs to:')).toHaveClass(
+        expect(screen.getByText('Required permissions:')).toHaveClass(
           'PermissionsCard-subhead--required',
         );
-        expect(screen.getByText('This add-on may also ask to:')).toHaveClass(
+        expect(screen.getByText('Optional permissions:')).toHaveClass(
           'PermissionsCard-subhead--optional',
         );
-        expect(
-          screen.getByClassName('Icon-permission-bookmarks'),
-        ).toBeInTheDocument();
-        expect(
-          screen.getByClassName('Icon-permission-history'),
-        ).toBeInTheDocument();
         expect(
           screen.getByText('Access your data for example.com'),
         ).toBeInTheDocument();
@@ -1928,9 +1916,6 @@ describe(__filename, () => {
       });
       renderWithAddon();
 
-      expect(
-        screen.getAllByClassName('Icon-permission-hostPermission'),
-      ).toHaveLength(6);
       expect(
         screen.getByText(
           'Access your data for sites in the mozilla.org domain',
@@ -1971,9 +1956,6 @@ describe(__filename, () => {
       renderWithAddon();
 
       expect(
-        screen.getAllByClassName('Icon-permission-hostPermission'),
-      ).toHaveLength(5);
-      expect(
         screen.getByText('Access your data for developer.mozilla.org'),
       ).toBeInTheDocument();
       expect(
@@ -2006,9 +1988,6 @@ describe(__filename, () => {
         // The all URLs permission will be displayed in both required and
         // optional permissions.
         expect(
-          screen.getAllByClassName('Icon-permission-hostPermission'),
-        ).toHaveLength(2);
-        expect(
           screen.getAllByText('Access your data for all websites'),
         ).toHaveLength(2);
       },
@@ -2026,9 +2005,6 @@ describe(__filename, () => {
         });
         renderWithAddon();
 
-        expect(
-          screen.getAllByClassName('Icon-permission-hostPermission'),
-        ).toHaveLength(1);
         expect(
           screen.getByText('Access your data for all websites'),
         ).toBeInTheDocument();
@@ -2074,9 +2050,6 @@ describe(__filename, () => {
       });
       renderWithAddon();
 
-      expect(
-        screen.getAllByClassName('Icon-permission-hostPermission'),
-      ).toHaveLength(9);
       // This will be displayed in both required and optional permissions.
       expect(
         screen.getAllByText(

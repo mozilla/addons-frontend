@@ -6,10 +6,6 @@
   background-size: contain;
 }
 
-@mixin permission-icon($name) {
-  @include icon($name: 'permissions/#{$name}');
-}
-
 .Icon {
   content: '';
   display: inline-block;
@@ -162,80 +158,6 @@
 
 .Icon-comments-blue {
   @include icon($name: 'comments-blue');
-}
-
-.Icon-permission-bookmarks {
-  @include permission-icon($name: 'bookmarks');
-}
-
-.Icon-permission-browserSettings,
-.Icon-permission-proxy {
-  @include permission-icon($name: 'browser');
-}
-
-.Icon-permission-browsingData {
-  @include permission-icon($name: 'info');
-}
-
-.Icon-permission-clipboardRead,
-.Icon-permission-clipboardWrite {
-  @include permission-icon($name: 'clipboard');
-}
-
-.Icon-permission-devtools {
-  @include permission-icon($name: 'dev');
-}
-
-.Icon-permission-downloads,
-.Icon-permission-downloads-open {
-  @include permission-icon($name: 'downloads');
-}
-
-.Icon-permission-find {
-  @include permission-icon($name: 'search');
-}
-
-.Icon-permission-geolocation {
-  @include permission-icon($name: 'geolocation');
-}
-
-.Icon-permission-history {
-  @include permission-icon($name: 'history');
-}
-
-.Icon-permission-management {
-  @include permission-icon($name: 'settings');
-}
-
-.Icon-permission-nativeMessaging {
-  @include permission-icon($name: 'messages');
-}
-
-.Icon-permission-notifications {
-  @include permission-icon($name: 'notifications');
-}
-
-.Icon-permission-pkcs11 {
-  @include permission-icon($name: 'cryptographic');
-}
-
-.Icon-permission-privacy,
-.Icon-permission-hostPermission {
-  @include permission-icon($name: 'privacy');
-}
-
-.Icon-permission-sessions,
-.Icon-permission-tabs,
-.Icon-permission-tabHide {
-  @include permission-icon($name: 'tabs');
-}
-
-.Icon-permission-topSites {
-  @include permission-icon($name: 'top-sites');
-}
-
-.Icon-permission-webNavigation {
-  @include permission-icon($name: 'navigation');
 }
 
 .Icon-developer {

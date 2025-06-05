@@ -19,23 +19,6 @@ describe(__filename, () => {
     expect(screen.getByTagName('li')).toBeInTheDocument();
   });
 
-  it('renders an icon with custom name', () => {
-    const type = 'testType';
-    render({ type });
-
-    expect(
-      screen.getByClassName(`Icon-permission-${type}`),
-    ).toBeInTheDocument();
-  });
-
-  it('replaces dots in icon name with dashes', () => {
-    render({ type: 'test.Type' });
-
-    expect(
-      screen.getByClassName('Icon-permission-test-Type'),
-    ).toBeInTheDocument();
-  });
-
   it('renders the description', () => {
     const description = 'It can access your bookmarks';
     render({ description });

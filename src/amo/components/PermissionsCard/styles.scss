@@ -15,25 +15,21 @@
 .PermissionsCard-subhead--optional,
 .PermissionsCard-subhead--required {
   color: $grey-50;
-  margin: 0;
+  margin: 24px 0 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .PermissionsCard-list--optional,
 .PermissionsCard-list--required {
-  list-style: none;
+  list-style: '✓';
+  margin: 4px 4px 4px 12px;
   padding: 0;
 
   li {
-    align-items: center;
-    display: flex;
-    margin-top: 16px;
-    vertical-align: middle;
-
-    .Icon {
-      @include margin-end(12px);
-
-      height: 24px;
-      min-width: 24px;
-    }
+    margin: 4px 0 0;
+    padding-left: 8px;
   }
 }

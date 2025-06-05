@@ -88,11 +88,6 @@ describe(__filename, () => {
   });
 
   describe('formatPermissions', () => {
-    const expectPermission = (permission, type, description) => {
-      expect(permission.props.type).toEqual(type);
-      expect(permission.props.description).toEqual(description);
-    };
-
     it('returns all permissions in the expected order', () => {
       const hostPermissionA = '*://developer.mozilla.org/*';
       const hostPermissionB = '*://*.mozilla.com/*';
@@ -108,14 +103,12 @@ describe(__filename, () => {
       expect(result).toHaveLength(4);
 
       // Native messaging next.
-      expectPermission(
-        result[0],
-        'nativeMessaging',
+      expect(result[0].props.description).toEqual(
         'Exchange messages with programs other than Firefox',
       );
       // Named permissions in alphabetical order.
-      expectPermission(result[1], 'bookmarks', 'Read and modify bookmarks');
-      expectPermission(result[2], 'tabs', 'Access browser tabs');
+      expect(result[1].props.description).toEqual('Read and modify bookmarks');
+      expect(result[2].props.description).toEqual('Access browser tabs');
       // HostPermissions component.
       expect(result[3].props.permissions).toEqual([
         hostPermissionA,
