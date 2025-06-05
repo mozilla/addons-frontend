@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-12 15:22+0000\n"
+"POT-Creation-Date: 2025-06-05 09:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1767,11 +1767,11 @@ msgid "Permissions"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:84
-msgid "This add-on needs to:"
+msgid "Required permissions:"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:94
-msgid "This add-on may also ask to:"
+msgid "Optional permissions:"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:27

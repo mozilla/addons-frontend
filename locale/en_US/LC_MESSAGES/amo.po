@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-12 15:22+0000\n"
+"POT-Creation-Date: 2025-06-05 09:52+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1880,14 +1880,12 @@ msgid "Permissions"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:84
-#, fuzzy
-msgid "This add-on needs to:"
-msgstr "Firefox Add-ons"
+msgid "Required permissions:"
+msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:94
-#, fuzzy
-msgid "This add-on may also ask to:"
-msgstr "Firefox Add-ons"
+msgid "Optional permissions:"
+msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify bookmarks"
@@ -3910,6 +3908,14 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#, fuzzy
+#~ msgid "This add-on needs to:"
+#~ msgstr "Firefox Add-ons"
+
+#, fuzzy
+#~ msgid "This add-on may also ask to:"
+#~ msgstr "Firefox Add-ons"
 
 #, fuzzy
 #~ msgid "Versions blocked: all versions."
