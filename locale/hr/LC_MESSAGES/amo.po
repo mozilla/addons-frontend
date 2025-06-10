@@ -51,7 +51,7 @@ msgstr "Pregled teme"
 #. This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:115
 msgid "Review add-on code"
-msgstr "Pregledaj kȏd dodatka"
+msgstr "Pregledaj kod dodatka"
 
 #. This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:135
@@ -879,7 +879,7 @@ msgstr "Nažalost, za upisani URL ne možemo ništa pronaći."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr "Kȏd greške: %(status)s"
+msgstr "Kod greške: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
