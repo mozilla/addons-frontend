@@ -16,7 +16,6 @@ import defaultImage from './img/default-og-image.png';
 export type DefaultProps = {|
   _config?: typeof config,
   appendDefaultTitle?: boolean,
-  withTwitterMeta?: boolean,
 |};
 
 export type Props = {|
@@ -45,7 +44,6 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   static defaultProps: DefaultProps = {
     _config: config,
     appendDefaultTitle: true,
-    withTwitterMeta: false,
   };
 
   getDescription(): string {
@@ -127,23 +125,6 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return tags;
   }
 
-  renderTwitter(): null | Array<React.Node> {
-    if (!this.props.withTwitterMeta) {
-      return null;
-    }
-
-    const tags = [
-      <meta key="twitter:site" name="twitter:site" content="@mozamo" />,
-      <meta
-        key="twitter:card"
-        name="twitter:card"
-        content="summary_large_image"
-      />,
-    ];
-
-    return tags;
-  }
-
   render(): React.Node {
     const { date, lastModified } = this.props;
     const description = this.getDescription();
@@ -154,7 +135,6 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
         {date && <meta name="date" content={date} />}
         {lastModified && <meta name="last-modified" content={lastModified} />}
         {this.renderOpenGraph()}
-        {this.renderTwitter()}
       </Helmet>
     );
   }

@@ -292,34 +292,4 @@ describe(__filename, () => {
       );
     },
   );
-
-  it('does not render Twitter meta tags by default', async () => {
-    render();
-
-    await waitFor(() =>
-      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
-    );
-
-    ['twitter:site', 'twitter:card'].forEach((name) => {
-      expect(getElements(`meta[name="${name}"]`)).toHaveLength(0);
-    });
-  });
-
-  it('renders Twitter meta tags when withTwitterMeta is true', async () => {
-    render({ withTwitterMeta: true });
-
-    await waitFor(() =>
-      expect(getElement('meta[name="twitter:site"]')).toBeInTheDocument(),
-    );
-
-    [
-      ['twitter:site', '@mozamo'],
-      ['twitter:card', 'summary_large_image'],
-    ].forEach(([name, expectedValue]) => {
-      expect(getElement(`meta[name="${name}"]`)).toHaveAttribute(
-        'content',
-        expectedValue,
-      );
-    });
-  });
 });

@@ -208,7 +208,6 @@ export class HomeBase extends React.Component {
             description={i18n.gettext(`Download Firefox extensions and themes.
             They’re like apps for your browser. They can block annoying ads,
             protect passwords, change browser appearance, and more.`)}
-            withTwitterMeta
           />
 
           <HeadLinks />
