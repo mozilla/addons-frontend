@@ -1544,10 +1544,6 @@ describe(__filename, () => {
         'content',
         String(addon.created),
       );
-      expect(getElement('meta[name="twitter:site"]')).toHaveAttribute(
-        'content',
-        '@mozamo',
-      );
     });
 
     it.each([

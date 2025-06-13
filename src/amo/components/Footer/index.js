@@ -247,8 +247,8 @@ export class FooterBase extends React.Component<InternalProps> {
             </ul>
             <ul className="Footer-links Footer-links-social">
               <li className="Footer-link-social">
-                <a href="https://twitter.com/firefox">
-                  <Icon name="twitter" alt="Twitter (@firefox)" />
+                <a href="https://bsky.app/profile/firefox.com">
+                  <Icon name="bluesky" alt="Bluesky (@firefox.com)" />
                 </a>
               </li>
               <li className="Footer-link-social">
