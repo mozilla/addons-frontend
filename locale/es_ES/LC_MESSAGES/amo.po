@@ -302,7 +302,7 @@ msgstr "Otras extensiones populares"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:40
 msgid "You reported this add-on"
-msgstr ""
+msgstr "Has denunciado este complemento"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:44
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -310,7 +310,7 @@ msgstr "Hemos recibido tu notificación. Gracias por hacernos saber tus preocupa
 
 #: src/amo/components/AddonReportAbuseLink/index.js:56
 msgid "Report this add-on"
-msgstr ""
+msgstr "Informar sobre este complemento"
 
 #: src/amo/components/AddonReviewCard/index.js:209
 msgid "Edit reply"
@@ -1848,7 +1848,7 @@ msgstr "No hay revisiones con 2 estrellas"
 #: src/amo/components/RatingsByStar/index.js:123
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Leer todas las revisiones con 1 estrella"
+msgstr[0] "Lea la reseña de 1 estrella"
 msgstr[1] "Leer todas las %(total)s revisiones con 1 estrella"
 
 #: src/amo/components/RatingsByStar/index.js:133
@@ -1860,39 +1860,34 @@ msgid "There are no reviews"
 msgstr "Todavía no hay revisiones"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Leer todas las revisiones de 5 estrellas"
-msgstr[1] "Leer todas las revisiones de 5 estrellas"
+msgstr[0] "Lea la reseña cinco estrellas"
+msgstr[1] "Leer todas las %(total)s revisiones de 5 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "No hay reseñas de cinco estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Leer todas las revisiones con 4 estrellas"
-msgstr[1] "Leer todas las revisiones con 4 estrellas"
+msgstr[0] "Leer la reseña de cuatro estrellas"
+msgstr[1] "Leer todas las %(total)s revisiones con 4 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Todavía no hay revisiones"
+msgstr "No hay reseñas de cuatro estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Leer todas las revisiones de 3 estrellas"
-msgstr[1] "Leer todas las revisiones de 3 estrellas"
+msgstr[0] "Leer la reseña de tres estrellas"
+msgstr[1] "Leer todas las %(total)s revisiones de tres estrellas"
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
-msgstr ""
+msgstr "Has denunciado a este usuario"
 
 #: src/amo/components/ReportUserAbuse/index.js:52
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1900,7 +1895,7 @@ msgstr "Hemos recibido tu notificación. Gracias por hacernos saber tu preocupac
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
-msgstr ""
+msgstr "Denunciar a este usuario"
 
 #: src/amo/components/Search/index.js:138 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
@@ -1919,34 +1914,28 @@ msgid "Recommended add-ons"
 msgstr "Complementos recomendados"
 
 #: src/amo/components/Search/index.js:155
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Extensiones de %(author)s"
+msgstr "Extensiones de Firefox"
 
 #: src/amo/components/Search/index.js:158
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "para Firefox"
+msgstr "Temas de Firefox"
 
 #: src/amo/components/Search/index.js:161
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Complementos para Firefox"
+msgstr "Complementos de Firefox"
 
 #: src/amo/components/Search/index.js:166
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Extensiones recomendadas"
+msgstr "Extensiones revisadas"
 
 #: src/amo/components/Search/index.js:169
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Revisar tema"
+msgstr "Temas revisados"
 
 #: src/amo/components/Search/index.js:172
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Revisar código del complemento"
+msgstr "Complementos revisados"
 
 #: src/amo/components/Search/index.js:180 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
