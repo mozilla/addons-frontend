@@ -896,6 +896,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"テーマまたは拡張機能が再び利用可能になる可能性があるため、しばらくしてからページにアクセスしてみてください。または、利用可能な %(extensionStart)s拡張機能%(extensionEnd)s または %(themeStart)sテーマ%(themeEnd)s "
+"のいずれかで探しているものが見つかるかもしれません。あるいは、%(communityStart)sコミュニティフォーラム%(communityEnd)s で質問することでも見つかるかもしれません。"
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
@@ -1647,11 +1649,11 @@ msgstr "権限"
 
 #: src/amo/components/PermissionsCard/index.js:84
 msgid "Required permissions:"
-msgstr ""
+msgstr "必要な権限:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "Optional permissions:"
-msgstr ""
+msgstr "任意の許可設定:"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify bookmarks"
@@ -2472,33 +2474,33 @@ msgstr "このアドオンは Mozilla ポリシーに違反しているため制
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s は Mozilla ポリシーに違反しているためブロックされています"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "このアドオンは Mozilla ポリシーに違反しているためブロックされています"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
-msgstr ""
+msgstr "このような問題が起きた理由は？"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "この拡張機能、テーマ、またはプラグインは、%(startLink)sMozilla のアドオンポリシー%(endLink)s に違反しています。"
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
-msgstr ""
+msgstr "これはどういう意味ですか？"
 
 #: src/amo/pages/Block/index.js:178
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
-msgstr ""
+msgstr "違反が解決されるまで、このアドオンは addons.mozilla.org からダウンロードできません。すでにインストールされている場合は無効化され、ユーザーには違反について通知されます。ユーザーは自己責任でアドオンを再度有効化することができます。"
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "違反が解決されるまで、このアドオンは addons.mozilla.org からダウンロードできなくなります。自動的に無効化され、Firefox で使用できなくなります。"
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
@@ -3163,7 +3165,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Mozilla アカウントを管理..."
 
 #: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
