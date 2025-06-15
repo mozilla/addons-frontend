@@ -3390,7 +3390,7 @@ msgstr "(brak nazwy)"
 #. This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:305
 msgid "%(application)s %(minVersion)s and later"
-msgstr "%(application)s %(minVersion)s i nowsze"
+msgstr "%(application)s %(minVersion)s i nowsze"
 
 #. This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:309
