@@ -1650,11 +1650,11 @@ msgstr "권한"
 
 #: src/amo/components/PermissionsCard/index.js:84
 msgid "Required permissions:"
-msgstr ""
+msgstr "필요한 권한:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "Optional permissions:"
-msgstr ""
+msgstr "선택적 권한:"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify bookmarks"
