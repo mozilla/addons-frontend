@@ -103,9 +103,9 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
       >
         {requiredPermissionsContent.length ? (
           <>
-            <p className="PermissionsCard-subhead--required">
+            <h4 className="PermissionsCard-subhead--required">
               {i18n.gettext('Required permissions:')}
-            </p>
+            </h4>
             <ul className="PermissionsCard-list--required">
               {requiredPermissionsContent}
             </ul>
@@ -113,9 +113,9 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         ) : null}
         {optionalPermissionsContent.length ? (
           <>
-            <p className="PermissionsCard-subhead--optional">
+            <h4 className="PermissionsCard-subhead--optional">
               {i18n.gettext('Optional permissions:')}
-            </p>
+            </h4>
             <ul className="PermissionsCard-list--optional">
               {optionalPermissionsContent}
             </ul>
@@ -123,9 +123,9 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         ) : null}
         {requiredDataCollectionPermissionsContent.length ? (
           <>
-            <p className="PermissionsCard-subhead--required">
+            <h4 className="PermissionsCard-subhead--required">
               {requiredDataCollectionPermissionsHeader}
-            </p>
+            </h4>
             <ul className="PermissionsCard-list--required">
               {requiredDataCollectionPermissionsContent}
             </ul>
@@ -133,11 +133,11 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         ) : null}
         {optionalDataCollectionPermissionsContent.length ? (
           <>
-            <p className="PermissionsCard-subhead--optional">
+            <h4 className="PermissionsCard-subhead--optional">
               {i18n.gettext(
                 'Optional data collection, according to the developer:',
               )}
-            </p>
+            </h4>
             <ul className="PermissionsCard-list--optional">
               {optionalDataCollectionPermissionsContent}
             </ul>
