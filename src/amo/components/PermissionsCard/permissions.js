@@ -17,12 +17,14 @@ export class PermissionUtils {
 
   permissionStrings: Object;
 
+  dataCollectionPermissionStrings: Object;
+
   constructor(i18n: I18nType) {
     this.i18n = i18n;
     // These should be kept in sync with Firefox's strings for webextension
     // permissions which can be found in:
-    // https://searchfox.org/mozilla-central/rev/b0b003e992b199fd8e13999bd5d06d06c84a3fd2/toolkit/components/extensions/ExtensionPermissionMessages.sys.mjs#32
-    // https://searchfox.org/mozilla-central/rev/b0b003e992b199fd8e13999bd5d06d06c84a3fd2/toolkit/locales/en-US/toolkit/global/extensionPermissions.ftl
+    // https://searchfox.org/mozilla-central/rev/fdb34ddfe30bd54aba991feb72b1476c77938e46/toolkit/components/extensions/ExtensionPermissionMessages.sys.mjs#32
+    // https://searchfox.org/mozilla-central/rev/fdb34ddfe30bd54aba991feb72b1476c77938e46/toolkit/locales/en-US/toolkit/global/extensionPermissions.ftl
     this.permissionStrings = {
       bookmarks: i18n.gettext('Read and modify bookmarks'),
       browserSettings: i18n.gettext('Read and modify browser settings'),
@@ -59,14 +61,49 @@ export class PermissionUtils {
       topSites: i18n.gettext('Access browsing history'),
       webNavigation: i18n.gettext('Access browser activity during navigation'),
     };
+
+    this.dataCollectionPermissionStrings = {
+      authenticationInfo: i18n.gettext('Authentication information'),
+      bookmarksInfo: i18n.gettext('Bookmarks'),
+      browsingActivity: i18n.gettext('Browsing activity'),
+      financialAndPaymentInfo: i18n.gettext(
+        'Financial and payment information',
+      ),
+      healthInfo: i18n.gettext('Health information'),
+      locationInfo: i18n.gettext('Location'),
+      personalCommunications: i18n.gettext('Personal communications'),
+      personallyIdentifyingInfo: i18n.gettext(
+        'Personally identifying information',
+      ),
+      searchTerms: i18n.gettext('Search terms'),
+      technicalAndInteraction: i18n.gettext('Technical and interaction data'),
+      websiteActivity: i18n.gettext('Website activity'),
+      websiteContent: i18n.gettext('Website content'),
+
+      // 'none' is a special string that can only appear alone in required data
+      // collection permissions, and the header changes when it appears.
+      none: i18n.gettext(
+        "The developer says this extension doesn't require data collection.",
+      ),
+    };
   }
 
   // Get lists of optional and required permissions from the correct platform file.
   getCurrentPermissions({ file }: GetCurrentPermissionsParams): {
-    optional: Array<string>,
-    required: Array<string>,
+    permissions: {
+      optional: Array<string>,
+      required: Array<string>,
+    },
+    data_collection_permissions: {
+      optional: Array<string>,
+      required: Array<string>,
+    },
   } {
     const permissions = {
+      optional: [],
+      required: [],
+    };
+    const data_collection_permissions = {
       optional: [],
       required: [],
     };
@@ -74,13 +111,17 @@ export class PermissionUtils {
     if (!file) {
       log.debug('getCurrentPermissions() called with no file');
 
-      return permissions;
+      return { permissions, data_collection_permissions };
     }
 
     const hostPermissions = file.host_permissions || [];
     permissions.optional = [...file.optional_permissions, ...hostPermissions];
     permissions.required = file.permissions;
-    return permissions;
+    data_collection_permissions.optional =
+      file.optional_data_collection_permissions || [];
+    data_collection_permissions.required =
+      file.data_collection_permissions || [];
+    return { permissions, data_collection_permissions };
   }
 
   // Classify a permission as a host permission or a regular permission.
@@ -128,12 +169,12 @@ export class PermissionUtils {
         continue;
       }
       // Only output a permission if we have a string defined for it.
-      if (this.permissionStrings[permission]) {
+      const permissionString =
+        this.permissionStrings[permission] ||
+        this.dataCollectionPermissionStrings[permission];
+      if (permissionString) {
         permissionsToDisplay.push(
-          <Permission
-            description={this.permissionStrings[permission]}
-            key={permission}
-          />,
+          <Permission description={permissionString} key={permission} />,
         );
       }
     }

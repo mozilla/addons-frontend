@@ -37,26 +37,49 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
     });
 
     if (
-      !addonPermissions.optional.length &&
-      !addonPermissions.required.length
+      !addonPermissions.permissions.optional.length &&
+      !addonPermissions.permissions.required.length &&
+      !addonPermissions.data_collection_permissions.optional.length &&
+      !addonPermissions.data_collection_permissions.required.length
     ) {
       return null;
     }
 
-    const optionalContent = permissionUtils.formatPermissions(
-      addonPermissions.optional,
+    const optionalPermissionsContent = permissionUtils.formatPermissions(
+      addonPermissions.permissions.optional,
     );
-    const requiredContent = permissionUtils.formatPermissions(
-      addonPermissions.required,
+    const requiredPermissionsContent = permissionUtils.formatPermissions(
+      addonPermissions.permissions.required,
     );
+    const optionalDataCollectionPermissionsContent =
+      permissionUtils.formatPermissions(
+        addonPermissions.data_collection_permissions.optional,
+      );
+    const requiredDataCollectionPermissionsContent =
+      permissionUtils.formatPermissions(
+        addonPermissions.data_collection_permissions.required,
+      );
 
-    if (!optionalContent.length && !requiredContent.length) {
+    if (
+      !optionalPermissionsContent.length &&
+      !requiredPermissionsContent.length &&
+      !optionalDataCollectionPermissionsContent.length &&
+      !requiredDataCollectionPermissionsContent.length
+    ) {
       return null;
     }
 
+    // 'none' is a special string that can only appear alone in required data
+    // collection permissions, and the header changes when it appears.
+    const requiredDataCollectionPermissionsHeader =
+      addonPermissions.data_collection_permissions.required.length === 1 &&
+      addonPermissions.data_collection_permissions.required[0] === 'none'
+        ? i18n.gettext('Data collection:')
+        : i18n.gettext('Required data collection, according to the developer:');
+
     const header = (
       <div className="PermissionsCard-header">
-        {i18n.gettext('Permissions')}
+        {i18n.gettext('Permissions and data')}
         <Link
           className="PermissionsCard-learn-more"
           href="https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
@@ -78,23 +101,45 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         id="AddonDescription-permissions-card"
         maxHeight={300}
       >
-        {requiredContent.length ? (
+        {requiredPermissionsContent.length ? (
           <>
             <p className="PermissionsCard-subhead--required">
               {i18n.gettext('Required permissions:')}
             </p>
             <ul className="PermissionsCard-list--required">
-              {requiredContent}
+              {requiredPermissionsContent}
             </ul>
           </>
         ) : null}
-        {optionalContent.length ? (
+        {optionalPermissionsContent.length ? (
           <>
             <p className="PermissionsCard-subhead--optional">
               {i18n.gettext('Optional permissions:')}
             </p>
             <ul className="PermissionsCard-list--optional">
-              {optionalContent}
+              {optionalPermissionsContent}
+            </ul>
+          </>
+        ) : null}
+        {requiredDataCollectionPermissionsContent.length ? (
+          <>
+            <p className="PermissionsCard-subhead--required">
+              {requiredDataCollectionPermissionsHeader}
+            </p>
+            <ul className="PermissionsCard-list--required">
+              {requiredDataCollectionPermissionsContent}
+            </ul>
+          </>
+        ) : null}
+        {optionalDataCollectionPermissionsContent.length ? (
+          <>
+            <p className="PermissionsCard-subhead--optional">
+              {i18n.gettext(
+                'Optional data collection, according to the developer:',
+              )}
+            </p>
+            <ul className="PermissionsCard-list--optional">
+              {optionalDataCollectionPermissionsContent}
             </ul>
           </>
         ) : null}
