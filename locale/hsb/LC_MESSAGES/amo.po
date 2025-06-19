@@ -1686,19 +1686,19 @@ msgstr "Opcionalne prawa:"
 
 #: src/amo/components/PermissionsCard/index.js:137
 msgid "Optional data collection, according to the developer:"
-msgstr ""
+msgstr "Opcionalne hromadźenje datow, po wuwiwarju:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "Hromadźenje datow:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr ""
+msgstr "Trěbne hromadźenje datow, po wuwiwarju:"
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "Prawa a daty"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -1794,23 +1794,23 @@ msgstr "Mějće přistup k aktiwiće wobhladowaka za nawigaciju"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr ""
+msgstr "Informacije awtentifikacije"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Zapołožki"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "Přehladowanska aktiwita"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
-msgstr ""
+msgstr "Financielne a płaćenske informacije"
 
 #: src/amo/components/PermissionsCard/permissions.js:72
 msgid "Health information"
-msgstr ""
+msgstr "Strowotne informacije"
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
@@ -1818,31 +1818,31 @@ msgstr "Městno"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "Wosobinske komunikacije"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "Informacije, kotrež wosoby identifikuja"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "Pytanske wurazy"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "Techniske daty a daty interakcije"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "Aktiwita websydła"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "Wobsah websydła"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "Wuwiwar praji, zo tute rozšěrjenje hromadźenje datow njetrjeba."
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
