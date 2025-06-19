@@ -228,6 +228,8 @@ describe(__filename, () => {
     host = [],
     optional = [],
     required = [],
+    optional_data_collection = [],
+    required_data_collection = [],
     versionProps = {},
   } = {}) => {
     return {
@@ -237,6 +239,8 @@ describe(__filename, () => {
         host_permissions: host,
         optional_permissions: optional,
         permissions: required,
+        data_collection_permissions: required_data_collection,
+        optional_data_collection_permissions: optional_data_collection,
       },
 
       ...versionProps,
@@ -1774,14 +1778,18 @@ describe(__filename, () => {
         addon.current_version = null;
         renderWithAddon();
 
-        expect(screen.queryByText('Permissions')).not.toBeInTheDocument();
+        expect(
+          screen.queryByText('Permissions and data'),
+        ).not.toBeInTheDocument();
       });
 
       it('renders nothing for a version with no permissions', () => {
         addon.current_version = createVersionWithPermissions();
         renderWithAddon();
 
-        expect(screen.queryByText('Permissions')).not.toBeInTheDocument();
+        expect(
+          screen.queryByText('Permissions and data'),
+        ).not.toBeInTheDocument();
       });
 
       it('renders nothing for a version with no displayable permissions', () => {
@@ -1791,7 +1799,9 @@ describe(__filename, () => {
         });
         renderWithAddon();
 
-        expect(screen.queryByText('Permissions')).not.toBeInTheDocument();
+        expect(
+          screen.queryByText('Permissions and data'),
+        ).not.toBeInTheDocument();
       });
     });
 
@@ -1815,7 +1825,7 @@ describe(__filename, () => {
         });
         renderWithAddon();
 
-        expect(screen.getByText('Permissions')).toBeInTheDocument();
+        expect(screen.getByText('Permissions and data')).toBeInTheDocument();
         const learnMoreLink = within(getPermissionsCard()).getByText(
           'Learn more',
         );
@@ -1841,6 +1851,9 @@ describe(__filename, () => {
           'PermissionsCard-list--required',
         );
         expect(
+          screen.getByText('Read and modify bookmarks'),
+        ).toBeInTheDocument();
+        expect(
           screen.queryByClassName('PermissionsCard-subhead--optional'),
         ).not.toBeInTheDocument();
         expect(
@@ -1863,6 +1876,9 @@ describe(__filename, () => {
         );
         expect(
           screen.getByText('Access your data for example.com'),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByText('Read and modify bookmarks'),
         ).toBeInTheDocument();
         expect(
           screen.queryByClassName('PermissionsCard-subhead--required'),
@@ -1889,11 +1905,107 @@ describe(__filename, () => {
         expect(
           screen.getByText('Access your data for example.com'),
         ).toBeInTheDocument();
+        expect(screen.getByText('Access browsing history')).toBeInTheDocument();
+        expect(
+          screen.getByText('Read and modify bookmarks'),
+        ).toBeInTheDocument();
         expect(
           screen.getByClassName('PermissionsCard-list--required'),
         ).toBeInTheDocument();
         expect(
           screen.getByClassName('PermissionsCard-list--optional'),
+        ).toBeInTheDocument();
+      });
+    });
+
+    describe('with data collection permissions', () => {
+      it('renders required permissions only', () => {
+        addon.current_version = createVersionWithPermissions({
+          required_data_collection: ['searchTerms'],
+        });
+        renderWithAddon();
+
+        expect(
+          screen.getByText(
+            'Required data collection, according to the developer:',
+          ),
+        ).toHaveClass('PermissionsCard-subhead--required');
+        expect(within(getPermissionsCard()).getByTagName('ul')).toHaveClass(
+          'PermissionsCard-list--required',
+        );
+        expect(screen.getByText('Search terms')).toBeInTheDocument();
+        expect(
+          screen.queryByClassName('PermissionsCard-subhead--optional'),
+        ).not.toBeInTheDocument();
+        expect(
+          screen.queryByClassName('PermissionsCard-list--optional'),
+        ).not.toBeInTheDocument();
+      });
+
+      it('renders optional permissions only', () => {
+        addon.current_version = createVersionWithPermissions({
+          optional_data_collection: ['technicalAndInteraction'],
+        });
+        renderWithAddon();
+
+        expect(
+          screen.getByText(
+            'Optional data collection, according to the developer:',
+          ),
+        ).toHaveClass('PermissionsCard-subhead--optional');
+        expect(within(getPermissionsCard()).getByTagName('ul')).toHaveClass(
+          'PermissionsCard-list--optional',
+        );
+        expect(
+          screen.getByText('Technical and interaction data'),
+        ).toBeInTheDocument();
+        expect(
+          screen.queryByClassName('PermissionsCard-subhead--required'),
+        ).not.toBeInTheDocument();
+        expect(
+          screen.queryByClassName('PermissionsCard-list--required'),
+        ).not.toBeInTheDocument();
+      });
+
+      it('renders both optional and required permissions', () => {
+        addon.current_version = createVersionWithPermissions({
+          required_data_collection: ['authenticationInfo'],
+          optional_data_collection: ['websiteContent'],
+        });
+        renderWithAddon();
+
+        expect(
+          screen.getByText(
+            'Required data collection, according to the developer:',
+          ),
+        ).toHaveClass('PermissionsCard-subhead--required');
+        expect(
+          screen.getByText(
+            'Optional data collection, according to the developer:',
+          ),
+        ).toHaveClass('PermissionsCard-subhead--optional');
+        expect(screen.getByText('Website content')).toBeInTheDocument();
+        expect(
+          screen.getByClassName('PermissionsCard-list--required'),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByClassName('PermissionsCard-list--optional'),
+        ).toBeInTheDocument();
+      });
+
+      it('renders the special "none" data collection permission changing the header', () => {
+        addon.current_version = createVersionWithPermissions({
+          required_data_collection: ['none'],
+        });
+        renderWithAddon();
+
+        expect(screen.getByText('Data collection:')).toHaveClass(
+          'PermissionsCard-subhead--required',
+        );
+        expect(
+          screen.getByText(
+            "The developer says this extension doesn't require data collection.",
+          ),
         ).toBeInTheDocument();
       });
     });
