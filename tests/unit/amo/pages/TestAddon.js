@@ -1921,7 +1921,7 @@ describe(__filename, () => {
     describe('with data collection permissions', () => {
       it('renders required permissions only', () => {
         addon.current_version = createVersionWithPermissions({
-          required_data_collection: ['technicalAndInteraction'],
+          required_data_collection: ['searchTerms'],
         });
         renderWithAddon();
 
@@ -1933,9 +1933,7 @@ describe(__filename, () => {
         expect(within(getPermissionsCard()).getByTagName('ul')).toHaveClass(
           'PermissionsCard-list--required',
         );
-        expect(
-          screen.getByText('Technical and interaction data'),
-        ).toBeInTheDocument();
+        expect(screen.getByText('Search terms')).toBeInTheDocument();
         expect(
           screen.queryByClassName('PermissionsCard-subhead--optional'),
         ).not.toBeInTheDocument();
@@ -1946,7 +1944,7 @@ describe(__filename, () => {
 
       it('renders optional permissions only', () => {
         addon.current_version = createVersionWithPermissions({
-          optional_data_collection: ['searchTerms'],
+          optional_data_collection: ['technicalAndInteraction'],
         });
         renderWithAddon();
 
@@ -1958,7 +1956,9 @@ describe(__filename, () => {
         expect(within(getPermissionsCard()).getByTagName('ul')).toHaveClass(
           'PermissionsCard-list--optional',
         );
-        expect(screen.getByText('Search terms')).toBeInTheDocument();
+        expect(
+          screen.getByText('Technical and interaction data'),
+        ).toBeInTheDocument();
         expect(
           screen.queryByClassName('PermissionsCard-subhead--required'),
         ).not.toBeInTheDocument();
