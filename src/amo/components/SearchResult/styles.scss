@@ -129,7 +129,7 @@ $icon-default-size: 32px;
   text-decoration: none;
   width: 100%;
 
-  .PromotedBadge {
+  .Badge {
     justify-content: flex-start;
     margin-bottom: 6px;
   }
@@ -139,7 +139,7 @@ $icon-default-size: 32px;
     flex-direction: row;
     margin-top: 0;
 
-    .PromotedBadge {
+    .Badge {
       margin-bottom: 0;
     }
   }

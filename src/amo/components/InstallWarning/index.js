@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import type { AppState } from 'amo/store';
-import { getPromotedBadgesLinkUrl } from 'amo/utils';
+import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
 import {
   ADDON_TYPE_EXTENSION,
   EXCLUDE_WARNING_CATEGORIES,

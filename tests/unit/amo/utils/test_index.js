@@ -21,7 +21,6 @@ import {
   getClientApp,
   getClientConfig,
   getClientAppAndLangFromPath,
-  getPromotedBadgesLinkUrl,
   isAddonAuthor,
   isValidClientApp,
   makeQueryStringWithUTM,
@@ -34,6 +33,7 @@ import {
   stripLangFromAmoUrl,
   visibleAddonType,
 } from 'amo/utils';
+import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
 import {
   createFakeHistory,
   createFakeLocation,

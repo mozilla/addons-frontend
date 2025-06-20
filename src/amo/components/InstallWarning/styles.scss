@@ -2,10 +2,5 @@
 
 .InstallWarning {
   grid-column: 1 / span 2;
-  margin: 8px auto;
   width: 100%;
-
-  @include respond-to(medium) {
-    margin: 0 auto 8px;
-  }
 }
