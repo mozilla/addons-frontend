@@ -17,7 +17,7 @@ import LoadingText from 'amo/components/LoadingText';
 import Rating from 'amo/components/Rating';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import { roundToOneDigit } from 'amo/components/AddonMeta';
+import { roundToOneDigit } from 'amo/components/AddonBadges';
 import { getAddonURL } from 'amo/utils';
 import type { ReactRouterLocationType } from 'amo/types/router';
 

@@ -386,7 +386,7 @@ describe(__filename, () => {
   it('renders without an add-on', () => {
     render();
 
-    expect(screen.getAllByRole('alert')).toHaveLength(19);
+    expect(screen.getAllByRole('alert')).toHaveLength(6);
   });
 
   it('renders without a version', () => {
@@ -1004,10 +1004,12 @@ describe(__filename, () => {
     );
   });
 
-  it('renders meta data for the add-on', () => {
+  it('renders rating badge', () => {
     renderWithAddon();
 
-    expect(screen.getByRole('link', { name: 'Reviews' })).toBeInTheDocument();
+    const badge = screen.getByTestId(`badge-star-full`);
+    expect(badge).toBeInTheDocument();
+    expect(badge).toHaveTextContent('3.5 (10 reviews)');
   });
 
   describe('read reviews footer', () => {
@@ -3037,9 +3039,16 @@ describe(__filename, () => {
         apps: [clientApp],
       }));
       renderWithAddon();
-      const badges = screen.getAllByClassName('Badge');
-      expect(badges).toHaveLength(2);
-      expect(badges[0]).toHaveTextContent('Recommended');
+
+      [LINE, STRATEGIC, SPOTLIGHT].forEach((category) => {
+        expect(
+          screen.queryByTestId(`badge-${category}`),
+        ).not.toBeInTheDocument();
+      });
+
+      const badge = screen.getByTestId(`badge-${RECOMMENDED}`);
+      expect(badge).toBeInTheDocument();
+      expect(badge).toHaveTextContent('Recommended');
     });
 
     // See https://github.com/mozilla/addons-frontend/issues/8285.
@@ -3062,6 +3071,11 @@ describe(__filename, () => {
     it('displays no badges when none are called for', () => {
       addon = {
         ...addon,
+        is_experimental: false,
+        requires_payment: false,
+        isAndroidCompatible: false,
+        promoted: null,
+        ratings: null,
         current_version: {
           ...addon.current_version,
           compatibility: {
@@ -3071,10 +3085,7 @@ describe(__filename, () => {
       };
       renderWithAddon();
 
-      expect(
-        // eslint-disable-next-line testing-library/prefer-presence-queries
-        within(screen.getByClassName('AddonBadges')).queryByTagName('div'),
-      ).not.toBeInTheDocument();
+      expect(screen.queryAllByTestId(/badge-/)).toHaveLength(0);
     });
 
     it('displays a badge when the addon is experimental', () => {

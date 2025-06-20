@@ -1,8 +1,10 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
+import { reviewListURL } from 'amo/reducers/reviews';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getPromotedCategory } from 'amo/utils/addons';
@@ -10,6 +12,7 @@ import Badge, { BadgeContent, BadgeIcon } from 'amo/components/Badge';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterLocationType } from 'amo/types/router';
 import { getPromotedProps } from 'amo/utils/promoted';
 
 import './styles.scss';
@@ -31,7 +34,12 @@ type InternalProps = {|
   ...DefaultProps,
   ...PropsFromState,
   i18n: I18nType,
+  location: ReactRouterLocationType,
 |};
+
+export const roundToOneDigit = (value: number | null): number => {
+  return value ? Math.round(value * 10) / 10 : 0;
+};
 
 export class AddonBadgesBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
@@ -108,6 +116,27 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
     );
   }
 
+  renderRatingMeta(): React.Node {
+    const { addon, i18n, location } = this.props;
+
+    if (!addon?.ratings) return null;
+
+    const addonRatingCount: number = addon.ratings.count;
+    const averageRating: number = addon.ratings.average;
+    const roundedAverage = roundToOneDigit(averageRating || null);
+
+    const reviewCount = i18n.formatNumber(addonRatingCount);
+    const reviewsLink = reviewListURL({ addonSlug: addon.slug, location });
+    const reviewsLabel = `${roundedAverage} (${reviewCount || 0} reviews)`;
+
+    return (
+      <Badge link={reviewsLink} type="star-full" label={reviewsLabel}>
+        <BadgeIcon />
+        <BadgeContent />
+      </Badge>
+    );
+  }
+
   render(): null | React.Node {
     const { addon } = this.props;
 
@@ -121,6 +150,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
         {this.renderExperimentalBadge()}
         {this.renderRequiresPaymentBadge()}
         {this.renderAndroidCompatibleBadge()}
+        {this.renderRatingMeta()}
       </div>
     );
   }
@@ -133,6 +163,7 @@ const mapStateToProps = (state: AppState): PropsFromState => {
 };
 
 const AddonBadges: React.ComponentType<Props> = compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
 )(AddonBadgesBase);

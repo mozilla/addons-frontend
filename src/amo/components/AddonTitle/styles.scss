@@ -6,7 +6,7 @@
   color: $black;
   font-size: $font-size-heading-s;
   grid-column: 1 / span 2;
-  margin: 0 0 $padding-page-l;
+  margin: 0;
   width: 100%;
 
   @include respond-to(medium) {

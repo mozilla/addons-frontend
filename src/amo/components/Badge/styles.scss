@@ -7,17 +7,18 @@ $badge-size-small: 16px;
   color: $grey-90;
   font-size: $font-size-default;
   line-height: $line-height-compressed;
-  margin: 0 0 6px;
   display: flex;
   align-items: center;
   white-space: nowrap;
+  padding: 3px 6px 3px 3px;
 
   .Badge-link {
-    color: $color-dark-gray-05;
+    color: inherit;
     display: flex;
     align-items: center;
     flex-grow: 0;
     flex-shrink: 0;
+    text-decoration: none;
 
     &,
     &:link,
@@ -40,7 +41,6 @@ $badge-size-small: 16px;
     border-radius: 20px;
     display: inline-flex;
     box-sizing: border-box;
-    padding: 3px 6px 3px 3px;
 
     &:hover,
     &:active,
@@ -52,7 +52,6 @@ $badge-size-small: 16px;
   @include respond-to(large) {
     display: flex;
     flex-direction: row-reverse;
-    margin: 0 0 6px;
 
     .Addon-theme & {
       flex-direction: row;
@@ -60,12 +59,6 @@ $badge-size-small: 16px;
   }
 
   .Icon {
-    @include margin(2px, 6px, 0, 0);
-
-    @include respond-to(large) {
-      @include margin(2px, 0, 0, 2px);
-    }
-
     vertical-align: top;
   }
 }
@@ -91,11 +84,13 @@ $badge-size-small: 16px;
 }
 
 .Badge-icon--large {
+  background-size: $badge-size-large;
   height: $badge-size-large;
   width: $badge-size-large;
 }
 
 .Badge-icon--small {
+  background-size: $badge-size-small;
   height: $badge-size-small;
   width: $badge-size-small;
 }

@@ -2,20 +2,6 @@
 
 .Addon {
   @include page-padding;
-
-  .Addon-summary-and-install-button-wrapper {
-    .AMInstallButton {
-      @include respond-to(medium) {
-        align-self: flex-end;
-      }
-    }
-
-    .AMInstallButton--noDownloadLink {
-      @include respond-to(medium) {
-        margin-bottom: 12px;
-      }
-    }
-  }
 }
 
 .Addon .Card {
@@ -23,14 +9,6 @@
 
   @include respond-to(large) {
     margin-bottom: $padding-page-l;
-  }
-}
-
-.Addon-icon {
-  min-height: 72px;
-
-  @include respond-to(medium) {
-    min-height: 96px;
   }
 }
 
@@ -51,30 +29,11 @@
   width: 100%;
 }
 
-.Addon-header-wrapper {
-  @include respond-to(large) {
-    display: flex;
-  }
-}
-
 .Addon-header-info-card {
-  @include respond-to(large) {
-    @include margin-end($padding-page-l);
-
-    width: 65%;
-  }
-
   .AddonCompatibilityError,
   .Addon-non-public-notice {
     margin: 0;
     margin-bottom: 12px;
-  }
-}
-
-.Addon-header-meta-and-ratings {
-  @include respond-to(large) {
-    min-width: 300px;
-    width: 35%;
   }
 }
 
@@ -85,51 +44,38 @@
 .Addon-header {
   display: grid;
   grid-template-columns: 1fr;
-}
+  gap: 16px;
+  padding: 6px 0;
 
-.Addon-summary-and-install-button-wrapper {
-  grid-column: 1 / span 2;
-  width: 100%;
-
-  .Button {
-    text-align: center;
-    white-space: normal;
-
-    @include respond-to(medium) {
-      white-space: nowrap;
-    }
+  @include respond-to(large) {
+    grid-template-columns: 0.5fr 3fr 1fr;
   }
 
-  @include respond-to(extraLarge) {
+  & .Addon-info {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  & .Addon-install {
+    @include respond-to(medium) {
+      margin-left: auto;
+      width: 50%;
+    }
+    @include respond-to(large) {
+      width: 100%;
+    }
   }
 }
 
 .Addon-summary {
   font-size: $font-size-default;
   overflow-x: auto;
-
-  @include respond-to(medium) {
-    @include margin-end(24px);
-  }
-}
-
-.Addon .AMInstallButton {
-  @include respond-to(medium) {
-    @include margin-start(auto);
-
-    align-content: center;
-    align-self: center;
-  }
+  margin: 0;
 }
 
 .Addon .AMInstallButton-button {
   width: 100%;
-
-  @include respond-to(medium) {
-    width: auto;
-  }
 }
 
 .Addon .AMInstallButton-loading-button {
@@ -185,10 +131,6 @@
   margin: 12px 0 0;
   padding-left: 0;
   padding-right: 0;
-
-  @include respond-to(medium) {
-    margin-top: 0;
-  }
 }
 
 .Addon-developer-comments-header {
