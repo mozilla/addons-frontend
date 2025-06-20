@@ -6,11 +6,11 @@ import { compose } from 'redux';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getPromotedCategory } from 'amo/utils/addons';
-import Badge from 'amo/components/Badge';
-import PromotedBadge from 'amo/components/PromotedBadge';
+import Badge, { BadgeContent, BadgeIcon } from 'amo/components/Badge';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
+import { getPromotedProps } from 'amo/utils/promoted';
 
 import './styles.scss';
 
@@ -38,12 +38,53 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
     _getPromotedCategory: getPromotedCategory,
   };
 
-  render(): null | React.Node {
-    const { _getPromotedCategory, addon, clientApp, i18n } = this.props;
+  renderAndroidCompatibleBadge(): React.Node {
+    const { addon, clientApp, i18n } = this.props;
 
-    if (!addon) {
+    if (clientApp !== CLIENT_APP_FIREFOX || !addon.isAndroidCompatible)
       return null;
-    }
+
+    return (
+      <Badge
+        type="android"
+        label={i18n.gettext('Available on Firefox for Android™')}
+      >
+        <BadgeIcon />
+        <BadgeContent />
+      </Badge>
+    );
+  }
+
+  renderExperimentalBadge(): React.Node {
+    const { addon, i18n } = this.props;
+
+    if (!addon.is_experimental) return null;
+
+    return (
+      <Badge type="experimental-badge" label={i18n.gettext('Experimental')}>
+        <BadgeIcon />
+      </Badge>
+    );
+  }
+
+  renderRequiresPaymentBadge(): React.Node {
+    const { addon, i18n } = this.props;
+
+    if (!addon.requires_payment) return null;
+
+    return (
+      <Badge
+        type="requires-payment"
+        label={i18n.gettext('Some features may require payment')}
+      >
+        <BadgeIcon />
+        <BadgeContent />
+      </Badge>
+    );
+  }
+
+  renderPromotedBadge(): React.Node {
+    const { _getPromotedCategory, addon, clientApp, i18n } = this.props;
 
     const promotedCategory = _getPromotedCategory({
       addon,
@@ -51,26 +92,35 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
       forBadging: true,
     });
 
+    if (!promotedCategory) return null;
+
+    const props = getPromotedProps(i18n, promotedCategory);
+    return (
+      <Badge
+        link={props.linkUrl}
+        title={props.linkTitle}
+        type={props.category}
+        label={props.label}
+      >
+        <BadgeIcon alt={props.alt} />
+        <BadgeContent />
+      </Badge>
+    );
+  }
+
+  render(): null | React.Node {
+    const { addon } = this.props;
+
+    if (!addon) {
+      return null;
+    }
+
     return (
       <div className="AddonBadges">
-        {promotedCategory ? (
-          <PromotedBadge category={promotedCategory} size="large" />
-        ) : null}
-        {addon.is_experimental ? (
-          <Badge type="experimental" label={i18n.gettext('Experimental')} />
-        ) : null}
-        {addon.requires_payment ? (
-          <Badge
-            type="requires-payment"
-            label={i18n.gettext('Some features may require payment')}
-          />
-        ) : null}
-        {clientApp === CLIENT_APP_FIREFOX && addon.isAndroidCompatible && (
-          <Badge
-            type="android-compatible"
-            label={i18n.gettext('Available on Firefox for Android™')}
-          />
-        )}
+        {this.renderPromotedBadge()}
+        {this.renderExperimentalBadge()}
+        {this.renderRequiresPaymentBadge()}
+        {this.renderAndroidCompatibleBadge()}
       </div>
     );
   }

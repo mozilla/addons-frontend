@@ -2989,12 +2989,11 @@ describe(__filename, () => {
     it('can be rendered as large', () => {
       renderWithPromotedCategory();
 
-      expect(screen.getByClassName('PromotedBadge')).toHaveClass(
-        'PromotedBadge-large',
-      );
-      expect(screen.getByClassName('IconPromotedBadge')).toHaveClass(
-        'IconPromotedBadge-large',
-      );
+      const badge = screen.getByTestId(`badge-${RECOMMENDED}`);
+      expect(badge).toBeInTheDocument();
+
+      const icon = within(badge).getByClassName('Badge-icon');
+      expect(icon).toHaveClass('Badge-icon--large');
     });
 
     it.each([
@@ -3013,22 +3012,21 @@ describe(__filename, () => {
       (category, linkTitle, label) => {
         renderWithPromotedCategory(category);
 
-        expect(screen.getByClassName('PromotedBadge')).toHaveClass(
-          `PromotedBadge--${category}`,
-        );
+        const badge = screen.getByTestId(`badge-${category}`);
 
-        const link = screen.getByTitle(linkTitle);
+        expect(badge).toBeInTheDocument();
+
+        const link = within(badge).getByTitle(linkTitle);
         expect(link).toHaveAttribute(
           'href',
           getPromotedBadgesLinkUrl({
             utm_content: 'promoted-addon-badge',
           }),
         );
-        expect(link).toHaveClass(`PromotedBadge-link--${category}`);
+        expect(link).toHaveClass(`Badge-link`);
 
-        expect(screen.getByText(label)).toHaveClass(
-          `PromotedBadge-label--${category}`,
-        );
+        const content = within(badge).getByClassName('Badge-content');
+        expect(content).toHaveTextContent(label);
       },
     );
 
@@ -3039,21 +3037,18 @@ describe(__filename, () => {
         apps: [clientApp],
       }));
       renderWithAddon();
-      const badges = screen.getAllByClassName('PromotedBadge');
-      expect(badges).toHaveLength(1);
-      expect(badges[0]).toHaveClass(`PromotedBadge--recommended`);
+      const badges = screen.getAllByClassName('Badge');
+      expect(badges).toHaveLength(2);
+      expect(badges[0]).toHaveTextContent('Recommended');
     });
 
     // See https://github.com/mozilla/addons-frontend/issues/8285.
-    it('does not pass an alt property to IconPromotedBadge', () => {
+    it('does not pass an alt property to BadgeIcon', () => {
       renderWithPromotedCategory();
 
-      expect(
-        // eslint-disable-next-line testing-library/prefer-presence-queries
-        within(screen.getByClassName('PromotedBadge')).queryByClassName(
-          'visually-hidden',
-        ),
-      ).not.toBeInTheDocument();
+      const badge = screen.getByTestId(`badge-${RECOMMENDED}`);
+      const icon = within(badge).getByClassName('Badge-icon');
+      expect(icon).not.toHaveAttribute('alt');
     });
   });
 
@@ -3086,26 +3081,25 @@ describe(__filename, () => {
       addon.is_experimental = true;
       renderWithAddon();
 
-      expect(screen.getByClassName('Badge-experimental')).toHaveTextContent(
-        'Experimental',
-      );
+      const badge = screen.getByTestId(`badge-experimental-badge`);
+      expect(badge).toBeInTheDocument();
+      expect(badge).toHaveTextContent('Experimental');
     });
 
     it('displays a badge when the addon requires payment', () => {
       addon.requires_payment = true;
       renderWithAddon();
 
-      expect(screen.getByClassName('Badge-requires-payment')).toHaveTextContent(
-        'Some features may require payment',
-      );
+      const badge = screen.getByTestId(`badge-requires-payment`);
+      expect(badge).toHaveTextContent('Some features may require payment');
     });
 
     it('displays a badge when the add-on is compatible with Android on Desktop', () => {
       renderWithAddon();
 
-      expect(
-        screen.getByClassName('Badge-android-compatible'),
-      ).toBeInTheDocument();
+      const badge = screen.getByTestId(`badge-android`);
+      expect(badge).toBeInTheDocument();
+
       // The footer should also be updated when we show this badge.
       expect(
         screen.getByText(/Android is a trademark of Google LLC/),
@@ -3128,9 +3122,7 @@ describe(__filename, () => {
       };
       renderWithAddon();
 
-      expect(
-        screen.queryByClassName('Badge-android-compatible'),
-      ).not.toBeInTheDocument();
+      expect(screen.queryByClassName('Badge-android')).not.toBeInTheDocument();
       expect(
         screen.queryByText(/Android is a trademark of Google LLC/),
       ).not.toBeInTheDocument();
@@ -3142,9 +3134,7 @@ describe(__filename, () => {
       addon = { ...addon, type: ADDON_TYPE_STATIC_THEME };
       renderWithAddon();
 
-      expect(
-        screen.queryByClassName('Badge-android-compatible'),
-      ).not.toBeInTheDocument();
+      expect(screen.queryByClassName('Badge-android')).not.toBeInTheDocument();
       expect(
         screen.queryByText(/Android is a trademark of Google LLC/),
       ).not.toBeInTheDocument();
@@ -3154,9 +3144,7 @@ describe(__filename, () => {
       store.dispatch(setClientApp(CLIENT_APP_ANDROID));
       renderWithAddon();
 
-      expect(
-        screen.queryByClassName('Badge-android-compatible'),
-      ).not.toBeInTheDocument();
+      expect(screen.queryByClassName('Badge-android')).not.toBeInTheDocument();
       expect(
         screen.queryByText(/Android is a trademark of Google LLC/),
       ).not.toBeInTheDocument();

@@ -635,17 +635,17 @@ describe(__filename, () => {
         },
       });
 
-      expect(screen.getByClassName('PromotedBadge')).toHaveClass(
-        'PromotedBadge-small',
-      );
-      expect(screen.getByClassName('IconPromotedBadge')).toHaveClass(
-        'IconPromotedBadge-small',
-      );
-      expect(
-        screen.getByRole('link', {
-          name: 'Firefox only recommends add-ons that meet our standards for security and performance.',
-        }),
-      ).toHaveTextContent('Recommended');
+      const badge = screen.getByTestId('badge-recommended');
+      expect(badge).toBeInTheDocument();
+
+      const icon = within(badge).getByClassName('Badge-icon');
+      expect(icon).toBeInTheDocument();
+
+      const link = within(badge).getByRole('link', {
+        name: 'Firefox only recommends add-ons that meet our standards for security and performance.',
+      });
+
+      expect(link).toHaveTextContent('Recommended');
     });
 
     it('passes an onClick function which stops propagation to PromotedBadge', () => {
