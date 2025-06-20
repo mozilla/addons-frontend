@@ -1674,19 +1674,19 @@ msgstr "Προαιρετικά δικαιώματα:"
 
 #: src/amo/components/PermissionsCard/index.js:137
 msgid "Optional data collection, according to the developer:"
-msgstr ""
+msgstr "Προαιρετική συλλογή δεδομένων, σύμφωνα με τον δημιουργό:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "Συλλογή δεδομένων:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr ""
+msgstr "Απαιτούμενη συλλογή δεδομένων, σύμφωνα με τον δημιουργό:"
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "Δικαιώματα και δεδομένα"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -1782,23 +1782,23 @@ msgstr "Έχει πρόσβαση στη δραστηριότητα του πρ�
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr ""
+msgstr "Πληροφορίες ταυτοποίησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Σελιδοδείκτες"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "Δραστηριότητα περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
-msgstr ""
+msgstr "Οικονομικά στοιχεία και πληροφορίες πληρωμών"
 
 #: src/amo/components/PermissionsCard/permissions.js:72
 msgid "Health information"
-msgstr ""
+msgstr "Πληροφορίες υγείας"
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
@@ -1806,27 +1806,27 @@ msgstr "Τοποθεσία"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "Προσωπικές επικοινωνίες"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "Δεδομένα προσωπικού χαρακτήρα"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "Όρους αναζήτησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "Τεχνικά δεδομένα και δεδομένα αλληλεπίδρασης"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "Δραστηριότητα ιστοτόπων"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "Περιεχόμενο ιστοτόπων"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."

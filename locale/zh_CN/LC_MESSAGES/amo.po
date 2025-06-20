@@ -1659,11 +1659,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr ""
+msgstr "根据开发者所述，必要的数据收集："
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "权限与数据"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -1759,23 +1759,23 @@ msgstr "获知浏览器导航时的行为状态"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr ""
+msgstr "身份验证信息"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "书签"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "浏览活动"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
-msgstr ""
+msgstr "财务和付款信息"
 
 #: src/amo/components/PermissionsCard/permissions.js:72
 msgid "Health information"
-msgstr ""
+msgstr "健康信息"
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
