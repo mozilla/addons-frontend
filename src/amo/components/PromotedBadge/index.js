@@ -3,7 +3,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { getPromotedBadgesLinkUrl } from 'amo/utils';
+import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
 import translate from 'amo/i18n/translate';
 import IconPromotedBadge from 'amo/components/IconPromotedBadge';
 import type {

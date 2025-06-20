@@ -70,7 +70,8 @@ import {
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getVersionById } from 'amo/reducers/versions';
 import tracking from 'amo/tracking';
-import { getCanonicalURL, getPromotedBadgesLinkUrl } from 'amo/utils';
+import { getCanonicalURL } from 'amo/utils';
+import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
 import { getAddonJsonLinkedData } from 'amo/utils/addons';
 import {
   correctedLocationForPlatform,

@@ -26,7 +26,7 @@ import { extractId } from 'amo/pages/AddonVersions';
 import { formatFilesize } from 'amo/i18n/utils';
 import { FETCH_ADDON, fetchAddon, loadAddon } from 'amo/reducers/addons';
 import { setInstallError, setInstallState } from 'amo/reducers/installations';
-import { getPromotedBadgesLinkUrl } from 'amo/utils';
+import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
 import {
   correctedLocationForPlatform,
   getClientCompatibility,

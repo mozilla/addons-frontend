@@ -8,12 +8,8 @@ import { compose } from 'redux';
 import AppBanner from 'amo/components/AppBanner';
 import Link from 'amo/components/Link';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
-import {
-  checkInternalURL,
-  getAddonURL,
-  getPromotedBadgesLinkUrl,
-  sanitizeUserHTML,
-} from 'amo/utils';
+import { checkInternalURL, getAddonURL, sanitizeUserHTML } from 'amo/utils';
+import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
 import {
   DEFAULT_UTM_SOURCE,
   DEFAULT_UTM_MEDIUM,

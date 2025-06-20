@@ -15,7 +15,6 @@ import {
   DEFAULT_UTM_MEDIUM,
   DEFAULT_UTM_SOURCE,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
-  PROMOTED_ADDONS_SUMO_URL,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'amo/constants';
 import purify from 'amo/purify';
@@ -111,17 +110,6 @@ export const checkInternalURL = ({
     isInternal,
     relativeURL,
   };
-};
-
-export const getPromotedBadgesLinkUrl = ({
-  utm_content,
-}: {|
-  utm_content: string,
-|}): string => {
-  return `${PROMOTED_ADDONS_SUMO_URL}${makeQueryStringWithUTM({
-    utm_campaign: null,
-    utm_content,
-  })}`;
 };
 
 export const stripLangFromAmoUrl = ({

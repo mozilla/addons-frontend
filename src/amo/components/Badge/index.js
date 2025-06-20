@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react';
 
+import type { PromotedBadgeCategory } from 'amo/utils/promoted';
 import Icon from 'amo/components/Icon';
 
 import './styles.scss';
