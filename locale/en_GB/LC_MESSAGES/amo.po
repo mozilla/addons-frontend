@@ -1671,19 +1671,19 @@ msgstr "Optional permissions:"
 
 #: src/amo/components/PermissionsCard/index.js:137
 msgid "Optional data collection, according to the developer:"
-msgstr ""
+msgstr "Optional data collection, according to the developer:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "Data collection:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr ""
+msgstr "Required data collection, according to the developer:"
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "Permissions and data"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -1779,23 +1779,23 @@ msgstr "Access browser activity during navigation"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr ""
+msgstr "Authentication information"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bookmarks"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "Browsing activity"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
-msgstr ""
+msgstr "Financial and payment information"
 
 #: src/amo/components/PermissionsCard/permissions.js:72
 msgid "Health information"
-msgstr ""
+msgstr "Health information"
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
@@ -1803,31 +1803,31 @@ msgstr "Location"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "Personal communications"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "Personally identifying information"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "Search terms"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "Technical and interaction data"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "Web site activity"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "Web site content"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "The developer says this extension doesn't require data collection."
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
