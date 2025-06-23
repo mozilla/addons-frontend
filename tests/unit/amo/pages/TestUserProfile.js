@@ -389,10 +389,10 @@ describe(__filename, () => {
       biographyText,
     );
     expect(
-      within(screen.getByClassName('UserProfile-biography'))
-        .queryByTagName('a')
-        .not.toBeInTheDocument(),
-    );
+      within(screen.getByClassName('UserProfile-biography')).queryByTagName(
+        'a',
+      ),
+    ).not.toBeInTheDocument();
   });
 
   it('omits a null biography', () => {
