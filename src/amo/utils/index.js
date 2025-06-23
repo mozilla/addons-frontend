@@ -220,9 +220,11 @@ export function nl2br(text: ?string): string {
  * Developer Hub when you hover over the *Some HTML Supported* link under
  * the textarea field.
  */
-export function sanitizeUserHTML(text: ?string): {| __html: string |} {
-  return sanitizeHTML(nl2br(text), [
-    'a',
+export function sanitizeUserHTML(
+  text: ?string,
+  allowLinks: boolean = true,
+): {| __html: string |} {
+  const allowTags = [
     'abbr',
     'acronym',
     'b',
@@ -235,7 +237,11 @@ export function sanitizeUserHTML(text: ?string): {| __html: string |} {
     'ol',
     'strong',
     'ul',
-  ]);
+  ];
+  if (allowLinks === true) {
+    allowTags.unshift('a');
+  }
+  return sanitizeHTML(nl2br(text), allowTags);
 }
 
 export function isAddonAuthor({

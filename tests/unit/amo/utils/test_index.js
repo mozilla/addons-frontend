@@ -672,6 +672,14 @@ describe(__filename, () => {
       expect(sanitize(customHtml)).toEqual(customHtml);
     });
 
+    it('can disallow links', () => {
+      const customHtml =
+        '<b>check</b> <i>out</i> <a href="http://mysite">my site</a>';
+      expect(sanitize(customHtml, false)).toEqual(
+        '<b>check</b> <i>out</i> my site',
+      );
+    });
+
     it('does not allow certain tags', () => {
       expect(
         sanitize('<b>my add-on</b> <script>alert("does XSS")</script>'),
