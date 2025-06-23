@@ -1651,11 +1651,11 @@ msgstr "可选权限："
 
 #: src/amo/components/PermissionsCard/index.js:137
 msgid "Optional data collection, according to the developer:"
-msgstr ""
+msgstr "根据开发者所述，可选的数据收集有："
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "收集的数据："
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
@@ -1783,31 +1783,31 @@ msgstr "地址"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "个人通信"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "个人身份信息"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "搜索词"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "技术和交互数据"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "网站活动"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "网站内容"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "开发者称此扩展无需收集数据。"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
