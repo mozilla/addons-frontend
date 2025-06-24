@@ -222,7 +222,7 @@ export function nl2br(text: ?string): string {
  */
 export function sanitizeUserHTML(
   text: ?string,
-  allowLinks: boolean = true,
+  { allowLinks = true }: { allowLinks: boolean } = {},
 ): {| __html: string |} {
   const allowTags = [
     'abbr',

@@ -418,7 +418,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                       // eslint-disable-next-line react/no-danger
                       dangerouslySetInnerHTML={sanitizeUserHTML(
                         user.biography,
-                        false,
+                        { allowLinks: false },
                       )}
                     />
                   </Definition>
