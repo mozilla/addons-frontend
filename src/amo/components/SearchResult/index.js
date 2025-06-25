@@ -20,7 +20,7 @@ import { addQueryParams } from 'amo/utils/url';
 import Icon from 'amo/components/Icon';
 import LoadingText from 'amo/components/LoadingText';
 import Rating from 'amo/components/Rating';
-import Badge, { BadgeContent, BadgeIcon } from 'amo/components/Badge';
+import Badge from 'amo/components/Badge';
 import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
@@ -121,10 +121,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
         label={props.label}
         size="small"
         onClick={(e) => e.stopPropagation()}
-      >
-        <BadgeIcon />
-        <BadgeContent />
-      </Badge>
+      />
     );
   }
 

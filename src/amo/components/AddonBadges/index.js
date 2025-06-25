@@ -8,7 +8,7 @@ import { reviewListURL } from 'amo/reducers/reviews';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getPromotedCategory } from 'amo/utils/addons';
-import Badge, { BadgeContent, BadgeIcon } from 'amo/components/Badge';
+import Badge, { BadgeIcon, BadgePill } from 'amo/components/Badge';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
@@ -56,10 +56,8 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
       <Badge
         type="android"
         label={i18n.gettext('Available on Firefox for Android™')}
-      >
-        <BadgeIcon />
-        <BadgeContent />
-      </Badge>
+        size="large"
+      />
     );
   }
 
@@ -69,8 +67,16 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
     if (!addon.is_experimental) return null;
 
     return (
-      <Badge type="experimental-badge" label={i18n.gettext('Experimental')}>
-        <BadgeIcon />
+      <Badge
+        type="experimental-badge"
+        label={i18n.gettext('Experimental')}
+        size="large"
+      >
+        {(props) => (
+          <BadgePill {...props}>
+            <BadgeIcon {...props} />
+          </BadgePill>
+        )}
       </Badge>
     );
   }
@@ -84,10 +90,8 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
       <Badge
         type="requires-payment"
         label={i18n.gettext('Some features may require payment')}
-      >
-        <BadgeIcon />
-        <BadgeContent />
-      </Badge>
+        size="large"
+      />
     );
   }
 
@@ -103,16 +107,15 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
     if (!promotedCategory) return null;
 
     const props = getPromotedProps(i18n, promotedCategory);
+
     return (
       <Badge
         link={props.linkUrl}
         title={props.linkTitle}
         type={props.category}
         label={props.label}
-      >
-        <BadgeIcon alt={props.alt} />
-        <BadgeContent />
-      </Badge>
+        size="large"
+      />
     );
   }
 
@@ -130,11 +133,31 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
     const reviewsLabel = `${roundedAverage} (${reviewCount || 0} reviews)`;
 
     return (
-      <Badge link={reviewsLink} type="star-full" label={reviewsLabel}>
-        <BadgeIcon />
-        <BadgeContent />
-      </Badge>
+      <Badge
+        link={reviewsLink}
+        type="star-full"
+        label={reviewsLabel}
+        size="large"
+      />
     );
+  }
+
+  renderUserCount(): React.Node {
+    const { addon, i18n } = this.props;
+
+    if (!addon) return null;
+
+    addon.average_daily_users = 100_000;
+    const averageDailyUsers = addon.average_daily_users;
+
+    const userCount = i18n.formatNumber(averageDailyUsers);
+    const userTitle =
+      averageDailyUsers > 0
+        ? i18n.ngettext('User', 'Users', averageDailyUsers)
+        : i18n.gettext('No Users');
+
+    const userLabel = `${userCount} ${userTitle}`;
+    return <Badge type="user-fill" label={userLabel} size="large" />;
   }
 
   render(): null | React.Node {
@@ -151,6 +174,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
         {this.renderRequiresPaymentBadge()}
         {this.renderAndroidCompatibleBadge()}
         {this.renderRatingMeta()}
+        {this.renderUserCount()}
       </div>
     );
   }

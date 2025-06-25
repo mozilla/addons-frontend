@@ -1012,6 +1012,14 @@ describe(__filename, () => {
     expect(badge).toHaveTextContent('3.5 (10 reviews)');
   });
 
+  it('renders user count badge', () => {
+    renderWithAddon();
+
+    const badge = screen.getByTestId(`badge-user-fill`);
+    expect(badge).toBeInTheDocument();
+    expect(badge).toHaveTextContent('100 users');
+  });
+
   describe('read reviews footer', () => {
     const renderWithRatings = (count) => {
       addon.ratings = { ...fakeAddon.ratings, count };

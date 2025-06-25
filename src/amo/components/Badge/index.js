@@ -9,45 +9,6 @@ import './styles.scss';
 
 type BadgeSize = 'large' | 'small';
 
-export const BadgeIcon = ({
-  name = '',
-  alt = '',
-  className,
-  size = 'large',
-}: {|
-  name?: string,
-  alt?: string,
-  className?: string,
-  size?: BadgeSize,
-|}): React.Node => (
-  <Icon
-    name={name}
-    alt={alt}
-    className={makeClassName(
-      'Badge-icon',
-      size ? `Badge-icon--${size}` : null,
-      className,
-    )}
-  />
-);
-
-export const BadgeContent = ({
-  children,
-  size,
-}: {|
-  children?: React.Node,
-  size?: BadgeSize,
-|}): React.Node => (
-  <span
-    className={makeClassName(
-      'Badge-content',
-      size ? `Badge-content--${size}` : null,
-    )}
-  >
-    {children}
-  </span>
-);
-
 export type BadgeType =
   | 'experimental-badge'
   | 'requires-payment'
@@ -55,46 +16,54 @@ export type BadgeType =
   | 'rating'
   | PromotedBadgeCategory;
 
-export type Props = {|
-  children: React.Node,
+/* eslint-disable react/no-unused-prop-types */
+// We can disable this to enable conveniently spreading props to child components.
+type BadgeRenderProps = {|
   type: BadgeType,
   label: string,
+  size: BadgeSize,
   link?: string,
-  title?: string,
-  className?: string,
-  size?: BadgeSize,
   onClick?: Function | null,
+  title?: string,
 |};
+/* eslint-enable react/no-unused-prop-types */
 
-const Badge = ({
-  children,
+export const BadgeIcon = ({
   type,
   label,
-  link,
-  title,
-  className,
   size,
+  className,
+}: {|
+  ...BadgeRenderProps,
+  className?: string,
+|}): React.Node => (
+  <Icon
+    name={type}
+    alt={label}
+    className={makeClassName('Badge-icon', `Badge-icon--${size}`, className)}
+  />
+);
+
+export const BadgeContent = ({ label, size }: BadgeRenderProps): React.Node => {
+  return (
+    <span className={makeClassName('Badge-content', `Badge-content--${size}`)}>
+      {label}
+    </span>
+  );
+};
+
+export const BadgePill = ({
+  link,
+  className,
+  children,
+  type,
+  title,
   onClick,
-}: Props): React.Node => {
-  const computedChildren = React.Children.map(children, (child) => {
-    switch (child.type) {
-      case BadgeIcon:
-        return React.cloneElement(child, {
-          name: type,
-          alt: label,
-          size,
-          ...child.props,
-        });
-      case BadgeContent:
-        return React.cloneElement(child, {
-          children: label,
-          size,
-          ...child.props,
-        });
-      default:
-        return child;
-    }
-  });
+}: {|
+  ...BadgeRenderProps,
+  children: React.Node,
+  className?: string,
+|}): React.Node => {
   return (
     <div
       className={makeClassName(
@@ -115,12 +84,30 @@ const Badge = ({
           title={title}
           onClick={onClick}
         >
-          {computedChildren}
+          {children}
         </a>
       ) : (
-        computedChildren
+        children
       )}
     </div>
+  );
+};
+
+const Badge = ({
+  children,
+  ...props
+}: {|
+  ...BadgeRenderProps,
+  children?: (props: BadgeRenderProps) => React.Node,
+|}): React.Node => {
+  if (typeof children === 'function') {
+    return children(props);
+  }
+  return (
+    <BadgePill {...props}>
+      <BadgeIcon {...props} />
+      <BadgeContent {...props} />
+    </BadgePill>
   );
 };
 

@@ -1,31 +1,28 @@
 import * as React from 'react';
 
-import Badge, { BadgeContent, BadgeIcon } from 'amo/components/Badge';
+import Badge, {
+  BadgePill,
+  BadgeContent,
+  BadgeIcon,
+} from 'amo/components/Badge';
 import { render, screen, within } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('renders a simple badge with content', () => {
     const content = 'badge content';
-    const { container } = render(
-      <Badge type="a-type" label={content}>
-        <BadgeContent>{content}</BadgeContent>
-      </Badge>,
-    );
+    render(<Badge type="star-full" label={content} size="small" />);
 
-    const badge = container.firstChild;
+    const badge = screen.getByTestId('badge-star-full');
     expect(badge).toHaveClass('Badge');
-    expect(screen.getByText(content)).toBeInTheDocument();
+
+    const contentEl = within(badge).getByClassName('Badge-content');
+    expect(contentEl).toHaveTextContent(content);
     expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 
   it('renders a badge with an icon and content', () => {
     const content = 'badge content';
-    render(
-      <Badge type="recommended" label={content}>
-        <BadgeIcon />
-        <BadgeContent />
-      </Badge>,
-    );
+    render(<Badge type="recommended" label={content} size="small" />);
 
     const badge = screen.getByTestId('badge-recommended');
     expect(badge).toHaveClass('Badge');
@@ -39,7 +36,11 @@ describe(__filename, () => {
   it('renders a badge with icon based on size', () => {
     const { container } = render(
       <Badge type="experimental" size="small" label="a-label">
-        <BadgeIcon />
+        {(props) => (
+          <BadgePill {...props}>
+            <BadgeIcon {...props} />
+          </BadgePill>
+        )}
       </Badge>,
     );
 
@@ -52,9 +53,7 @@ describe(__filename, () => {
   it('renders a badge as a link', () => {
     const link = 'https://example.com';
     const { container } = render(
-      <Badge link={link} type="a-type" label="a-label">
-        <BadgeContent>Click me</BadgeContent>
-      </Badge>,
+      <Badge link={link} type="star-full" label="a-label" />,
     );
 
     const badge = container.firstChild;
@@ -68,8 +67,12 @@ describe(__filename, () => {
 
   it('can have a custom class name', () => {
     const { container } = render(
-      <Badge className="custom-class" type="a-type" label="a-label">
-        <BadgeContent>custom</BadgeContent>
+      <Badge className="custom-class" type="star-full" label="a-label">
+        {(props) => (
+          <BadgePill {...props}>
+            <BadgeContent {...props} label="custom" />
+          </BadgePill>
+        )}
       </Badge>,
     );
     const badge = container.firstChild;
@@ -80,8 +83,8 @@ describe(__filename, () => {
   it('renders a custom child unaltered', () => {
     const content = 'some other content';
     render(
-      <Badge type="some-type" label="some-label">
-        <div>{content}</div>
+      <Badge type="star-full" label="some-label" size="small">
+        {() => <div>{content}</div>}
       </Badge>,
     );
 
@@ -89,17 +92,16 @@ describe(__filename, () => {
   });
 
   describe('BadgeIcon', () => {
-    it('renders a large icon by default', () => {
-      render(<BadgeIcon name="test-icon" alt="alt text" />);
+    it('renders a large icon', () => {
+      render(<BadgeIcon name="test-icon" label="alt text" size="large" />);
       const icon = screen.getByText('alt text').parentElement;
       expect(icon).toHaveClass('Badge-icon');
       expect(icon).toHaveClass('Badge-icon--large');
-      expect(icon).toHaveClass('Icon-test-icon');
       expect(screen.getByText('alt text')).toBeInTheDocument();
     });
 
     it('renders a small icon', () => {
-      render(<BadgeIcon name="test-icon" alt="alt text" size="small" />);
+      render(<BadgeIcon name="test-icon" label="alt text" size="small" />);
       const icon = screen.getByText('alt text').parentElement;
       expect(icon).toHaveClass('Badge-icon');
       expect(icon).toHaveClass('Badge-icon--small');
@@ -109,7 +111,7 @@ describe(__filename, () => {
       render(
         <BadgeIcon
           name="test-icon"
-          alt="alt text"
+          label="alt text"
           className="custom-icon-class"
         />,
       );
@@ -117,24 +119,12 @@ describe(__filename, () => {
       expect(icon).toHaveClass('Badge-icon');
       expect(icon).toHaveClass('custom-icon-class');
     });
-
-    it('has its `name` prop overridden by `Badge` `type` prop when nested', () => {
-      const label = 'badge label';
-      render(
-        <Badge type="recommended" label={label}>
-          <BadgeIcon />
-        </Badge>,
-      );
-      const badge = screen.getByTestId('badge-recommended');
-      const icon = within(badge).getByClassName('Badge-icon');
-      expect(icon).toHaveClass('Icon-recommended');
-    });
   });
 
   describe('BadgeContent', () => {
-    it('renders its children', () => {
+    it('renders label', () => {
       const content = 'This is the content';
-      render(<BadgeContent>{content}</BadgeContent>);
+      render(<BadgeContent label={content} />);
       expect(screen.getByText(content)).toBeInTheDocument();
     });
   });

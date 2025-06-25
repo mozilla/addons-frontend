@@ -6,7 +6,7 @@ import { compose } from 'redux';
 
 import { getPromotedCategory } from 'amo/utils/addons';
 import Icon from 'amo/components/Icon';
-import { BadgeIcon } from 'amo/components/Badge';
+import Badge, { BadgeIcon } from 'amo/components/Badge';
 import LoadingText from 'amo/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { SuggestionType } from 'amo/reducers/autocomplete';
@@ -55,12 +55,11 @@ export const SearchSuggestionBase = ({
     const badgeProps = getPromotedProps(i18n, promotedCategory);
 
     badgeIcon = (
-      <BadgeIcon
-        name={badgeProps.category}
-        alt={badgeProps.alt}
-        className="SearchSuggestion-icon-promoted"
-        size="small"
-      />
+      <Badge type={badgeProps.category} label={badgeProps.alt} size="small">
+        {(props) => (
+          <BadgeIcon {...props} className="SearchSuggestion-icon-promoted" />
+        )}
+      </Badge>
     );
   }
 

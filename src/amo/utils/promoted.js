@@ -31,24 +31,28 @@ export function getPromotedProps(
   const linkUrl = getPromotedBadgesLinkUrl({
     utm_content: 'promoted-addon-badge',
   });
-  if (category === LINE) {
-    return {
-      category,
-      linkUrl,
-      label: i18n.gettext('By Firefox'),
-      linkTitle: i18n.gettext(
-        'Official add-on built by Mozilla Firefox. Meets security and performance standards.',
-      ),
-      alt: i18n.gettext('By Firefox'),
-    };
+  switch (category) {
+    case LINE:
+      return {
+        category,
+        linkUrl,
+        label: i18n.gettext('By Firefox'),
+        linkTitle: i18n.gettext(
+          'Official add-on built by Mozilla Firefox. Meets security and performance standards.',
+        ),
+        alt: i18n.gettext('By Firefox'),
+      };
+    case RECOMMENDED:
+      return {
+        category,
+        linkUrl,
+        label: i18n.gettext('Recommended'),
+        linkTitle: i18n.gettext(
+          'Firefox only recommends add-ons that meet our standards for security and performance.',
+        ),
+        alt: i18n.gettext('Recommended'),
+      };
+    default:
+      throw new Error(`Invalid promoted badge category: ${category}`);
   }
-  return {
-    category,
-    linkUrl,
-    label: i18n.gettext('Recommended'),
-    linkTitle: i18n.gettext(
-      'Firefox only recommends add-ons that meet our standards for security and performance.',
-    ),
-    alt: i18n.gettext('Recommended'),
-  };
 }
