@@ -379,6 +379,22 @@ describe(__filename, () => {
     ).toHaveTextContent(biographyText);
   });
 
+  it('does not render links in biography', () => {
+    const biographyText = 'Veni vidi vici';
+    const biography = `<a href="//example.com"><b>${biographyText}</b></a>`;
+    signInUserAndRenderUserProfile({ biography });
+
+    expect(screen.getByText('Biography')).toBeInTheDocument();
+    expect(screen.getByClassName('UserProfile-biography')).toHaveTextContent(
+      biographyText,
+    );
+    expect(
+      within(screen.getByClassName('UserProfile-biography')).queryByTagName(
+        'a',
+      ),
+    ).not.toBeInTheDocument();
+  });
+
   it('omits a null biography', () => {
     signInUserAndRenderUserProfile({ biography: null });
 
