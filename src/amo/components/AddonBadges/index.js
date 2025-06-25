@@ -38,7 +38,7 @@ type InternalProps = {|
 |};
 
 export const roundToOneDigit = (value: number | null): number => {
-  return value ? Math.round(value * 10) / 10 : 0;
+  return value ? Number(value.toFixed(1)) : 0;
 };
 
 export class AddonBadgesBase extends React.Component<InternalProps> {
