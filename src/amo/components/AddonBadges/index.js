@@ -147,7 +147,6 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     if (!addon) return null;
 
-    addon.average_daily_users = 100_000;
     const averageDailyUsers = addon.average_daily_users;
 
     const userCount = i18n.formatNumber(averageDailyUsers);

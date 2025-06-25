@@ -1017,7 +1017,8 @@ describe(__filename, () => {
 
     const badge = screen.getByTestId(`badge-user-fill`);
     expect(badge).toBeInTheDocument();
-    expect(badge).toHaveTextContent('100 users');
+    const content = within(badge).getByClassName('Badge-content');
+    expect(content).toHaveTextContent('100 Users');
   });
 
   describe('read reviews footer', () => {
@@ -3076,9 +3077,10 @@ describe(__filename, () => {
       expect(screen.queryByClassName('AddonBadges')).not.toBeInTheDocument();
     });
 
-    it('displays no badges when none are called for', () => {
+    it('displays no extra badges when none are called for', () => {
       addon = {
         ...addon,
+        average_daily_users: 0,
         is_experimental: false,
         requires_payment: false,
         isAndroidCompatible: false,
@@ -3093,7 +3095,11 @@ describe(__filename, () => {
       };
       renderWithAddon();
 
-      expect(screen.queryAllByTestId(/badge-/)).toHaveLength(0);
+      expect(screen.queryAllByTestId(/badge-/)).toHaveLength(1);
+
+      const badge = screen.getByTestId(`badge-user-fill`);
+      expect(badge).toBeInTheDocument();
+      expect(badge).toHaveTextContent('No Users');
     });
 
     it('displays a badge when the addon is experimental', () => {
