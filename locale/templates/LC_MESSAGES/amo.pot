@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-25 09:23+0000\n"
+"POT-Creation-Date: 2025-06-26 09:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,16 +78,26 @@ msgstr ""
 msgid "Author Links"
 msgstr ""
 
-#: src/amo/components/AddonBadges/index.js:60
+#: src/amo/components/AddonBadges/index.js:155
+msgid "User"
+msgid_plural "Users"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/amo/components/AddonBadges/index.js:156
+msgid "No Users"
+msgstr ""
+
+#: src/amo/components/AddonBadges/index.js:58
+msgid "Available on Firefox for Android™"
+msgstr ""
+
+#: src/amo/components/AddonBadges/index.js:72
 msgid "Experimental"
 msgstr ""
 
-#: src/amo/components/AddonBadges/index.js:65
+#: src/amo/components/AddonBadges/index.js:92
 msgid "Some features may require payment"
-msgstr ""
-
-#: src/amo/components/AddonBadges/index.js:71
-msgid "Available on Firefox for Android™"
 msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
@@ -99,7 +109,7 @@ msgid "This add-on is not available on your platform."
 msgstr ""
 
 #: src/amo/components/AddonFeedbackForm/index.js:148
-#: src/amo/components/SearchResult/index.js:242
+#: src/amo/components/SearchResult/index.js:256
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] ""
@@ -169,48 +179,6 @@ msgstr ""
 #: src/amo/components/AddonHead/index.js:97
 #. please keep the fox emoji next to "Firefox".
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
-
-#: src/amo/components/AddonMeta/index.js:119
-msgid "%(total)s Star"
-msgid_plural "%(total)s Stars"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/amo/components/AddonMeta/index.js:128
-msgid "Not rated yet"
-msgstr ""
-
-#: src/amo/components/AddonMeta/index.js:49
-msgid "Users"
-msgstr ""
-
-#: src/amo/components/AddonMeta/index.js:52
-msgid "User"
-msgid_plural "Users"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/amo/components/AddonMeta/index.js:54
-msgid "No Users"
-msgstr ""
-
-#: src/amo/components/AddonMeta/index.js:61
-msgid "Reviews"
-msgstr ""
-
-#: src/amo/components/AddonMeta/index.js:64
-msgid "Review"
-msgid_plural "Reviews"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/amo/components/AddonMeta/index.js:66
-msgid "No Reviews"
-msgstr ""
-
-#: src/amo/components/AddonMeta/index.js:92
-msgid "Used by"
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:105
@@ -1675,25 +1643,25 @@ msgstr ""
 msgid "Edit My Profile"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:180
+#: src/amo/components/HeroRecommendation/index.js:176
 msgid "Get the extension"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:231
+#: src/amo/components/HeroRecommendation/index.js:227
 #. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 msgid "RECOMMENDED"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:234
+#: src/amo/components/HeroRecommendation/index.js:230
 #. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 msgid "BY FIREFOX"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:236
+#: src/amo/components/HeroRecommendation/index.js:232
 msgid "PROMOTED"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:253
+#: src/amo/components/HeroRecommendation/index.js:249
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1713,18 +1681,6 @@ msgstr ""
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
-msgstr ""
-
-#: src/amo/components/IconPromotedBadge/index.js:36
-#: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:212
-msgid "By Firefox"
-msgstr ""
-
-#: src/amo/components/IconPromotedBadge/index.js:37
-#: src/amo/components/PromotedBadge/index.js:49
-#: src/amo/components/SearchFilters/index.js:210
-msgid "Recommended"
 msgstr ""
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
@@ -1931,18 +1887,6 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
-
-#: src/amo/components/PromotedBadge/index.js:42
-msgid ""
-"Official add-on built by Mozilla Firefox. Meets security and performance "
-"standards."
-msgstr ""
-
-#: src/amo/components/PromotedBadge/index.js:50
-msgid ""
-"Firefox only recommends add-ons that meet our standards for security and "
-"performance."
 msgstr ""
 
 #: src/amo/components/Rating/index.js:103
@@ -2329,6 +2273,18 @@ msgstr ""
 msgid "Any"
 msgstr ""
 
+#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/utils/promoted.js:49
+#: src/amo/utils/promoted.js:53
+msgid "Recommended"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:212
+#: src/amo/utils/promoted.js:39
+#: src/amo/utils/promoted.js:43
+msgid "By Firefox"
+msgstr ""
+
 #: src/amo/components/SearchFilters/index.js:216
 msgid "All Reviewed"
 msgstr ""
@@ -2405,11 +2361,11 @@ msgstr ""
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:189
+#: src/amo/components/SearchResult/index.js:209
 msgid "No theme preview available"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:224
+#: src/amo/components/SearchResult/index.js:238
 msgid "Add-on note"
 msgstr ""
 
@@ -2496,7 +2452,7 @@ msgid "Add-ons Home Page"
 msgstr ""
 
 #: src/amo/components/ThemeImage/index.js:33
-#: src/amo/pages/Addon/index.js:182
+#: src/amo/pages/Addon/index.js:181
 msgid "Preview of %(title)s"
 msgstr ""
 
@@ -2576,63 +2532,63 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:211
+#: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:222
+#: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:253
+#: src/amo/pages/Addon/index.js:252
 msgid "Rate your experience"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:271
 msgid "About this dictionary"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:274
 msgid "About this extension"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:278
+#: src/amo/pages/Addon/index.js:277
 msgid "About this language pack"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:281
+#: src/amo/pages/Addon/index.js:280
 msgid "About this theme"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:284
+#: src/amo/pages/Addon/index.js:283
 msgid "About this add-on"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:316
+#: src/amo/pages/Addon/index.js:315
 msgid "Developer comments"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:341
+#: src/amo/pages/Addon/index.js:340
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:482
+#: src/amo/pages/Addon/index.js:481
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:504
+#: src/amo/pages/Addon/index.js:508
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:529
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr ""
 
@@ -3731,4 +3687,16 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
+msgstr ""
+
+#: src/amo/utils/promoted.js:40
+msgid ""
+"Official add-on built by Mozilla Firefox. Meets security and performance "
+"standards."
+msgstr ""
+
+#: src/amo/utils/promoted.js:50
+msgid ""
+"Firefox only recommends add-ons that meet our standards for security and "
+"performance."
 msgstr ""
