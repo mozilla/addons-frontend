@@ -35,7 +35,7 @@ describe(__filename, () => {
 
   it('renders a badge with icon based on size', () => {
     const { container } = render(
-      <Badge type="experimental" size="small" label="a-label">
+      <Badge type="experimental-badge" size="small" label="a-label">
         {(props) => (
           <BadgePill {...props}>
             <BadgeIcon {...props} />

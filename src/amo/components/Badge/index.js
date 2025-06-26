@@ -14,6 +14,8 @@ export type BadgeType =
   | 'requires-payment'
   | 'android'
   | 'rating'
+  | 'user-fill'
+  | 'star-full'
   | PromotedBadgeCategory;
 
 /* eslint-disable react/no-unused-prop-types */
