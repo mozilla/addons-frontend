@@ -1,7 +1,11 @@
 @import '~amo/css/styles';
 
 .AddonBadges {
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-items: start;
+  align-items: center;
 
   .Addon-theme & {
     display: flex;
@@ -27,7 +31,6 @@
   }
 
   @include respond-to(large) {
-    @include margin-start(12px);
     @include text-align-end;
 
     .Addon-theme & {

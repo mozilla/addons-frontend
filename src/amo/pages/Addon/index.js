@@ -11,7 +11,6 @@ import AddonBadges from 'amo/components/AddonBadges';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonHead from 'amo/components/AddonHead';
 import AddonInstallError from 'amo/components/AddonInstallError';
-import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonTitle from 'amo/components/AddonTitle';
@@ -185,7 +184,7 @@ export class AddonBase extends React.Component {
       : null;
 
     return (
-      <div className="Addon-icon" key="Addon-icon-header">
+      <div key="Addon-icon-header">
         <div className="Addon-icon-wrapper">
           <img
             alt={label}
@@ -470,7 +469,7 @@ export class AddonBase extends React.Component {
 
           {this.renderCategorySuggestions(VARIANT_SHOW_TOP)}
 
-          <div className="Addon-header-wrapper">
+          <div>
             <Card className="Addon-header-info-card" photonStyle>
               <AddonInstallError error={this.props.installError} />
 
@@ -488,15 +487,20 @@ export class AddonBase extends React.Component {
               <header className="Addon-header">
                 {this.headerImage()}
 
-                <AddonTitle addon={addon} />
-
-                <AddonBadges addon={addon} />
-
-                {addon && <InstallWarning addon={addon} />}
-
-                <div className="Addon-summary-and-install-button-wrapper">
+                <div className="Addon-info">
+                  <AddonTitle addon={addon} />
                   {showSummary ? summary : null}
 
+                  <AddonBadges addon={addon} />
+                  {addon && <InstallWarning addon={addon} />}
+                  {addon ? (
+                    <WrongPlatformWarning
+                      addon={addon}
+                      className="Addon-WrongPlatformWarning"
+                    />
+                  ) : null}
+                </div>
+                <div className="Addon-install">
                   <InstallButtonWrapper addon={addon} />
                 </div>
 
@@ -504,16 +508,6 @@ export class AddonBase extends React.Component {
                   {i18n.gettext('Extension Metadata')}
                 </h2>
               </header>
-              {addon ? (
-                <WrongPlatformWarning
-                  addon={addon}
-                  className="Addon-WrongPlatformWarning"
-                />
-              ) : null}
-            </Card>
-
-            <Card className="Addon-header-meta-and-ratings" photonStyle>
-              <AddonMeta addon={addon} />
             </Card>
           </div>
 
@@ -534,10 +528,10 @@ export class AddonBase extends React.Component {
 
               {this.renderShowMoreCard()}
 
+              {this.renderRatingsCard()}
+
               {this.renderRecommendations()}
             </div>
-
-            {this.renderRatingsCard()}
 
             <ContributeCard addon={addon} />
 

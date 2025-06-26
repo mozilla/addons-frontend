@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import { getAddonURL, nl2br, sanitizeHTML } from 'amo/utils';
+import { getPromotedProps } from 'amo/utils/promoted';
 import {
   ADDON_TYPE_STATIC_THEME,
   DEFAULT_UTM_SOURCE,
@@ -19,7 +20,7 @@ import { addQueryParams } from 'amo/utils/url';
 import Icon from 'amo/components/Icon';
 import LoadingText from 'amo/components/LoadingText';
 import Rating from 'amo/components/Rating';
-import PromotedBadge from 'amo/components/PromotedBadge';
+import Badge from 'amo/components/Badge';
 import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
@@ -96,17 +97,42 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
   };
 
+  renderPromotedBadge(): React.Node {
+    const { _getPromotedCategory, addon, clientApp, i18n, showPromotedBadge } =
+      this.props;
+
+    if (!showPromotedBadge) return null;
+
+    const promotedCategory = _getPromotedCategory({
+      addon,
+      clientApp,
+      forBadging: true,
+    });
+
+    if (!promotedCategory) return null;
+
+    const props = getPromotedProps(i18n, promotedCategory);
+
+    return (
+      <Badge
+        link={props.linkUrl}
+        title={props.linkTitle}
+        type={props.category}
+        label={props.label}
+        size="small"
+        onClick={(e) => e.stopPropagation()}
+      />
+    );
+  }
+
   renderResult(): React.Node {
     const {
-      _getPromotedCategory,
       addon,
       addonInstallSource,
-      clientApp,
       i18n,
       onImpression,
       showFullSizePreview,
       showMetadata,
-      showPromotedBadge,
       showSummary,
       useThemePlaceholder,
     } = this.props;
@@ -166,12 +192,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
       </p>
     );
 
-    const promotedCategory = _getPromotedCategory({
-      addon,
-      clientApp,
-      forBadging: true,
-    });
-
     return (
       <div className="SearchResult-wrapper">
         <div className="SearchResult-result">
@@ -194,13 +214,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
           <div className="SearchResult-contents">
             <h2 className="SearchResult-name">
               {addonTitle}
-              {showPromotedBadge && addon && promotedCategory ? (
-                <PromotedBadge
-                  category={promotedCategory}
-                  onClick={(e) => e.stopPropagation()}
-                  size="small"
-                />
-              ) : null}
+              {this.renderPromotedBadge()}
             </h2>
             {showSummary ? summary : null}
 

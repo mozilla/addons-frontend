@@ -4,10 +4,6 @@
   display: flex;
   flex-direction: column;
 
-  @include respond-to(medium) {
-    @include margin-start(auto);
-  }
-
   .GetFirefoxButton {
     display: flex;
     flex-direction: column;
@@ -18,15 +14,6 @@
       text-align: center;
       white-space: initial;
       width: 100%;
-    }
-
-    @include respond-to(medium) {
-      align-self: flex-start;
-      width: fit-content;
-    }
-
-    @include respond-to(large) {
-      width: auto;
     }
 
     @include respond-to(extraLarge) {
