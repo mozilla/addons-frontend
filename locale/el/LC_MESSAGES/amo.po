@@ -2256,7 +2256,7 @@ msgstr "Αναζήτηση…"
 
 #: src/amo/components/SearchResults/index.js:50
 msgid "No results were found for \"%(query)s\"."
-msgstr "Δεν βρέθηκε κανένα αποτέλεσμα για το \"%(query)s\"."
+msgstr "Δεν βρέθηκε κανένα αποτέλεσμα για το «%(query)s»."
 
 #: src/amo/components/SearchResults/index.js:56
 msgid "No results were found."
@@ -2957,7 +2957,7 @@ msgstr ""
 #: src/amo/pages/StaticPages/About/index.js:77
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
 msgstr ""
-"%(startLink)sΔημιουργήστε το δικό σας πρόσθετο%(endLink)s. Παρέχουμε δωρεάν \"φιλοξενία\" (hosting) και υπηρεσίες ενημέρωσης, ενώ μπορούμε να σας βοηθήσουμε να βρείτε ένα μεγαλύτερο κοινό χρηστών."
+"%(startLink)sΔημιουργήστε το δικό σας πρόσθετο%(endLink)s. Παρέχουμε δωρεάν φιλοξενία (hosting) και υπηρεσίες ενημέρωσης και μπορούμε να σας βοηθήσουμε να προσεγγίσετε ένα μεγαλύτερο κοινό χρηστών."
 
 #: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
@@ -3088,7 +3088,7 @@ msgstr "Μην:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr "Υποβάλετε μονολεκτικές κριτικές όπως \"Εξαιρετικό!\", \"υπέροχο\", ή \"κακό\"."
+msgstr "Υποβάλετε μονολεκτικές κριτικές, όπως «Εξαιρετικό!», «υπέροχο» ή «κακό»."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
@@ -3096,7 +3096,7 @@ msgid ""
 " on the add-on's detail page."
 msgstr ""
 "Δημοσιεύετε τεχνικά ζητήματα, αιτήματα υποστήριξης ή προτάσεις λειτουργιών. Χρησιμοποιήστε τις διαθέσιμες επιλογές υποστήριξης του κάθε προσθέτου, αν υπάρχουν. Μπορείτε να τις βρείτε στην ενότητα "
-"\"Περισσότερες πληροφορίες\" της πλευρικής γραμμής, στη σελίδα λεπτομερειών του προσθέτου."
+"«Περισσότερες πληροφορίες» της πλαϊνής γραμμής στη σελίδα λεπτομερειών του προσθέτου."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
