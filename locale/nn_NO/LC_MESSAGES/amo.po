@@ -846,7 +846,7 @@ msgstr "Feilkode: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Innloggingsautentisering har gått ut. %(startLink)sLast inn sida%(endLink)s på nytt for å fortsetje utan autentisering, eller logg inn igjen ved å bruke lenka Logg inn øvst på sida."
+msgstr "Innloggings-autentisering har gått ut. %(startLink)sLast inn sida%(endLink)s på nytt for å fortsetje utan autentisering, eller logg inn igjen ved å bruke lenka Logg inn øvst på sida."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
@@ -1714,7 +1714,7 @@ msgstr "Vis meldingar til deg"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr "Tilby tenester til kryptografisk godkjenning"
+msgstr "Tilby kryptografiske autentiserings-tenester"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
@@ -1742,7 +1742,7 @@ msgstr "Tilgang til nettlesaraktivitet under navigering"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr "Autentiseringsinformasjon"
+msgstr "Autentiserings-informasjon"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
