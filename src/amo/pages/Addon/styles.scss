@@ -37,30 +37,51 @@
   }
 }
 
-.Addon-theme .AddonTitle {
-  margin: $padding-page-l 0;
+.Addon-theme-thumbnail {
+  margin-bottom: 12px;
 }
 
 .Addon-header {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
   padding: 6px 0;
 
+  @include respond-to(medium) {
+    display: grid;
+    grid-template:
+      'icon icon' auto
+      'info info' auto
+      'badges badges' auto
+      '. button' auto / 1fr 1fr;
+  }
+
   @include respond-to(large) {
-    grid-template-columns: 0.5fr 3fr 1fr;
+    display: grid;
+    grid-template:
+      'icon info button' auto
+      'badges badges badges' auto / [icon] min-content [info] 1fr [button] min-content;
+  }
+
+  & .Addon-icon-wrapper {
+    grid-area: icon;
   }
 
   & .Addon-info {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    grid-area: info;
+  }
+
+  & .AddonBadges {
+    grid-area: badges;
   }
 
   & .Addon-install {
+    grid-area: button;
     @include respond-to(medium) {
-      margin-left: auto;
-      width: 50%;
+      width: 100%;
     }
     @include respond-to(large) {
       width: 100%;

@@ -170,11 +170,19 @@ export class AddonBase extends React.Component {
     }
   }
 
+  renderThemeThumbnail() {
+    const { addon } = this.props;
+
+    if (!addon || addon.type !== ADDON_TYPE_STATIC_THEME) return null;
+
+    return <ThemeImage addon={addon} roundedCorners />;
+  }
+
   headerImage() {
     const { addon, i18n } = this.props;
 
     if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
-      return <ThemeImage addon={addon} roundedCorners />;
+      return null;
     }
 
     const label = addon
@@ -184,14 +192,12 @@ export class AddonBase extends React.Component {
       : null;
 
     return (
-      <div key="Addon-icon-header">
-        <div className="Addon-icon-wrapper">
-          <img
-            alt={label}
-            className="Addon-icon-image"
-            src={getAddonIconUrl(addon)}
-          />
-        </div>
+      <div className="Addon-icon-wrapper">
+        <img
+          alt={label}
+          className="Addon-icon-image"
+          src={getAddonIconUrl(addon)}
+        />
       </div>
     );
   }
@@ -484,6 +490,10 @@ export class AddonBase extends React.Component {
                 </Notice>
               ) : null}
 
+              <div className="Addon-theme-thumbnail">
+                {this.renderThemeThumbnail()}
+              </div>
+
               <header className="Addon-header">
                 {this.headerImage()}
 
@@ -491,7 +501,6 @@ export class AddonBase extends React.Component {
                   <AddonTitle addon={addon} />
                   {showSummary ? summary : null}
 
-                  <AddonBadges addon={addon} />
                   {addon && <InstallWarning addon={addon} />}
                   {addon ? (
                     <WrongPlatformWarning
@@ -500,6 +509,7 @@ export class AddonBase extends React.Component {
                     />
                   ) : null}
                 </div>
+                <AddonBadges addon={addon} />
                 <div className="Addon-install">
                   <InstallButtonWrapper addon={addon} />
                 </div>
