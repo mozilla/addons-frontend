@@ -386,7 +386,7 @@ describe(__filename, () => {
   it('renders without an add-on', () => {
     render();
 
-    expect(screen.getAllByRole('alert')).toHaveLength(6);
+    expect(screen.getAllByRole('alert')).toHaveLength(7);
   });
 
   it('renders without a version', () => {
@@ -1019,6 +1019,33 @@ describe(__filename, () => {
     expect(badge).toBeInTheDocument();
     const content = within(badge).getByClassName('Badge-content');
     expect(content).toHaveTextContent('100 Users');
+  });
+
+  describe('ratings count header', () => {
+    const renderWithRatings = (average, count) => {
+      addon.ratings = { ...fakeAddon.ratings, count, average };
+      renderWithAddon();
+    };
+
+    it('mentions a single reviewer when there is only one rating', () => {
+      renderWithRatings(3, 1);
+
+      expect(screen.getByText('Rated 3 by 1 reviewer')).toBeInTheDocument();
+    });
+
+    it('mentions a multiple reviewers when there are many ratings', () => {
+      renderWithRatings(2.4, 5);
+
+      expect(screen.getByText('Rated 2.4 by 5 reviewers')).toBeInTheDocument();
+    });
+
+    it('localizes the review count', () => {
+      renderWithRatings(2.4, 10000);
+
+      expect(
+        screen.getByText('Rated 2.4 by 10,000 reviewers'),
+      ).toBeInTheDocument();
+    });
   });
 
   describe('read reviews footer', () => {
