@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-26 09:50+0000\n"
+"POT-Creation-Date: 2025-07-02 17:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2452,7 +2452,7 @@ msgid "Add-ons Home Page"
 msgstr ""
 
 #: src/amo/components/ThemeImage/index.js:33
-#: src/amo/pages/Addon/index.js:181
+#: src/amo/pages/Addon/index.js:185
 msgid "Preview of %(title)s"
 msgstr ""
 
@@ -2532,63 +2532,63 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:210
+#: src/amo/pages/Addon/index.js:212
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:221
+#: src/amo/pages/Addon/index.js:223
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:244
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:252
+#: src/amo/pages/Addon/index.js:254
 msgid "Rate your experience"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:273
 msgid "About this dictionary"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:276
 msgid "About this extension"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:279
 msgid "About this language pack"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:282
 msgid "About this theme"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:283
+#: src/amo/pages/Addon/index.js:285
 msgid "About this add-on"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:315
+#: src/amo/pages/Addon/index.js:317
 msgid "Developer comments"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:340
+#: src/amo/pages/Addon/index.js:342
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:481
+#: src/amo/pages/Addon/index.js:483
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:508
+#: src/amo/pages/Addon/index.js:510
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:523
+#: src/amo/pages/Addon/index.js:525
 msgid "Screenshots"
 msgstr ""
 
