@@ -50,7 +50,6 @@ $icon-size: 48px;
     height: auto;
     width: 100%;
   }
-
 }
 
 .AddonTitle {
@@ -70,8 +69,6 @@ $icon-size: 48px;
     font-size: $font-size-default;
     line-height: 1;
   }
-
-
 }
 
 .StaticAddonCard-summary {
@@ -90,7 +87,6 @@ $icon-size: 48px;
   .Rating {
     @include margin-end(12px);
   }
-
 }
 
 .StaticAddonCard-firefox-button {
