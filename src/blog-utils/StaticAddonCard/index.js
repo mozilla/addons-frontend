@@ -65,14 +65,6 @@ export const StaticAddonCardBase = ({
         <p>{addon.summary}</p>
       </div>
 
-      <div className="StaticAddonCard-metadata">
-        <Rating rating={addon.ratings.average} readOnly styleSize="small" />
-
-        <p className="StaticAddonCard-metadata-adu">
-          Users: {i18n.formatNumber(addon.average_daily_users)}
-        </p>
-      </div>
-
       <div className="StaticAddonCard-firefox-button">
         <GetFirefoxButton
           addon={addon}
