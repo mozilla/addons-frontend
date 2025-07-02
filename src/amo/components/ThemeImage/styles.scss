@@ -2,6 +2,8 @@
 
 .ThemeImage {
   height: auto;
+  max-height: $theme-height-legacy;
+  max-width: $theme-width-default;
   order: -1;
   overflow-y: hidden;
   position: relative;

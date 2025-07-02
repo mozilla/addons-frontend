@@ -170,19 +170,15 @@ export class AddonBase extends React.Component {
     }
   }
 
-  renderThemeThumbnail() {
-    const { addon } = this.props;
-
-    if (!addon || addon.type !== ADDON_TYPE_STATIC_THEME) return null;
-
-    return <ThemeImage addon={addon} roundedCorners />;
-  }
-
   headerImage() {
     const { addon, i18n } = this.props;
 
     if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
-      return null;
+      return (
+        <div className="Addon-theme-thumbnail">
+          <ThemeImage addon={addon} roundedCorners />
+        </div>
+      );
     }
 
     const label = addon
@@ -490,9 +486,13 @@ export class AddonBase extends React.Component {
                 </Notice>
               ) : null}
 
-              <div className="Addon-theme-thumbnail">
-                {this.renderThemeThumbnail()}
-              </div>
+              {addon && <InstallWarning addon={addon} />}
+              {addon ? (
+                <WrongPlatformWarning
+                  addon={addon}
+                  className="Addon-WrongPlatformWarning"
+                />
+              ) : null}
 
               <header className="Addon-header">
                 {this.headerImage()}
@@ -500,14 +500,6 @@ export class AddonBase extends React.Component {
                 <div className="Addon-info">
                   <AddonTitle addon={addon} />
                   {showSummary ? summary : null}
-
-                  {addon && <InstallWarning addon={addon} />}
-                  {addon ? (
-                    <WrongPlatformWarning
-                      addon={addon}
-                      className="Addon-WrongPlatformWarning"
-                    />
-                  ) : null}
                 </div>
                 <AddonBadges addon={addon} />
                 <div className="Addon-install">
