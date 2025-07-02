@@ -490,26 +490,28 @@ export class AddonBase extends React.Component {
 
           <div>
             <Card className="Addon-header-info-card" photonStyle>
-              <AddonInstallError error={this.props.installError} />
+              <div className="Addon-warnings">
+                <AddonInstallError error={this.props.installError} />
 
-              <AddonCompatibilityError addon={addon} />
+                <AddonCompatibilityError addon={addon} />
 
-              {addon &&
-              (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
-                <Notice type="error" className="Addon-non-public-notice">
-                  {i18n.gettext(
-                    'This is not a public listing. You are only seeing it because of elevated permissions.',
-                  )}
-                </Notice>
-              ) : null}
+                {addon &&
+                (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
+                  <Notice type="error" className="Addon-non-public-notice">
+                    {i18n.gettext(
+                      'This is not a public listing. You are only seeing it because of elevated permissions.',
+                    )}
+                  </Notice>
+                ) : null}
 
-              {addon && <InstallWarning addon={addon} />}
-              {addon ? (
-                <WrongPlatformWarning
-                  addon={addon}
-                  className="Addon-WrongPlatformWarning"
-                />
-              ) : null}
+                {addon && <InstallWarning addon={addon} />}
+                {addon ? (
+                  <WrongPlatformWarning
+                    addon={addon}
+                    className="Addon-WrongPlatformWarning"
+                  />
+                ) : null}
+              </div>
 
               <header className="Addon-header">
                 {this.headerImage()}

@@ -37,67 +37,71 @@
   }
 }
 
+.Addon-warnings {
+  margin-bottom: 14px;
+}
+
 .Addon-header {
   display: flex;
   flex-direction: column;
-  row-gap: 14px;
+  gap: 14px;
 
   @include respond-to(medium) {
     display: grid;
+    column-gap: 0;
+
+    // stylelint-disable-next-line named-grid-areas-no-invalid
     grid-template:
-      'preview preview' auto
-      'icon icon' auto
-      'info info' auto
-      'badges badges' auto
-      '. button' auto / 1fr 1fr;
+      'prv prv prv' auto
+      'icn inf inf' auto
+      'bdg bdg bdg' auto
+      '.   .   btn' auto / auto 1fr 1fr;
   }
 
   @include respond-to(large) {
-    column-gap: 14px;
     grid-template:
-      'preview preview preview preview preview' auto
-      'icon info info button button' auto
-      'badges badges badges badges badges' auto / min-content 1fr 1fr 1fr auto;
+      'prv prv prv prv prv' auto
+      'icn inf inf inf inf' auto
+      'bdg bdg bdg  .   . ' auto
+      'bdg bdg bdg  .  btn' auto / min-content 1fr 1fr 1fr 1fr;
   }
 
   @include respond-to(extraLarge) {
     grid-template:
-      'icon info button' auto
-      'preview preview preview' auto
-      'badges badges badges' auto / min-content 1fr auto;
+      'prv prv prv prv prv  .  btn' auto
+      'icn inf inf inf inf  .  btn' auto
+      'bdg bdg bdg bdg bdg bdg bdg' auto / min-content 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 
   @include respond-to(extraExtraLarge) {
+    column-gap: 0;
+    // stylelint-disable named-grid-areas-no-invalid
     grid-template:
-      'preview preview preview preview . button' auto
-      'icon info info info . button' auto
-      'badges badges badges badges badges badges' auto / min-content 1fr 1fr 1fr auto;
+      'prv prv prv prv btn btn' auto
+      'icn inf inf inf  .  btn' auto
+      'bdg bdg bdg bdg bdg bdg' auto / min-content 1fr 1fr 1fr 1fr 1fr;
+    // stylelint-enable named-grid-areas-no-invalid
   }
 
   & .Addon-theme-thumbnail {
-    grid-area: preview;
+    grid-area: prv;
   }
 
   & .Addon-icon-wrapper {
-    grid-area: icon;
+    grid-area: icn;
+    margin-right: 16px;
   }
 
   & .Addon-info {
-    grid-area: info;
+    grid-area: inf;
   }
 
   & .AddonBadges {
-    grid-area: badges;
+    grid-area: bdg;
   }
 
   & .Addon-install {
-    grid-area: button;
-    @include respond-to(large) {
-      min-width: 180px;
-    }
-    @include respond-to(extraLarge) {
-      min-width: 200px;
-    }
+    grid-area: btn;
   }
 }
 

@@ -8,7 +8,7 @@ import { reviewListURL } from 'amo/reducers/reviews';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getPromotedCategory } from 'amo/utils/addons';
-import Badge, { BadgeIcon, BadgePill } from 'amo/components/Badge';
+import Badge from 'amo/components/Badge';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
@@ -71,13 +71,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
         type="experimental-badge"
         label={i18n.gettext('Experimental')}
         size="large"
-      >
-        {(props) => (
-          <BadgePill {...props}>
-            <BadgeIcon {...props} />
-          </BadgePill>
-        )}
-      </Badge>
+      />
     );
   }
 
@@ -149,13 +143,14 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     const averageDailyUsers = addon.average_daily_users;
 
-    const userCount = i18n.formatNumber(averageDailyUsers);
-    const userTitle =
+    const userLabel =
       averageDailyUsers > 0
-        ? i18n.ngettext('User', 'Users', averageDailyUsers)
+        ? [
+            i18n.formatNumber(averageDailyUsers),
+            i18n.ngettext('User', 'Users', averageDailyUsers),
+          ].join(' ')
         : i18n.gettext('No Users');
 
-    const userLabel = `${userCount} ${userTitle}`;
     return <Badge type="user-fill" label={userLabel} size="large" />;
   }
 
