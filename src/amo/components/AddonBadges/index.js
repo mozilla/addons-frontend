@@ -145,10 +145,14 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     const userLabel =
       averageDailyUsers > 0
-        ? [
-            i18n.formatNumber(averageDailyUsers),
-            i18n.ngettext('User', 'Users', averageDailyUsers),
-          ].join(' ')
+        ? i18n.sprintf(
+            i18n.ngettext(
+              '%(count)s User',
+              '%(count)s Users',
+              averageDailyUsers,
+            ),
+            { count: i18n.formatNumber(averageDailyUsers) },
+          )
         : i18n.gettext('No Users');
 
     return <Badge type="user-fill" label={userLabel} size="large" />;
