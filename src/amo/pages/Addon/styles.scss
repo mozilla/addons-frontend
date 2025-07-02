@@ -37,33 +37,66 @@
   }
 }
 
-.Addon-theme .AddonTitle {
-  margin: $padding-page-l 0;
-}
-
 .Addon-header {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+
+  @include respond-to(medium) {
+    display: grid;
+    grid-template:
+      'preview preview' auto
+      'icon icon' auto
+      'info info' auto
+      'badges badges' auto
+      '. button' auto / 1fr 1fr;
+  }
 
   @include respond-to(large) {
-    grid-template-columns: 0.5fr 3fr 1fr;
+    column-gap: 14px;
+    grid-template:
+      'preview preview preview preview preview' auto
+      'icon info info button button' auto
+      'badges badges badges badges badges' auto / min-content 1fr 1fr 1fr auto;
+  }
+
+  @include respond-to(extraLarge) {
+    grid-template:
+      'icon info button' auto
+      'preview preview preview' auto
+      'badges badges badges' auto / min-content 1fr auto;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    grid-template:
+      'preview preview preview preview . button' auto
+      'icon info info info . button' auto
+      'badges badges badges badges badges badges' auto / min-content 1fr 1fr 1fr auto;
+  }
+
+  & .Addon-theme-thumbnail {
+    grid-area: preview;
+  }
+
+  & .Addon-icon-wrapper {
+    grid-area: icon;
   }
 
   & .Addon-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    grid-area: info;
+  }
+
+  & .AddonBadges {
+    grid-area: badges;
   }
 
   & .Addon-install {
-    @include respond-to(medium) {
-      margin-left: auto;
-      width: 50%;
-    }
+    grid-area: button;
     @include respond-to(large) {
-      width: 100%;
+      min-width: 180px;
+    }
+    @include respond-to(extraLarge) {
+      min-width: 200px;
     }
   }
 }
@@ -128,7 +161,6 @@
 }
 
 .Addon-WrongPlatformWarning {
-  margin: 12px 0 0;
   padding-left: 0;
   padding-right: 0;
 }

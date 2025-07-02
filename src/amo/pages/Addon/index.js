@@ -174,7 +174,11 @@ export class AddonBase extends React.Component {
     const { addon, i18n } = this.props;
 
     if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
-      return <ThemeImage addon={addon} roundedCorners />;
+      return (
+        <div className="Addon-theme-thumbnail">
+          <ThemeImage addon={addon} roundedCorners />
+        </div>
+      );
     }
 
     const label = addon
@@ -184,14 +188,12 @@ export class AddonBase extends React.Component {
       : null;
 
     return (
-      <div key="Addon-icon-header">
-        <div className="Addon-icon-wrapper">
-          <img
-            alt={label}
-            className="Addon-icon-image"
-            src={getAddonIconUrl(addon)}
-          />
-        </div>
+      <div className="Addon-icon-wrapper">
+        <img
+          alt={label}
+          className="Addon-icon-image"
+          src={getAddonIconUrl(addon)}
+        />
       </div>
     );
   }
@@ -484,22 +486,22 @@ export class AddonBase extends React.Component {
                 </Notice>
               ) : null}
 
+              {addon && <InstallWarning addon={addon} />}
+              {addon ? (
+                <WrongPlatformWarning
+                  addon={addon}
+                  className="Addon-WrongPlatformWarning"
+                />
+              ) : null}
+
               <header className="Addon-header">
                 {this.headerImage()}
 
                 <div className="Addon-info">
                   <AddonTitle addon={addon} />
                   {showSummary ? summary : null}
-
-                  <AddonBadges addon={addon} />
-                  {addon && <InstallWarning addon={addon} />}
-                  {addon ? (
-                    <WrongPlatformWarning
-                      addon={addon}
-                      className="Addon-WrongPlatformWarning"
-                    />
-                  ) : null}
                 </div>
+                <AddonBadges addon={addon} />
                 <div className="Addon-install">
                   <InstallButtonWrapper addon={addon} />
                 </div>
