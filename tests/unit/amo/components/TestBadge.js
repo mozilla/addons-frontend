@@ -33,21 +33,16 @@ describe(__filename, () => {
     expect(icon).toHaveClass('Icon-recommended');
   });
 
-  it('renders a badge with icon based on size', () => {
-    const { container } = render(
-      <Badge type="experimental-badge" size="small" label="a-label">
-        {(props) => (
-          <BadgePill {...props}>
-            <BadgeIcon {...props} />
-          </BadgePill>
-        )}
-      </Badge>,
+  it('renders a simplified experimental badge', () => {
+    render(
+      <Badge type="experimental-badge" size="large" label="Experimental" />,
     );
 
-    const badge = container.firstChild;
+    const badge = screen.getByTestId('badge-experimental-badge');
     expect(badge).toHaveClass('Badge');
-    const icon = within(badge).getByClassName('Badge-icon');
-    expect(icon).toHaveClass('Badge-icon--small');
+
+    const content = within(badge).getByClassName('Badge-content');
+    expect(content).toHaveTextContent('Experimental');
   });
 
   it('renders a badge as a link', () => {
