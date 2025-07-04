@@ -29,7 +29,6 @@ $icon-small: 13px;
   @include respond-to(extraExtraLarge) {
     &.Rating--large {
       grid-column-gap: 12px;
-      max-width: none;
     }
   }
 }

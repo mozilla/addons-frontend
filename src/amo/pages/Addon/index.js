@@ -242,11 +242,11 @@ export class AddonBase extends React.Component {
       content = i18n.gettext('No reviews yet');
     }
 
-    let addonAverage;
-    if (addon && addon.ratings) {
+    let header;
+    if (addon && addon.ratings && addon.ratings.count !== undefined) {
       const roundedAverage = roundToOneDigit(addon.ratings.average);
       const ratingCount = addon.ratings.count;
-      addonAverage = i18n.sprintf(
+      header = i18n.sprintf(
         // eslint-disable-next-line max-len
         // L10n: ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
         i18n.ngettext(
@@ -259,6 +259,8 @@ export class AddonBase extends React.Component {
           ratingCount: i18n.formatNumber(ratingCount),
         },
       );
+    } else {
+      header = <LoadingText minWidth={30} />;
     }
 
     const props = {
@@ -266,12 +268,9 @@ export class AddonBase extends React.Component {
         <div className="Addon-read-reviews-footer">{content}</div>
       ),
     };
+
     return (
-      <Card
-        header={addon ? addonAverage : <LoadingText minWidth={30} />}
-        className="Addon-overall-rating"
-        {...props}
-      >
+      <Card header={header} className="Addon-overall-rating" {...props}>
         {ratingManager}
       </Card>
     );

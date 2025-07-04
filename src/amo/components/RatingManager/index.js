@@ -210,7 +210,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
           {/* eslint-enable react/no-danger */}
           <div className="RatingManager-ratingControl">
             {!this.isSignedIn() ? this.renderLogInToRate() : null}
-            Click to rate:
+            {i18n.gettext('Click to rate:')}
             {userReview && onDeleteScreen ? (
               <AddonReviewManagerRating
                 className="RatingManager-AddonReviewManagerRating"
