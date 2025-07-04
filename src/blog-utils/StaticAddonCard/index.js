@@ -7,11 +7,8 @@ import { getAddonIconUrl } from 'amo/imageUtils';
 import AddonBadges from 'amo/components/AddonBadges';
 import AddonTitle from 'amo/components/AddonTitle';
 import GetFirefoxButton from 'amo/components/GetFirefoxButton';
-import Rating from 'amo/components/Rating';
 import ThemeImage from 'amo/components/ThemeImage';
-import translate from 'amo/i18n/translate';
 import type { AddonType } from 'amo/types/addons';
-import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
@@ -19,15 +16,7 @@ type Props = {|
   addon: AddonType,
 |};
 
-type InternalProps = {|
-  ...Props,
-  i18n: I18nType,
-|};
-
-export const StaticAddonCardBase = ({
-  addon,
-  i18n,
-}: InternalProps): React.Node => {
+export const StaticAddonCardBase = ({ addon }: Props): React.Node => {
   if (!addon) {
     return null;
   }
@@ -65,14 +54,6 @@ export const StaticAddonCardBase = ({
         <p>{addon.summary}</p>
       </div>
 
-      <div className="StaticAddonCard-metadata">
-        <Rating rating={addon.ratings.average} readOnly styleSize="small" />
-
-        <p className="StaticAddonCard-metadata-adu">
-          Users: {i18n.formatNumber(addon.average_daily_users)}
-        </p>
-      </div>
-
       <div className="StaticAddonCard-firefox-button">
         <GetFirefoxButton
           addon={addon}
@@ -91,7 +72,5 @@ export const StaticAddonCardBase = ({
   );
 };
 
-const StaticAddonCard: React.ComponentType<Props> =
-  translate()(StaticAddonCardBase);
-
+const StaticAddonCard: React.ComponentType<Props> = StaticAddonCardBase;
 export default StaticAddonCard;
