@@ -21,15 +21,14 @@ $icon-small: 13px;
   // The width of large rating stars are controlled by the container.
   &.Rating--large {
     grid-column-gap: 6px;
-    max-width: 300px;
-    min-height: 64px;
+    max-width: 250px;
+    min-height: 32px;
     width: 100%;
   }
 
   @include respond-to(extraExtraLarge) {
     &.Rating--large {
       grid-column-gap: 12px;
-      max-width: none;
     }
   }
 }

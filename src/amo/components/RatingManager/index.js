@@ -16,6 +16,7 @@ import {
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
+import RatingsByStar from 'amo/components/RatingsByStar';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
 import {
@@ -189,14 +190,14 @@ export class RatingManagerBase extends React.Component<InternalProps> {
           'Are you sure you want to delete your rating of %(addonName)s?',
         );
       }
-    } else {
-      prompt = i18n.gettext('How are you enjoying %(addonName)s?');
     }
 
-    const promptHTML = sanitizeHTML(
-      i18n.sprintf(prompt, { addonName: `<b>${addon.name}</b>` }),
-      ['b'],
-    );
+    const promptHTML = prompt
+      ? sanitizeHTML(
+          i18n.sprintf(prompt, { addonName: `<b>${addon.name}</b>` }),
+          ['b'],
+        )
+      : null;
 
     return (
       <form action="">
@@ -209,6 +210,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
           {/* eslint-enable react/no-danger */}
           <div className="RatingManager-ratingControl">
             {!this.isSignedIn() ? this.renderLogInToRate() : null}
+            {i18n.gettext('Click to rate:')}
             {userReview && onDeleteScreen ? (
               <AddonReviewManagerRating
                 className="RatingManager-AddonReviewManagerRating"
@@ -267,6 +269,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
             slim
           />
         )}
+        <RatingsByStar addon={addon} />
       </div>
     );
   }

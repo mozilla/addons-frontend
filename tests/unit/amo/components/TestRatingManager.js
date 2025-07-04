@@ -110,7 +110,7 @@ describe(__filename, () => {
     return { addon, review };
   };
 
-  it('prompts you to rate the add-on by name', () => {
+  it('doesnt show any prompt when not deleting', () => {
     const name = 'Some Add-on';
     render({
       addon: createInternalAddonWithLang({
@@ -119,9 +119,7 @@ describe(__filename, () => {
       }),
     });
 
-    expect(
-      screen.getByTextAcrossTags(`How are you enjoying ${name}?`),
-    ).toBeInTheDocument();
+    expect(screen.queryByText(`of ${name}?`)).not.toBeInTheDocument();
   });
 
   it('dispatches fetchLatestUserReview on construction', () => {
@@ -533,5 +531,16 @@ describe(__filename, () => {
       // When Rating is in readOnly mode, the title for all stars is as below.
       expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6);
     });
+  });
+
+  it('renders RatingsByStar with an add-on', () => {
+    const addon = fakeAddon;
+    render({ addon });
+
+    // Do a sanity check to make sure the right add-on was used.
+    expect(screen.getByTitle('There are no five-star reviews')).toHaveAttribute(
+      'href',
+      `/en-US/android/addon/${addon.slug}/reviews/?score=5`,
+    );
   });
 });
