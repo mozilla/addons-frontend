@@ -91,7 +91,7 @@
 
   & .Addon-icon-wrapper {
     grid-area: icon;
-    margin-right: 16px;
+    @include margin-end(16px);
   }
 
   & .Addon-info {
