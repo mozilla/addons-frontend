@@ -9,6 +9,7 @@ $icon-size: 48px;
   box-sizing: border-box;
   display: grid;
   grid-template:
+    'prv prv' auto
     'icn ttl' auto
     'bdg bdg' auto
     'smr smr' auto
@@ -27,13 +28,10 @@ $icon-size: 48px;
   .Badge {
     font-size: $font-size-s;
   }
-
-  @include respond-to(medium) {
-    margin: 0 0 0 auto;
-  }
 }
 
 .StaticAddonCard-theme-preview {
+  grid-area: prv;
   margin-bottom: 20px;
 }
 
