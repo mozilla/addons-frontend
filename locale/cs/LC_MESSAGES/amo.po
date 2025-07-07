@@ -1646,7 +1646,7 @@ msgstr "Sběr dat:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr "Sběr dat dle vývojáře:"
+msgstr "Požadovaný sběr dat dle vývojáře:"
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
@@ -1746,7 +1746,7 @@ msgstr "Přistupovat k aktivitám prohlížeče během prohlížení"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr "Informace pro autentizaci"
+msgstr "Ověřovací informace"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
@@ -1790,7 +1790,7 @@ msgstr "Záznamy aktivit na webových stránkách"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr "Obsah webových stránek"
+msgstr "Obsah webové stránky"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
