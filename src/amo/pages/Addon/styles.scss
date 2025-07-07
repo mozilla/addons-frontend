@@ -54,56 +54,56 @@
 
     // stylelint-disable-next-line named-grid-areas-no-invalid
     grid-template:
-      'prv prv prv' auto
-      'icn inf inf' auto
-      'bdg bdg bdg' auto
-      '.   .   btn' auto / auto 1fr 1fr;
+      'theme theme theme' auto
+      'icon info info' auto
+      'badge badge badge' auto
+      '.   .   install' auto / auto 1fr 1fr;
   }
 
   @include respond-to(large) {
     grid-template:
-      'prv prv prv prv prv' auto
-      'icn inf inf inf inf' auto
-      'bdg bdg bdg  .   . ' auto
-      'bdg bdg bdg  .  btn' auto / min-content 1fr 1fr 1fr 1fr;
+      'theme theme theme theme theme' auto
+      'icon info info info info' auto
+      'badge badge badge  .   . ' auto
+      'badge badge badge  .  install' auto / min-content 1fr 1fr 1fr 1fr;
   }
 
   @include respond-to(extraLarge) {
     grid-template:
-      'prv prv prv prv prv  .  btn' auto
-      'icn inf inf inf inf  .  btn' auto
-      'bdg bdg bdg bdg bdg bdg bdg' auto / min-content 1fr 1fr 1fr 1fr 1fr 1fr;
+      'theme theme theme theme theme  .  install' auto
+      'icon info info info info  .  install' auto
+      'badge badge badge badge badge badge badge' auto / min-content 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 
   @include respond-to(extraExtraLarge) {
     column-gap: 0;
     // stylelint-disable named-grid-areas-no-invalid
     grid-template:
-      'prv prv prv prv btn btn' auto
-      'icn inf inf inf  .  btn' auto
-      'bdg bdg bdg bdg bdg bdg' auto / min-content 1fr 1fr 1fr 1fr 1fr;
+      'theme theme theme theme install install' auto
+      'icon info info info  .  install' auto
+      'badge badge badge badge badge badge' auto / min-content 1fr 1fr 1fr 1fr 1fr;
     // stylelint-enable named-grid-areas-no-invalid
   }
 
   & .Addon-theme-thumbnail {
-    grid-area: prv;
+    grid-area: theme;
   }
 
   & .Addon-icon-wrapper {
-    grid-area: icn;
+    grid-area: icon;
     margin-right: 16px;
   }
 
   & .Addon-info {
-    grid-area: inf;
+    grid-area: info;
   }
 
   & .AddonBadges {
-    grid-area: bdg;
+    grid-area: badge;
   }
 
   & .Addon-install {
-    grid-area: btn;
+    grid-area: install;
   }
 }
 
