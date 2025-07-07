@@ -101,7 +101,7 @@ export const UserReviewBase = (props: InternalProps): React.Node => {
         )}
         {byLine}
       </div>
-      {body}
+      {showRating ? body : null}
       {controls}
       {children}
     </div>
