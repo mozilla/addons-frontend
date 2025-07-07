@@ -119,31 +119,6 @@
 
 // Details section with lots of grid stuff, on larger displays.
 @include respond-to(large) {
-  .Addon-details {
-    display: grid;
-    grid-auto-flow: column dense;
-    grid-gap: 0 $padding-page-l;
-    grid-template-columns: minmax(300px, 35%) auto;
-    margin: 0;
-
-    .Addon-main-content {
-      grid-column: 2;
-
-      // This span makes sure the left widget does not move vertically when
-      // there is a long description.
-
-      grid-row: 1 / span 100000;
-
-      // Fixes screenshot overflow in FF 52 ESR.
-      max-width: 100%;
-      overflow-x: hidden;
-
-      .Card:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-
   .Addon-screenshots {
     // overflow required to fix content overlap in Safari.
     // See https://github.com/mozilla/addons-frontend/issues/2847
@@ -158,6 +133,16 @@
   // .Addon-overall-rating .Card-footer-link {
   //   display: none;
   // }
+
+  .AddonMoreInfo dl {
+    column-count: 2;
+  }
+}
+
+@include respond-to(extraExtraLarge) {
+  .AddonMoreInfo dl {
+    column-count: 3;
+  }
 }
 
 .Addon-WrongPlatformWarning {

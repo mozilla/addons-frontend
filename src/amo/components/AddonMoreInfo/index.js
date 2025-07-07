@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
+import AddAddonToCollection from 'amo/components/AddAddonToCollection';
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
-import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
 import AddonReportAbuseLink from 'amo/components/AddonReportAbuseLink';
 import Card from 'amo/components/Card';
 import DefinitionList, { Definition } from 'amo/components/DefinitionList';
@@ -156,6 +156,24 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
+    let addonAuthorEditLink = null;
+    if (isAddonAuthor({ addon, userId })) {
+      addonAuthorEditLink = (
+        <li>
+          <a
+            className="AddonAuthorLinks-edit-link"
+            href={`/developers/addon/${addon.slug}/edit`}
+          >
+            {
+              // eslint-disable-next-line max-len
+              // L10n: This action allows the add-on developer to edit an add-on's properties.
+              i18n.gettext('Edit add-on')
+            }
+          </a>
+        </li>
+      );
+    }
+
     const lastUpdated = versionInfo && versionInfo.created;
 
     const license = currentVersion && currentVersion.license;
@@ -206,6 +224,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     }
 
     return this.renderDefinitions({
+      addonAuthorEditLink,
       homepage,
       supportUrl,
       supportEmail,
@@ -283,6 +302,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 
   renderDefinitions({
+    addonAuthorEditLink = null,
     eulaLink = null,
     filesize = null,
     homepage = null,
@@ -397,9 +417,20 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               <ul className="AddonMoreInfo-tag-links-list">{tagsLinks}</ul>
             </Definition>
           )}
+          <AddAddonToCollection addon={addon} />
+          <AddonAdminLinks addon={addon} />
+          {addonAuthorEditLink && (
+            <Definition
+              className="AddonAuthorLinks"
+              term={
+                // L10n: This is a list of links to Developer functions.
+                i18n.gettext('Author Links')
+              }
+            >
+              <ul className="AddonAuthorLinks-list">{addonAuthorEditLink}</ul>
+            </Definition>
+          )}
         </DefinitionList>
-        <AddonAdminLinks addon={addon} />
-        <AddonAuthorLinks addon={addon} />
 
         {addon && addon.type !== ADDON_TYPE_LANG && (
           <AddonReportAbuseLink addon={addon} />
