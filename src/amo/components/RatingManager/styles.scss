@@ -18,6 +18,10 @@
 }
 
 .RatingManager {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
   fieldset {
     // Prevent content overflow.
     min-width: 0;
@@ -29,10 +33,6 @@
       $showmorecard-gradient-color
     );
   }
-}
-
-.RatingManager-UserRating {
-  margin: 12px;
 }
 
 .RatingManager-savedRating-withReview {
