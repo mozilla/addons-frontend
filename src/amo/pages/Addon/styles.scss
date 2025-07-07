@@ -35,10 +35,12 @@
     margin: 0;
     margin-bottom: 12px;
   }
-}
 
-.Addon-warnings {
-  margin-bottom: 14px;
+  .Card-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 .Addon-header {
