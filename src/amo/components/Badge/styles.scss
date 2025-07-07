@@ -65,6 +65,10 @@ $badge-size-small: 16px;
   }
 }
 
+.Badge-content {
+  text-wrap: wrap;
+}
+
 .Badge-content--small {
   font-size: 12px;
 }
