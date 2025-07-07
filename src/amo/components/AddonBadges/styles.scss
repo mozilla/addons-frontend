@@ -4,8 +4,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  justify-items: start;
-  align-items: center;
+  align-items: flex-start;
+  align-content: flex-start;
 
   .Addon-theme & {
     display: flex;
