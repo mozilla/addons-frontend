@@ -1836,7 +1836,7 @@ msgstr "Tem certeza que quer excluir sua avaliação de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Clique para avaliar:"
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
@@ -2416,8 +2416,8 @@ msgstr "Ainda sem análises"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Avaliado em %(ratingAverage)s por 1 revisor"
+msgstr[1] "Avaliado em %(ratingAverage)s por 1 revisor"
 
 #: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"

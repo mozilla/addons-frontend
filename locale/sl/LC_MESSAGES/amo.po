@@ -1844,7 +1844,7 @@ msgstr "Ali res želite izbrisati svojo oceno %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Kliknite za oceno:"
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
@@ -2478,10 +2478,10 @@ msgstr "Še ni ocenjeno"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Ocenil 1 pregledovalec z %(ratingAverage)s"
+msgstr[1] "Ocenil 1 pregledovalec z %(ratingAverage)s"
+msgstr[2] "Ocenil 1 pregledovalec z %(ratingAverage)s"
+msgstr[3] "Ocenil 1 pregledovalec z %(ratingAverage)s"
 
 #: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
