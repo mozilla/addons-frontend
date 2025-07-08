@@ -15,6 +15,9 @@ export const Definition = ({
   className,
   term,
 }: DefinitionProps): React.Node => {
+  if (!children) {
+    return null;
+  }
   return (
     <>
       <dt className="Definition-dt">{term}</dt>

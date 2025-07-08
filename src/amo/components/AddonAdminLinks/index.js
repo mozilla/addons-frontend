@@ -14,7 +14,6 @@ import {
 import translate from 'amo/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'amo/types/addons';
-import { Definition } from 'amo/components/DefinitionList';
 import type { I18nType } from 'amo/types/i18n';
 import type { AppState } from 'amo/store';
 
@@ -128,20 +127,12 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       ) : null;
 
     return (
-      <Definition
-        className="AddonAdminLinks"
-        term={
-          // L10n: This is a list of links to administrative functions.
-          i18n.gettext('Admin Links')
-        }
-      >
-        <ul className="AddonAdminLinks-list">
-          {editLink}
-          {adminLink}
-          {contentReviewLink}
-          {codeReviewLink}
-        </ul>
-      </Definition>
+      <ul className="AddonAdminLinks-list">
+        {editLink}
+        {adminLink}
+        {contentReviewLink}
+        {codeReviewLink}
+      </ul>
     );
   }
 }
