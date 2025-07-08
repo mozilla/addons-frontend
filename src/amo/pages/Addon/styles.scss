@@ -46,11 +46,11 @@
 .Addon-header {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  row-gap: 14px;
+  column-gap: 0;
 
   @include respond-to(medium) {
     display: grid;
-    column-gap: 0;
 
     // stylelint-disable-next-line named-grid-areas-no-invalid
     grid-template:
