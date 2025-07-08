@@ -3,6 +3,8 @@
 .RatingManager-ratingControl {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
   position: relative;
 }
 
