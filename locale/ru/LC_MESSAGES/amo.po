@@ -1845,7 +1845,7 @@ msgstr "Вы действительно хотите удалить вашу о�
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Нажмите, чтобы оценить:"
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
@@ -2452,7 +2452,7 @@ msgstr "Пока отзывов нет"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
+msgstr[0] "Оценено 1 рецензентом на %(ratingAverage)s"
 msgstr[1] ""
 msgstr[2] ""
 
