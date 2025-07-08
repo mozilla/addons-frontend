@@ -1839,7 +1839,7 @@ msgstr "Soll Ihre Bewertung von %(addonName)s wirklich gelöscht werden?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Klicken zum Bewerten:"
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
@@ -2419,8 +2419,8 @@ msgstr "Noch keine Bewertungen"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bewertet mit %(ratingAverage)s von 1 Bewerter"
+msgstr[1] "Bewertet mit %(ratingAverage)s von %(ratingCount)s Bewertern"
 
 #: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
