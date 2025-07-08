@@ -2478,10 +2478,10 @@ msgstr "Še ni ocenjeno"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] "Ocenil 1 pregledovalec z %(ratingAverage)s"
-msgstr[1] "Ocenil 1 pregledovalec z %(ratingAverage)s"
-msgstr[2] "Ocenil 1 pregledovalec z %(ratingAverage)s"
-msgstr[3] "Ocenil 1 pregledovalec z %(ratingAverage)s"
+msgstr[0] "Ocena %(ratingAverage)s (%(ratingCount)s mnenje)"
+msgstr[1] "Ocena %(ratingAverage)s (%(ratingCount)s mnenji)"
+msgstr[2] "Ocena %(ratingAverage)s (%(ratingCount)s mnenja)"
+msgstr[3] "Ocena %(ratingAverage)s (%(ratingCount)s mnenj)"
 
 #: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
