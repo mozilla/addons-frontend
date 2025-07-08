@@ -5213,7 +5213,7 @@ formdata-polyfill@^4.0.10:
   dependencies:
     fetch-blob "^3.1.2"
 
-formidable@^3.5.1:
+formidable@^3.5.4:
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/formidable/-/formidable-3.5.4.tgz#ac9a593b951e829b3298f21aa9a2243932f32ed9"
   integrity sha512-YikH+7CUTOtP44ZTnUhR7Ic2UASBPOqmaRkRKxRbywPTe5VxF7RRCck4af9wutiZ/QKM5nME9Bie2fFaPz5Gug==
@@ -10499,28 +10499,28 @@ stylelint@^15.10.3:
     table "^6.8.1"
     write-file-atomic "^5.0.1"
 
-superagent@^9.0.1:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/superagent/-/superagent-9.0.2.tgz#a18799473fc57557289d6b63960610e358bdebc1"
-  integrity sha512-xuW7dzkUpcJq7QnhOsnNUgtYp3xRwpt2F7abdRYIpCsAt0hhUqia0EdxyXZQQpNmGtsCzYHryaKSV3q3GJnq7w==
+superagent@^10.2.2:
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/superagent/-/superagent-10.2.2.tgz#7cb361250069962c2037154ae9d0f4051efa72ac"
+  integrity sha512-vWMq11OwWCC84pQaFPzF/VO3BrjkCeewuvJgt1jfV0499Z1QSAWN4EqfMM5WlFDDX9/oP8JjlDKpblrmEoyu4Q==
   dependencies:
     component-emitter "^1.3.0"
     cookiejar "^2.1.4"
     debug "^4.3.4"
     fast-safe-stringify "^2.1.1"
     form-data "^4.0.0"
-    formidable "^3.5.1"
+    formidable "^3.5.4"
     methods "^1.1.2"
     mime "2.6.0"
     qs "^6.11.0"
 
-supertest@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/supertest/-/supertest-7.0.0.tgz#cac53b3d6872a0b317980b2b0cfa820f09cd7634"
-  integrity sha512-qlsr7fIC0lSddmA3tzojvzubYxvlGtzumcdHgPwbFWMISQwL22MhM2Y3LNt+6w9Yyx7559VW5ab70dgphm8qQA==
+supertest@^7.1.3:
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/supertest/-/supertest-7.1.3.tgz#3d57ef0edcfbb131929d8b2806129294abe90648"
+  integrity sha512-ORY0gPa6ojmg/C74P/bDoS21WL6FMXq5I8mawkEz30/zkwdu0gOeqstFy316vHG6OKxqQ+IbGneRemHI8WraEw==
   dependencies:
     methods "^1.1.2"
-    superagent "^9.0.1"
+    superagent "^10.2.2"
 
 supports-color@^5.5.0:
   version "5.5.0"
