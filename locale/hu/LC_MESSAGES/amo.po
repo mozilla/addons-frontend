@@ -1838,7 +1838,7 @@ msgstr "Tényleg törli a(z) %(addonName)s csillagos értékelését?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Kattintson az értékeléshez:"
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
@@ -2418,7 +2418,7 @@ msgstr "Még nincsenek értékelések"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
+msgstr[0] "Értékelés 1 szerkesztő által: %(ratingAverage)s"
 msgstr[1] ""
 
 #: src/amo/pages/Addon/index.js:291
