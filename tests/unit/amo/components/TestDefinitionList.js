@@ -51,31 +51,29 @@ describe(__filename, () => {
     }
 
     it('renders a Definition component', () => {
-      const children = 'Howdy';
-      render({ children });
+      render();
 
-      expect(getDefinition()).toHaveTextContent(children);
       expect(getTerm()).toHaveClass('Definition-dt');
       expect(getDefinition()).toHaveClass('Definition-dd');
-      expect(screen.getByRole('definition')).toBeInTheDocument();
     });
 
     it('renders className', () => {
       const className = 'MyClass';
-      render({ children: 'hello', className });
+      render({ className });
 
       expect(getDefinition()).toHaveClass(className);
     });
 
-    it('does not render with no children', () => {
-      render();
+    it('renders contents', () => {
+      const children = 'Howdy';
+      render({ children });
 
-      expect(screen.queryByRole('definition')).not.toBeInTheDocument();
+      expect(getDefinition()).toHaveTextContent(children);
     });
 
     it('renders term', () => {
       const term = 'hello';
-      render({ children: 'yes', term });
+      render({ term });
 
       expect(getTerm()).toHaveTextContent(term);
     });

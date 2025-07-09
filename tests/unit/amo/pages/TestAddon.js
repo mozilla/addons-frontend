@@ -1372,25 +1372,25 @@ describe(__filename, () => {
   });
 
   describe('Tests for AddonAdminLinks', () => {
-    it('shows Admin Links if the user has permission for a link', () => {
+    it('shows Edit add-on if the user has permission for a link', () => {
       renderWithPermissions({ permissions: ADDONS_EDIT });
 
-      expect(screen.getByText('Admin Links')).toBeInTheDocument();
+      expect(screen.getByText('Edit add-on')).toBeInTheDocument();
     });
 
-    it('does not show Admin Links if there is no add-on', () => {
+    it('does not show Edit add-on if there is no add-on', () => {
       renderWithPermissions({
         shouldLoadAddon: false,
         permissions: ADDONS_EDIT,
       });
 
-      expect(screen.queryByText('Admin Links')).not.toBeInTheDocument();
+      expect(screen.queryByText('Edit add-on')).not.toBeInTheDocument();
     });
 
-    it('does not show Admin Links if the user does not have permission for a link', () => {
+    it('does not show Edit add-on if the user does not have permission for a link', () => {
       renderWithAddon();
 
-      expect(screen.queryByText('Admin Links')).not.toBeInTheDocument();
+      expect(screen.queryByText('Edit add-on')).not.toBeInTheDocument();
     });
 
     it('shows edit and admin add-on links if the user has permission', () => {
@@ -1408,7 +1408,6 @@ describe(__filename, () => {
     it('does not show an edit or admin add-on link if the user does not have permission', () => {
       renderWithPermissions({ permissions: ADDONS_REVIEW });
 
-      expect(screen.getByText('Admin Links')).toBeInTheDocument();
       expect(screen.queryByText('Edit add-on')).not.toBeInTheDocument();
       expect(screen.queryByText('Admin add-on')).not.toBeInTheDocument();
     });
@@ -1424,7 +1423,7 @@ describe(__filename, () => {
     it('does not show a content review link if the user does not have permission', () => {
       renderWithPermissions({ permissions: ADDONS_EDIT });
 
-      expect(screen.getByText('Admin Links')).toBeInTheDocument();
+      expect(screen.queryByText('Edit add-on')).toBeInTheDocument();
       expect(
         screen.queryByText('Content review add-on'),
       ).not.toBeInTheDocument();
@@ -1436,7 +1435,7 @@ describe(__filename, () => {
         permissions: [ADDONS_CONTENT_REVIEW, ADDONS_EDIT],
       });
 
-      expect(screen.getByText('Admin Links')).toBeInTheDocument();
+      expect(screen.getByText('Edit add-on')).toBeInTheDocument();
       expect(
         screen.queryByText('Content review add-on'),
       ).not.toBeInTheDocument();
@@ -1456,7 +1455,7 @@ describe(__filename, () => {
     it('does not show a code review link if the user does not have permission', () => {
       renderWithPermissions({ permissions: ADDONS_EDIT });
 
-      expect(screen.getByText('Admin Links')).toBeInTheDocument();
+      expect(screen.getByText('Edit add-on')).toBeInTheDocument();
       expect(screen.queryByText('Review add-on code')).not.toBeInTheDocument();
     });
 
@@ -1473,7 +1472,7 @@ describe(__filename, () => {
       addon.type = ADDON_TYPE_STATIC_THEME;
       renderWithPermissions({ permissions: ADDONS_EDIT });
 
-      expect(screen.getByText('Admin Links')).toBeInTheDocument();
+      expect(screen.getByText('Edit add-on')).toBeInTheDocument();
       expect(screen.queryByText('Review theme')).not.toBeInTheDocument();
     });
 
@@ -1482,7 +1481,7 @@ describe(__filename, () => {
         permissions: [ADDONS_EDIT, STATIC_THEMES_REVIEW],
       });
 
-      expect(screen.getByText('Admin Links')).toBeInTheDocument();
+      expect(screen.getByText('Edit add-on')).toBeInTheDocument();
       expect(screen.queryByText('Review theme')).not.toBeInTheDocument();
     });
   });
