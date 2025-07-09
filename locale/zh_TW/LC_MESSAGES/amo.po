@@ -1817,7 +1817,7 @@ msgstr "您真的要刪除對 %(addonName)s 的評分嗎？"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "點擊評分："
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
@@ -2370,7 +2370,7 @@ msgstr "還沒有評論"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
+msgstr[0] "由 1 位評論者給出 %(ratingAverage)s 分"
 
 #: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
