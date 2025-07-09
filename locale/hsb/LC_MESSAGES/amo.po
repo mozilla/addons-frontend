@@ -2480,10 +2480,10 @@ msgstr "Hišće žane pohódnoćenja"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] "%(ratingAverage)s wot %(ratingCount)s pohódnoćaceho pohódnoćeny"
-msgstr[1] "%(ratingAverage)s wot %(ratingCount)s pohódnoćaceju pohódnoćeny"
-msgstr[2] "%(ratingAverage)s wot %(ratingCount)s pohódnoćacych pohódnoćeny"
-msgstr[3] "%(ratingAverage)s wot %(ratingCount)s pohódnoćacych pohódnoćeny"
+msgstr[0] "Z %(ratingAverage)s wot %(ratingCount)s pohódnoćaceho pohódnoćeny"
+msgstr[1] "Z %(ratingAverage)s wot %(ratingCount)s pohódnoćaceju pohódnoćeny"
+msgstr[2] "Z %(ratingAverage)s wot %(ratingCount)s pohódnoćacych pohódnoćeny"
+msgstr[3] "Z %(ratingAverage)s wot %(ratingCount)s pohódnoćacych pohódnoćeny"
 
 #: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"

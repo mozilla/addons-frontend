@@ -2480,10 +2480,10 @@ msgstr "Hyšći žedne pógódnośenja"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] "%(ratingAverage)s wót %(ratingCount)s pógódnośujucego pógódnośony"
-msgstr[1] "%(ratingAverage)s wót %(ratingCount)s pógódnośujuceju pógódnośony"
-msgstr[2] "%(ratingAverage)s wót %(ratingCount)s pógódnośujucych pógódnośony"
-msgstr[3] "%(ratingAverage)s wót %(ratingCount)s pógódnośujucych pógódnośony"
+msgstr[0] "Z %(ratingAverage)s wót %(ratingCount)s pógódnośujucego pógódnośony"
+msgstr[1] "Z %(ratingAverage)s wót %(ratingCount)s pógódnośujuceju pógódnośony"
+msgstr[2] "Z %(ratingAverage)s wót %(ratingCount)s pógódnośujucych pógódnośony"
+msgstr[3] "Z %(ratingAverage)s wót %(ratingCount)s pógódnośujucych pógódnośony"
 
 #: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
