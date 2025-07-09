@@ -1834,7 +1834,7 @@ msgstr "האם ברצונך למחוק את הדירוג שלך על %(addonName
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "יש ללחוץ כדי לדרג:"
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
@@ -2414,7 +2414,7 @@ msgstr "אין עדיין סקירות"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
+msgstr[0] "מדורג %(ratingAverage)s על־ידי סוקר אחד"
 msgstr[1] ""
 
 #: src/amo/pages/Addon/index.js:291
