@@ -417,21 +417,10 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               <ul className="AddonMoreInfo-tag-links-list">{tagsLinks}</ul>
             </Definition>
           )}
-          <Definition
-            className="AddAddonToCollection"
-            term={i18n.gettext('Add to collection')}
-          >
-            <AddAddonToCollection addon={addon} />
-          </Definition>
-          <Definition
-            className="AddonAdminLinks"
-            term={
-              // L10n: This is a list of links to administrative functions.
-              i18n.gettext('Admin Links')
-            }
-          >
-            <AddonAdminLinks addon={addon} />
-          </Definition>
+          <AddAddonToCollection addon={addon} />
+
+          <AddonAdminLinks addon={addon} />
+
           {addonAuthorEditLink && (
             <Definition
               className="AddonAuthorLinks"

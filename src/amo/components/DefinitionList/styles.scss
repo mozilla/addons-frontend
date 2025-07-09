@@ -25,7 +25,3 @@
   margin: 0 0 12px;
   padding: 0;
 }
-
-.Definition-dt:has(+ .Definition-dd:empty) {
-  display: none;
-}

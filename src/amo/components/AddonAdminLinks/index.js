@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { Definition } from 'amo/components/DefinitionList';
 import {
   ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
@@ -127,12 +128,20 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       ) : null;
 
     return (
-      <ul className="AddonAdminLinks-list">
-        {editLink}
-        {adminLink}
-        {contentReviewLink}
-        {codeReviewLink}
-      </ul>
+      <Definition
+        className="AddonAdminLinks"
+        term={
+          // L10n: This is a list of links to administrative functions.
+          i18n.gettext('Admin Links')
+        }
+      >
+        <ul className="AddonAdminLinks-list">
+          {editLink}
+          {adminLink}
+          {contentReviewLink}
+          {codeReviewLink}
+        </ul>
+      </Definition>
     );
   }
 }
