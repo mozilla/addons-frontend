@@ -162,4 +162,6 @@ const AddonAdminLinks: React.ComponentType<Props> = compose(
   translate(),
 )(AddonAdminLinksBase);
 
+export type AddonAdminLinksType = typeof AddonAdminLinks;
+
 export default AddonAdminLinks;

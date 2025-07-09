@@ -2,7 +2,7 @@
 import * as React from 'react';
 import makeClassName from 'classnames';
 
-import AddonAdminLinks from 'amo/components/AddonAdminLinks';
+import type { AddonAdminLinksType } from 'amo/components/AddonAdminLinks';
 
 import './styles.scss';
 
@@ -30,7 +30,7 @@ type DefinitionListProps = {|
   children: React.ChildrenArray<
     | React.Element<typeof Definition>
     // AddonAdminLinks returns either a `Definition` component or `null`
-    | React.Element<typeof AddonAdminLinks>
+    | React.Element<AddonAdminLinksType>
     | null,
   >,
 |};
