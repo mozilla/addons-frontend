@@ -1993,8 +1993,8 @@ msgstr "תוצאות חיפוש עבור ״%(query)s״"
 #: src/amo/components/SearchContextCard/index.js:104
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\""
-msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\""
+msgstr[0] "נמצאה הרחבה אחת עבור ״%(query)s״"
+msgstr[1] "נמצאו %(count)s הרחבות עבור ״%(query)s״"
 
 #: src/amo/components/SearchContextCard/index.js:113
 msgid "%(count)s extension found with tag %(tag)s"
@@ -2011,14 +2011,14 @@ msgstr[1] "נמצאו %(count)s הרחבות"
 #: src/amo/components/SearchContextCard/index.js:134
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\" עם התגית %(tag)s בקטגוריה %(categoryName)s"
-msgstr[1] "נמצאו %(count)s ערכות נושא עבור \"%(query)s\" עם התגית %(tag)s בקטגוריה %(categoryName)s"
+msgstr[0] "נמצאה ערכת נושא אחת עבור ״%(query)s״ עם התגית %(tag)s בקטגוריה %(categoryName)s"
+msgstr[1] "נמצאו %(count)s ערכות נושא עבור ״%(query)s״ עם התגית %(tag)s בקטגוריה %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\" בקטגוריה %(categoryName)s"
-msgstr[1] "נמצאו %(count)s ערכות נושא עבור \"%(query)s\" בקטגוריה %(categoryName)s"
+msgstr[0] "נמצאה ערכת נושא אחת עבור ״%(query)s״ בקטגוריה %(categoryName)s"
+msgstr[1] "נמצאו %(count)s ערכות נושא עבור ״%(query)s״ בקטגוריה %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
@@ -2035,14 +2035,14 @@ msgstr[1] "נמצאו %(count)s ערכות נושא בקטגוריה %(categoryN
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\" עם התגית %(tag)s"
-msgstr[1] "נמצאו %(count)s ערכת נושא עבור \"%(query)s\" עם התגית %(tag)s"
+msgstr[0] "נמצאה ערכת נושא אחת עבור ״%(query)s״ עם התגית %(tag)s"
+msgstr[1] "נמצאו %(count)s ערכת נושא עבור ״%(query)s״ עם התגית %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\""
-msgstr[1] "נמצאו %(count)s ערכות נושא עבור \"%(query)s\""
+msgstr[0] "נמצאה ערכת נושא אחת עבור ״%(query)s״"
+msgstr[1] "נמצאו %(count)s ערכות נושא עבור ״%(query)s״"
 
 #: src/amo/components/SearchContextCard/index.js:188
 msgid "%(count)s theme found with tag %(tag)s"
@@ -2059,14 +2059,14 @@ msgstr[1] "נמצאו %(count)s ערכות נושא"
 #: src/amo/components/SearchContextCard/index.js:209
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "נמצאה תוצאה אחת עבור \"%(query)s\" עם התגית %(tag)s"
-msgstr[1] "נמצאו %(count)s תוצאות עבור \"%(query)s\" עם התגית %(tag)s"
+msgstr[0] "נמצאה תוצאה אחת עבור ״%(query)s״ עם התגית %(tag)s"
+msgstr[1] "נמצאו %(count)s תוצאות עבור ״%(query)s״ עם התגית %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "נמצאה תוצאה אחת עבור \"%(query)s\""
-msgstr[1] "נמצאו %(count)s תוצאות עבור \"%(query)s\""
+msgstr[0] "נמצאה תוצאה אחת עבור ״%(query)s״"
+msgstr[1] "נמצאו %(count)s תוצאות עבור ״%(query)s״"
 
 #: src/amo/components/SearchContextCard/index.js:227
 msgid "%(count)s result found with tag %(tag)s"
