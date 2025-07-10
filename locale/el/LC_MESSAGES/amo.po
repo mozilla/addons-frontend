@@ -1838,7 +1838,7 @@ msgstr "Θέλετε σίγουρα να διαγράψετε τη βαθμολ�
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Κάντε κλικ για βαθμολόγηση:"
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
@@ -2418,8 +2418,8 @@ msgstr "Καμία κριτική ακόμα"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Βαθμολογήθηκε με %(ratingAverage)s από έναν αξιολογητή"
+msgstr[1] "Βαθμολογήθηκε με %(ratingAverage)s από %(ratingCount)s αξιολογητές"
 
 #: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
