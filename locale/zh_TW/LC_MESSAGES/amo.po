@@ -1787,43 +1787,43 @@ msgstr "為這套附加元件評價 %(starRating)s 分，滿分 5 分"
 msgid "There are no ratings yet"
 msgstr "目前沒有評分"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
 msgstr "登入後即可為此字典評分"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
 msgstr "登入後即可為此語言套件評分"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
 msgstr "登入後即可為此佈景主題評分"
 
-#: src/amo/components/RatingManager/index.js:134
+#: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
 msgstr "登入後即可幫此擴充套件評分"
 
-#: src/amo/components/RatingManager/index.js:142
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
 msgstr "登入後即可為此附加元件評分"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "您真的要刪除對 %(addonName)s 的評論嗎？"
 
-#: src/amo/components/RatingManager/index.js:188
+#: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "您真的要刪除對 %(addonName)s 的評分嗎？"
 
-#: src/amo/components/RatingManager/index.js:193
-msgid "How are you enjoying %(addonName)s?"
-msgstr "您有多喜歡 %(addonName)s 的使用體驗？"
+#: src/amo/components/RatingManager/index.js:213
+msgid "Click to rate:"
+msgstr "點擊評分："
 
-#: src/amo/components/RatingManager/index.js:236
+#: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
 msgstr "正在儲存星等"
 
-#: src/amo/components/RatingManager/index.js:237
+#: src/amo/components/RatingManager/index.js:239
 msgid "Star rating saved"
 msgstr "已儲存星等"
 
@@ -2366,47 +2366,49 @@ msgstr[0] "閱讀全部 %(count)s 條評論"
 msgid "No reviews yet"
 msgstr "還沒有評論"
 
+#. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/pages/Addon/index.js:254
-msgid "Rate your experience"
-msgstr "為您的體驗打分數"
+msgid "Rated %(ratingAverage)s by 1 reviewer"
+msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
+msgstr[0] "由 1 位評論者給出 %(ratingAverage)s 分"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
 msgstr "關於此字典"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:294
 msgid "About this extension"
 msgstr "關於此擴充套件"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:297
 msgid "About this language pack"
 msgstr "關於此語言套件"
 
-#: src/amo/pages/Addon/index.js:282
+#: src/amo/pages/Addon/index.js:300
 msgid "About this theme"
 msgstr "關於此佈景主題"
 
-#: src/amo/pages/Addon/index.js:285
+#: src/amo/pages/Addon/index.js:303
 msgid "About this add-on"
 msgstr "關於此附加元件"
 
-#: src/amo/pages/Addon/index.js:317
+#: src/amo/pages/Addon/index.js:335
 msgid "Developer comments"
 msgstr "開發者留言"
 
-#: src/amo/pages/Addon/index.js:342
+#: src/amo/pages/Addon/index.js:360
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s 版的發行公告"
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:501
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "這不是公開上架的項目，因為權限提升才會看到本項目。"
 
-#: src/amo/pages/Addon/index.js:510
+#: src/amo/pages/Addon/index.js:528
 msgid "Extension Metadata"
 msgstr "擴充套件後設資料"
 
-#: src/amo/pages/Addon/index.js:525
+#: src/amo/pages/Addon/index.js:543
 msgid "Screenshots"
 msgstr "畫面擷圖"
 

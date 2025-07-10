@@ -1806,43 +1806,43 @@ msgstr "Oceń ten dodatek na %(starRating)s/5"
 msgid "There are no ratings yet"
 msgstr "Nie ma jeszcze ocen"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
 msgstr "Zaloguj się, aby ocenić ten słownik"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
 msgstr "Zaloguj się, aby ocenić ten pakiet językowy"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
 msgstr "Zaloguj się, aby ocenić ten motyw"
 
-#: src/amo/components/RatingManager/index.js:134
+#: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
 msgstr "Zaloguj się, aby ocenić to rozszerzenie"
 
-#: src/amo/components/RatingManager/index.js:142
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
 msgstr "Zaloguj się, aby ocenić ten dodatek"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "Czy na pewno usunąć recenzję dodatku %(addonName)s?"
 
-#: src/amo/components/RatingManager/index.js:188
+#: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "Czy na pewno usunąć ocenę dodatku %(addonName)s?"
 
-#: src/amo/components/RatingManager/index.js:193
-msgid "How are you enjoying %(addonName)s?"
-msgstr "Jak oceniasz dodatek %(addonName)s?"
+#: src/amo/components/RatingManager/index.js:213
+msgid "Click to rate:"
+msgstr "Kliknij, aby ocenić:"
 
-#: src/amo/components/RatingManager/index.js:236
+#: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
 msgstr "Zapisywanie oceny w gwiazdkach"
 
-#: src/amo/components/RatingManager/index.js:237
+#: src/amo/components/RatingManager/index.js:239
 msgid "Star rating saved"
 msgstr "Zapisano ocenę w gwiazdkach"
 
@@ -2439,47 +2439,51 @@ msgstr[2] "%(count)s recenzji"
 msgid "No reviews yet"
 msgstr "Nie ma jeszcze recenzji"
 
+#. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/pages/Addon/index.js:254
-msgid "Rate your experience"
-msgstr "Oceń swoje wrażenia"
+msgid "Rated %(ratingAverage)s by 1 reviewer"
+msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
+msgstr[0] "Oceniony na %(ratingAverage)s przez 1 recenzenta"
+msgstr[1] "Oceniony na %(ratingAverage)s przez %(ratingCount)s recenzentów"
+msgstr[2] "Oceniony na %(ratingAverage)s przez %(ratingCount)s recenzentów"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
 msgstr "O tym słowniku"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:294
 msgid "About this extension"
 msgstr "O tym rozszerzeniu"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:297
 msgid "About this language pack"
 msgstr "O tym pakiecie językowym"
 
-#: src/amo/pages/Addon/index.js:282
+#: src/amo/pages/Addon/index.js:300
 msgid "About this theme"
 msgstr "O tym motywie"
 
-#: src/amo/pages/Addon/index.js:285
+#: src/amo/pages/Addon/index.js:303
 msgid "About this add-on"
 msgstr "O tym dodatku"
 
-#: src/amo/pages/Addon/index.js:317
+#: src/amo/pages/Addon/index.js:335
 msgid "Developer comments"
 msgstr "Komentarze autora"
 
-#: src/amo/pages/Addon/index.js:342
+#: src/amo/pages/Addon/index.js:360
 msgid "Release notes for %(addonVersion)s"
 msgstr "Informacje o wydaniu %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:501
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "To nie jest publiczna lista. Widzisz ją tylko z powodu podwyższonych uprawnień."
 
-#: src/amo/pages/Addon/index.js:510
+#: src/amo/pages/Addon/index.js:528
 msgid "Extension Metadata"
 msgstr "Metadane rozszerzenia"
 
-#: src/amo/pages/Addon/index.js:525
+#: src/amo/pages/Addon/index.js:543
 msgid "Screenshots"
 msgstr "Zrzuty ekranu"
 

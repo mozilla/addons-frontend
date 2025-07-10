@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import AddonBadges from 'amo/components/AddonBadges';
+import AddonBadges, { roundToOneDigit } from 'amo/components/AddonBadges';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonHead from 'amo/components/AddonHead';
 import AddonInstallError from 'amo/components/AddonInstallError';
@@ -243,17 +243,35 @@ export class AddonBase extends React.Component {
       content = i18n.gettext('No reviews yet');
     }
 
+    let header;
+    if (addon && addon.ratings && addon.ratings.count !== undefined) {
+      const roundedAverage = roundToOneDigit(addon.ratings.average);
+      const ratingCount = addon.ratings.count;
+      header = i18n.sprintf(
+        // eslint-disable-next-line max-len
+        // L10n: ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
+        i18n.ngettext(
+          'Rated %(ratingAverage)s by 1 reviewer',
+          'Rated %(ratingAverage)s by %(ratingCount)s reviewers',
+          ratingCount,
+        ),
+        {
+          ratingAverage: i18n.formatNumber(roundedAverage),
+          ratingCount: i18n.formatNumber(ratingCount),
+        },
+      );
+    } else {
+      header = <LoadingText minWidth={30} />;
+    }
+
     const props = {
       [footerPropName]: (
         <div className="Addon-read-reviews-footer">{content}</div>
       ),
     };
+
     return (
-      <Card
-        header={i18n.gettext('Rate your experience')}
-        className="Addon-overall-rating"
-        {...props}
-      >
+      <Card header={header} className="Addon-overall-rating" {...props}>
         {ratingManager}
       </Card>
     );

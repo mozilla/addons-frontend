@@ -1799,43 +1799,43 @@ msgstr "ให้คะแนนส่วนเสริมนี้ %(starRatin
 msgid "There are no ratings yet"
 msgstr "ยังไม่มีการจัดอันดับ"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนพจนานุกรมนี้"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดภาษานี้"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดรูปแบบนี้"
 
-#: src/amo/components/RatingManager/index.js:134
+#: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนขยายนี้"
 
-#: src/amo/components/RatingManager/index.js:142
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนเสริมนี้"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบทวิจารณ์ที่มีต่อ %(addonName)s ของคุณ?"
 
-#: src/amo/components/RatingManager/index.js:188
+#: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบการให้คะแนนที่มีต่อ %(addonName)s ของคุณ?"
 
-#: src/amo/components/RatingManager/index.js:193
-msgid "How are you enjoying %(addonName)s?"
-msgstr "คุณเพลิดเพลินกับ %(addonName)s แค่ไหน?"
+#: src/amo/components/RatingManager/index.js:213
+msgid "Click to rate:"
+msgstr ""
 
-#: src/amo/components/RatingManager/index.js:236
+#: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
 msgstr "กำลังบันทึกการจัดอันดับดาว"
 
-#: src/amo/components/RatingManager/index.js:237
+#: src/amo/components/RatingManager/index.js:239
 msgid "Star rating saved"
 msgstr "บันทึกการจัดอันดับดาวแล้ว"
 
@@ -2389,47 +2389,49 @@ msgstr[0] "อ่าน %(count)s บทวิจารณ์ทั้งหม�
 msgid "No reviews yet"
 msgstr "ยังไม่มีบทวิจารณ์"
 
+#. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/pages/Addon/index.js:254
-msgid "Rate your experience"
-msgstr "ให้คะแนนประสบการณ์ของคุณ"
+msgid "Rated %(ratingAverage)s by 1 reviewer"
+msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
+msgstr[0] ""
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
 msgstr "เกี่ยวกับพจนานุกรมนี้"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:294
 msgid "About this extension"
 msgstr "เกี่ยวกับส่วนขยายนี้"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:297
 msgid "About this language pack"
 msgstr "เกี่ยวกับชุดภาษานี้"
 
-#: src/amo/pages/Addon/index.js:282
+#: src/amo/pages/Addon/index.js:300
 msgid "About this theme"
 msgstr "เกี่ยวกับชุดรูปแบบนี้"
 
-#: src/amo/pages/Addon/index.js:285
+#: src/amo/pages/Addon/index.js:303
 msgid "About this add-on"
 msgstr "เกี่ยวกับส่วนเสริมนี้"
 
-#: src/amo/pages/Addon/index.js:317
+#: src/amo/pages/Addon/index.js:335
 msgid "Developer comments"
 msgstr "ความคิดเห็นของนักพัฒนา"
 
-#: src/amo/pages/Addon/index.js:342
+#: src/amo/pages/Addon/index.js:360
 msgid "Release notes for %(addonVersion)s"
 msgstr "บันทึกประจำรุ่นสำหรับ %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:501
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:510
+#: src/amo/pages/Addon/index.js:528
 msgid "Extension Metadata"
 msgstr "Metadata ส่วนขยาย"
 
-#: src/amo/pages/Addon/index.js:525
+#: src/amo/pages/Addon/index.js:543
 msgid "Screenshots"
 msgstr "ภาพหน้าจอ"
 

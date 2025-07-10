@@ -1792,43 +1792,43 @@ msgstr ""
 msgid "There are no ratings yet"
 msgstr "Entá nun hai valoraciones"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
 msgstr "Aniciar sesión pa valorar esti diccionariu"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
 msgstr "Aniciar sesión pa valorar esti paquete de llingua"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
 msgstr "Aniciar sesión pa valorar esti estilu"
 
-#: src/amo/components/RatingManager/index.js:134
+#: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
 msgstr "Aniciar sesión pa valorar esta estensión"
 
-#: src/amo/components/RatingManager/index.js:142
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
 msgstr "Aniciar sesión pa valorar esti complementu"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:188
+#: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:193
-msgid "How are you enjoying %(addonName)s?"
+#: src/amo/components/RatingManager/index.js:213
+msgid "Click to rate:"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:236
+#: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:237
+#: src/amo/components/RatingManager/index.js:239
 msgid "Star rating saved"
 msgstr ""
 
@@ -2407,47 +2407,50 @@ msgstr[1] "Lleer %(count)s reseñes"
 msgid "No reviews yet"
 msgstr "Entá nun hai reseñes"
 
+#. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/pages/Addon/index.js:254
-msgid "Rate your experience"
-msgstr ""
+msgid "Rated %(ratingAverage)s by 1 reviewer"
+msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
+msgstr[0] ""
+msgstr[1] ""
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
 msgstr "Tocante a esti diccionariu"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:294
 msgid "About this extension"
 msgstr "Tocante a esta estensión"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:297
 msgid "About this language pack"
 msgstr "Tocante a esti paquete de llingua"
 
-#: src/amo/pages/Addon/index.js:282
+#: src/amo/pages/Addon/index.js:300
 msgid "About this theme"
 msgstr "Tocante a esti estilu"
 
-#: src/amo/pages/Addon/index.js:285
+#: src/amo/pages/Addon/index.js:303
 msgid "About this add-on"
 msgstr "Tocante a esti complementu"
 
-#: src/amo/pages/Addon/index.js:317
+#: src/amo/pages/Addon/index.js:335
 msgid "Developer comments"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:342
+#: src/amo/pages/Addon/index.js:360
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:501
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:510
+#: src/amo/pages/Addon/index.js:528
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:525
+#: src/amo/pages/Addon/index.js:543
 msgid "Screenshots"
 msgstr "Captures de pantalla"
 

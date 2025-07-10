@@ -1808,43 +1808,43 @@ msgstr "დამატების %(starRating)s შეფასება 5-�
 msgid "There are no ratings yet"
 msgstr "ჯერ არ შეფასებულა"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
 msgstr "შედით ანგარიშზე ლექსიკონის შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this language pack"
 msgstr "შედით ანგარიშზე ენის კრებულის შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this theme"
 msgstr "შედით ანგარიშზე თემის შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:134
+#: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this extension"
 msgstr "შედით ანგარიშზე გაფართოების შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:142
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
 msgstr "შედით ანგარიშზე დამატების შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "ნამდვილად გსურთ %(addonName)s დამატების მიმოხილვის წაშლა?"
 
-#: src/amo/components/RatingManager/index.js:188
+#: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "ნამდვილად გსურთ %(addonName)s დამატების შეფასების წაშლა?"
 
-#: src/amo/components/RatingManager/index.js:193
-msgid "How are you enjoying %(addonName)s?"
-msgstr "როგორ მოგეწონათ %(addonName)s?"
+#: src/amo/components/RatingManager/index.js:213
+msgid "Click to rate:"
+msgstr "დაწკაპეთ შესაფასებლად:"
 
-#: src/amo/components/RatingManager/index.js:236
+#: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
 msgstr "ინახება ვარსკვლავით შეფასება:"
 
-#: src/amo/components/RatingManager/index.js:237
+#: src/amo/components/RatingManager/index.js:239
 msgid "Star rating saved"
 msgstr "ვარსკვლავით შეფასება შენახულია"
 
@@ -2414,47 +2414,50 @@ msgstr[1] "ყველა (%(count)s) მიმოხილვის ნახ�
 msgid "No reviews yet"
 msgstr "მიმოხილვები არაა"
 
+#. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/pages/Addon/index.js:254
-msgid "Rate your experience"
-msgstr "თქვენი შეფასება"
+msgid "Rated %(ratingAverage)s by 1 reviewer"
+msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
+msgstr[0] "%(ratingAverage)s შეფასება 1 მიმომხილველისგან"
+msgstr[1] "%(ratingAverage)s შეფასება %(ratingCount)s მიმომხილველისგან"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
 msgstr "ლექსიკონის შესახებ"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:294
 msgid "About this extension"
 msgstr "გაფართოების შესახებ"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:297
 msgid "About this language pack"
 msgstr "ენის კრებულის შესახებ"
 
-#: src/amo/pages/Addon/index.js:282
+#: src/amo/pages/Addon/index.js:300
 msgid "About this theme"
 msgstr "თემის შესახებ"
 
-#: src/amo/pages/Addon/index.js:285
+#: src/amo/pages/Addon/index.js:303
 msgid "About this add-on"
 msgstr "დამატების შესახებ"
 
-#: src/amo/pages/Addon/index.js:317
+#: src/amo/pages/Addon/index.js:335
 msgid "Developer comments"
 msgstr "შემქმნელის შენიშვნები"
 
-#: src/amo/pages/Addon/index.js:342
+#: src/amo/pages/Addon/index.js:360
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s გამოშვების მონაცემები"
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:501
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "ეს არ არის გამოქვეყნებული. თქვენ ხედავთ იმიტომ, რომ აღმატებული უფლებები გაგაჩნიათ."
 
-#: src/amo/pages/Addon/index.js:510
+#: src/amo/pages/Addon/index.js:528
 msgid "Extension Metadata"
 msgstr "გაფართოების მონაცემები"
 
-#: src/amo/pages/Addon/index.js:525
+#: src/amo/pages/Addon/index.js:543
 msgid "Screenshots"
 msgstr "ეკრანის სურათები"
 
@@ -2804,11 +2807,11 @@ msgstr "ჩამოტვირთეთ Firefox-ის ლექსიკო�
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "ლექსიკონის დამატების ჩადგმით, თქვენი Firefox-ის მართლწერის შემმოწმებელს დაემატება ახალი ენა, რომელიც შეამოწმებს ვებგვერდებზე არსებულ ველებში შეყვანილ ტექსტს."
+msgstr "ლექსიკონის დამატების ჩადგმით თქვენი Firefox-ის მართლწერის შემმოწმებელს დაემატება ახალი ენა, რომელიც შეამოწმებს ვებგვერდებზე არსებულ ველებში შეყვანილ ტექსტს."
 
 #: src/amo/pages/LanguageTools/index.js:171
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr "ენის კრებულის დამატება კი მთლიანად შეცვლის პროგრამის ენას, მათ შორის მენიუს ელემენტებისა და პარამეტრების."
+msgstr "ენის კრებულის დამატებით კი მთლიანად შეიცვლება პროგრამის ენა, მათ შორის მენიუს ნაწილებსა და პარამეტრებში."
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "All Locales"

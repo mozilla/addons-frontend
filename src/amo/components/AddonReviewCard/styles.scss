@@ -166,6 +166,7 @@
 
   .AddonReviewCard-confirmDeleteDialog {
     margin-top: 12px;
+    margin-bottom: 6px;
     text-align: center;
     width: 100%;
 
@@ -216,6 +217,7 @@
     background-color: transparentize($blue-50, 0.95);
     border-radius: $border-radius-default;
     padding: 12px;
+    margin-bottom: 6px;
 
     @include respond-to(medium) {
       padding: 12px 24px;
