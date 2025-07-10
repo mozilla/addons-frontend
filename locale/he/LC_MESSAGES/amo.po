@@ -2091,14 +2091,14 @@ msgstr "בחיפוש אחר תוספות"
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\" עם התגית %(tag)s בקטגוריה %(categoryName)s"
-msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\" עם התגית %(tag)s בקטגוריה %(categoryName)s"
+msgstr[0] "נמצאה הרחבה אחת עבור ״%(query)s״ עם התגית %(tag)s בקטגוריה %(categoryName)s"
+msgstr[1] "נמצאו %(count)s הרחבות עבור ״%(query)s״ עם התגית %(tag)s בקטגוריה %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\" בקטגוריה %(categoryName)s"
-msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\" בקטגוריה %(categoryName)s"
+msgstr[0] "נמצאה הרחבה אחת עבור ״%(query)s״ בקטגוריה %(categoryName)s"
+msgstr[1] "נמצאו %(count)s הרחבות עבור ״%(query)s״ בקטגוריה %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
@@ -2115,8 +2115,8 @@ msgstr[1] "נמצאו %(count)s הרחבות בקטגוריה %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:95
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\" עם התגית %(tag)s"
-msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\" עם התגית %(tag)s"
+msgstr[0] "נמצאה הרחבה אחת עבור ״%(query)s״ עם התגית %(tag)s"
+msgstr[1] "נמצאו %(count)s הרחבות עבור ״%(query)s״ עם התגית %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "All"
