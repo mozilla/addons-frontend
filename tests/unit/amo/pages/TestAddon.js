@@ -1012,7 +1012,7 @@ describe(__filename, () => {
     expect(badge).toHaveTextContent('3.5 (10 reviews)');
   });
 
-  it('renders user count badge', () => {
+  it('renders user count badge with formatted text', () => {
     renderWithAddon();
 
     const badge = screen.getByTestId(`badge-user-fill`);
@@ -1045,6 +1045,163 @@ describe(__filename, () => {
       expect(
         screen.getByText('Rated 2.4 by 10,000 reviewers'),
       ).toBeInTheDocument();
+    });
+  });
+
+  it('renders user count badge with zero users', () => {
+    addon = {
+      ...addon,
+      average_daily_users: 0,
+    };
+    renderWithAddon();
+
+    const badge = screen.getByTestId(`badge-user-fill`);
+    expect(badge).toBeInTheDocument();
+    const content = within(badge).getByClassName('Badge-content');
+    expect(content).toHaveTextContent('No Users');
+  });
+
+  it('renders user count badge with singular user', () => {
+    addon = {
+      ...addon,
+      average_daily_users: 1,
+    };
+    renderWithAddon();
+
+    const badge = screen.getByTestId(`badge-user-fill`);
+    expect(badge).toBeInTheDocument();
+    const content = within(badge).getByClassName('Badge-content');
+    expect(content).toHaveTextContent('1 User');
+  });
+
+  it('renders user count badge with large formatted number', () => {
+    addon = {
+      ...addon,
+      average_daily_users: 12345,
+    };
+    renderWithAddon();
+
+    const badge = screen.getByTestId(`badge-user-fill`);
+    expect(badge).toBeInTheDocument();
+    const content = within(badge).getByClassName('Badge-content');
+    expect(content).toHaveTextContent('12,345 Users');
+  });
+
+  describe('Addon-warnings section', () => {
+    const getWarningsSection = () => screen.getByClassName('Addon-warnings');
+
+    it('contains non-public notice when addon status is not public', () => {
+      addon.status = 'disabled';
+      renderWithAddon();
+
+      const warningsSection = getWarningsSection();
+      expect(
+        within(warningsSection).getByText(
+          'This is not a public listing. You are only seeing it because of elevated permissions.',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('contains non-public notice when addon is disabled', () => {
+      addon.is_disabled = true;
+      renderWithAddon();
+
+      const warningsSection = getWarningsSection();
+      expect(
+        within(warningsSection).getByText(
+          'This is not a public listing. You are only seeing it because of elevated permissions.',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('does not contain non-public notice when addon is public and not disabled', () => {
+      addon.status = 'public';
+      addon.is_disabled = false;
+      renderWithAddon();
+
+      const warningsSection = getWarningsSection();
+      expect(
+        within(warningsSection).queryByText(
+          'This is not a public listing. You are only seeing it because of elevated permissions.',
+        ),
+      ).not.toBeInTheDocument();
+    });
+
+    it('contains AddonInstallError when there is an install error', () => {
+      store.dispatch(
+        setInstallState({
+          guid: addon.guid,
+          status: INSTALLING,
+        }),
+      );
+      store.dispatch(setInstallError({ error: FATAL_ERROR, guid: addon.guid }));
+      renderWithAddon();
+
+      const warningsSection = getWarningsSection();
+      expect(
+        within(warningsSection).getByClassName('AddonInstallError'),
+      ).toBeInTheDocument();
+    });
+
+    it('contains AddonCompatibilityError when addon has compatibility issues', () => {
+      getClientCompatibility.mockReturnValue(
+        createFakeClientCompatibility({
+          compatible: false,
+          reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+        }),
+      );
+      renderWithAddon();
+
+      const warningsSection = getWarningsSection();
+      expect(
+        within(warningsSection).getByText(
+          'This add-on is not available on your platform.',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('contains InstallWarning when addon exists', () => {
+      correctedLocationForPlatform.mockReturnValue('');
+      renderWithAddon();
+
+      const warningsSection = getWarningsSection();
+      expect(
+        within(warningsSection).getByText(
+          'This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing.',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('contains WrongPlatformWarning when addon exists', () => {
+      // Mock to ensure WrongPlatformWarning renders with a message
+      correctedLocationForPlatform.mockReturnValue('/en-US/android/');
+      renderWithAddon();
+
+      const warningsSection = getWarningsSection();
+      expect(
+        within(warningsSection).getByClassName('Addon-WrongPlatformWarning'),
+      ).toBeInTheDocument();
+    });
+
+    it('does not contain InstallWarning when addon does not exist', () => {
+      correctedLocationForPlatform.mockReturnValue('');
+      render();
+
+      const warningsSection = getWarningsSection();
+      expect(
+        within(warningsSection).queryByText(
+          'This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing.',
+        ),
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not contain WrongPlatformWarning when addon does not exist', () => {
+      render();
+
+      const warningsSection = getWarningsSection();
+      expect(
+        within(warningsSection).queryByClassName('Addon-WrongPlatformWarning'),
+      ).not.toBeInTheDocument();
     });
   });
 
