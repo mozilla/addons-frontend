@@ -1632,7 +1632,7 @@ msgstr "Opcjonalne uprawnienia:"
 
 #: src/amo/components/PermissionsCard/index.js:137
 msgid "Optional data collection, according to the developer:"
-msgstr "Opcjonalny zakres zbieranych danych, według dewelopera:"
+msgstr "Opcjonalny zakres zbieranych danych, według autora:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
@@ -1640,7 +1640,7 @@ msgstr "Zbieranie danych:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr "Niezbędny zakres zbieranych danych, według dewelopera:"
+msgstr "Wymagany zakres zbieranych danych, według autora:"
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
@@ -2443,7 +2443,7 @@ msgstr "Nie ma jeszcze recenzji"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] "Oceniony na %(ratingAverage)s przez 1 recenzenta"
+msgstr[0] "Oceniony na %(ratingAverage)s przez jednego recenzenta"
 msgstr[1] "Oceniony na %(ratingAverage)s przez %(ratingCount)s recenzentów"
 msgstr[2] "Oceniony na %(ratingAverage)s przez %(ratingCount)s recenzentów"
 
