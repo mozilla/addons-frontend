@@ -2418,8 +2418,8 @@ msgstr "Inga recensioner ännu"
 #: src/amo/pages/Addon/index.js:254
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Betyg %(ratingAverage)s av 1 recensent"
+msgstr[1] "Betyg %(ratingAverage)s av %(ratingCount)s recensenter"
 
 #: src/amo/pages/Addon/index.js:291
 msgid "About this dictionary"
