@@ -15,7 +15,6 @@ import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
-import { Definition } from 'amo/components/DefinitionList';
 import Select from 'amo/components/Select';
 import Notice from 'amo/components/Notice';
 import type { CollectionType } from 'amo/reducers/collections';
@@ -269,10 +268,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     const collectionOptLabel = i18n.gettext('Add to…');
 
     return (
-      <Definition
-        className="AddAddonToCollection"
-        term={i18n.gettext('Add to collection')}
-      >
+      <>
         {errorHandler.renderErrorIfPresent()}
         {addedNotices}
         <Select
@@ -285,7 +281,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
             <optgroup label={collectionOptLabel}>{collectionOptions}</optgroup>
           ) : null}
         </Select>
-      </Definition>
+      </>
     );
   }
 }
