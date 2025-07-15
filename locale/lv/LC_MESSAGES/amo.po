@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-15 09:10+0000\n"
+"POT-Creation-Date: 2025-07-15 12:27+0000\n"
 "PO-Revision-Date: 2019-02-19 18:23+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -70,9 +70,9 @@ msgstr ""
 msgid "Review add-on code"
 msgstr ""
 
-#: src/amo/components/AddonBadges/index.js:155
-msgid "User"
-msgid_plural "Users"
+#: src/amo/components/AddonBadges/index.js:149
+msgid "%(count)s User"
+msgid_plural "%(count)s Users"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Experimental"
 msgstr ""
 
-#: src/amo/components/AddonBadges/index.js:92
+#: src/amo/components/AddonBadges/index.js:86
 msgid "Some features may require payment"
 msgstr ""
 
@@ -2624,17 +2624,17 @@ msgstr ""
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:500
+#: src/amo/pages/Addon/index.js:501
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:527
+#: src/amo/pages/Addon/index.js:529
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:542
+#: src/amo/pages/Addon/index.js:544
 msgid "Screenshots"
 msgstr ""
 
