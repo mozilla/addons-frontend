@@ -8,45 +8,35 @@ $icon-size: 48px;
   box-shadow: 0 2px 6px rgba(58, 57, 68, 20%);
   box-sizing: border-box;
   display: grid;
+  grid-template:
+    'prv prv' auto
+    'icn ttl' auto
+    'bdg bdg' auto
+    'smr smr' auto
+    'btn btn' auto / auto 2fr;
+  gap: 12px;
   font-size: $font-size-s;
-  grid-template-columns: ($icon-size + 8px) 2fr 1fr;
-  padding: 12px;
   position: relative;
-
-  @include respond-to(medium) {
-    padding: 20px;
-  }
+  padding: 16px;
 }
 
 .AddonBadges {
-  grid-column: 4;
-  grid-row: 1;
+  grid-area: bdg;
   margin-bottom: 10px;
   width: auto;
-
-  .StaticAddonCard--is-theme & {
-    grid-row: 2;
-  }
 
   .Badge {
     font-size: $font-size-s;
   }
-
-  @include respond-to(medium) {
-    grid-column: 4;
-    margin: 0 0 0 auto;
-  }
 }
 
 .StaticAddonCard-theme-preview {
-  grid-column: 1 / span 4;
-  grid-row: 1;
+  grid-area: prv;
   margin-bottom: 20px;
 }
 
 .StaticAddonCard-icon {
-  grid-column: 1;
-  grid-row: 2;
+  grid-area: icn;
 
   .StaticAddonCard-icon-wrapper {
     height: $icon-size;
@@ -58,26 +48,17 @@ $icon-size: 48px;
     height: auto;
     width: 100%;
   }
-
-  @include respond-to(medium) {
-    grid-row: 1;
-  }
 }
 
 .AddonTitle {
+  grid-area: ttl;
   align-self: center;
   font-size: 20px;
   font-weight: 700;
-  grid-column: 2 / span 3;
-  grid-row: 2;
   margin: 0;
 
   a {
     text-decoration: none;
-  }
-
-  .StaticAddonCard--is-theme & {
-    grid-column: 1 / span 3;
   }
 
   & .AddonTitle-author,
@@ -86,65 +67,31 @@ $icon-size: 48px;
     font-size: $font-size-default;
     line-height: 1;
   }
-
-  @include respond-to(medium) {
-    grid-column: 2 / span 2;
-    grid-row: 1;
-
-    .StaticAddonCard--is-theme & {
-      grid-column: 1 / span 3;
-      grid-row: 2;
-    }
-  }
 }
 
 .StaticAddonCard-summary {
-  grid-column: 1 / span 4;
-  grid-row: 3;
+  grid-area: smr;
   line-height: 1.2;
 
   p {
     margin-bottom: 0;
   }
-
-  @include respond-to(medium) {
-    grid-row: 2;
-  }
-
-  .StaticAddonCard--is-theme & {
-    grid-row: 3;
-  }
 }
 
 .StaticAddonCard-metadata {
   display: flex;
-  grid-column: 1 / span 4;
-  grid-row: 4;
   line-height: 1.2;
 
   .Rating {
     @include margin-end(12px);
   }
-
-  @include respond-to(medium) {
-    grid-row: 3;
-
-    .StaticAddonCard--is-theme & {
-      grid-row: 4;
-    }
-  }
 }
 
 .StaticAddonCard-firefox-button {
+  grid-area: btn;
   align-self: center;
-  grid-column: 1 / span 4;
-  grid-row: 5;
   text-align: center;
   width: 100%;
-
-  .StaticAddonCard--is-theme & {
-    grid-row: 5;
-  }
 
   &,
   .GetFirefoxButton-button,

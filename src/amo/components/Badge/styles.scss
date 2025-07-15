@@ -11,7 +11,7 @@ $badge-size-small: 16px;
   gap: 6px;
   align-items: center;
   white-space: nowrap;
-  padding: 4px 6px;
+  padding: 3px 6px 3px 3px;
 
   .Badge-link {
     color: inherit;
@@ -40,7 +40,7 @@ $badge-size-small: 16px;
 
   &.Badge-border {
     border: 1px solid $color-light-gray-40;
-    border-radius: 20px;
+    border-radius: 22px;
     display: inline-flex;
     gap: 6px;
     box-sizing: border-box;
@@ -54,7 +54,6 @@ $badge-size-small: 16px;
 
   @include respond-to(large) {
     display: flex;
-    flex-direction: row-reverse;
 
     .Addon-theme & {
       flex-direction: row;
@@ -64,6 +63,10 @@ $badge-size-small: 16px;
   .Icon {
     vertical-align: top;
   }
+}
+
+.Badge-content {
+  text-wrap: wrap;
 }
 
 .Badge-content--small {
