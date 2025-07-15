@@ -62,7 +62,7 @@ msgstr "审核附加组件代码"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
+msgstr[0] "%(count)s 个用户"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
