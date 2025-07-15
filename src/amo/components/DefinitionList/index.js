@@ -2,8 +2,6 @@
 import * as React from 'react';
 import makeClassName from 'classnames';
 
-import type { AddonAdminLinksType } from 'amo/components/AddonAdminLinks';
-
 import './styles.scss';
 
 type DefinitionProps = {|
@@ -27,12 +25,7 @@ export const Definition = ({
 
 type DefinitionListProps = {|
   className?: string,
-  children: React.ChildrenArray<
-    | React.Element<typeof Definition>
-    // AddonAdminLinks returns either a `Definition` component or `null`
-    | React.Element<AddonAdminLinksType>
-    | null,
-  >,
+  children: React.ChildrenArray<React.Element<typeof Definition> | null>,
 |};
 
 const DefinitionList = ({

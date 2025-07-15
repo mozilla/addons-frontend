@@ -78,6 +78,11 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
+  it('does not render Admin Links when addon is null', () => {
+    render({ addon: null });
+    expect(screen.queryByText('Admin Links')).not.toBeInTheDocument();
+  });
+
   it('renders an "Add-on Links" heading if links exist', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,

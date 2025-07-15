@@ -16,6 +16,11 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   STATS_VIEW,
+  ADDONS_CONTENT_REVIEW,
+  ADDONS_EDIT,
+  ADDONS_REVIEW,
+  REVIEWER_TOOLS_VIEW,
+  STATIC_THEMES_REVIEW,
 } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
@@ -50,6 +55,10 @@ type PropsFromState = {|
   relatedCategories: Array<Object> | null,
   userId: UserId | null,
   versionInfo: VersionInfoType | null,
+  hasCodeReviewPermission: boolean,
+  hasContentReviewPermission: boolean,
+  hasEditPermission: boolean,
+  hasStaticThemeReviewPermission: boolean,
 |};
 
 type InternalProps = {|
@@ -72,6 +81,44 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     }
   }
 
+  renderAdminLinks(): React.Node | null {
+    const {
+      addon,
+      hasCodeReviewPermission,
+      hasContentReviewPermission,
+      hasEditPermission,
+      hasStaticThemeReviewPermission,
+    } = this.props;
+
+    if (addon === null) {
+      return null;
+    }
+
+    const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
+
+    const showCodeReviewLink = hasCodeReviewPermission && !isTheme;
+    const showStaticThemeReviewLink = hasStaticThemeReviewPermission && isTheme;
+    const showContentReviewLink = hasContentReviewPermission && !isTheme;
+
+    const hasALink =
+      hasEditPermission ||
+      showContentReviewLink ||
+      showCodeReviewLink ||
+      showStaticThemeReviewLink;
+
+    if (!hasALink) return null;
+
+    return (
+      <AddonAdminLinks
+        addon={addon}
+        hasCodeReviewPermission={hasCodeReviewPermission}
+        hasContentReviewPermission={hasContentReviewPermission}
+        hasEditPermission={hasEditPermission}
+        hasStaticThemeReviewPermission={hasStaticThemeReviewPermission}
+      />
+    );
+  }
+
   listContent(): React.Node {
     const {
       addon,
@@ -90,6 +137,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         versionLicense: <LoadingText minWidth={20} />,
       });
     }
+
+    const adminLinks = this.renderAdminLinks();
 
     let homepage: null | React.Element<'li'> | string =
       addon.homepage && addon.homepage.outgoing;
@@ -298,6 +347,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               );
             })
           : null,
+      adminLinks,
     });
   }
 
@@ -316,6 +366,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     versionHistoryLink = null,
     versionLastUpdated,
     versionLicenseLink = null,
+    adminLinks = null,
   }: Object): React.Node {
     const { addon, i18n } = this.props;
     return (
@@ -417,9 +468,24 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               <ul className="AddonMoreInfo-tag-links-list">{tagsLinks}</ul>
             </Definition>
           )}
-          <AddAddonToCollection addon={addon} />
+          <Definition
+            className="AddAddonToCollection"
+            term={i18n.gettext('Add to collection')}
+          >
+            <AddAddonToCollection addon={addon} />
+          </Definition>
 
-          <AddonAdminLinks addon={addon} />
+          {adminLinks && (
+            <Definition
+              className="AddonAdminLinks"
+              term={
+                // L10n: This is a list of links to administrative functions.
+                i18n.gettext('Admin Links')
+              }
+            >
+              {adminLinks}
+            </Definition>
+          )}
 
           {addonAuthorEditLink && (
             <Definition
@@ -496,6 +562,13 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
     categoriesLoading: state.categories.loading,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,
+    // Admin Link Permissions
+    hasCodeReviewPermission:
+      hasPermission(state, ADDONS_REVIEW) ||
+      hasPermission(state, REVIEWER_TOOLS_VIEW),
+    hasContentReviewPermission: hasPermission(state, ADDONS_CONTENT_REVIEW),
+    hasEditPermission: hasPermission(state, ADDONS_EDIT),
+    hasStaticThemeReviewPermission: hasPermission(state, STATIC_THEMES_REVIEW),
   };
 };
 
