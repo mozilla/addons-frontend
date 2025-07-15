@@ -635,6 +635,46 @@ describe(__filename, () => {
         ).toBeInTheDocument();
       });
 
+      it('has the expected callout text for an extension', () => {
+        render();
+
+        expect(
+          screen.getByText(`You'll need Firefox to use this extension`),
+        ).toBeInTheDocument();
+      });
+
+      it('has the expected callout text for an extension, which is incompatible', () => {
+        renderAsIncompatible();
+
+        expect(
+          screen.getByText(
+            'You need an updated version of Firefox for this extension',
+          ),
+        ).toBeInTheDocument();
+      });
+
+      it('has the expected callout text for a theme', () => {
+        addon.type = ADDON_TYPE_STATIC_THEME;
+
+        render();
+
+        expect(
+          screen.getByText(`You'll need Firefox to use this theme`),
+        ).toBeInTheDocument();
+      });
+
+      it('has the expected callout text for a theme, which is incompatible', () => {
+        addon.type = ADDON_TYPE_STATIC_THEME;
+
+        renderAsIncompatible();
+
+        expect(
+          screen.getByText(
+            'You need an updated version of Firefox for this theme',
+          ),
+        ).toBeInTheDocument();
+      });
+
       it('sends a tracking event when the button is clicked', async () => {
         render();
 

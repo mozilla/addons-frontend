@@ -1,12 +1,57 @@
 @import '~amo/css/styles';
 
+$callout-color: $yellow-50;
+
 .GetFirefoxButton-button {
-  @include respond-to(extraLarge) {
-    text-wrap: nowrap;
+  display: flex;
+  margin: auto;
+  white-space: nowrap;
+  width: 100%;
+
+  @include respond-to(medium) {
+    align-self: flex-end;
+    margin-bottom: 12px;
+    margin-top: 0;
+    width: fit-content;
+  }
+}
+
+.GetFirefoxButton-callout {
+  background-color: $callout-color;
+  border: 1px solid $callout-color;
+  border-radius: 4px;
+  color: $grey-90;
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  @include respond-to(medium) {
+    margin: 16px auto;
+    width: fit-content;
   }
 
-  width: 100%;
-  text-wrap: wrap;
-  text-align: center;
-  padding: 12px 18px;
+  &::before {
+    border: 0.8em solid transparent;
+    border-top: 10px solid $callout-color;
+    bottom: -20px;
+    content: '';
+    height: 0;
+    left: 45%;
+    position: absolute;
+    width: 0;
+  }
+}
+
+.GetFirefoxButton-callout-icon {
+  @include margin-end(4px);
+
+  background-image: url('../Notice/img/generic-info-mark.svg');
+  height: 16px;
+  margin: 2px 0 0;
+  min-width: 16px;
+  width: 16px;
 }
