@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-08 12:58+0000\n"
+"POT-Creation-Date: 2025-07-15 09:10+0000\n"
 "PO-Revision-Date: 2019-02-19 18:23+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -13,78 +13,61 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/amo/components/AddAddonToCollection/index.js:187
+#: src/amo/components/AddAddonToCollection/index.js:186
 msgid "Loading…"
 msgstr ""
 
-#: src/amo/components/AddAddonToCollection/index.js:189
+#: src/amo/components/AddAddonToCollection/index.js:188
 msgid "Adding…"
 msgstr ""
 
-#: src/amo/components/AddAddonToCollection/index.js:205
+#: src/amo/components/AddAddonToCollection/index.js:204
 msgid "Select a collection…"
 msgstr ""
 
-#: src/amo/components/AddAddonToCollection/index.js:212
+#: src/amo/components/AddAddonToCollection/index.js:211
 msgid "Create new collection"
 msgstr ""
 
-#: src/amo/components/AddAddonToCollection/index.js:253
+#: src/amo/components/AddAddonToCollection/index.js:252
 msgid "Added to %(collectionName)s"
 msgstr ""
 
 # This is a header for a list meaning Add to [some collection name]
 #. This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:269
+#: src/amo/components/AddAddonToCollection/index.js:268
 msgid "Add to…"
-msgstr ""
-
-#: src/amo/components/AddAddonToCollection/index.js:274
-#: src/amo/components/CollectionAddAddon/index.js:183
-msgid "Add to collection"
-msgstr ""
-
-# This action allows a reviewer to perform a content review of an add-on.
-#. This action allows a reviewer to perform a content review of an add-on.
-#: src/amo/components/AddonAdminLinks/index.js:105
-msgid "Content review add-on"
-msgstr ""
-
-# This action allows a reviewer to perform a review of a theme.
-#. This action allows a reviewer to perform a review of a theme.
-#: src/amo/components/AddonAdminLinks/index.js:113
-msgid "Review theme"
-msgstr ""
-
-# This action allows a reviewer to perform a review of an add-on's code.
-#. This action allows a reviewer to perform a review of an add-on's code.
-#: src/amo/components/AddonAdminLinks/index.js:115
-msgid "Review add-on code"
-msgstr ""
-
-# This is a list of links to administrative functions.
-#. This is a list of links to administrative functions.
-#: src/amo/components/AddonAdminLinks/index.js:135
-msgid "Admin Links"
 msgstr ""
 
 # This action allows the add-on developer or an admin to edit an add-on's properties.
 #. This action allows the add-on developer or an admin to edit an add-on's properties.
-#: src/amo/components/AddonAdminLinks/index.js:77
-#: src/amo/components/AddonAuthorLinks/index.js:51
+#: src/amo/components/AddonAdminLinks/index.js:49
+#: src/amo/components/AddonMoreInfo/index.js:219
 msgid "Edit add-on"
 msgstr ""
 
 # This action allows an admin to maintain an add-on.
 #. This action allows an admin to maintain an add-on.
-#: src/amo/components/AddonAdminLinks/index.js:91
+#: src/amo/components/AddonAdminLinks/index.js:63
 msgid "Admin add-on"
 msgstr ""
 
-# This is a list of links to Developer functions.
-#. This is a list of links to Developer functions.
-#: src/amo/components/AddonAuthorLinks/index.js:62
-msgid "Author Links"
+# This action allows a reviewer to perform a content review of an add-on.
+#. This action allows a reviewer to perform a content review of an add-on.
+#: src/amo/components/AddonAdminLinks/index.js:77
+msgid "Content review add-on"
+msgstr ""
+
+# This action allows a reviewer to perform a review of a theme.
+#. This action allows a reviewer to perform a review of a theme.
+#: src/amo/components/AddonAdminLinks/index.js:85
+msgid "Review theme"
+msgstr ""
+
+# This action allows a reviewer to perform a review of an add-on's code.
+#. This action allows a reviewer to perform a review of an add-on's code.
+#: src/amo/components/AddonAdminLinks/index.js:87
+msgid "Review add-on code"
 msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:155
@@ -193,94 +176,111 @@ msgstr ""
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:154
 #: src/amo/pages/UserProfile/index.js:361
 #: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:122
+#: src/amo/components/AddonMoreInfo/index.js:171
 msgid "Support site"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "Support Email"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:154
+#: src/amo/components/AddonMoreInfo/index.js:203
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Custom License"
 msgstr ""
 
 # This will output, in English:
 #. This will output, in English: "2 months ago (Dec 12 2016)"
-#: src/amo/components/AddonMoreInfo/index.js:218
+#: src/amo/components/AddonMoreInfo/index.js:286
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:235
+#: src/amo/components/AddonMoreInfo/index.js:303
 msgid "Read the privacy policy for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:315
 msgid "Read the license agreement for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:328
 msgid "See all versions"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:307
+#: src/amo/components/AddonMoreInfo/index.js:378
 msgid "Add-on Links"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:319
+#: src/amo/components/AddonMoreInfo/index.js:390
 msgid "Version"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:327
+#: src/amo/components/AddonMoreInfo/index.js:398
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:335
+#: src/amo/components/AddonMoreInfo/index.js:406
 #: src/amo/components/CollectionDetails/index.js:87
 #: src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:343
+#: src/amo/components/AddonMoreInfo/index.js:414
 msgid "Related Categories"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:353
+#: src/amo/components/AddonMoreInfo/index.js:424
 msgid "License"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:361
+#: src/amo/components/AddonMoreInfo/index.js:432
 msgid "Privacy Policy"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:369
+#: src/amo/components/AddonMoreInfo/index.js:440
 msgid "End-User License Agreement"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:377
+#: src/amo/components/AddonMoreInfo/index.js:448
 msgid "Version History"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:387
+#: src/amo/components/AddonMoreInfo/index.js:458
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:395
+#: src/amo/components/AddonMoreInfo/index.js:466
 msgid "Tags"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:415
+#: src/amo/components/AddonMoreInfo/index.js:473
+#: src/amo/components/CollectionAddAddon/index.js:183
+msgid "Add to collection"
+msgstr ""
+
+# This is a list of links to administrative functions.
+#. This is a list of links to administrative functions.
+#: src/amo/components/AddonMoreInfo/index.js:483
+msgid "Admin Links"
+msgstr ""
+
+# This is a list of links to Developer functions.
+#. This is a list of links to Developer functions.
+#: src/amo/components/AddonMoreInfo/index.js:495
+msgid "Author Links"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:514
 msgid "More information"
 msgstr ""
 
@@ -2492,7 +2492,7 @@ msgstr ""
 msgid "Add-ons Home Page"
 msgstr ""
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:185
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:184
 msgid "Preview of %(title)s"
 msgstr ""
 
@@ -2573,68 +2573,68 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:212
+#: src/amo/pages/Addon/index.js:211
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:223
+#: src/amo/pages/Addon/index.js:222
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/amo/pages/Addon/index.js:244
+#: src/amo/pages/Addon/index.js:243
 msgid "No reviews yet"
 msgstr ""
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:254
+#: src/amo/pages/Addon/index.js:253
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/amo/pages/Addon/index.js:291
+#: src/amo/pages/Addon/index.js:290
 msgid "About this dictionary"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:294
+#: src/amo/pages/Addon/index.js:293
 msgid "About this extension"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:297
+#: src/amo/pages/Addon/index.js:296
 msgid "About this language pack"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:300
+#: src/amo/pages/Addon/index.js:299
 msgid "About this theme"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:303
+#: src/amo/pages/Addon/index.js:302
 msgid "About this add-on"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:335
+#: src/amo/pages/Addon/index.js:334
 msgid "Developer comments"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:360
+#: src/amo/pages/Addon/index.js:359
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:501
+#: src/amo/pages/Addon/index.js:500
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:528
+#: src/amo/pages/Addon/index.js:527
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:543
+#: src/amo/pages/Addon/index.js:542
 msgid "Screenshots"
 msgstr ""
 
