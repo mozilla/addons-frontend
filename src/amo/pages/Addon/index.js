@@ -6,7 +6,6 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import AddAddonToCollection from 'amo/components/AddAddonToCollection';
 import AddonBadges, { roundToOneDigit } from 'amo/components/AddonBadges';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonHead from 'amo/components/AddonHead';
@@ -558,8 +557,6 @@ export class AddonBase extends React.Component {
             <PermissionsCard version={currentVersion} />
 
             <AddonMoreInfo addon={addon} />
-
-            <AddAddonToCollection addon={addon} />
 
             {this.renderVersionReleaseNotes()}
 

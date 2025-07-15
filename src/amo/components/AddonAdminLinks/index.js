@@ -1,28 +1,14 @@
 /* @flow */
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import {
-  ADDONS_CONTENT_REVIEW,
-  ADDONS_EDIT,
-  ADDONS_REVIEW,
-  ADDON_TYPE_STATIC_THEME,
-  REVIEWER_TOOLS_VIEW,
-  STATIC_THEMES_REVIEW,
-} from 'amo/constants';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import translate from 'amo/i18n/translate';
-import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'amo/types/addons';
-import DefinitionList, { Definition } from 'amo/components/DefinitionList';
 import type { I18nType } from 'amo/types/i18n';
-import type { AppState } from 'amo/store';
 
 type Props = {|
-  addon: AddonType | null,
-|};
-
-type PropsFromState = {|
+  addon: AddonType,
   hasCodeReviewPermission: boolean,
   hasContentReviewPermission: boolean,
   hasEditPermission: boolean,
@@ -31,12 +17,11 @@ type PropsFromState = {|
 
 type InternalProps = {|
   ...Props,
-  ...PropsFromState,
   i18n: I18nType,
 |};
 
 export class AddonAdminLinksBase extends React.Component<InternalProps> {
-  render(): null | React.Node {
+  render(): React.Node {
     const {
       addon,
       hasCodeReviewPermission,
@@ -46,24 +31,11 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       i18n,
     } = this.props;
 
-    if (addon === null) {
-      return null;
-    }
-
     const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
 
     const showCodeReviewLink = hasCodeReviewPermission && !isTheme;
     const showStaticThemeReviewLink = hasStaticThemeReviewPermission && isTheme;
     const showContentReviewLink = hasContentReviewPermission && !isTheme;
-    const hasALink =
-      hasEditPermission ||
-      showContentReviewLink ||
-      showCodeReviewLink ||
-      showStaticThemeReviewLink;
-
-    if (!hasALink) {
-      return null;
-    }
 
     const editLink = hasEditPermission ? (
       <li>
@@ -128,39 +100,18 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       ) : null;
 
     return (
-      <DefinitionList className="AddonAdminLinks">
-        <Definition
-          term={
-            // L10n: This is a list of links to administrative functions.
-            i18n.gettext('Admin Links')
-          }
-        >
-          <ul className="AddonAdminLinks-list">
-            {editLink}
-            {adminLink}
-            {contentReviewLink}
-            {codeReviewLink}
-          </ul>
-        </Definition>
-      </DefinitionList>
+      <ul className="AddonAdminLinks-list">
+        {editLink}
+        {adminLink}
+        {contentReviewLink}
+        {codeReviewLink}
+      </ul>
     );
   }
 }
 
-const mapStateToProps = (state: AppState): PropsFromState => {
-  return {
-    hasCodeReviewPermission:
-      hasPermission(state, ADDONS_REVIEW) ||
-      hasPermission(state, REVIEWER_TOOLS_VIEW),
-    hasContentReviewPermission: hasPermission(state, ADDONS_CONTENT_REVIEW),
-    hasEditPermission: hasPermission(state, ADDONS_EDIT),
-    hasStaticThemeReviewPermission: hasPermission(state, STATIC_THEMES_REVIEW),
-  };
-};
-
-const AddonAdminLinks: React.ComponentType<Props> = compose(
-  connect(mapStateToProps),
-  translate(),
-)(AddonAdminLinksBase);
+const AddonAdminLinks: React.ComponentType<Props> = compose(translate())(
+  AddonAdminLinksBase,
+);
 
 export default AddonAdminLinks;
