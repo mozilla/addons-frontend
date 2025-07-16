@@ -475,19 +475,19 @@ msgstr "Mai multe suplimente create de acești dezvoltatori"
 
 #: src/amo/components/AddonSuggestions/index.js:100
 msgid "More powerful tools for translations, writing & grammar support"
-msgstr ""
+msgstr "Instrumente mai puternice pentru ajutor la traducere, redactare și gramatică"
 
 #: src/amo/components/AddonSuggestions/index.js:107
 msgid "More amazing extensions to change the way Firefox looks"
-msgstr ""
+msgstr "Mai multe extensii uimitoare care schimbă aspectul Firefox"
 
 #: src/amo/components/AddonSuggestions/index.js:114
 msgid "More incredible social media extensions"
-msgstr ""
+msgstr "Mai multe extensii incredibile pentru rețelele de socializare"
 
 #: src/amo/components/AddonSuggestions/index.js:119
 msgid "More excellent search extensions"
-msgstr ""
+msgstr "Mai multe extensii excelente pentru căutare"
 
 #: src/amo/components/AddonSuggestions/index.js:124
 msgid "More great extensions for feeds, news & media"
@@ -1572,7 +1572,7 @@ msgstr "RECOMANDAT"
 #. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 #: src/amo/components/HeroRecommendation/index.js:230
 msgid "BY FIREFOX"
-msgstr ""
+msgstr "DE FIREFOX"
 
 #: src/amo/components/HeroRecommendation/index.js:232
 msgid "PROMOTED"
@@ -2214,7 +2214,7 @@ msgstr "În tendințe"
 
 #: src/amo/components/SearchFilters/index.js:209
 msgid "Any"
-msgstr ""
+msgstr "Orice"
 
 #: src/amo/components/SearchFilters/index.js:210 src/amo/utils/promoted.js:49 src/amo/utils/promoted.js:53
 msgid "Recommended"
@@ -2231,39 +2231,39 @@ msgstr "recenzie"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "Negru"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "Gri"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "Alb"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "Roșu"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "Galben"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "Verde"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "Cyan"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "Albastru"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -3443,7 +3443,7 @@ msgstr "Îți poți edita setările de notificare prin %(linkStart)seditarea pro
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
-msgstr ""
+msgstr "(fără nume)"
 
 #. This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:307
@@ -3518,7 +3518,7 @@ msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 
 #: src/amo/utils/promoted.js:40
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr ""
+msgstr "Supliment oficial creat de Mozilla Firefox. Respectă standardele de securitate și performanță."
 
 #: src/amo/utils/promoted.js:50
 #, fuzzy
