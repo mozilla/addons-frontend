@@ -1861,12 +1861,11 @@ msgid "There are no three-star reviews"
 msgstr "Nu există recenzii"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Citește toate recenziile cu două stele"
-msgstr[1] "Citește toate recenziile cu două stele"
-msgstr[2] "Citește toate recenziile cu două stele"
+msgstr[0] "Citește 1 recenzie cu două stele"
+msgstr[1] ""
+msgstr[2] "Read all %(total)s two-star reviews"
 
 #: src/amo/components/RatingsByStar/index.js:118
 #, fuzzy
@@ -1963,24 +1962,20 @@ msgid "Themes by Firefox"
 msgstr "De Firefox"
 
 #: src/amo/components/Search/index.js:161
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Suplimente pentru Firefox"
+msgstr "Suplimente de la Firefox"
 
 #: src/amo/components/Search/index.js:166
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Extensii recomandate"
+msgstr "Extensii revizuite"
 
 #: src/amo/components/Search/index.js:169
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Scrie o recenzie la temă"
+msgstr "Teme revizuite"
 
 #: src/amo/components/Search/index.js:172
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Scrie o recenzie la codul suplimentului"
+msgstr "Suplimente revizuite"
 
 #: src/amo/components/Search/index.js:180 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
@@ -2030,12 +2025,11 @@ msgstr[1] "%(count)s extensii găsite pentru „%(query)s”"
 msgstr[2] "%(count)s de extensii găsite pentru „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:113
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s extensie găsită în %(categoryName)s"
-msgstr[1] "%(count)s extensii găsite în %(categoryName)s"
-msgstr[2] "%(count)s de extensii găsite în %(categoryName)s"
+msgstr[0] "%(count)s extensie găsită cu etichetă %(tag)s"
+msgstr[1] ""
+msgstr[2] "%(count)s extensions found with tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
@@ -2045,12 +2039,11 @@ msgstr[1] "%(count)s extensii găsite"
 msgstr[2] "%(count)s de extensii găsite"
 
 #: src/amo/components/SearchContextCard/index.js:134
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s temă găsită pentru \"%(query)s\" în %(categoryName)s"
-msgstr[1] "%(count)s teme găsite pentru „%(query)s” în %(categoryName)s"
-msgstr[2] "%(count)s de teme găsite pentru „%(query)s” în %(categoryName)s"
+msgstr[0] "%(count)s temă găsită pentru „%(query)s” cu etichetă %(tag)s în %(categoryName)s"
+msgstr[1] ""
+msgstr[2] "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
