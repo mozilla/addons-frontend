@@ -8,7 +8,12 @@
       // overriding default Search Results styles
       @include respond-to(large) {
         grid-auto-flow: initial;
-        grid-template-columns: repeat(2, 50%);
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include respond-to(extraLarge) {
+        grid-auto-flow: initial;
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .SearchResult {
