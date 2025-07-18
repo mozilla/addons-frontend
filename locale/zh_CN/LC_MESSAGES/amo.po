@@ -1669,7 +1669,7 @@ msgstr "打开已下载至您的计算机的文件"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
-msgstr "读取已打开的所有标签页的文本"
+msgstr "读取所有已打开的标签页中的文本"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
@@ -1677,7 +1677,7 @@ msgstr "获知您的位置"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
-msgstr "存取浏览历史"
+msgstr "获取浏览历史"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
@@ -1705,11 +1705,11 @@ msgstr "读取和修改隐私设置"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr "存取最近关闭的标签页"
+msgstr "获取最近关闭的标签页"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
-msgstr "存取浏览器标签页"
+msgstr "获取浏览器标签页"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
