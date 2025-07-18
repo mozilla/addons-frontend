@@ -277,7 +277,7 @@ export class AddonBase extends React.Component {
     );
   }
 
-  renderShowMoreCard() {
+  renderAboutThisCard() {
     const { addon, i18n } = this.props;
 
     let showAbout;
@@ -547,20 +547,20 @@ export class AddonBase extends React.Component {
                 </Card>
               ) : null}
 
-              {this.renderShowMoreCard()}
+              {this.renderAboutThisCard()}
 
               {this.renderRatingsCard()}
-
-              {this.renderRecommendations()}
             </div>
-
-            <ContributeCard addon={addon} />
 
             <PermissionsCard version={currentVersion} />
 
             <AddonMoreInfo addon={addon} />
 
+            <ContributeCard addon={addon} />
+
             {this.renderVersionReleaseNotes()}
+
+            {this.renderRecommendations()}
 
             {this.renderAddonsByAuthorsCard({ isForTheme: false })}
           </div>
