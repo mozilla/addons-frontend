@@ -62,8 +62,8 @@ msgstr "Revider le codice del additivo"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s Usator"
+msgstr[1] "%(count)s Usatores"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
