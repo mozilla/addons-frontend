@@ -1171,31 +1171,31 @@ msgstr "Articole fără consimțământ care conțin deepfake sau tehnologie sim
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
-msgstr ""
+msgstr "Intimidare/hărțuire online"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "Hărțuire"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
-msgstr ""
+msgstr "Materiale sexuale pentru adulți"
 
 #: src/amo/components/FeedbackForm/index.js:392
 msgid "Image-based sexual abuse (excluding content depicting minors)"
-msgstr ""
+msgstr "Abuz sexual bazat pe imagini (cu excepția conținutului care înfățișează minori)"
 
 #: src/amo/components/FeedbackForm/index.js:405
 msgid "age-specific restrictions concerning minors"
-msgstr ""
+msgstr "restricții specifice vârstei privind minorii"
 
 #: src/amo/components/FeedbackForm/index.js:411
 msgid "Child sexual abuse material"
-msgstr ""
+msgstr "Materiale despre abuz sexual asupra copiilor"
 
 #: src/amo/components/FeedbackForm/index.js:415
 msgid "Grooming/sexual enticement of minors"
-msgstr ""
+msgstr "Ademenire/ațâțare sexuală a minorilor"
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
@@ -1203,47 +1203,47 @@ msgstr "Organizații ilegale"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
-msgstr ""
+msgstr "Risc de deteriorare a mediului"
 
 #: src/amo/components/FeedbackForm/index.js:434
 msgid "Risk for public health"
-msgstr ""
+msgstr "Risc pentru sănătatea publică"
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
-msgstr ""
+msgstr "Conținut terorist"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
-msgstr ""
+msgstr "Conturi neautentice"
 
 #: src/amo/components/FeedbackForm/index.js:453
 msgid "Inauthentic listings"
-msgstr ""
+msgstr "Listări neautentice"
 
 #: src/amo/components/FeedbackForm/index.js:457
 msgid "Inauthentic user reviews"
-msgstr ""
+msgstr "Recenzii neautentice de utilizatori"
 
 #: src/amo/components/FeedbackForm/index.js:461
 msgid "Impersonation or account hijacking"
-msgstr ""
+msgstr "Uzurpare de identitate sau furt de conturi"
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "Phishing"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "Scheme piramidale"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "Conținut care promovează tulburări de alimentație"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
-msgstr ""
+msgstr "Automutilare"
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
@@ -1331,19 +1331,19 @@ msgstr "Depunerea unei sesizări anonime ne va împiedica să comunicăm cu tine
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Numele tău %(spanStart)s(opțional)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:930
 msgid "Your name %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Numele tău %(spanStart)s(obligatoriu)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Adresa ta de e-mail %(spanStart)s(opțional)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:970
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Adresa ta de e-mail %(spanStart)s(obligatoriu)%(spanEnd)s"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
@@ -1367,7 +1367,7 @@ msgstr "Semnalează această recenzie"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
@@ -1375,7 +1375,7 @@ msgstr "Semnalat(ă) ca spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
 msgid "Login required"
-msgstr ""
+msgstr "Necesită autentificare"
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
@@ -1391,7 +1391,7 @@ msgstr "Politicile dezvoltatorilor"
 
 #: src/amo/components/Footer/index.js:116
 msgid "Community Blog"
-msgstr ""
+msgstr "Blogul comunității"
 
 #: src/amo/components/Footer/index.js:121
 msgid "Forum"
@@ -1430,6 +1430,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Cu excepția cazurilor în care este %(startNotedLink)sspecificat%(endNotedLink)s altminteri, conținutul de pe acest site este sub licență %(startLicenseLink)sCreative Commons Atribuire - partajare "
+"similare v3.0%(endLicenseLink)s sau orice versiune superioară. Android este o marcă comercială a Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1448,9 +1450,8 @@ msgid "About"
 msgstr "Despre"
 
 #: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
-#, fuzzy
 msgid "Firefox Add-ons Blog"
-msgstr "Suplimente Firefox"
+msgstr "Blog suplimente Firefox"
 
 #: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
@@ -1462,7 +1463,7 @@ msgstr "Centrul dezvoltatorilor"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "Pentru a folosi aceste suplimente, va trebui să %(downloadLinkStart)sdescarci Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
@@ -2081,12 +2082,11 @@ msgstr[1] "%(count)s teme găsite pentru „%(query)s”"
 msgstr[2] "%(count)s de teme găsite pentru „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:188
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "%(count)s temă găsită în %(categoryName)s"
-msgstr[1] "%(count)s teme găsite în %(categoryName)s"
-msgstr[2] "%(count)s de teme găsite în %(categoryName)s"
+msgstr[0] "%(count)s temă găsită în %(tag)s"
+msgstr[1] "%(count)s teme găsite în %(tag)s"
+msgstr[2] "%(count)s de teme găsite în %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
@@ -2096,12 +2096,11 @@ msgstr[1] "%(count)s teme găsite"
 msgstr[2] "%(count)s de teme găsite"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s rezultat găsit pentru „%(query)s”"
-msgstr[1] "%(count)s rezultate găsite pentru „%(query)s”"
-msgstr[2] "%(count)s de rezultate găsite pentru „%(query)s”"
+msgstr[0] "%(count)s rezultat găsit pentru „%(query)s” cu eticheta %(tag)s"
+msgstr[1] "%(count)s rezultate găsite pentru „%(query)s” cu eticheta %(tag)s"
+msgstr[2] "%(count)s de rezultate găsite pentru „%(query)s” cu eticheta %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -2111,12 +2110,11 @@ msgstr[1] "%(count)s rezultate găsite pentru „%(query)s”"
 msgstr[2] "%(count)s de rezultate găsite pentru „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:227
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "%(count)s rezultat găsit pentru „%(query)s”"
-msgstr[1] "%(count)s rezultate găsite pentru „%(query)s”"
-msgstr[2] "%(count)s de rezultate găsite pentru „%(query)s”"
+msgstr[0] "%(count)s rezultat găsit cu eticheta %(tag)s"
+msgstr[1] "%(count)s rezultate găsite cu eticheta %(tag)s"
+msgstr[2] "%(count)s de rezultate găsite cu eticheta %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
@@ -2134,12 +2132,11 @@ msgid "Searching for add-ons"
 msgstr "Se caută suplimentele"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s extensie găsită pentru „%(query)s” în %(categoryName)s"
-msgstr[1] "%(count)s extensii găsite pentru „%(query)s” în %(categoryName)s"
-msgstr[2] "%(count)s de extensii găsite pentru „%(query)s” în %(categoryName)s"
+msgstr[0] "%(count)s extensie găsită pentru „%(query)s” cu eticheta %(tag)s în %(categoryName)s"
+msgstr[1] "%(count)s extensii găsite pentru „%(query)s” cu eticheta %(tag)s în %(categoryName)s"
+msgstr[2] "%(count)s de extensii găsite pentru „%(query)s” cu eticheta %(tag)s în %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
