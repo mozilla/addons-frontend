@@ -276,7 +276,7 @@ msgstr ""
 
 #: src/amo/components/AddonReportAbuseLink/index.js:44
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr "Am primit raportul tău. Îți mulțumim că ne-ai anunțat despre îngrijorările tale cu privire la acest supliment."
+msgstr "Am primit sesizarea. Îți mulțumim că ne-ai anunțat despre îngrijorările tale cu privire la acest supliment."
 
 #: src/amo/components/AddonReportAbuseLink/index.js:56
 msgid "Report this add-on"
@@ -947,133 +947,135 @@ msgstr "Recenzia nu a fost găsită."
 
 #: src/amo/components/FeedbackForm/index.js:1014
 msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
-msgstr ""
+msgstr "Prin înaintarea acestei sesizări, certific, sub sancțiunea pedepsei de sperjur, că afirmațiile pe care le conține sunt complete și exacte, din câte știu."
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr ""
+msgstr "Nu funcționează, strică site-urile web sau încetinește Firefox"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
-msgstr ""
+msgstr "Exemplu: Funcționalitățile sunt lente, greu de utilizat sau nu funcționează; nu se încarcă părți din site-uri sau arată straniu."
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It’s spam"
-msgstr ""
+msgstr "Este spam"
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: The listing advertises unrelated products or services."
-msgstr ""
+msgstr "Exemplu: Listarea promovează produse sau servicii fără legătură."
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "It violates Add-on Policies"
-msgstr ""
+msgstr "Încalcă politicile privind suplimentele"
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
-msgstr ""
+msgstr "Exemplu: Mi-a compromis datele fără să mă informeze sau să mă întrebe sau mi-a modificat motorul de căutare sau pagina principală fără să mă informeze sau să mă întrebe."
 
 #: src/amo/components/FeedbackForm/index.js:129
 msgid "It contains hateful, violent, deceptive, or other inappropriate content"
-msgstr ""
+msgstr "Are conținut instigator la ură, violent, înșelător sau neadecvat altminteri"
 
 #: src/amo/components/FeedbackForm/index.js:131
 msgid "Example: It contains racist imagery."
-msgstr ""
+msgstr "Exemplu: Conține imagini rasiste."
 
 #: src/amo/components/FeedbackForm/index.js:135
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Încalcă legea sau are conținut care încalcă legea"
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid ""
 "Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
 msgstr ""
+"Exemplu: Fraudă. (Dacă vrei să raportezi o încălcare a drepturilor de autor sau a unei mărci comerciale, poți afla mai multe despre cum să o faci în articolul nostru %(startLink)sRaportarea "
+"încălcării drepturilor de autor sau a mărcilor comerciale%(endLink)s)."
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
-msgstr ""
+msgstr "Altceva"
 
 #: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "Orice care nu se încadrează în celelalte categorii."
 
 #: src/amo/components/FeedbackForm/index.js:164
 msgid "Select place"
-msgstr ""
+msgstr "Selectează locul"
 
 #: src/amo/components/FeedbackForm/index.js:166
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "Pe pagina suplimentului de pe acest site web"
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
-msgstr ""
+msgstr "În interiorul suplimentului"
 
 #: src/amo/components/FeedbackForm/index.js:170
 msgid "Both locations"
-msgstr ""
+msgstr "Ambele locații"
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "Selectează tipul"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
-msgstr ""
+msgstr "Bunăstarea animalelor"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
-msgstr ""
+msgstr "Încălcări ale informațiilor pentru consumatori"
 
 #: src/amo/components/FeedbackForm/index.js:192
 msgid "Data protection and privacy violations"
-msgstr ""
+msgstr "Încălcări ale protecției datelor și ale confidențialității"
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
-msgstr ""
+msgstr "Discurs ilegal sau dăunător"
 
 #: src/amo/components/FeedbackForm/index.js:200
 msgid "Intellectual property infringements"
-msgstr ""
+msgstr "Încălcări ale proprietății intelectuale"
 
 #: src/amo/components/FeedbackForm/index.js:204
 msgid "Negative effects on civic discourse or elections"
-msgstr ""
+msgstr "Efecte negative asupra discursului civic sau a alegerilor"
 
 #: src/amo/components/FeedbackForm/index.js:210
 msgid "Non-consensual behavior"
-msgstr ""
+msgstr "Comportament neconsensual"
 
 #: src/amo/components/FeedbackForm/index.js:214
 msgid "Pornography or sexualized content"
-msgstr ""
+msgstr "Pornografie sau conținut sexualizat"
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
-msgstr ""
+msgstr "Protecția minorilor"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
-msgstr ""
+msgstr "Risc pentru siguranța publică"
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
-msgstr ""
+msgstr "Escrocherii sau fraude"
 
 #: src/amo/components/FeedbackForm/index.js:225
 msgid "Self-harm"
-msgstr ""
+msgstr "Autoagresiune"
 
 #: src/amo/components/FeedbackForm/index.js:228
 msgid "Unsafe, non-compliant, or prohibited products"
-msgstr ""
+msgstr "Produse nesigure, neconforme sau interzise"
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
-msgstr ""
+msgstr "Violenţă"
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
@@ -1245,83 +1247,83 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "Sinucidere"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr ""
+msgstr "Produse interzise sau restricționate"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
-msgstr ""
+msgstr "Produse nesigure sau neconforme"
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
-msgstr ""
+msgstr "Acte de violență coordonate"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "Violența bazată pe gen"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "Exploatare umană"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "Trafic de persoane"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Apeluri generale sau incitare la violență și/sau ură"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
-msgstr ""
+msgstr "Sesizare trimisă"
 
 #: src/amo/components/FeedbackForm/index.js:673
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "Am primit sesizarea. Îți mulțumim că ne-ai anunțat."
 
 #: src/amo/components/FeedbackForm/index.js:768
 msgid "Submitting your report…"
-msgstr ""
+msgstr "Se trimite sesizarea…"
 
 #: src/amo/components/FeedbackForm/index.js:769
 msgid "Submit report"
-msgstr ""
+msgstr "Trimite sesizarea"
 
 #: src/amo/components/FeedbackForm/index.js:788
 msgid "Provide more information"
-msgstr ""
+msgstr "Dă mai multe informații"
 
 #: src/amo/components/FeedbackForm/index.js:796
 msgid "Place of the violation"
-msgstr ""
+msgstr "Locul încălcării"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Tipul de conținut ilegal"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Încălcare specifică"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
-msgstr ""
+msgstr "Dă mai multe detalii"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "Te rugăm să ne dai orice informații suplimentare care ne-ar putea ajuta să înțelegem sesizarea (inclusiv politica pe care consideri că o încalcă)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
-msgstr ""
+msgstr "Date de contact"
 
 #: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
-msgstr ""
+msgstr "Trimite sesizarea în mod anonim"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
@@ -1925,7 +1927,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:52
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Am primit raportul tău. Îți mulțumim că ne-ai anunțat despre îngrijorările tale cu privire la acest utilizator."
+msgstr "Am primit sesizarea. Îți mulțumim că ne-ai anunțat despre îngrijorările tale cu privire la acest utilizator."
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
