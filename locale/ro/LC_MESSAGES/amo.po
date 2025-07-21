@@ -107,7 +107,7 @@ msgstr "Trimite-ne feedback despre supliment"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr "Raportează suplimentul că este ilegal sau neconform"
+msgstr "Raportează suplimentul ca ilegal sau neconform"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -272,7 +272,7 @@ msgstr "Alte extensii populare"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:40
 msgid "You reported this add-on"
-msgstr ""
+msgstr "Ai raportat acest supliment"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:44
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -280,7 +280,7 @@ msgstr "Am primit sesizarea. Îți mulțumim că ne-ai anunțat despre îngrijor
 
 #: src/amo/components/AddonReportAbuseLink/index.js:56
 msgid "Report this add-on"
-msgstr ""
+msgstr "Raportează acest supliment"
 
 #: src/amo/components/AddonReviewCard/index.js:209
 msgid "Edit reply"
@@ -1079,31 +1079,31 @@ msgstr "Violenţă"
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "Altele"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
-msgstr ""
+msgstr "Selectează încălcarea"
 
 #: src/amo/components/FeedbackForm/index.js:247
 msgid "Insufficient information on traders"
-msgstr ""
+msgstr "Informații insuficiente despre comercianți"
 
 #: src/amo/components/FeedbackForm/index.js:251
 msgid "Non-compliance with pricing regulations"
-msgstr ""
+msgstr "Nerespectarea reglementărilor privind prețurile"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
-msgstr ""
+msgstr "Reclamă sau comunicare comercială ascunsă, inclusiv prin influenceri"
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
-msgstr ""
+msgstr "Informații înșelătoare despre caracteristicile bunurilor și serviciilor"
 
 #: src/amo/components/FeedbackForm/index.js:267
 msgid "Misleading information about the consumer’s rights"
-msgstr ""
+msgstr "Informații înșelătoare despre drepturile consumatorului"
 
 #: src/amo/components/FeedbackForm/index.js:280
 msgid "Biometric data breach"
@@ -1111,63 +1111,63 @@ msgstr "Încălcarea securității datelor biometrice"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "Lipsesc motivele pentru procesarea datelor"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
-msgstr ""
+msgstr "Dreptul de a fi uitat"
 
 #: src/amo/components/FeedbackForm/index.js:292
 msgid "Data falsification"
-msgstr ""
+msgstr "Falsificarea datelor"
 
 #: src/amo/components/FeedbackForm/index.js:301
 msgid "Defamation"
-msgstr ""
+msgstr "Defăimare"
 
 #: src/amo/components/FeedbackForm/index.js:302
 msgid "Discrimination"
-msgstr ""
+msgstr "Discriminare"
 
 #: src/amo/components/FeedbackForm/index.js:305
 msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
-msgstr ""
+msgstr "Incitare ilegală la violență și ură bazată pe caracteristici protejate (discurs instigator la ură)"
 
 #: src/amo/components/FeedbackForm/index.js:318
 msgid "Design infringements"
-msgstr ""
+msgstr "Încălcări ale drepturilor de concepție"
 
 #: src/amo/components/FeedbackForm/index.js:322
 msgid "Geographical indications infringements"
-msgstr ""
+msgstr "Încălcări ale indicațiilor geografice"
 
 #: src/amo/components/FeedbackForm/index.js:326
 msgid "Patent infringements"
-msgstr ""
+msgstr "Încălcări de brevete"
 
 #: src/amo/components/FeedbackForm/index.js:330
 msgid "Trade secret infringements"
-msgstr ""
+msgstr "Încălcări de secrete comerciale"
 
 #: src/amo/components/FeedbackForm/index.js:341
 msgid "Violation of EU law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Încălcarea legislației UE relevante pentru discursul civic sau alegeri"
 
 #: src/amo/components/FeedbackForm/index.js:347
 msgid "Violation of national law relevant to civic discourse or elections"
-msgstr ""
+msgstr "Încălcarea legislației naționale relevante pentru discursul civic sau alegeri"
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "Rea informare, dezinformare, manipulare și interferență cu informații străine"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
-msgstr ""
+msgstr "Partajare de imagini fără consimțământ"
 
 #: src/amo/components/FeedbackForm/index.js:370
 msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
-msgstr ""
+msgstr "Articole fără consimțământ care conțin deepfake sau tehnologie similară folosind funcționalități ale unei părți terțe"
 
 #: src/amo/components/FeedbackForm/index.js:376
 msgid "Online bullying/intimidation"
@@ -1199,7 +1199,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:426
 msgid "Illegal organizations"
-msgstr ""
+msgstr "Organizații ilegale"
 
 #: src/amo/components/FeedbackForm/index.js:430
 msgid "Risk for environmental damage"
@@ -1303,7 +1303,7 @@ msgstr "Locul încălcării"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr "Tipul de conținut ilegal"
+msgstr "Tip de conținut ilegal"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
@@ -1327,7 +1327,7 @@ msgstr "Trimite sesizarea în mod anonim"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Depunerea unei sesizări anonime ne va împiedica să comunicăm cu tine despre stadiul sesizării sau despre orice opțiuni de contestare."
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
@@ -1347,7 +1347,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
-msgstr ""
+msgstr "Conținut ilegal sau care încalcă politicile de conținut AMO"
 
 #: src/amo/components/FlagReviewMenu/index.js:112
 msgid "Flagged"
@@ -1379,11 +1379,11 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
-msgstr ""
+msgstr "Sesizare defecțiune sau cerere de asistență plasată greșit"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as misplaced bug report or support request"
-msgstr ""
+msgstr "Semnalată ca sezisare de defecțiune sau cerere de asistență"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Developer Policies"
@@ -1923,7 +1923,7 @@ msgstr[2] "Citește toate recenziile cu trei stele"
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
-msgstr ""
+msgstr "Ai raportat acest utilizator"
 
 #: src/amo/components/ReportUserAbuse/index.js:52
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1931,7 +1931,7 @@ msgstr "Am primit sesizarea. Îți mulțumim că ne-ai anunțat despre îngrijor
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
-msgstr ""
+msgstr "Raportează acest utilizator"
 
 #: src/amo/components/Search/index.js:138 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
@@ -2516,7 +2516,7 @@ msgstr "Capturi de ecran"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr ""
+msgstr "Trimite feedback sau raportează un supliment către Mozilla"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2676,15 +2676,15 @@ msgstr "Șterge această colecție"
 
 #: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
-msgstr ""
+msgstr "Ai raportat această colecție"
 
 #: src/amo/pages/Collection/index.js:427
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Am primit sesizarea. Îți mulțumim că ne-ai anunțat despre îngrijorările tale cu privire la această colecție."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
-msgstr ""
+msgstr "Raportează această colecție"
 
 #: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
@@ -2712,7 +2712,7 @@ msgstr "Descarcă și creează colecții Firefox ca să urmărești extensiile �
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Trimite feedback sau raportează o colecție către Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
@@ -2720,7 +2720,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
-msgstr ""
+msgstr "Raportează colecția către Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:172
 msgid "Send some feedback about the collection"
@@ -2728,7 +2728,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Raportează colecția ca ilegală sau neconformă"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2882,7 +2882,7 @@ msgstr "Dicționare"
 
 #: src/amo/pages/RatingFeedback/index.js:125
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Trimite feedback sau raportează o recenzie către Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
@@ -2890,11 +2890,11 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Raportează recenzia către Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Raportează recenzia ca ilegală sau neconformă"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2947,6 +2947,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Pentru a raporta o vulnerabilitate de securitate pentru o extensie, chiar dacă nu este găzduită pe acest site, te rugăm să deschizi o %(startSecIssueLink)ssesizare%(endSecIssueLink)s pe Bugzilla sau"
+" să trimiți un mesaj la %(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Toate sesizările de vulnerabilitate de securitate sunt %(startLink)sconfidențiale%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
@@ -3166,7 +3168,7 @@ msgstr ""
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Trimite feedback sau raportează un utilizator către Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:144 src/amo/pages/UserProfile/index.js:387
 msgid "User since"
@@ -3174,7 +3176,7 @@ msgstr "Utilizator din"
 
 #: src/amo/pages/UserFeedback/index.js:156
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Raportează utilizatorul către Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:157
 msgid "Send some feedback about the user profile"
@@ -3182,7 +3184,7 @@ msgstr ""
 
 #: src/amo/pages/UserFeedback/index.js:160
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "Raportează profilul de utilizator ca ilegal sau neconform"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
