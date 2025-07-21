@@ -72,7 +72,7 @@ msgstr "Niciun utilizator"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "Disponibil pe Firefox pentru Android™"
 
 #: src/amo/components/AddonBadges/index.js:72
 msgid "Experimental"
@@ -99,15 +99,15 @@ msgstr[2] "%(total)s de utilizatori"
 
 #: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
-msgstr ""
+msgstr "Raportează suplimentul către Mozilla"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
-msgstr ""
+msgstr "Trimite-ne feedback despre supliment"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "Raportează suplimentul că este ilegal sau neconform"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -491,43 +491,43 @@ msgstr "Mai multe extensii excelente pentru căutare"
 
 #: src/amo/components/AddonSuggestions/index.js:124
 msgid "More great extensions for feeds, news & media"
-msgstr ""
+msgstr "Mai multe extensii excelente pentru fluxuri, știri și media"
 
 #: src/amo/components/AddonSuggestions/index.js:129
 msgid "More great notification extensions"
-msgstr ""
+msgstr "Mai multe extensii excelente de notificare"
 
 #: src/amo/components/AddonSuggestions/index.js:138
 msgid "More great tools for web developers"
-msgstr ""
+msgstr "Mai multe instrumente excelente pentru dezvoltatorii web"
 
 #: src/amo/components/AddonSuggestions/index.js:268
 msgid "See Firefox Staff Picks"
-msgstr ""
+msgstr "Vezi recomandările echipei Firefox"
 
 #: src/amo/components/AddonSuggestions/index.js:57
 msgid "Explore our 'Starter Pack' to get started with extensions"
-msgstr ""
+msgstr "Explorează „Pachetul Starter” pentru a începe să folosești extensiile"
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
-msgstr ""
+msgstr "Extensii mai puternice de confidențialitate și securitate"
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
-msgstr ""
+msgstr "Mai multe extensii incredibile de gestionare a descărcărilor"
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
-msgstr ""
+msgstr "Mai multe extensii fantastice pentru file și marcaje"
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
-msgstr ""
+msgstr "Mai multe extensii excelente pentru jocuri și divertisment"
 
 #: src/amo/components/AddonSuggestions/index.js:95
 msgid "More amazing image, photo & media extensions"
-msgstr ""
+msgstr "Mai multe extensii uimitoare pentru imagini, fotografii și media"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -848,9 +848,8 @@ msgid "Error code: %(status)s."
 msgstr "Codul erorii: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
-#, fuzzy
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Ne pare rău, dar nu ești autorizat(ă) să accesezi această pagină. Dacă nu ești autentificat(ă), încearcă să o faci folosind linkul din partea de sus a paginii."
+msgstr "Autentificarea a expirat. %(startLink)sReîncarcă pagina%(endLink)s ca să continui fără autentificare sau intră din nou în cont folosind linkul de Autentificare din partea de sus a paginii."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
@@ -915,23 +914,20 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Ne pare rău, dar a apărut o eroare pe serverul nostru și nu am putut finaliza cererea ta. Am înregistrat această eroare și o vom investiga."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Încearcă să intri pe pagină mai târziu, pentru că tema sau extensia poate deveni disponibilă din nou. Alternativ, este posibil să găsești ce cauți într-una dintre "
-"%(extensionStart)sextensiile%(extensionEnd)s sau %(themeStart)stemele%(themeEnd)s sau cerând ajutor pe %(communityStart)sforumurile comunității%(communityEnd)s."
+"Este posibil să găsești ce cauți într-una dintre %(extensionStart)sextensiile%(extensionEnd)s sau %(themeStart)stemele%(themeEnd)s disponibile sau cerând ajutor pe %(communityStart)sforumurile "
+"comunității%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
-#, fuzzy
 msgid "That page is not available in your region"
-msgstr "Acest supliment nu este disponibil pe platforma ta."
+msgstr "Pagina nu este disponibilă în regiunea ta"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "Acest supliment nu este disponibil pe platforma ta."
+msgstr "Pagina pe care încerci să intri nu este disponibilă în regiunea ta."
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
