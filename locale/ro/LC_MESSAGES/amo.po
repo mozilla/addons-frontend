@@ -1785,15 +1785,15 @@ msgstr "Date tehnice și de interacțiune"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "Activitate pe site-uri"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "Conținut site-uri web"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "Dezvoltatorul spune că extensia nu necesită colectarea de date."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1841,7 +1841,7 @@ msgstr "Sigur vrei să ștergi evaluarea pentru %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Clic pentru evaluare:"
 
 #: src/amo/components/RatingManager/index.js:238
 msgid "Saving star rating"
@@ -1852,9 +1852,8 @@ msgid "Star rating saved"
 msgstr "Evaluarea prin stele a fost salvată"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
-msgstr "Nu există recenzii"
+msgstr "Nu există recenzii cu trei stele"
 
 #: src/amo/components/RatingsByStar/index.js:108
 msgid "Read the 1 two-star review"
@@ -1864,60 +1863,52 @@ msgstr[1] ""
 msgstr[2] "Read all %(total)s two-star reviews"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Nu există recenzii"
+msgstr "Nu există recenzii cu două stele"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Citește toate recenziile cu o stea"
-msgstr[1] "Citește toate recenziile cu o stea"
-msgstr[2] "Citește toate recenziile cu o stea"
+msgstr[0] "Citește 1 recenzie cu o stea"
+msgstr[1] "Citește toate cele %(total)s recenzii cu o stea"
+msgstr[2] "Citește toate cele %(total)s de recenzii cu o stea"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Nu există recenzii"
+msgstr "Nu există recenzii cu o stea"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
 msgstr "Nu există recenzii"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Citește toate recenziile cu cinci stele"
-msgstr[1] "Citește toate recenziile cu cinci stele"
-msgstr[2] "Citește toate recenziile cu cinci stele"
+msgstr[0] "Citește 1 recenzie cu cinci stele"
+msgstr[1] "Citește toate cele %(total)s recenzii cu cinci stele"
+msgstr[2] "Citește toate cele %(total)s de recenzii cu cinci stele"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Nu există recenzii"
+msgstr "Nu există recenzii cu cinci stele"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Citește toate recenziile cu patru stele"
-msgstr[1] "Citește toate recenziile cu patru stele"
-msgstr[2] "Citește toate recenziile cu patru stele"
+msgstr[0] "Citește 1 recenzie cu patru stele"
+msgstr[1] "Citește toate cele %(total)s recenzii cu patru stele"
+msgstr[2] "Citește toate cele %(total)s de recenzii cu patru stele"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Nu există recenzii"
+msgstr "Nu există recenzii cu patru stele"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Citește toate recenziile cu trei stele"
-msgstr[1] "Citește toate recenziile cu trei stele"
-msgstr[2] "Citește toate recenziile cu trei stele"
+msgstr[0] "Citește 1 recenzie cu trei stele"
+msgstr[1] "Citește toate cele %(total)s recenzii cu trei stele"
+msgstr[2] "Citește toate cele %(total)s de recenzii cu trei stele"
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
@@ -1948,14 +1939,12 @@ msgid "Recommended add-ons"
 msgstr "Suplimente recomandate"
 
 #: src/amo/components/Search/index.js:155
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Extensii create de %(author)s"
+msgstr "Extensii de la Firefox"
 
 #: src/amo/components/Search/index.js:158
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "De Firefox"
+msgstr "Teme de la Firefox"
 
 #: src/amo/components/Search/index.js:161
 msgid "Add-ons by Firefox"
@@ -2049,12 +2038,11 @@ msgstr[1] "%(count)s teme găsite pentru „%(query)s” în %(categoryName)s"
 msgstr[2] "%(count)s de teme găsite pentru „%(query)s” în %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s temă găsită în %(categoryName)s"
-msgstr[1] "%(count)s teme găsite în %(categoryName)s"
-msgstr[2] "%(count)s de teme găsite în %(categoryName)s"
+msgstr[0] "%(count)s temă găsită cu eticheta %(tag)s în %(categoryName)s"
+msgstr[1] "%(count)s teme găsite cu eticheta %(tag)s în %(categoryName)s"
+msgstr[2] "%(count)s de teme găsite cu eticheta %(tag)s în %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
@@ -2064,12 +2052,11 @@ msgstr[1] "%(count)s teme găsite în %(categoryName)s"
 msgstr[2] "%(count)s de teme găsite în %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:170
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s temă găsită pentru \"%(query)s\" în %(categoryName)s"
-msgstr[1] "%(count)s teme găsite pentru „%(query)s” în %(categoryName)s"
-msgstr[2] "%(count)s de teme găsite pentru „%(query)s” în %(categoryName)s"
+msgstr[0] "%(count)s temă găsită pentru „%(query)s” cu eticheta %(tag)s"
+msgstr[1] "%(count)s teme găsite pentru „%(query)s” cu eticheta %(tag)s"
+msgstr[2] "%(count)s de teme găsite pentru „%(query)s” cu eticheta %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
