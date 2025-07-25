@@ -1628,7 +1628,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "권한 및 데이터"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -2373,7 +2373,7 @@ msgstr "아직 리뷰 없음"
 #: src/amo/pages/Addon/index.js:253
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
+msgstr[0] "%(ratingCount)s명의 리뷰어가 %(ratingAverage)s로 평가함"
 
 #: src/amo/pages/Addon/index.js:290
 msgid "About this dictionary"
