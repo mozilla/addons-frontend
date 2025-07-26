@@ -62,8 +62,8 @@ msgstr "Acegger n tengalt n usiɣzef"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s useqdac"
+msgstr[1] "%(count)s yiseqdacen"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
@@ -1618,11 +1618,11 @@ msgstr "Asebter %(thisPage)s seg %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:107
 msgid "Required permissions:"
-msgstr ""
+msgstr "Yesra tisirag:"
 
 #: src/amo/components/PermissionsCard/index.js:117
 msgid "Optional permissions:"
-msgstr ""
+msgstr "Tisirag tifrayanin:"
 
 #: src/amo/components/PermissionsCard/index.js:137
 msgid "Optional data collection, according to the developer:"
@@ -1630,7 +1630,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "Alqaḍ n yisefka:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
@@ -1638,7 +1638,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "Tisirag akked yisefka"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -1738,7 +1738,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Ticraḍ n isebtar"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
@@ -1758,31 +1758,31 @@ msgstr "Tansa"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "Taywalt tudmawant"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "Talɣut n usulu tudmawant"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "Awalen n unadi"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "Isefka n tetiknikt d umyigew"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "Armud deg usmel web"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "Agbur n usmel web"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "Aneflay yenna-d asiɣzef-a ur yeḥwaǧ ara alqaḍ n yisefka."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1896,7 +1896,7 @@ msgstr[1] "Ɣeṛ meṛṛa %(total)s yiceggiren s kraḍ yitran"
 
 #: src/amo/components/ReportUserAbuse/index.js:48
 msgid "You reported this user"
-msgstr ""
+msgstr "Tcetkaḍ-d aseqdac-a"
 
 #: src/amo/components/ReportUserAbuse/index.js:52
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1904,7 +1904,7 @@ msgstr "Nermes-d aneqqis-ik. Tanemmirt imi i aɣ-d-mliḍ ugur akked useqdac-a."
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
-msgstr ""
+msgstr "Ccetki ɣef useqdac-a"
 
 #: src/amo/components/Search/index.js:138 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
@@ -2615,7 +2615,7 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:427
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Nermes-d aneqqis-ik. Tanemmirt imi i aɣ-d-mliḍ ugur s ulqaḍ-a."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
