@@ -12,7 +12,7 @@ require('@babel/register');
 const config = require('config');
 const fs = require('fs');
 const path = require('path');
-const shell = require('shelljs');
+const { execFileSync } = require('child_process');
 
 const supportedLangs = config.get('langs');
 const localeDir = path.join(__dirname, '../locale');
@@ -34,8 +34,12 @@ for (lang of supportedLangs) {
     console.log(`${outputFile} already exists skipping`);
   } catch (e) {
     if (e.code === 'ENOENT') {
-      shell.exec(`msginit --no-translator --input=${templateDir}/amo.pot
-                  --output-file=${outputFile} -l ${locale}`.replace('\n', ' '));
+      execFileSync('msginit', [
+        '--no-translator',
+        `--input=${path.join(templateDir, 'amo.pot')}`,
+        `--output-file=${outputFile}`,
+        `-l`, `${locale}`
+      ]);
     } else {
       throw e;
     }
