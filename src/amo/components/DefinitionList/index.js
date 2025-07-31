@@ -16,10 +16,10 @@ export const Definition = ({
   term,
 }: DefinitionProps): React.Node => {
   return (
-    <>
+    <div>
       <dt className="Definition-dt">{term}</dt>
       <dd className={makeClassName('Definition-dd', className)}>{children}</dd>
-    </>
+    </div>
   );
 };
 
