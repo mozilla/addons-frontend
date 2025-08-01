@@ -322,7 +322,7 @@ export class AddonBase extends React.Component {
         className={showMoreCardName}
         header={title}
         id={showMoreCardName}
-        maxHeight={300}
+        maxHeight={230}
       >
         {descriptionProps && Object.keys(descriptionProps).length ? (
           <div className="AddonDescription-contents" {...descriptionProps} />
@@ -547,9 +547,10 @@ export class AddonBase extends React.Component {
                 </Card>
               ) : null}
 
-              {this.renderAboutThisCard()}
-
-              {this.renderRatingsCard()}
+              <Card className="Addon-description-rating-card">
+                {this.renderAboutThisCard()}
+                {this.renderRatingsCard()}
+              </Card>
             </div>
 
             <PermissionsCard version={currentVersion} />
