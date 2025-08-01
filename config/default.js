@@ -223,6 +223,7 @@ module.exports = {
     'zh-CN',
     'zh-TW',
   ],
+
   // Exclusion list of unsupported locales for alternate links, see:
   // https://github.com/mozilla/addons-frontend/issues/6644
   unsupportedHrefLangs: [

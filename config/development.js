@@ -2,6 +2,7 @@
 import {
   apiDevHost,
   baseUrlDev,
+  devLang,
   ga4AdditionalAnalyticsHost,
   ga4AnalyticsHost,
   ga4TagManagerHost,
@@ -88,4 +89,6 @@ module.exports = {
   ga4DebugMode: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
+
+  lang: devLang,
 };
