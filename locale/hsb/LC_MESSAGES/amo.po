@@ -62,10 +62,10 @@ msgstr "Žórłowy kod přidatka přepruwować"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%(count)s wužiwar"
+msgstr[1] "%(count)s wužiwarjej"
+msgstr[2] "%(count)s wužiwarjo"
+msgstr[3] "%(count)s wužiwarjow"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
