@@ -62,9 +62,9 @@ msgstr "Проверка кода дополнения"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s пользователь"
+msgstr[1] "%(count)s пользователя"
+msgstr[2] "%(count)s пользователей"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
