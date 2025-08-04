@@ -131,7 +131,6 @@
     @include respond-to(medium) {
       min-width: 380px;
       max-width: 520px;
-      flex-grow: 1;
     }
 
     .Card-contents {
@@ -174,6 +173,7 @@
   .Addon-description-rating-card {
     .AddonDescription,
     .Addon-overall-rating {
+      flex-grow: 1;
       margin-bottom: 0;
 
       .Card-contents,
