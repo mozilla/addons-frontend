@@ -6,10 +6,6 @@
 
 .Addon .Card {
   margin-bottom: $padding-page;
-
-  @include respond-to(large) {
-    margin-bottom: $padding-page-l;
-  }
 }
 
 .Addon-icon-wrapper {
@@ -118,6 +114,32 @@
   width: 100%;
 }
 
+.Addon-description-rating-card > .Card-contents {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.Addon-description-rating-card {
+  .AddonDescription {
+    max-width: 760px;
+  }
+
+  .Addon-overall-rating {
+    margin-bottom: 0;
+
+    @include respond-to(medium) {
+      min-width: 380px;
+      max-width: 520px;
+      flex-grow: 1;
+    }
+
+    .Card-contents {
+      border-radius: 0;
+    }
+  }
+}
+
 // Details section with lots of grid stuff, on larger displays.
 @include respond-to(large) {
   .Addon-screenshots {
@@ -143,6 +165,23 @@
 @include respond-to(extraExtraLarge) {
   .AddonMoreInfo dl {
     column-count: 3;
+  }
+
+  .Addon-description-rating-card > .Card-contents {
+    flex-direction: row;
+  }
+
+  .Addon-description-rating-card {
+    .AddonDescription,
+    .Addon-overall-rating {
+      margin-bottom: 0;
+
+      .Card-contents,
+      .Card-header,
+      .Card-footer {
+        border-radius: 0;
+      }
+    }
   }
 }
 

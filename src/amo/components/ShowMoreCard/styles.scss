@@ -27,16 +27,26 @@
   }
 }
 
+.AddonDescription {
+  .ShowMoreCard-contents {
+    // Keep in sync with `maxHeight` passed to the `ShowMoreCard` component in
+    // `Addon/index.js`
+    max-height: 230px;
+  }
+}
+
+.PermissionsCard {
+  .ShowMoreCard-contents {
+    // Keep in sync with `maxHeight` passed to the `ShowMoreCard` component in
+    // `PermissionCard/index.js`.
+    max-height: 300px;
+  }
+}
+
 .AddonDescription,
 .PermissionsCard {
   .Card-contents {
     border-radius: 0;
-  }
-
-  .ShowMoreCard-contents {
-    // Keep in sync with `maxHeight` passed to the `ShowMoreCard` component in
-    // `Addon/index.js` and `PermissionCard/index.js`.
-    max-height: 300px;
   }
 
   &.ShowMoreCard--expanded .ShowMoreCard-contents {
