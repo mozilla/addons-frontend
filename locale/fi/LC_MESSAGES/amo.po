@@ -1738,7 +1738,7 @@ msgstr "Pääsy selaimen toimintaan sen käytön aikana"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr ""
+msgstr "Todennustiedot"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
@@ -1762,31 +1762,31 @@ msgstr "Sijainti"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "Henkilökohtainen yhteydenpito"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "Henkilökohtaisesti tunnistettavat tiedot"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "Hakuehdot"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "Tekniset ja vuorovaikutustiedot"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "Toiminta verkkosivustolla"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "Verkkosivuston sisältö"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "Kehittäjän mukaan tämä laajennus ei vaadi tiedonkeruuta."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1834,7 +1834,7 @@ msgstr "Haluatko varmasti poistaa arvion tuotteesta %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Napsauta arvioidaksesi:"
 
 #: src/amo/components/RatingManager/index.js:239
 msgid "Saving star rating"
