@@ -21,7 +21,7 @@ export const serverStaticPath = '/static-server/';  // addons-server statics.
 export const mediaPath = '/user-media/';  // addons-server user-uploaded media.
 
 // These are all the locales in pontoon
-export const devLang = [
+export const devLangs = [
     'af',
     'ar',
     'ast',
