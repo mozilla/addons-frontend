@@ -62,8 +62,8 @@ msgstr "Katselmoi lisäosan koodi"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s käyttäjä"
+msgstr[1] "%(count)s käyttäjää"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
@@ -1742,19 +1742,19 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Kirjanmerkit"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "Selaustoiminta"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
-msgstr ""
+msgstr "Talous- ja maksutiedot"
 
 #: src/amo/components/PermissionsCard/permissions.js:72
 msgid "Health information"
-msgstr ""
+msgstr "Terveystiedot"
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
