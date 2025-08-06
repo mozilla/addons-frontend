@@ -42,12 +42,12 @@ msgstr "Промяна на добавката"
 #. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:63
 msgid "Admin add-on"
-msgstr ""
+msgstr "Администраторска добавка"
 
 #. This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Content review add-on"
-msgstr ""
+msgstr "Добавка за преглед на съдържание"
 
 #. This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:85
@@ -57,13 +57,13 @@ msgstr "Преглед на темата"
 #. This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:87
 msgid "Review add-on code"
-msgstr ""
+msgstr "Преглеждане на кода на добавката"
 
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s потребител"
+msgstr[1] "%(count)s потребители"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
@@ -71,7 +71,7 @@ msgstr "Няма потребители"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "Достъпен за Firefox за Android™"
 
 #: src/amo/components/AddonBadges/index.js:72
 msgid "Experimental"
