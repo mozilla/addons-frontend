@@ -1642,7 +1642,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "Käyttöoikeudet ja data"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -2421,8 +2421,8 @@ msgstr "Ei arvioita"
 #: src/amo/pages/Addon/index.js:253
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Arvio %(ratingAverage)s 1 arvostelijan toimesta"
+msgstr[1] "Arvio %(ratingAverage)s %(ratingCount)s arvostelijan toimesta"
 
 #: src/amo/pages/Addon/index.js:290
 msgid "About this dictionary"
