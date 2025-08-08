@@ -62,9 +62,9 @@ msgstr "Zrecenzuj kod dodatku"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s użytkownik"
+msgstr[1] "%(count)s użytkowników"
+msgstr[2] "%(count)s użytkowników"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
@@ -1090,7 +1090,7 @@ msgstr "Niedostosowanie się do przepisów cenowych"
 
 #: src/amo/components/FeedbackForm/index.js:255
 msgid "Hidden advertisement or commercial communication, including by influencers"
-msgstr ""
+msgstr "Ukryta reklama lub komunikacja komercyjna, w tym przez influencerów"
 
 #: src/amo/components/FeedbackForm/index.js:261
 msgid "Misleading information about the characteristics of the goods and services"
