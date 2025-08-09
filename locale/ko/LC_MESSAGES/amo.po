@@ -2373,7 +2373,7 @@ msgstr "아직 리뷰 없음"
 #: src/amo/pages/Addon/index.js:253
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] "%(ratingCount)s명의 리뷰어가 %(ratingAverage)s로 평가함"
+msgstr[0] "%(ratingCount)s명이 %(ratingAverage)s점으로 평가함"
 
 #: src/amo/pages/Addon/index.js:290
 msgid "About this dictionary"
