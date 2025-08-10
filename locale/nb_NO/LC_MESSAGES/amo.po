@@ -188,7 +188,7 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:303
 msgid "Read the privacy policy for this add-on"
-msgstr "Les personvernbestemmelsen for denne utvidelsen"
+msgstr "Les personvernerklæringen for denne utvidelsen"
 
 #: src/amo/components/AddonMoreInfo/index.js:315
 msgid "Read the license agreement for this add-on"
@@ -224,7 +224,7 @@ msgstr "Lisens"
 
 #: src/amo/components/AddonMoreInfo/index.js:432
 msgid "Privacy Policy"
-msgstr "Personvernbestemmelse"
+msgstr "Personvernerklæring"
 
 #: src/amo/components/AddonMoreInfo/index.js:440
 msgid "End-User License Agreement"
