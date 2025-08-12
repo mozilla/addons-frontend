@@ -62,9 +62,9 @@ msgstr "Scrie o recenzie la codul suplimentului"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s utilizator"
+msgstr[1] "%(count)s utilizatori"
+msgstr[2] "%(count)s de utilizatori"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
