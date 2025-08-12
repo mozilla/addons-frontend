@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-04 09:50+0000\n"
+"POT-Creation-Date: 2025-08-12 10:51+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -3289,16 +3289,15 @@ msgstr ""
 msgid ""
 "To report a security vulnerability for an extension, even if it is not "
 "hosted on this site, please file an "
-"%(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email "
-"%(startMailLink)samo-admins@mozilla.com%(endMailLink)s. All security "
+"%(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security "
 "vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
 
-#: src/amo/pages/StaticPages/About/index.js:232
+#: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
 msgstr ""
 
-#: src/amo/pages/StaticPages/About/index.js:237
+#: src/amo/pages/StaticPages/About/index.js:235
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or "
 "need to find general Firefox support, please visit "
@@ -3306,7 +3305,7 @@ msgid ""
 "there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
 
-#: src/amo/pages/StaticPages/About/index.js:258
+#: src/amo/pages/StaticPages/About/index.js:256
 msgid ""
 "%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
 "found here%(endLink)s."

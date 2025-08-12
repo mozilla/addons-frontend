@@ -2,9 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-08-12 10:51+0000\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Pontoon\n"
@@ -35,7 +37,8 @@ msgid "Add to…"
 msgstr "මෙයට යොදන්න…"
 
 #. This action allows the add-on developer or an admin to edit an add-on's properties.
-#: src/amo/components/AddonAdminLinks/index.js:49 src/amo/components/AddonMoreInfo/index.js:219
+#: src/amo/components/AddonAdminLinks/index.js:49
+#: src/amo/components/AddonMoreInfo/index.js:219
 msgid "Edit add-on"
 msgstr "එක්කහුව සංස්කරණය"
 
@@ -89,7 +92,8 @@ msgstr "ඔබගේ ෆයර්ෆොක්ස් අනුවාදයට ම
 msgid "This add-on is not available on your platform."
 msgstr "මෙම එක්කහුව ඔබගේ වේදිකාව සඳහා නැත."
 
-#: src/amo/components/AddonFeedbackForm/index.js:148 src/amo/components/SearchResult/index.js:256
+#: src/amo/components/AddonFeedbackForm/index.js:148
+#: src/amo/components/SearchResult/index.js:256
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "පරිශ්‍රීලකයින් %(total)s"
@@ -143,7 +147,8 @@ msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් ඇන්ඩ්‍
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
-msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
+msgid ""
+"%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා මෙම භාෂා ඇසුරුම ගන්න"
 
 #. please keep the fox emoji next to "Firefox Android".
@@ -161,7 +166,10 @@ msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් ඇන්ඩ්‍
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – 🦊 ෆයර්ෆොක්ස් (%(locale)s) සඳහා මෙම ශබ්දකෝෂය ගන්න"
 
-#: src/amo/components/AddonMoreInfo/index.js:154 src/amo/pages/UserProfile/index.js:361 src/amo/pages/UserProfile/index.js:364 src/amo/pages/UserProfileEdit/index.js:676
+#: src/amo/components/AddonMoreInfo/index.js:154
+#: src/amo/pages/UserProfile/index.js:361
+#: src/amo/pages/UserProfile/index.js:364
+#: src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
 msgstr "මුල් පිටුව"
 
@@ -210,7 +218,9 @@ msgstr "අනුවාදය"
 msgid "Size"
 msgstr "ප්‍රමාණය"
 
-#: src/amo/components/AddonMoreInfo/index.js:406 src/amo/components/CollectionDetails/index.js:87 src/amo/pages/CollectionFeedback/index.js:159
+#: src/amo/components/AddonMoreInfo/index.js:406
+#: src/amo/components/CollectionDetails/index.js:87
+#: src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
 msgstr "අවසාන යාවත්කාලය"
 
@@ -242,7 +252,8 @@ msgstr "භාවිත සංඛ්‍යාලේඛන"
 msgid "Tags"
 msgstr "අනන්‍යන"
 
-#: src/amo/components/AddonMoreInfo/index.js:473 src/amo/components/CollectionAddAddon/index.js:183
+#: src/amo/components/AddonMoreInfo/index.js:473
+#: src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
 msgstr "එකතුවට යොදන්න"
 
@@ -273,7 +284,9 @@ msgid "You reported this add-on"
 msgstr "ඔබ මෙම එක්කහුව වාර්තා කර ඇත"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:44
-msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
 msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම එක්කහුව පිළිබඳව දැනුම්දීමට තුති."
 
 #: src/amo/components/AddonReportAbuseLink/index.js:56
@@ -288,15 +301,18 @@ msgstr "පිළිතුර සංශෝධනය"
 msgid "Edit review"
 msgstr "සමාලෝචනය සංශෝධනය"
 
-#: src/amo/components/AddonReviewCard/index.js:219 src/amo/components/AddonReviewCard/index.js:251
+#: src/amo/components/AddonReviewCard/index.js:219
+#: src/amo/components/AddonReviewCard/index.js:251
 msgid "Delete reply"
 msgstr "පිළිතුර මකන්න"
 
-#: src/amo/components/AddonReviewCard/index.js:223 src/amo/components/AddonReviewCard/index.js:255
+#: src/amo/components/AddonReviewCard/index.js:223
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Delete rating"
 msgstr "ඇගැයුම මකන්න"
 
-#: src/amo/components/AddonReviewCard/index.js:226 src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:226
+#: src/amo/components/AddonReviewCard/index.js:258
 msgid "Delete review"
 msgstr "සමාලෝචනය මකන්න"
 
@@ -312,12 +328,17 @@ msgstr "මෙම ඇගැයුම මකා දැමීමට වුවම�
 msgid "Do you really want to delete this review?"
 msgstr "මෙම සමාලෝචනය මකා දැමීමට වුවමනා ද?"
 
-#: src/amo/components/AddonReviewCard/index.js:247 src/amo/components/DismissibleTextForm/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:247
+#: src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
 msgstr "මකන්න"
 
-#: src/amo/components/AddonReviewCard/index.js:265 src/amo/components/AddonReviewManager/index.js:146 src/amo/components/CollectionManager/index.js:324
-#: src/amo/components/ConfirmationDialog/index.js:61 src/amo/components/DismissibleTextForm/index.js:221 src/amo/pages/UserProfileEdit/index.js:899
+#: src/amo/components/AddonReviewCard/index.js:265
+#: src/amo/components/AddonReviewManager/index.js:146
+#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/ConfirmationDialog/index.js:61
+#: src/amo/components/DismissibleTextForm/index.js:221
+#: src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
 msgstr "අවලංගු"
 
@@ -360,8 +381,12 @@ msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s පළ කෙරිණි"
 
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:367
-msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s වෙතින්, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgid ""
+"by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
+"%(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr ""
+"%(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s වෙතින්, "
+"%(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:480
 msgid "Deleting…"
@@ -372,7 +397,9 @@ msgid "Reply to this review"
 msgstr "සමාලෝචනයට පිළිතුරු දෙන්න"
 
 #: src/amo/components/AddonReviewCard/index.js:541
-msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
 msgstr "මෙම ඇගැයුම හෝ සමාලෝචනය මකා දමා ඇත. ඉහළ අවසර තිබෙන නිසා ඔබ පමණක් දකියි."
 
 #: src/amo/components/AddonReviewCard/index.js:587
@@ -515,7 +542,8 @@ msgstr "ප්‍රබල පෞද්ගලිකත්‍ව සහ ආරක
 msgid "More incredible download managers"
 msgstr ""
 
-#: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
+#: src/amo/components/AddonSuggestions/index.js:80
+#: src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
 msgstr ""
 
@@ -544,7 +572,8 @@ msgid ","
 msgstr ","
 
 #. Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
+#: src/amo/components/AddonTitle/index.js:93
+#: src/amo/components/AddonTitle/index.js:98
 msgid "by"
 msgstr "කර්තෘ:"
 
@@ -576,7 +605,8 @@ msgstr "%(dateReleased)s දී නිකුත් කෙරිණි - %(fileSi
 msgid "Enable"
 msgstr "සබල"
 
-#: src/amo/components/AMInstallButton/index.js:136 src/amo/components/EditableCollectionAddon/index.js:142
+#: src/amo/components/AMInstallButton/index.js:136
+#: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "ඉවත් කරන්න"
 
@@ -608,23 +638,28 @@ msgstr "තේමාව ස්ථාපනය"
 msgid "Add to Firefox"
 msgstr "ෆයර්ෆොක්ස් වෙත යොදන්න"
 
-#: src/amo/components/App/index.js:122 src/amo/components/HeadMetaTags/index.js:91
+#: src/amo/components/App/index.js:122
+#: src/amo/components/HeadMetaTags/index.js:91
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "ෆයර්ෆොක්ස් (%(locale)s) සඳහා එක්කහු"
 
-#: src/amo/components/App/index.js:126 src/amo/components/HeadMetaTags/index.js:85
+#: src/amo/components/App/index.js:126
+#: src/amo/components/HeadMetaTags/index.js:85
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – ෆයර්ෆොක්ස් (%(locale)s) සඳහා එක්කහු"
 
-#: src/amo/components/App/index.js:134 src/amo/components/HeadMetaTags/index.js:90
+#: src/amo/components/App/index.js:134
+#: src/amo/components/HeadMetaTags/index.js:90
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා එක්කහු"
 
-#: src/amo/components/App/index.js:138 src/amo/components/HeadMetaTags/index.js:84
+#: src/amo/components/App/index.js:138
+#: src/amo/components/HeadMetaTags/index.js:84
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – ෆයර්ෆොක්ස් ඇන්ඩ්‍රොයිඩ් (%(locale)s) සඳහා එක්කහු"
 
-#: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:151
+#: src/amo/components/AuthenticateButton/index.js:92
+#: src/amo/components/Header/index.js:151
 msgid "Log out"
 msgstr "නික්මෙන්න"
 
@@ -632,8 +667,10 @@ msgstr "නික්මෙන්න"
 msgid "Log in"
 msgstr "පිවිසෙන්න"
 
-#: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:146
-msgid "This action is currently unavailable. Please reload the page in a moment."
+#: src/amo/components/AuthenticateButton/index.js:96
+#: src/amo/components/Header/index.js:146
+msgid ""
+"This action is currently unavailable. Please reload the page in a moment."
 msgstr "මෙම ක්‍රියාමාර්ගය දැනට නොතිබේ. මොහොතකින් පිටුව යළි පූරණය කරන්න."
 
 #: src/amo/components/AutoSearchInput/index.js:198
@@ -644,7 +681,8 @@ msgstr "පූරණය වෙමින්"
 msgid "Find add-ons"
 msgstr "එක්කහු සොයන්න"
 
-#: src/amo/components/AutoSearchInput/index.js:323 src/amo/components/AutoSearchInput/index.js:351
+#: src/amo/components/AutoSearchInput/index.js:323
+#: src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
 msgstr "සොයන්න"
 
@@ -684,7 +722,9 @@ msgstr "එකතුවෙහි විස්තර සංස්කරණය"
 msgid "Back to collection"
 msgstr "එකතුව වෙත ආපසු"
 
-#: src/amo/components/CollectionDetails/index.js:77 src/amo/components/Footer/index.js:59 src/amo/pages/CollectionFeedback/index.js:155
+#: src/amo/components/CollectionDetails/index.js:77
+#: src/amo/components/Footer/index.js:59
+#: src/amo/pages/CollectionFeedback/index.js:155
 msgid "Add-ons"
 msgstr "එක්කහු"
 
@@ -749,12 +789,18 @@ msgid "Support these developers"
 msgstr "මෙම සංවර්ධකයින්ට සහාය වන්න"
 
 #: src/amo/components/ContributeCard/index.js:51
-msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහාය වන ලෙස මෙම දිගුවේ සංවර්ධකයා ඉල්ලා සිටියි."
+msgid ""
+"The developer of this extension asks that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+"සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහාය වන ලෙස මෙම දිගුවේ සංවර්ධකයා ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:53
-msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහාය වන ලෙස මෙම දිගුවේ සංවර්ධකයින් ඉල්ලා සිටියි."
+msgid ""
+"The developers of this extension ask that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+"සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහාය වන ලෙස මෙම දිගුවේ සංවර්ධකයින් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
@@ -765,12 +811,19 @@ msgid "Support these artists"
 msgstr "මෙම කලාකරුවන්ට සහයෝගය දෙන්න"
 
 #: src/amo/components/ContributeCard/index.js:65
-msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr "සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහාය වන ලෙස මෙම තේමාවේ කලාකරු ඉල්ලා සිටියි."
+msgid ""
+"The artist of this theme asks that you help support its continued creation "
+"by making a small contribution."
+msgstr ""
+"සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහාය වන ලෙස මෙම තේමාවේ කලාකරු ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:67
-msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr "සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහාය වන ලෙස මෙම තේමාවේ කලාකරුවන් ඉල්ලා සිටියි."
+msgid ""
+"The artists of this theme ask that you help support its continued creation "
+"by making a small contribution."
+msgstr ""
+"සුළු දායකත්‍වයක් ලබා දීමෙන් එහි අඛණ්ඩ සංවර්ධනයට සහාය වන ලෙස මෙම තේමාවේ කලාකරුවන් ඉල්ලා "
+"සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
@@ -781,11 +834,16 @@ msgid "Support these authors"
 msgstr "මෙම කතුවරුන්ට සහාය වන්න"
 
 #: src/amo/components/ContributeCard/index.js:79
-msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr "මෙම එක්කහුවෙහි කතුවරයා එහි අඛණ්ඩ සංවර්ධනය වෙනුවෙන් ඔබගෙන් ස්වල්ප දායකත්‍වයක් ඉල්ලා සිටියි."
+msgid ""
+"The author of this add-on asks that you help support its continued work by "
+"making a small contribution."
+msgstr ""
+"මෙම එක්කහුවෙහි කතුවරයා එහි අඛණ්ඩ සංවර්ධනය වෙනුවෙන් ඔබගෙන් ස්වල්ප දායකත්‍වයක් ඉල්ලා සිටියි."
 
 #: src/amo/components/ContributeCard/index.js:81
-msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
+msgid ""
+"The authors of this add-on ask that you help support its continued work by "
+"making a small contribution."
 msgstr "මෙම එක්කහුවෙහි කතුවරුන් එහි අඛණ්ඩ සංවර්ධනය වෙනුවෙන් ඔබගෙන් ස්වල්ප දායකත්‍වයක් ඉල්ලා සිටියි."
 
 #: src/amo/components/DismissibleTextForm/index.js:199
@@ -800,7 +858,8 @@ msgstr "යොමන්න"
 msgid "Submitting"
 msgstr "යොමු වෙමින්"
 
-#: src/amo/components/EditableCollectionAddon/index.js:132 src/amo/components/EditableCollectionAddon/index.js:150
+#: src/amo/components/EditableCollectionAddon/index.js:132
+#: src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
 msgstr "සටහනක් තබන්න"
 
@@ -845,77 +904,117 @@ msgid "Error code: %(status)s."
 msgstr "දෝෂ කේතය: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
-msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "පිවිසුම් සත්‍යාපනය කල් ඉකුත් වී ඇත. සත්‍යාපනයකින් තොරව ඉදිරියට යාමට %(startLink)sපිටුව යළි පූරණය%(endLink)s කරන්න, හෝ පිටුව මුදුනෙහි තිබෙන පිවිසුම් සබැඳිය භාවිතයෙන් නැවත පිවිසෙන්න."
+msgid ""
+"Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
+"continue without authentication, or login again using the Log In link at the "
+"top of the page."
+msgstr ""
+"පිවිසුම් සත්‍යාපනය කල් ඉකුත් වී ඇත. සත්‍යාපනයකින් තොරව ඉදිරියට යාමට %(startLink)sපිටුව යළි "
+"පූරණය%(endLink)s කරන්න, හෝ පිටුව මුදුනෙහි තිබෙන පිවිසුම් සබැඳිය භාවිතයෙන් නැවත පිවිසෙන්න."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
 msgstr "පිවිසුම ඉකුත් විය"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a "
+"href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you "
+"were trying to access, and we'll fix the issue."
 msgstr ""
-"ඔබ පිවිස ඇත්නම් හා මෙම පණිවිඩය දෝෂයක් යැයි සිතන්නේ නම්, කරුණාකර <a href=\"%(url)s\">ගැටලුවක් ගොනු කරන්න</a>. ඔබ පැමිණියේ කොහෙන්ද සහ ඔබ ප්‍රවේශ වීමට උත්සාහ කරන්නේ කොතැනට දැයි අපට කියන්න, අපි ගැටලුව "
-"විසඳන්නෙමු."
+"ඔබ පිවිස ඇත්නම් හා මෙම පණිවිඩය දෝෂයක් යැයි සිතන්නේ නම්, කරුණාකර <a "
+"href=\"%(url)s\">ගැටලුවක් ගොනු කරන්න</a>. ඔබ පැමිණියේ කොහෙන්ද සහ ඔබ ප්‍රවේශ වීමට උත්සාහ "
+"කරන්නේ කොතැනට දැයි අපට කියන්න, අපි ගැටලුව විසඳන්නෙමු."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
 msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:36
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "කණගාටුයි, ඔබට මෙම පිටුවට ප්‍රවේශ වීමට බලය නැත. ඔබ පිවිස නැති නම්, පිටුව මුදුනෙහි තිබෙන සබැඳිය භාවිතයෙන් පිවිසීමට උත්සාහ කරන්න."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"කණගාටුයි, ඔබට මෙම පිටුවට ප්‍රවේශ වීමට බලය නැත. ඔබ පිවිස නැති නම්, පිටුව මුදුනෙහි තිබෙන සබැඳිය "
+"භාවිතයෙන් පිවිසීමට උත්සාහ කරන්න."
 
 #: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
-"Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
-"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
+"Try visiting the page later, as the theme or extension may become available "
+"again. Alternatively, you may be able to find what you’re looking for in one "
+"of the available %(extensionStart)sextensions%(extensionEnd)s or "
+"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"පිටුව පසුව බලන්න, තේමාව හෝ දිගුව තිබීමට ඉඩ තිබේ, විකල්පයක් ලෙස, ඔබ සොයන දෑ පවතින %(extensionStart)sදිගු%(extensionEnd)s හෝ %(themeStart)sතේමා%(themeEnd)s අතරින් සොයා ගැනීමට හැකිවනු ඇත හෝ අපගේ "
-"%(communityStart)sප්‍රජා සංසදය%(communityEnd)s ප්‍රයෝජනවත් දැයි බලන්න."
+"පිටුව පසුව බලන්න, තේමාව හෝ දිගුව තිබීමට ඉඩ තිබේ, විකල්පයක් ලෙස, ඔබ සොයන දෑ පවතින "
+"%(extensionStart)sදිගු%(extensionEnd)s හෝ %(themeStart)sතේමා%(themeEnd)s අතරින් "
+"සොයා ගැනීමට හැකිවනු ඇත හෝ අපගේ %(communityStart)sප්‍රජා සංසදය%(communityEnd)s "
+"ප්‍රයෝජනවත් දැයි බලන්න."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
 msgstr "අපොයි, එම පිටුව හමු නොවුණි"
 
 #: src/amo/components/Errors/NotFound/index.js:81
-msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr "ඔබ දිගුවක් හෝ තේමාවක් සඳහා වෙනත් අඩවියක සබැඳියක් අනුගමනය කර ඇත්නම්, එම අථකය තවදුරටත් නොතිබේ නම්; හේතූන් වන්නේ:"
+msgid ""
+"If you’ve followed a link from another site for an extension or theme, that "
+"item is no longer available. This could be because:"
+msgstr ""
+"ඔබ දිගුවක් හෝ තේමාවක් සඳහා වෙනත් අඩවියක සබැඳියක් අනුගමනය කර ඇත්නම්, එම අථකය තවදුරටත් "
+"නොතිබේ නම්; හේතූන් වන්නේ:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
-msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr "සංවර්ධකයින් තවදුරටත් කිසියම් දිගුවකට හෝ තේමාවට සහාය නොදක්වන්නේ නම් එය ඉවත් කරයි හෝ එය ප්‍රතිස්ථාපනය කර තිබීමට ඉඩ තිබේ."
+msgid ""
+"The developer removed it. Developers commonly do this because they no longer "
+"support the extension or theme, or have replaced it."
+msgstr ""
+"සංවර්ධකයින් තවදුරටත් කිසියම් දිගුවකට හෝ තේමාවට සහාය නොදක්වන්නේ නම් එය ඉවත් කරයි හෝ එය "
+"ප්‍රතිස්ථාපනය කර තිබීමට ඉඩ තිබේ."
 
 #: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
-"Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
-" developer has the opportunity to resolve the issues and make the add-on available again."
+"Mozilla removed it. This can happen when issues are found during the review "
+"of the extension or theme, or the extension or theme has been abusing the "
+"terms and conditions for addons.mozilla.org. The developer has the "
+"opportunity to resolve the issues and make the add-on available again."
 msgstr ""
-"දිගුවක් හෝ තේමාවක් සමාලෝචනය කිරීමේදී ගැටළු සොයාගත් විට හෝ addons.mozilla.org හි නියම සහ කොන්දේසි අනිසි ලෙස භාවිතා කර තිබේ නම් මොසිල්ලා එය ඉවත් කරයි. සංවර්ධකයාට ගැටළු නිරාකරණය කිරීමට මෙන්ම එක්කහුව "
-"නැවත ලබා ගැනීමට ද අවස්ථාව තිබේ."
+"දිගුවක් හෝ තේමාවක් සමාලෝචනය කිරීමේදී ගැටළු සොයාගත් විට හෝ addons.mozilla.org හි නියම සහ "
+"කොන්දේසි අනිසි ලෙස භාවිතා කර තිබේ නම් මොසිල්ලා එය ඉවත් කරයි. සංවර්ධකයාට ගැටළු නිරාකරණය "
+"කිරීමට මෙන්ම එක්කහුව නැවත ලබා ගැනීමට ද අවස්ථාව තිබේ."
 
 #: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a "
+"href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an "
+"issue</a>. Tell us what steps you took that lead to the error and we'll do "
+"our best to fix it."
 msgstr ""
-"අපට උපකාර වන අතිරේක තොරතුරු තිබේ නම් ඔබට <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">ගැටලුවක් ගොනු කිරීමට හැකිය</a>. දෝෂයට තුඩු දෙන තෙක් ඔබ ගත් පියවර මොනවාදැයි අපට කියන්න, අපි"
-" එය ඉක්මනින් නිරාකරණයට උත්සාහ කරන්නෙමු."
+"අපට උපකාර වන අතිරේක තොරතුරු තිබේ නම් ඔබට <a href=\"https://github.com/mozilla/"
+"addons-frontend/issues/new/\">ගැටලුවක් ගොනු කිරීමට හැකිය</a>. දෝෂයට තුඩු දෙන තෙක් ඔබ "
+"ගත් පියවර මොනවාදැයි අපට කියන්න, අපි එය ඉක්මනින් නිරාකරණයට උත්සාහ කරන්නෙමු."
 
 #: src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
 msgstr "සේවාදායකයේ දෝෂයකි"
 
 #: src/amo/components/Errors/ServerError/index.js:32
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "කණගාටුයි, අපගේ සේවාදායකයේ දෝෂයක් තිබෙන අතර ඔබගේ ඉල්ලීම සම්පූර්ණ කිරීමට නොහැකි විය. මෙම දෝෂය සටහන් වූ බැවින් එය විමර්ශනය කෙරෙනු ඇත."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"කණගාටුයි, අපගේ සේවාදායකයේ දෝෂයක් තිබෙන අතර ඔබගේ ඉල්ලීම සම්පූර්ණ කිරීමට නොහැකි විය. මෙම "
+"දෝෂය සටහන් වූ බැවින් එය විමර්ශනය කෙරෙනු ඇත."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 msgid ""
-"You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"You may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or "
+"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"ඔබ සොයන දෑ පවතින %(extensionStart)sදිගු%(extensionEnd)s හෝ %(themeStart)sතේමා%(themeEnd)s අතරින් සොයා ගැනීමට හැකිවනු ඇත හෝ අපගේ %(communityStart)sප්‍රජා සංසදය%(communityEnd)s ප්‍රයෝජනවත් දැයි බලන්න."
+"ඔබ සොයන දෑ පවතින %(extensionStart)sදිගු%(extensionEnd)s හෝ "
+"%(themeStart)sතේමා%(themeEnd)s අතරින් සොයා ගැනීමට හැකිවනු ඇත හෝ අපගේ "
+"%(communityStart)sප්‍රජා සංසදය%(communityEnd)s ප්‍රයෝජනවත් දැයි බලන්න."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
@@ -942,7 +1041,10 @@ msgid "The review was not found."
 msgstr "සමාලෝචනය හමු නොවුණි."
 
 #: src/amo/components/FeedbackForm/index.js:1014
-msgid "By submitting this report I certify, under penalty of perjury, that the allegations it contains are complete and accurate, to the best of my knowledge."
+msgid ""
+"By submitting this report I certify, under penalty of perjury, that the "
+"allegations it contains are complete and accurate, to the best of my "
+"knowledge."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:105
@@ -950,7 +1052,9 @@ msgid "It doesn’t work, breaks websites, or slows down Firefox"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:108
-msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
+msgid ""
+"Example: Features are slow, hard to use, or don’t work; parts of websites "
+"won't load or look unusual."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:113
@@ -966,7 +1070,9 @@ msgid "It violates Add-on Policies"
 msgstr "එය එක්කහු ප්‍රතිපත්ති උල්ලංඝනය කරයි"
 
 #: src/amo/components/FeedbackForm/index.js:123
-msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
+msgid ""
+"Example: It compromised my data without informing or asking me, or it "
+"changed my search engine or home page without informing or asking me."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:129
@@ -983,11 +1089,14 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid ""
-"Example: Fraud. (If you wish to report a copyright or trademark infringement, you can learn more about how to do so in our %(startLink)sCopyright or Trademark Infringement Reporting "
+"Example: Fraud. (If you wish to report a copyright or trademark "
+"infringement, you can learn more about how to do so in our "
+"%(startLink)sCopyright or Trademark Infringement Reporting "
 "article%(endLink)s)."
 msgstr ""
 
-#: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
+#: src/amo/components/FeedbackForm/index.js:151
+#: src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
 msgstr "වෙනත් යමක්"
 
@@ -1088,11 +1197,13 @@ msgid "Non-compliance with pricing regulations"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:255
-msgid "Hidden advertisement or commercial communication, including by influencers"
+msgid ""
+"Hidden advertisement or commercial communication, including by influencers"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:261
-msgid "Misleading information about the characteristics of the goods and services"
+msgid ""
+"Misleading information about the characteristics of the goods and services"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:267
@@ -1124,7 +1235,9 @@ msgid "Discrimination"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:305
-msgid "Illegal incitement to violence and hatred based on protected characteristics (hate speech)"
+msgid ""
+"Illegal incitement to violence and hatred based on protected characteristics "
+"(hate speech)"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:318
@@ -1152,7 +1265,9 @@ msgid "Violation of national law relevant to civic discourse or elections"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:353
-msgid "Misinformation, disinformation, foreign information manipulation and interference"
+msgid ""
+"Misinformation, disinformation, foreign information manipulation and "
+"interference"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:366
@@ -1160,7 +1275,9 @@ msgid "Non-consensual image sharing"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:370
-msgid "Non-consensual items containing deepfake or similar technology using a third party's features"
+msgid ""
+"Non-consensual items containing deepfake or similar technology using a third "
+"party's features"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:376
@@ -1308,7 +1425,9 @@ msgid "Provide more details"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:879
-msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
+msgid ""
+"Please provide any additional information that may help us to understand "
+"your report (including which policy you believe has been violated)."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:887
@@ -1320,7 +1439,9 @@ msgid "File report anonymously"
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:906
-msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
+msgid ""
+"Filing an anonymous report will prevent us from communicating with you about "
+"the report’s status, or about any options for appeal."
 msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:927
@@ -1367,7 +1488,8 @@ msgstr ""
 msgid "Flagged as spam"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
+#: src/amo/components/FlagReviewMenu/index.js:73
+#: src/amo/components/FlagReviewMenu/index.js:91
 msgid "Login required"
 msgstr ""
 
@@ -1421,17 +1543,21 @@ msgstr "නීතිමය"
 
 #: src/amo/components/Footer/index.js:300
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
-" or any later version. Android is a trademark of Google LLC."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version. "
+"Android is a trademark of Google LLC."
 msgstr ""
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
-" or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
 msgstr ""
-"මෙහි %(startNotedLink)sසැඳහුම්%(endNotedLink)s හැරැනු විට, මෙම අඩවියෙහි අන්තර්ගතය %(startLicenseLink)sක්‍රියේටිව් කොමන්ස් ඇට්‍රිබියුෂන් ෂෙයාර්-අලයික් බලපත්‍රය අනු.3.0%(endLicenseLink)s හෝ වෙනත් නවතම"
-" බලපත්‍ර සඳහා යටත් වේ."
+"මෙහි %(startNotedLink)sසැඳහුම්%(endNotedLink)s හැරැනු විට, මෙම අඩවියෙහි අන්තර්ගතය "
+"%(startLicenseLink)sක්‍රියේටිව් කොමන්ස් ඇට්‍රිබියුෂන් ෂෙයාර්-අලයික් බලපත්‍රය "
+"අනු.3.0%(endLicenseLink)s හෝ වෙනත් නවතම බලපත්‍ර සඳහා යටත් වේ."
 
 #: src/amo/components/Footer/index.js:38
 msgid "Go to Mozilla's homepage"
@@ -1454,12 +1580,17 @@ msgid "Developer Hub"
 msgstr "සංවර්ධක නැබ"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
-msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
+msgid ""
+"To use these add-ons, you'll need to %(downloadLinkStart)sdownload "
+"Firefox%(downloadLinkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
+#: src/amo/components/GetFirefoxBanner/index.js:125
+#: src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
-"To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
+"To use Android extensions, you'll need %(downloadLinkStart)sFirefox for "
+"Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please "
+"%(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:146
@@ -1539,11 +1670,13 @@ msgstr "මාගේ ගිණුම"
 msgid "View My Collections"
 msgstr "මාගේ එකතු බලන්න"
 
-#: src/amo/components/Header/index.js:89 src/amo/pages/UserProfileEdit/index.js:563
+#: src/amo/components/Header/index.js:89
+#: src/amo/pages/UserProfileEdit/index.js:563
 msgid "View My Profile"
 msgstr "මාගේ පැතිකඩ බලන්න"
 
-#: src/amo/components/Header/index.js:97 src/amo/pages/UserProfileEdit/index.js:569
+#: src/amo/components/Header/index.js:97
+#: src/amo/pages/UserProfileEdit/index.js:569
 msgid "Edit My Profile"
 msgstr "පැතිකඩ සංස්කරණය"
 
@@ -1566,7 +1699,9 @@ msgid "PROMOTED"
 msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:249
-msgid "Firefox only recommends extensions that meet our standards for security and performance."
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
 msgstr "අපගේ ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලන දිගු පමණක් ෆයර්ෆොක්ස් නිර්දේශ කරයි."
 
 #: src/amo/components/HomepageShelves/index.js:75
@@ -1589,13 +1724,18 @@ msgstr "%(param)s සඳහා ඔබගේ දත්ත වෙත ප්‍ර�
 msgid "Download file"
 msgstr "ගොනුව බාගන්න"
 
-#: src/amo/components/InstallWarning/index.js:102 src/amo/components/PermissionsCard/index.js:91
+#: src/amo/components/InstallWarning/index.js:102
+#: src/amo/components/PermissionsCard/index.js:91
 msgid "Learn more"
 msgstr "තව දැනගන්න"
 
 #: src/amo/components/InstallWarning/index.js:106
-msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "මොසිල්ලා මගින් මෙම එක්කහුව ආරක්‍ෂාව සඳහා සක්‍රියව නිරීක්‍ෂණය නොකෙරේ. ස්ථාපනයට පෙර ඔබ එය විශ්වාස කරන බවට වග බලා ගන්න."
+msgid ""
+"This add-on is not actively monitored for security by Mozilla. Make sure you "
+"trust it before installing."
+msgstr ""
+"මොසිල්ලා මගින් මෙම එක්කහුව ආරක්‍ෂාව සඳහා සක්‍රියව නිරීක්‍ෂණය නොකෙරේ. ස්ථාපනයට පෙර ඔබ එය "
+"විශ්වාස කරන බවට වග බලා ගන්න."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1689,7 +1829,8 @@ msgstr "සියළුම විවෘත පටිතිවල පෙළ ක�
 msgid "Access your location"
 msgstr "ඔබගේ ස්ථානයට ප්‍රවේශය"
 
-#: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
+#: src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
 msgstr "පිරික්සුම් ඉතිහාසයට ප්‍රවේශය"
 
@@ -1753,7 +1894,9 @@ msgstr ""
 msgid "Health information"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
+#: src/amo/components/PermissionsCard/permissions.js:73
+#: src/amo/pages/UserProfile/index.js:371
+#: src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
 msgstr "ස්ථානය"
 
@@ -1865,7 +2008,8 @@ msgstr[1] "තරු එකක සමාලෝචන %(total)s කියවන�
 msgid "There are no one-star reviews"
 msgstr "තරු එකක සමාලෝචන නැත"
 
-#: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:375
+#: src/amo/components/RatingsByStar/index.js:136
+#: src/amo/pages/AddonReviewList/index.js:375
 msgid "There are no reviews"
 msgstr "සමාලෝචන නැත"
 
@@ -1900,22 +2044,27 @@ msgid "You reported this user"
 msgstr "ඔබ මෙම පරිශ්‍රීලකයා වාර්තා කර ඇත"
 
 #: src/amo/components/ReportUserAbuse/index.js:52
-msgid "We have received your report. Thanks for letting us know about your concerns with this user."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this user."
 msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම පරිශ්‍රීලකයා පිළිබඳව දැනුම්දීමට තුති."
 
 #: src/amo/components/ReportUserAbuse/index.js:64
 msgid "Report this user"
 msgstr "පරිශ්‍රීලකයා වාර්තා කරන්න"
 
-#: src/amo/components/Search/index.js:138 src/amo/components/SearchResults/index.js:71
+#: src/amo/components/Search/index.js:138
+#: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "සෙවුම් ප්‍රතිඵල"
 
-#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162 src/amo/pages/LandingPage/index.js:122
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:162
+#: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "නිර්දේශිත දිගු"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/LandingPage/index.js:154
+#: src/amo/components/Search/index.js:147
+#: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "නිර්දේශිත තේමා"
 
@@ -1947,11 +2096,13 @@ msgstr "සමාලෝචිත තේමා"
 msgid "Reviewed add-ons"
 msgstr "සමාලෝචිත එක්කහු"
 
-#: src/amo/components/Search/index.js:180 src/amo/pages/LandingPage/index.js:132
+#: src/amo/components/Search/index.js:180
+#: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "නැගී එන දිගු"
 
-#: src/amo/components/Search/index.js:183 src/amo/pages/LandingPage/index.js:164
+#: src/amo/components/Search/index.js:183
+#: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "නැගී එන තේමා"
 
@@ -1959,11 +2110,13 @@ msgstr "නැගී එන තේමා"
 msgid "Trending add-ons"
 msgstr "නැගී එන එක්කහු"
 
-#: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:142
+#: src/amo/components/Search/index.js:192
+#: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "ඉහළ ඇගැයුම් දිගු"
 
-#: src/amo/components/Search/index.js:195 src/amo/pages/LandingPage/index.js:173
+#: src/amo/components/Search/index.js:195
+#: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "ඉහළ ඇගැයුම් තේමා"
 
@@ -2006,10 +2159,16 @@ msgstr[0] "දිගු %(count)s ක් හමු විය"
 msgstr[1] "දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:134
-msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
-msgstr[1] "\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු විය"
+msgid ""
+"%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural ""
+"%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] ""
+"\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු "
+"විය"
+msgstr[1] ""
+"\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත තේමා %(count)s ක් හමු "
+"විය"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -2086,10 +2245,16 @@ msgid "Searching for add-ons"
 msgstr "එක්කහු සඳහා සොයමින්"
 
 #: src/amo/components/SearchContextCard/index.js:59
-msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
-msgstr[1] "\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
+msgid ""
+"%(count)s extension found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgid_plural ""
+"%(count)s extensions found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgstr[0] ""
+"\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
+msgstr[1] ""
+"\"%(query)s\" සඳහා %(categoryName)s හි %(tag)s අනන්‍යනය සහිත දිගු %(count)s ක් හමු විය"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -2151,11 +2316,13 @@ msgstr "නැඹුරුව"
 msgid "Any"
 msgstr "ඕනෑම"
 
-#: src/amo/components/SearchFilters/index.js:210 src/amo/utils/promoted.js:49 src/amo/utils/promoted.js:53
+#: src/amo/components/SearchFilters/index.js:210 src/amo/utils/promoted.js:49
+#: src/amo/utils/promoted.js:53
 msgid "Recommended"
 msgstr "නිර්දේශිත"
 
-#: src/amo/components/SearchFilters/index.js:212 src/amo/utils/promoted.js:39 src/amo/utils/promoted.js:43
+#: src/amo/components/SearchFilters/index.js:212 src/amo/utils/promoted.js:39
+#: src/amo/utils/promoted.js:43
 msgid "By Firefox"
 msgstr "ෆයර්ෆොක්ස් වෙතින්"
 
@@ -2255,7 +2422,9 @@ msgstr "\"%(query)s\" සඳහා ප්‍රතිඵල හමු නොව�
 msgid "No results were found."
 msgstr "ප්‍රතිඵල හමු නොවුණි."
 
-#: src/amo/components/SectionLinks/index.js:112 src/amo/pages/CategoryPage/index.js:60 src/amo/pages/LandingPage/index.js:228
+#: src/amo/components/SectionLinks/index.js:112
+#: src/amo/pages/CategoryPage/index.js:60
+#: src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "තේමා"
 
@@ -2279,7 +2448,9 @@ msgstr "වෙනත් අතිරික්සු අඩවි"
 msgid "Add-ons for Android"
 msgstr "ඇන්ඩ්‍රොයිඩ් සඳහා එක්කහු"
 
-#: src/amo/components/SectionLinks/index.js:96 src/amo/pages/CategoryPage/index.js:66 src/amo/pages/LandingPage/index.js:229
+#: src/amo/components/SectionLinks/index.js:96
+#: src/amo/pages/CategoryPage/index.js:66
+#: src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "දිගු"
 
@@ -2296,8 +2467,12 @@ msgid "Signed in as %(username)s"
 msgstr "%(username)s ලෙස පිවිස ඇත"
 
 #: src/amo/components/SiteNotices/index.js:68
-msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr "අපි අඩවිය නඩත්තු කරන හෙයින් ඇතැම් විශේෂාංගය තාවකාලිකව අබල කර ඇත. ටික වේලාවකට පසු සියල්ල යථා පරිදි තිබෙනු ඇත."
+msgid ""
+"Some features are temporarily disabled while we perform website maintenance. "
+"We'll be back to full capacity shortly."
+msgstr ""
+"අපි අඩවිය නඩත්තු කරන හෙයින් ඇතැම් විශේෂාංගය තාවකාලිකව අබල කර ඇත. ටික වේලාවකට පසු සියල්ල "
+"යථා පරිදි තිබෙනු ඇත."
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
@@ -2358,7 +2533,9 @@ msgid "Save 50% with a full year subscription"
 msgstr "වසරක දායකත්‍වයකින් 50% ක් ඉතිරි කර ගන්න"
 
 #: src/amo/components/VPNPromoBanner/index.js:179
-msgid "Protect your online data—and choose a VPN subscription plan that works for you."
+msgid ""
+"Protect your online data—and choose a VPN subscription plan that works for "
+"you."
 msgstr "ඔබගේ මාර්ගගත දත්ත රැකගන්න — ඔබට යෝග්‍ය වීපීඑන් දායකත්‍ව සැලැසුමක් තෝරන්න."
 
 #: src/amo/components/VPNPromoBanner/index.js:206
@@ -2366,12 +2543,17 @@ msgid "Get Mozilla VPN"
 msgstr "මොසිල්ලා වීපීඑන් ගන්න"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
-msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
+msgid ""
+"To find extensions compatible with Firefox for Android, %(linkStart)sclick "
+"here%(linkEnd)s."
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
-msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "අයිඕඑස් සඳහා ෆයර්ෆොක්ස් සමඟ එක්කහු නොගැළපෙයි. ඒවා වැඩතලය සඳහා ෆයර්ෆොක්ස් හි ස්ථාපනය කරන්න."
+msgid ""
+"Add-ons are not compatible with Firefox for iOS. Try installing them on "
+"Firefox for desktop."
+msgstr ""
+"අයිඕඑස් සඳහා ෆයර්ෆොක්ස් සමඟ එක්කහු නොගැළපෙයි. ඒවා වැඩතලය සඳහා ෆයර්ෆොක්ස් හි ස්ථාපනය කරන්න."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -2443,7 +2625,9 @@ msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s සඳහා නිකුතු සටහන්"
 
 #: src/amo/pages/Addon/index.js:501
-msgid "This is not a public listing. You are only seeing it because of elevated permissions."
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
 msgstr "මෙය ප්‍රසිද්ධ ලේඛනගත කිරීමක් නොවේ. ඉහළ අවසර තිබෙන නිසා ඔබ පමණක් දකියි."
 
 #: src/amo/pages/Addon/index.js:529
@@ -2471,8 +2655,12 @@ msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s රහස්‍යතා ප්‍රතිපත්තිය"
 
 #: src/amo/pages/AddonReviewList/index.js:199
-msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr "%(addonName)s සඳහා සමාලෝචන සහ ඇගැයුම්. %(addonName)s ගැන වෙනත් පරිශ්‍රීලකයින් සිතන්නේ කුමක්දැයි සොයා බලා ඔබගේ ෆයර්ෆොක්ස් අතිරික්සුවට එක් කරන්න."
+msgid ""
+"Reviews and ratings for %(addonName)s. Find out what other users think about "
+"%(addonName)s and add it to your Firefox Browser."
+msgstr ""
+"%(addonName)s සඳහා සමාලෝචන සහ ඇගැයුම්. %(addonName)s ගැන වෙනත් පරිශ්‍රීලකයින් සිතන්නේ "
+"කුමක්දැයි සොයා බලා ඔබගේ ෆයර්ෆොක්ස් අතිරික්සුවට එක් කරන්න."
 
 #: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show all reviews"
@@ -2515,8 +2703,11 @@ msgstr[0] "%(addonName)s අනුවාද ඉතිහාසය - අනුව
 msgstr[1] "%(addonName)s අනුවාද ඉතිහාසය - අනුවාද %(total)s"
 
 #: src/amo/pages/AddonVersions/index.js:166
-msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr "පරණ අනුවාද සමඟ ප්‍රවේශම් වන්න! මෙම අනුවාද අත්හදා බැලීමට සහ විමර්ශන අරමුණු සඳහා තිබේ."
+msgid ""
+"Be careful with old versions! These versions are displayed for testing and "
+"reference purposes."
+msgstr ""
+"පරණ අනුවාද සමඟ ප්‍රවේශම් වන්න! මෙම අනුවාද අත්හදා බැලීමට සහ විමර්ශන අරමුණු සඳහා තිබේ."
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "You should always use the latest version of an add-on."
@@ -2555,7 +2746,9 @@ msgid "Why did this happen?"
 msgstr ""
 
 #: src/amo/pages/Block/index.js:163
-msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
+msgid ""
+"This extension, theme, or plugin violates %(startLink)sMozilla's add-on "
+"policies%(endLink)s."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:175
@@ -2564,12 +2757,17 @@ msgstr "මෙහි තේරුම කුමක්ද?"
 
 #: src/amo/pages/Block/index.js:178
 msgid ""
-"Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
-"They may choose to enable the add-on again at their own risk."
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. If it’s already installed, it will be disabled and "
+"users will be informed about the violation. They may choose to enable the "
+"add-on again at their own risk."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:183
-msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
+msgid ""
+"Until the violation is resolved, this add-on won't be available for download "
+"from addons.mozilla.org. It will be automatically disabled and no longer "
+"usable in Firefox."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:189
@@ -2578,8 +2776,12 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:194
 msgid ""
-"When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
-"criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
+"When Mozilla becomes aware of add-ons, plugins, or other third-party "
+"software that seriously compromise Firefox security, stability, or "
+"performance and meet %(criteriaStartLink)scertain "
+"criteria%(criteriaEndLink)s, the software may be blocked or restricted from "
+"general use. For more information, please read %(supportStartLink)sthis "
+"support article%(supportEndLink)s."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:97
@@ -2615,7 +2817,9 @@ msgid "You reported this collection"
 msgstr "ඔබ මෙම එකතුව වාර්තා කර ඇත"
 
 #: src/amo/pages/Collection/index.js:427
-msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this collection."
 msgstr "ඔබගේ වාර්තාව අපට ලැබී ඇත. මෙම එකතුව පිළිබඳව දැනුම්දීමට තුති."
 
 #: src/amo/pages/Collection/index.js:441
@@ -2639,12 +2843,20 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr "ඔබගේ එකතුවට එක් කිරීමට දිගු සහ තේමා සොයන්න."
 
 #: src/amo/pages/Collection/index.js:559
-msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr "ප්‍රියතම දිගු සහ තේමා පිළිබඳව අවධානයෙන් සිටීමට බාගත කර ෆයර්ෆොක්ස් එකතු සාදන්න. %(collectionName)s—%(collectionDescription)s ගවේශනය කරන්න."
+msgid ""
+"Download and create Firefox collections to keep track of favorite extensions "
+"and themes. Explore the %(collectionName)s—%(collectionDescription)s."
+msgstr ""
+"ප්‍රියතම දිගු සහ තේමා පිළිබඳව අවධානයෙන් සිටීමට බාගත කර ෆයර්ෆොක්ස් එකතු සාදන්න. "
+"%(collectionName)s—%(collectionDescription)s ගවේශනය කරන්න."
 
 #: src/amo/pages/Collection/index.js:562
-msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "ප්‍රියතම දිගු සහ තේමා පිළිබඳව අවධානයෙන් සිටීමට බාගත කර ෆයර්ෆොක්ස් එකතු සාදන්න. %(collectionName)s ගවේශනය කරන්න."
+msgid ""
+"Download and create Firefox collections to keep track of favorite extensions "
+"and themes. Explore the %(collectionName)s."
+msgstr ""
+"ප්‍රියතම දිගු සහ තේමා පිළිබඳව අවධානයෙන් සිටීමට බාගත කර ෆයර්ෆොක්ස් එකතු සාදන්න. "
+"%(collectionName)s ගවේශනය කරන්න."
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
@@ -2679,8 +2891,12 @@ msgid "Log in to view your collections"
 msgstr "ඔබගේ එකතුව බැලීමට පිවිසෙන්න"
 
 #: src/amo/pages/CollectionList/index.js:133
-msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr "එකතු මගින් ප්‍රියතම එක්කහු නිරීක්‍ෂණයට සහ හොඳින් අභිරුචිකරණය කළ ඔබගේ අතිරික්සුව අන් අය සමඟ බෙදා ගැනීමට පහසු කරයි."
+msgid ""
+"Collections make it easy to keep track of favorite add-ons and share your "
+"perfectly customized browser with others."
+msgstr ""
+"එකතු මගින් ප්‍රියතම එක්කහු නිරීක්‍ෂණයට සහ හොඳින් අභිරුචිකරණය කළ ඔබගේ අතිරික්සුව අන් අය සමඟ බෙදා "
+"ගැනීමට පහසු කරයි."
 
 #: src/amo/pages/CollectionList/index.js:143
 msgid "Create a collection"
@@ -2723,8 +2939,14 @@ msgid "Change the way Firefox looks with themes."
 msgstr "ෆයර්ෆොක්ස් පෙනුම තේමා මගින් සකසන්න."
 
 #: src/amo/pages/Home/index.js:208
-msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr "ෆයර්ෆොක්ස් දිගු සහ තේමා බාගන්න. ඒවා ඔබගේ අතිරික්සුව සඳහා යෙදුම් වැනි ය. කරදරකාරී දැන්වීම් අවහිරයට, මුරපද ආරක්‍ෂාවට, අතිරික්සුවෙහි පෙනුම සංශෝධනයට මෙන්ම තවත් බොහෝ දෑ උදෙසා ප්‍රයෝජනවත් වේ."
+msgid ""
+"Download Firefox extensions and themes. They’re like apps for your browser. "
+"They can block annoying ads, protect passwords, change browser appearance, "
+"and more."
+msgstr ""
+"ෆයර්ෆොක්ස් දිගු සහ තේමා බාගන්න. ඒවා ඔබගේ අතිරික්සුව සඳහා යෙදුම් වැනි ය. කරදරකාරී දැන්වීම් "
+"අවහිරයට, මුරපද ආරක්‍ෂාවට, අතිරික්සුවෙහි පෙනුම සංශෝධනයට මෙන්ම තවත් බොහෝ දෑ උදෙසා ප්‍රයෝජනවත් "
+"වේ."
 
 #: src/amo/pages/Home/index.js:84
 msgid "Abstract"
@@ -2759,20 +2981,38 @@ msgid "See more top rated themes"
 msgstr "තවත් ඉහළ ඇගැයුමක් සහිත තේමා"
 
 #: src/amo/pages/LandingPage/index.js:205
-msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr "ෆයර්ෆොක්ස් පෙනුම වෙනස් කිරීමට තේමා බාගන්න. ඔබගේ රුචිකත්‍වයට උචිත පරිදි සකස් කර ගන්න. හුරුබුහුටි සත්වයින්, නපුරු පරිගණක මිනිසුන්, අලංකාර දර්ශන — විකල්ප දහස් ගණනක්."
+msgid ""
+"Download themes to change how Firefox looks. Tailor your experience to your "
+"tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
+"options."
+msgstr ""
+"ෆයර්ෆොක්ස් පෙනුම වෙනස් කිරීමට තේමා බාගන්න. ඔබගේ රුචිකත්‍වයට උචිත පරිදි සකස් කර ගන්න. හුරුබුහුටි "
+"සත්වයින්, නපුරු පරිගණක මිනිසුන්, අලංකාර දර්ශන — විකල්ප දහස් ගණනක්."
 
 #: src/amo/pages/LandingPage/index.js:210
-msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr "ෆයර්ෆොක්ස් දිගු බාගැනීමෙන් දෛනික පිරික්සීම යෝග්‍ය පරිදි සකසා ගන්න. මුරපද ආරක්‍ෂාවට, වට්ටම් සොයා ගැනීමට, දෘශ්‍යක සංස්කරණයට, සහ දැන්වීම් අවහිරයට උපකාරී වන විශේෂාංග එක් කරන්න."
+msgid ""
+"Download Firefox Extensions to add features that customize browsing. Protect "
+"passwords, find deals, enhance video, and block annoying ads with browser "
+"apps."
+msgstr ""
+"ෆයර්ෆොක්ස් දිගු බාගැනීමෙන් දෛනික පිරික්සීම යෝග්‍ය පරිදි සකසා ගන්න. මුරපද ආරක්‍ෂාවට, වට්ටම් සොයා "
+"ගැනීමට, දෘශ්‍යක සංස්කරණයට, සහ දැන්වීම් අවහිරයට උපකාරී වන විශේෂාංග එක් කරන්න."
 
 #: src/amo/pages/LandingPage/index.js:232
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "අතිරික්සුවෙහි පෙනුම වෙනස් කරන්න. තේමා දහස් ගණනකින් තෝරාගෙන ඔබගේ ප්‍රියතම පෙනුම ෆයර්ෆොක්ස් වෙත ලබා දෙන්න."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"අතිරික්සුවෙහි පෙනුම වෙනස් කරන්න. තේමා දහස් ගණනකින් තෝරාගෙන ඔබගේ ප්‍රියතම පෙනුම ෆයර්ෆොක්ස් වෙත "
+"ලබා දෙන්න."
 
 #: src/amo/pages/LandingPage/index.js:234
-msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "ෆයර්ෆොක්ස් වෙනස් කර එය ඔබගේම අතිරික්සුවක් බවට පත්කර ගැනීමට තිබෙන ප්‍රබල මෙවලම් සහ විශේෂාංග සොයා බලන්න."
+msgid ""
+"Explore powerful tools and features to customize Firefox and make the "
+"browser all your own."
+msgstr ""
+"ෆයර්ෆොක්ස් වෙනස් කර එය ඔබගේම අතිරික්සුවක් බවට පත්කර ගැනීමට තිබෙන ප්‍රබල මෙවලම් සහ විශේෂාංග "
+"සොයා බලන්න."
 
 #: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
@@ -2787,16 +3027,29 @@ msgid "Dictionaries and Language Packs"
 msgstr "ශබ්දකෝෂ සහ භාෂා ඇසුරුම්"
 
 #: src/amo/pages/LanguageTools/index.js:155
-msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr "ෆයර්ෆොක්ස් ශබ්දකෝෂ හා භාෂා ඇසුරුම් දිගු බාගන්න. ඔබගේ අතිරික්සුවෙහි අකුරු වින්‍යාස පරීක්‍ෂාවට නව භාෂා විකල්පයක් එක් කරන්න, හෝ අතිරික්සුවෙහි අතුරු මුහුණත භාෂාව වෙනස් කරන්න."
+msgid ""
+"Download Firefox dictionaries and language pack extensions. Add a new "
+"language option to your browser spell-checker, or change the browser's "
+"interface language."
+msgstr ""
+"ෆයර්ෆොක්ස් ශබ්දකෝෂ හා භාෂා ඇසුරුම් දිගු බාගන්න. ඔබගේ අතිරික්සුවෙහි අකුරු වින්‍යාස පරීක්‍ෂාවට නව "
+"භාෂා විකල්පයක් එක් කරන්න, හෝ අතිරික්සුවෙහි අතුරු මුහුණත භාෂාව වෙනස් කරන්න."
 
 #: src/amo/pages/LanguageTools/index.js:166
-msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "ශබ්දකෝෂ එක්කහුවක් ස්ථාපනයෙන් ඔබගේ අකුරු වින්‍යාසය පරීක්‍ෂාවට නව භාෂා විකල්පයක් එක් කරයි, එමගින් ෆයර්ෆොක්ස් හරහා ලියන විට ඔබගේ දෝෂ සොයා බලයි."
+msgid ""
+"Installing a dictionary add-on will add a new language option to your spell-"
+"checker, which checks your spelling as you type in Firefox."
+msgstr ""
+"ශබ්දකෝෂ එක්කහුවක් ස්ථාපනයෙන් ඔබගේ අකුරු වින්‍යාසය පරීක්‍ෂාවට නව භාෂා විකල්පයක් එක් කරයි, එමගින් "
+"ෆයර්ෆොක්ස් හරහා ලියන විට ඔබගේ දෝෂ සොයා බලයි."
 
 #: src/amo/pages/LanguageTools/index.js:171
-msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr "භාෂා ඇසුරුම් මගින් වට්ටෝරු විකල්ප සහ සැකසුම් ඇතුළුව, ඔබගේ අතිරික්සුවෙහි අතුරු මුහුණත භාෂාව වෙනස් කරයි."
+msgid ""
+"Language packs change your browser's interface language, including menu "
+"options and settings."
+msgstr ""
+"භාෂා ඇසුරුම් මගින් වට්ටෝරු විකල්ප සහ සැකසුම් ඇතුළුව, ඔබගේ අතිරික්සුවෙහි අතුරු මුහුණත භාෂාව වෙනස් "
+"කරයි."
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "All Locales"
@@ -2832,14 +3085,21 @@ msgstr "සමාලෝචනය නීති විරෝධී හෝ අන�
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
-"Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
-"APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
+"the %(startAddonsServerDocumentation)sAdd-ons Servers "
+"documentation%(endAddonsServerDocumentation)s for details about the APIs "
+"used by AMO and the %(startAddonsManager)sAdd-ons "
+"Manager%(endAddonsManager)s."
 msgstr ""
-"addons.mozilla.org (AMO) සමඟ ක්‍රමලේඛිතව අන්තර් ක්‍රියා කිරීමට වුවමනා ද? AMO සහ %(startAddonsManager)sඑක්කහු කළමනාකරු%(endAddonsManager)s මගින් භාවිතා කරන යෙ.ක්‍ර.මු. පිළිබඳව විස්තර සඳහා "
-"%(startAddonsServerDocumentation)sඑක්කහු සේවාදායක ප්‍රලේඛනය%(endAddonsServerDocumentation)s බලන්න."
+"addons.mozilla.org (AMO) සමඟ ක්‍රමලේඛිතව අන්තර් ක්‍රියා කිරීමට වුවමනා ද? AMO සහ "
+"%(startAddonsManager)sඑක්කහු කළමනාකරු%(endAddonsManager)s මගින් භාවිතා කරන යෙ.ක්‍ර."
+"මු. පිළිබඳව විස්තර සඳහා %(startAddonsServerDocumentation)sඑක්කහු සේවාදායක "
+"ප්‍රලේඛනය%(endAddonsServerDocumentation)s බලන්න."
 
 #: src/amo/pages/StaticPages/About/index.js:140
-msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
 msgstr "දායක වීමට වුවමනා නමුත් තාක්‍ෂණික දැනුමක් නැති නම්, උදව් කිරීමට තවත් බොහෝ ක්‍රම තිබේ:"
 
 #: src/amo/pages/StaticPages/About/index.js:149
@@ -2847,15 +3107,26 @@ msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "අපගේ %(startLink)sසංසදයට%(endLink)s සහභාගී වන්න."
 
 #: src/amo/pages/StaticPages/About/index.js:162
-msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr "ඔබගේ ප්‍රියතම එක්කහු සඳහා ප්‍රතිපෝෂණ තබන්න. මිනිසුන් ඔවුන්ගේ වැඩ අගය කරන බව දන්නා විට එක්කහු කතුවරුන් එක්කහු වැඩිදියුණු කිරීමට මෙන්ම නව නිර්මාණ සිදු කිරීමට ඉඩ තිබේ."
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
+msgstr ""
+"ඔබගේ ප්‍රියතම එක්කහු සඳහා ප්‍රතිපෝෂණ තබන්න. මිනිසුන් ඔවුන්ගේ වැඩ අගය කරන බව දන්නා විට එක්කහු "
+"කතුවරුන් එක්කහු වැඩිදියුණු කිරීමට මෙන්ම නව නිර්මාණ සිදු කිරීමට ඉඩ තිබේ."
 
 #: src/amo/pages/StaticPages/About/index.js:167
-msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr "ෆයර්ෆොක්ස් යනු සැමගේ පෞද්ගලිකත්‍වය රැක දෙන වේගවත්, ආරක්‍ෂිත අතිරික්සුවක් බව ඔබගේ යහළුවන්ට සහ පවුලේ ඥාතීන්ට පවසන්න, එක්කහු භාවිතයෙන් එය ඔවුන්ගේම කර ගැනීමට හැකිය!"
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
+msgstr ""
+"ෆයර්ෆොක්ස් යනු සැමගේ පෞද්ගලිකත්‍වය රැක දෙන වේගවත්, ආරක්‍ෂිත අතිරික්සුවක් බව ඔබගේ යහළුවන්ට සහ "
+"පවුලේ ඥාතීන්ට පවසන්න, එක්කහු භාවිතයෙන් එය ඔවුන්ගේම කර ගැනීමට හැකිය!"
 
 #: src/amo/pages/StaticPages/About/index.js:175
-msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:189
@@ -2867,46 +3138,76 @@ msgid "About Firefox Add-ons"
 msgstr "ෆයර්ෆොක්ස් එක්කහු ගැන"
 
 #: src/amo/pages/StaticPages/About/index.js:194
-msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr "ඔබට වියමන අඩවියෙහි ගැටලු හමු වුවහොත්, අපට ඒවා දන්වන්න. කරුණාකර %(startIssueLink)sගැටලුවකට%(endIssueLink)s බොහෝ විස්තර ඇතුළත් කරන්න."
+msgid ""
+"If you find a problem with the site, we'd love to fix it. Please file an "
+"%(startIssueLink)sissue%(endIssueLink)s and include as much detail as "
+"possible."
+msgstr ""
+"ඔබට වියමන අඩවියෙහි ගැටලු හමු වුවහොත්, අපට ඒවා දන්වන්න. කරුණාකර "
+"%(startIssueLink)sගැටලුවකට%(endIssueLink)s බොහෝ විස්තර ඇතුළත් කරන්න."
 
 #: src/amo/pages/StaticPages/About/index.js:20
-msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr "ෆයර්ෆොක්ස් දිගු සහ තේමා බාගැනීම සඳහා නිල මොසිල්ලා අඩවිය. නව විශේෂාංග යෙදීමෙන් ඔබගේ වියමන අත්දැකීම ඉහළ නංවා ගන්න. අතිරික්සුවෙහි පෙනුම අලංකාර කරන්න."
+msgid ""
+"The official Mozilla site for downloading Firefox extensions and themes. Add "
+"new features and change the browser’s appearance to customize your web "
+"experience."
+msgstr ""
+"ෆයර්ෆොක්ස් දිගු සහ තේමා බාගැනීම සඳහා නිල මොසිල්ලා අඩවිය. නව විශේෂාංග යෙදීමෙන් ඔබගේ වියමන "
+"අත්දැකීම ඉහළ නංවා ගන්න. අතිරික්සුවෙහි පෙනුම අලංකාර කරන්න."
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
-"To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
-"admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
+"To report a security vulnerability for an extension, even if it is not "
+"hosted on this site, please file an "
+"%(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security "
+"vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
 
-#: src/amo/pages/StaticPages/About/index.js:232
+#: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
 msgstr "සහාය ගන්න"
 
-#: src/amo/pages/StaticPages/About/index.js:237
+#: src/amo/pages/StaticPages/About/index.js:235
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
-"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit "
+"%(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an answer "
+"there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"ෆයර්ෆොක්ස් එක්කහු කළමනාකරණය පිළිබඳව වැඩිදුර දැන ගැනීමට කැමති නම්, හෝ පොදු ෆයර්ෆොක්ස් සහාය සොයා ගැනීමට වුවමනා නම්, මොසිල්ලා %(startSUMOLink)sසහාය%(endSUMOLink)s වෙත පිවිසෙන්න. එහි පිළිතුරක් නොතිබේ "
-"නම්, අපගේ %(startForumLink)sප්‍රජා සංසදය%(endForumLink)s බලන්න."
+"ෆයර්ෆොක්ස් එක්කහු කළමනාකරණය පිළිබඳව වැඩිදුර දැන ගැනීමට කැමති නම්, හෝ පොදු ෆයර්ෆොක්ස් සහාය "
+"සොයා ගැනීමට වුවමනා නම්, මොසිල්ලා %(startSUMOLink)sසහාය%(endSUMOLink)s වෙත පිවිසෙන්න. "
+"එහි පිළිතුරක් නොතිබේ නම්, අපගේ %(startForumLink)sප්‍රජා සංසදය%(endForumLink)s බලන්න."
 
-#: src/amo/pages/StaticPages/About/index.js:258
-msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr "%(startLink)sමොසිල්ලා එක්කහු කණ්ඩායම සම්බන්ධ කර ගැනීමේ තොරතුරු මෙතැන හමු වනු ඇත%(endLink)s."
+#: src/amo/pages/StaticPages/About/index.js:256
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
+msgstr ""
+"%(startLink)sමොසිල්ලා එක්කහු කණ්ඩායම සම්බන්ධ කර ගැනීමේ තොරතුරු මෙතැන හමු වනු "
+"ඇත%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
-"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
 msgstr ""
-"addons.mozilla.org (AMO), යනු ෆයර්ෆොක්ස් අතිරික්සුව සඳහා එක්කහු සොයා ගැනීමට සහ ස්ථාපනයට තිබෙන මොසිල්ලා නිල අඩවියකි. ෆයර්ෆොක්ස් වෙත එක්කහු මගින් නව විශේෂාංග යෙදීමෙන්, මූලික වශයෙන් වියමන අන්තර්ගත සමඟ "
-"අන්තර්ක්‍රියා තීව්‍ර වීම සහ අතිරික්සුවෙහි පෙනුම අලංකාර වීම නිසා ඔබගේ පිරික්සුම් අත්දැකීම ඉහළ නැංවීම මෙන්ම පුද්ගලීකරණය ද සිදු වේ."
+"addons.mozilla.org (AMO), යනු ෆයර්ෆොක්ස් අතිරික්සුව සඳහා එක්කහු සොයා ගැනීමට සහ ස්ථාපනයට "
+"තිබෙන මොසිල්ලා නිල අඩවියකි. ෆයර්ෆොක්ස් වෙත එක්කහු මගින් නව විශේෂාංග යෙදීමෙන්, මූලික වශයෙන් වියමන "
+"අන්තර්ගත සමඟ අන්තර්ක්‍රියා තීව්‍ර වීම සහ අතිරික්සුවෙහි පෙනුම අලංකාර වීම නිසා ඔබගේ පිරික්සුම් අත්දැකීම "
+"ඉහළ නැංවීම මෙන්ම පුද්ගලීකරණය ද සිදු වේ."
 
 #: src/amo/pages/StaticPages/About/index.js:37
-msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "තන්ඩර්බර්ඩ් හෝ සීමන්කි සඳහා එක්කහු සොයන්නේ නම්, කරුණාකර %(startTBLink)ssaddons.thunderbird.net%(endTBLink)s හෝ %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s වෙත ගොඩවදින්න."
+msgid ""
+"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+msgstr ""
+"තන්ඩර්බර්ඩ් හෝ සීමන්කි සඳහා එක්කහු සොයන්නේ නම්, කරුණාකර %(startTBLink)ssaddons."
+"thunderbird.net%(endTBLink)s හෝ %(startSMLink)saddons.thunderbird.net/"
+"seamonkey%(endSMLink)s වෙත ගොඩවදින්න."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
@@ -2914,11 +3215,16 @@ msgstr "මැවුම්කරුවන්ගේ ප්‍රජාවකි"
 
 #: src/amo/pages/StaticPages/About/index.js:56
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
-"been automatically published and may be subject to review by a team of editors once publicly listed."
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publicly "
+"listed."
 msgstr ""
-"මෙහි රඳවා තිබෙන එක්කහු තනි විනෝදාංශකරුවන්ගේ සිට විශාල සමාගම් දක්වා ලොව පුරා සිටින දහස් ගණනක් සංවර්ධකයින් සහ තේමා නිර්මාණකරුවන් විසින් සාදා ඇත. AMO හි ලේඛනගත කර තිබෙන ඇතැම් එක්කහු ස්වයංක්‍රීයව "
-"ප්‍රකාශයට පත් කර ඇති අතර ප්‍රසිද්ධියේ ලේඛනගත කළ පසු සංස්කරණ කණ්ඩායමකගේ සමාලෝචනයට යටත් වීමට හැකිය."
+"මෙහි රඳවා තිබෙන එක්කහු තනි විනෝදාංශකරුවන්ගේ සිට විශාල සමාගම් දක්වා ලොව පුරා සිටින දහස් ගණනක් "
+"සංවර්ධකයින් සහ තේමා නිර්මාණකරුවන් විසින් සාදා ඇත. AMO හි ලේඛනගත කර තිබෙන ඇතැම් එක්කහු "
+"ස්වයංක්‍රීයව ප්‍රකාශයට පත් කර ඇති අතර ප්‍රසිද්ධියේ ලේඛනගත කළ පසු සංස්කරණ කණ්ඩායමකගේ "
+"සමාලෝචනයට යටත් වීමට හැකිය."
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
@@ -2926,24 +3232,36 @@ msgstr "සම්බන්ධ වන්න"
 
 #: src/amo/pages/StaticPages/About/index.js:67
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
-"the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
 msgstr ""
-"මොසිල්ලා යනු අන්තර්ජාලයේ ලාභ නොලබන වීරයෙකි. එය යහපත්, විවෘත සහ ප්‍රවේශ්‍ය අයුරින් තබා ගැනීම උදෙසා ෆයර්ෆොක්ස් සංවර්ධනය කෙරේ. පරිශ්‍රීලකයින්ගේ මනාප සහ රුචිකත්‍ව සඳහා ෆයර්ෆොක්ස් අනුකූලනයට එක්කහු උපකාරී"
-" වන අතර ඔබට පහත ආකාර යටතේ දායක වීමට හැකිය:"
+"මොසිල්ලා යනු අන්තර්ජාලයේ ලාභ නොලබන වීරයෙකි. එය යහපත්, විවෘත සහ ප්‍රවේශ්‍ය අයුරින් තබා ගැනීම "
+"උදෙසා ෆයර්ෆොක්ස් සංවර්ධනය කෙරේ. පරිශ්‍රීලකයින්ගේ මනාප සහ රුචිකත්‍ව සඳහා ෆයර්ෆොක්ස් අනුකූලනයට "
+"එක්කහු උපකාරී වන අතර ඔබට පහත ආකාර යටතේ දායක වීමට හැකිය:"
 
 #: src/amo/pages/StaticPages/About/index.js:77
-msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr "%(startLink)sඔබගේම එක්කහුවක්%(endLink)s සාදන්න. අපි නොමිලේ සත්කාරකත්‍ව සහ යාවත්කාල සේවා සපයන අතර විශාල පරිශ්‍රීලකයින් පිරිසක් අත්කර දීමට හැකිය."
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
+msgstr ""
+"%(startLink)sඔබගේම එක්කහුවක්%(endLink)s සාදන්න. අපි නොමිලේ සත්කාරකත්‍ව සහ යාවත්කාල "
+"සේවා සපයන අතර විශාල පරිශ්‍රීලකයින් පිරිසක් අත්කර දීමට හැකිය."
 
 #: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
-"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
+"Help improve this website. It's open source, and you can file bugs and "
+"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
+"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
+"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
+"Github."
 msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
-msgid "Include your own or anyone else’s email, phone number, or other personal details."
+msgid ""
+"Include your own or anyone else’s email, phone number, or other personal "
+"details."
 msgstr "ඔබගේ හෝ අන් අයෙකුගේ වි-තැපෑල, දු.ක. අංකය හෝ වෙනත් පෞද්ගලික තොරතුරු ඇතුළත් කිරීම."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
@@ -2952,11 +3270,14 @@ msgstr "ඔබ හෝ ඔබගේ සංවිධානය ලියන ලද 
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
-"add-on, or the add-on requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving "
+"a negative review of an add-on for displaying ads or requiring data "
+"gathering, when that is the intended purpose of the add-on, or the add-on "
+"requires gathering data to function."
 msgstr ""
-"එක්කහුවක් සෘජුව සිදු කිරීමට අදහස් කරන දෙයක් පිළිබඳව විවේචනය කිරීම. නිදසුනක් ලෙස, ක්‍රියාත්මක වීමට දත්ත රැස් කිරීම, දැන්වීම් ප්‍රදර්ශනය සඳහා දත්ත රැස් කිරීම යනාදිය එක්කහුවෙහි අපේක්‍ෂිත අරමුණ වීම නිසා"
-" සෘණාත්මක සමාලෝචනයක් තැබීම."
+"එක්කහුවක් සෘජුව සිදු කිරීමට අදහස් කරන දෙයක් පිළිබඳව විවේචනය කිරීම. නිදසුනක් ලෙස, ක්‍රියාත්මක වීමට "
+"දත්ත රැස් කිරීම, දැන්වීම් ප්‍රදර්ශනය සඳහා දත්ත රැස් කිරීම යනාදිය එක්කහුවෙහි අපේක්‍ෂිත අරමුණ වීම නිසා "
+"සෘණාත්මක සමාලෝචනයක් තැබීම."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
@@ -2968,8 +3289,10 @@ msgstr "ගැටළු සහගත සමාලෝචනයක් වාර්
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
-"evaluate whether or not to delete the review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this "
+"review\" and it will be submitted to the site for moderation. Our moderation "
+"team will use the Review Guidelines to evaluate whether or not to delete the "
+"review or restore it back to the site."
 msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
@@ -2977,10 +3300,14 @@ msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "මම එක්කහු කතුවරයෙක්, මට සමාලෝචන සඳහා පිළිතුරු දීමට හැකිද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
-msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
+msgid ""
+"Yes, add-on authors can provide a single response to a review. You can set "
+"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
+"additional discussion or follow-up."
 msgstr ""
-"ඔව්, එක්කහු කතුවරුන්ට සමාලෝචන සඳහා තනි ප්‍රතිචාරයක් පළ කිරීමට හැකිය. අතිරේක සාකච්ඡා හෝ පසු විපරම් අරමුණු උදෙසා අපගේ %(startLink)sසංසදයෙහි%(endLink)s සාකච්ඡා මාතෘකාවක් සකස් තර සිංහල සහ අනෙකුත් "
-"භාෂාවලින් සන්නිවේදනය කිරීමට හැකිය."
+"ඔව්, එක්කහු කතුවරුන්ට සමාලෝචන සඳහා තනි ප්‍රතිචාරයක් පළ කිරීමට හැකිය. අතිරේක සාකච්ඡා හෝ පසු "
+"විපරම් අරමුණු උදෙසා අපගේ %(startLink)sසංසදයෙහි%(endLink)s සාකච්ඡා මාතෘකාවක් සකස් තර "
+"සිංහල සහ අනෙකුත් භාෂාවලින් සන්නිවේදනය කිරීමට හැකිය."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -2988,27 +3315,37 @@ msgstr "මම එක්කහු කතුවරයෙක්, මට අහි�
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
-"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
-"valid due to a new release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines "
+"outlined above, you can click \"Report this review\" and have it moderated. "
+"If a review included a complaint that is no longer valid due to a new "
+"release of your add-on, we may consider deleting the review."
 msgstr ""
-"සාමාන්‍යයෙන්, බැහැ. නමුත් ඉහත දක්වා තිබෙන සමාලෝචන මාර්ගෝපදේශ සපුරා නැති නම්, \"මෙම සමාලෝචනය වාර්තා කරන්න\" එබීමෙන් සංශෝධනයට ලක් කිරීමට හැකිය. ඔබගේ එක්කහුවෙහි නව නිකුතු සඳහා තවදුරටත් වලංගු නොවන "
-"පැමිණිල්ලක සමාලෝචනයක් ඇත්නම්, අපට එම සමාලෝචනය මකා දැමීම යෝග්‍ය දැයි සලකා බැලීමට හැකිය."
+"සාමාන්‍යයෙන්, බැහැ. නමුත් ඉහත දක්වා තිබෙන සමාලෝචන මාර්ගෝපදේශ සපුරා නැති නම්, \"මෙම "
+"සමාලෝචනය වාර්තා කරන්න\" එබීමෙන් සංශෝධනයට ලක් කිරීමට හැකිය. ඔබගේ එක්කහුවෙහි නව නිකුතු සඳහා "
+"තවදුරටත් වලංගු නොවන පැමිණිල්ලක සමාලෝචනයක් ඇත්නම්, අපට එම සමාලෝචනය මකා දැමීම යෝග්‍ය දැයි "
+"සලකා බැලීමට හැකිය."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
 msgstr "සමාලෝචන මාර්ගෝපදේශය"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
-msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr "ෆයර්ෆොක්ස් වෙත ඔබ බාගත කරන ලද හා භාවිතා කර තිබෙන දිගු සහ තේමා සඳහා හරවත් සමාලෝචනයක් තැබීමට මාර්ගෝපදේශ, ඉඟි, සහ නිතර අසන ප්‍රශ්න."
+msgid ""
+"Guidelines, tips, and Frequently Asked Questions to leave a review for the "
+"extensions and themes you’ve downloaded and used on Firefox."
+msgstr ""
+"ෆයර්ෆොක්ස් වෙත ඔබ බාගත කරන ලද හා භාවිතා කර තිබෙන දිගු සහ තේමා සඳහා හරවත් සමාලෝචනයක් "
+"තැබීමට මාර්ගෝපදේශ, ඉඟි, සහ නිතර අසන ප්‍රශ්න."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
-" with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons "
+"you’ve installed and used. Our review moderation team reserves the right to "
+"refuse or remove any review that does not comply with these guidelines."
 msgstr ""
-"එක්කහු සමාලෝචන යනු ඔබ ස්ථාපනය කර භාවිතා කරන ලද එක්කහු පිළිබඳව ඔබගේ අදහස් බෙදා ගැනීමට ක්‍රමවේදයකි. මෙම මාර්ගෝපදේශවලට අනුකූල නොවන ඕනෑම සමාලෝචනයක් ප්‍රතික්‍ෂේප හෝ ඉවත් කිරීමට අපගේ සමාලෝචන මධ්‍යස්ථතා "
-"කණ්ඩායමට අයිතිය ඇත."
+"එක්කහු සමාලෝචන යනු ඔබ ස්ථාපනය කර භාවිතා කරන ලද එක්කහු පිළිබඳව ඔබගේ අදහස් බෙදා ගැනීමට "
+"ක්‍රමවේදයකි. මෙම මාර්ගෝපදේශවලට අනුකූල නොවන ඕනෑම සමාලෝචනයක් ප්‍රතික්‍ෂේප හෝ ඉවත් කිරීමට අපගේ "
+"සමාලෝචන මධ්‍යස්ථතා කණ්ඩායමට අයිතිය ඇත."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
@@ -3019,7 +3356,8 @@ msgid "Do:"
 msgstr "කරන්න:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
-msgid "Write like you are telling a friend about your experience with the add-on."
+msgid ""
+"Write like you are telling a friend about your experience with the add-on."
 msgstr "එක්කහුව ගැන ඔබගේ අත්දැකීම යහළුවෙකුට පවසන ආකාරයට ලියන්න."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
@@ -3051,7 +3389,8 @@ msgid "Will you continue to use this add-on?"
 msgstr "ඔබ මෙම එක්කහුව දිගටම භාවිතා කරනවාද?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
-msgid "Take a moment to read your review before submitting it to minimize typos."
+msgid ""
+"Take a moment to read your review before submitting it to minimize typos."
 msgstr "යොමු කිරීමට පෙර ඔබගේ සමාලෝචනයෙහි ව්‍යාකරණ දෝෂ ඇත්දැයි මොහොතක් බලන්න."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
@@ -3064,26 +3403,36 @@ msgstr "\"නියමයි!\", \"පුදුමාකාරයි\" හෝ \"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
-" on the add-on's detail page."
+"Post technical issues, support requests, or feature suggestions. Use the "
+"available support options for each add-on, if available. You can find them "
+"in the \"More information\" section in the sidebar on the add-on's detail "
+"page."
 msgstr ""
-"තාක්‍ෂණික ගැටළු, සහාය ඉල්ලීම් හෝ විශේෂාංග යෝජනා පළ කිරීම. අදාළ එක්කහුව සඳහා පවතින සහාය විකල්ප භාවිතා කරන්න. තිබේ නම්, ඔබට ඒවා එක්කහු විස්තර පිටුවේ පැති තීරුවෙහි \"තව තොරතුරු\" කොටස යටතේ හමු වනු ඇත."
+"තාක්‍ෂණික ගැටළු, සහාය ඉල්ලීම් හෝ විශේෂාංග යෝජනා පළ කිරීම. අදාළ එක්කහුව සඳහා පවතින සහාය "
+"විකල්ප භාවිතා කරන්න. තිබේ නම්, ඔබට ඒවා එක්කහු විස්තර පිටුවේ පැති තීරුවෙහි \"තව තොරතුරු\" කොටස "
+"යටතේ හමු වනු ඇත."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "ඔබ පෞද්ගලිකව භාවිතා නොකළ එක්කහු සඳහා සමාලෝචන ලිවීම."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
-msgid "Use profanity, sexual language or language that can be construed as hateful."
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
 msgstr "ද්වේෂ සහගත බව, ලිංගික භාෂාව, හෝ අපහාසාත්මක අසභ්‍ය වචන භාවිතා කිරීම."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
-msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr "HTML, සබැඳි, මූලාශ්‍ර කේත හෝ කේත කොටස් ඇතුළත් කිරීම. සමාලෝචනයක පෙළ පමණක් අඩංගු විය යුතුය."
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"HTML, සබැඳි, මූලාශ්‍ර කේත හෝ කේත කොටස් ඇතුළත් කිරීම. සමාලෝචනයක පෙළ පමණක් අඩංගු විය යුතුය."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
-msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr "අසත්‍ය දෑ ප්‍රකාශ කිරීම, එක්කහු කතුවරුන් අවමානයට ලක් කිරීම හෝ ඔවුන්ට පෞද්ගලිකව අපහාස කිරීම."
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+"අසත්‍ය දෑ ප්‍රකාශ කිරීම, එක්කහු කතුවරුන් අවමානයට ලක් කිරීම හෝ ඔවුන්ට පෞද්ගලිකව අපහාස කිරීම."
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
@@ -3093,7 +3442,8 @@ msgstr "%(tag)s සමඟ අනන්‍යගත එක්කහු"
 msgid "Submit feedback or report a user to Mozilla"
 msgstr "ප්‍රතිපෝෂණ යොමන්න හෝ පරිශ්‍රීලකයෙක් වාර්තා කරන්න"
 
-#: src/amo/pages/UserFeedback/index.js:144 src/amo/pages/UserProfile/index.js:387
+#: src/amo/pages/UserFeedback/index.js:144
+#: src/amo/pages/UserProfile/index.js:387
 msgid "User since"
 msgstr "සාමාජිකත්‍වය"
 
@@ -3114,16 +3464,29 @@ msgid "My reviews"
 msgstr "මාගේ සමාලෝචන"
 
 #: src/amo/pages/UserProfile/index.js:270
-msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "ෆයර්ෆොක්ස් තේමා හා දිගු කර්තෘ, %(user)s ගේ පැතිකඩ. දළ ඇගැයුම්, දරන කාලය සහ ගැටළු වාර්තා කිරීමේ විකල්පය ඇතුළුව %(user)s ගේ වෙනත් යෙදුම් බලන්න."
+msgid ""
+"The profile of %(user)s, a Firefox extension and theme author. Find other "
+"apps by %(user)s, including average ratings, tenure, and the option to "
+"report issues."
+msgstr ""
+"ෆයර්ෆොක්ස් තේමා හා දිගු කර්තෘ, %(user)s ගේ පැතිකඩ. දළ ඇගැයුම්, දරන කාලය සහ ගැටළු වාර්තා "
+"කිරීමේ විකල්පය ඇතුළුව %(user)s ගේ වෙනත් යෙදුම් බලන්න."
 
 #: src/amo/pages/UserProfile/index.js:274
-msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "ෆයර්ෆොක්ස් දිගු කර්තෘ, %(user)s ගේ පැතිකඩ. දළ ඇගැයුම්, දරන කාලය සහ ගැටළු වාර්තා කිරීමේ විකල්පය ඇතුළුව %(user)s ගේ වෙනත් දිගු බලන්න."
+msgid ""
+"The profile of %(user)s, Firefox extension author. Find other extensions by "
+"%(user)s, including average ratings, tenure, and the option to report issues."
+msgstr ""
+"ෆයර්ෆොක්ස් දිගු කර්තෘ, %(user)s ගේ පැතිකඩ. දළ ඇගැයුම්, දරන කාලය සහ ගැටළු වාර්තා කිරීමේ "
+"විකල්පය ඇතුළුව %(user)s ගේ වෙනත් දිගු බලන්න."
 
 #: src/amo/pages/UserProfile/index.js:278
-msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "ෆයර්ෆොක්ස් තේමා කර්තෘ, %(user)s ගේ පැතිකඩ. දළ ඇගැයුම්, දරන කාලය සහ ගැටළු වාර්තා කිරීමේ විකල්පය ඇතුළුව %(user)s ගේ වෙනත් තේමා බලන්න."
+msgid ""
+"The profile of %(user)s, Firefox theme author. Find other themes by "
+"%(user)s, including average ratings, tenure, and the option to report issues."
+msgstr ""
+"ෆයර්ෆොක්ස් තේමා කර්තෘ, %(user)s ගේ පැතිකඩ. දළ ඇගැයුම්, දරන කාලය සහ ගැටළු වාර්තා කිරීමේ "
+"විකල්පය ඇතුළුව %(user)s ගේ වෙනත් තේමා බලන්න."
 
 #: src/amo/pages/UserProfile/index.js:308
 msgid "User Avatar"
@@ -3137,7 +3500,8 @@ msgstr "එක්කහු සංවර්ධක"
 msgid "Theme artist"
 msgstr "තේමාවේ කලාකරු"
 
-#: src/amo/pages/UserProfile/index.js:335 src/amo/pages/UserProfileEdit/index.js:551
+#: src/amo/pages/UserProfile/index.js:335
+#: src/amo/pages/UserProfileEdit/index.js:551
 msgid "User Profile for %(user)s"
 msgstr "%(user)s සඳහා පරිශ්‍රීලක පැතිකඩ"
 
@@ -3145,7 +3509,8 @@ msgstr "%(user)s සඳහා පරිශ්‍රීලක පැතිකඩ"
 msgid "User Profile"
 msgstr "පරිශ්‍රීලක පැතිකඩ"
 
-#: src/amo/pages/UserProfile/index.js:379 src/amo/pages/UserProfileEdit/index.js:708
+#: src/amo/pages/UserProfile/index.js:379
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
 msgstr "වෘත්තිය"
 
@@ -3157,7 +3522,8 @@ msgstr "එක්කහු ගණන"
 msgid "Average rating of developer’s add-ons"
 msgstr "සංවර්ධකයාගේ එක්කහුවල දළ ඇගැයුම"
 
-#: src/amo/pages/UserProfile/index.js:415 src/amo/pages/UserProfileEdit/index.js:730
+#: src/amo/pages/UserProfile/index.js:415
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
 msgstr "චරිතාපදානය"
 
@@ -3175,12 +3541,20 @@ msgid "Picture successfully deleted"
 msgstr "රූපය සාර්ථකව මකා දැමිණි"
 
 #: src/amo/pages/UserProfileEdit/index.js:459
-msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "ඔබ ගැන තවත් තොරතුරු කිහිපයක් පරිශ්‍රීලකයින්ට කියන්න. බොහෝ ක්‍ෂේත්‍ර විකල්ප වේ, නමුත් ඒවා අන් අයට ඔබ ගැන වඩා හොඳින් දැන ගැනීමට උපකාරී වේ."
+msgid ""
+"Tell users a bit more information about yourself. Most fields are optional, "
+"but they'll help other users get to know you better."
+msgstr ""
+"ඔබ ගැන තවත් තොරතුරු කිහිපයක් පරිශ්‍රීලකයින්ට කියන්න. බොහෝ ක්‍ෂේත්‍ර විකල්ප වේ, නමුත් ඒවා අන් අයට ඔබ "
+"ගැන වඩා හොඳින් දැන ගැනීමට උපකාරී වේ."
 
 #: src/amo/pages/UserProfileEdit/index.js:463
-msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "මෙම පරිශ්‍රීලකයා ගැන තවත් තොරතුරු කිහිපයක් අන් අයට කියන්න. බොහෝ ක්‍ෂේත්‍ර විකල්ප වේ, නමුත් ඒවා සැමට %(userName)s ගැන වඩා හොඳින් දැන ගැනීමට උපකාරී වේ."
+msgid ""
+"Tell users a bit more information about this user. Most fields are optional, "
+"but they'll help other users get to know %(userName)s better."
+msgstr ""
+"මෙම පරිශ්‍රීලකයා ගැන තවත් තොරතුරු කිහිපයක් අන් අයට කියන්න. බොහෝ ක්‍ෂේත්‍ර විකල්ප වේ, නමුත් ඒවා "
+"සැමට %(userName)s ගැන වඩා හොඳින් දැන ගැනීමට උපකාරී වේ."
 
 #: src/amo/pages/UserProfileEdit/index.js:478
 msgid "Introduce yourself to the community if you like"
@@ -3243,8 +3617,12 @@ msgid "Email address cannot be changed here"
 msgstr "වි-තැපෑල මෙහි වෙනස් කළ නොහැකිය"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
-msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "මොසිල්ලා ගිණුම් හරහා ඔබගේ වි-තැපැල් ලිපිනය වෙනස් කිරීමට හැකිය. %(startLink)sඋදව් වුවමනා ද?%(endLink)s"
+msgid ""
+"You can change your email address on Mozilla accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+"මොසිල්ලා ගිණුම් හරහා ඔබගේ වි-තැපැල් ලිපිනය වෙනස් කිරීමට හැකිය. %(startLink)sඋදව් වුවමනා ද?"
+"%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
@@ -3276,22 +3654,34 @@ msgid "Notifications"
 msgstr "දැනුම්දීම්"
 
 #: src/amo/pages/UserProfileEdit/index.js:773
-msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr "කලින් කලට, මොසිල්ලා වෙතින් ඉදිරි නිකුතු සහ එක්කහු සිදුවීම් පිළිබඳව වි-තැපැල් ලැබෙනු ඇත. කරුණාකර ඔබ උනන්දු වන මාතෘකා තෝරන්න."
+msgid ""
+"From time to time, Mozilla may send you email about upcoming releases and "
+"add-on events. Please select the topics you are interested in."
+msgstr ""
+"කලින් කලට, මොසිල්ලා වෙතින් ඉදිරි නිකුතු සහ එක්කහු සිදුවීම් පිළිබඳව වි-තැපැල් ලැබෙනු ඇත. කරුණාකර ඔබ "
+"උනන්දු වන මාතෘකා තෝරන්න."
 
 #: src/amo/pages/UserProfileEdit/index.js:778
-msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr "කලින් කලට, මොසිල්ලා වෙතින් ඉදිරි නිකුතු සහ එක්කහු සිදුවීම් පිළිබඳව වි-තැපැල් ලැබෙනු ඇත. කරුණාකර මෙම පරිශ්‍රීලකයා උනන්දු වන මාතෘකා තෝරන්න."
+msgid ""
+"From time to time, Mozilla may send this user email about upcoming releases "
+"and add-on events. Please select the topics this user may be interested in."
+msgstr ""
+"කලින් කලට, මොසිල්ලා වෙතින් ඉදිරි නිකුතු සහ එක්කහු සිදුවීම් පිළිබඳව වි-තැපැල් ලැබෙනු ඇත. කරුණාකර මෙම "
+"පරිශ්‍රීලකයා උනන්දු වන මාතෘකා තෝරන්න."
 
 #: src/amo/pages/UserProfileEdit/index.js:793
-msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
+msgid ""
+"Mozilla reserves the right to contact you individually about specific "
+"concerns with your hosted add-ons."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:891
+#: src/amo/pages/UserProfileEdit/index.js:819
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
 msgstr "මාගේ පැතිකඩ මකන්න"
 
-#: src/amo/pages/UserProfileEdit/index.js:820 src/amo/pages/UserProfileEdit/index.js:892
+#: src/amo/pages/UserProfileEdit/index.js:820
+#: src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
 msgstr "පැතිකඩ මකන්න"
 
@@ -3305,30 +3695,45 @@ msgstr "වැදගත්: මෙම ෆයර්ෆොක්ස් එක්�
 
 #: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
-"Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr "පැතිකඩ විස්තර (ඡායාරූපය, පරිශ්‍රීලක නාමය, සංදර්ශන නම, ස්ථානය, මුල් පිටුව, චරිතාපදානය, වෘත්තිය), දැනුම්දීම් අභිප්‍රේත, සමාලෝචන, සහ එකතු ඇතුළුව ඔබගේ දත්ත සදහටම ඉවත් කරනු ලැබේ."
+"Your data will be permanently removed, including profile details (picture, "
+"user name, display name, location, home page, biography, occupation), "
+"notification preferences, reviews, and collections."
+msgstr ""
+"පැතිකඩ විස්තර (ඡායාරූපය, පරිශ්‍රීලක නාමය, සංදර්ශන නම, ස්ථානය, මුල් පිටුව, චරිතාපදානය, "
+"වෘත්තිය), දැනුම්දීම් අභිප්‍රේත, සමාලෝචන, සහ එකතු ඇතුළුව ඔබගේ දත්ත සදහටම ඉවත් කරනු ලැබේ."
 
 #: src/amo/pages/UserProfileEdit/index.js:850
 msgid ""
-"The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
-"collections."
-msgstr "පැතිකඩ විස්තර (ඡායාරූපය, පරිශ්‍රීලක නාමය, සංදර්ශන නම, ස්ථානය, මුල් පිටුව, චරිතාපදානය, වෘත්තිය), දැනුම්දීම් අභිප්‍රේත, සමාලෝචන, සහ එකතු ඇතුළුව පරිශ්‍රීලකයාගේ දත්ත සදහටම ඉවත් කරනු ලැබේ."
+"The user’s data will be permanently removed, including profile details "
+"(picture, user name, display name, location, home page, biography, "
+"occupation), notification preferences, reviews, and collections."
+msgstr ""
+"පැතිකඩ විස්තර (ඡායාරූපය, පරිශ්‍රීලක නාමය, සංදර්ශන නම, ස්ථානය, මුල් පිටුව, චරිතාපදානය, "
+"වෘත්තිය), දැනුම්දීම් අභිප්‍රේත, සමාලෝචන, සහ එකතු ඇතුළුව පරිශ්‍රීලකයාගේ දත්ත සදහටම ඉවත් කරනු "
+"ලැබේ."
 
 #: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
-"If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
-" of the add-on."
+"If you authored any add-ons they will also be deleted, unless you share "
+"ownership with other authors. In that case, you will be removed as an author "
+"and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
-"If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
-" ownership of the add-on."
+"If the user authored any add-ons they will also be deleted, unless ownership "
+"is shared with other authors. In that case, the user will be removed as an "
+"author and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:875
-msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "addons.mozilla.org වෙත නැවත පිවිසීමට ඔබ මෙම වි-තැපැල් ලිපිනය භාවිතා කරන විට, ෆයර්ෆොක්ස් එක්කහුවල ඔබගේ පැතිකඩට එහි කලින් කිසිදු අන්තර්ගතයකට ප්‍රවේශය නොලැබෙනු ඇත."
+msgid ""
+"When you use this email address to log in again to addons.mozilla.org, your "
+"profile on Firefox Add-ons will not have access to any of its previous "
+"content."
+msgstr ""
+"addons.mozilla.org වෙත නැවත පිවිසීමට ඔබ මෙම වි-තැපැල් ලිපිනය භාවිතා කරන විට, ෆයර්ෆොක්ස් "
+"එක්කහුවල ඔබගේ පැතිකඩට එහි කලින් කිසිදු අන්තර්ගතයකට ප්‍රවේශය නොලැබෙනු ඇත."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:103
 msgid "Unsubscribe"
@@ -3340,12 +3745,19 @@ msgstr ""
 
 #. a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
-msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr "මෙවිට %(strongStart)s%(email)s%(strongEnd)s වි-තැපැල් ලිපිනයට තවදුරටත් පණිවිඩ නොලැබෙයි:"
+msgid ""
+"The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
+"messages when:"
+msgstr ""
+"මෙවිට %(strongStart)s%(email)s%(strongEnd)s වි-තැපැල් ලිපිනයට තවදුරටත් පණිවිඩ නොලැබෙයි:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
-msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr "%(linkStart)sඔබගේ පැතිකඩ සංස්කරණය%(linkEnd)s මගින් ඔබගේ දැනුම්දීම් සැකසුම් සංශෝධනය කළ හැකිය."
+msgid ""
+"You can edit your notification settings by %(linkStart)sediting your "
+"profile%(linkEnd)s."
+msgstr ""
+"%(linkStart)sඔබගේ පැතිකඩ සංස්කරණය%(linkEnd)s මගින් ඔබගේ දැනුම්දීම් සැකසුම් සංශෝධනය කළ "
+"හැකිය."
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
@@ -3391,8 +3803,12 @@ msgid "An unexpected error occurred."
 msgstr "අනපේක්‍ෂිත දෝෂයක් මතු විය."
 
 #: src/amo/utils/notifications.js:10
-msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr "එක්කහු සංවර්ධකයින්ට අදාළ පුවත් සහ සිදුවීම් සමඟ යාවත්කාලීනව සිටින්න (about:addons පුවත් පත්‍රිකාව ඇතුළුව)"
+msgid ""
+"stay up-to-date with news and events relevant to add-on developers "
+"(including the about:addons newsletter)"
+msgstr ""
+"එක්කහු සංවර්ධකයින්ට අදාළ පුවත් සහ සිදුවීම් සමඟ යාවත්කාලීනව සිටින්න (about:addons පුවත් පත්‍රිකාව "
+"ඇතුළුව)"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -3423,9 +3839,13 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr "මාගේ එක්කහුවේ අනුකූලතාව සාර්ථකව උත්ශ්‍රේණි කෙරිණි"
 
 #: src/amo/utils/promoted.js:40
-msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
+msgid ""
+"Official add-on built by Mozilla Firefox. Meets security and performance "
+"standards."
 msgstr "මොසිල්ලා ෆයර්ෆොක්ස් තනන ලද නිල එක්කහුවකි. ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලයි."
 
 #: src/amo/utils/promoted.js:50
-msgid "Firefox only recommends add-ons that meet our standards for security and performance."
+msgid ""
+"Firefox only recommends add-ons that meet our standards for security and "
+"performance."
 msgstr "අපගේ ආරක්‍ෂණ හා කාර්ය සාධන ප්‍රමිතීන් සපුරාලන එක්කහු පමණක් ෆයර්ෆොක්ස් නිර්දේශ කරයි."
