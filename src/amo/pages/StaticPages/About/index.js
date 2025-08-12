@@ -210,15 +210,13 @@ export class AboutBase extends React.Component<Props> {
                   i18n.gettext(
                     `To report a security vulnerability for an extension, even if it is not
                      hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s
-                      on Bugzilla or email %(startMailLink)samo-admins@mozilla.com%(endMailLink)s.
+                      on Bugzilla.
                       All security vulnerability reports are %(startLink)sconfidential%(endLink)s.`,
                   ),
                   {
                     startSecIssueLink:
                       '<a href="https://bugzilla.mozilla.org/enter_bug.cgi?product=addons.mozilla.org&component=Add-on%20Security&maketemplate=Add-on%20Security%20Bug&bit-23=1&rep_platform=All&op_sys=All" rel="nofollow">',
                     endSecIssueLink: '</a>',
-                    startMailLink: '<a href="mailto:amo-admins@mozilla.com">',
-                    endMailLink: '</a>',
                     startLink:
                       '<a href="https://www.mozilla.org/en-US/about/governance/policies/security-group/bugs/" rel="nofollow">',
                     endLink: '</a>',
