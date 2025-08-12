@@ -62,8 +62,8 @@ msgstr "סקירת קוד תוספת"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "משתמש אחד"
+msgstr[1] "%(count)s משתמשים"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
