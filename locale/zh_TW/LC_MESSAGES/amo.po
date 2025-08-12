@@ -62,7 +62,7 @@ msgstr "審核附加元件程式碼"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
+msgstr[0] "%(count)s 位使用者"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
@@ -2832,7 +2832,7 @@ msgstr "Mozilla 用來下載 Firefox 擴充套件與佈景主題的官方網站�
 msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security vulnerability "
 "reports are %(startLink)sconfidential%(endLink)s."
-msgstr ""
+msgstr "若要回報擴充套件的安全性問題（就算不是本網站提供的擴充套件），請到 Bugzilla %(startSecIssueLink)s開 issue 回報%(endSecIssueLink)s。所有回報的安全性漏洞都會%(startLink)s保持機密%(endLink)s。"
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
