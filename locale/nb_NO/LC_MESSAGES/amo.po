@@ -2891,7 +2891,7 @@ msgid ""
 "reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
 "For å rapportere et sikkerhetsproblem for en utvidelse, selv om den ikke finnes på dette nettstedet, kan du sende inn en %(startSecIssueLink)sfeilrapport%(endSecIssueLink)s på Bugzilla. Alle "
-"sikkerhetsproblemer er %(startLink)skonfidensielle%(endLink)s."
+"sikkerhetsproblem er %(startLink)skonfidensielle%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
