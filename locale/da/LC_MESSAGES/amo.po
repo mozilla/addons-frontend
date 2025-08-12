@@ -1420,6 +1420,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version. Android is a trademark of Google LLC."
 msgstr ""
+"Hvis intet andet er %(startNotedLink)sangivet%(endNotedLink)s, hører indholdet på dette websted under %(startLicenseLink)slicensen Creative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s eller en nyere version. Android er et varemærke tilhørende Google LLC."
 
 #: src/amo/components/Footer/index.js:306
 msgid ""
@@ -1451,7 +1453,7 @@ msgstr "Udviklercentral"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr ""
+msgstr "For at bruge disse tilføjelser, skal du %(downloadLinkStart)shente Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
@@ -1616,27 +1618,27 @@ msgstr "Side %(thisPage)s af %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:107
 msgid "Required permissions:"
-msgstr ""
+msgstr "Påkrævede tilladelser:"
 
 #: src/amo/components/PermissionsCard/index.js:117
 msgid "Optional permissions:"
-msgstr ""
+msgstr "Valgfrie tilladelser:"
 
 #: src/amo/components/PermissionsCard/index.js:137
 msgid "Optional data collection, according to the developer:"
-msgstr ""
+msgstr "Valgfri indsamling af data ifølge udvikleren:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "Indsamling af data:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr ""
+msgstr "Påkrævet indsamling af data ifølge udvikleren:"
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "Tilladelser og data"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -1732,23 +1734,23 @@ msgstr "Tilgå browser-aktivitet under navigering"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr ""
+msgstr "Godkendelses-oplysninger"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bogmærker"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "Browsing-aktivitet"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
-msgstr ""
+msgstr "Finansielle oplysninger og betalingsoplysninger"
 
 #: src/amo/components/PermissionsCard/permissions.js:72
 msgid "Health information"
-msgstr ""
+msgstr "Sundhedsoplysninger"
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
@@ -1756,31 +1758,31 @@ msgstr "Sted"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "Personlig kommunikation"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "Oplysninger, som kan bruges til at identificere dig"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "Søgetermer"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "Tekniske data og data om brug"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "Websteds-aktivitet"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "Websteds-indhold"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "Udvikleren meddeler, at denne udvidelse ikke kræver indsamling af data."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
