@@ -1830,7 +1830,7 @@ msgstr "Er du sikker på, at du vil slette din bedømmelse af %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Klik for at bedømme:"
 
 #: src/amo/components/RatingManager/index.js:239
 msgid "Saving star rating"
@@ -2559,7 +2559,7 @@ msgstr "Denne tilføjelse er blokeret, fordi den overtræder Mozillas politikker
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
-msgstr ""
+msgstr "Hvorfor skete dette?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2671,7 +2671,7 @@ msgstr "Send feedback om samlingen"
 
 #: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Rapportér samlingen, fordi den er ulovlig eller ikke i overensstemmelse med reglerne"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
