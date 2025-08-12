@@ -637,7 +637,7 @@ msgstr "Autentifică-te"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:146
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr "Această acțiune nu este disponibilă momentan. Reîncarcă pagina peste câteva secunde."
+msgstr "Această acțiune nu este disponibilă momentan. Te rugăm să reîncarci pagina peste câteva secunde."
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
@@ -858,7 +858,7 @@ msgstr "Autentificare expirată"
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Dacă ești autentificat(ă) și consideri că acest mesaj este o eroare, te rugăm să <a href=\"%(url)s\">raportezi o problemă</a>. Spune-ne de unde veneai și ce încercai să accesezi și vom soluționa "
+"Dacă ești autentificat(ă) și consideri că acest mesaj este o eroare, te rugăm să <a href=\"%(url)s\">raportezi o problemă</a>. Spune-ne de unde veneai și ce încercai să accesezi și vom rezolva "
 "problema."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:34
@@ -2623,8 +2623,9 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
-"Când Mozilla ia cunoștință de suplimente, pluginuri sau alte programe de la terți care pot compromite grav securitatea, stabilitatea sau performanța Firefox și întrunesc %(criteriaStartLink)sanumite"
-" criterii%(criteriaEndLink)s, software-ul poate fi blocat sau restricționat de la uz general. Pentru mai multe informații, citește %(supportStartLink)sacest articol de asistență%(supportEndLink)s."
+"Când Mozilla află de suplimente, pluginuri sau alte programe de la terți care pot compromite grav securitatea, stabilitatea sau performanța Firefox și întrunesc %(criteriaStartLink)sanumite "
+"criterii%(criteriaEndLink)s, software-ul poate fi blocat sau restricționat de la uz general. Pentru mai multe informații, te rugăm să citești (supportStartLink)sacest articol de "
+"asistență%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
@@ -2903,7 +2904,7 @@ msgstr "Spune-le prietenilor și familiei că Firefox este un browser rapid și 
 
 #: src/amo/pages/StaticPages/About/index.js:175
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Pentru mai multe modalități prin care poți contribui la comunitatea de suplimente, intră pe pagina noastră de %(startLink)swiki%(endLink)s."
+msgstr "Pentru mai multe modalități prin care poți contribui la comunitatea de suplimente, te rugăm să intri pe pagina noastră de %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Report an issue"
@@ -2926,6 +2927,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security vulnerability "
 "reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Pentru a raporta o vulnerabilitate de securitate pentru o extensie, chiar dacă nu este găzduită pe acest site, te rugăm să deschizi o %(startSecIssueLink)ssesizare%(endSecIssueLink)s pe Bugzilla. "
+"Toate sesizările de vulnerabilitate de securitate sunt %(startLink)sconfidențiale%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
@@ -2936,8 +2939,8 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Dacă vrei să afli mai multe despre gestionarea suplimentelor în Firefox sau dacă ai nevoie de asistență pentru Firefox în general, intră pe %(startSUMOLink)sAsistență%(endSUMOLink)s Mozilla. Dacă nu"
-" găsești răspunsul acolo, %(startForumLink)sîntreabă pe forumul comunității%(endForumLink)s."
+"Dacă vrei să afli mai multe despre gestionarea suplimentelor în Firefox sau dacă ai nevoie de asistență pentru Firefox în general, te rugăm să intri pe %(startSUMOLink)sAsistență%(endSUMOLink)s "
+"Mozilla. Dacă nu găsești răspunsul acolo, %(startForumLink)sîntreabă pe forumul comunității%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:256
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
@@ -2954,7 +2957,8 @@ msgstr ""
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 msgstr ""
-"Dacă ești în căutarea de suplimente pentru Thunderbird sau SeaMonkey, intră pe %(startTBLink)saddons.thunderbird.net%(endTBLink)s sau %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
+"Dacă ești în căutarea de suplimente pentru Thunderbird sau SeaMonkey, te rugăm să intri pe %(startTBLink)saddons.thunderbird.net%(endTBLink)s sau "
+"%(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
