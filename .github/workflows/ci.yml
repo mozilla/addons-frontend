@@ -14,7 +14,7 @@ jobs:
       is_fork: ${{ steps.context.outputs.is_fork }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - id: context
         uses: ./.github/actions/context
 
@@ -22,7 +22,7 @@ jobs:
     needs: context
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
