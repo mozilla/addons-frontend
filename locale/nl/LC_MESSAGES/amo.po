@@ -2891,6 +2891,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security vulnerability "
 "reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Meld een %(startSecIssueLink)sissue%(endSecIssueLink)s op Bugzilla om een beveiligingskwetsbaarheid voor een extensie te melden, zelfs als deze niet op deze website wordt gehost. Alle meldingen van "
+"beveiligingskwetsbaarheden zijn %(startLink)svertrouwelijk%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
