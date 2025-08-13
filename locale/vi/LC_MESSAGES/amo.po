@@ -62,7 +62,7 @@ msgstr "Xem lại đoạn mã tiện ích"
 #: src/amo/components/AddonBadges/index.js:149
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
+msgstr[0] "%(count)s người dùng"
 
 #: src/amo/components/AddonBadges/index.js:156
 msgid "No Users"
@@ -2861,6 +2861,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security vulnerability "
 "reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Để báo cáo lỗ hổng bảo mật cho tiện ích mở rộng, ngay cả khi nó không được lưu trữ trên trang web này, vui lòng gửi %(startSecIssueLink)sbáo cáo lỗi%(endSecIssueLink)s trên Bugzilla. Tất cả các báo "
+"cáo về lỗ hổng bảo mật nên được giữ %(startLink)sbí mật%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
