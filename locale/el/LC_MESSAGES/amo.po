@@ -2901,6 +2901,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security vulnerability "
 "reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Για να αναφέρετε ένα κενό ασφαλείας για κάποια επέκταση, ακόμα κι αν φιλοξενείται σε αυτόν τον ιστότοπο, υποβάλετε ένα %(startSecIssueLink)sζήτημα%(endSecIssueLink)s στο Bugzilla. Όλες οι αναφορές "
+"κενών ασφαλείας είναι %(startLink)sεμπιστευτικές%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
