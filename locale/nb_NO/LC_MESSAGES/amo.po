@@ -188,7 +188,7 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:303
 msgid "Read the privacy policy for this add-on"
-msgstr "Les personvernerklæringen for denne utvidelsen"
+msgstr "Les personvernpraksisen for denne utvidelsen"
 
 #: src/amo/components/AddonMoreInfo/index.js:315
 msgid "Read the license agreement for this add-on"
@@ -224,7 +224,7 @@ msgstr "Lisens"
 
 #: src/amo/components/AddonMoreInfo/index.js:432
 msgid "Privacy Policy"
-msgstr "Personvernerklæring"
+msgstr "Personvernpraksis"
 
 #: src/amo/components/AddonMoreInfo/index.js:440
 msgid "End-User License Agreement"
@@ -2473,7 +2473,7 @@ msgstr "Sluttbrukerlisensavtale for %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
-msgstr "Personvernerklæring for %(addonName)s"
+msgstr "Personvernpraksis for %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:199
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
