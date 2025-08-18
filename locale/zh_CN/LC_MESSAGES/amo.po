@@ -2832,7 +2832,7 @@ msgstr "Mozilla 用来下载 Firefox 扩展与主题的官方网站。可添加�
 msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security vulnerability "
 "reports are %(startLink)sconfidential%(endLink)s."
-msgstr ""
+msgstr "若要报告扩展的安全漏洞（即使其并非在此网站上托管），请到 Bugzilla %(startSecIssueLink)s提交问题%(endSecIssueLink)s。所有的安全漏洞报告均会%(startLink)s保持机密%(endLink)s。"
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
