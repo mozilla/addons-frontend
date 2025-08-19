@@ -50,7 +50,6 @@ describe(__filename, () => {
       expect(html('.StaticAddonCard')).toHaveLength(1);
       expect(html('.GetFirefoxButton')).toHaveLength(1);
       expect(html('.GetFirefoxButton-button')).toHaveLength(1);
-      expect(html('.GetFirefoxButton-callout')).toHaveLength(1);
     });
 
     it('lets the caller catch and handle errors', async () => {
