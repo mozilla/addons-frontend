@@ -147,6 +147,9 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
           {addon && (
             <Helmet>
               <title>{header}</title>
+              {!!addon.is_noindexed && (
+                <meta name="robots" content="noindex, follow" />
+              )}
             </Helmet>
           )}
 

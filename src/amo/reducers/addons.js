@@ -230,6 +230,7 @@ export function createInternalAddon(
     is_disabled: apiAddon.is_disabled,
     is_experimental: apiAddon.is_experimental,
     is_source_public: apiAddon.is_source_public,
+    is_noindexed: apiAddon.is_noindexed,
     last_updated: apiAddon.last_updated,
     latest_unlisted_version: apiAddon.latest_unlisted_version,
     locale_disambiguation: apiAddon.locale_disambiguation,

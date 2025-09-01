@@ -577,6 +577,49 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
+  it('does not render a robots meta tag when add-on should be indexed', async () => {
+    const name = 'some name';
+    const addon = {
+      ...fakeAddon,
+      name: {
+        'en-US': name,
+      },
+      slug: defaultSlug,
+      is_noindexed: false,
+    };
+    _loadAddon(addon);
+    _loadVersions({ versions: [] });
+    render();
+
+    // This check is needed to make sure the page is fully loaded, otherwise
+    // the assertion on the meta tag might pass even if the meta is rendered
+    // eventually.
+    const expectedHeader = `${name} version history - 0 version`;
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(expectedHeader),
+    );
+    await waitFor(() =>
+      expect(getElement('meta[name="robots"]')).toBeUndefined(),
+    );
+  });
+
+  it('renders a robots meta tag when add-on is noindexed', async () => {
+    const addon = {
+      ...fakeAddon,
+      slug: defaultSlug,
+      is_noindexed: true,
+    };
+    _loadAddon(addon);
+    render();
+
+    await waitFor(() =>
+      expect(getElement('meta[name="robots"]')).toHaveAttribute(
+        'content',
+        'noindex, follow',
+      ),
+    );
+  });
+
   describe('extractId', () => {
     it('returns a unique ID provided by the slug prop and page query param', () => {
       const page = 19;

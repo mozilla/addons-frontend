@@ -694,12 +694,25 @@ describe(__filename, () => {
       );
     });
 
-    it('does not render a robots meta tag', async () => {
+    it('does not render a robots meta tag when the add-on should be indexed', async () => {
+      addon.is_noindexed = false;
       renderWithAddonAndReviews();
 
       await waitFor(() => expect(getElement('title')).toBeInTheDocument());
 
-      expect(getElements('meta[name="robots"]')).toHaveLength(0);
+      expect(getElement('meta[name="robots"]')).toBeUndefined();
+    });
+
+    it('renders a robots meta tag when add-on is noindexed', async () => {
+      addon.is_noindexed = true;
+      renderWithAddonAndReviews();
+
+      await waitFor(() =>
+        expect(getElement('meta[name="robots"]')).toHaveAttribute(
+          'content',
+          'noindex, follow',
+        ),
+      );
     });
 
     it('renders a canonical link for the list page with alternates', async () => {

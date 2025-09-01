@@ -318,6 +318,8 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         />
       ) : null;
 
+    const shouldNoIndex = !!addon?.is_noindexed || !!reviewId;
+
     return (
       <Page errorHandler={errorHandler}>
         <div
@@ -330,7 +332,9 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
             <Helmet>
               <title>{header}</title>
               <meta name="description" content={this.getPageDescription()} />
-              {reviewId && <meta name="robots" content="noindex, follow" />}
+              {shouldNoIndex && (
+                <meta name="robots" content="noindex, follow" />
+              )}
             </Helmet>
           )}
           {addon && !reviewId && <HeadLinks />}
