@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-12 10:51+0000\n"
+"POT-Creation-Date: 2025-09-02 13:01+0000\n"
 "Language: ga_IE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2132,7 +2132,7 @@ msgid "There are no one-star reviews"
 msgstr "Scríobh léirmheas"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:375
+#: src/amo/pages/AddonReviewList/index.js:379
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Scríobh léirmheas"
@@ -2979,26 +2979,26 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: src/amo/pages/AddonVersions/index.js:166
+#: src/amo/pages/AddonVersions/index.js:169
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:172
+#: src/amo/pages/AddonVersions/index.js:175
 msgid "You should always use the latest version of an add-on."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:186
+#: src/amo/pages/AddonVersions/index.js:189
 msgid "Versions"
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:198
+#: src/amo/pages/AddonVersions/index.js:201
 #, fuzzy
 msgid "Latest version"
 msgstr "Leagan"
 
-#: src/amo/pages/AddonVersions/index.js:208
+#: src/amo/pages/AddonVersions/index.js:211
 #, fuzzy
 msgid "Older versions"
 msgstr "Brabhsáil na heisínteachtaí go léir"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-12 10:51+0000\n"
+"POT-Creation-Date: 2025-09-02 13:01+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -2088,7 +2088,7 @@ msgid "There are no one-star reviews"
 msgstr "Write a review"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:375
+#: src/amo/pages/AddonReviewList/index.js:379
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Write a review"
@@ -2845,26 +2845,26 @@ msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/pages/AddonVersions/index.js:166
+#: src/amo/pages/AddonVersions/index.js:169
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:172
+#: src/amo/pages/AddonVersions/index.js:175
 msgid "You should always use the latest version of an add-on."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:186
+#: src/amo/pages/AddonVersions/index.js:189
 msgid "Versions"
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:198
+#: src/amo/pages/AddonVersions/index.js:201
 #, fuzzy
 msgid "Latest version"
 msgstr "Extension Metadata"
 
-#: src/amo/pages/AddonVersions/index.js:208
+#: src/amo/pages/AddonVersions/index.js:211
 #, fuzzy
 msgid "Older versions"
 msgstr "Browse all extensions"
