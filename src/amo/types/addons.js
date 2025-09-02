@@ -128,6 +128,7 @@ export type ExternalAddonType = {|
   is_disabled?: boolean,
   is_experimental?: boolean,
   is_source_public?: boolean,
+  is_noindexed?: boolean,
   last_updated: Date | null,
   latest_unlisted_version?: ?ExternalAddonVersionType,
   locale_disambiguation?: string,

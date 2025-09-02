@@ -171,6 +171,7 @@ export const fakeAddon = Object.freeze({
   is_disabled: false,
   is_experimental: false,
   is_source_public: true,
+  is_noindexed: false,
   last_updated: '2018-11-22T10:09:01Z',
   name: createLocalizedString('Chill Out'),
   previews: [fakePreview],

@@ -1744,6 +1744,19 @@ describe(__filename, () => {
         'content',
         String(addon.created),
       );
+      expect(getElement('meta[name="robots"]')).toBeUndefined();
+    });
+
+    it('renders a robots meta tag when add-on is noindexed', async () => {
+      addon.is_noindexed = true;
+      renderWithAddon();
+
+      await waitFor(() =>
+        expect(getElement('meta[name="robots"]')).toHaveAttribute(
+          'content',
+          'noindex, follow',
+        ),
+      );
     });
 
     it.each([
