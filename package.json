@@ -3,7 +3,7 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": ">=18.18"
+    "node": ">=20"
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
