@@ -8366,10 +8366,10 @@ pino-syslog@3.1.0:
     split2 "^4.1.0"
     through2 "^4.0.2"
 
-pino@9.9.2:
-  version "9.9.2"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-9.9.2.tgz#6a8ebe9b6a243f02169b9beae8ae0fb9d3af84e5"
-  integrity sha512-nepuunEhXfRllKa5w9PsNLjWayPsfO3jc6odPuoRaaJ/rb/YEvqhazOBZFzK0gmaHIFCMggvDSqnIcH8dfcGTA==
+pino@9.9.4:
+  version "9.9.4"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-9.9.4.tgz#21ed2c27cc177f797e3249c99d340f0bcd6b248e"
+  integrity sha512-d1XorUQ7sSKqVcYdXuEYs2h1LKxejSorMEJ76XoZ0pPDf8VzJMe7GlPXpMBZeQ9gE4ZPIp5uGD+5Nw7scxiigg==
   dependencies:
     atomic-sleep "^1.0.0"
     fast-redact "^3.1.1"
