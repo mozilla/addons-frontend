@@ -26,6 +26,7 @@ export const paramsToFilter = {
   author: 'author',
   category: 'category',
   color: 'color',
+  ...generateThresholdParams('created'),
   exclude_addons: 'exclude_addons',
   guid: 'guid',
   page: 'page',
@@ -37,6 +38,7 @@ export const paramsToFilter = {
   sort: 'sort',
   tag: 'tag',
   type: 'addonType',
+  ...generateThresholdParams('updated'),
   ...generateThresholdParams('users'),
 };
 
