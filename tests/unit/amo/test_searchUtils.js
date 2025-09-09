@@ -261,7 +261,9 @@ describe(__filename, () => {
 
   describe('paramsToFilter', () => {
     it('generates all the required threshold parameters for ratings and users', () => {
+      expect(paramsToFilter).toMatchObject({ created__gte: 'created__gte' });
       expect(paramsToFilter).toMatchObject({ ratings__gt: 'ratings__gt' });
+      expect(paramsToFilter).toMatchObject({ updated__lt: 'updated__lt' });
       expect(paramsToFilter).toMatchObject({ users__lte: 'users__lte' });
       expect(paramsToFilter).toMatchObject({ users: 'users' });
     });
