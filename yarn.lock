@@ -7647,7 +7647,7 @@ node-int64@^0.4.0:
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
   integrity sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==
 
-node-mocks-http@1.17.2:
+node-mocks-http@^1.17.2:
   version "1.17.2"
   resolved "https://registry.yarnpkg.com/node-mocks-http/-/node-mocks-http-1.17.2.tgz#e947d9b94defb13e3775414a8200c848f6b2fc74"
   integrity sha512-HVxSnjNzE9NzoWMx9T9z4MLqwMpLwVvA0oVZ+L+gXskYXEJ6tFn3Kx4LargoB6ie7ZlCLplv7QbWO6N+MysWGA==
