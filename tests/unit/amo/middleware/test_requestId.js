@@ -1,16 +1,15 @@
 /**
  * @jest-environment node
  */
-import MockExpressRequest from 'mock-express-request';
-import MockExpressResponse from 'mock-express-response';
+import httpMocks from 'node-mocks-http';
 
 import { AMO_REQUEST_ID_HEADER } from 'amo/constants';
 import requestId from 'amo/middleware/requestId';
 
 describe(__filename, () => {
   function _requestId({
-    req = new MockExpressRequest(),
-    res = new MockExpressResponse(),
+    req = httpMocks.createRequest(),
+    res = httpMocks.createResponse(),
     next = sinon.stub(),
     _httpContext = {
       set: sinon.stub(),
@@ -20,7 +19,7 @@ describe(__filename, () => {
   }
 
   it('adds a generated request ID to the HTTP context and response', () => {
-    const res = new MockExpressResponse();
+    const res = httpMocks.createResponse();
     const next = sinon.stub();
     const _httpContext = {
       set: sinon.stub(),
@@ -38,8 +37,8 @@ describe(__filename, () => {
   });
 
   it('uses the request ID from the request when available', () => {
-    const req = new MockExpressRequest();
-    const res = new MockExpressResponse();
+    const req = httpMocks.createRequest();
+    const res = httpMocks.createResponse();
     const _httpContext = {
       set: sinon.stub(),
     };
@@ -54,7 +53,7 @@ describe(__filename, () => {
   });
 
   it('ensures the request has AMO_REQUEST_ID_HEADER', () => {
-    const req = new MockExpressRequest();
+    const req = httpMocks.createRequest();
     expect(req.get(AMO_REQUEST_ID_HEADER)).not.toBeDefined();
 
     _requestId({ req });

@@ -1,5 +1,4 @@
-import MockExpressRequest from 'mock-express-request';
-import MockExpressResponse from 'mock-express-response';
+import httpMocks from 'node-mocks-http';
 
 import { frameguard } from 'amo/middleware';
 
@@ -17,8 +16,8 @@ describe(__filename, () => {
     const conf = require('config');
     const middleware = frameguard({ _config: conf });
     const nextSpy = sinon.stub();
-    const req = new MockExpressRequest();
-    const res = new MockExpressResponse();
+    const req = httpMocks.createRequest();
+    const res = httpMocks.createResponse();
     middleware(req, res, nextSpy);
     expect(res.get('x-frame-options')).toEqual('DENY');
     sinon.assert.calledOnce(nextSpy);

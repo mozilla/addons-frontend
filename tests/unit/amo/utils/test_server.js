@@ -1,7 +1,8 @@
 import path from 'path';
+import EventEmitter from 'events';
 
 import fs from 'fs-extra';
-import MockExpressResponse from 'mock-express-response';
+import httpMocks from 'node-mocks-http';
 
 import {
   viewFrontendVersionHandler,
@@ -19,16 +20,16 @@ describe(__filename, () => {
       const _config = getFakeConfig({ basePath });
       const handler = viewFrontendVersionHandler({ _config });
 
-      const res = new MockExpressResponse();
+      const res = httpMocks.createResponse({
+        eventEmitter: EventEmitter,
+      });
       handler(null, res);
 
-      res.on('finish', () => {
+      res.on('end', () => {
         expect(res.statusCode).toEqual(200);
-        expect(res.get('content-type')).toEqual(
-          'application/json; charset=utf-8',
-        );
+        expect(res.get('content-type')).toEqual('application/json');
         expect(res.get('access-control-allow-origin')).toEqual('*');
-        expect(res._getJSON()).toMatchObject(versionJson);
+        expect(res._getJSONData()).toMatchObject(versionJson);
 
         done();
       });
@@ -50,11 +51,13 @@ describe(__filename, () => {
       );
       const handler = viewFrontendVersionHandler({ _config });
 
-      const res = new MockExpressResponse();
+      const res = httpMocks.createResponse({
+        eventEmitter: EventEmitter,
+      });
       handler(null, res);
 
-      res.on('finish', () => {
-        expect(res._getJSON()).toMatchObject({
+      res.on('end', () => {
+        expect(res._getJSONData()).toMatchObject({
           ...versionJson,
           experiments,
           feature_flags: {
@@ -73,10 +76,12 @@ describe(__filename, () => {
 
       const handler = viewFrontendVersionHandler({ _config, _log });
 
-      const res = new MockExpressResponse();
+      const res = httpMocks.createResponse({
+        eventEmitter: EventEmitter,
+      });
       handler(null, res);
 
-      res.on('finish', () => {
+      res.on('end', () => {
         expect(res.statusCode).toEqual(415);
         sinon.assert.calledOnce(_log.error);
 
@@ -94,7 +99,7 @@ describe(__filename, () => {
       const _fetch = jest.fn().mockResolvedValue({ status: 200 });
       const handler = viewHeartbeatHandler({ _config, _fetch });
 
-      const res = new MockExpressResponse();
+      const res = httpMocks.createResponse();
       await handler(null, res);
 
       expect(_fetch).toHaveBeenCalledWith(
@@ -107,7 +112,7 @@ describe(__filename, () => {
       const _fetch = jest.fn().mockResolvedValue({ status: 400 });
       const handler = viewHeartbeatHandler({ _fetch });
 
-      const res = new MockExpressResponse();
+      const res = httpMocks.createResponse();
       await handler(null, res);
 
       expect(res.statusCode).toEqual(500);
@@ -117,7 +122,7 @@ describe(__filename, () => {
       const _fetch = jest.fn().mockRejectedValue();
       const handler = viewHeartbeatHandler({ _fetch });
 
-      const res = new MockExpressResponse();
+      const res = httpMocks.createResponse();
       await handler(null, res);
 
       expect(res.statusCode).toEqual(500);

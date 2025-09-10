@@ -1,5 +1,4 @@
-import MockExpressRequest from 'mock-express-request';
-import MockExpressResponse from 'mock-express-response';
+import httpMocks from 'node-mocks-http';
 
 import { hsts } from 'amo/middleware';
 
@@ -7,8 +6,8 @@ describe(__filename, () => {
   it('provides the expected HSTS headers', () => {
     const middleware = hsts();
     const nextSpy = sinon.stub();
-    const req = new MockExpressRequest();
-    const res = new MockExpressResponse();
+    const req = httpMocks.createRequest();
+    const res = httpMocks.createResponse();
 
     middleware(req, res, nextSpy);
 
