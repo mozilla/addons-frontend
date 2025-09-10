@@ -11102,12 +11102,12 @@ universal-base64url@1.1.0:
   dependencies:
     universal-base64 "^2.1.0"
 
-universal-cookie-express@4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-4.0.3.tgz#07e871d5a6e2c157690aa5c77654d82d5a34f509"
-  integrity sha512-hDZW9UsRpFMdbtC0JjgTMfwEp42gGWLD5Q9qkS72cogLAqX6SyWK9klWAZWsNSNkInZZrPlRQhQie79qFugZSQ==
+universal-cookie-express@8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-8.0.1.tgz#c45a4d5917a6a188ae252cc3f8c91cf7ef8f5a74"
+  integrity sha512-h9Kgv9pOm1jXbBKLX7HIERvzLKcIazOhVAf9OdWVItFNtGBqH5pC8zHuM84naKgJcg+Cc8J69q2H07OWVai/Xw==
   dependencies:
-    universal-cookie "^4.0.0"
+    universal-cookie "^8.0.0"
 
 universal-cookie@^4.0.0:
   version "4.0.4"
@@ -11116,6 +11116,13 @@ universal-cookie@^4.0.0:
   dependencies:
     "@types/cookie" "^0.3.3"
     cookie "^0.4.0"
+
+universal-cookie@^8.0.0:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-8.0.1.tgz#19263fcda6889978a081c610a90fc395eeaeec64"
+  integrity sha512-B6ks9FLLnP1UbPPcveOidfvB9pHjP+wekP2uRYB9YDfKVpvcjKgy1W5Zj+cEXJ9KTPnqOKGfVDQBmn8/YCQfRg==
+  dependencies:
+    cookie "^1.0.2"
 
 universalify@^0.2.0:
   version "0.2.0"
