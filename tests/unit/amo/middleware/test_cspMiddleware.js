@@ -128,7 +128,7 @@ describe(__filename, () => {
       const cspHeader = res.get('content-security-policy');
       const policy = parse(cspHeader);
       const host = 'https://addons.mozilla.org';
-      expect(policy['style-src']).toEqual([`${host}/static-frontend/`]);
+      expect(policy.get('style-src')).toEqual([`${host}/static-frontend/`]);
       sinon.assert.calledOnce(nextSpy);
     });
 
