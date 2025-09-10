@@ -517,15 +517,15 @@ msgstr "Още по-невероятни мениджъри на изтегля�
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
-msgstr ""
+msgstr "Още страхотни разширения за раздели и отметки"
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
-msgstr ""
+msgstr "Още чудесни разширения за игри и забавления"
 
 #: src/amo/components/AddonSuggestions/index.js:95
 msgid "More amazing image, photo & media extensions"
-msgstr ""
+msgstr "Още невероятни разширения за изображения, снимки и медия"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -845,9 +845,10 @@ msgid "Error code: %(status)s."
 msgstr "Код на грешката: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
-#, fuzzy
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Съжаляваме, но нямате права за достъп до тази страница. Ако не сте вписани се впишете от препратката горе на страницата."
+msgstr ""
+"Удостоверяването при влизане е изтекло. %(startLink)sПрезаредете страницата%(endLink)s, за да продължите без удостоверяване, или влезте отново, като използвате връзката \"Вход\" в горната част на "
+"страницата."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
