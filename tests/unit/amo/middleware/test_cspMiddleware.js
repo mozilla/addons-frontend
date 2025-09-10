@@ -1,5 +1,4 @@
-import MockExpressRequest from 'mock-express-request';
-import MockExpressResponse from 'mock-express-response';
+import httpMocks from 'node-mocks-http';
 import parse from 'content-security-policy-parser';
 
 import { csp } from 'amo/middleware';
@@ -122,8 +121,8 @@ describe(__filename, () => {
       const config = require('config');
       const middleware = csp({ _config: config });
       const nextSpy = sinon.stub();
-      const req = new MockExpressRequest();
-      const res = new MockExpressResponse();
+      const req = httpMocks.createRequest();
+      const res = httpMocks.createResponse();
       middleware(req, res, nextSpy);
       const cspHeader = res.get('content-security-policy');
       const policy = parse(cspHeader);
@@ -140,8 +139,8 @@ describe(__filename, () => {
       const middleware = csp({ _config: getFakeConfig({ CSP: false }), _log });
 
       const nextSpy = sinon.stub();
-      const req = new MockExpressRequest();
-      const res = new MockExpressResponse();
+      const req = httpMocks.createRequest();
+      const res = httpMocks.createResponse();
 
       middleware(req, res, nextSpy);
 
@@ -157,8 +156,8 @@ describe(__filename, () => {
       const middleware = csp({ _config: getFakeConfig({ CSP: false }), _log });
 
       const nextSpy = sinon.stub();
-      const req = new MockExpressRequest();
-      const res = new MockExpressResponse();
+      const req = httpMocks.createRequest();
+      const res = httpMocks.createResponse();
 
       middleware(req, res, nextSpy);
 
