@@ -120,11 +120,19 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     const addonRatingCount: number = addon.ratings.count;
     const averageRating: number = addon.ratings.average;
-    const roundedAverage = roundToOneDigit(averageRating || null);
 
-    const reviewCount = i18n.formatNumber(addonRatingCount);
     const reviewsLink = reviewListURL({ addonSlug: addon.slug, location });
-    const reviewsLabel = `${roundedAverage} (${reviewCount || 0} reviews)`;
+    const reviewsLabel = i18n.sprintf(
+      i18n.ngettext(
+        '%(average)s (%(count)s review)',
+        '%(average)s (%(count)s reviews)',
+        addonRatingCount,
+      ),
+      {
+        average: roundToOneDigit(averageRating || null),
+        count: i18n.formatNumber(addonRatingCount),
+      },
+    );
 
     return (
       <Badge
