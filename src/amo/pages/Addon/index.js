@@ -377,39 +377,6 @@ export class AddonBase extends React.Component {
     /* eslint-enable react/no-danger */
   }
 
-  renderAddonsByAuthorsCard({ isForTheme }) {
-    const { addon } = this.props;
-    const isThemeType = addon && ADDON_TYPE_STATIC_THEME === addon.type;
-    if (
-      !addon ||
-      !addon.authors.length ||
-      (isForTheme && !isThemeType) ||
-      (!isForTheme && isThemeType)
-    ) {
-      return null;
-    }
-
-    /* Adding wrapping divs here seems to address what we think is a
-      reconcillation issue —— which causes the classname to not always get added
-      correctly (e.g.: when the page is refreshed and the addon has
-      a description).
-      See https://github.com/mozilla/addons-frontend/issues/4744
-    */
-
-    return (
-      <div>
-        <AddonsByAuthorsCard
-          addonType={addon.type}
-          authorDisplayName={addon.authors[0].name}
-          authorIds={addon.authors.map((author) => author.id)}
-          className="Addon-MoreAddonsCard"
-          forAddonSlug={addon.slug}
-          numberOfAddons={ADDONS_BY_AUTHORS_COUNT}
-        />
-      </div>
-    );
-  }
-
   renderCategorySuggestions(requiredVariant) {
     const { addon, clientApp, variant } = this.props;
 
@@ -536,7 +503,6 @@ export class AddonBase extends React.Component {
 
           <div className="Addon-details">
             <div className="Addon-main-content">
-              {this.renderAddonsByAuthorsCard({ isForTheme: true })}
 
               {addonPreviews.length > 0 && !isThemeType ? (
                 <Card
@@ -562,8 +528,6 @@ export class AddonBase extends React.Component {
             {this.renderVersionReleaseNotes()}
 
             {this.renderRecommendations()}
-
-            {this.renderAddonsByAuthorsCard({ isForTheme: false })}
           </div>
         </div>
       </Page>
