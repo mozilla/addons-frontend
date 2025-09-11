@@ -128,12 +128,12 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
       i18n.ngettext(
         '%(average)s (%(count)s review)',
         '%(average)s (%(count)s reviews)',
-        reviewCount || 0
+        reviewCount || 0,
       ),
       {
         average: roundedAverage,
-        count: reviewCount
-      }
+        count: reviewCount,
+      },
     );
 
     return (
