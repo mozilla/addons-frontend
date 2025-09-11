@@ -13,7 +13,6 @@ import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonTitle from 'amo/components/AddonTitle';
-import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import ContributeCard from 'amo/components/ContributeCard';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
@@ -503,7 +502,6 @@ export class AddonBase extends React.Component {
 
           <div className="Addon-details">
             <div className="Addon-main-content">
-
               {addonPreviews.length > 0 && !isThemeType ? (
                 <Card
                   className="Addon-screenshots"
