@@ -124,8 +124,6 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     const reviewCount = i18n.formatNumber(addonRatingCount || 0);
     const reviewsLink = reviewListURL({ addonSlug: addon.slug, location });
-    const reviewsLabel = `${roundedAverage} (${reviewCount || 0} reviews)`;
-
     const reviewsLabel = i18n.sprintf(
       i18n.ngettext(
         '%(average)s (%(count)s review)',
