@@ -8216,10 +8216,10 @@ pino-syslog@3.1.0:
     split2 "^4.1.0"
     through2 "^4.0.2"
 
-pino@9.9.4:
-  version "9.9.4"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-9.9.4.tgz#21ed2c27cc177f797e3249c99d340f0bcd6b248e"
-  integrity sha512-d1XorUQ7sSKqVcYdXuEYs2h1LKxejSorMEJ76XoZ0pPDf8VzJMe7GlPXpMBZeQ9gE4ZPIp5uGD+5Nw7scxiigg==
+pino@9.9.5:
+  version "9.9.5"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-9.9.5.tgz#f06a5a0b4c715e34606290070dbb938c27eddd8b"
+  integrity sha512-d1s98p8/4TfYhsJ09r/Azt30aYELRi6NNnZtEbqFw6BoGsdPVf5lKNK3kUwH8BmJJfpTLNuicjUQjaMbd93dVg==
   dependencies:
     atomic-sleep "^1.0.0"
     fast-redact "^3.1.1"
