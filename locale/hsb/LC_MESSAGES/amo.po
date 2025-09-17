@@ -2384,7 +2384,7 @@ msgstr "Wšě drasty přepytować"
 msgid "Add-ons Home Page"
 msgstr "Startowa strona přidatkow"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:184
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:183
 msgid "Preview of %(title)s"
 msgstr "Přehlad %(title)s"
 
@@ -2460,11 +2460,11 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:211
+#: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Tutón přidatk njeda so pohódnoćić, dokelž žane wersije njejsu so wozjewili."
 
-#: src/amo/pages/Addon/index.js:222
+#: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s pohódnoćenje čitać"
@@ -2472,12 +2472,12 @@ msgstr[1] "%(count)s pohódnoćeni čitać"
 msgstr[2] "%(count)s pohódnoćenja čitać"
 msgstr[3] "%(count)s pohódnoćenjow čitać"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
 msgstr "Hišće žane pohódnoćenja"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:253
+#: src/amo/pages/Addon/index.js:252
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Z %(ratingAverage)s wot %(ratingCount)s pohódnoćaceho pohódnoćeny"
@@ -2485,43 +2485,43 @@ msgstr[1] "Z %(ratingAverage)s wot %(ratingCount)s pohódnoćaceju pohódnoćeny
 msgstr[2] "Z %(ratingAverage)s wot %(ratingCount)s pohódnoćacych pohódnoćeny"
 msgstr[3] "Z %(ratingAverage)s wot %(ratingCount)s pohódnoćacych pohódnoćeny"
 
-#: src/amo/pages/Addon/index.js:290
+#: src/amo/pages/Addon/index.js:289
 msgid "About this dictionary"
 msgstr "Wo tutym słowniku"
 
-#: src/amo/pages/Addon/index.js:293
+#: src/amo/pages/Addon/index.js:292
 msgid "About this extension"
 msgstr "Wo tutym rozšěrjenju"
 
-#: src/amo/pages/Addon/index.js:296
+#: src/amo/pages/Addon/index.js:295
 msgid "About this language pack"
 msgstr "Wo tutym rěčnym pakćiku"
 
-#: src/amo/pages/Addon/index.js:299
+#: src/amo/pages/Addon/index.js:298
 msgid "About this theme"
 msgstr "Wo tutej drasće"
 
-#: src/amo/pages/Addon/index.js:302
+#: src/amo/pages/Addon/index.js:301
 msgid "About this add-on"
 msgstr "Wo tutym přidatku"
 
-#: src/amo/pages/Addon/index.js:334
+#: src/amo/pages/Addon/index.js:333
 msgid "Developer comments"
 msgstr "Wuwiwarske komentary"
 
-#: src/amo/pages/Addon/index.js:359
+#: src/amo/pages/Addon/index.js:358
 msgid "Release notes for %(addonVersion)s"
 msgstr "Wersijowe informacije za %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:501
+#: src/amo/pages/Addon/index.js:467
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "To zjawny lisćinowy zapisk njeje. Widźiće jón jenož, dokelž maće rozšěrjene prawa."
 
-#: src/amo/pages/Addon/index.js:529
+#: src/amo/pages/Addon/index.js:495
 msgid "Extension Metadata"
 msgstr "Metadaty rozšěrjenja"
 
-#: src/amo/pages/Addon/index.js:544
+#: src/amo/pages/Addon/index.js:508
 msgid "Screenshots"
 msgstr "Fota wobrazowki"
 

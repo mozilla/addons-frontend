@@ -2326,7 +2326,7 @@ msgstr "Door alle thema’s bladeren"
 msgid "Add-ons Home Page"
 msgstr "Add-ons-startpagina"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:184
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:183
 msgid "Preview of %(title)s"
 msgstr "Voorbeeld van %(title)s"
 
@@ -2400,64 +2400,64 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:211
+#: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Deze add-on kan niet worden gewaardeerd, omdat er geen gepubliceerde versies zijn."
 
-#: src/amo/pages/Addon/index.js:222
+#: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s beoordeling lezen"
 msgstr[1] "Alle %(count)s beoordelingen lezen"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
 msgstr "Nog geen beoordelingen"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:253
+#: src/amo/pages/Addon/index.js:252
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Met %(ratingAverage)s gewaardeerd door 1 beoordelaar"
 msgstr[1] "Met %(ratingAverage)s gewaardeerd door %(ratingCount)s beoordelaars"
 
-#: src/amo/pages/Addon/index.js:290
+#: src/amo/pages/Addon/index.js:289
 msgid "About this dictionary"
 msgstr "Over dit woordenboek"
 
-#: src/amo/pages/Addon/index.js:293
+#: src/amo/pages/Addon/index.js:292
 msgid "About this extension"
 msgstr "Over deze extensie"
 
-#: src/amo/pages/Addon/index.js:296
+#: src/amo/pages/Addon/index.js:295
 msgid "About this language pack"
 msgstr "Over dit taalpakket"
 
-#: src/amo/pages/Addon/index.js:299
+#: src/amo/pages/Addon/index.js:298
 msgid "About this theme"
 msgstr "Over dit thema"
 
-#: src/amo/pages/Addon/index.js:302
+#: src/amo/pages/Addon/index.js:301
 msgid "About this add-on"
 msgstr "Over deze add-on"
 
-#: src/amo/pages/Addon/index.js:334
+#: src/amo/pages/Addon/index.js:333
 msgid "Developer comments"
 msgstr "Ontwikkelaarsopmerkingen"
 
-#: src/amo/pages/Addon/index.js:359
+#: src/amo/pages/Addon/index.js:358
 msgid "Release notes for %(addonVersion)s"
 msgstr "Uitgaveopmerkingen voor %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:501
+#: src/amo/pages/Addon/index.js:467
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Dit is geen openbare vermelding. U ziet deze alleen omdat u meer toegangsrechten hebt."
 
-#: src/amo/pages/Addon/index.js:529
+#: src/amo/pages/Addon/index.js:495
 msgid "Extension Metadata"
 msgstr "Metagegevens van extensie"
 
-#: src/amo/pages/Addon/index.js:544
+#: src/amo/pages/Addon/index.js:508
 msgid "Screenshots"
 msgstr "Schermafbeeldingen"
 

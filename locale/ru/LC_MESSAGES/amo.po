@@ -2358,7 +2358,7 @@ msgstr "Просмотреть все темы"
 msgid "Add-ons Home Page"
 msgstr "Домашняя страница дополнений"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:184
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:183
 msgid "Preview of %(title)s"
 msgstr "Предпросмотр %(title)s"
 
@@ -2433,66 +2433,66 @@ msgstr "%(localizedSize)s ГБ"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s ТБ"
 
-#: src/amo/pages/Addon/index.js:211
+#: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Это дополнение нельзя оценить, так как оно не имеет опубликованных версий."
 
-#: src/amo/pages/Addon/index.js:222
+#: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Прочитать %(count)s отзыв"
 msgstr[1] "Прочитать %(count)s отзыва"
 msgstr[2] "Прочитать %(count)s отзывов"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
 msgstr "Пока отзывов нет"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:253
+#: src/amo/pages/Addon/index.js:252
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Оценено 1 рецензентом на %(ratingAverage)s"
 msgstr[1] "Оценено %(ratingCount)s рецензентами на %(ratingAverage)s"
 msgstr[2] "Оценено %(ratingCount)s рецензентами на %(ratingAverage)s"
 
-#: src/amo/pages/Addon/index.js:290
+#: src/amo/pages/Addon/index.js:289
 msgid "About this dictionary"
 msgstr "Об этом словаре"
 
-#: src/amo/pages/Addon/index.js:293
+#: src/amo/pages/Addon/index.js:292
 msgid "About this extension"
 msgstr "Об этом расширении"
 
-#: src/amo/pages/Addon/index.js:296
+#: src/amo/pages/Addon/index.js:295
 msgid "About this language pack"
 msgstr "Об этом языковом пакете"
 
-#: src/amo/pages/Addon/index.js:299
+#: src/amo/pages/Addon/index.js:298
 msgid "About this theme"
 msgstr "Об этой теме"
 
-#: src/amo/pages/Addon/index.js:302
+#: src/amo/pages/Addon/index.js:301
 msgid "About this add-on"
 msgstr "Об этом дополнении"
 
-#: src/amo/pages/Addon/index.js:334
+#: src/amo/pages/Addon/index.js:333
 msgid "Developer comments"
 msgstr "Комментарии разработчика"
 
-#: src/amo/pages/Addon/index.js:359
+#: src/amo/pages/Addon/index.js:358
 msgid "Release notes for %(addonVersion)s"
 msgstr "Примечания к выпуску %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:501
+#: src/amo/pages/Addon/index.js:467
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Это не публичное описание. Вы видите его только из-за повышенных привилегий."
 
-#: src/amo/pages/Addon/index.js:529
+#: src/amo/pages/Addon/index.js:495
 msgid "Extension Metadata"
 msgstr "Метаданные расширения"
 
-#: src/amo/pages/Addon/index.js:544
+#: src/amo/pages/Addon/index.js:508
 msgid "Screenshots"
 msgstr "Скриншоты"
 

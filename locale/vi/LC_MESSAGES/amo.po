@@ -2298,7 +2298,7 @@ msgstr "Duyệt tất cả các chủ đề"
 msgid "Add-ons Home Page"
 msgstr "Trang chủ tiện ích"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:184
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:183
 msgid "Preview of %(title)s"
 msgstr "Xem trước %(title)s"
 
@@ -2371,62 +2371,62 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:211
+#: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Tiện ích này không thể được đánh giá vì chưa có phiên bản nào được xuất bản."
 
-#: src/amo/pages/Addon/index.js:222
+#: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Đọc tất cả %(count)s đánh giá"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:242
 msgid "No reviews yet"
 msgstr "Chưa có đánh giá"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:253
+#: src/amo/pages/Addon/index.js:252
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Được xếp hạng %(ratingAverage)s (bởi 1 người dùng)"
 
-#: src/amo/pages/Addon/index.js:290
+#: src/amo/pages/Addon/index.js:289
 msgid "About this dictionary"
 msgstr "Giới thiệu từ điển"
 
-#: src/amo/pages/Addon/index.js:293
+#: src/amo/pages/Addon/index.js:292
 msgid "About this extension"
 msgstr "Về tiện ích mở rộng này"
 
-#: src/amo/pages/Addon/index.js:296
+#: src/amo/pages/Addon/index.js:295
 msgid "About this language pack"
 msgstr "Giới thiệu gói ngôn ngữ"
 
-#: src/amo/pages/Addon/index.js:299
+#: src/amo/pages/Addon/index.js:298
 msgid "About this theme"
 msgstr "Giới thiệu chủ đề"
 
-#: src/amo/pages/Addon/index.js:302
+#: src/amo/pages/Addon/index.js:301
 msgid "About this add-on"
 msgstr "Giới thiệu add-on này"
 
-#: src/amo/pages/Addon/index.js:334
+#: src/amo/pages/Addon/index.js:333
 msgid "Developer comments"
 msgstr "Trả lời của nhà phát triển"
 
-#: src/amo/pages/Addon/index.js:359
+#: src/amo/pages/Addon/index.js:358
 msgid "Release notes for %(addonVersion)s"
 msgstr "Ghi chú phát hành cho phiên bản %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:501
+#: src/amo/pages/Addon/index.js:467
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Đây không phải là danh sách công khai. Bạn chỉ nhìn thấy nó bởi các quyền cao hơn."
 
-#: src/amo/pages/Addon/index.js:529
+#: src/amo/pages/Addon/index.js:495
 msgid "Extension Metadata"
 msgstr "Siêu dữ liệu mở rộng"
 
-#: src/amo/pages/Addon/index.js:544
+#: src/amo/pages/Addon/index.js:508
 msgid "Screenshots"
 msgstr "Ảnh chụp màn hình"
 
