@@ -12,6 +12,7 @@ jobs:
 
     outputs:
       is_fork: ${{ steps.context.outputs.is_fork }}
+      is_default_branch: ${{ steps.context.outputs.is_default_branch }}
 
     steps:
       - uses: actions/checkout@v5
@@ -27,7 +28,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-          persist-credentials: false
+          persist-credentials: ${{ needs.context.outputs.is_default_branch }}
 
       - uses: actions/setup-node@v5
         with:
@@ -47,6 +48,10 @@ jobs:
         run: |
           event_name="${{ github.event_name }}"
           is_fork="${{ needs.context.outputs.is_fork }}"
+          is_default_branch="${{ needs.context.outputs.is_default_branch }}"
+          is_push="${{ github.event_name == 'push' }}"
+
+          # Keep this logic in sync with addons-server
 
           if [[ "$is_fork" == 'true' ]]; then
             cat <<'EOF'
@@ -57,13 +62,10 @@ jobs:
             exit 0
           fi
 
-          ARGS=""
-
-          if [[ "$event_name" == 'pull_request' ]]; then
-            ARGS="--dry-run"
+          if [[ "$is_default_branch" == 'true' && "$is_push" == 'true' ]]; then
+            args=""
+          else
+            args="--dry-run"
           fi
 
-          ./bin/push-locales $ARGS
-
-
-
+          ./bin/push-locales $args
