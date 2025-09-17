@@ -62,7 +62,7 @@ git commit -am "$MESSAGE" "$@"
 
 if [[ "$@" =~ '--dry-run' ]]; then
   info """
-    Skipping 'git push' because '--dry-run' is in ARGS and we do not have git credentials.
+    Skipping 'git push' because '--dry-run' is in ARGS so we should not have git credentials.
   """
   exit 0
 fi
