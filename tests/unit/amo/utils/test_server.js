@@ -29,6 +29,7 @@ describe(__filename, () => {
         expect(res.statusCode).toEqual(200);
         expect(res.get('content-type')).toEqual('application/json');
         expect(res.get('access-control-allow-origin')).toEqual('*');
+        expect(res.get('cache-control')).toEqual('s-maxage=0');
         expect(res._getJSONData()).toMatchObject(versionJson);
 
         done();
