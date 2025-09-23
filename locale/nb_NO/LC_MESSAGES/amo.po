@@ -878,7 +878,7 @@ msgid ""
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 "Prøv å besøke siden senere, siden temaet eller utvidelsen kan bli tilgjengelig igjen. Alternativt kan du finne det du leter etter i en av de tilgjengelige "
-"%(extensionStart)sutvidelsene%(extensionEnd)s eller %(themeStart)stema%(themeEnd)s, eller ved å be om hjelp i vårt %(communityStart)sforum for felleskapet%(communityEnd)s."
+"%(extensionStart)sutvidelsene%(extensionEnd)s eller %(themeStart)stema%(themeEnd)s, eller ved å be om hjelp i vårt %(communityStart)sforum for fellesskapet%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
@@ -922,7 +922,7 @@ msgid ""
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 "Du kan kanskje finne det du leter etter i en av de tilgjengelige %(extensionStart)sutvidelsene%(extensionEnd)s eller %(themeStart)stema%(themeEnd)s, eller ved å be om hjelp i vårt "
-"%(communityStart)sforum for felleskapet%(communityEnd)s."
+"%(communityStart)sforum for fellesskapet%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
