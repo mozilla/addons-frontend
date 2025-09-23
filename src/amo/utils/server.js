@@ -58,6 +58,7 @@ export const viewFrontendVersionHandler = ({
 
         // Allow anyone to fetch this file.
         res.header('Access-Control-Allow-Origin', '*');
+        res.header('Cache-Control', 's-maxage=0');
         res.json({
           ...versionJson,
           experiments,
