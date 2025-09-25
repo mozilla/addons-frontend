@@ -115,7 +115,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     return (
       <Badge
-        link={props.linkUrl}
+        href={props.linkUrl}
         title={props.linkTitle}
         type={props.category}
         label={props.label}
