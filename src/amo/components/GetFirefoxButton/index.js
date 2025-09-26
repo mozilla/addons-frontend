@@ -154,18 +154,6 @@ export const GetFirefoxButtonBase = ({
   const buttonText = supportsRTAMO
     ? downloadTextForRTAMO
     : i18n.gettext('Download Firefox');
-  let calloutText =
-    addon.type === ADDON_TYPE_STATIC_THEME
-      ? i18n.gettext(`You'll need Firefox to use this theme`)
-      : i18n.gettext(`You'll need Firefox to use this extension`);
-  if (forIncompatibleAddon) {
-    calloutText =
-      addon.type === ADDON_TYPE_STATIC_THEME
-        ? i18n.gettext('You need an updated version of Firefox for this theme')
-        : i18n.gettext(
-            'You need an updated version of Firefox for this extension',
-          );
-  }
 
   const buttonContent = (
     <Button
@@ -181,10 +169,6 @@ export const GetFirefoxButtonBase = ({
 
   return (
     <div className={makeClassName('GetFirefoxButton', className)}>
-      <div className="GetFirefoxButton-callout">
-        <div className="GetFirefoxButton-callout-icon" />
-        <div className="GetFirefoxButton-callout-text">{calloutText}</div>
-      </div>
       {buttonContent}
     </div>
   );
