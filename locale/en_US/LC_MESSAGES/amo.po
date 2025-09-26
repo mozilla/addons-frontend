@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-17 10:40+0000\n"
+"POT-Creation-Date: 2025-09-26 14:32+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1680,24 +1680,6 @@ msgstr "Add-ons for Firefox"
 #, fuzzy
 msgid "Download Firefox"
 msgstr "Add-ons for Firefox"
-
-#: src/amo/components/GetFirefoxButton/index.js:159
-msgid "You'll need Firefox to use this theme"
-msgstr ""
-
-#: src/amo/components/GetFirefoxButton/index.js:160
-#, fuzzy
-msgid "You'll need Firefox to use this extension"
-msgstr "About this extension"
-
-#: src/amo/components/GetFirefoxButton/index.js:164
-msgid "You need an updated version of Firefox for this theme"
-msgstr ""
-
-#: src/amo/components/GetFirefoxButton/index.js:165
-#, fuzzy
-msgid "You need an updated version of Firefox for this extension"
-msgstr "About this extension"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
@@ -3939,6 +3921,14 @@ msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
+
+#, fuzzy
+#~ msgid "You'll need Firefox to use this extension"
+#~ msgstr "About this extension"
+
+#, fuzzy
+#~ msgid "You need an updated version of Firefox for this extension"
+#~ msgstr "About this extension"
 
 #, fuzzy
 #~ msgid "How are you enjoying %(addonName)s?"

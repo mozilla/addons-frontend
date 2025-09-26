@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-17 10:40+0000\n"
+"POT-Creation-Date: 2025-09-26 14:32+0000\n"
 "PO-Revision-Date: 2019-02-19 18:23+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1596,22 +1596,6 @@ msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox"
-msgstr ""
-
-#: src/amo/components/GetFirefoxButton/index.js:159
-msgid "You'll need Firefox to use this theme"
-msgstr ""
-
-#: src/amo/components/GetFirefoxButton/index.js:160
-msgid "You'll need Firefox to use this extension"
-msgstr ""
-
-#: src/amo/components/GetFirefoxButton/index.js:164
-msgid "You need an updated version of Firefox for this theme"
-msgstr ""
-
-#: src/amo/components/GetFirefoxButton/index.js:165
-msgid "You need an updated version of Firefox for this extension"
 msgstr ""
 
 #: src/amo/components/Header/index.js:101

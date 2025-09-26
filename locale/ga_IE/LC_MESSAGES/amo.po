@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-17 10:40+0000\n"
+"POT-Creation-Date: 2025-09-26 14:32+0000\n"
 "Language: ga_IE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1716,26 +1716,6 @@ msgstr "Breiseáin Firefox"
 #, fuzzy
 msgid "Download Firefox"
 msgstr "Breiseáin Firefox"
-
-#: src/amo/components/GetFirefoxButton/index.js:159
-#, fuzzy
-msgid "You'll need Firefox to use this theme"
-msgstr "Logáil isteach chun an téama seo a rátáil"
-
-#: src/amo/components/GetFirefoxButton/index.js:160
-#, fuzzy
-msgid "You'll need Firefox to use this extension"
-msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
-
-#: src/amo/components/GetFirefoxButton/index.js:164
-#, fuzzy
-msgid "You need an updated version of Firefox for this theme"
-msgstr "Logáil isteach chun an téama seo a rátáil"
-
-#: src/amo/components/GetFirefoxButton/index.js:165
-#, fuzzy
-msgid "You need an updated version of Firefox for this extension"
-msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
@@ -4081,3 +4061,19 @@ msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
+
+#, fuzzy
+#~ msgid "You'll need Firefox to use this theme"
+#~ msgstr "Logáil isteach chun an téama seo a rátáil"
+
+#, fuzzy
+#~ msgid "You'll need Firefox to use this extension"
+#~ msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
+
+#, fuzzy
+#~ msgid "You need an updated version of Firefox for this theme"
+#~ msgstr "Logáil isteach chun an téama seo a rátáil"
+
+#, fuzzy
+#~ msgid "You need an updated version of Firefox for this extension"
+#~ msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
