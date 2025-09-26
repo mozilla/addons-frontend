@@ -104,7 +104,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     return (
       <Badge
-        link={props.linkUrl}
+        href={props.linkUrl}
         title={props.linkTitle}
         type={props.category}
         label={props.label}
@@ -136,7 +136,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     return (
       <Badge
-        link={reviewsLink}
+        to={reviewsLink}
         type="star-full"
         label={reviewsLabel}
         size="large"

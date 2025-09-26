@@ -20,6 +20,7 @@ export class LinkBase extends React.Component {
     prependClientApp: PropTypes.bool,
     prependLang: PropTypes.bool,
     target: PropTypes.string,
+    title: PropTypes.string,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   };
 
@@ -59,6 +60,7 @@ export class LinkBase extends React.Component {
       prependClientApp,
       prependLang,
       to,
+      title,
       target,
       ...customProps
     } = this.props;
@@ -98,6 +100,7 @@ export class LinkBase extends React.Component {
     const linkProps = {
       ...customProps,
       target,
+      title,
       rel: target === '_blank' ? 'noopener noreferrer' : customProps.rel,
     };
 

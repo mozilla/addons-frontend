@@ -2,8 +2,9 @@
 import * as React from 'react';
 import makeClassName from 'classnames';
 
-import type { PromotedBadgeCategory } from 'amo/utils/promoted';
 import Icon from 'amo/components/Icon';
+import Link from 'amo/components/Link';
+import type { PromotedBadgeCategory } from 'amo/utils/promoted';
 
 import './styles.scss';
 
@@ -21,12 +22,13 @@ export type BadgeType =
 /* eslint-disable react/no-unused-prop-types */
 // We can disable this to enable conveniently spreading props to child components.
 type BadgeRenderProps = {|
-  type: BadgeType,
+  href?: string,
   label: string,
-  size: BadgeSize,
-  link?: string,
   onClick?: Function | null,
+  size: BadgeSize,
   title?: string,
+  to?: string,
+  type: BadgeType,
 |};
 /* eslint-enable react/no-unused-prop-types */
 
@@ -55,39 +57,44 @@ export const BadgeContent = ({ label, size }: BadgeRenderProps): React.Node => {
 };
 
 export const BadgePill = ({
-  link,
-  className,
   children,
-  type,
-  title,
+  className,
+  href,
   onClick,
+  title,
+  to,
+  type,
 }: {|
   ...BadgeRenderProps,
   children: React.Node,
   className?: string,
 |}): React.Node => {
+  const hasLink = href || to;
+
   return (
     <div
       className={makeClassName(
         'Badge',
         {
-          'Badge-border': !!link,
+          'Badge-border': hasLink,
         },
         className,
       )}
       data-testid={`badge-${type}`}
     >
-      {link ? (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
+      {hasLink ? (
+        <Link
           className="Badge-link"
-          title={title}
+          href={href}
           onClick={onClick}
+          prependClientApp={!href}
+          prependLang={!href}
+          target={href ? '_blank' : undefined}
+          title={title}
+          to={to}
         >
           {children}
-        </a>
+        </Link>
       ) : (
         children
       )}

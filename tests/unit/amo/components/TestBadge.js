@@ -48,7 +48,7 @@ describe(__filename, () => {
   it('renders a badge as a link', () => {
     const link = 'https://example.com';
     const { container } = render(
-      <Badge link={link} type="star-full" label="a-label" />,
+      <Badge href={link} type="star-full" label="a-label" />,
     );
 
     const badge = container.firstChild;
