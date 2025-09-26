@@ -94,17 +94,12 @@ $icon-size: 48px;
   width: 100%;
 
   &,
-  .GetFirefoxButton-button,
-  .GetFirefoxButton-callout {
+  .GetFirefoxButton-button {
     box-sizing: border-box;
   }
 
   .GetFirefoxButton-button {
     margin-bottom: 0;
-  }
-
-  .GetFirefoxButton-callout {
-    margin-top: 0;
   }
 
   @include respond-to(medium) {
