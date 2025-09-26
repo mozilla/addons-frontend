@@ -25,17 +25,25 @@
   width: 100%;
 }
 
-.Addon-header-info-card {
-  .AddonCompatibilityError,
-  .Addon-non-public-notice {
-    margin: 0;
-    margin-bottom: 12px;
-  }
+.Addon-warnings {
+  margin-bottom: 16px;
+}
 
-  .Card-contents {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.Addon-screenshots,
+.PermissionsCard,
+.AddonMoreInfo,
+.Addon-description-and-ratings {
+  border-top: 1px solid $grey-30;
+  margin-top: 32px;
+  padding-top: 16px;
+}
+
+.Addon-content {
+  * > .Card-header,
+  * > .Card-contents {
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -114,13 +122,10 @@
   width: 100%;
 }
 
-.Addon-description-rating-card > .Card-contents {
+.Addon-description-and-ratings {
   display: flex;
   flex-direction: column;
-  padding: 0;
-}
 
-.Addon-description-rating-card {
   .AddonDescription {
     max-width: 760px;
   }
@@ -135,6 +140,19 @@
 
     .Card-contents {
       border-radius: 0;
+    }
+  }
+
+  @include respond-to(extraExtraLarge) {
+    .AddonDescription,
+    .Addon-overall-rating {
+      flex-grow: 1;
+
+      .Card-contents,
+      .Card-header,
+      .Card-footer {
+        border-radius: 0;
+      }
     }
   }
 }
@@ -166,22 +184,8 @@
     column-count: 3;
   }
 
-  .Addon-description-rating-card > .Card-contents {
+  .Addon-description-and-ratings {
     flex-direction: row;
-  }
-
-  .Addon-description-rating-card {
-    .AddonDescription,
-    .Addon-overall-rating {
-      flex-grow: 1;
-      margin-bottom: 0;
-
-      .Card-contents,
-      .Card-header,
-      .Card-footer {
-        border-radius: 0;
-      }
-    }
   }
 }
 
