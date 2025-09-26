@@ -6,41 +6,4 @@
   gap: 6px;
   align-items: flex-start;
   align-content: flex-start;
-
-  .Addon-theme & {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  @include respond-to(large) {
-    grid-column: 2;
-    grid-row: 1;
-
-    .Addon-theme & {
-      grid-column: auto;
-      grid-row: auto;
-    }
-  }
-}
-
-.AddonBadges .Badge {
-  @include text-align-start;
-
-  .Addon-theme & {
-    @include margin-end(12px);
-  }
-
-  @include respond-to(large) {
-    @include text-align-end;
-
-    .Addon-theme & {
-      @include margin-start(0);
-    }
-
-    .Icon {
-      .Addon-theme & {
-        margin: 0;
-      }
-    }
-  }
 }
