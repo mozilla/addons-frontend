@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
-$badge-size-large: 24px;
-$badge-size-small: 16px;
+$badge-size-large: 16px;
+$badge-size-small: 12px;
 
 .Badge {
   align-items: center;
@@ -13,7 +13,7 @@ $badge-size-small: 16px;
   font-size: $font-size-default;
   gap: 6px;
   line-height: $line-height-compressed;
-  padding: 3px 6px 3px 3px;
+  padding: 4px 6px;
   white-space: nowrap;
 
   &.Badge--has-link {
