@@ -76,7 +76,7 @@ export const BadgePill = ({
       className={makeClassName(
         'Badge',
         {
-          'Badge-border': hasLink,
+          'Badge--has-link': hasLink,
         },
         className,
       )}

@@ -4,52 +4,35 @@ $badge-size-large: 24px;
 $badge-size-small: 16px;
 
 .Badge {
-  color: $grey-90;
-  font-size: $font-size-default;
-  line-height: $line-height-compressed;
-  display: flex;
-  gap: 6px;
   align-items: center;
-  white-space: nowrap;
+  border-radius: 22px;
+  border: 1px solid $color-light-gray-40;
+  box-sizing: border-box;
+  color: $grey-90;
+  display: inline-flex;
+  font-size: $font-size-default;
+  gap: 6px;
+  line-height: $line-height-compressed;
   padding: 3px 6px 3px 3px;
+  white-space: nowrap;
 
-  .Badge-link {
-    color: inherit;
-    display: flex;
-    align-items: center;
-    flex-grow: 0;
-    flex-shrink: 0;
-    text-decoration: none;
-    gap: 6px;
-
-    &,
-    &:link,
-    &:visited {
-      color: $color-dark-gray-05;
-      font-weight: normal;
-      text-decoration: none;
-    }
-
-    &:active,
-    &:focus,
-    &:hover {
-      border-color: $color-light-gray-90;
-      color: $color-dark-gray-05;
-    }
-  }
-
-  &.Badge-border {
-    border: 1px solid $color-light-gray-40;
-    border-radius: 22px;
-    display: inline-flex;
-    gap: 6px;
-    box-sizing: border-box;
-
+  &.Badge--has-link {
     &:hover,
     &:active,
     &:focus {
       border-color: $color-light-gray-90;
     }
+  }
+
+  .Badge-link {
+    align-items: center;
+    color: $color-dark-gray-05;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-weight: normal;
+    gap: 6px;
+    text-decoration: none;
   }
 
   @include respond-to(large) {

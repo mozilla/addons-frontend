@@ -53,7 +53,7 @@ describe(__filename, () => {
 
     const badge = container.firstChild;
     expect(badge).toHaveClass('Badge');
-    expect(badge).toHaveClass('Badge-border');
+    expect(badge).toHaveClass('Badge--has-link');
     const linkElement = screen.getByRole('link');
     expect(linkElement).toBeInTheDocument();
     expect(linkElement).toHaveAttribute('href', link);
