@@ -1,4 +1,27 @@
+@import '~amo/css/styles';
+
+.ContributeCard {
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
+
+  & > p {
+    margin: 0;
+  }
+}
+
+.ContributeCard-header {
+  @include font-bold;
+
+  font-size: $font-size-l;
+}
+
+.ContributeCard-content {
+  font-size: $font-size-s;
+  padding: 16px 0;
+}
+
 .ContributeCard-button {
-  margin-top: 12px;
+  max-width: 300px;
   width: 100%;
 }
