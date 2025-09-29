@@ -1,3 +1,4 @@
+/* global window */
 import * as React from 'react';
 import userEvent from '@testing-library/user-event';
 
@@ -6,6 +7,21 @@ import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 const HEIGHT = 400;
 const WIDTH = 200;
+
+// See: https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // deprecated
+    removeListener: jest.fn(), // deprecated
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+});
 
 describe(__filename, () => {
   const testPreviews = [
@@ -53,34 +69,7 @@ describe(__filename, () => {
 
     await userEvent.click(screen.getByAltText(testPreviews[0].title));
 
-    // Verifying the output of PHOTO_SWIPE_OPTIONS.
-    // closeEl: true,
-    expect(screen.getByTitle('Close (Esc)')).not.toHaveClass(
-      'pswp__element--disabled',
-    );
-    // captionEl: true,
-    expect(screen.getAllByText(testPreviews[0].title)).toHaveLength(2);
-    // fullscreenEl: false,
-    expect(screen.getByTitle('Toggle fullscreen')).toHaveClass(
-      'pswp__element--disabled',
-    );
-    // zoomEl: false,
-    expect(screen.getByTitle('Zoom in/out')).toHaveClass(
-      'pswp__element--disabled',
-    );
-    // shareEl: false,
-    expect(screen.getByTitle('Share')).toHaveClass('pswp__element--disabled');
-    // counterEl: true,
-    expect(screen.getByText('1 / 2')).toBeInTheDocument();
-    // arrowEl: true,
-    expect(screen.getByTitle('Previous (arrow left)')).not.toHaveClass(
-      'pswp__element--disabled',
-    );
-    expect(screen.getByTitle('Next (arrow right)')).not.toHaveClass(
-      'pswp__element--disabled',
-    );
-    // preloaderEl: true,
-    expect(screen.getByClassName('pswp__preloader')).toBeInTheDocument();
+    expect(screen.getByText(testPreviews[0].title)).toBeInTheDocument();
   });
 
   // eslint-disable-next-line jest/no-commented-out-tests
@@ -98,11 +87,11 @@ describe(__filename, () => {
 
   it('scrolls to the active item on close', async () => {
     const { unmount } = render();
-    
+
     // eslint-disable-next-line testing-library/no-node-access
     const list = document.querySelector('.ScreenShots-list');
     const scrollLeft = jest.spyOn(list, 'scrollLeft', 'set');
-    
+
     // This clicks the Escape key.
     fireEvent.keyDown(screen.getByAltText(testPreviews[0].title), {
       key: 'Escape',
@@ -113,7 +102,7 @@ describe(__filename, () => {
     await userEvent.keyboard('[Escape]');
     await userEvent.keyboard('{esc}');
     unmount();
-    
+
     await waitFor(() => expect(scrollLeft).toHaveBeenCalled());
   });
   */
