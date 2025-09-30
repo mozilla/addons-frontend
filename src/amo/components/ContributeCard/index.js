@@ -6,7 +6,6 @@ import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import tracking from 'amo/tracking';
 import Button from 'amo/components/Button';
-import Card from 'amo/components/Card';
 import Icon from 'amo/components/Icon';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
@@ -94,7 +93,8 @@ export const ContributeCardBase = ({
   };
 
   return (
-    <Card className="ContributeCard" header={header}>
+    <div className="ContributeCard">
+      <header className="ContributeCard-header">{header}</header>
       <p className="ContributeCard-content">{content}</p>
       <p>
         <Button
@@ -112,7 +112,7 @@ export const ContributeCardBase = ({
           {i18n.gettext('Contribute now')}
         </Button>
       </p>
-    </Card>
+    </div>
   );
 };
 
