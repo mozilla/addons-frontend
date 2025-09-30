@@ -55,7 +55,7 @@ export const SearchSuggestionBase = ({
     const badgeProps = getPromotedProps(i18n, promotedCategory);
 
     badgeIcon = (
-      <Badge type={badgeProps.category} label={badgeProps.alt} size="small">
+      <Badge type={badgeProps.category} label={badgeProps.alt} size="large">
         {(props) => (
           <BadgeIcon {...props} className="SearchSuggestion-icon-promoted" />
         )}
