@@ -144,6 +144,10 @@
   }
 
   @include respond-to(extraExtraLarge) {
+    .AddonDescription {
+      @include padding-end(24px);
+    }
+
     .AddonDescription,
     .Addon-overall-rating {
       flex-grow: 1;
