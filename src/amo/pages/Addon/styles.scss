@@ -60,7 +60,7 @@
     grid-template:
       'theme theme theme' auto
       'icon info info' auto
-      'badge badge badge' auto
+      '.   badge badge' auto
       '.   .   install' auto / auto 1fr 1fr;
   }
 
@@ -68,15 +68,15 @@
     grid-template:
       'theme theme theme theme theme' auto
       'icon info info info info' auto
-      'badge badge badge  .   . ' auto
-      'badge badge badge  .  install' auto / min-content 1fr 1fr 1fr 1fr;
+      '. badge badge  .   . ' auto
+      '. badge badge  .  install' auto / min-content 1fr 1fr 1fr 1fr;
   }
 
   @include respond-to(extraLarge) {
     grid-template:
       'theme theme theme theme theme  .  install' auto
       'icon info info info info  .  install' auto
-      'badge badge badge badge badge badge badge' auto / min-content 1fr 1fr 1fr 1fr 1fr 1fr;
+      '. badge badge badge badge badge badge' auto / min-content 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 
   @include respond-to(extraExtraLarge) {
@@ -85,7 +85,7 @@
     grid-template:
       'theme theme theme theme install install' auto
       'icon info info info  .  install' auto
-      'badge badge badge badge badge badge' auto / min-content 1fr 1fr 1fr 1fr 1fr;
+      '. badge badge badge badge badge' auto / min-content 1fr 1fr 1fr 1fr 1fr;
     // stylelint-enable named-grid-areas-no-invalid
   }
 
