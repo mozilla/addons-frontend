@@ -454,53 +454,49 @@ export class AddonBase extends React.Component {
 
           {this.renderCategorySuggestions(VARIANT_SHOW_TOP)}
 
-          <div>
-            <Card className="Addon-header-info-card" photonStyle>
-              <div className="Addon-warnings">
-                <AddonInstallError error={this.props.installError} />
+          <Card className="Addon-content" photonStyle>
+            <div className="Addon-warnings">
+              <AddonInstallError error={this.props.installError} />
 
-                <AddonCompatibilityError addon={addon} />
+              <AddonCompatibilityError addon={addon} />
 
-                {addon &&
-                (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
-                  <Notice type="error" className="Addon-non-public-notice">
-                    {i18n.gettext(
-                      'This is not a public listing. You are only seeing it because of elevated permissions.',
-                    )}
-                  </Notice>
-                ) : null}
+              {addon &&
+              (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
+                <Notice type="error" className="Addon-non-public-notice">
+                  {i18n.gettext(
+                    'This is not a public listing. You are only seeing it because of elevated permissions.',
+                  )}
+                </Notice>
+              ) : null}
 
-                {addon && <InstallWarning addon={addon} />}
-                {addon ? (
-                  <WrongPlatformWarning
-                    addon={addon}
-                    className="Addon-WrongPlatformWarning"
-                  />
-                ) : null}
+              {addon && <InstallWarning addon={addon} />}
+              {addon ? (
+                <WrongPlatformWarning
+                  addon={addon}
+                  className="Addon-WrongPlatformWarning"
+                />
+              ) : null}
+            </div>
+
+            <header className="Addon-header">
+              {this.headerImage()}
+
+              <div className="Addon-info">
+                <AddonTitle addon={addon} />
+                {showSummary ? summary : null}
+              </div>
+              <AddonBadges addon={addon} />
+              <div className="Addon-install">
+                <InstallButtonWrapper addon={addon} />
               </div>
 
-              <header className="Addon-header">
-                {this.headerImage()}
+              <h2 className="visually-hidden">
+                {i18n.gettext('Extension Metadata')}
+              </h2>
+            </header>
 
-                <div className="Addon-info">
-                  <AddonTitle addon={addon} />
-                  {showSummary ? summary : null}
-                </div>
-                <AddonBadges addon={addon} />
-                <div className="Addon-install">
-                  <InstallButtonWrapper addon={addon} />
-                </div>
+            {this.renderCategorySuggestions(VARIANT_SHOW_MIDDLE)}
 
-                <h2 className="visually-hidden">
-                  {i18n.gettext('Extension Metadata')}
-                </h2>
-              </header>
-            </Card>
-          </div>
-
-          {this.renderCategorySuggestions(VARIANT_SHOW_MIDDLE)}
-
-          <div className="Addon-details">
             <div className="Addon-main-content">
               {addonPreviews.length > 0 && !isThemeType ? (
                 <Card
@@ -511,16 +507,18 @@ export class AddonBase extends React.Component {
                 </Card>
               ) : null}
 
-              <Card className="Addon-description-rating-card">
+              <div className="Addon-description-and-ratings">
                 {this.renderAboutThisCard()}
                 {this.renderRatingsCard()}
-              </Card>
+              </div>
             </div>
 
             <PermissionsCard version={currentVersion} />
 
             <AddonMoreInfo addon={addon} />
+          </Card>
 
+          <div>
             <ContributeCard addon={addon} />
 
             {this.renderVersionReleaseNotes()}
