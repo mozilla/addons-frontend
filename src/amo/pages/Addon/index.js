@@ -344,38 +344,6 @@ export class AddonBase extends React.Component {
     ) : null;
   }
 
-  renderVersionReleaseNotes() {
-    const { addon, i18n, currentVersion } = this.props;
-    if (!addon) {
-      return null;
-    }
-
-    if (!currentVersion || !currentVersion.releaseNotes) {
-      return null;
-    }
-
-    const header = i18n.sprintf(
-      i18n.gettext('Release notes for %(addonVersion)s'),
-      { addonVersion: currentVersion.version },
-    );
-    const releaseNotes = sanitizeUserHTML(currentVersion.releaseNotes);
-
-    const showMoreCardNotesName = 'AddonDescription-version-notes';
-
-    /* eslint-disable react/no-danger */
-    return (
-      <ShowMoreCard
-        contentId={addon.id}
-        className={showMoreCardNotesName}
-        id={showMoreCardNotesName}
-        header={header}
-      >
-        <div dangerouslySetInnerHTML={releaseNotes} />
-      </ShowMoreCard>
-    );
-    /* eslint-enable react/no-danger */
-  }
-
   renderCategorySuggestions(requiredVariant) {
     const { addon, clientApp, variant } = this.props;
 
@@ -520,8 +488,6 @@ export class AddonBase extends React.Component {
 
           <div>
             <ContributeCard addon={addon} />
-
-            {this.renderVersionReleaseNotes()}
 
             {this.renderRecommendations()}
           </div>
