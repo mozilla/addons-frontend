@@ -45,6 +45,10 @@
     margin: 0;
     padding: 0;
   }
+
+  & > .Card-contents {
+    padding: 32px 24px;
+  }
 }
 
 .Addon-header {
