@@ -1,5 +1,7 @@
 import * as React from 'react';
 import userEvent from '@testing-library/user-event';
+// We use cleanup() in some test cases below because we render more than once.
+// eslint-disable-next-line testing-library/no-manual-cleanup
 import { cleanup, createEvent, fireEvent } from '@testing-library/react';
 
 import Rating from 'amo/components/Rating';
