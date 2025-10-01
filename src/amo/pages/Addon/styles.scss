@@ -103,6 +103,10 @@
 
     & .Addon-install {
       justify-self: end;
+
+      .InstallButtonWrapper {
+        width: 320px;
+      }
     }
   }
 
