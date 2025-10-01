@@ -40,7 +40,10 @@ module.exports = {
     // Tests can assert on the filename.
     '^.+\\.(jpg|jpeg|gif|png|svg)$': '<rootDir>/tests/fileTransformer',
   },
-  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  transformIgnorePatterns: [
+    // ESM modules should be transformed.
+    '<rootDir>/node_modules/(?!(react-photoswipe-gallery|photoswipe)/)',
+  ],
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',

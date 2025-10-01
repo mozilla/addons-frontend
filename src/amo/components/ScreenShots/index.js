@@ -3,20 +3,12 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { Gallery, Item } from 'react-photoswipe-gallery';
 import 'photoswipe/dist/photoswipe.css';
-import 'photoswipe/dist/default-skin/default-skin.css';
 
 import type { PreviewType } from 'amo/types/addons';
 import './styles.scss';
 
 export const PHOTO_SWIPE_OPTIONS = {
-  closeEl: true,
-  captionEl: true,
-  fullscreenEl: false,
-  zoomEl: false,
-  shareEl: false,
-  counterEl: true,
-  arrowEl: true,
-  preloaderEl: true,
+  bgOpacity: 0.9,
 };
 
 type Props = {|
@@ -35,8 +27,8 @@ export default class ScreenShots extends React.Component<Props> {
     // This is used to update the horizontal list of thumbnails in order to
     // show the last image displayed in fullscreen mode when we close the
     // carousel.
-    photoswipe.listen('close', () => {
-      const index = photoswipe.getCurrentIndex();
+    photoswipe.on('close', () => {
+      const { index } = photoswipe.currSlide;
       const currentItem = list.children[index];
       const offset = currentItem.getBoundingClientRect().left;
 
@@ -59,6 +51,7 @@ export default class ScreenShots extends React.Component<Props> {
             <Gallery
               options={PHOTO_SWIPE_OPTIONS}
               onOpen={this.onOpenPhotoswipe}
+              withCaption
             >
               {previews.map((preview) => (
                 <Item
@@ -67,7 +60,7 @@ export default class ScreenShots extends React.Component<Props> {
                   thumbnail={preview.thumbnail_src}
                   width={preview.w}
                   height={preview.h}
-                  title={preview.title}
+                  caption={preview.title}
                 >
                   {({ ref, open }) => (
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions

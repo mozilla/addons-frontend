@@ -209,7 +209,7 @@
     "nano-time": "1.0.0",
     "normalize.css": "8.0.1",
     "photon-colors": "3.3.2",
-    "photoswipe": "4.1.3",
+    "photoswipe": "5.4.4",
     "pino": "9.10.0",
     "pino-syslog": "3.1.0",
     "prop-types": "15.8.1",
@@ -225,7 +225,7 @@
     "react-keydown": "1.9.12",
     "react-nested-status": "0.2.1",
     "react-onclickoutside": "6.13.2",
-    "react-photoswipe-gallery": "1.3.10",
+    "react-photoswipe-gallery": "4.0.0",
     "react-redux": "8.1.3",
     "react-router": "5.3.4",
     "react-router-dom": "5.3.4",
@@ -333,7 +333,7 @@
   "bundlewatch": [
     {
       "path": "./dist/static/amo-!(i18n-)*.js",
-      "maxSize": "369 kB"
+      "maxSize": "371 kB"
     },
     {
       "path": "./dist/static/amo-i18n-*.js",
