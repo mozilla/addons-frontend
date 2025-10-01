@@ -4,10 +4,6 @@
   @include page-padding;
 }
 
-.Addon .Card {
-  margin-bottom: $padding-page;
-}
-
 .Addon-icon-wrapper {
   height: 40px;
   overflow: hidden;
@@ -230,4 +226,10 @@
 
 .ContributeCard {
   margin: 32px auto;
+}
+
+.AddonRecommendations {
+  // This is the last card in the page, and it doesn't need a `margin-bottom`,
+  // which `.CardList` adds by default.
+  margin-bottom: 0;
 }
