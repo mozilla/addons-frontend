@@ -9,13 +9,17 @@
 }
 
 .Addon-icon-wrapper {
-  height: 48px;
+  height: 40px;
   overflow: hidden;
-  width: 48px;
+  width: 40px;
 
-  @include respond-to(medium) {
+  @include respond-to(large) {
+    height: 48px;
+    width: 48px;
+  }
+
+  @include respond-to(extraLarge) {
     height: 64px;
-    overflow: hidden;
     width: 64px;
   }
 }
