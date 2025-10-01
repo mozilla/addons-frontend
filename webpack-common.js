@@ -35,6 +35,7 @@ export function getStyleRules({
       silenceDeprecations: [
         'import', // https://sass-lang.com/documentation/breaking-changes/import/
         'global-builtin', // https://sass-lang.com/documentation/breaking-changes/import/
+        'mixed-decls', // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
         'color-functions', // https://sass-lang.com/documentation/breaking-changes/color-functions/
         'slash-div', // https://sass-lang.com/documentation/breaking-changes/slash-div/
       ],
