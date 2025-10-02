@@ -9,13 +9,17 @@
 }
 
 .Addon-icon-wrapper {
-  height: 48px;
+  height: 40px;
   overflow: hidden;
-  width: 48px;
+  width: 40px;
 
-  @include respond-to(medium) {
+  @include respond-to(large) {
+    height: 48px;
+    width: 48px;
+  }
+
+  @include respond-to(extraLarge) {
     height: 64px;
-    overflow: hidden;
     width: 64px;
   }
 }
@@ -25,7 +29,7 @@
   width: 100%;
 }
 
-.Addon-warnings {
+.Addon-warnings *:last-child {
   margin-bottom: 16px;
 }
 
@@ -45,49 +49,17 @@
     margin: 0;
     padding: 0;
   }
+
+  & > .Card-contents {
+    padding: 32px 24px;
+  }
 }
 
 .Addon-header {
+  column-gap: 0;
   display: flex;
   flex-direction: column;
-  row-gap: 14px;
-  column-gap: 0;
-
-  @include respond-to(medium) {
-    display: grid;
-
-    // stylelint-disable-next-line named-grid-areas-no-invalid
-    grid-template:
-      'theme theme theme' auto
-      'icon info info' auto
-      '.   badge badge' auto
-      '.   .   install' auto / auto 1fr 1fr;
-  }
-
-  @include respond-to(large) {
-    grid-template:
-      'theme theme theme theme theme' auto
-      'icon info info info info' auto
-      '. badge badge  .   . ' auto
-      '. badge badge  .  install' auto / min-content 1fr 1fr 1fr 1fr;
-  }
-
-  @include respond-to(extraLarge) {
-    grid-template:
-      'theme theme theme theme theme  .  install' auto
-      'icon info info info info  .  install' auto
-      '. badge badge badge badge badge badge' auto / min-content 1fr 1fr 1fr 1fr 1fr 1fr;
-  }
-
-  @include respond-to(extraExtraLarge) {
-    column-gap: 0;
-    // stylelint-disable named-grid-areas-no-invalid
-    grid-template:
-      'theme theme theme theme install install' auto
-      'icon info info info  .  install' auto
-      '. badge badge badge badge badge' auto / min-content 1fr 1fr 1fr 1fr 1fr;
-    // stylelint-enable named-grid-areas-no-invalid
-  }
+  row-gap: 8px;
 
   & .Addon-theme-thumbnail {
     grid-area: theme;
@@ -108,6 +80,52 @@
 
   & .Addon-install {
     grid-area: install;
+    margin-top: 16px;
+  }
+
+  @include respond-to(large) {
+    column-gap: 16px;
+    display: grid;
+    grid-template:
+      'icon  info' auto
+      '.     badge' auto
+      '.     install' auto
+      / 48px auto;
+    row-gap: 16px;
+
+    .Addon-theme & {
+      grid-template:
+        'theme' auto
+        'info' auto
+        'badge' auto
+        'install' auto;
+    }
+
+    & .Addon-install {
+      justify-self: end;
+
+      .InstallButtonWrapper {
+        width: 320px;
+      }
+    }
+  }
+
+  @include respond-to(extraLarge) {
+    grid-template:
+      'icon info  install' auto
+      '.    badge .' auto
+      / 64px auto;
+
+    .Addon-theme & {
+      grid-template:
+        'theme install' auto
+        'info  .' auto
+        'badge .' auto;
+    }
+
+    & .Addon-install {
+      margin-top: 0;
+    }
   }
 }
 
