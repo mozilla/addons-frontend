@@ -2,6 +2,11 @@
 
 .LandingPage {
   @include page-padding;
+
+  & > .LandingAddonsCard:last-child {
+    // The last `.CardList` doesn't need a `margin-bottom`.
+    margin-bottom: 0;
+  }
 }
 
 .LandingPage-header {
