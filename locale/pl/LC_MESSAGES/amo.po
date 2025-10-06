@@ -65,7 +65,7 @@ msgstr "%(average)s (%(count)s recenzja)"
 
 #: src/amo/components/AddonBadges/index.js:130
 msgid "%(average)s (%(count)s reviews)"
-msgstr "%(average)s (%(count)s recenzji)"
+msgstr "%(average)s (recenzje: %(count)s)"
 
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
