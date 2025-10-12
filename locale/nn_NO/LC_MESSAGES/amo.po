@@ -964,7 +964,7 @@ msgstr "Til dømes: Funksjonar er trege, vanskelege å bruke, eller fungerer ikk
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It’s spam"
-msgstr "Det er spam"
+msgstr "Det er søppelpost"
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: The listing advertises unrelated products or services."
@@ -1372,11 +1372,11 @@ msgstr "Rapporter denne vurderinga"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr "Spam"
+msgstr "Søppelpost"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
-msgstr "Flagga som spam (søppel)"
+msgstr "Flagga som søppelpost"
 
 #: src/amo/components/FlagReviewMenu/index.js:73 src/amo/components/FlagReviewMenu/index.js:91
 msgid "Login required"
