@@ -225,7 +225,11 @@
 }
 
 .ContributeCard {
-  margin: 32px auto;
+  margin: 32px auto 0;
+
+  &.ContributeCard-extension {
+    margin-bottom: 32px;
+  }
 }
 
 .AddonRecommendations {

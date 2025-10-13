@@ -1786,6 +1786,9 @@ describe(__filename, () => {
             `continued development by making a small contribution.`,
         ),
       ).toBeInTheDocument();
+      expect(screen.queryByClassName('ContributeCard')).toHaveClass(
+        'ContributeCard-extension',
+      );
     });
 
     it('displays content for multiple extension developers', () => {
@@ -1814,6 +1817,9 @@ describe(__filename, () => {
             `creation by making a small contribution.`,
         ),
       ).toBeInTheDocument();
+      expect(screen.queryByClassName('ContributeCard')).toHaveClass(
+        'ContributeCard-statictheme',
+      );
     });
 
     it('displays content for multiple theme artists', () => {
@@ -1843,6 +1849,9 @@ describe(__filename, () => {
             `continued work by making a small contribution.`,
         ),
       ).toBeInTheDocument();
+      expect(screen.queryByClassName('ContributeCard')).toHaveClass(
+        'ContributeCard-language',
+      );
     });
 
     it('displays content for multiple add-on authors', () => {
