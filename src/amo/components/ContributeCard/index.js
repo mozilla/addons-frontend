@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
+import makeClassName from 'classnames';
 
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -92,8 +93,12 @@ export const ContributeCardBase = ({
     });
   };
 
+  const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
+
   return (
-    <div className="ContributeCard">
+    <div
+      className={makeClassName('ContributeCard', `ContributeCard-${addonType}`)}
+    >
       <header className="ContributeCard-header">{header}</header>
       <p className="ContributeCard-content">{content}</p>
       <p>
