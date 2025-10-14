@@ -77,25 +77,9 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         ? i18n.gettext('Data collection:')
         : i18n.gettext('Required data collection, according to the developer:');
 
-    const header = (
-      <div className="PermissionsCard-header">
-        {i18n.gettext('Permissions and data')}
-        <Link
-          className="PermissionsCard-learn-more"
-          href="https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
-          target="_blank"
-          externalDark
-          prependClientApp={false}
-          prependLang={false}
-        >
-          {i18n.gettext('Learn more')}
-        </Link>
-      </div>
-    );
-
     return (
       <ShowMoreCard
-        header={header}
+        header={i18n.gettext('Permissions and data')}
         contentId={version.id}
         className="PermissionsCard"
         id="AddonDescription-permissions-card"
@@ -143,6 +127,19 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
             </ul>
           </>
         ) : null}
+
+        <div className="PermissionsCard-footer">
+          <Link
+            className="PermissionsCard-learn-more"
+            href="https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
+            target="_blank"
+            externalDark
+            prependClientApp={false}
+            prependLang={false}
+          >
+            {i18n.gettext('Learn more')}
+          </Link>
+        </div>
       </ShowMoreCard>
     );
   }

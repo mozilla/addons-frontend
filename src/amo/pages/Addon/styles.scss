@@ -45,7 +45,8 @@
     padding: 0;
   }
 
-  * > .Card-contents {
+  * > .Card-contents,
+  *.ShowMoreCard--expanded > .Card-contents {
     border-radius: 0;
     margin: 0;
     padding: 0;
