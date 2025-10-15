@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-14 09:25+0000\n"
+"POT-Creation-Date: 2025-10-15 08:43+0000\n"
 "PO-Revision-Date: 2019-02-19 18:23+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1696,7 +1696,7 @@ msgid "Download file"
 msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:102
-#: src/amo/components/PermissionsCard/index.js:91
+#: src/amo/components/PermissionsCard/index.js:140
 msgid "Learn more"
 msgstr ""
 
@@ -1726,15 +1726,11 @@ msgstr ""
 msgid "Page %(thisPage)s of %(totalPages)s"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/index.js:107
-msgid "Required permissions:"
-msgstr ""
-
-#: src/amo/components/PermissionsCard/index.js:117
+#: src/amo/components/PermissionsCard/index.js:101
 msgid "Optional permissions:"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/index.js:137
+#: src/amo/components/PermissionsCard/index.js:121
 msgid "Optional data collection, according to the developer:"
 msgstr ""
 
@@ -1748,6 +1744,10 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/index.js:91
+msgid "Required permissions:"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:29
