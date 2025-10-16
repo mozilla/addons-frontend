@@ -511,7 +511,11 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     const { errorHandler, i18n } = this.props;
 
     return (
-      <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
+      <Card
+        className="AddonMoreInfo"
+        header={i18n.gettext('More information')}
+        noStyle
+      >
         {errorHandler.renderErrorIfPresent()}
 
         {this.listContent()}

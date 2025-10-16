@@ -84,6 +84,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         className="PermissionsCard"
         id="AddonDescription-permissions-card"
         maxHeight={300}
+        noStyle
       >
         {requiredPermissionsContent.length ? (
           <>

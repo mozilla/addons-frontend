@@ -58,6 +58,7 @@ type Props = {|
   header?: React.Node | string,
   id: string,
   maxHeight?: number,
+  noStyle?: boolean,
 |};
 
 type InternalProps = {|
@@ -151,7 +152,8 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { children, className, header, id, i18n, uiState } = this.props;
+    const { children, className, header, id, i18n, uiState, noStyle } =
+      this.props;
     const { showAllContent } = uiState;
 
     invariant(children, 'The children property is required');
@@ -182,6 +184,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
         })}
         header={header}
         footerLink={showAllContent ? null : readMoreLink}
+        noStyle={noStyle}
       >
         <div
           className="ShowMoreCard-contents"
