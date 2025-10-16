@@ -134,36 +134,36 @@
   flex-direction: column;
 
   .AddonDescription {
-    max-width: 760px;
+    border-bottom: 1px solid $grey-30;
+    margin: 0 0 16px;
+    padding-bottom: 32px;
+
+    .Card-contents {
+      max-width: 760px;
+    }
   }
 
   .Addon-overall-rating {
-    margin-bottom: 0;
-
-    @include respond-to(medium) {
-      min-width: 380px;
-      max-width: 520px;
-    }
-
     .Card-contents {
-      border-radius: 0;
+      @include respond-to(medium) {
+        min-width: 380px;
+        max-width: 520px;
+      }
     }
   }
 
   @include respond-to(extraExtraLarge) {
     .AddonDescription {
       @include padding-end(24px);
+
+      border: 0;
+      margin: 0;
+      padding-bottom: 0;
     }
 
     .AddonDescription,
     .Addon-overall-rating {
       flex-grow: 1;
-
-      .Card-contents,
-      .Card-header,
-      .Card-footer {
-        border-radius: 0;
-      }
     }
   }
 }
