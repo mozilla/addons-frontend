@@ -270,7 +270,7 @@ export class AddonBase extends React.Component {
     };
 
     return (
-      <Card header={header} className="Addon-overall-rating" {...props}>
+      <Card header={header} className="Addon-overall-rating" noStyle {...props}>
         {ratingManager}
       </Card>
     );
@@ -322,6 +322,7 @@ export class AddonBase extends React.Component {
         header={title}
         id={showMoreCardName}
         maxHeight={230}
+        noStyle
       >
         {descriptionProps && Object.keys(descriptionProps).length ? (
           <div className="AddonDescription-contents" {...descriptionProps} />
@@ -422,7 +423,7 @@ export class AddonBase extends React.Component {
 
           {this.renderCategorySuggestions(VARIANT_SHOW_TOP)}
 
-          <Card className="Addon-content" photonStyle>
+          <Card className="Addon-content">
             <div className="Addon-warnings">
               <AddonInstallError error={this.props.installError} />
 
@@ -470,6 +471,7 @@ export class AddonBase extends React.Component {
                 <Card
                   className="Addon-screenshots"
                   header={i18n.gettext('Screenshots')}
+                  noStyle
                 >
                   <ScreenShots previews={addonPreviews} />
                 </Card>

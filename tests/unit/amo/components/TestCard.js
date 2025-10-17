@@ -32,9 +32,9 @@ describe(__filename, () => {
     expect(card).not.toHaveClass('Card--photon');
   });
 
-  it('uses photon class if marked', () => {
-    render({ photonStyle: true });
-    expect(getCard()).toHaveClass('Card--photon');
+  it('uses the noStyle class if marked', () => {
+    render({ noStyle: true });
+    expect(getCard()).toHaveClass('Card--no-style');
   });
 
   it('shows header if supplied', () => {

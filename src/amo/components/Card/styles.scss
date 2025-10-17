@@ -12,6 +12,12 @@ $footer-padding: 10px;
   font-size: $font-size-default;
   margin-bottom: 1px;
   margin-top: 0;
+
+  .Card--no-style & {
+    border-radius: 0;
+    margin: 0 0 24px;
+    padding: 0;
+  }
 }
 
 .Card-contents {
@@ -30,15 +36,10 @@ $footer-padding: 10px;
     border-bottom-right-radius: $border-radius-default;
   }
 
-  .Card--photon & {
-    padding: 20px 15px;
-  }
-
-  &,
-  .Card--photon & {
-    @include respond-to(large) {
-      padding: $padding-page-l 36px;
-    }
+  .Card--no-style & {
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -51,6 +52,14 @@ $footer-padding: 10px;
   overflow: inherit;
   padding: 0;
   text-align: center;
+
+  .Card--no-style & {
+    @include text-align-start;
+
+    border-radius: 0;
+    margin: 24px auto 0;
+    padding: 0;
+  }
 }
 
 .Card-footer-link,

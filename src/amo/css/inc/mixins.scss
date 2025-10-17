@@ -163,9 +163,9 @@
 @mixin addon-section() {
   background: $base-color;
   overflow: hidden;
-  padding: 10px 20px;
+  padding: 10px;
 
   @include respond-to(large) {
-    padding: 15px 36px;
+    padding: 16px 24px;
   }
 }
