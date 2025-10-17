@@ -51,7 +51,19 @@
   row-gap: 8px;
 
   & .Addon-theme-thumbnail {
+    background-color: $background-grey;
+    border-radius: $border-radius-default;
     grid-area: theme;
+    margin-top: 16px;
+    padding: 24px;
+
+    .ThemeImage {
+      margin: 0 auto;
+    }
+
+    @include respond-to(extraLarge) {
+      padding: 48px 24px;
+    }
   }
 
   & .Addon-icon-wrapper {
@@ -84,10 +96,10 @@
 
     .Addon-theme & {
       grid-template:
-        'theme' auto
         'info' auto
         'badge' auto
-        'install' auto;
+        'install' auto
+        'theme' auto;
     }
 
     & .Addon-install {
@@ -107,9 +119,9 @@
 
     .Addon-theme & {
       grid-template:
-        'theme install' auto
-        'info  .' auto
-        'badge .' auto;
+        'info install' auto
+        'badge .' auto
+        'theme theme' auto;
     }
 
     & .Addon-install {
