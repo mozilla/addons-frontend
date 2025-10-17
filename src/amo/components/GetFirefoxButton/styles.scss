@@ -5,8 +5,4 @@
   text-align: center;
   text-wrap: wrap;
   width: 100%;
-
-  @include respond-to(extraLarge) {
-    text-wrap: nowrap;
-  }
 }
