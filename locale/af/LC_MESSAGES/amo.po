@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-15 08:43+0000\n"
+"POT-Creation-Date: 2025-10-20 09:17+0000\n"
 "Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,7 +275,7 @@ msgstr ""
 msgid "Author Links"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:514
+#: src/amo/components/AddonMoreInfo/index.js:516
 msgid "More information"
 msgstr ""
 
@@ -1710,11 +1710,11 @@ msgstr ""
 msgid "Page %(thisPage)s of %(totalPages)s"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/index.js:101
+#: src/amo/components/PermissionsCard/index.js:102
 msgid "Optional permissions:"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/index.js:121
+#: src/amo/components/PermissionsCard/index.js:122
 msgid "Optional data collection, according to the developer:"
 msgstr ""
 
@@ -1730,7 +1730,7 @@ msgstr ""
 msgid "Permissions and data"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/index.js:91
+#: src/amo/components/PermissionsCard/index.js:92
 msgid "Required permissions:"
 msgstr ""
 
@@ -2401,11 +2401,11 @@ msgstr ""
 msgid "Extensions"
 msgstr ""
 
-#: src/amo/components/ShowMoreCard/index.js:162
+#: src/amo/components/ShowMoreCard/index.js:164
 msgid "Expand to read more"
 msgstr ""
 
-#: src/amo/components/ShowMoreCard/index.js:167
+#: src/amo/components/ShowMoreCard/index.js:169
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 
@@ -2560,21 +2560,21 @@ msgstr ""
 msgid "About this add-on"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:333
+#: src/amo/pages/Addon/index.js:334
 msgid "Developer comments"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:434
+#: src/amo/pages/Addon/index.js:435
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:462
+#: src/amo/pages/Addon/index.js:463
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:472
+#: src/amo/pages/Addon/index.js:473
 msgid "Screenshots"
 msgstr ""
 
