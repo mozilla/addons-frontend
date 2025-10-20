@@ -45,11 +45,12 @@ jobs:
         run: yarn extract-locales
 
       - name: Push Locales
+        env:
+          is_fork: ${{ needs.context.outputs.is_fork }}
+          event_name: ${{ github.event_name }}
+          is_default_branch: ${{ needs.context.outputs.is_default_branch }}
+          is_push: ${{ github.event_name == 'push' }}
         run: |
-          event_name="${{ github.event_name }}"
-          is_fork="${{ needs.context.outputs.is_fork }}"
-          is_default_branch="${{ needs.context.outputs.is_default_branch }}"
-          is_push="${{ github.event_name == 'push' }}"
 
           # Keep this logic in sync with addons-server
 
