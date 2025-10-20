@@ -1764,7 +1764,7 @@ msgstr "Informações de identificação pessoal"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr "Pesquisar termos"
+msgstr "Termos de pesquisa"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
@@ -1780,7 +1780,7 @@ msgstr "Conteúdo de sites"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr "O desenvolvedor diz que esta extensão não requer coleta de dados."
+msgstr "O desenvolvedor afirma que esta extensão não requer coleta de dados."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
