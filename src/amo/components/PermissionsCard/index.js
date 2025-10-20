@@ -84,6 +84,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
         className="PermissionsCard"
         id="AddonDescription-permissions-card"
         maxHeight={300}
+        noStyle
       >
         {requiredPermissionsContent.length ? (
           <>
@@ -133,7 +134,6 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
             className="PermissionsCard-learn-more"
             href="https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
             target="_blank"
-            externalDark
             prependClientApp={false}
             prependLang={false}
           >

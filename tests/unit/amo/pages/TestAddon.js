@@ -1948,9 +1948,6 @@ describe(__filename, () => {
           'href',
           'https://support.mozilla.org/kb/permission-request-messages-firefox-extensions',
         );
-        expect(
-          within(learnMoreLink).getByClassName('Icon-external-dark'),
-        ).toBeInTheDocument();
       });
 
       it('renders required permissions only', () => {

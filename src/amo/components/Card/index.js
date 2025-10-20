@@ -14,16 +14,14 @@ export default class Card extends React.Component {
     footerText: PropTypes.node,
     header: PropTypes.node,
     isHomepageShelf: PropTypes.bool,
-    photonStyle: PropTypes.bool,
+    noStyle: PropTypes.bool,
   };
 
   static defaultProps = {
     isHomepageShelf: false,
-    // Photon is the name of the new Firefox design language. This flag
-    // modifies the card style to left-align the header, add padding, and tweak
-    // the styles to be in line with the new photon mocks while we migrate the
-    // rest of the site over.
-    photonStyle: false,
+    // This converts a card into a mostly unstyled component, which looks great
+    // when embedded into another Card (without this attribute set).
+    noStyle: false,
   };
 
   render() {
@@ -35,7 +33,7 @@ export default class Card extends React.Component {
       footerText,
       isHomepageShelf,
       header,
-      photonStyle,
+      noStyle,
     } = this.props;
 
     let footer;
@@ -61,7 +59,7 @@ export default class Card extends React.Component {
     return (
       <section
         className={makeClassName('Card', className, {
-          'Card--photon': photonStyle,
+          'Card--no-style': noStyle,
           'Card--no-header': !header,
           'Card--no-footer': !footer,
         })}
@@ -84,13 +82,10 @@ export default class Card extends React.Component {
 
         {footer ? (
           <footer
-            className={makeClassName(
-              'Card-footer',
-              {
-                'Card-shelf-footer': isHomepageShelf,
-              },
-              footerClass,
-            )}
+            className={makeClassName('Card-footer', {
+              'Card-shelf-footer': isHomepageShelf,
+              [footerClass]: !noStyle,
+            })}
           >
             {footer}
           </footer>
