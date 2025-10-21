@@ -1770,19 +1770,19 @@ msgstr "Terma kërkimi"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "Të dhëna teknike dhe ndërveprimesh"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "Veprimtari në sajt"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "Lëndë sajti"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "Zhvilluesi thotë se ky zgjerim s’lyp mbledhje të dhënash."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -2883,6 +2883,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security vulnerability "
 "reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Që të njoftoni një cenueshmëri sigurie për një zgjerim, edhe kur nuk strehohet në këtë sajt, ju lutemi, hapni një %(startSecIssueLink)sçështje%(endSecIssueLink)s në Bugzilla. Krejt raportet mbi "
+"cenueshmëri sigurie janë %(startLink)srezervat%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
