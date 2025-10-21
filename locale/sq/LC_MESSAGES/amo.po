@@ -61,17 +61,17 @@ msgstr "Shqyrtoni kod shtese"
 
 #: src/amo/components/AddonBadges/index.js:126
 msgid "%(average)s (%(count)s review)"
-msgstr ""
+msgstr "%(average)s (%(count)s shqyrtim)"
 
 #: src/amo/components/AddonBadges/index.js:130
 msgid "%(average)s (%(count)s reviews)"
-msgstr ""
+msgstr "%(average)s (%(count)s shqyrtime)"
 
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s Përdorues"
+msgstr[1] "%(count)s Përdorues"
 
 #: src/amo/components/AddonBadges/index.js:164
 msgid "No Users"
@@ -1734,23 +1734,23 @@ msgstr "Të hyjë në veprimtari shfletuesi gjatë lëvizjesh"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr ""
+msgstr "Hollësi mirëfilltësimi"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Faqerojtës"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "Veprimtari shfletimi"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
-msgstr ""
+msgstr "Hollësi pagesash dhe financiare"
 
 #: src/amo/components/PermissionsCard/permissions.js:72
 msgid "Health information"
-msgstr ""
+msgstr "Hollësi shëndetësore"
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
@@ -1758,15 +1758,15 @@ msgstr "Vend"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "Komunikime personale"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "Hollësi që lejojnë identifikim personal"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "Terma kërkimi"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
