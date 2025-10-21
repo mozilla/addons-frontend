@@ -168,15 +168,11 @@ export class AddonBase extends React.Component {
     }
   }
 
-  headerImage() {
+  renderIcon() {
     const { addon, i18n } = this.props;
 
-    if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
-      return (
-        <div className="Addon-theme-thumbnail">
-          <ThemeImage addon={addon} roundedCorners />
-        </div>
-      );
+    if (addon?.type === ADDON_TYPE_STATIC_THEME) {
+      return null;
     }
 
     const label = addon
@@ -448,16 +444,24 @@ export class AddonBase extends React.Component {
             </div>
 
             <header className="Addon-header">
-              {this.headerImage()}
+              {this.renderIcon()}
 
               <div className="Addon-info">
                 <AddonTitle addon={addon} />
                 {showSummary ? summary : null}
               </div>
+
               <AddonBadges addon={addon} />
+
               <div className="Addon-install">
                 <InstallButtonWrapper addon={addon} />
               </div>
+
+              {addon && ADDON_TYPE_STATIC_THEME === addon.type && (
+                <div className="Addon-theme-thumbnail">
+                  <ThemeImage addon={addon} roundedCorners />
+                </div>
+              )}
 
               <h2 className="visually-hidden">
                 {i18n.gettext('Extension Metadata')}
