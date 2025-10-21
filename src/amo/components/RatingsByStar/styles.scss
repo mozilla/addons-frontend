@@ -1,5 +1,7 @@
 @import '~amo/css/styles';
 
+$yellow-40: #ffbd4f;
+
 .RatingsByStar-graph {
   color: $grey-50;
   display: grid;
@@ -41,7 +43,7 @@ a.RatingsByStar-row {
 }
 
 .RatingsByStar-barValue {
-  background-color: rgba($yellow-50, 0.75);
+  background-color: $yellow-40;
 
   @for $num from 0 through 100 {
     $pct: percentage($num / 100);
