@@ -156,11 +156,8 @@
   }
 
   .Addon-overall-rating {
-    .Card-contents {
-      @include respond-to(medium) {
-        min-width: 380px;
-        max-width: 520px;
-      }
+    @include respond-to(medium) {
+      width: 450px;
     }
   }
 
@@ -169,13 +166,9 @@
       @include padding-end(64px);
 
       border: 0;
+      flex: 1;
       margin: 0;
       padding-bottom: 0;
-    }
-
-    .AddonDescription,
-    .Addon-overall-rating {
-      flex-grow: 1;
     }
   }
 }
