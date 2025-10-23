@@ -538,9 +538,15 @@ describe(__filename, () => {
     render({ addon });
 
     // Do a sanity check to make sure the right add-on was used.
-    expect(screen.getByTitle('There are no five-star reviews')).toHaveAttribute(
-      'href',
-      `/en-US/android/addon/${addon.slug}/reviews/?score=5`,
-    );
+    const links = screen.getAllByTitle('There are no five-star reviews');
+    // 3 because we have the same link 3 times (1 per column in the rating
+    // component).
+    expect(links).toHaveLength(3);
+    for (const link of links) {
+      expect(link).toHaveAttribute(
+        'href',
+        `/en-US/android/addon/${addon.slug}/reviews/?score=5`,
+      );
+    }
   });
 });

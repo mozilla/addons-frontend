@@ -73,13 +73,20 @@ describe(__filename, () => {
     render({ addon });
 
     function validateLink(score, count, expectedTitle) {
-      const link = screen.getByTitle(expectedTitle);
-      expect(link).toHaveAttribute(
-        'href',
-        `/en-US/android${reviewListURL({ addonSlug: addon.slug, score })}`,
-      );
-      expect(link).toHaveAttribute('rel', 'nofollow');
-      expect(within(link).getByText(count)).toBeInTheDocument();
+      // Do a sanity check to make sure the right add-on was used.
+      const links = screen.getAllByTitle(expectedTitle);
+      // 3 because we have the same link 3 times (1 per column in the rating
+      // component).
+      expect(links).toHaveLength(3);
+      for (const link of links) {
+        expect(link).toHaveAttribute(
+          'href',
+          `/en-US/android${reviewListURL({ addonSlug: addon.slug, score })}`,
+        );
+        expect(link).toHaveAttribute('rel', 'nofollow');
+      }
+
+      expect(within(links[2]).getByText(count)).toBeInTheDocument();
     }
 
     validateLink('5', 964, 'Read all 964 five-star reviews');
@@ -103,15 +110,21 @@ describe(__filename, () => {
     render({ addon, location });
 
     function validateLink(score, expectedTitle) {
-      const link = screen.getByTitle(expectedTitle);
       const expectedQueryString = [
         `score=${score}`,
         `utm_medium=${utm_medium}`,
       ].join('&');
-      expect(link).toHaveAttribute(
-        'href',
-        `/en-US/android/addon/${addon.slug}/reviews/?${expectedQueryString}`,
-      );
+
+      const links = screen.getAllByTitle(expectedTitle);
+      // 3 because we have the same link 3 times (1 per column in the rating
+      // component).
+      expect(links).toHaveLength(3);
+      for (const link of links) {
+        expect(link).toHaveAttribute(
+          'href',
+          `/en-US/android/addon/${addon.slug}/reviews/?${expectedQueryString}`,
+        );
+      }
     }
 
     validateLink('5', 'Read all 964 five-star reviews');

@@ -7,18 +7,11 @@ $yellow-40: #ffbd4f;
   display: grid;
   font-size: $font-size-default;
   grid-gap: 12px;
-
-  // This controls whitespace and should also match the bar height.
-}
-
-.RatingsByStar-row {
-  color: $grey-50;
-  display: grid;
-  grid-gap: 12px;
-  grid-template-columns: max-content auto max-content;
+  grid-template-columns: auto 1fr auto;
   line-height: 1;
 }
 
+.RatingsByStar-row,
 a.RatingsByStar-row {
   color: $grey-50;
 }
@@ -26,6 +19,7 @@ a.RatingsByStar-row {
 .RatingsByStar-star {
   align-items: center;
   display: flex;
+  justify-content: space-between;
 
   .Icon {
     @include margin-start(6px);

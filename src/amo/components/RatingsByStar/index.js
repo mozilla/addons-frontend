@@ -142,7 +142,29 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
       <div className="RatingsByStar">
         <div className="RatingsByStar-graph">
           {['5', '4', '3', '2', '1'].map((star) => {
+            if (loading) {
+              return (
+                <div key={star} className="RatingsByStar-row">
+                  <div className="RatingsByStar-star">
+                    <LoadingText width={100} />
+                    <Icon name="star-yellow" />
+                  </div>
+
+                  <div className="RatingsByStar-barContainer">
+                    <div className="RatingsByStar-bar RatingsByStar-barFrame" />
+                  </div>
+
+                  <div className="RatingsByStar-count">
+                    <LoadingText width={100} />
+                  </div>
+                </div>
+              );
+            }
+
             let starCount;
+            if (addon && addon.ratings) {
+              starCount = addon.ratings.grouped_counts[star];
+            }
 
             function createLink(text) {
               invariant(addon, 'addon was unexpectedly empty');
@@ -164,49 +186,32 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               );
             }
 
-            if (addon && addon.ratings) {
-              starCount = addon.ratings.grouped_counts[star];
-            }
-
-            const loadingRow = (
-              <div key={star} className="RatingsByStar-row">
-                <div className="RatingsByStar-star">
-                  <LoadingText width={100} />
-                  <Icon name="star-yellow" />
-                </div>
-
-                <div className="RatingsByStar-barContainer">
-                  <div className="RatingsByStar-bar RatingsByStar-barFrame" />
-                </div>
-
-                <div className="RatingsByStar-count">
-                  <LoadingText width={100} />
-                </div>
-              </div>
-            );
-
-            const ratingsByStarRow = (
+            return (
               <>
-                <div className="RatingsByStar-star">
-                  {i18n.formatNumber(star)}
-                  <Icon name="star-yellow" />
-                </div>
+                {createLink(
+                  <div className="RatingsByStar-star">
+                    {i18n.formatNumber(star)}
+                    <Icon name="star-yellow" />
+                  </div>,
+                )}
 
-                <div className="RatingsByStar-barContainer">
-                  <div className="RatingsByStar-bar RatingsByStar-barFrame">
-                    {starCount !== undefined
-                      ? this.renderBarValue(starCount)
-                      : null}
-                  </div>
-                </div>
+                {createLink(
+                  <div className="RatingsByStar-barContainer">
+                    <div className="RatingsByStar-bar RatingsByStar-barFrame">
+                      {starCount !== undefined
+                        ? this.renderBarValue(starCount)
+                        : null}
+                    </div>
+                  </div>,
+                )}
 
-                <div className="RatingsByStar-count">
-                  {i18n.formatNumber(starCount || 0)}
-                </div>
+                {createLink(
+                  <div className="RatingsByStar-count">
+                    {i18n.formatNumber(starCount || 0)}
+                  </div>,
+                )}
               </>
             );
-
-            return loading ? loadingRow : createLink(ratingsByStarRow);
           })}
         </div>
       </div>
