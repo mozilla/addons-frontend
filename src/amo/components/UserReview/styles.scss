@@ -33,11 +33,14 @@
 }
 
 .UserReview-body.ShowMoreCard {
-  font-size: $font-size-default;
   margin: 0;
 
   &:not(.UserReview-emptyBody) {
     margin: 4px 0 6px;
+  }
+
+  .Card-footer {
+    margin: 12px 0 24px;
   }
 }
 
