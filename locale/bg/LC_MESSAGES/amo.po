@@ -1211,7 +1211,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:438
 msgid "Terrorist content"
-msgstr ""
+msgstr "Съдържание свързано с тероризъм"
 
 #: src/amo/components/FeedbackForm/index.js:449
 msgid "Inauthentic accounts"
@@ -1231,15 +1231,15 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:463
 msgid "Phishing"
-msgstr ""
+msgstr "Фишинг"
 
 #: src/amo/components/FeedbackForm/index.js:466
 msgid "Pyramid schemes"
-msgstr ""
+msgstr "Пирамидни схеми"
 
 #: src/amo/components/FeedbackForm/index.js:477
 msgid "Content promoting eating disorders"
-msgstr ""
+msgstr "Съдържание, популяризиращо хранителни разстройства на психологична основа"
 
 #: src/amo/components/FeedbackForm/index.js:481
 msgid "Self-mutilation"
@@ -1247,7 +1247,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:483
 msgid "Suicide"
-msgstr ""
+msgstr "Самоубийство"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
@@ -1259,75 +1259,75 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:508
 msgid "Coordinated harm"
-msgstr ""
+msgstr "Координирана вреда"
 
 #: src/amo/components/FeedbackForm/index.js:512
 msgid "Gender-based violence"
-msgstr ""
+msgstr "Насилие, основано на пола"
 
 #: src/amo/components/FeedbackForm/index.js:516
 msgid "Human exploitation"
-msgstr ""
+msgstr "Човешка експлоатация"
 
 #: src/amo/components/FeedbackForm/index.js:520
 msgid "Human trafficking"
-msgstr ""
+msgstr "Трафик на хора"
 
 #: src/amo/components/FeedbackForm/index.js:524
 msgid "General calls or incitement to violence and/or hatred"
-msgstr ""
+msgstr "Общи призиви или подбуждане към насилие и/или омраза"
 
 #: src/amo/components/FeedbackForm/index.js:671
 msgid "Report submitted"
-msgstr ""
+msgstr "Докладът е изпратен"
 
 #: src/amo/components/FeedbackForm/index.js:673
 msgid "We have received your report. Thanks for letting us know."
-msgstr ""
+msgstr "Получихме вашия доклад. Благодарим ви, че ни уведомихте."
 
 #: src/amo/components/FeedbackForm/index.js:768
 msgid "Submitting your report…"
-msgstr ""
+msgstr "Изпращане на вашия доклад…"
 
 #: src/amo/components/FeedbackForm/index.js:769
 msgid "Submit report"
-msgstr ""
+msgstr "Изпращане на доклад"
 
 #: src/amo/components/FeedbackForm/index.js:788
 msgid "Provide more information"
-msgstr ""
+msgstr "Предоставете повече информация"
 
 #: src/amo/components/FeedbackForm/index.js:796
 msgid "Place of the violation"
-msgstr ""
+msgstr "Място на нарушението"
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Вид на незаконното съдържание"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
-msgstr ""
+msgstr "Конкретно нарушение"
 
 #: src/amo/components/FeedbackForm/index.js:867
 msgid "Provide more details"
-msgstr ""
+msgstr "Добавяне на повече подробности"
 
 #: src/amo/components/FeedbackForm/index.js:879
 msgid "Please provide any additional information that may help us to understand your report (including which policy you believe has been violated)."
-msgstr ""
+msgstr "Моля, предоставете всякаква допълнителна информация, която може да ни помогне да разберем вашия доклад (включително кои правила смятате, че са нарушени)."
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
-msgstr ""
+msgstr "Информация за връзка"
 
 #: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
-msgstr ""
+msgstr "Подаване на доклада анонимно"
 
 #: src/amo/components/FeedbackForm/index.js:906
 msgid "Filing an anonymous report will prevent us from communicating with you about the report’s status, or about any options for appeal."
-msgstr ""
+msgstr "Подаване на анонимен доклад ще ни попречи да общуваме с вас относно състоянието на доклада или за всякакви възможности за обжалване."
 
 #: src/amo/components/FeedbackForm/index.js:927
 msgid "Your name %(spanStart)s(optional)%(spanEnd)s"
