@@ -879,6 +879,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Опитайте да посетите страницата по-късно, тъй като темата или разширението може да са достъпни отново. Като алтернатива, може да успеете да намерите това, което търсите в някой от "
+"наличните%(extensionStart)sразширения%(extensionEnd)s или %(themeStart)sтеми%(themeEnd)s или пък да попитате за помощ в %(communityStart)sфорумите на общността%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
@@ -886,11 +888,11 @@ msgstr "Ами сега! Не можем да намерим тази стран
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Ако сте последвали връзка от друг сайт за разширение или тема, тя вече не е налична. Това може да се дължи на следните причини:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Разработчикът е премахнал работата си. Разработчиците обикновено правят това, защото вече не поддържат разширението или темата или са я заменили."
 
 #: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
@@ -927,9 +929,8 @@ msgid "That page is not available in your region"
 msgstr "Страницата не е налична във вашата държава"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "Добавката е недостъпна за тази платформа."
+msgstr "Страницата, която се опитахте да отворите, не е налична във вашия регион."
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
@@ -953,23 +954,23 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr ""
+msgstr "Не работи, разбива уебсайтове или забавя Firefox"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
-msgstr ""
+msgstr "Пример: Функциите са бавни, трудни за използване или не работят; части от уебсайтове не се зареждат или изглеждат необичайно."
 
 #: src/amo/components/FeedbackForm/index.js:113
 msgid "It’s spam"
-msgstr ""
+msgstr "Нежелано съдържание е"
 
 #: src/amo/components/FeedbackForm/index.js:114
 msgid "Example: The listing advertises unrelated products or services."
-msgstr ""
+msgstr "Пример: Обявата рекламира несвързани продукти или услуги."
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "It violates Add-on Policies"
-msgstr ""
+msgstr "Нарушава политиката на добавките"
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
@@ -981,11 +982,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:131
 msgid "Example: It contains racist imagery."
-msgstr ""
+msgstr "Пример: Съдържа расистки изображения."
 
 #: src/amo/components/FeedbackForm/index.js:135
 msgid "It violates the law or contains content that violates the law"
-msgstr ""
+msgstr "Нарушава закона или е съдържание, което е в нарушение на закона"
 
 #: src/amo/components/FeedbackForm/index.js:139
 msgid ""
@@ -995,31 +996,31 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
-msgstr ""
+msgstr "Нещо друго"
 
 #: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "Всичко, което не се вписва в другите категории."
 
 #: src/amo/components/FeedbackForm/index.js:164
 msgid "Select place"
-msgstr ""
+msgstr "Избор на място"
 
 #: src/amo/components/FeedbackForm/index.js:166
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "На страницата на добавката в този сайт"
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
-msgstr ""
+msgstr "Вътре в самата добавка"
 
 #: src/amo/components/FeedbackForm/index.js:170
 msgid "Both locations"
-msgstr ""
+msgstr "И на двете места"
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "Избор на вид"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
