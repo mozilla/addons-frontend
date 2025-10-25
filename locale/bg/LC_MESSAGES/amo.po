@@ -1368,7 +1368,7 @@ msgstr "Сигнализирайте за този отзив"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "Нежеланo съдържание"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
@@ -1380,7 +1380,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:86
 msgid "Misplaced bug report or support request"
-msgstr ""
+msgstr "Неправилен доклад за проблем или заявка за поддръжка"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as misplaced bug report or support request"
@@ -1925,19 +1925,16 @@ msgid "Extensions by Firefox"
 msgstr "Разширения от Firefox"
 
 #: src/amo/components/Search/index.js:158
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "От Firefox"
+msgstr "Теми от Firefox"
 
 #: src/amo/components/Search/index.js:161
-#, fuzzy
 msgid "Add-ons by Firefox"
 msgstr "Добавки за Firefox"
 
 #: src/amo/components/Search/index.js:166
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Препоръчителни разширения"
+msgstr "Прегледани разширения"
 
 #: src/amo/components/Search/index.js:169
 #, fuzzy
