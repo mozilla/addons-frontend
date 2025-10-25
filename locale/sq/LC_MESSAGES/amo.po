@@ -1618,27 +1618,27 @@ msgstr "Faqja %(thisPage)s nga %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:102
 msgid "Optional permissions:"
-msgstr ""
+msgstr "Leje opsionale:"
 
 #: src/amo/components/PermissionsCard/index.js:122
 msgid "Optional data collection, according to the developer:"
-msgstr ""
+msgstr "Grumbullim opsional të dhënash, sipas zhvilluesit:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "Grumbullim të dhënash:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr ""
+msgstr "Grumbullim i domosdoshëm të dhënash, sipas zhvilluesit:"
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "Leje dhe të dhëna"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Required permissions:"
-msgstr ""
+msgstr "Leje të domosdoshme:"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -1830,7 +1830,7 @@ msgstr "Jeni i sigurt se doni të fshihet vlerësimi juaj për %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Klikoni për ta vlerësuar:"
 
 #: src/amo/components/RatingManager/index.js:239
 msgid "Saving star rating"
@@ -2410,8 +2410,8 @@ msgstr "Ende pa shqyrtime"
 #: src/amo/pages/Addon/index.js:252
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Vlerësuar me %(ratingAverage)s nga 1 shqyrtues"
+msgstr[1] "Vlerësuar me %(ratingAverage)s nga %(ratingCount)s shqyrtues"
 
 #: src/amo/pages/Addon/index.js:289
 msgid "About this dictionary"
