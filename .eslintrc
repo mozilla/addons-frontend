@@ -88,6 +88,9 @@
     }]
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/core-modules": [
       // This is a workaround for: https://github.com/benmosher/eslint-plugin-import/issues/793
       "redux-saga/effects",
