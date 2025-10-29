@@ -73,7 +73,7 @@ runs:
         # repository on a pull request refers to the base which is always mozilla/addons-server
         is_head_fork: ${{ github.event.pull_request.head.repo.fork }}
         # https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
-        is_dependabot: ${{ github.actor == 'dependabot[bot]' }}
+        is_dependabot: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
       shell: bash
       run: |
         
