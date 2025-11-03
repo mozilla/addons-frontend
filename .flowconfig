@@ -9,6 +9,8 @@
 .*/node_modules/stylelint
 .*/node_modules/@snyk/composer-lockfile-parser/.*
 .*/node_modules/resolve
+.*/node_modules/hermes-estree/.*
+.*/node_modules/hermes-parser/.*
 
 [include]
 

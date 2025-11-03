@@ -34,6 +34,7 @@ export function render404IfConfigKeyIsFalse(
     throw new TypeError('configKey cannot be empty');
   }
 
+  // eslint-disable-next-line react/display-name
   return (Component: React.ComponentType<any>) => (props: mixed) => {
     if (!_config.get(configKey)) {
       log.debug(
