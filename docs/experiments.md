@@ -7,11 +7,9 @@ AMO has the ability to run experiments, automatically dividing users into branch
 The following are the steps to add an experiment to AMO:
 
 1. Create a config file for the experiment in `amo/experiments`.
-
    - The file should be named with the `experimentId`, e.g., `20210714_amo_vpn_promo.js`.
    - `experimentId` must be in the format `YYYYMMDD_amo_experimentName`. We generally use the date that the code was written for the YYYYMMDD portion.
    - The config file should export a `EXPERIMENT_CONFIG` variable, which is an object containing:
-
      - `id`, which is the same as the `experimentId`, above.
      - `variants`, which is an array of possible branches to which a user might be assigned. Each item in this array is an object with an `id` (which ends up being the experiment branch/variation) and a `percentage`, which is used to automatically allocate users to branches, and is expressed as number less than 1 (e.g., `0.5` means 50%). The sum total of all `percentage`s in the array must equal `1` or an error will be thrown. There is a special variant, `NOT_IN_EXPERIMENT`, which can be imported from `amo/withExperiment`, and any users allocated to that branch will be treated as not being enrolled in the experiment.
      - optionally a `shouldExcludeUser` function, which accepts a single object argument `{ state }` and returns a boolean. If this function returns `true` then the user will be excluded from the experiment. If this property is missing, then no users will be excluded.
@@ -59,7 +57,6 @@ The following are the steps to add an experiment to AMO:
    The example `shouldExcludeUser` function returns the result of the internal `shouldExcludeUser` function, which uses `clientApp` and `regionCode` from `state.api` to exclude users on the `android` site, as well as any users with a region other than `US`, `DE` or `FR`.
 
 2. Update AMO's config to enable the experiment.
-
    - The default config file, `config/default.js`, contains an `experiments` property, which lists existing experiments along with their current enabled status. To enable an experiment, add it to the `experiments` object, using the `experimentId` as the key, and set the value to `true`. For example:
 
    ```js

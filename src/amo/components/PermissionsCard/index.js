@@ -145,8 +145,7 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
   }
 }
 
-const PermissionsCard: React.ComponentType<Props> = compose(translate())(
-  PermissionsCardBase,
-);
+const PermissionsCard: React.ComponentType<Props> =
+  compose(translate())(PermissionsCardBase);
 
 export default PermissionsCard;

@@ -25,7 +25,9 @@ $micro-font-size: $font-size-xs;
   margin: 0;
   padding: 0 8px;
   text-decoration: none;
-  transition-duration: all $transition-long, padding $transition-short;
+  transition-duration:
+    all $transition-long,
+    padding $transition-short;
   transition-property: background-color border-color color;
   transition-timing-function: $easing-curve;
 

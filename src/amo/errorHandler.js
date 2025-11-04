@@ -2,12 +2,12 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { oneLine } from 'common-tags';
+import PropTypes from 'prop-types';
 
 import log from 'amo/logger';
 import { normalizeFileNameId } from 'amo/utils';
 import ErrorList from 'amo/components/ErrorList';
 import { clearError, setError, setErrorMessage } from 'amo/reducers/errors';
-import type { ErrorHandlerType } from 'amo/types/errorHandler';
 
 function generateHandlerId({ name = '' } = {}) {
   return `${name}-${Math.random().toString(36).substr(2, 9)}`;
@@ -222,12 +222,8 @@ export const withFixedErrorHandler = ({ fileName, extractId }) => {
  * )(SomeComponent);
  */
 export function withRenderedErrorHandler({ name, id } = {}) {
-  type ErrorBannerProps = {|
-    errorHandler: ErrorHandlerType,
-  |};
-
   return (WrappedComponent) => {
-    function ErrorBanner(props: ErrorBannerProps) {
+    function ErrorBanner(props) {
       const { errorHandler } = props;
 
       if (errorHandler.hasError()) {
@@ -241,6 +237,10 @@ export function withRenderedErrorHandler({ name, id } = {}) {
 
       return <WrappedComponent {...props} />;
     }
+
+    ErrorBanner.propTypes = {
+      errorHandler: PropTypes.object.isRequired,
+    };
 
     return compose(withErrorHandler({ name, id }))(ErrorBanner);
   };

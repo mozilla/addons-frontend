@@ -110,8 +110,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
   }
 }
 
-const AddonAdminLinks: React.ComponentType<Props> = compose(translate())(
-  AddonAdminLinksBase,
-);
+const AddonAdminLinks: React.ComponentType<Props> =
+  compose(translate())(AddonAdminLinksBase);
 
 export default AddonAdminLinks;

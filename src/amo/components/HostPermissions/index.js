@@ -151,8 +151,7 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
   }
 }
 
-const HostPermissions: React.ComponentType<Props> = compose(translate())(
-  HostPermissionsBase,
-);
+const HostPermissions: React.ComponentType<Props> =
+  compose(translate())(HostPermissionsBase);
 
 export default HostPermissions;

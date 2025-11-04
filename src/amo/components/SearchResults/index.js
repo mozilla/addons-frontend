@@ -81,8 +81,7 @@ export class SearchResultsBase extends React.Component<InternalProps> {
   }
 }
 
-const SearchResults: React.ComponentType<Props> = compose(translate())(
-  SearchResultsBase,
-);
+const SearchResults: React.ComponentType<Props> =
+  compose(translate())(SearchResultsBase);
 
 export default SearchResults;

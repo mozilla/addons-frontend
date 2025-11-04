@@ -1059,20 +1059,23 @@ export const getMockConfig = (overrides = {}) => {
  * mockWindow.expects('fetch').withArgs(urlWithTheseParams({ page: 1 }))
  */
 export const urlWithTheseParams = (params) => {
-  return sinon.match((urlString) => {
-    const { query } = urllib.parse(urlString, true);
+  return sinon.match(
+    (urlString) => {
+      const { query } = urllib.parse(urlString, true);
 
-    for (const param in params) {
-      if (
-        query[param] === undefined ||
-        query[param] !== params[param].toString()
-      ) {
-        return false;
+      for (const param in params) {
+        if (
+          query[param] === undefined ||
+          query[param] !== params[param].toString()
+        ) {
+          return false;
+        }
       }
-    }
 
-    return true;
-  }, `urlWithTheseParams(${JSON.stringify(params)})`);
+      return true;
+    },
+    `urlWithTheseParams(${JSON.stringify(params)})`,
+  );
 };
 
 /*

@@ -64,8 +64,7 @@ export const UserCollectionBase = (props: InternalProps): React.Node => {
   );
 };
 
-const UserCollection: React.ComponentType<Props> = compose(translate())(
-  UserCollectionBase,
-);
+const UserCollection: React.ComponentType<Props> =
+  compose(translate())(UserCollectionBase);
 
 export default UserCollection;

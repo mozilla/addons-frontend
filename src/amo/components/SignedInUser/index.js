@@ -35,8 +35,7 @@ const SignedInUserBase = (props: InternalProps) => (
   </div>
 );
 
-const SignedInUser: React.ComponentType<Props> = compose(translate())(
-  SignedInUserBase,
-);
+const SignedInUser: React.ComponentType<Props> =
+  compose(translate())(SignedInUserBase);
 
 export default SignedInUser;

@@ -27,7 +27,7 @@ class SomeComponentBase extends React.Component {
     errorHandler: PropTypes.object,
   };
 
-  handleError: () => void = () => {
+  handleError = () => {
     this.props.errorHandler.handle(new Error());
   };
 
