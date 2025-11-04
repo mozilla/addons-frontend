@@ -39,7 +39,7 @@ export type InternalPrimaryHeroShelfExternalAddonType = {|
   id: string,
   guid: string,
   homepage: UrlWithOutgoing | null,
-  name: string,
+  name: string | null,
   type: string,
 |};
 
@@ -116,18 +116,18 @@ export type ExternalSecondaryHeroShelfType = {|
 export type LinkWithTextType = {|
   url: string,
   outgoing: string,
-  text: string,
+  text: string | null,
 |};
 
 export type SecondaryHeroModuleType = {|
   icon: string,
-  description: string,
+  description: string | null,
   cta: LinkWithTextType | null,
 |};
 
 export type SecondaryHeroShelfType = {|
-  headline: string,
-  description: string,
+  headline: string | null,
+  description: string | null,
   cta: LinkWithTextType | null,
   modules: Array<SecondaryHeroModuleType>,
 |} | null;
@@ -152,7 +152,7 @@ export type ExternalResultShelfType = {|
 |};
 
 export type ResultShelfType = {|
-  title: string,
+  title: string | null,
   url: string,
   endpoint: string,
   addonType: AddonTypeType,

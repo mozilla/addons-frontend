@@ -77,7 +77,7 @@ export type ExternalVersionLicenseType = {|
 
 type PartialVersionLicenseType = {|
   name: string | null,
-  text?: string,
+  text: string | null,
   url: string,
 |};
 
@@ -98,7 +98,7 @@ export type AddonVersionType = {
   isStrictCompatibilityEnabled: boolean,
   license: VersionLicenseType | null,
   file: AddonFileType | null,
-  releaseNotes?: string,
+  releaseNotes: string | null,
   version: string,
 };
 
@@ -146,7 +146,7 @@ export const createInternalVersion = (
           name: selectLocalizedContent(version.license.name, lang),
           text:
             version.license.text === undefined
-              ? undefined
+              ? null
               : selectLocalizedContent(version.license.text, lang),
           url: version.license.url,
         }

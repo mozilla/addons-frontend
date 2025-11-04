@@ -195,7 +195,9 @@ export const selectLocalizedUrlWithOutgoing = (
 ): UrlWithOutgoing | null => {
   if (url && url.url && url.outgoing) {
     return {
+      // $FlowIgnore: this can't be `null` because we check before.
       url: selectLocalizedContent(url.url, lang),
+      // $FlowIgnore: this can't be `null` because we check before.
       outgoing: selectLocalizedContent(url.outgoing, lang),
     };
   }
@@ -234,6 +236,7 @@ export function createInternalAddon(
     last_updated: apiAddon.last_updated,
     latest_unlisted_version: apiAddon.latest_unlisted_version,
     locale_disambiguation: apiAddon.locale_disambiguation,
+    // $FlowIgnore: the add-on's name cannot be falsey.
     name: selectLocalizedContent(apiAddon.name, lang),
     previews: apiAddon.previews
       ? createInternalPreviews(apiAddon.previews, lang)

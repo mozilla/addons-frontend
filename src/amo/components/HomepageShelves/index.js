@@ -2,6 +2,7 @@
 import url from 'url';
 
 import * as React from 'react';
+import invariant from 'invariant';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LoadingText from 'amo/components/LoadingText';
@@ -68,6 +69,9 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
   } else {
     shelvesContent = shelves.map((shelf) => {
       const { addons, addonType, endpoint, footer, title, url: apiUrl } = shelf;
+
+      invariant(title, 'title is required');
+
       const shelfKey = title.replace(/\s/g, '-');
 
       const footerText = footer.text
