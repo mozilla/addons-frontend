@@ -334,10 +334,8 @@ describe(__filename, () => {
       );
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorIdsAndAddonType(
-          [randomAuthorId1],
-          ADDON_TYPE_STATIC_THEME,
-        )]: true,
+        [joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_STATIC_THEME)]:
+          true,
       });
     });
   });
@@ -515,10 +513,8 @@ describe(__filename, () => {
       );
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorIdsAndAddonType(
-          [randomAuthorId1],
-          ADDON_TYPE_STATIC_THEME,
-        )]: false,
+        [joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_STATIC_THEME)]:
+          false,
       });
     });
 

@@ -6,10 +6,11 @@
   font-weight: 300 600; /* We only need those weights */
   src: url('woff2/Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.woff2')
     format('woff2');
-  unicode-range: U+20-7E, U+A0, U+A1, U+A3, U+A7, U+A9, U+AB, U+AE, U+B0-B5,
-    U+BB, U+BF-C4, U+C6-CF, U+D1-D7, U+D9-DC, U+DF-E4, U+E6-EF, U+F1-F7, U+F9-FD,
-    U+FF, U+104-107, U+10D, U+118, U+119, U+11B, U+141-144, U+152, U+153,
-    U+159-15B, U+161, U+178-17C, U+17E, U+401, U+410-44F, U+451, U+2010-2015,
-    U+2018-201A, U+201C-201E, U+2024, U+2026, U+202F, U+2032, U+2033, U+2080,
-    U+20AC, U+2122, U+2192, U+2605, U+2665;
+  unicode-range:
+    U+20-7E, U+A0, U+A1, U+A3, U+A7, U+A9, U+AB, U+AE, U+B0-B5, U+BB, U+BF-C4,
+    U+C6-CF, U+D1-D7, U+D9-DC, U+DF-E4, U+E6-EF, U+F1-F7, U+F9-FD, U+FF,
+    U+104-107, U+10D, U+118, U+119, U+11B, U+141-144, U+152, U+153, U+159-15B,
+    U+161, U+178-17C, U+17E, U+401, U+410-44F, U+451, U+2010-2015, U+2018-201A,
+    U+201C-201E, U+2024, U+2026, U+202F, U+2032, U+2033, U+2080, U+20AC, U+2122,
+    U+2192, U+2605, U+2665;
 }

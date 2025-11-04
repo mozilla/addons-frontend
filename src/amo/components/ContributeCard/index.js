@@ -121,8 +121,7 @@ export const ContributeCardBase = ({
   );
 };
 
-const ContributeCard: React.ComponentType<Props> = compose(translate())(
-  ContributeCardBase,
-);
+const ContributeCard: React.ComponentType<Props> =
+  compose(translate())(ContributeCardBase);
 
 export default ContributeCard;

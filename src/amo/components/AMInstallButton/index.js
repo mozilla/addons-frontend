@@ -253,8 +253,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   }
 }
 
-const AMInstallButton: React.ComponentType<Props> = compose(translate())(
-  AMInstallButtonBase,
-);
+const AMInstallButton: React.ComponentType<Props> =
+  compose(translate())(AMInstallButtonBase);
 
 export default AMInstallButton;

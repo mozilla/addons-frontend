@@ -30,15 +30,6 @@
         ],
       }
     ],
-    "block-closing-brace-newline-after": [
-      "always",
-      {
-        "ignoreAtRules": [
-          "if",
-          "else"
-        ],
-      }
-    ],
     "color-function-notation": null,
     "declaration-colon-newline-after": null,
     "function-disallowed-list": [
@@ -68,6 +59,7 @@
         ]
       }
     ],
+    "scss/dollar-variable-colon-space-after": "always-single-line",
     "scss/dollar-variable-pattern": null,
     "scss/no-global-function-names": null,
     "selector-class-pattern": "^([a-zA-Z][a-zA-Z0-9]*)([-[a-zA-Z0-9]+|--[a-zA-Z0-9]+])*$",

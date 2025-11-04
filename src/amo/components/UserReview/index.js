@@ -109,8 +109,7 @@ export const UserReviewBase = (props: InternalProps): React.Node => {
   );
 };
 
-const UserReview: React.ComponentType<Props> = compose(translate())(
-  UserReviewBase,
-);
+const UserReview: React.ComponentType<Props> =
+  compose(translate())(UserReviewBase);
 
 export default UserReview;

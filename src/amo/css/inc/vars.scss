@@ -118,5 +118,6 @@ $header-text-not-active-color: transparentize($white, 0.5);
 // Category Colors
 // There are currently 12 colors and this number must be kept in sync with
 // `src/amo/components/Categories/index.js`.
-$category-colors: $teal-70, $red-60, $magenta-60, $orange-60, $blue-50,
-  $green-70, $magenta-70, $red-50, $purple-40, $orange-70, $blue-60, $yellow-70;
+$category-colors:
+  $teal-70, $red-60, $magenta-60, $orange-60, $blue-50, $green-70, $magenta-70,
+  $red-50, $purple-40, $orange-70, $blue-60, $yellow-70;

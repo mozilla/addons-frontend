@@ -44,8 +44,7 @@ export class ServerErrorBase extends React.Component<InternalProps> {
   }
 }
 
-const ServerError: React.ComponentType<Props> = compose(translate())(
-  ServerErrorBase,
-);
+const ServerError: React.ComponentType<Props> =
+  compose(translate())(ServerErrorBase);
 
 export default ServerError;

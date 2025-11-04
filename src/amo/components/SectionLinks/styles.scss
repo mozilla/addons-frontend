@@ -37,7 +37,8 @@
     display: block;
     height: 3px;
     margin: auto;
-    transition: width $transition-short ease,
+    transition:
+      width $transition-short ease,
       background-color $transition-short ease;
     width: 0;
   }

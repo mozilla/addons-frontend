@@ -1941,9 +1941,8 @@ describe(__filename, () => {
         renderWithAddon();
 
         expect(screen.getByText('Permissions and data')).toBeInTheDocument();
-        const learnMoreLink = within(getPermissionsCard()).getByText(
-          'Learn more',
-        );
+        const learnMoreLink =
+          within(getPermissionsCard()).getByText('Learn more');
         expect(learnMoreLink).toHaveAttribute(
           'href',
           'https://support.mozilla.org/kb/permission-request-messages-firefox-extensions',

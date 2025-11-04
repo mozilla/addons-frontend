@@ -31,7 +31,9 @@ $cta-alternate-color: #f9f7fd;
     padding: 0.5rem 1rem;
     position: relative;
     text-decoration: none;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
   }
 
   a:hover,
