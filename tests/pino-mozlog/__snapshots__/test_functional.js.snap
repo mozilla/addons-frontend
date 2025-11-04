@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`functional tests converts pino logs to mozlog 1`] = `
 "{"EnvVersion":"2.0","Fields":{"msg":"Sentry reporting is disabled; Set config.sentryDsn to enable it."},"Hostname":"big","Logger":"amo","Pid":85547,"Severity":4,"Timestamp":1612950421902131000,"Type":"app.log","severity":400}
