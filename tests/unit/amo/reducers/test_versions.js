@@ -175,10 +175,10 @@ describe(__filename, () => {
       });
     });
 
-    it('returns undefined for license.text if it is missing from the response', () => {
+    it('returns null for license.text if it is missing from the response', () => {
       // fakeVersion does not include license.text.
       const version = createInternalVersion(fakeVersion, lang);
-      expect(version.license.text).toEqual(undefined);
+      expect(version.license.text).toEqual(null);
     });
 
     // See https://github.com/mozilla/addons-frontend/issues/11337

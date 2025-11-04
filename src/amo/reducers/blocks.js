@@ -24,7 +24,7 @@ export type ExternalBlockType = {|
 
 export type BlockType = {|
   ...ExternalBlockType,
-  name: string,
+  name: string | null,
 |};
 
 export type BlocksState = {|

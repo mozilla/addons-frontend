@@ -86,6 +86,7 @@ export function createInternalReview(
     reviewAddon: {
       iconUrl: review.addon.icon_url,
       id: review.addon.id,
+      // $FlowIgnore: the add-on's name cannot be falsey.
       name: selectLocalizedContent(review.addon.name, lang),
       slug: review.addon.slug,
     },

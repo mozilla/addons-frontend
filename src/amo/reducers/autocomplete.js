@@ -29,7 +29,7 @@ export type ExternalSuggestion = {|
 export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
-  name: string,
+  name: string | null,
   promoted: Array<PromotedType>,
   type: string,
   url: string,

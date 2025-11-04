@@ -59,7 +59,7 @@ export type ExternalLanguageToolType = {|
 
 export type LanguageToolType = {|
   ...ExternalLanguageToolType,
-  name: string,
+  name: string | null,
 |};
 
 export type PromotedType = {|
@@ -83,7 +83,7 @@ export type PreviewType = {|
   thumbnail_h: number,
   thumbnail_src: string,
   thumbnail_w: number,
-  title: string,
+  title: string | null,
   w: number,
 |};
 

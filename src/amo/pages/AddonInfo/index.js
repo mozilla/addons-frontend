@@ -118,7 +118,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
       const needsLicenceText =
         addonVersion &&
         addonVersion.license &&
-        addonVersion.license.text === undefined;
+        addonVersion.license.text === null;
       if (
         addon &&
         addon.currentVersionId &&
