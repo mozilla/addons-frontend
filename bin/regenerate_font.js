@@ -13,7 +13,7 @@ function getUnicodeRangeFromFile(file) {
 }
 
 function regenerateFonts() {
-  import('characterset').then((characterset) => {
+  import('characterset').then(async (characterset) => {
 
     const CharacterSet = characterset.default;
 
@@ -90,12 +90,12 @@ function regenerateFonts() {
   unicode-range: ${characterSetFromFile.toHexRangeString()};
 }
 `;
-  const runPrettierWithConfig = (text) => {
-    const filePath = prettier.resolveConfigFile.sync();
-    const options = prettier.resolveConfig.sync(filePath);
+  const runPrettierWithConfig = async (text) => {
+    const filePath = await prettier.resolveConfigFile();
+    const options = await prettier.resolveConfig(filePath);
     return prettier.format(text, { ...options, parser: 'scss' });
   };
-  fs.writeFileSync(`src/fonts/${cssFile}`, runPrettierWithConfig(cssContents));
+  fs.writeFileSync(`src/fonts/${cssFile}`, await runPrettierWithConfig(cssContents));
 
   console.info('Generating html...');
   const htmlContents = `<meta charset="utf-8" /><style>
