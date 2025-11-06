@@ -12,7 +12,10 @@ import Page from 'amo/components/Page';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { sanitizeHTML } from 'amo/utils';
-import { fetchBlock, isSoftBlocked } from 'amo/reducers/blocks';
+import {
+  fetchBlock,
+  isSoftBlocked as _isSoftBlocked,
+} from 'amo/reducers/blocks';
 import log from 'amo/logger';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
@@ -33,6 +36,7 @@ type Props = {|
 type PropsFromState = {|
   block: BlockType | void | null,
   isSoftBlocked: boolean,
+  isSoftBlockedAndDeleted: boolean,
 |};
 
 type InternalProps = {|
@@ -49,6 +53,10 @@ const POLICIES_URL =
   'https://extensionworkshop.com/documentation/publish/add-on-policies/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=blocked-addon';
 const SUPPORT_URL =
   'https://support.mozilla.org/kb/add-ons-cause-issues-are-on-blocklist';
+
+// Must be kept in sync with addons-server
+export const REASON_ADDON_DELETED = 'Addon deleted';
+export const REASON_VERSION_DELETED = 'Version deleted';
 
 export class BlockBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
@@ -69,10 +77,14 @@ export class BlockBase extends React.Component<InternalProps> {
   }
 
   renderReason(): null | React.Node {
-    const { block } = this.props;
+    const { block, isSoftBlockedAndDeleted } = this.props;
 
-    if (block && block.reason === null) {
+    if (block && !block.reason?.length) {
       // Do not render a paragraph when it is not needed.
+      return null;
+    }
+
+    if (isSoftBlockedAndDeleted) {
       return null;
     }
 
@@ -102,6 +114,29 @@ export class BlockBase extends React.Component<InternalProps> {
     return null;
   }
 
+  renderWhatDoesThisMeanText(): string {
+    const { isSoftBlocked, isSoftBlockedAndDeleted, i18n } = this.props;
+
+    if (isSoftBlockedAndDeleted) {
+      return i18n.gettext(`When an add-on is deleted, it will no longer be
+        available for download from addons.mozilla.org. If it's already
+        installed, it will be disabled and users will be informed. They may
+        choose to enable the add-on again at their own risk.`);
+    }
+
+    if (isSoftBlocked) {
+      return i18n.gettext(`Until the violation is resolved, this add-on won't
+        be available for download from addons.mozilla.org. If it's already
+        installed, it will be disabled and users will be informed about the
+        violation. They may choose to enable the add-on again at their own
+        risk.`);
+    }
+
+    return i18n.gettext(`Until the violation is resolved, this add-on won't be
+      available for download from addons.mozilla.org. It will be automatically
+      disabled and no longer usable in Firefox.`);
+  }
+
   render(): React.Node {
     const { block, errorHandler, i18n } = this.props;
 
@@ -116,7 +151,21 @@ export class BlockBase extends React.Component<InternalProps> {
     }
 
     let title;
-    if (this.props.isSoftBlocked) {
+    if (this.props.isSoftBlockedAndDeleted) {
+      title =
+        block && block.name
+          ? i18n.sprintf(
+              i18n.gettext(
+                `%(addonName)s is restricted because it was deleted by the author(s)`,
+              ),
+              {
+                addonName: block.name,
+              },
+            )
+          : i18n.gettext(
+              `This add-on is restricted because it was deleted by the author(s)`,
+            );
+    } else if (this.props.isSoftBlocked) {
       title =
         block && block.name
           ? i18n.sprintf(
@@ -155,43 +204,69 @@ export class BlockBase extends React.Component<InternalProps> {
           </Helmet>
 
           <Card className="Block-content" header={title}>
-            <h2>{i18n.gettext('Why did this happen?')}</h2>
-            <p
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`This extension, theme, or plugin violates
-                    %(startLink)sMozilla's add-on policies%(endLink)s.`),
-                  {
-                    startLink: `<a href="${POLICIES_URL}">`,
-                    endLink: '</a>',
-                  },
-                ),
-                ['a'],
-              )}
-            />
             {this.renderReason()}
 
-            <h2>{i18n.gettext('What does this mean?')}</h2>
-            <p>
-              {this.props.isSoftBlocked
-                ? i18n.gettext(`Until the violation is resolved, this add-on
-                  won't be available for download from addons.mozilla.org.
-                  If it’s already installed, it will be disabled and users
-                  will be informed about the violation. They may choose to
-                  enable the add-on again at their own risk.`)
-                : i18n.gettext(`Until the violation is resolved, this add-on
-                won't be available for download from addons.mozilla.org.
-                It will be automatically disabled and no longer usable in
-                Firefox.`)}
-            </p>
+            <h2>{i18n.gettext('Why did this happen?')}</h2>
+            {this.props.isSoftBlockedAndDeleted ? (
+              <p>
+                {i18n.gettext(`The version of this extension, theme, or plugin
+                  was deleted by the author(s) and has therefore been restricted
+                  by Mozilla.`)}
+              </p>
+            ) : (
+              <p
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={sanitizeHTML(
+                  i18n.sprintf(
+                    i18n.gettext(`This extension, theme, or plugin violates
+                    %(startLink)sMozilla's add-on policies%(endLink)s.`),
+                    {
+                      startLink: `<a href="${POLICIES_URL}">`,
+                      endLink: '</a>',
+                    },
+                  ),
+                  ['a'],
+                )}
+              />
+            )}
 
-            <h2>{i18n.gettext('How does Mozilla enforce its policies?')}</h2>
-            <p
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`When Mozilla becomes aware of add-ons, plugins,
+            <h2>{i18n.gettext('What does this mean?')}</h2>
+            <p>{this.renderWhatDoesThisMeanText()}</p>
+
+            {this.props.isSoftBlockedAndDeleted ? (
+              <>
+                <h2>
+                  {i18n.gettext(`Why does Mozilla restrict deleted add-ons?`)}
+                </h2>
+                <p
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={sanitizeHTML(
+                    i18n.sprintf(
+                      i18n.gettext(`When the author deletes their add-on, it's no
+                    longer maintained or updated, which could compromise
+                    Firefox security, stability, or performance. To prevent
+                    this, the add-on will be restricted from general use to
+                    protect Firefox users. For more information, please read
+                    %(supportStartLink)sthis support article%(supportEndLink)s.`),
+                      {
+                        supportStartLink: `<a href="${SUPPORT_URL}">`,
+                        supportEndLink: '</a>',
+                      },
+                    ),
+                    ['a'],
+                  )}
+                />
+              </>
+            ) : (
+              <>
+                <h2>
+                  {i18n.gettext('How does Mozilla enforce its policies?')}
+                </h2>
+                <p
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={sanitizeHTML(
+                    i18n.sprintf(
+                      i18n.gettext(`When Mozilla becomes aware of add-ons, plugins,
                     or other third-party software that seriously compromise
                     Firefox security, stability, or performance and meet
                     %(criteriaStartLink)scertain criteria%(criteriaEndLink)s,
@@ -199,16 +274,19 @@ export class BlockBase extends React.Component<InternalProps> {
                     use. For more information, please read
                     %(supportStartLink)sthis support article%(supportEndLink)s.
                     `),
-                  {
-                    criteriaStartLink: `<a href="${CRITERIA_URL}">`,
-                    criteriaEndLink: '</a>',
-                    supportStartLink: `<a href="${SUPPORT_URL}">`,
-                    supportEndLink: '</a>',
-                  },
-                ),
-                ['a'],
-              )}
-            />
+                      {
+                        criteriaStartLink: `<a href="${CRITERIA_URL}">`,
+                        criteriaEndLink: '</a>',
+                        supportStartLink: `<a href="${SUPPORT_URL}">`,
+                        supportEndLink: '</a>',
+                      },
+                    ),
+                    ['a'],
+                  )}
+                />
+              </>
+            )}
+
             <p className="Block-metadata">{this.renderURL()}</p>
           </Card>
         </div>
@@ -223,10 +301,15 @@ const mapStateToProps = (
 ): PropsFromState => {
   const { blocks } = state;
   const block = blocks.blocks[ownProps.match.params.guid];
+  const isSoftBlocked = _isSoftBlocked(block, ownProps.match.params.versionId);
+  const isSoftBlockedAndDeleted =
+    isSoftBlocked &&
+    [REASON_ADDON_DELETED, REASON_VERSION_DELETED].includes(block?.reason);
 
   return {
     block,
-    isSoftBlocked: isSoftBlocked(block, ownProps.match.params.versionId),
+    isSoftBlocked,
+    isSoftBlockedAndDeleted,
   };
 };
 
