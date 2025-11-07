@@ -1,4 +1,4 @@
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 import { buildFooter, buildHeader, buildStaticAddonCard } from 'blog-utils';
 import { fakeAddon } from 'tests/unit/helpers';
