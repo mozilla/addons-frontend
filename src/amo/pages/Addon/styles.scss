@@ -45,10 +45,9 @@
 }
 
 .Addon-header {
-  column-gap: 0;
+  gap: 8px 0;
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
 
   & .Addon-theme-thumbnail {
     background-color: $background-grey;
@@ -86,14 +85,13 @@
   }
 
   @include respond-to(large) {
-    column-gap: 16px;
+    gap: 16px 16px;
     display: grid;
     grid-template:
       'icon  info' auto
       '.     badge' auto
       '.     install' auto
       / 48px auto;
-    row-gap: 16px;
 
     .Addon-theme & {
       grid-template:

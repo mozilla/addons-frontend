@@ -23,8 +23,7 @@ $screenshot-width: 320px;
   height: $screenshot-height;
   list-style-type: none;
   margin: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto hidden;
   padding: 0;
   width: auto;
 }
