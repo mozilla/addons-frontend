@@ -5,11 +5,10 @@ $icon-medium: 19px;
 $icon-small: 13px;
 
 .Rating {
-  align-content: center;
+  place-content: center center;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr;
-  justify-content: center;
 
   // The width of small rating stars are controlled by .Rating-star.
   &.Rating--small {
