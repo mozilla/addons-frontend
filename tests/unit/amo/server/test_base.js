@@ -11,7 +11,7 @@ import createSagaMiddleware from 'redux-saga';
 import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
 import defaultConfig from 'config';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import { configureStore } from '@reduxjs/toolkit';
 
 import { REGION_CODE_HEADER, createApiError } from 'amo/api';

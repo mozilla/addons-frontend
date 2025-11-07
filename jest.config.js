@@ -42,7 +42,7 @@ module.exports = {
   },
   transformIgnorePatterns: [
     // ESM modules should be transformed.
-    '<rootDir>/node_modules/(?!(react-photoswipe-gallery|photoswipe)/)',
+    '<rootDir>/node_modules/(?!(cheerio|react-photoswipe-gallery|photoswipe)/)',
   ],
   watchPlugins: [
     'jest-watch-typeahead/filename',
