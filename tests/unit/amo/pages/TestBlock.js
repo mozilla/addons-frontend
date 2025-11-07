@@ -2,7 +2,11 @@ import { LOCATION_CHANGE } from 'redux-first-history';
 import { waitFor } from '@testing-library/react';
 
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
-import { extractId } from 'amo/pages/Block';
+import {
+  REASON_ADDON_DELETED,
+  REASON_VERSION_DELETED,
+  extractId,
+} from 'amo/pages/Block';
 import {
   FETCH_BLOCK,
   abortFetchBlock,
@@ -201,6 +205,14 @@ describe(__filename, () => {
     expect(screen.queryByClassName('Block-reason')).not.toBeInTheDocument();
   });
 
+  it('does not render a reason if the reason is an empty string', () => {
+    const block = _createFakeBlockResult({ reason: '' });
+    store.dispatch(loadBlock({ block }));
+    render();
+
+    expect(screen.queryByClassName('Block-reason')).not.toBeInTheDocument();
+  });
+
   it('renders the reason with HTML tags removed', () => {
     const reason = 'this is a <a>reason for a block</a>';
     const block = _createFakeBlockResult({ reason });
@@ -323,5 +335,83 @@ describe(__filename, () => {
 
       expect(extractId(ownProps)).toEqual(guid);
     });
+  });
+
+  it('renders a different content when the soft-block is for a deleted add-on', () => {
+    const name = 'some-addon-name';
+    const block = _createFakeBlockResult({
+      addonName: createLocalizedString(name),
+      soft_blocked: ['42.0'],
+      blocked: [],
+      reason: REASON_ADDON_DELETED,
+    });
+    store.dispatch(loadBlock({ block }));
+
+    render();
+
+    expect(
+      screen.getByText(
+        `${name} is restricted because it was deleted by the author(s)`,
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/When an add-on is deleted/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Why does Mozilla restrict deleted add-ons/),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /The version of this extension, theme, or plugin was deleted by the author/,
+      ),
+    ).toBeInTheDocument();
+    expect(screen.queryByClassName('Block-reason')).not.toBeInTheDocument();
+  });
+
+  it('renders a different content when the soft-block is for a deleted version', () => {
+    const name = 'some-addon-name';
+    const block = _createFakeBlockResult({
+      addonName: createLocalizedString(name),
+      soft_blocked: ['42.0'],
+      blocked: [],
+      reason: REASON_VERSION_DELETED,
+    });
+    store.dispatch(loadBlock({ block }));
+
+    render();
+
+    expect(
+      screen.getByText(
+        `${name} is restricted because it was deleted by the author(s)`,
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/When an add-on is deleted/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Why does Mozilla restrict deleted add-ons/),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /The version of this extension, theme, or plugin was deleted by the author/,
+      ),
+    ).toBeInTheDocument();
+    expect(screen.queryByClassName('Block-reason')).not.toBeInTheDocument();
+  });
+
+  it('renders a generic header/title when the block has no add-on name for a deleted version', async () => {
+    const block = _createFakeBlockResult({
+      soft_blocked: ['42.0'],
+      blocked: [],
+      addonName: null,
+      reason: REASON_VERSION_DELETED,
+    });
+    const title =
+      'This add-on is restricted because it was deleted by the author(s)';
+    store.dispatch(loadBlock({ block }));
+    render();
+
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `${title} – Add-ons for Firefox (${lang})`,
+      ),
+    );
+    expect(screen.getByText(title)).toBeInTheDocument();
   });
 });

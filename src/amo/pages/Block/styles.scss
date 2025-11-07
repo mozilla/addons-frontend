@@ -3,3 +3,14 @@
 .Block-page {
   @include page-padding;
 }
+
+.Block-reason {
+  background-color: transparentize($blue-50, 0.95);
+  border-radius: $border-radius-default;
+  margin-top: 8px;
+  padding: $padding-page;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
+}
