@@ -1254,7 +1254,7 @@ msgstr "Suicídio"
 
 #: src/amo/components/FeedbackForm/index.js:493
 msgid "Prohibited or restricted products"
-msgstr "Produtos proibidos ou restritos"
+msgstr "Produtos proibidos ou com restrição"
 
 #: src/amo/components/FeedbackForm/index.js:497
 msgid "Unsafe or non-compliant products"
@@ -2529,11 +2529,11 @@ msgstr "Versões mais antigas"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr "%(addonName)s está restrito por violar diretrizes da Mozilla"
+msgstr "%(addonName)s está com restrição por violar diretrizes da Mozilla"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr "Esta extensão está restrita por violar diretrizes da Mozilla"
+msgstr "Esta extensão está com restrição por violar diretrizes da Mozilla"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
@@ -2577,7 +2577,7 @@ msgid ""
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
 "Quando a Mozilla toma conhecimento de extensões, plugins ou outros softwares de terceiros que comprometem seriamente a segurança, estabilidade ou desempenho do Firefox e atendem "
-"%(criteriaStartLink)sdeterminados critérios%(criteriaEndLink)s, o software pode ser bloqueado ou restrito para uso geral. Consulte mais informações %(supportStartLink)sneste artigo de "
+"%(criteriaStartLink)sdeterminados critérios%(criteriaEndLink)s, o software pode ser bloqueado ou ficar com restrição para uso geral. Consulte mais informações %(supportStartLink)sneste artigo de "
 "suporte%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
