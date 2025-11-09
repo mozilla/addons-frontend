@@ -1812,7 +1812,7 @@ msgstr "%(addonName)s의 평점을 삭제하시겠습니까?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr "눌러서 평가:"
+msgstr "평가하기:"
 
 #: src/amo/components/RatingManager/index.js:239
 msgid "Saving star rating"
@@ -2245,7 +2245,7 @@ msgstr "자세히 읽어보기"
 
 #: src/amo/components/ShowMoreCard/index.js:169
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
+msgstr "<span class=\"visually-hidden\">더보기</span>"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
