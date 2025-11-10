@@ -1996,7 +1996,7 @@ msgstr "Популярные дополнения"
 
 #: src/amo/components/Search/index.js:216
 msgid "Search results for \"%(query)s\""
-msgstr "Результаты поиска для \"%(query)s\""
+msgstr "Результаты поиска по запросу «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:104
 msgid "%(count)s extension found for \"%(query)s\""
@@ -2105,7 +2105,7 @@ msgstr[2] "%(count)s результатов найдено"
 
 #: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
-msgstr "Результаты поиска для \"%(query)s\""
+msgstr "Результаты поиска по запросу «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
