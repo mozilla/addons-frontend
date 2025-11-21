@@ -15,7 +15,7 @@ jobs:
       is_default_branch: ${{ steps.context.outputs.is_default_branch }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - id: context
         uses: ./.github/actions/context
 
@@ -23,7 +23,7 @@ jobs:
     needs: context
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
