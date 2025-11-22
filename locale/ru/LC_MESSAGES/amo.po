@@ -2280,7 +2280,7 @@ msgstr "Поиск…"
 
 #: src/amo/components/SearchResults/index.js:50
 msgid "No results were found for \"%(query)s\"."
-msgstr "Результатов для \"%(query)s\" не найдено."
+msgstr "Результаты по запросу «%(query)s» не найдены."
 
 #: src/amo/components/SearchResults/index.js:56
 msgid "No results were found."
