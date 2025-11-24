@@ -28,6 +28,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     lang: URLPathParts[0],
     acceptLanguage,
   });
+  let hasReplacedLang = false;
 
   const hasValidLang = isValidLang(URLPathParts[0]);
   const hasValidClientAppInPartOne = isValidClientApp(URLPathParts[0], {
@@ -58,6 +59,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     hasValidClientAppUrlExceptionInPartTwo
   ) {
     log.debug(`Replacing lang in URL: ${URLPathParts[0]} with ${lang}`);
+    hasReplacedLang = true;
     URLPathParts.splice(0, 1, lang);
   } else {
     log.debug(`Prepending lang and clientApp to URL: ${lang}/${userAgentApp}`);
@@ -104,7 +106,10 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
       res.vary('user-agent');
     }
     res.set('Cache-Control', [`max-age=${ONE_YEAR_IN_SECONDS}`]);
-    return res.redirect(301, newURL);
+    // If there was a locale in the URL but we considered it invalid,
+    // return a 302 temporary redirect, in case this was a locale we have
+    // disabled and might re-enable later, otherwise 301 permanent.
+    return res.redirect(hasReplacedLang ? 302 : 301, newURL);
   }
 
   // Add the data to res.locals to be utilised later.
