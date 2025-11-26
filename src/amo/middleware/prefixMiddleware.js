@@ -28,6 +28,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     lang: URLPathParts[0],
     acceptLanguage,
   });
+  let hasUnknownPartOne = false;
 
   const hasValidLang = isValidLang(URLPathParts[0]);
   const hasValidClientAppInPartOne = isValidClientApp(URLPathParts[0], {
@@ -58,9 +59,11 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     hasValidClientAppUrlExceptionInPartTwo
   ) {
     log.debug(`Replacing lang in URL: ${URLPathParts[0]} with ${lang}`);
+    hasUnknownPartOne = true;
     URLPathParts.splice(0, 1, lang);
   } else {
     log.debug(`Prepending lang and clientApp to URL: ${lang}/${userAgentApp}`);
+    hasUnknownPartOne = !!URLPathParts[0];
     URLPathParts.splice(0, 0, lang, userAgentApp);
     isApplicationFromHeader = true;
   }
@@ -104,7 +107,10 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
       res.vary('user-agent');
     }
     res.set('Cache-Control', [`max-age=${ONE_YEAR_IN_SECONDS}`]);
-    return res.redirect(301, newURL);
+    // If there was something at the beginning of the URL we didn't recognize,
+    // it could be an old locale we have since disabled and might re-enable
+    // later, so make the redirect temporary (302), otherwise permanent (301).
+    return res.redirect(hasUnknownPartOne ? 302 : 301, newURL);
   }
 
   // Add the data to res.locals to be utilised later.
