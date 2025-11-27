@@ -150,10 +150,10 @@ describe(__filename, () => {
     expect(screen.getAllByRole('alert')).toHaveLength(
       DEFAULT_API_PAGE_SIZE * 4,
     );
-    // By default we do not want "theme" placeholders.
-    const imgs = screen.getAllByRole('img');
+    // We can't use `getAllByRole('img')` because the `img` doesnt' have an
+    // `alt` text in `SearchResult` when rendered as a placeholder.
+    const imgs = screen.getAllByClassName('SearchResult-icon--loading');
     expect(imgs).toHaveLength(DEFAULT_API_PAGE_SIZE);
-    expect(imgs[0]).toHaveClass('SearchResult-icon--loading');
   });
 
   it('handles an empty set of addons', () => {
@@ -162,15 +162,18 @@ describe(__filename, () => {
     expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
-  it('allows you configure the number of placeholders', () => {
+  it('allows you to configure the number of placeholders', () => {
     const placeholderCount = 2;
     render({
       addons: null,
       loading: true,
       placeholderCount,
     });
-
-    expect(screen.getAllByRole('img')).toHaveLength(placeholderCount);
+    // We can't use `getAllByRole('img')` because the `img` doesnt' have an
+    // `alt` text in `SearchResult` when rendered as a placeholder.
+    expect(screen.getAllByClassName('SearchResult-result')).toHaveLength(
+      placeholderCount,
+    );
   });
 
   it('renders addons even when loading', () => {
