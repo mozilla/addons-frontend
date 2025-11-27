@@ -60,7 +60,8 @@ const format = (
   },
   options = DEFAULT_OPTIONS,
 ) => {
-  const syslogSeverity = pinoSyslog.levelToSeverity(level);
+  const syslogSeverity =
+    pinoSyslog.defaults.pinoLevelToSyslogSeverity.get(level);
 
   return {
     EnvVersion: ENV_VERSION,
