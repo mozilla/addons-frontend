@@ -2008,23 +2008,23 @@ msgstr[2] "По запросу «%(query)s» найдено %(count)s расши
 #: src/amo/components/SearchContextCard/index.js:113
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "с меткой %(tag)s найдено %(count)s расширение"
-msgstr[1] "с меткой %(tag)s найдены %(count)s расширения"
-msgstr[2] "с меткой %(tag)s найдено %(count)s расширений"
+msgstr[0] "С меткой «%(tag)s» найдено %(count)s расширение"
+msgstr[1] "С меткой «%(tag)s» найдены %(count)s расширения"
+msgstr[2] "С меткой «%(tag)s» найдено %(count)s расширений"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "найдено %(count)s расширение"
-msgstr[1] "найдено %(count)s расширения"
-msgstr[2] "найдено %(count)s расширений"
+msgstr[0] "Найдено %(count)s расширение"
+msgstr[1] "Найдено %(count)s расширения"
+msgstr[2] "Найдено %(count)s расширений"
 
 #: src/amo/components/SearchContextCard/index.js:134
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "По запросу «%(query)s» с меткой %(tag)s [%(categoryName)s] найдена %(count)s тема"
-msgstr[1] "По запросу «%(query)s» с меткой %(tag)s [%(categoryName)s] найдено %(count)s темы"
-msgstr[2] "По запросу «%(query)s» с меткой %(tag)s [%(categoryName)s] найдено %(count)s тем"
+msgstr[0] "По запросу «%(query)s» с меткой «%(tag)s» [%(categoryName)s] найдена %(count)s тема"
+msgstr[1] "По запросу «%(query)s» с меткой «%(tag)s» [%(categoryName)s] найдено %(count)s темы"
+msgstr[2] "По запросу «%(query)s» с меткой «%(tag)s» [%(categoryName)s] найдено %(count)s тем"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -2036,16 +2036,16 @@ msgstr[2] "По запросу «%(query)s» [%(categoryName)s] найдено %
 #: src/amo/components/SearchContextCard/index.js:152
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "в %(categoryName)s с меткой %(tag)s найдена %(count)s тема"
-msgstr[1] "в %(categoryName)s с меткой %(tag)s найдено %(count)s темы"
-msgstr[2] "в %(categoryName)s с меткой %(tag)s найдено %(count)s тем"
+msgstr[0] "Найдена %(count)s тема с меткой «%(tag)s» [%(categoryName)s]"
+msgstr[1] "Найдено %(count)s темы с меткой «%(tag)s» [%(categoryName)s]"
+msgstr[2] "Найдено %(count)s тем с меткой «%(tag)s» [%(categoryName)s]"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s тема найдена в %(categoryName)s"
-msgstr[1] "%(count)s темы найдено в %(categoryName)s"
-msgstr[2] "%(count)s тем найдено в %(categoryName)s"
+msgstr[0] "Найдена %(count)s тема [%(categoryName)s]"
+msgstr[1] "Найдено %(count)s темы [%(categoryName)s]"
+msgstr[2] "Найдено %(count)s тем [%(categoryName)s]"
 
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
@@ -2064,23 +2064,23 @@ msgstr[2] "По запросу «%(query)s» найдено %(count)s тем"
 #: src/amo/components/SearchContextCard/index.js:188
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "%(count)s тема найдена с меткой %(tag)s"
-msgstr[1] "%(count)s темы найдены с меткой %(tag)s"
-msgstr[2] "%(count)s тем найдено с меткой %(tag)s"
+msgstr[0] "Найдена %(count)s тема с меткой «%(tag)s»"
+msgstr[1] "Найдено %(count)s темы с меткой «%(tag)s»"
+msgstr[2] "Найдено %(count)s тем с меткой «%(tag)s»"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "найдена %(count)s тема"
-msgstr[1] "найдено %(count)s темы"
-msgstr[2] "найдено %(count)s тем"
+msgstr[0] "Найдена %(count)s тема"
+msgstr[1] "Найдено %(count)s темы"
+msgstr[2] "Найдено %(count)s тем"
 
 #: src/amo/components/SearchContextCard/index.js:209
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "По запросу «%(query)s» с меткой %(tag)s найден %(count)s результат"
-msgstr[1] "По запросу «%(query)s» с меткой %(tag)s найдено %(count)s результата"
-msgstr[2] "По запросу «%(query)s» с меткой %(tag)s найдено %(count)s результатов"
+msgstr[0] "По запросу «%(query)s» с меткой «%(tag)s» найден %(count)s результат"
+msgstr[1] "По запросу «%(query)s» с меткой «%(tag)s» найдено %(count)s результата"
+msgstr[2] "По запросу «%(query)s» с меткой «%(tag)s» найдено %(count)s результатов"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -2092,16 +2092,16 @@ msgstr[2] "По запросу «%(query)s» найдено %(count)s резул
 #: src/amo/components/SearchContextCard/index.js:227
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "с меткой %(tag)s найден %(count)s результат"
-msgstr[1] "с меткой %(tag)s найдено %(count)s результата"
-msgstr[2] "с меткой %(tag)s найдено %(count)s результатов"
+msgstr[0] "Найден %(count)s результат с меткой «%(tag)s»"
+msgstr[1] "Найдено %(count)s результата с меткой «%(tag)s»"
+msgstr[2] "Найдено %(count)s результатов с меткой «%(tag)s»"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s результат найден"
-msgstr[1] "%(count)s результата найдено"
-msgstr[2] "%(count)s результатов найдено"
+msgstr[0] "Найден %(count)s результат"
+msgstr[1] "Найдено %(count)s результата"
+msgstr[2] "Найдено %(count)s результатов"
 
 #: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
@@ -2114,9 +2114,9 @@ msgstr "Поиск дополнений"
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "По запросу «%(query)s» [%(categoryName)s] с меткой %(tag)s найдено %(count)s расширение"
-msgstr[1] "По запросу «%(query)s» [%(categoryName)s] с меткой %(tag)s найдено %(count)s расширения"
-msgstr[2] "По запросу «%(query)s» [%(categoryName)s] с меткой %(tag)s найдено %(count)s расширений"
+msgstr[0] "По запросу «%(query)s» [%(categoryName)s] с меткой «%(tag)s» найдено %(count)s расширение"
+msgstr[1] "По запросу «%(query)s» [%(categoryName)s] с меткой «%(tag)s» найдено %(count)s расширения"
+msgstr[2] "По запросу «%(query)s» [%(categoryName)s] с меткой «%(tag)s» найдено %(count)s расширений"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -2128,23 +2128,23 @@ msgstr[2] "По запросу «%(query)s» [%(categoryName)s] найдено %
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "в %(categoryName)s с меткой %(tag)s найдено %(count)s расширение"
-msgstr[1] "в %(categoryName)s с меткой %(tag)s найдено %(count)s расширения"
-msgstr[2] "в %(categoryName)s с меткой %(tag)s найдено %(count)s расширений"
+msgstr[0] "Найдено %(count)s расширение с меткой «%(tag)s» [%(categoryName)s]"
+msgstr[1] "Найдено %(count)s расширения с меткой «%(tag)s» [%(categoryName)s]"
+msgstr[2] "Найдено %(count)s расширений с меткой «%(tag)s» [%(categoryName)s]"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "найдено %(count)s расширение в %(categoryName)s"
-msgstr[1] "найдено %(count)s расширения в %(categoryName)s"
-msgstr[2] "найдено %(count)s расширений в %(categoryName)s"
+msgstr[0] "Найдено %(count)s расширение [%(categoryName)s]"
+msgstr[1] "Найдено %(count)s расширения [%(categoryName)s]"
+msgstr[2] "Найдено %(count)s расширений [%(categoryName)s]"
 
 #: src/amo/components/SearchContextCard/index.js:95
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "По запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширение"
-msgstr[1] "По запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширения"
-msgstr[2] "По запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширений"
+msgstr[0] "По запросу «%(query)s» с меткой «%(tag)s» найдено %(count)s расширение"
+msgstr[1] "По запросу «%(query)s» с меткой «%(tag)s» найдено %(count)s расширения"
+msgstr[2] "По запросу «%(query)s» с меткой «%(tag)s» найдено %(count)s расширений"
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "All"
