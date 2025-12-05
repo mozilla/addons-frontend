@@ -3700,7 +3700,7 @@ cookie@^0.7.1, cookie@^0.7.2:
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.7.2.tgz#556369c472a2ba910f2979891b526b3436237ed7"
   integrity sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w==
 
-cookie@^1.0.2, cookie@^1.1.1:
+cookie@^1.0.1, cookie@^1.0.2, cookie@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-1.1.1.tgz#3bb9bdfc82369db9c2f69c93c9c3ceb310c88b3c"
   integrity sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==
@@ -9358,18 +9358,12 @@ react-redux@8.1.3:
     react-is "^18.0.0"
     use-sync-external-store "^1.0.0"
 
-react-router-dom@5.3.4:
-  version "5.3.4"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.3.4.tgz#2ed62ffd88cae6db134445f4a0c0ae8b91d2e5e6"
-  integrity sha512-m4EqFMHv/Ih4kpcBCONHbkT68KoAeHN4p3lAGoNryfHi0dMy0kCzEZakiKRsvg5wHZ/JLrLW8o8KomWiz/qbYQ==
+react-router-dom@7.9.6:
+  version "7.9.6"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-7.9.6.tgz#f2a0d12961d67bd87ab48e5ef42fa1f45beae357"
+  integrity sha512-2MkC2XSXq6HjGcihnx1s0DBWQETI4mlis4Ux7YTLvP67xnGxCvq+BcCQSO81qQHVUTM1V53tl4iVVaY5sReCOA==
   dependencies:
-    "@babel/runtime" "^7.12.13"
-    history "^4.9.0"
-    loose-envify "^1.3.1"
-    prop-types "^15.6.2"
-    react-router "5.3.4"
-    tiny-invariant "^1.0.2"
-    tiny-warning "^1.0.0"
+    react-router "7.9.6"
 
 react-router@5.3.4:
   version "5.3.4"
@@ -9385,6 +9379,14 @@ react-router@5.3.4:
     react-is "^16.6.0"
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
+
+react-router@7.9.6:
+  version "7.9.6"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-7.9.6.tgz#003c8de335fdd7390286a478dcfd9579c1826137"
+  integrity sha512-Y1tUp8clYRXpfPITyuifmSoE2vncSME18uVLgaqyxh9H35JWpIfzHo+9y3Fzh5odk/jxPW29IgLgzcdwxGqyNA==
+  dependencies:
+    cookie "^1.0.1"
+    set-cookie-parser "^2.6.0"
 
 react-side-effect@^1.1.0:
   version "1.2.0"
@@ -10238,6 +10240,11 @@ set-blocking@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==
+
+set-cookie-parser@^2.6.0:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/set-cookie-parser/-/set-cookie-parser-2.7.2.tgz#ccd08673a9ae5d2e44ea2a2de25089e67c7edf68"
+  integrity sha512-oeM1lpU/UvhTxw+g3cIfxXHyJRc/uidd3yK1P242gzHds0udQBYzs3y8j4gCCW+ZJ7ad0yctld8RYO+bdurlvw==
 
 set-function-length@^1.1.1:
   version "1.1.1"
