@@ -1622,10 +1622,10 @@
     "@jsonjoy.com/buffers" "^1.0.0"
     "@jsonjoy.com/codegen" "^1.0.0"
 
-"@mozilla-protocol/tokens@5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@mozilla-protocol/tokens/-/tokens-5.0.5.tgz#92bc2e5fe61e9706c95f9f3546bed556526dba2a"
-  integrity sha512-VJ2fYJs09m0x1yWHVGhbqp2ZBOfEZy8vbOGYqNXCVrsYriLZp20CdKJq3+jj/chEVz+S5b0wdIOKkLqvgqIr/A==
+"@mozilla-protocol/tokens@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@mozilla-protocol/tokens/-/tokens-7.0.0.tgz#3a40ba74a5376a31c0cb4017b92495cdd8d0c854"
+  integrity sha512-+nyqHOPqdJxfAQWfqb9QwHpuh3c3LqX6/C5IBNfjYA9LbqdzzknFjpSHAQKe9tVyxk+M7wtAQyEcfnV/s0oEPg==
 
 "@napi-rs/wasm-runtime@^0.2.11":
   version "0.2.12"
