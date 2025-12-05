@@ -27,7 +27,7 @@ msgstr "Создать новую подборку"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
 msgid "Added to %(collectionName)s"
-msgstr "Добавлено в %(collectionName)s"
+msgstr "Добавлено в «%(collectionName)s»"
 
 #. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:268
@@ -139,7 +139,7 @@ msgstr "%(addonName)s – Загрузите это дополнение для 
 
 #: src/amo/components/AddonHead/index.js:131
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr "Загрузить %(addonName)s для Firefox. %(summary)s"
+msgstr "Скачать «%(addonName)s» для Firefox. %(summary)s"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
@@ -523,7 +523,7 @@ msgstr "Ещё больше мощных расширений для повыш�
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
-msgstr "Ещё больше невероятных менеджеров загрузки"
+msgstr "Ещё больше невероятных менеджеров скачивания"
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
@@ -601,7 +601,7 @@ msgstr "Отключаю"
 
 #: src/amo/components/AMInstallButton/index.js:142
 msgid "Downloading"
-msgstr "Загрузка"
+msgstr "Скачивание"
 
 #: src/amo/components/AMInstallButton/index.js:144
 msgid "Installing"
@@ -713,7 +713,7 @@ msgstr "Сохранить изменения"
 
 #: src/amo/components/CollectionManager/index.js:258
 msgid "Collection name"
-msgstr "Имя подборки"
+msgstr "Название подборки"
 
 #: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
@@ -1475,7 +1475,7 @@ msgstr "Центр разработчика"
 
 #: src/amo/components/GetFirefoxBanner/index.js:123
 msgid "To use these add-ons, you'll need to %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s."
-msgstr "Чтобы использовать эти дополнения, вам необходимо %(downloadLinkStart)sзагрузить Firefox%(downloadLinkEnd)s."
+msgstr "Чтобы использовать эти дополнения, вам необходимо %(downloadLinkStart)sскачать Firefox%(downloadLinkEnd)s."
 
 #: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
@@ -1486,23 +1486,23 @@ msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:146
 msgid "Download Firefox and get the theme"
-msgstr "Загрузите Firefox и установите тему"
+msgstr "Скачать Firefox и установить тему"
 
 #: src/amo/components/GetFirefoxButton/index.js:147
 msgid "Download Firefox and get the extension"
-msgstr "Загрузите Firefox и установите расширение"
+msgstr "Скачать Firefox и установить расширение"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Download the new Firefox and get the theme"
-msgstr "Загрузите новый Firefox и установите тему"
+msgstr "Скачать новый Firefox и установить тему"
 
 #: src/amo/components/GetFirefoxButton/index.js:152
 msgid "Download the new Firefox and get the extension"
-msgstr "Загрузите новый Firefox и установите расширение"
+msgstr "Скачать новый Firefox и установить расширение"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox"
-msgstr "Загрузить Firefox"
+msgstr "Скачать Firefox"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
@@ -1681,11 +1681,11 @@ msgstr "Разрешать инструментам разработчика п�
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr "Загружать файлы, а также читать и изменять историю загрузок браузера"
+msgstr "Скачивать файлы, а также читать и изменять историю скачиваний браузера"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
-msgstr "Открывать файлы, загруженные на ваш компьютер"
+msgstr "Открывать файлы, скачанные на ваш компьютер"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
@@ -2542,9 +2542,9 @@ msgstr[2] "%(total)s отзывов"
 #: src/amo/pages/AddonVersions/index.js:132
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] "История версий %(addonName)s - %(total)s версия"
-msgstr[1] "История версий %(addonName)s - %(total)s версии"
-msgstr[2] "История версий %(addonName)s - %(total)s версий"
+msgstr[0] "История версий «%(addonName)s» — %(total)s версия"
+msgstr[1] "История версий «%(addonName)s» — %(total)s версии"
+msgstr[2] "История версий «%(addonName)s» — %(total)s версий"
 
 #: src/amo/pages/AddonVersions/index.js:169
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -2599,12 +2599,12 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
-"Пока нарушение не будет устранено, это дополнение не будет доступно для загрузки с addons.mozilla.org. Если оно уже установлено, то оно будет отключено, а пользователи будут проинформированы о "
+"Пока нарушение не будет устранено, это дополнение не будет доступно для скачивания с addons.mozilla.org. Если оно уже установлено, то оно будет отключено, а пользователи будут проинформированы о "
 "нарушении. Они могут снова включить дополнение на свой страх и риск."
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr "Пока нарушение не будет устранено, это дополнение не будет доступно для загрузки с addons.mozilla.org. Оно будет автоматически отключено и больше не может быть использовано в Firefox."
+msgstr "Пока нарушение не будет устранено, это дополнение не будет доступно для скачивания с addons.mozilla.org. Оно будет автоматически отключено и больше не может быть использовано в Firefox."
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
@@ -2677,11 +2677,11 @@ msgstr "Найдите расширения и темы для добавлен�
 
 #: src/amo/pages/Collection/index.js:559
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr "Загружайте и создавайте подборки для Firefox, чтобы отслеживать любимые расширения и темы. Откройте для себя %(collectionName)s—%(collectionDescription)s."
+msgstr "Скачивайте и создавайте подборки для Firefox, чтобы отслеживать любимые расширения и темы. Откройте для себя: %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:562
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "Загружайте и создавайте подборки для Firefox, чтобы отслеживать любимые расширения и темы. Откройте для себя %(collectionName)s."
+msgstr "Скачивайте и создавайте подборки для Firefox, чтобы отслеживать любимые расширения и темы. Откройте для себя: %(collectionName)s."
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
@@ -2761,7 +2761,7 @@ msgstr "Измените внешний вид Firefox темами."
 
 #: src/amo/pages/Home/index.js:208
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr "Загрузите темы и расширения для Firefox. Это как приложения для вашего браузера. Они могут блокировать раздражающую рекламу, защищать пароли, изменять внешний вид браузера и многое другое."
+msgstr "Скачивайте темы и расширения для Firefox. Это как приложения для вашего браузера. Они могут блокировать раздражающую рекламу, защищать пароли, изменять внешний вид браузера и многое другое."
 
 #: src/amo/pages/Home/index.js:84
 msgid "Abstract"
@@ -2797,13 +2797,13 @@ msgstr "Больше самых высоко оцененных тем"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr "Загрузите темы, чтобы изменить внешний вид Firefox. Выберите на свой вкус. Симпатичные зверушки, злые роботы, красивые пейзажи — тысячи вариантов."
+msgstr "Скачивайте темы, чтобы изменить внешний вид Firefox. Выберите на свой вкус. Симпатичные зверушки, злые роботы, красивые пейзажи — тысячи вариантов."
 
 #: src/amo/pages/LandingPage/index.js:210
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
-"Загрузите расширения для Firefox, чтобы добавить функции, которые улучшат просмотр страниц. С их помощью вы сможете защищать пароли, находить выгодные покупки, улучшить просмотр видео и блокировать "
-"раздражающую рекламу."
+"Скачивайте расширения для Firefox, чтобы добавить функции, которые улучшат просмотр страниц. С их помощью вы сможете защищать пароли, находить выгодные покупки, улучшить просмотр видео и блокировать"
+" раздражающую рекламу."
 
 #: src/amo/pages/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2827,7 +2827,7 @@ msgstr "Словари и языковые пакеты"
 
 #: src/amo/pages/LanguageTools/index.js:155
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr "Загрузите словари и языковые пакеты для Firefox. Добавьте новый язык в ваш браузер для проверки орфографии или измените язык интерфейса браузера."
+msgstr "Скачивайте словари и языковые пакеты для Firefox. Добавьте новый язык в ваш браузер для проверки орфографии или измените язык интерфейса браузера."
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2911,7 +2911,7 @@ msgstr "Если вы обнаружили проблему с этим сайт
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr "Официальный сайт Mozilla для загрузки расширений и тем для Firefox. Добавьте новые функции и измените внешний вид браузера, чтобы улучшить свой веб-сёрфинг."
+msgstr "Официальный сайт Mozilla для скачивания расширений и тем для Firefox. Добавьте новые функции и измените внешний вид браузера, чтобы улучшить свой веб-сёрфинг."
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
@@ -3047,7 +3047,7 @@ msgstr "Чем следует руководствоваться при напи
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr "Руководства, советы и Часто Задаваемые Вопросы по оставлению отзывов на расширения и темы, которые вы загрузили и использовали в Firefox."
+msgstr "Руководства, советы и часто задаваемые вопросы по оставлению отзывов на расширения и темы, которые вы скачали и использовали в Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
@@ -3436,7 +3436,7 @@ msgstr "Установка не удалась. Пожалуйста, попро
 
 #: src/amo/utils/addons.js:41
 msgid "Download failed. Please check your connection."
-msgstr "Загрузка не удалась. Пожалуйста, проверьте ваше соединение."
+msgstr "Скачивание не удалось. Пожалуйста, проверьте ваше соединение."
 
 #: src/amo/utils/addons.js:43
 msgid "An unexpected error occurred during installation."
