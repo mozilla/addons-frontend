@@ -2245,7 +2245,7 @@ msgstr "자세히 읽어보기"
 
 #: src/amo/components/ShowMoreCard/index.js:169
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">더보기</span>"
+msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
