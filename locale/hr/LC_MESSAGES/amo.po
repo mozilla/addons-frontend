@@ -557,7 +557,7 @@ msgstr ","
 #. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
-msgstr "od"
+msgstr "Autor:"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
