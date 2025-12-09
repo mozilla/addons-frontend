@@ -72,6 +72,11 @@ global.fetch = (input) => {
   );
 };
 
+// See: https://github.com/jsdom/jsdom/issues/3309
+if (global.window && !global.window.performance.getEntriesByType) {
+  global.window.performance.getEntriesByType = jest.fn().mockReturnValue([]);
+}
+
 expect.extend(matchers);
 
 afterEach(() => {

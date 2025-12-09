@@ -3,7 +3,7 @@
 import { oneLine } from 'common-tags';
 import config from 'config';
 import invariant from 'invariant';
-import { getCLS, getFID, getLCP } from 'web-vitals';
+import { onCLS, onINP, onLCP } from 'web-vitals';
 
 import {
   ADDON_TYPE_DICT,
@@ -81,9 +81,9 @@ export function isDoNotTrackEnabled({
 type TrackingParams = {
   _config: typeof config,
   _isDoNotTrackEnabled: typeof isDoNotTrackEnabled,
-  _getCLS: typeof getCLS,
-  _getFID: typeof getFID,
-  _getLCP: typeof getLCP,
+  _onCLS: typeof onCLS,
+  _onINP: typeof onINP,
+  _onLCP: typeof onLCP,
 };
 
 const makeTrackingEventData = ({
@@ -118,9 +118,9 @@ export class Tracking {
   constructor({
     _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
-    _getCLS = getCLS,
-    _getFID = getFID,
-    _getLCP = getLCP,
+    _onCLS = onCLS,
+    _onINP = onINP,
+    _onLCP = onLCP,
   }: TrackingParams = {}) {
     if (typeof window === 'undefined') {
       return;
@@ -179,9 +179,9 @@ export class Tracking {
 
         // $FlowFixMe: Deal with method-unbinding error.
         const sendWebVitalStats = this.sendWebVitalStats.bind(this);
-        _getCLS(sendWebVitalStats);
-        _getFID(sendWebVitalStats);
-        _getLCP(sendWebVitalStats);
+        _onCLS(sendWebVitalStats);
+        _onINP(sendWebVitalStats);
+        _onLCP(sendWebVitalStats);
       }
 
       // GA4 setup

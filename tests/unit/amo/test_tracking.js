@@ -214,41 +214,41 @@ describe(__filename, () => {
     });
 
     it('should not send the web vitals when trackingSendWebVitals is false', () => {
-      const _getCLS = jest.fn();
-      const _getFID = jest.fn();
-      const _getLCP = jest.fn();
+      const _onCLS = jest.fn();
+      const _onINP = jest.fn();
+      const _onLCP = jest.fn();
 
       createTracking({
         configOverrides: { trackingSendWebVitals: false },
         paramOverrides: {
-          _getCLS,
-          _getFID,
-          _getLCP,
+          _onCLS,
+          _onINP,
+          _onLCP,
         },
       });
 
-      expect(_getCLS).not.toHaveBeenCalled();
-      expect(_getFID).not.toHaveBeenCalled();
-      expect(_getLCP).not.toHaveBeenCalled();
+      expect(_onCLS).not.toHaveBeenCalled();
+      expect(_onINP).not.toHaveBeenCalled();
+      expect(_onLCP).not.toHaveBeenCalled();
     });
 
     it('should send the web vitals when trackingSendWebVitals is true', () => {
-      const _getCLS = jest.fn();
-      const _getFID = jest.fn();
-      const _getLCP = jest.fn();
+      const _onCLS = jest.fn();
+      const _onINP = jest.fn();
+      const _onLCP = jest.fn();
 
       createTracking({
         configOverrides: { trackingSendWebVitals: true },
         paramOverrides: {
-          _getCLS,
-          _getFID,
-          _getLCP,
+          _onCLS,
+          _onINP,
+          _onLCP,
         },
       });
 
-      expect(_getCLS).toHaveBeenCalledTimes(1);
-      expect(_getFID).toHaveBeenCalledTimes(1);
-      expect(_getLCP).toHaveBeenCalledTimes(1);
+      expect(_onCLS).toHaveBeenCalledTimes(1);
+      expect(_onINP).toHaveBeenCalledTimes(1);
+      expect(_onLCP).toHaveBeenCalledTimes(1);
     });
 
     describe('sendEvent', () => {
