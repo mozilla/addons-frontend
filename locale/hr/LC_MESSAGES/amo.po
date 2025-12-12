@@ -1575,15 +1575,15 @@ msgstr "Više iz kategorije %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr "Pristupiti tvojim podacima za sve web stranice"
+msgstr "Pristup tvojim podacima za sve web stranice"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Pristupiti tvojim podacima za web stranice na domeni %(param)s"
+msgstr "Pristup tvojim podacima za web-stranice na domeni %(param)s"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
-msgstr "Pristupiti tvojim podacima za %(param)s"
+msgstr "Pristup tvojim podacima za %(param)s"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1687,11 +1687,11 @@ msgstr "Čitati tekst svih otvorenih kartica"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
-msgstr "Pristupiti tvojoj lokaciji"
+msgstr "Pristup tvojoj lokaciji"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
-msgstr "Pristupiti povijesti pregledavanja"
+msgstr "Pristup povijesti pregledavanja"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
@@ -1719,11 +1719,11 @@ msgstr "Čitati i mijenjati postavke privatnosti"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr "Pristupiti nedavno zatvorenim karticama"
+msgstr "Pristup nedavno zatvorenim karticama"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
-msgstr "Pristupiti karticama preglednika"
+msgstr "Pristup karticama preglednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
@@ -1731,7 +1731,7 @@ msgstr "Sakriti i prikazati kartice preglednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Access browser activity during navigation"
-msgstr "Pristupiti aktivnostima preglednika tijekom navigacije"
+msgstr "Pristup aktivnostima preglednika tijekom navigacije"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
@@ -3007,7 +3007,7 @@ msgid ""
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
 "Prijavi ili označi sve sumnjive recenzije pomoću „Prijavi ovu recenziju”. Te recenzije će se poslati na pregled. Naš tim će ih pregledati na osnovi smjernica pregleda, kako bi se procijenilo, treba "
-"li ili ne izbrisati recenziju, ili je li se treba vratiti na web mjesto."
+"li ili ne izbrisati recenziju, ili je li se treba obnoviti na web-stranicu."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
