@@ -2438,9 +2438,9 @@ msgstr "Još nema recenzija"
 #: src/amo/pages/Addon/index.js:252
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] "Ocjena %(ratingAverage)s od strane %(ratingCount)s korisnika"
-msgstr[1] "Ocjena %(ratingAverage)s od strane %(ratingCount)s korisnika"
-msgstr[2] "Ocjena %(ratingAverage)s od strane %(ratingCount)s korisnika"
+msgstr[0] "Ocjena %(ratingAverage)s od jednog recenzenta"
+msgstr[1] "Ocjena %(ratingAverage)s od %(ratingCount)s recenzenta"
+msgstr[2] "Ocjena %(ratingAverage)s od %(ratingCount)s recenzenta"
 
 #: src/amo/pages/Addon/index.js:289
 msgid "About this dictionary"
