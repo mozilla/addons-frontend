@@ -61,16 +61,16 @@ msgstr "アドオンコードのレビュー"
 
 #: src/amo/components/AddonBadges/index.js:126
 msgid "%(average)s (%(count)s review)"
-msgstr ""
+msgstr "%(average)s (%(count)s 件のレビュー)"
 
 #: src/amo/components/AddonBadges/index.js:130
 msgid "%(average)s (%(count)s reviews)"
-msgstr ""
+msgstr "%(average)s (%(count)s 件のレビュー)"
 
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
+msgstr[0] "%(count)s 人のユーザー"
 
 #: src/amo/components/AddonBadges/index.js:164
 msgid "No Users"
@@ -1603,19 +1603,19 @@ msgstr "任意の許可設定:"
 
 #: src/amo/components/PermissionsCard/index.js:122
 msgid "Optional data collection, according to the developer:"
-msgstr ""
+msgstr "開発者によると、任意のデータ収集は次のとおりです:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "データ収集:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr ""
+msgstr "開発者によると、必須のデータ収集は次のとおりです:"
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "権限とデータ"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Required permissions:"
@@ -1715,23 +1715,23 @@ msgstr "ナビゲーション中のブラウザーアクティビティへのア
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr ""
+msgstr "認証情報"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "ブックマーク"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "ブラウジングアクティビティ"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
-msgstr ""
+msgstr "金融と支払いの情報"
 
 #: src/amo/components/PermissionsCard/permissions.js:72
 msgid "Health information"
-msgstr ""
+msgstr "健康情報"
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
@@ -1739,31 +1739,31 @@ msgstr "所在地"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "個人的な通信情報"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "個人を特定可能な情報"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "検索語句"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "技術データと対話データ"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "ウェブサイト使用状況"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "ウェブサイトの内容"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "開発者によると、この拡張機能はデータ収集を必要としません。"
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1811,7 +1811,7 @@ msgstr "この %(addonName)s の評価を削除してもよろしいですか？
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "クリックして評価:"
 
 #: src/amo/components/RatingManager/index.js:239
 msgid "Saving star rating"
@@ -2364,7 +2364,7 @@ msgstr "まだレビューはありません"
 #: src/amo/pages/Addon/index.js:252
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
+msgstr[0] "%(ratingCount)s 人のレビュー担当者が %(ratingAverage)s と評価しました"
 
 #: src/amo/pages/Addon/index.js:289
 msgid "About this dictionary"
