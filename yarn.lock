@@ -3784,14 +3784,14 @@ css-loader@^7.1.2:
     postcss-value-parser "^4.2.0"
     semver "^7.5.4"
 
-css-minimizer-webpack-plugin@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/css-minimizer-webpack-plugin/-/css-minimizer-webpack-plugin-7.0.2.tgz#aa1b01c6033f5b2f86ddb60c1f5bddd012b50cac"
-  integrity sha512-nBRWZtI77PBZQgcXMNqiIXVshiQOVLGSf2qX/WZfG8IQfMbeHUMXaBWQmiiSTmPJUflQxHjZjzAmuyO7tpL2Jg==
+css-minimizer-webpack-plugin@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/css-minimizer-webpack-plugin/-/css-minimizer-webpack-plugin-7.0.3.tgz#2da02f79ed5af0f81ac67a39a39bc430c75a0d0d"
+  integrity sha512-O99EbZ3P9YqfjWPvaL5Ndr54hP1V1N9IRKDLzKpEm1cw5eYF5KTFvz63Wm/AGDz841ceGmLvU1rdN8LrElMIiQ==
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.25"
     cssnano "^7.0.4"
-    jest-worker "^29.7.0"
+    jest-worker "^30.0.5"
     postcss "^8.4.40"
     schema-utils "^4.2.0"
     serialize-javascript "^6.0.2"
@@ -7346,7 +7346,7 @@ jest-watcher@30.2.0, jest-watcher@^30.0.0:
     jest-util "30.2.0"
     string-length "^4.0.2"
 
-jest-worker@30.2.0:
+jest-worker@30.2.0, jest-worker@^30.0.5:
   version "30.2.0"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-30.2.0.tgz#fd5c2a36ff6058ec8f74366ec89538cc99539d26"
   integrity sha512-0Q4Uk8WF7BUwqXHuAjc23vmopWJw5WH7w2tqBoUOZpOjW/ZnR44GXXd1r82RvnmI2GZge3ivrYXk/BE2+VtW2g==
@@ -7363,16 +7363,6 @@ jest-worker@^27.4.5:
   integrity sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==
   dependencies:
     "@types/node" "*"
-    merge-stream "^2.0.0"
-    supports-color "^8.0.0"
-
-jest-worker@^29.7.0:
-  version "29.7.0"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-29.7.0.tgz#acad073acbbaeb7262bd5389e1bcf43e10058d4a"
-  integrity sha512-eIz2msL/EzL9UFTFFx7jBTkeZfku0yUAyZZZmJ93H2TYEiroIx2PQjEXcwYtYl8zXCxb+PAmA2hLIt/6ZEkPHw==
-  dependencies:
-    "@types/node" "*"
-    jest-util "^29.7.0"
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
