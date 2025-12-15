@@ -19,6 +19,7 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType,
+  hideUsers?: boolean,
 |};
 
 type DefaultProps = {|
@@ -49,8 +50,9 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   renderAndroidCompatibleBadge(): React.Node {
     const { addon, clientApp, i18n } = this.props;
 
-    if (clientApp !== CLIENT_APP_FIREFOX || !addon.isAndroidCompatible)
+    if (clientApp !== CLIENT_APP_FIREFOX || !addon.isAndroidCompatible) {
       return null;
+    }
 
     return (
       <Badge
@@ -64,7 +66,9 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   renderExperimentalBadge(): React.Node {
     const { addon, i18n } = this.props;
 
-    if (!addon.is_experimental) return null;
+    if (!addon.is_experimental) {
+      return null;
+    }
 
     return (
       <Badge
@@ -78,7 +82,9 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   renderRequiresPaymentBadge(): React.Node {
     const { addon, i18n } = this.props;
 
-    if (!addon.requires_payment) return null;
+    if (!addon.requires_payment) {
+      return null;
+    }
 
     return (
       <Badge
@@ -98,7 +104,9 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
       forBadging: true,
     });
 
-    if (!promotedCategory) return null;
+    if (!promotedCategory) {
+      return null;
+    }
 
     const props = getPromotedProps(i18n, promotedCategory);
 
@@ -116,7 +124,9 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   renderRatingMeta(): React.Node {
     const { addon, i18n, location } = this.props;
 
-    if (!addon?.ratings) return null;
+    if (!addon?.ratings) {
+      return null;
+    }
 
     const addonRatingCount: number = addon.ratings.count;
     const averageRating: number = addon.ratings.average;
@@ -145,9 +155,11 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   }
 
   renderUserCount(): React.Node {
-    const { addon, i18n } = this.props;
+    const { addon, hideUsers, i18n } = this.props;
 
-    if (!addon) return null;
+    if (!addon || hideUsers) {
+      return null;
+    }
 
     const averageDailyUsers = addon.average_daily_users;
 

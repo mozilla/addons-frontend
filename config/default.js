@@ -110,6 +110,7 @@ module.exports = {
     'langs',
     'loggingLevel',
     'mozillaUserId',
+    'recentAddonCutOffDays',
     'rtlLangs',
     'staticPath',
     'trackingEnabled',
@@ -407,6 +408,8 @@ module.exports = {
   enableFeatureVPNPromo: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
+
+  recentAddonCutOffDays: 30,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments on AMO.
