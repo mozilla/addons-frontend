@@ -15,6 +15,7 @@ import {
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
+import { isRecentAddon } from 'amo/reducers/addons';
 import { getPromotedCategory } from 'amo/utils/addons';
 import { addQueryParams } from 'amo/utils/url';
 import Icon from 'amo/components/Icon';
@@ -248,23 +249,26 @@ export class SearchResultBase extends React.Component<InternalProps> {
             )}
           </div>
 
-          <h3 className="SearchResult-users SearchResult--meta-section">
-            <Icon className="SearchResult-users-icon" name="user-fill" />
-            <span className="SearchResult-users-text">
-              {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
-                i18n.sprintf(
-                  i18n.ngettext(
-                    '%(total)s user',
-                    '%(total)s users',
-                    averageDailyUsers,
-                  ),
-                  { total: i18n.formatNumber(averageDailyUsers) },
-                )
-              ) : (
-                <LoadingText width={80} />
-              )}
-            </span>
-          </h3>
+          {!isRecentAddon(addon) && (
+            <h3 className="SearchResult-users SearchResult--meta-section">
+              <Icon className="SearchResult-users-icon" name="user-fill" />
+              <span className="SearchResult-users-text">
+                {averageDailyUsers !== null &&
+                averageDailyUsers !== undefined ? (
+                  i18n.sprintf(
+                    i18n.ngettext(
+                      '%(total)s user',
+                      '%(total)s users',
+                      averageDailyUsers,
+                    ),
+                    { total: i18n.formatNumber(averageDailyUsers) },
+                  )
+                ) : (
+                  <LoadingText width={80} />
+                )}
+              </span>
+            </h3>
+          )}
         </div>
       </div>
     );

@@ -100,6 +100,7 @@ describe(__filename, () => {
       'src',
       headerImageFull,
     );
+    expect(screen.getByClassName('SearchResult-users')).toBeInTheDocument();
   });
 
   it('sets add-on install source to search by default', () => {
@@ -147,5 +148,20 @@ describe(__filename, () => {
     render({ paginator });
 
     expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
+  });
+
+  it('does not render the user count for recent add-ons', () => {
+    const results = [
+      createInternalAddonWithLang({ ...fakeAddon, created: new Date() }),
+    ];
+    render({
+      filters: { query: 'test' },
+      loading: false,
+      results,
+    });
+
+    expect(
+      screen.queryByClassName('SearchResult-users'),
+    ).not.toBeInTheDocument();
   });
 });
