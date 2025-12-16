@@ -1,5 +1,6 @@
 /* @flow */
 import invariant from 'invariant';
+import config from 'config';
 
 import { CLIENT_APP_ANDROID, ADDON_TYPE_EXTENSION } from 'amo/constants';
 import {
@@ -20,6 +21,7 @@ import type { ExternalAddonInfoType } from 'amo/api/addonInfo';
 import type { AppState } from 'amo/store';
 import type {
   AddonType,
+  CollectionAddonType,
   ExternalAddonType,
   ExternalPreviewType,
   GroupedRatingsType,
@@ -334,6 +336,20 @@ export const isAddonInfoLoading = ({
 
   const infoForSlug = state.infoBySlug[slug];
   return Boolean(infoForSlug && infoForSlug.loading);
+};
+
+export const isRecentAddon = (
+  addon: ?AddonType | CollectionAddonType | null,
+  { _config = config }: { _config: typeof config } = {},
+): boolean => {
+  if (!addon) {
+    return false;
+  }
+
+  const created = new Date(addon.created);
+  created.setDate(created.getDate() + _config.get('recentAddonCutOffDays'));
+
+  return created >= new Date();
 };
 
 export const createInternalAddonInfo = (

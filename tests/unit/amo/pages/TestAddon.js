@@ -1051,6 +1051,17 @@ describe(__filename, () => {
     expect(content).toHaveTextContent('No Users');
   });
 
+  it('does not render the user count badge when the add-on is too recent', () => {
+    addon = {
+      ...addon,
+      created: new Date(),
+    };
+    renderWithAddon();
+
+    const badge = screen.queryByTestId(`badge-user-fill`);
+    expect(badge).not.toBeInTheDocument();
+  });
+
   it('renders user count badge with singular user', () => {
     addon = {
       ...addon,

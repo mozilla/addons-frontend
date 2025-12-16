@@ -36,6 +36,7 @@ import {
   fetchAddon,
   getAddonByIdInURL,
   isAddonLoading,
+  isRecentAddon,
 } from 'amo/reducers/addons';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { withFixedErrorHandler } from 'amo/errorHandler';
@@ -70,6 +71,7 @@ export class AddonBase extends React.Component {
     currentVersion: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
+    hideMetadata: PropTypes.bool.isRequired,
     i18n: PropTypes.object.isRequired,
     installError: PropTypes.string,
     lang: PropTypes.string.isRequired,
@@ -372,6 +374,7 @@ export class AddonBase extends React.Component {
       clientApp,
       currentVersion,
       errorHandler,
+      hideMetadata,
       i18n,
     } = this.props;
 
@@ -451,7 +454,7 @@ export class AddonBase extends React.Component {
                 {showSummary ? summary : null}
               </div>
 
-              <AddonBadges addon={addon} />
+              <AddonBadges addon={addon} hideUsers={hideMetadata} />
 
               <div className="Addon-install">
                 <InstallButtonWrapper addon={addon} />
@@ -528,6 +531,7 @@ function mapStateToProps(state, ownProps) {
     addonsByAuthors,
     clientApp: state.api.clientApp,
     currentVersion,
+    hideMetadata: isRecentAddon(addon),
     installError: installedAddon.error,
     lang: state.api.lang,
     // The `withInstallHelpers` HOC requires an `addon` prop too:

@@ -18,6 +18,7 @@ import addons, {
   initialState,
   isAddonInfoLoading,
   isAddonLoading,
+  isRecentAddon,
   loadAddon,
   loadAddonInfo,
   selectLocalizedUrlWithOutgoing,
@@ -26,14 +27,15 @@ import { setLang } from 'amo/reducers/api';
 import {
   DEFAULT_LANG_IN_TESTS,
   createFakeAddon,
+  createFakeAddonInfo,
   createInternalAddonWithLang,
   createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakePreview,
-  createFakeAddonInfo,
   fakeReview,
+  getMockConfig,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -1061,6 +1063,39 @@ describe(__filename, () => {
           lang,
         ),
       ).toEqual(null);
+    });
+  });
+
+  describe('isRecentAddon', () => {
+    it('should return false when there is no add-on', () => {
+      expect(isRecentAddon(null)).toEqual(false);
+    });
+
+    it('should return true when the add-on is recent', () => {
+      // Cut-off is a day ago.
+      const _config = getMockConfig({ recentAddonCutOffDays: 1 });
+      _config.get = (key) => _config[key];
+
+      // Add-on was just created.
+      const created = new Date();
+
+      expect(isRecentAddon({ ...fakeAddon, created }, { _config })).toEqual(
+        true,
+      );
+    });
+
+    it('should return false when the add-on is no longer recent', () => {
+      // Cut-off is a day ago.
+      const _config = getMockConfig({ recentAddonCutOffDays: 1 });
+      _config.get = (key) => _config[key];
+
+      // Add-on created 2 days ago.
+      const created = new Date();
+      created.setDate(created.getDate() - 2);
+
+      expect(isRecentAddon({ ...fakeAddon, created }, { _config })).toEqual(
+        false,
+      );
     });
   });
 });
