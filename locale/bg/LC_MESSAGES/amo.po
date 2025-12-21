@@ -860,7 +860,7 @@ msgstr ""
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
-msgstr ""
+msgstr "Изтекло удостоверяване"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -2173,39 +2173,39 @@ msgstr "Всички прегледани"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
-msgstr ""
+msgstr "Черно"
 
 #: src/amo/components/SearchFilters/index.js:234
 msgid "Gray"
-msgstr ""
+msgstr "Сиво"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "White"
-msgstr ""
+msgstr "Бяло"
 
 #: src/amo/components/SearchFilters/index.js:244
 msgid "Red"
-msgstr ""
+msgstr "Червено"
 
 #: src/amo/components/SearchFilters/index.js:249
 msgid "Yellow"
-msgstr ""
+msgstr "Жълто"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Green"
-msgstr ""
+msgstr "Зелено"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Cyan"
-msgstr ""
+msgstr "Синьозелено"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Blue"
-msgstr ""
+msgstr "Синьо"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Magenta"
-msgstr ""
+msgstr "Пурпорно"
 
 #: src/amo/components/SearchFilters/index.js:295
 msgid "Filter results"
@@ -2221,11 +2221,11 @@ msgstr "Вид на добавката"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
-msgstr ""
+msgstr "Цвят на темата"
 
 #: src/amo/components/SearchFilters/index.js:391
 msgid "Clear"
-msgstr ""
+msgstr "Изчистване"
 
 #: src/amo/components/SearchFilters/index.js:420
 msgid "Badging"
@@ -2293,7 +2293,7 @@ msgstr "Разширения"
 
 #: src/amo/components/ShowMoreCard/index.js:164
 msgid "Expand to read more"
-msgstr ""
+msgstr "Отваряне за подробности"
 
 #: src/amo/components/ShowMoreCard/index.js:169
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
@@ -2301,11 +2301,11 @@ msgstr "<span class=\"visually-hidden\">Отваряне за </span>Повеч�
 
 #: src/amo/components/SignedInUser/index.js:31
 msgid "Signed in as %(username)s"
-msgstr ""
+msgstr "Вписани сте като %(username)s"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "Някои възможности са временно спрени, докато извършваме работа по поддръжката на сайта. Ще се върнем скоро."
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
