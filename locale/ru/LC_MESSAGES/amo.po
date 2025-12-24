@@ -2637,7 +2637,7 @@ msgstr "Темы в %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
 msgid "Extensions in %(categoryName)s"
-msgstr "Расширения в %(categoryName)s"
+msgstr "Расширения [%(categoryName)s]"
 
 #: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
