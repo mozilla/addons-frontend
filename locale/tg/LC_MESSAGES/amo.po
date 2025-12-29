@@ -19,25 +19,25 @@ msgstr "Илова карда мешавад…"
 
 #: src/amo/components/AddAddonToCollection/index.js:204
 msgid "Select a collection…"
-msgstr ""
+msgstr "Маҷмуаеро интихоб кунед…"
 
 #: src/amo/components/AddAddonToCollection/index.js:211
 msgid "Create new collection"
-msgstr ""
+msgstr "Эҷод кардани маҷмуаи нав"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "Ба «%(collectionName)s» илова карда шуд"
 
 #. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:268
 msgid "Add to…"
-msgstr ""
+msgstr "Илова кардан ба…"
 
 #. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:49 src/amo/components/AddonMoreInfo/index.js:219
 msgid "Edit add-on"
-msgstr ""
+msgstr "Таҳрир кардани ҷузъи иловагӣ"
 
 #. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:63
@@ -171,7 +171,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:154 src/amo/pages/UserProfile/index.js:361 src/amo/pages/UserProfile/index.js:364 src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
-msgstr ""
+msgstr "Саҳифаи асосӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:171
 msgid "Support site"
@@ -212,11 +212,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:390
 msgid "Version"
-msgstr ""
+msgstr "Силсила"
 
 #: src/amo/components/AddonMoreInfo/index.js:398
 msgid "Size"
-msgstr ""
+msgstr "Андоза"
 
 #: src/amo/components/AddonMoreInfo/index.js:406 src/amo/components/CollectionDetails/index.js:87 src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
@@ -252,7 +252,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:473 src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
-msgstr ""
+msgstr "Илова кардан ба маҷмуа"
 
 #. This is a list of links to administrative functions.
 #: src/amo/components/AddonMoreInfo/index.js:483
@@ -266,7 +266,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:516
 msgid "More information"
-msgstr ""
+msgstr "Маълумоти бештар"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
@@ -322,12 +322,12 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:247 src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
-msgstr ""
+msgstr "Нест кардан"
 
 #: src/amo/components/AddonReviewCard/index.js:265 src/amo/components/AddonReviewManager/index.js:146 src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61 src/amo/components/DismissibleTextForm/index.js:221 src/amo/pages/UserProfileEdit/index.js:899
 msgid "Cancel"
-msgstr ""
+msgstr "Бекор кардан"
 
 #: src/amo/components/AddonReviewCard/index.js:269
 msgid "Keep reply"
@@ -373,7 +373,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:480
 msgid "Deleting…"
-msgstr ""
+msgstr "Нест карда мешавад…"
 
 #: src/amo/components/AddonReviewCard/index.js:511
 msgid "Reply to this review"
@@ -549,7 +549,7 @@ msgstr[1] ""
 #. A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
-msgstr ""
+msgstr ","
 
 #. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
@@ -582,11 +582,11 @@ msgstr ""
 
 #: src/amo/components/AMInstallButton/index.js:133
 msgid "Enable"
-msgstr ""
+msgstr "Фаъол кардан"
 
 #: src/amo/components/AMInstallButton/index.js:136 src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
-msgstr ""
+msgstr "Тоза кардан"
 
 #: src/amo/components/AMInstallButton/index.js:138
 msgid "Enabling"
@@ -634,11 +634,11 @@ msgstr ""
 
 #: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:151
 msgid "Log out"
-msgstr ""
+msgstr "Баромадан"
 
 #: src/amo/components/AuthenticateButton/index.js:93
 msgid "Log in"
-msgstr ""
+msgstr "Ворид шдуан"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:146
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -646,19 +646,19 @@ msgstr ""
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
-msgstr ""
+msgstr "Бор шуда истодааст"
 
 #: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
-msgstr ""
+msgstr "Ёфтани ҷузъҳои иловагӣ"
 
 #: src/amo/components/AutoSearchInput/index.js:323 src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
-msgstr ""
+msgstr "Ҷустуҷӯ"
 
 #: src/amo/components/Categories/index.js:106
 msgid "Categories"
-msgstr ""
+msgstr "Категорияҳо"
 
 #: src/amo/components/Categories/index.js:111
 msgid "Loading categories."
@@ -694,23 +694,23 @@ msgstr ""
 
 #: src/amo/components/CollectionDetails/index.js:77 src/amo/components/Footer/index.js:59 src/amo/pages/CollectionFeedback/index.js:155
 msgid "Add-ons"
-msgstr ""
+msgstr "Ҷузъҳои иловагӣ"
 
 #: src/amo/components/CollectionDetails/index.js:81
 msgid "Creator"
-msgstr ""
+msgstr "Эҷодкунанда"
 
 #: src/amo/components/CollectionManager/index.js:248
 msgid "Create collection"
-msgstr ""
+msgstr "Эҷод кардани маҷмуа"
 
 #: src/amo/components/CollectionManager/index.js:249
 msgid "Save changes"
-msgstr ""
+msgstr "Нигоҳ доштани тағйирот"
 
 #: src/amo/components/CollectionManager/index.js:258
 msgid "Collection name"
-msgstr ""
+msgstr "Номи маҷмуа"
 
 #: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
@@ -802,11 +802,11 @@ msgstr ""
 
 #: src/amo/components/DismissibleTextForm/index.js:200
 msgid "Submit"
-msgstr ""
+msgstr "Пешниҳод кардан"
 
 #: src/amo/components/DismissibleTextForm/index.js:202
 msgid "Submitting"
-msgstr ""
+msgstr "Пешниҳод карда мешавад"
 
 #: src/amo/components/EditableCollectionAddon/index.js:132 src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
@@ -822,11 +822,11 @@ msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
-msgstr ""
+msgstr "Нигоҳ доштан"
 
 #: src/amo/components/EditableCollectionAddon/index.js:188
 msgid "Edit"
-msgstr ""
+msgstr "Таҳрир кардан"
 
 #: src/amo/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -842,7 +842,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Саҳифа ёфт нашуд"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -850,7 +850,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Рамзи хато: %(status)s."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
@@ -904,7 +904,7 @@ msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
-msgstr ""
+msgstr "Хатои сервер"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -1072,7 +1072,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "Дигар"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
@@ -1388,11 +1388,11 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:121
 msgid "Forum"
-msgstr ""
+msgstr "Форум"
 
 #: src/amo/components/Footer/index.js:129
 msgid "Report a bug"
-msgstr ""
+msgstr "Фиристодани гузориш дар бораи хато"
 
 #: src/amo/components/Footer/index.js:134
 msgid "Review Guide"
@@ -1400,23 +1400,23 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:141
 msgid "Browsers"
-msgstr ""
+msgstr "Браузерҳо"
 
 #: src/amo/components/Footer/index.js:186
 msgid "Products"
-msgstr ""
+msgstr "Маҳсулот"
 
 #: src/amo/components/Footer/index.js:273
 msgid "Privacy"
-msgstr ""
+msgstr "Махфият"
 
 #: src/amo/components/Footer/index.js:281
 msgid "Cookies"
-msgstr ""
+msgstr "Кукиҳо"
 
 #: src/amo/components/Footer/index.js:289
 msgid "Legal"
-msgstr ""
+msgstr "Маълумоти ҳуқуқӣ"
 
 #: src/amo/components/Footer/index.js:300
 msgid ""
@@ -1432,11 +1432,11 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:38
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Ба саҳифаи асосии «Mozilla» ворид шавед"
 
 #: src/amo/components/Footer/index.js:64
 msgid "About"
-msgstr ""
+msgstr "Дар бораи лоиҳа"
 
 #: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
 msgid "Firefox Add-ons Blog"
@@ -1477,7 +1477,7 @@ msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox"
-msgstr ""
+msgstr "Боргирӣ кардани «Firefox»"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
