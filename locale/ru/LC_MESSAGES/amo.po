@@ -1829,7 +1829,7 @@ msgstr "Войдите, чтобы оценить это дополнение"
 
 #: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Вы действительно хотите удалить ваш отзыв на %(addonName)s?"
+msgstr "Вы действительно хотите удалить ваш отзыв на «%(addonName)s»?"
 
 #: src/amo/components/RatingManager/index.js:189
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
@@ -2490,19 +2490,19 @@ msgstr "Отправьте отзыв или сообщите о дополне�
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
-msgstr "Лицензия разработчика %(addonName)s"
+msgstr "Лицензия разработчика «%(addonName)s»"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Лицензионное соглашение с конечным пользователем для %(addonName)s"
+msgstr "Лицензионное соглашение с конечным пользователем для «%(addonName)s»"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
-msgstr "Политика приватности для %(addonName)s"
+msgstr "Политика приватности для «%(addonName)s»"
 
 #: src/amo/pages/AddonReviewList/index.js:199
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr "Отзывы и оценки для %(addonName)s. Узнайте, что другие пользователи думают о %(addonName)s, и добавьте его в свой браузер Firefox."
+msgstr "Отзывы и оценки для «%(addonName)s». Узнайте, что другие пользователи думают о «%(addonName)s», и добавьте его в свой браузер Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show all reviews"
@@ -2530,7 +2530,7 @@ msgstr "Показать только отзывы с оценкой 1"
 
 #: src/amo/pages/AddonReviewList/index.js:263
 msgid "Reviews for %(addonName)s"
-msgstr "Отзывы на %(addonName)s"
+msgstr "Отзывы на «%(addonName)s»"
 
 #: src/amo/pages/AddonReviewList/index.js:273
 msgid "%(total)s review"
@@ -2568,7 +2568,7 @@ msgstr "Старые версии"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr "%(addonName)s ограничено за нарушение политик Mozilla"
+msgstr "«%(addonName)s» ограничено за нарушение политик Mozilla"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
@@ -2576,7 +2576,7 @@ msgstr "Это дополнение ограничено за нарушение
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
-msgstr "%(addonName)s заблокировано за нарушение политик Mozilla"
+msgstr "«%(addonName)s» заблокировано за нарушение политик Mozilla"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
@@ -2615,7 +2615,7 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
-"Когда Mozilla становится известно о дополнениях, плагинах или другом ПО сторонних производителей, серьезно компрометирующих безопасность, стабильность или производительность Firefox и "
+"Когда Mozilla становится известно о дополнениях, плагинах или другом ПО сторонних производителей, серьёзно компрометирующих безопасность, стабильность или производительность Firefox и "
 "соответствующих %(criteriaStartLink)sопределённым критериям%(criteriaEndLink)s, то такое программное обеспечение может быть заблокировано или ограничено для общего использования. Для получения "
 "дополнительной информации, пожалуйста, прочитайте %(supportStartLink)sэту статью поддержки%(supportEndLink)s."
 
@@ -2633,7 +2633,7 @@ msgstr "Все категории тем"
 
 #: src/amo/pages/CategoryPage/index.js:57
 msgid "Themes in %(categoryName)s"
-msgstr "Темы в %(categoryName)s"
+msgstr "Темы [%(categoryName)s]"
 
 #: src/amo/pages/CategoryPage/index.js:63
 msgid "Extensions in %(categoryName)s"
@@ -3246,7 +3246,7 @@ msgstr "Войдите, чтобы изменить профиль"
 
 #: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Creating your profile…"
-msgstr "Идет создание профиля…"
+msgstr "Идёт создание профиля…"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Create My Profile"
