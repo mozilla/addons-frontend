@@ -42,12 +42,12 @@ msgstr "עריכת תוספת"
 #. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:63
 msgid "Admin add-on"
-msgstr ""
+msgstr "תוספת ניהול"
 
 #. This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Content review add-on"
-msgstr ""
+msgstr "תוספת סקירת תוכן"
 
 #. This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:85
@@ -262,7 +262,7 @@ msgstr "קישורים למנהלי מערכת"
 #. This is a list of links to Developer functions.
 #: src/amo/components/AddonMoreInfo/index.js:495
 msgid "Author Links"
-msgstr ""
+msgstr "קישורי יוצרים"
 
 #: src/amo/components/AddonMoreInfo/index.js:516
 msgid "More information"
@@ -513,7 +513,7 @@ msgstr "הצגת בחירות הסגל של Firefox"
 
 #: src/amo/components/AddonSuggestions/index.js:57
 msgid "Explore our 'Starter Pack' to get started with extensions"
-msgstr ""
+msgstr "מזמינים אותך לעיין ב‚ערכה למתחילים’ כדי להתחיל בפיתוח הרחבות"
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
@@ -1112,7 +1112,7 @@ msgstr "דליפת נתונים ביומטריים"
 
 #: src/amo/components/FeedbackForm/index.js:284
 msgid "Missing processing ground for data"
-msgstr ""
+msgstr "חסרים יסודות עיבוד לנתונים"
 
 #: src/amo/components/FeedbackForm/index.js:288
 msgid "Right to be forgotten"
@@ -1160,7 +1160,7 @@ msgstr "הפרה של חוק לאומי הרלוונטי לשיח אזרחי א�
 
 #: src/amo/components/FeedbackForm/index.js:353
 msgid "Misinformation, disinformation, foreign information manipulation and interference"
-msgstr ""
+msgstr "מידע שגוי, מידע כוזב, תחבולה סביב מידע זר והפרעה"
 
 #: src/amo/components/FeedbackForm/index.js:366
 msgid "Non-consensual image sharing"
@@ -1176,7 +1176,7 @@ msgstr "בריונות/הפחדה באינטרנט"
 
 #: src/amo/components/FeedbackForm/index.js:378
 msgid "Stalking"
-msgstr ""
+msgstr "מעקב"
 
 #: src/amo/components/FeedbackForm/index.js:388
 msgid "Adult sexual material"
@@ -1558,7 +1558,7 @@ msgstr "מאת Firefox"
 
 #: src/amo/components/HeroRecommendation/index.js:232
 msgid "PROMOTED"
-msgstr ""
+msgstr "מקודם"
 
 #: src/amo/components/HeroRecommendation/index.js:249
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
@@ -2828,6 +2828,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"מעניין אותך לתפעל את addons.mozilla.org (AMO) באופן תוכנתי? אפשר לגשת אל %(startAddonsServerDocumentation)sתיעוד שרתי תוספים%(endAddonsServerDocumentation)s לקבלת פרטים על אופן השימוש ב־API על ידי "
+"AMO וב%(startAddonsManager)sמנהל התוספות%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
