@@ -642,7 +642,7 @@ msgstr "Ворид шдуан"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:146
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Дар айни ҳол ин амал дастнорас аст. Лутфан, саҳифаро пас аз чанд лаҳза аз нав бор кунед."
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
@@ -670,11 +670,11 @@ msgstr ""
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
-msgstr ""
+msgstr "Ба маҷмуа илова карда шуд"
 
 #: src/amo/components/CollectionAddAddon/index.js:170
 msgid "Removed from collection"
-msgstr ""
+msgstr "Аз маҷмуа тоза карда шуд"
 
 #: src/amo/components/CollectionAddAddon/index.js:179
 msgid "Find an add-on to include in this collection"
@@ -682,15 +682,15 @@ msgstr ""
 
 #: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
-msgstr ""
+msgstr "Таҳрир кардани ин маҷмуа"
 
 #: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
-msgstr ""
+msgstr "Таҳрир кардани тафсилоти маҷмуа"
 
 #: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
-msgstr ""
+msgstr "Бозгашт ба маҷмуа"
 
 #: src/amo/components/CollectionDetails/index.js:77 src/amo/components/Footer/index.js:59 src/amo/pages/CollectionFeedback/index.js:155
 msgid "Add-ons"
@@ -714,11 +714,11 @@ msgstr "Номи маҷмуа"
 
 #: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
-msgstr ""
+msgstr "Тавсиф"
 
 #: src/amo/components/CollectionManager/index.js:284
 msgid "Custom URL"
-msgstr ""
+msgstr "Нишонии «URL»-и фармоишӣ"
 
 #: src/amo/components/CollectionSort/index.js:108
 msgid "Sort add-ons by"
@@ -734,7 +734,7 @@ msgstr ""
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Name"
-msgstr ""
+msgstr "Ном"
 
 #: src/amo/components/CollectionSort/index.js:96
 msgid "Popularity"
@@ -742,7 +742,7 @@ msgstr ""
 
 #: src/amo/components/ConfirmationDialog/index.js:53
 msgid "Confirm"
-msgstr ""
+msgstr "Тасдиқ кардан"
 
 #: src/amo/components/ContributeCard/index.js:117
 msgid "Contribute now"
@@ -1580,23 +1580,23 @@ msgstr ""
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
-msgstr ""
+msgstr "Иваз кардани забон"
 
 #: src/amo/components/Notice/index.js:154
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Нодида гирифтани ин огоҳӣ"
 
 #: src/amo/components/Paginate/index.js:155
 msgid "Previous"
-msgstr ""
+msgstr "Қаблӣ"
 
 #: src/amo/components/Paginate/index.js:174
 msgid "Next"
-msgstr ""
+msgstr "Навбатӣ"
 
 #: src/amo/components/Paginate/index.js:179
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Саҳифаи %(thisPage)s аз %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:102
 msgid "Optional permissions:"
@@ -1620,11 +1620,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Required permissions:"
-msgstr ""
+msgstr "Иҷозатҳои зарурӣ:"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Хондан ва тағйир додани хатбаракҳо"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Read and modify browser settings"
@@ -1720,11 +1720,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Хатбаракҳо"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "Фаъолияти тамошобинӣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
@@ -1780,7 +1780,7 @@ msgstr ""
 
 #: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "То ҳол ягон баҳо нест"
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this dictionary"
