@@ -70,24 +70,24 @@ msgstr ""
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s корбар"
+msgstr[1] "%(count)s корбар"
 
 #: src/amo/components/AddonBadges/index.js:164
 msgid "No Users"
-msgstr ""
+msgstr "Ягон корбар нест"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "Дар «Firefox for Android™» дастрас аст"
 
 #: src/amo/components/AddonBadges/index.js:72
 msgid "Experimental"
-msgstr ""
+msgstr "Таҷрибавӣ"
 
 #: src/amo/components/AddonBadges/index.js:86
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Баъзе хусусиятҳо метавонанд пардохтро талаб кунанд"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
@@ -100,8 +100,8 @@ msgstr ""
 #: src/amo/components/AddonFeedbackForm/index.js:148 src/amo/components/SearchResult/index.js:256
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s корбар"
+msgstr[1] "%(total)s корбар"
 
 #: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
@@ -175,11 +175,11 @@ msgstr "Саҳифаи асосӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:171
 msgid "Support site"
-msgstr ""
+msgstr "Сомонаи дастгирӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:185
 msgid "Support Email"
-msgstr ""
+msgstr "Почтаи электронии дастгирӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
 msgid "Visit stats dashboard"
@@ -192,7 +192,7 @@ msgstr ""
 #. This will output, in English: "2 months ago (Dec 12 2016)"
 #: src/amo/components/AddonMoreInfo/index.js:286
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:303
 msgid "Read the privacy policy for this add-on"
@@ -204,11 +204,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:328
 msgid "See all versions"
-msgstr ""
+msgstr "Дидани ҳамаи версияҳо"
 
 #: src/amo/components/AddonMoreInfo/index.js:378
 msgid "Add-on Links"
-msgstr ""
+msgstr "Пайвандҳои ҷузъи иловагӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:390
 msgid "Version"
@@ -220,7 +220,7 @@ msgstr "Андоза"
 
 #: src/amo/components/AddonMoreInfo/index.js:406 src/amo/components/CollectionDetails/index.js:87 src/amo/pages/CollectionFeedback/index.js:159
 msgid "Last updated"
-msgstr ""
+msgstr "Санаи навсозии охирин"
 
 #: src/amo/components/AddonMoreInfo/index.js:414
 msgid "Related Categories"
@@ -228,27 +228,27 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:424
 msgid "License"
-msgstr ""
+msgstr "Иҷозатнома"
 
 #: src/amo/components/AddonMoreInfo/index.js:432
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Сиёсати махфият"
 
 #: src/amo/components/AddonMoreInfo/index.js:440
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "Созишномаи иҷозатномавии корбари ниҳоӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:448
 msgid "Version History"
-msgstr ""
+msgstr "Таърихи версия"
 
 #: src/amo/components/AddonMoreInfo/index.js:458
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Омори истифодабарӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:466
 msgid "Tags"
-msgstr ""
+msgstr "Барчаспҳо"
 
 #: src/amo/components/AddonMoreInfo/index.js:473 src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
@@ -598,35 +598,35 @@ msgstr ""
 
 #: src/amo/components/AMInstallButton/index.js:142
 msgid "Downloading"
-msgstr ""
+msgstr "Дар ҳоли боргирӣ"
 
 #: src/amo/components/AMInstallButton/index.js:144
 msgid "Installing"
-msgstr ""
+msgstr "Насб шуда истодааст"
 
 #: src/amo/components/AMInstallButton/index.js:146
 msgid "Uninstalling"
-msgstr ""
+msgstr "Насб нест шуда истодааст"
 
 #: src/amo/components/AMInstallButton/index.js:154
 msgid "Install Theme"
-msgstr ""
+msgstr "Насб кардани мавзуъ"
 
 #: src/amo/components/AMInstallButton/index.js:155
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Илова кардан ба «Firefox»"
 
 #: src/amo/components/App/index.js:122 src/amo/components/HeadMetaTags/index.js:91
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "Ҷузъҳои иловагӣ барои «Firefox» (%(locale)s)"
 
 #: src/amo/components/App/index.js:126 src/amo/components/HeadMetaTags/index.js:85
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Ҷузъҳои иловагӣ барои «Firefox» (%(locale)s)"
 
 #: src/amo/components/App/index.js:134 src/amo/components/HeadMetaTags/index.js:90
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "Ҷузъҳои иловагӣ барои «Firefox Android» (%(locale)s)"
 
 #: src/amo/components/App/index.js:138 src/amo/components/HeadMetaTags/index.js:84
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
