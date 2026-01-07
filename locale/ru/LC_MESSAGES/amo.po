@@ -581,7 +581,7 @@ msgstr "Версия %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr "Выпущено %(dateReleased)s - %(fileSize)s"
+msgstr "Выпущено %(dateReleased)s — %(fileSize)s"
 
 #: src/amo/components/AMInstallButton/index.js:133
 msgid "Enable"
@@ -868,7 +868,7 @@ msgstr "Время входа истекло"
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Если вы вошли на сайт и думаете, что это сообщение - ошибка, пожалуйста, <a href=\"%(url)s\">сообщите об ошибке</a>. Расскажите нам, откуда вы пришли и к чему пытались получить доступ, и мы исправим"
+"Если вы вошли на сайт и думаете, что это сообщение — ошибка, пожалуйста, <a href=\"%(url)s\">сообщите об ошибке</a>. Расскажите нам, откуда вы пришли и к чему пытались получить доступ, и мы исправим"
 " эту проблему."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:34
@@ -1555,7 +1555,7 @@ msgstr "Изменить мой профиль"
 
 #: src/amo/components/HeroRecommendation/index.js:176
 msgid "Get the extension"
-msgstr "Загрузить расширение"
+msgstr "Скачать расширение"
 
 #. If uppercase does not work in your locale, change it to lowercase. This is used as a secondary heading.
 #: src/amo/components/HeroRecommendation/index.js:227
@@ -2649,15 +2649,15 @@ msgstr "Удалить эту подборку"
 
 #: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
-msgstr "Вы сообщили об этой коллекции"
+msgstr "Вы сообщили об этой подборке"
 
 #: src/amo/pages/Collection/index.js:427
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr "Мы получили ваше сообщение. Спасибо, что сообщили нам о вашей обеспокоенности этим дополнением."
+msgstr "Мы получили ваше сообщение. Спасибо, что сообщили нам о вашей обеспокоенности этой подборкой."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
-msgstr "Пожаловаться на эту коллекцию"
+msgstr "Пожаловаться на эту подборку"
 
 #: src/amo/pages/Collection/index.js:460
 msgid "Log in to create a collection"
@@ -2685,7 +2685,7 @@ msgstr "Скачивайте и создавайте подборки для Fir
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr "Отправить отзыв или сообщить о коллекции в Mozilla"
+msgstr "Отправить отзыв или сообщить о подборке в Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
@@ -2693,15 +2693,15 @@ msgstr "автор: %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
-msgstr "Сообщить об этой коллекции в Mozilla"
+msgstr "Сообщить об этой подборке в Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:172
 msgid "Send some feedback about the collection"
-msgstr "Отправить отзыв о коллекции"
+msgstr "Отправить отзыв о подборке"
 
 #: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
-msgstr "Сообщить о коллекции, поскольку она незаконна или не соответствует требованиям"
+msgstr "Сообщить о подборке, поскольку она незаконна или не соответствует требованиям"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
