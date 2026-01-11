@@ -200,7 +200,7 @@ msgstr "Хондани сиёсати махфият барои ин ҷузъи 
 
 #: src/amo/components/AddonMoreInfo/index.js:315
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Хондани созишномаи иҷозатномавӣ барои ин ҷузъи иловагӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:328
 msgid "See all versions"
@@ -224,7 +224,7 @@ msgstr "Санаи навсозии охирин"
 
 #: src/amo/components/AddonMoreInfo/index.js:414
 msgid "Related Categories"
-msgstr ""
+msgstr "Категорияҳои марбут"
 
 #: src/amo/components/AddonMoreInfo/index.js:424
 msgid "License"
@@ -270,11 +270,11 @@ msgstr "Маълумоти бештар"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Корбарони дигар бо ин васеъшавӣ низ васеъшавиҳои зеринро насб карданд"
 
 #: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
-msgstr ""
+msgstr "Васеъшавиҳои машҳури дигар"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:40
 msgid "You reported this add-on"
@@ -290,35 +290,35 @@ msgstr "Гузориш дар бораи ин ҷузъи иловагӣ"
 
 #: src/amo/components/AddonReviewCard/index.js:209
 msgid "Edit reply"
-msgstr ""
+msgstr "Таҳрир кардани ҷавоб"
 
 #: src/amo/components/AddonReviewCard/index.js:212
 msgid "Edit review"
-msgstr ""
+msgstr "Таҳрир кардани тақриз"
 
 #: src/amo/components/AddonReviewCard/index.js:219 src/amo/components/AddonReviewCard/index.js:251
 msgid "Delete reply"
-msgstr ""
+msgstr "Нест кардани ҷавоб"
 
 #: src/amo/components/AddonReviewCard/index.js:223 src/amo/components/AddonReviewCard/index.js:255
 msgid "Delete rating"
-msgstr ""
+msgstr "Нест кардани баҳо"
 
 #: src/amo/components/AddonReviewCard/index.js:226 src/amo/components/AddonReviewCard/index.js:258
 msgid "Delete review"
-msgstr ""
+msgstr "Нест кардани тақриз"
 
 #: src/amo/components/AddonReviewCard/index.js:233
 msgid "Do you really want to delete this reply?"
-msgstr ""
+msgstr "Шумо дар ҳақиқат мехоҳед, ки ин ҷавобро нест кунед?"
 
 #: src/amo/components/AddonReviewCard/index.js:237
 msgid "Do you really want to delete this rating?"
-msgstr ""
+msgstr "Шумо дар ҳақиқат мехоҳед, ки ин баҳоро нест кунед?"
 
 #: src/amo/components/AddonReviewCard/index.js:240
 msgid "Do you really want to delete this review?"
-msgstr ""
+msgstr "Шумо дар ҳақиқат мехоҳед, ки ин тақризро нест кунед?"
 
 #: src/amo/components/AddonReviewCard/index.js:247 src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
@@ -331,19 +331,19 @@ msgstr "Бекор кардан"
 
 #: src/amo/components/AddonReviewCard/index.js:269
 msgid "Keep reply"
-msgstr ""
+msgstr "Нигоҳ доштани ҷавоб"
 
 #: src/amo/components/AddonReviewCard/index.js:273
 msgid "Keep rating"
-msgstr ""
+msgstr "Нигоҳ доштани баҳо"
 
 #: src/amo/components/AddonReviewCard/index.js:276
 msgid "Keep review"
-msgstr ""
+msgstr "Нигоҳ доштани тақриз"
 
 #: src/amo/components/AddonReviewCard/index.js:312
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "Ба ин тақриз ҷавоберо нависед."
 
 #: src/amo/components/AddonReviewCard/index.js:315
 msgid "Update reply"
