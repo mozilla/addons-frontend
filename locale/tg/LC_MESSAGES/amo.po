@@ -113,61 +113,61 @@ msgstr "Фиристодани изҳори назари муқаррар оид
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "Фиристодани гузориш оид ба ҷузъи иловагӣ, зеро ки он ғайриқонунӣ ё номутобиқ аст"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин васеъшавӣ барои 🦊 «Firefox» (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин бастаи забон барои 🦊 «Firefox» (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин мавзуъ барои 🦊 «Firefox» (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин ҷузъи иловагӣ барои 🦊 «Firefox» (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:131
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Боргирӣ кардани « %(addonName)s» барои «Firefox». %(summary)s"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин луғат барои 🦊 «Firefox Android» (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин васеъшавӣ барои 🦊 «Firefox Android» (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин бастаи забон барои 🦊 «Firefox Android» (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин мавзуъ барои 🦊 «Firefox Android» (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин ҷузъи иловагӣ барои 🦊 «Firefox Android» (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Гирифтани ин луғат барои 🦊 «Firefox» (%(locale)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:154 src/amo/pages/UserProfile/index.js:361 src/amo/pages/UserProfile/index.js:364 src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
@@ -183,11 +183,11 @@ msgstr "Почтаи электронии дастгирӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Кушодани лавҳаи иттилоотии оморӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Custom License"
-msgstr ""
+msgstr "Иҷозатномаи фармоишӣ"
 
 #. This will output, in English: "2 months ago (Dec 12 2016)"
 #: src/amo/components/AddonMoreInfo/index.js:286
@@ -196,7 +196,7 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:303
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Хондани сиёсати махфият барои ин ҷузъи иловагӣ"
 
 #: src/amo/components/AddonMoreInfo/index.js:315
 msgid "Read the license agreement for this add-on"
