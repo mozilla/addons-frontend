@@ -42,30 +42,30 @@ msgstr "Таҳрир кардани ҷузъи иловагӣ"
 #. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:63
 msgid "Admin add-on"
-msgstr ""
+msgstr "Идоракунии ҷузъи иловагӣ"
 
 #. This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Content review add-on"
-msgstr ""
+msgstr "Тафтиши муҳтавои ҷузъи иловагӣ"
 
 #. This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:85
 msgid "Review theme"
-msgstr ""
+msgstr "Тафтиши мавзуъ"
 
 #. This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:87
 msgid "Review add-on code"
-msgstr ""
+msgstr "Тафтиши рамзи ҷузъи иловагӣ"
 
 #: src/amo/components/AddonBadges/index.js:126
 msgid "%(average)s (%(count)s review)"
-msgstr ""
+msgstr "%(average)s (%(count)s тақриз)"
 
 #: src/amo/components/AddonBadges/index.js:130
 msgid "%(average)s (%(count)s reviews)"
-msgstr ""
+msgstr "%(average)s (%(count)s тақриз)"
 
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
@@ -91,11 +91,11 @@ msgstr "Баъзе хусусиятҳо метавонанд пардохтро 
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Ин ҷузъи иловагӣ ба версияи браузери «Firefox»-и шумо мувофиқат намекунад."
 
 #: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "Ин ҷузъи иловагӣ дар платформаи шумо дастнорас аст."
 
 #: src/amo/components/AddonFeedbackForm/index.js:148 src/amo/components/SearchResult/index.js:256
 msgid "%(total)s user"
@@ -105,11 +105,11 @@ msgstr[1] "%(total)s корбар"
 
 #: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
-msgstr ""
+msgstr "Фиристодани гузориш оид ба ҷузъи иловагӣ ба «Mozilla»"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
-msgstr ""
+msgstr "Фиристодани изҳори назари муқаррар оид ба ҷузъи иловагӣ"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
@@ -257,12 +257,12 @@ msgstr "Илова кардан ба маҷмуа"
 #. This is a list of links to administrative functions.
 #: src/amo/components/AddonMoreInfo/index.js:483
 msgid "Admin Links"
-msgstr ""
+msgstr "Пайвандҳои маъмурӣ"
 
 #. This is a list of links to Developer functions.
 #: src/amo/components/AddonMoreInfo/index.js:495
 msgid "Author Links"
-msgstr ""
+msgstr "Пайвандҳои муаллиф"
 
 #: src/amo/components/AddonMoreInfo/index.js:516
 msgid "More information"
