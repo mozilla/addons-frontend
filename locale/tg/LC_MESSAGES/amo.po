@@ -1502,7 +1502,7 @@ msgstr ""
 #. "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:186
 msgid "Firefox Browser Add-ons"
-msgstr ""
+msgstr "Ҷузъҳои иловагии браузери «Firefox»"
 
 #: src/amo/components/Header/index.js:214
 msgid "Learn how to create extensions and themes"
@@ -1548,7 +1548,7 @@ msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:249
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Браузери «Firefox» танҳо он васеъшавиҳоро тавсия медиҳад, ки ба стандартҳои амният ва самаранокии мо ҷавобгӯ мебошанд."
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
@@ -1560,11 +1560,11 @@ msgstr "Пайдо кардани дастрасӣ ба маълумоти ху�
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Пайдо кардани дастрасӣ ба маълумоти худ барои сомонаҳо дар домени %(param)s"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Дастрас кардани маълумоти шумо барои %(param)s"
 
 #: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
@@ -1616,7 +1616,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "Иҷозатҳо ва маълумот"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Required permissions:"
@@ -1640,67 +1640,67 @@ msgstr "Гирифтани маълумот аз ҳофизаи муваққат
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Гузоштани маълумот ба ҳофизаи муваққатӣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Block content on any page"
-msgstr ""
+msgstr "Муҳтаво дар ҳамаи саҳифаҳо манъ карда мешавад"
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Read your browsing history"
-msgstr ""
+msgstr "Таърихи тамошобинии худро аз назар гузаронед"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Васеъкунии абзорҳои барномасозӣ барои дастрас кардани маълумоти шумо дар варақаҳои кушодашуда"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Боргирӣ кардани файлҳо, хондан ва тағйир додани таърихи боргириҳои браузер"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Кушодани файлҳое, ки ба компютери шумо боргирӣ карда шудаанд"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Хондани матн дар ҳамаи варақаҳои кушодашуда"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
-msgstr ""
+msgstr "Дастрас кардани ҷойгиршавии шумо"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
-msgstr ""
+msgstr "Дастрас кардани таърихи тамошо"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Назорат кардани истифодаи васеъшавӣ ва идора кардани мавзуъҳо"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Мубодила кардани паёмҳо бо барномаҳо ба ғайр аз браузери «Firefox»"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Намоиш додани огоҳномаҳо ба шумо"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Таъмин намудани хидматҳои санҷиши ҳаққоният бо нақши рамзӣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Идора кардани танзимоти прокси браузер"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Хондан ва тағйир додани танзимоти махфият"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Дастрас кардани варақаҳои ба наздикӣ пӯшидашуда"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
@@ -1744,7 +1744,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "Маълумоти шахсии қобили шиносоӣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
