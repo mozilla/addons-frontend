@@ -347,29 +347,29 @@ msgstr "Ба ин тақриз ҷавоберо нависед."
 
 #: src/amo/components/AddonReviewCard/index.js:315
 msgid "Update reply"
-msgstr ""
+msgstr "Аз нав кардани ҷавоб"
 
 #: src/amo/components/AddonReviewCard/index.js:316
 msgid "Publish reply"
-msgstr ""
+msgstr "Ҷойгир кардани ҷавоб"
 
 #: src/amo/components/AddonReviewCard/index.js:320
 msgid "Updating reply"
-msgstr ""
+msgstr "Дар ҳоли навкунии ҷавоб"
 
 #: src/amo/components/AddonReviewCard/index.js:321
 msgid "Publishing reply"
-msgstr ""
+msgstr "Дар ҳоли ҷойгиркунии ҷавоб"
 
 #. Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:365
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "дар %(linkStart)s%(timestamp)s%(linkEnd)s ҷойгир шуд"
 
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:367
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "аз ҷониби %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:480
 msgid "Deleting…"
@@ -377,7 +377,7 @@ msgstr "Нест карда мешавад…"
 
 #: src/amo/components/AddonReviewCard/index.js:511
 msgid "Reply to this review"
-msgstr ""
+msgstr "Ҷавоб додан ба ин тақриз"
 
 #: src/amo/components/AddonReviewCard/index.js:541
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
@@ -554,7 +554,7 @@ msgstr ","
 #. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
-msgstr ""
+msgstr "аз ҷониби"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
@@ -1004,15 +1004,15 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
-msgstr ""
+msgstr "Дар дохили ҷузъи иловагӣ"
 
 #: src/amo/components/FeedbackForm/index.js:170
 msgid "Both locations"
-msgstr ""
+msgstr "Ҳар ду ҷойгиршавӣ"
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "Интихоб кардани навъ"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
@@ -1284,11 +1284,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:769
 msgid "Submit report"
-msgstr ""
+msgstr "Гузориш додан"
 
 #: src/amo/components/FeedbackForm/index.js:788
 msgid "Provide more information"
-msgstr ""
+msgstr "Пешниҳод кардани маълумоти бештар"
 
 #: src/amo/components/FeedbackForm/index.js:796
 msgid "Place of the violation"
@@ -1312,7 +1312,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:887
 msgid "Contact information"
-msgstr ""
+msgstr "Маълумот барои тамос"
 
 #: src/amo/components/FeedbackForm/index.js:903
 msgid "File report anonymously"
@@ -1556,7 +1556,7 @@ msgstr ""
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Пайдо кардани дастрасӣ ба маълумоти худ барои ҳамаи сомонаҳо"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
@@ -1600,7 +1600,7 @@ msgstr "Саҳифаи %(thisPage)s аз %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:102
 msgid "Optional permissions:"
-msgstr ""
+msgstr "Иҷозатҳои интихобӣ:"
 
 #: src/amo/components/PermissionsCard/index.js:122
 msgid "Optional data collection, according to the developer:"
@@ -1608,7 +1608,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "Ҷамъоварии маълумот:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
@@ -1628,15 +1628,15 @@ msgstr "Хондан ва тағйир додани хатбаракҳо"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Хондан ва тағйир додани танзимоти браузер"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Пок кардани таърихи тамошобинии охирин, кукиҳо ва маълумоти марбут"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Гирифтани маълумот аз ҳофизаи муваққатӣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Input data to the clipboard"
