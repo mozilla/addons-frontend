@@ -393,27 +393,27 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
-msgstr ""
+msgstr "Пешниҳод кардани тақриз"
 
 #: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
-msgstr ""
+msgstr "Дар ҳоли пешниҳоди тақриз"
 
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
-msgstr ""
+msgstr "Аз нав кардани тақриз"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
-msgstr ""
+msgstr "Дар ҳоли навкунии тақриз"
 
 #: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
-msgstr ""
+msgstr "Сабт шуда истодааст"
 
 #: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
-msgstr ""
+msgstr "Нигоҳ дошта шуд"
 
 #: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -421,7 +421,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "Баҳои ситорадори шумо:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "More dictionaries by %(author)s"
@@ -570,11 +570,11 @@ msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
-msgstr ""
+msgstr "Ягон версия ёфт нашуд"
 
 #: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Версияи %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
@@ -1736,7 +1736,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
-msgstr ""
+msgstr "Ҷойгиршавӣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
@@ -2055,8 +2055,8 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s натиҷа ёфт шуд"
+msgstr[1] "%(count)s натиҷа ёфт шуданд"
 
 #: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
@@ -2222,15 +2222,15 @@ msgstr ""
 
 #: src/amo/components/SearchResult/index.js:238
 msgid "Add-on note"
-msgstr ""
+msgstr "Тавзеҳи ҷузъи иловагӣ"
 
 #: src/amo/components/SearchResults/index.js:45
 msgid "Searching…"
-msgstr ""
+msgstr "Дар ҳоли ҷустуҷӯ…"
 
 #: src/amo/components/SearchResults/index.js:50
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Барои «%(query)s» ягон натиҷа ёфт нашуд."
 
 #: src/amo/components/SearchResults/index.js:56
 msgid "No results were found."
@@ -2246,7 +2246,7 @@ msgstr "Бештар…"
 
 #: src/amo/components/SectionLinks/index.js:122
 msgid "for Firefox"
-msgstr ""
+msgstr "барои «Firefox»"
 
 #: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
@@ -2356,23 +2356,23 @@ msgstr ""
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s Б"
 
 #: src/amo/i18n/utils.js:265
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s КБ"
 
 #: src/amo/i18n/utils.js:267
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s МБ"
 
 #: src/amo/i18n/utils.js:269
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s ГБ"
 
 #: src/amo/i18n/utils.js:271
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s ТБ"
 
 #: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
@@ -2429,7 +2429,7 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:473
 msgid "Screenshots"
-msgstr ""
+msgstr "Аксҳои экран"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
@@ -3101,7 +3101,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
-msgstr ""
+msgstr "Профили корбар"
 
 #: src/amo/pages/UserProfile/index.js:379 src/amo/pages/UserProfileEdit/index.js:708
 msgid "Occupation"
@@ -3109,7 +3109,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:395
 msgid "Number of add-ons"
-msgstr ""
+msgstr "Шумораи ҷузъҳои иловагӣ"
 
 #: src/amo/pages/UserProfile/index.js:403
 msgid "Average rating of developer’s add-ons"
@@ -3186,15 +3186,15 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Account"
-msgstr ""
+msgstr "Ҳисоб"
 
 #: src/amo/pages/UserProfileEdit/index.js:589
 msgid "Account for %(userName)s"
-msgstr ""
+msgstr "Ҳисоб барои %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Email Address"
-msgstr ""
+msgstr "Нишонии почтаи электронӣ"
 
 #: src/amo/pages/UserProfileEdit/index.js:604
 msgid "Email address cannot be changed here"
@@ -3210,16 +3210,16 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
-msgstr ""
+msgstr "Профил"
 
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This field is required"
-msgstr ""
+msgstr "Ин майдон ҳатмӣ аст"
 
 #. the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:655
 msgid "Display Name *"
-msgstr ""
+msgstr "Номи намоишӣ *"
 
 #: src/amo/pages/UserProfileEdit/index.js:688
 msgid "This URL will only be visible for users who are developers."
@@ -3247,11 +3247,11 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
-msgstr ""
+msgstr "Нест кардани профили ман"
 
 #: src/amo/pages/UserProfileEdit/index.js:820 src/amo/pages/UserProfileEdit/index.js:892
 msgid "Delete Profile"
-msgstr ""
+msgstr "Нест кардани профил"
 
 #: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
