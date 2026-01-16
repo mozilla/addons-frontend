@@ -578,7 +578,7 @@ msgstr "Версияи %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Санаи барориш: %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/AMInstallButton/index.js:133
 msgid "Enable"
@@ -590,11 +590,11 @@ msgstr "Тоза кардан"
 
 #: src/amo/components/AMInstallButton/index.js:138
 msgid "Enabling"
-msgstr ""
+msgstr "Фаъол шуда истодааст"
 
 #: src/amo/components/AMInstallButton/index.js:140
 msgid "Disabling"
-msgstr ""
+msgstr "Ғайрифаъол шуда истодааст"
 
 #: src/amo/components/AMInstallButton/index.js:142
 msgid "Downloading"
@@ -798,7 +798,7 @@ msgstr ""
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
-msgstr ""
+msgstr "Матнро ворид намоед."
 
 #: src/amo/components/DismissibleTextForm/index.js:200
 msgid "Submit"
@@ -810,7 +810,7 @@ msgstr "Пешниҳод карда мешавад"
 
 #: src/amo/components/EditableCollectionAddon/index.js:132 src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
-msgstr ""
+msgstr "Ёддоштеро нависед"
 
 #: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
@@ -1332,11 +1332,11 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:967
 msgid "Your email address %(spanStart)s(optional)%(spanEnd)s"
-msgstr ""
+msgstr "Нишонии почтаи электронии шумо %(spanStart)s(интихобӣ)%(spanEnd)s"
 
 #: src/amo/components/FeedbackForm/index.js:970
 msgid "Your email address %(spanStart)s(required)%(spanEnd)s"
-msgstr ""
+msgstr "Нишонии почтаи электронии шумо %(spanStart)s(ҳатмӣ)%(spanEnd)s"
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Content that is illegal or that violates AMO's content policies"
