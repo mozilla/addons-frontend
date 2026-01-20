@@ -1002,10 +1002,10 @@
     "@babel/plugin-transform-react-jsx-development" "^7.27.1"
     "@babel/plugin-transform-react-pure-annotations" "^7.27.1"
 
-"@babel/register@^7.28.3":
-  version "7.28.3"
-  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.28.3.tgz#abd8a3753480c799bdaf9c9092d6745d16e052c2"
-  integrity sha512-CieDOtd8u208eI49bYl4z1J22ySFw87IGwE+IswFEExH7e3rLgKb0WNQeumnacQ1+VoDJLYI5QFA3AJZuyZQfA==
+"@babel/register@^7.28.6":
+  version "7.28.6"
+  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.28.6.tgz#f54461dd32f6a418c1eb1f583c95ed0b7266ea4c"
+  integrity sha512-pgcbbEl/dWQYb6L6Yew6F94rdwygfuv+vJ/tXfwIOYAfPB6TNWpXUMEtEq3YuTeHRdvMIhvz13bkT9CNaS+wqA==
   dependencies:
     clone-deep "^4.0.1"
     find-cache-dir "^2.0.0"
@@ -8670,12 +8670,7 @@ pino@10.1.1:
     sonic-boom "^4.0.1"
     thread-stream "^4.0.0"
 
-pirates@^4.0.6:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.6.tgz#3018ae32ecfcff6c29ba2267cbf21166ac1f36b9"
-  integrity sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==
-
-pirates@^4.0.7:
+pirates@^4.0.6, pirates@^4.0.7:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.7.tgz#643b4a18c4257c8a65104b73f3049ce9a0a15e22"
   integrity sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==
