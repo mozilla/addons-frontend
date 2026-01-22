@@ -8687,10 +8687,10 @@ pino-syslog@3.2.0:
     split2 "^4.1.0"
     through2 "^4.0.2"
 
-pino@10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-10.1.1.tgz#48ee402967b960edf4e41751fa316dd83428c3b9"
-  integrity sha512-3qqVfpJtRQUCAOs4rTOEwLH6mwJJ/CSAlbis8fKOiMzTtXh0HN/VLsn3UWVTJ7U8DsWmxeNon2IpGb+wORXH4g==
+pino@10.2.0:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-10.2.0.tgz#01d7f0fdabdb7bb31102a55770b6fe2dd3f139e8"
+  integrity sha512-NFnZqUliT+OHkRXVSf8vdOr13N1wv31hRryVjqbreVh/SDCNaI6mnRDDq89HVRCbem1SAl7yj04OANeqP0nT6A==
   dependencies:
     "@pinojs/redact" "^0.4.0"
     atomic-sleep "^1.0.0"
