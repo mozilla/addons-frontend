@@ -2441,9 +2441,9 @@ msgstr "Zatím žádné recenze"
 #: src/amo/pages/Addon/index.js:252
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] "Ohodnoceno %(ratingAverage)s 1 redaktorem"
-msgstr[1] "Ohodnoceno %(ratingAverage)s 1 redaktorem"
-msgstr[2] "Ohodnoceno %(ratingAverage)s 1 redaktorem"
+msgstr[0] "Hodnocení: %(ratingAverage)s od 1 redaktora"
+msgstr[1] "Hodnocení: %(ratingAverage)s od %(ratingCount)s redaktorů"
+msgstr[2] "Hodnocení: %(ratingAverage)s od %(ratingCount)s redaktorů"
 
 #: src/amo/pages/Addon/index.js:289
 msgid "About this dictionary"
