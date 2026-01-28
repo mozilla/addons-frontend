@@ -1457,7 +1457,7 @@ msgstr "이 부가 기능을 사용하시려면, Firefox를%(downloadLinkStart)s
 #: src/amo/components/GetFirefoxBanner/index.js:125 src/amo/components/WrongPlatformWarning/index.js:127
 msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
-msgstr "Android 확장 기능을 사용하려면 %(downloadLinkStart)sAndroid용 Firefox%(downloadLinkEnd)s가 필요합니다. 데스크톱용 Firefox 부가 기능을 살펴보려면 %(linkStart)s데스크톱 사이트를 방문%(linkEnd)s하세요."
+msgstr "Android 확장 기능을 사용하려면 %(downloadLinkStart)sAndroid용 Firefox%(downloadLinkEnd)s가 필요합니다. 데스크톱용 Firefox 부가 기능을 살펴보려면 %(linkStart)s데스크톱 사이트%(linkEnd)s를 방문하세요."
 
 #: src/amo/components/GetFirefoxButton/index.js:146
 msgid "Download Firefox and get the theme"
