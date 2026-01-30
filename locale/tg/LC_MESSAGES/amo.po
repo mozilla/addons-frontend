@@ -858,7 +858,7 @@ msgstr ""
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
-msgstr ""
+msgstr "Муҳлати воридшавӣ ба анҷом расид"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -880,7 +880,7 @@ msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Упс! Мо он саҳифаро ёфта наметавонем"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -1360,7 +1360,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "Spam"
-msgstr ""
+msgstr "Паёмҳои номатлуб"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "Flagged as spam"
