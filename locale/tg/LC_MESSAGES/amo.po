@@ -385,7 +385,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:587
 msgid "Write a review"
-msgstr ""
+msgstr "Навиштани тақриз"
 
 #: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
@@ -465,7 +465,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:296
 msgid "Themes by %(author)s"
-msgstr ""
+msgstr "Мавзуъҳо аз ҷониби «%(author)s»"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:299
 msgid "Themes by these artists"
@@ -537,7 +537,7 @@ msgstr ""
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
-msgstr ""
+msgstr "Нишонаи ҷузъи иловагӣ"
 
 #. roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:78
