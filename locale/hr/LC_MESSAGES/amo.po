@@ -913,11 +913,11 @@ msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
-msgstr "Greška poslužitelja"
+msgstr "Greška servera"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Nažalost, došlo je do greške s našim poslužiteljem i nismo uspjeli dovršiti tvoj zahtjev. Zabilježili smo ovu grešku i istražit ćemo je."
+msgstr "Nažalost, došlo je do greške s našim serverom i nismo uspjeli dovršiti tvoj zahtjev. Zabilježili smo ovu grešku i istražit ćemo je."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 msgid ""
@@ -2865,8 +2865,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
-"Želiš kao programer komunicirati s addons.mozilla.org (AMO)? Pregledaj %(startAddonsServerDocumentation)sdokumentaciju poslužitelja dodataka%(endAddonsServerDocumentation)s za detalje o API-ima koje"
-" koristi AMO te %(startAddonsManager)supravljač dodacima%(endAddonsManager)s."
+"Želiš kao programer komunicirati s addons.mozilla.org (AMO)? Pregledaj %(startAddonsServerDocumentation)sdokumentaciju servera dodataka%(endAddonsServerDocumentation)s za detalje o API-ima koje "
+"koristi AMO te %(startAddonsManager)supravljač dodacima%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
