@@ -1775,15 +1775,15 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
-msgstr ""
+msgstr "Actividad del sitio web"
 
 #: src/amo/components/PermissionsCard/permissions.js:81
 msgid "Website content"
-msgstr ""
+msgstr "Contenido del sitio web"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr ""
+msgstr "El desarrollador dice que esta extensión no requiere recopilación de datos."
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1831,7 +1831,7 @@ msgstr "¿De verdad quieres eliminar tu valoración de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:213
 msgid "Click to rate:"
-msgstr ""
+msgstr "Haz clic para calificar:"
 
 #: src/amo/components/RatingManager/index.js:239
 msgid "Saving star rating"
