@@ -11,7 +11,7 @@ module.exports = {
     // Alias tests for tests to be able to import helpers.
     '^tests/(.*)$': '<rootDir>/tests/$1',
     // Alias config for tests to be able to import config files.
-    '^config/(default|test)$': '<rootDir>/config/$1',
+    '^config/(.*)$': '<rootDir>/config/$1',
     // Replaces the following formats with an empty module.
     '^.+\\.(scss|css|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
     // Alias bin for bin scripts.
