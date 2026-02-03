@@ -70,8 +70,8 @@ msgstr ""
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s Usuario"
+msgstr[1] "%(count)s Usuarios"
 
 #: src/amo/components/AddonBadges/index.js:164
 msgid "No Users"
@@ -1627,7 +1627,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
-msgstr ""
+msgstr "Recopilación de datos:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
@@ -1739,7 +1739,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadores"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
@@ -1747,11 +1747,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
-msgstr ""
+msgstr "Información financiera y de pagos"
 
 #: src/amo/components/PermissionsCard/permissions.js:72
 msgid "Health information"
-msgstr ""
+msgstr "Información de salud"
 
 #: src/amo/components/PermissionsCard/permissions.js:73 src/amo/pages/UserProfile/index.js:371 src/amo/pages/UserProfileEdit/index.js:693
 msgid "Location"
@@ -1759,19 +1759,19 @@ msgstr "Ubicación"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Personal communications"
-msgstr ""
+msgstr "Comunicaciones personales"
 
 #: src/amo/components/PermissionsCard/permissions.js:75
 msgid "Personally identifying information"
-msgstr ""
+msgstr "Información de identificación personal"
 
 #: src/amo/components/PermissionsCard/permissions.js:78
 msgid "Search terms"
-msgstr ""
+msgstr "Términos de búsqueda"
 
 #: src/amo/components/PermissionsCard/permissions.js:79
 msgid "Technical and interaction data"
-msgstr ""
+msgstr "Datos técnicos y de interacción"
 
 #: src/amo/components/PermissionsCard/permissions.js:80
 msgid "Website activity"
