@@ -1,5 +1,4 @@
 import config from 'config';
-import { Util } from 'config/lib/util';
 
 export function createUserAccountResponse({
   id = 123456,
@@ -73,7 +72,7 @@ export const getFakeConfig = (
       );
     }
   }
-  return Object.assign(Util.cloneDeep(config), params);
+  return Object.assign(config.util.cloneDeep(config), params);
 };
 
 export const getFakeLogger = (params = {}) => {
