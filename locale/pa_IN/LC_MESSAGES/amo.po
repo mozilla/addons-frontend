@@ -1556,7 +1556,7 @@ msgstr "FIREFOX ਦੁਆਰਾ"
 
 #: src/amo/components/HeroRecommendation/index.js:232
 msgid "PROMOTED"
-msgstr ""
+msgstr "ਪ੍ਰਚਾਰਿਤ ਕੀਤਾ"
 
 #: src/amo/components/HeroRecommendation/index.js:249
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
@@ -1612,11 +1612,11 @@ msgstr "%(totalPages)s ਵਿੱਚੋਂ %(thisPage)s ਸਫਾ"
 
 #: src/amo/components/PermissionsCard/index.js:102
 msgid "Optional permissions:"
-msgstr ""
+msgstr "ਚੋਣਵੀਆਂ ਇਜਾਜ਼ਤਾਂ:"
 
 #: src/amo/components/PermissionsCard/index.js:122
 msgid "Optional data collection, according to the developer:"
-msgstr ""
+msgstr "ਡਿਵੈਲਪਰਾਂ ਦੇ ਮੁਤਾਬਕ, ਚੋਣਵਾਂ ਡਾਟਾ ਇਕੱਤਰ ਕਰਨਾ:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
@@ -1632,7 +1632,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Required permissions:"
-msgstr ""
+msgstr "ਚਾਹੀਦੀਆਂ ਇਜਾਜ਼ਤਾਂ:"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -2548,15 +2548,15 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "ਇਸ ਐਡ-ਆਨ ਉੱਤੇ Mozilla ਨੀਤੀਆਂ ਦਾ ਉਲੰਘਣਾ ਕਰਨ ਕਰਕੇ ਪਾਬੰਦੀ ਲਾਈ ਹੈ"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
-msgstr ""
+msgstr "ਇਹ ਕਿਓ ਵਾਪਰਿਆ ਸੀ?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "ਇਹ ਇਕਸਟੈਨਸ਼ਨ, ਥੀਮ ਜਾਂ ਪਲੱਗਇਨ %(startLink)sMozilla ਐਡ-ਆਨ ਨੀਤੀਆਂ%(endLink)s ਦੀ ਉਲੰਘਣਾ ਕਰਦੀ ਹੈ।"
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2595,14 +2595,12 @@ msgid "All theme categories"
 msgstr "ਸਭ ਥੀਮ ਵਰਗਾਂ"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "%(categoryName)s ਵਿੱਚ ਥੀਮ"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "%(count)s ਦਾ ਇਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
+msgstr "%(categoryName)s ਵਿੱਚ ਇਕਸਟੈਨਸ਼ਨ"
 
 #: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
@@ -2614,7 +2612,7 @@ msgstr "ਇਸ ਸੰਗ੍ਰਹਿ ਨੂੰ ਹਟਾਓ"
 
 #: src/amo/pages/Collection/index.js:423
 msgid "You reported this collection"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਇਸ ਭੰਡਾਰ ਬਾਰੇ ਰਿਪੋਰਟ ਕੀਤੀ ਹੈ"
 
 #: src/amo/pages/Collection/index.js:427
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
@@ -2654,7 +2652,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "%(authorName)s ਵਲੋਂ"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
