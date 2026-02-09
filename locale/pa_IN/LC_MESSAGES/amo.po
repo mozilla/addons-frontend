@@ -61,17 +61,17 @@ msgstr "ਐਡ-ਆਨ ਕੋਡ ਦੀ ਸਮੀਖਿਆ ਕਰੋ"
 
 #: src/amo/components/AddonBadges/index.js:126
 msgid "%(average)s (%(count)s review)"
-msgstr ""
+msgstr "%(average)s (%(count)s ਸਮੀਖਿਆ)"
 
 #: src/amo/components/AddonBadges/index.js:130
 msgid "%(average)s (%(count)s reviews)"
-msgstr ""
+msgstr "%(average)s (%(count)s ਸਮੀਖਿਆਵਾਂ)"
 
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s ਵਰਤੋਂਕਾਰ"
+msgstr[1] "%(count)s ਵਰਤੋਂਕਾਰ"
 
 #: src/amo/components/AddonBadges/index.js:164
 msgid "No Users"
@@ -481,7 +481,7 @@ msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਦੁਆਰਾ ਹੋਰ �
 
 #: src/amo/components/AddonSuggestions/index.js:100
 msgid "More powerful tools for translations, writing & grammar support"
-msgstr ""
+msgstr "ਅਨੁਵਾਦ, ਲਿਖਣ ਅਤੇ ਵਿਆਕਰਨ ਸਹਿਯੋਗ ਲਈ ਵੱਧ ਮਜ਼ਬੂਤ ਟੂਲ"
 
 #: src/amo/components/AddonSuggestions/index.js:107
 msgid "More amazing extensions to change the way Firefox looks"
@@ -489,11 +489,11 @@ msgstr "Firefox ਦੀ ਦਿੱਖ ਬਦਲਣ ਲਈ ਹੋਰ ਸ਼ਾਨਦ�
 
 #: src/amo/components/AddonSuggestions/index.js:114
 msgid "More incredible social media extensions"
-msgstr ""
+msgstr "ਵੱਧ ਸ਼ਾਨਦਾਰ ਸ਼ੋਸ਼ਲ ਮੀਡੀਆ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonSuggestions/index.js:119
 msgid "More excellent search extensions"
-msgstr ""
+msgstr "ਹੋਰ ਵਧੀਆ ਖੋਜ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonSuggestions/index.js:124
 msgid "More great extensions for feeds, news & media"
@@ -505,7 +505,7 @@ msgstr "ਹੋਰ ਬੇਹਤਰਨੀ ਨੋਟੀਫਿਕੇਸ਼ਨ ਇਕਸ
 
 #: src/amo/components/AddonSuggestions/index.js:138
 msgid "More great tools for web developers"
-msgstr ""
+msgstr "ਵੈੱਬ ਡਿਵੈਲਪਰਾਂ ਲਈ ਬੇਹਤਰੀਨ ਟੂਲ"
 
 #: src/amo/components/AddonSuggestions/index.js:268
 msgid "See Firefox Staff Picks"
@@ -919,22 +919,20 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਸਾਡੇ ਸਰਵਰ ਨਾਲ ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ ਅਤੇ ਅਸੀਂ ਤੁਹਾਡੀ ਬੇਨਤੀ ਨੂੰ ਪੂਰਾ ਨਹੀਂ ਕਰ ਸਕੇ। ਅਸੀਂ ਇਸ ਗਲਤੀ ਨੂੰ ਲਾਗ ਕੀਤਾ ਹੈ ਅਤੇ ਇਸਦੀ ਪੜਤਾਲ ਕਰਾਂਗੇ।"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"ਪੇਜ ਨੂੰ ਬਾਅਦ ਵਿਚ ਦੇਖਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ, ਕਿਉਂਕਿ ਥੀਮ ਜਾਂ ਵਿਸਥਾਰ ਦੁਬਾਰਾ ਉਪਲਬਧ ਹੋ ਸਕਦਾ ਹੈ। ਵਿਕਲਪਿਕ ਤੌਰ ਤੇ, ਤੁਸੀਂ ਉਹ ਲੱਭਣ ਦੇ ਯੋਗ ਹੋ ਸਕਦੇ ਹੋ ਜੋ ਤੁਸੀਂ ਉਪਲਬਧ %(extensionStart)sਐਕਸਟੈਂਸ਼ਨਾਂ%(extensionEnd)s ਜਾਂ "
-"%(themeStart)sਥੀਮ%(themeEnd)s ਵਿਚ ਲੱਭ ਸਕਦੇ ਹੋ, ਜਾਂ ਸਾਡੇ%(communityStart)sਕਮਿਊਨਿਟੀ ਫੋਰਮ%(communityEnd)s।"
+"ਜੋ ਤੁਸੀਂ ਲੱਭ ਰਹੇ ਹੋ, ਉਹ ਤੁਹਾਨੂੰ ਉਪਲੱਬਧ %(extensionStart)sਇਕਸਟੈਨਸ਼ਨਾਂ%(extensionEnd)s ਜਾਂ %(themeStart)sਥੀਮਾਂ%(themeEnd)s ਵਿੱਚ ਮਿਲ ਸਕਦਾ ਹੈ ਜਾਂ ਤੁਸੀਂ ਸਾਡੀ %(communityStart)sਕਮਿਊਨਟੀ ਸੱਥ%(communityEnd)s "
+"ਵਿੱਚ ਮਦਦ ਲਈ ਪੁੱਛ ਸਕਦੇ ਹੋ।"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
 msgstr "ਇਹ ਐਡ-ਆਨ ਤੁਹਾਡੇ ਖੇਤਰ ਵਿੱਚ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਜਿਹੜੀ ਸਮੱਗਰੀ ਦੀ ਤੁਸੀਂ ਭਾਲ ਕਰ ਰਹੇ ਹੋ ਉਹ ਤੁਹਾਡੇ ਖੇਤਰ ਵਿੱਚ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।"
+msgstr "ਸਫ਼ਾ, ਜੋ ਤੁਸੀਂ ਖੋਲ੍ਹਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਹੈ, ਉਹ ਤੁਹਾਡੇ ਖੇਤਰ ਵਿੱਚ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।"
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
@@ -958,7 +956,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:105
 msgid "It doesn’t work, breaks websites, or slows down Firefox"
-msgstr ""
+msgstr "ਇਹ ਕੰਮ ਨਹੀਂ ਕਰਦੀ ਹੈ, ਵੈੱਬਸਾਈਟਾਂ ਠੀਕ ਤਰ੍ਹਾਂ ਨਹੀਂ ਖੁੱਲ੍ਹਦੀਆਂ ਜਾਂ Firefox ਨੂੰ ਹੌਲੀ ਕਰ ਦਿੰਦੀ ਹੈ।"
 
 #: src/amo/components/FeedbackForm/index.js:108
 msgid "Example: Features are slow, hard to use, or don’t work; parts of websites won't load or look unusual."
@@ -974,7 +972,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:122
 msgid "It violates Add-on Policies"
-msgstr ""
+msgstr "ਇਹ ਐਡ-ਆਨ ਨੀਤੀਆਂ ਦੀ ਉਲੰਘਣਾ ਕਰਦਾ ਹੈ"
 
 #: src/amo/components/FeedbackForm/index.js:123
 msgid "Example: It compromised my data without informing or asking me, or it changed my search engine or home page without informing or asking me."
@@ -1000,47 +998,47 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:151 src/amo/components/FeedbackForm/index.js:536
 msgid "Something else"
-msgstr ""
+msgstr "ਕੁਝ ਹੋਰ"
 
 #: src/amo/components/FeedbackForm/index.js:152
 msgid "Anything that doesn’t fit into the other categories."
-msgstr ""
+msgstr "ਕੁਝ ਅਜਿਹਾ, ਜੋ ਕਿਸੇ ਵਰਗਾਂ ਵਿੱਚ ਨਹੀਂ ਆਉਂਦਾ ਹੈ।"
 
 #: src/amo/components/FeedbackForm/index.js:164
 msgid "Select place"
-msgstr ""
+msgstr "ਥਾਂ ਨੂੰ ਚੁਣੋ"
 
 #: src/amo/components/FeedbackForm/index.js:166
 msgid "On the add-on's page on this website"
-msgstr ""
+msgstr "ਇਸ ਵੈੱਬਸਾਈਟ ਉੱਤੇ ਐਡ-ਆਨ ਸਫ਼ੇ ਉੱਤੇ"
 
 #: src/amo/components/FeedbackForm/index.js:169
 msgid "Inside the add-on"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਵਿੱਚ"
 
 #: src/amo/components/FeedbackForm/index.js:170
 msgid "Both locations"
-msgstr ""
+msgstr "ਦੋਵੇਂ ਟਿਕਾਣੇ"
 
 #: src/amo/components/FeedbackForm/index.js:184
 msgid "Select type"
-msgstr ""
+msgstr "ਕਿਸਮ ਨੂੰ ਚੁਣੋ"
 
 #: src/amo/components/FeedbackForm/index.js:185
 msgid "Animal welfare"
-msgstr ""
+msgstr "ਜਾਨਵਾਰਾਂ ਦੀ ਭਲਾਈ"
 
 #: src/amo/components/FeedbackForm/index.js:188
 msgid "Consumer information infringements"
-msgstr ""
+msgstr "ਖ਼ਪਤਕਾਰ ਜਾਣਕਾਰੀ ਦੀ ਉਲੰਘਣਾ"
 
 #: src/amo/components/FeedbackForm/index.js:192
 msgid "Data protection and privacy violations"
-msgstr ""
+msgstr "ਡਾਟਾ ਸੁਰੱਖਿਆ ਅਤੇ ਪਰਦੇਦਾਰੀ ਉਲੰਘਣਾ"
 
 #: src/amo/components/FeedbackForm/index.js:196
 msgid "Illegal or harmful speech"
-msgstr ""
+msgstr "ਗ਼ੈਰ-ਕਨੂੰਨ ਜਾਂ ਨੁਕਸਾਨਦੇਹ ਭਾਸ਼ਣ"
 
 #: src/amo/components/FeedbackForm/index.js:200
 msgid "Intellectual property infringements"
@@ -1060,31 +1058,31 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:218
 msgid "Protection of minors"
-msgstr ""
+msgstr "ਨਾਬਾਲਗਾਂ ਦੀ ਸੁਰੱਖਿਆ"
 
 #: src/amo/components/FeedbackForm/index.js:222
 msgid "Risk for public security"
-msgstr ""
+msgstr "ਜਨਤਕ ਸੁਰੱਖਿਆ ਲਈ ਖ਼ਤਰਾ"
 
 #: src/amo/components/FeedbackForm/index.js:224
 msgid "Scams or fraud"
-msgstr ""
+msgstr "ਘੋਟਾਲੇ ਜਾਂ ਠੱਗੀ"
 
 #: src/amo/components/FeedbackForm/index.js:225
 msgid "Self-harm"
-msgstr ""
+msgstr "ਖੁਦ ਨੂੰ ਨੁਕਸਾਨ"
 
 #: src/amo/components/FeedbackForm/index.js:228
 msgid "Unsafe, non-compliant, or prohibited products"
-msgstr ""
+msgstr "ਅਸੁਰੱਖਿਅਤ, ਗ਼ੈਰ-ਅਨੁਕੂਲ ਜਾਂ ਪਾਬੰਦੀਸ਼ੁਦਾ ਉਤਪਾਦ"
 
 #: src/amo/components/FeedbackForm/index.js:230
 msgid "Violence"
-msgstr ""
+msgstr "ਹਿੰਸਾ"
 
 #: src/amo/components/FeedbackForm/index.js:231
 msgid "Other"
-msgstr ""
+msgstr "ਹੋਰ"
 
 #: src/amo/components/FeedbackForm/index.js:239
 msgid "Select violation"
