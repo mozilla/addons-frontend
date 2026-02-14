@@ -3442,7 +3442,7 @@ msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
 #. This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:331
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr "Deluje z %(listOfApplicatonsAndVersions)s"
+msgstr "Deluje s %(listOfApplicatonsAndVersions)s"
 
 #: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
