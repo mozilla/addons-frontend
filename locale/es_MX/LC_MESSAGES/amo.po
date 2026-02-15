@@ -3271,11 +3271,11 @@ msgstr "Aquí no se puede cambiar la dirección de correo electrónico"
 
 #: src/amo/pages/UserProfileEdit/index.js:615
 msgid "You can change your email address on Mozilla accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Puedes cambiar tu dirección de correo electrónico en las cuentas de Mozilla. %(startLink)s¿Necesitas ayuda?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Manage Mozilla accounts…"
-msgstr ""
+msgstr "Administrar cuentas de Mozilla…"
 
 #: src/amo/pages/UserProfileEdit/index.js:642
 msgid "Profile"
@@ -3331,27 +3331,27 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANTE: Si eliminas este perfil de los Complementos de Firefox, no lo podrás deshacer."
 
 #: src/amo/pages/UserProfileEdit/index.js:844
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Tus datos se eliminarán de forma permanente, incluidos los datos del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación) y las preferencias sobre las notificaciones. "
-"Tus comentarios y calificaciones pasarán a ser anónimos y no se podrán volver a editar."
+"Tus datos se eliminarán de forma permanente, incluidos los detalles del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación), preferencias de notificación, reseñas y "
+"colecciones."
 
 #: src/amo/pages/UserProfileEdit/index.js:850
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Los datos del usuario se eliminarán de forma permanente, incluidos los datos del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación) y las preferencias sobre las "
-"notificaciones. Tus comentarios y calificaciones pasarán a ser anónimos y no se podrán volver a editar."
+"Los datos del usuario se eliminarán de forma permanente, incluidos los detalles del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación), preferencias de notificación,"
+" reseñas y colecciones."
 
 #: src/amo/pages/UserProfileEdit/index.js:859
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Si creaste algún complemento también se eliminará, a menos que compartas la propiedad con otros autores. En ese caso, serás eliminado como autor y los autores restantes mantendrán la propiedad del "
+"complemento."
 
 #: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
