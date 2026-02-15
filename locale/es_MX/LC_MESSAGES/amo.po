@@ -2559,7 +2559,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "Este complemento está restringido por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
@@ -3358,13 +3358,14 @@ msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Si el usuario creó algún complemento, este también será eliminado, a menos que la propiedad se comparta con otros autores. En ese caso, el usuario será eliminado como autor y los autores restantes "
+"mantendrán la propiedad del complemento."
 
 #: src/amo/pages/UserProfileEdit/index.js:875
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
 msgstr ""
-"Cuando uses esta dirección de correo electrónico para iniciar sesión de nuevo en addons.mozilla.org, se creará un nuevo perfil de Complementos de Firefox que no estará asociado de ninguna manera con"
-" el perfil que eliminaste."
+"Cuando utilices esta dirección de correo electrónico para iniciar sesión de nuevo en addons.mozilla.org, se creará un nuevo perfil de Complementos de Firefox que no estará asociado de ninguna manera"
+" con el perfil que eliminaste."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:103
 msgid "Unsubscribe"
