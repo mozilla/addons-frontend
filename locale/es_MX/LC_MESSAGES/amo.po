@@ -109,7 +109,7 @@ msgstr "Reportar este complemento a Mozilla"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
-msgstr "Envíe sus comentarios sobre el complemento"
+msgstr "Enviar retroalimentación acerca del complemento"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
@@ -2851,7 +2851,7 @@ msgstr ""
 
 #: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
-msgstr ""
+msgstr "Reportar la reseña porque es ilegal o no cumple con las normas"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -3126,15 +3126,15 @@ msgstr "Usuario desde"
 
 #: src/amo/pages/UserFeedback/index.js:156
 msgid "Report this user to Mozilla"
-msgstr ""
+msgstr "Reportar este usuario a Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:157
 msgid "Send some feedback about the user profile"
-msgstr ""
+msgstr "Enviar algunos comentarios sobre el perfil de usuario"
 
 #: src/amo/pages/UserFeedback/index.js:160
 msgid "Report the user profile because it's illegal or incompliant"
-msgstr ""
+msgstr "Reportar el perfil de usuario porque es ilegal o no cumple con las normas"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
@@ -3153,9 +3153,8 @@ msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(use
 msgstr "El perfil de %(user)s, autor de un tema de Firefox. Encuentra otras aplicaciones de %(user)s, incluida la valoración media y la opción de informar de problemas."
 
 #: src/amo/pages/UserProfile/index.js:308
-#, fuzzy
 msgid "User Avatar"
-msgstr "Laser Cat"
+msgstr "Avatar de usuario"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
