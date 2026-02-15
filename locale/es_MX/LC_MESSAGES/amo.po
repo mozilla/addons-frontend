@@ -61,7 +61,7 @@ msgstr "Revisar código del complemento"
 
 #: src/amo/components/AddonBadges/index.js:126
 msgid "%(average)s (%(count)s review)"
-msgstr ""
+msgstr "%(average)s (%(count)s revisión)"
 
 #: src/amo/components/AddonBadges/index.js:130
 msgid "%(average)s (%(count)s reviews)"
@@ -105,7 +105,7 @@ msgstr[1] "%(total)s usuarios"
 
 #: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
-msgstr "Notificar este complemento a Mozilla"
+msgstr "Reportar este complemento a Mozilla"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
