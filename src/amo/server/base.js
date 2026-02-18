@@ -16,7 +16,6 @@ import NestedStatus from 'react-nested-status';
 import { END } from 'redux-saga';
 import cookiesMiddleware from 'universal-cookie-express';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
-import { Util } from 'config/lib/util';
 
 import log from 'amo/logger';
 import { REGION_CODE_HEADER, createApiError } from 'amo/api';
@@ -551,7 +550,7 @@ export function runServer({
             log.info(
               [
                 `🔥 Addons-frontend server is running`,
-                `[ENV:${Util.getEnv('NODE_ENV')}]`,
+                `[ENV:${config.util.getEnv('NODE_ENV')}]`,
                 `[isDevelopment:${config.get('isDevelopment')}]`,
                 `[isDeployed:${config.get('isDeployed')}]`,
                 `[apiHost:${config.get('apiHost')}]`,

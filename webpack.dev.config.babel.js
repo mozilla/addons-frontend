@@ -2,7 +2,6 @@
 import path from 'path';
 
 import config from 'config';
-import { Util } from 'config/lib/util';
 import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
@@ -11,7 +10,7 @@ import webpackConfig from './webpack.prod.config.babel';
 import webpackIsomorphicToolsConfig from './src/amo/server/webpack-isomorphic-tools-config';
 import { WEBPACK_ENTRYPOINT } from './src/amo/constants';
 
-const localDevelopment = Util.getEnv('NODE_ENV') === 'development';
+const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';
 
 const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(
   webpackIsomorphicToolsConfig,
