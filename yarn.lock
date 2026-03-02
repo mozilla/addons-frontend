@@ -10273,10 +10273,10 @@ send@^1.1.0, send@^1.2.0:
     range-parser "^1.2.1"
     statuses "^2.0.1"
 
-serialize-javascript@7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-7.0.2.tgz#3939e695db5adff30b282bb36466b58e518008bb"
-  integrity sha512-Y/agDAqbUWRYFWLF5pMT9Rb8wN5ERPMbQH7oq6R+4YgFdMNO4+ELo4PjFCW3H+2CbXirPr/XUgYT+3iXJfTbZQ==
+serialize-javascript@7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-7.0.3.tgz#c92008d8a21bc7b2307c2e885a4bd0f03b2aee6c"
+  integrity sha512-h+cZ/XXarqDgCjo+YSyQU/ulDEESGGf8AMK9pPNmhNSl/FzPl6L8pMp1leca5z6NuG6tvV/auC8/43tmovowww==
 
 serialize-javascript@^6.0.2:
   version "6.0.2"
