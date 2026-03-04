@@ -7,9 +7,9 @@ import path from 'path';
 import {
   apiProdHost,
   baseUrlProd,
-  ga4AdditionalAnalyticsHost,
-  ga4AnalyticsHost,
-  ga4TagManagerHost,
+  gtmAdditionalAnalyticsHost,
+  gtmAnalyticsHost,
+  gtmHost,
   mediaPath,
   prodDomain,
   serverStaticPath,
@@ -101,8 +101,7 @@ module.exports = {
     'experiments',
     'extensionWorkshopUrl',
     'fxaConfig',
-    'ga4DebugMode',
-    'ga4PropertyId',
+    'gtmContainerId',
     'hrefLangsMap',
     'isDeployed',
     'isDevelopment',
@@ -114,9 +113,6 @@ module.exports = {
     'rtlLangs',
     'staticPath',
     'trackingEnabled',
-    'trackingId',
-    'trackingSendInitPageView',
-    'trackingSendWebVitals',
     'unsupportedHrefLangs',
     'validClientAppUrlExceptions',
     'validClientApplications',
@@ -137,9 +133,9 @@ module.exports = {
       childSrc: ["'none'"],
       connectSrc: [
         apiProdHost,
-        ga4AnalyticsHost,
-        ga4AdditionalAnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmAdditionalAnalyticsHost,
+        gtmHost,
       ],
       fontSrc: [
         `${baseUrlProd}${staticPath}`,
@@ -152,8 +148,8 @@ module.exports = {
         `${baseUrlProd}${mediaPath}`,
         `${baseUrlProd}${staticPath}`,
         `${baseUrlProd}${serverStaticPath}`,
-        ga4AnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmHost,
       ],
       manifestSrc: ["'none'"],
       mediaSrc: ["'none'"],
@@ -161,8 +157,8 @@ module.exports = {
       // Script is limited to the static path
       scriptSrc: [
         `${baseUrlProd}${staticPath}`,
-        ga4AnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmHost,
       ],
       styleSrc: [
         `${baseUrlProd}${staticPath}`,
@@ -274,15 +270,9 @@ module.exports = {
   localeDir: path.resolve(path.join(__dirname, '../locale')),
 
   trackingEnabled: true,
-  trackingId: 'UA-36116321-7',
-  // send a page view on initialization.
-  trackingSendInitPageView: true,
-  // send web vitals stats to GA
-  trackingSendWebVitals: true,
 
-  // For GA4
-  ga4DebugMode: false,
-  ga4PropertyId: 'G-B9CY1C9VBC',
+  // For GTM
+  gtmContainerId: 'GTM-WVHFHF6',
 
   enablePostCssLoader: true,
 

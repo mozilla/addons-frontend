@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -13,8 +14,11 @@ import {
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'amo/errorHandler';
+import { COLLECTION_ADD_ADDON_CATEGORY } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
+import tracking, { getAddonEventParams } from 'amo/tracking';
+import { getPromotedCategory } from 'amo/utils/addons';
 import Select from 'amo/components/Select';
 import Notice from 'amo/components/Notice';
 import type { CollectionType } from 'amo/reducers/collections';
@@ -48,9 +52,15 @@ type PropsFromState = {|
   userCollections: Array<CollectionType> | null,
 |};
 
+type DefaultProps = {|
+  _tracking: typeof tracking,
+  _getPromotedCategory: typeof getPromotedCategory,
+|};
+
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
+  ...DefaultProps,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -67,6 +77,11 @@ type SelectData = {|
 
 export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   optionSelectHandlers: { [key: string]: OnSelectOptionType };
+
+  static defaultProps: DefaultProps = {
+    _tracking: tracking,
+    _getPromotedCategory: getPromotedCategory,
+  };
 
   constructor(props: InternalProps) {
     super(props);
@@ -123,7 +138,15 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   };
 
   addToCollection(collection: CollectionType) {
-    const { addon, currentUserId, dispatch, errorHandler } = this.props;
+    const {
+      _tracking,
+      _getPromotedCategory,
+      addon,
+      clientApp,
+      currentUserId,
+      dispatch,
+      errorHandler,
+    } = this.props;
     invariant(
       addon,
       'Cannot add to collection because no add-on has been loaded',
@@ -132,6 +155,14 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
       currentUserId,
       'Cannot add to collection because you are not signed in',
     );
+
+    _tracking.sendEvent({
+      category: COLLECTION_ADD_ADDON_CATEGORY,
+      params: {
+        ...getAddonEventParams(addon, window.location.pathname),
+        trusted: !!_getPromotedCategory({ addon, clientApp }),
+      },
+    });
 
     dispatch(
       addAddonToCollection({

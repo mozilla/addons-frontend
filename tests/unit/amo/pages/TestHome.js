@@ -1,13 +1,11 @@
+/* global window */
 import { LOCATION_CHANGE } from 'redux-first-history';
 import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import {
-  PRIMARY_HERO_CLICK_ACTION,
   PRIMARY_HERO_CLICK_CATEGORY,
-  PRIMARY_HERO_EXTERNAL_LABEL,
-  PRIMARY_HERO_IMPRESSION_ACTION,
   PRIMARY_HERO_IMPRESSION_CATEGORY,
   PRIMARY_HERO_SRC,
 } from 'amo/components/HeroRecommendation';
@@ -17,10 +15,9 @@ import {
   HOMESHELVES_ENDPOINT_RANDOM_TAG,
 } from 'amo/components/HomepageShelves';
 import {
-  SECONDARY_HERO_CLICK_ACTION,
   SECONDARY_HERO_CLICK_CATEGORY,
+  SECONDARY_HERO_IMPRESSION_CATEGORY,
   SECONDARY_HERO_SRC,
-  makeCallToActionURL,
 } from 'amo/components/SecondaryHero';
 import {
   ADDON_TYPE_EXTENSION,
@@ -45,7 +42,7 @@ import {
 } from 'amo/reducers/home';
 import { loadSiteStatus } from 'amo/reducers/site';
 import tracking from 'amo/tracking';
-import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
+import { checkInternalURL } from 'amo/utils';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import { addQueryParams } from 'amo/utils/url';
 import {
@@ -68,7 +65,6 @@ import {
 jest.mock('amo/utils', () => ({
   ...jest.requireActual('amo/utils'),
   checkInternalURL: jest.fn().mockReturnValue({ isInternal: false }),
-  stripLangFromAmoUrl: jest.fn((urlString) => urlString),
 }));
 
 jest.mock('amo/tracking', () => ({
@@ -180,9 +176,7 @@ describe(__filename, () => {
       expect(link).toHaveAttribute(
         'href',
         `/${defaultLang}/${defaultClientApp}${addQueryParams(cta.url, {
-          utm_source: DEFAULT_UTM_SOURCE,
-          utm_medium: DEFAULT_UTM_MEDIUM,
-          utm_content: SECONDARY_HERO_SRC,
+          addonInstallSource: SECONDARY_HERO_SRC,
         })}`,
       );
       expect(link).not.toHaveAttribute('target');
@@ -224,8 +218,6 @@ describe(__filename, () => {
     });
 
     it('sends a tracking event when the cta is clicked', async () => {
-      const strippedUrl = '/a/different/url';
-      stripLangFromAmoUrl.mockReturnValue(strippedUrl);
       const cta = { text: 'cta text', url: '/some/url', outgoing: '/out/url' };
       renderWithHomeData({ secondaryProps: { cta } });
 
@@ -234,9 +226,18 @@ describe(__filename, () => {
 
       expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
       expect(tracking.sendEvent).toHaveBeenCalledWith({
-        action: SECONDARY_HERO_CLICK_ACTION,
         category: SECONDARY_HERO_CLICK_CATEGORY,
-        label: strippedUrl,
+        params: { page_path: window.location.pathname },
+      });
+    });
+
+    it('sends a tracking event for the impression on mount', () => {
+      const cta = { text: 'cta text', url: '/some/url', outgoing: '/out/url' };
+      renderWithHomeData({ secondaryProps: { cta } });
+
+      expect(tracking.sendEvent).toHaveBeenCalledWith({
+        category: SECONDARY_HERO_IMPRESSION_CATEGORY,
+        params: { page_path: window.location.pathname },
       });
     });
 
@@ -335,9 +336,7 @@ describe(__filename, () => {
                 `/${defaultLang}/${defaultClientApp}${addQueryParams(
                   moduleData.cta.url,
                   {
-                    utm_source: DEFAULT_UTM_SOURCE,
-                    utm_medium: DEFAULT_UTM_MEDIUM,
-                    utm_content: SECONDARY_HERO_SRC,
+                    addonInstallSource: SECONDARY_HERO_SRC,
                   },
                 )}`,
               );
@@ -349,8 +348,6 @@ describe(__filename, () => {
       );
 
       it('sends a tracking event when the cta is clicked', async () => {
-        const strippedUrl = '/a/different/url';
-        stripLangFromAmoUrl.mockReturnValue(strippedUrl);
         renderWithHomeData({ secondaryProps: secondaryPropsWithModules });
 
         tracking.sendEvent.mockClear();
@@ -358,16 +355,10 @@ describe(__filename, () => {
           screen.getByRole('link', { name: module1.cta.text }),
         );
 
-        expect(stripLangFromAmoUrl).toHaveBeenCalledWith({
-          urlString: expect.stringContaining(
-            makeCallToActionURL(module1.cta.url),
-          ),
-        });
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(tracking.sendEvent).toHaveBeenCalledWith({
-          action: SECONDARY_HERO_CLICK_ACTION,
           category: SECONDARY_HERO_CLICK_CATEGORY,
-          label: strippedUrl,
+          params: { page_path: window.location.pathname },
         });
       });
     });
@@ -499,11 +490,7 @@ describe(__filename, () => {
 
         expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
           'href',
-          [
-            `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-            `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-            `utm_content=${addonInstallSource}`,
-          ].join('&'),
+          `/${defaultLang}/${defaultClientApp}/addon/${slug}/?addonInstallSource=${addonInstallSource}`,
         );
       },
     );
@@ -528,11 +515,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
         'href',
-        [
-          `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-          `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-          `utm_content=${INSTALL_SOURCE_TAG_SHELF_PREFIX}${tagName}`,
-        ].join('&'),
+        `/${defaultLang}/${defaultClientApp}/addon/${slug}/?addonInstallSource=${INSTALL_SOURCE_TAG_SHELF_PREFIX}${tagName}`,
       );
     });
 
@@ -640,9 +623,7 @@ describe(__filename, () => {
         ).toHaveAttribute(
           'href',
           addQueryParams(`/${defaultLang}/${defaultClientApp}/addon/${slug}/`, {
-            utm_source: DEFAULT_UTM_SOURCE,
-            utm_medium: DEFAULT_UTM_MEDIUM,
-            utm_content: PRIMARY_HERO_SRC,
+            addonInstallSource: PRIMARY_HERO_SRC,
           }),
         );
       });
@@ -1014,75 +995,98 @@ describe(__filename, () => {
           external: fakePrimaryHeroShelfExternalAddon,
         },
       };
-      it.each([
-        ['addon', withAddonShelfData],
-        ['external', withExternalShelfData],
-      ])(
-        'sends a tracking event when the cta is clicked for %s',
-        async (feature, shelfData) => {
-          renderWithHomeData(shelfData);
-          tracking.sendEvent.mockClear();
+      it('sends a tracking event when the cta is clicked for addon', async () => {
+        renderWithHomeData(withAddonShelfData);
+        tracking.sendEvent.mockClear();
 
-          await userEvent.click(
-            screen.getByRole('link', { name: 'Get the extension' }),
-          );
+        await userEvent.click(
+          screen.getByRole('link', { name: 'Get the extension' }),
+        );
 
-          expect(tracking.sendEvent).toHaveBeenCalledWith({
-            action: PRIMARY_HERO_CLICK_ACTION,
-            category: PRIMARY_HERO_CLICK_CATEGORY,
-            label:
-              feature === 'addon'
-                ? shelfData.primaryProps.addon.guid
-                : PRIMARY_HERO_EXTERNAL_LABEL,
-          });
-        },
-      );
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          category: PRIMARY_HERO_CLICK_CATEGORY,
+          params: expect.objectContaining({
+            extension_name: expect.any(String),
+            author: expect.any(String),
+            page_path: expect.any(String),
+            trusted: false,
+          }),
+        });
+      });
 
-      it.each([
-        ['addon', withAddonShelfData],
-        ['external', withExternalShelfData],
-      ])(
-        'sends a tracking event for the impression on mount for %s',
-        (feature, shelfData) => {
-          renderWithHomeData(shelfData);
+      it('sends a tracking event when the cta is clicked for external', async () => {
+        renderWithHomeData(withExternalShelfData);
+        tracking.sendEvent.mockClear();
 
-          expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
-          expect(tracking.sendEvent).toHaveBeenCalledWith({
-            action: PRIMARY_HERO_IMPRESSION_ACTION,
-            category: PRIMARY_HERO_IMPRESSION_CATEGORY,
-            label:
-              feature === 'addon'
-                ? shelfData.primaryProps.addon.guid
-                : PRIMARY_HERO_EXTERNAL_LABEL,
-          });
-        },
-      );
+        await userEvent.click(
+          screen.getByRole('link', { name: 'Get the extension' }),
+        );
 
-      it.each([
-        ['addon', withAddonShelfData],
-        ['external', withExternalShelfData],
-      ])(
-        'sends a tracking event for the impression on update for %s',
-        async (feature, shelfData) => {
-          render();
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          category: PRIMARY_HERO_CLICK_CATEGORY,
+          params: { page_path: window.location.pathname },
+        });
+      });
 
-          expect(tracking.sendEvent).not.toHaveBeenCalled();
+      it('sends a tracking event for the impression on mount for addon', () => {
+        renderWithHomeData(withAddonShelfData);
 
-          _loadHomeData(shelfData);
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          category: PRIMARY_HERO_IMPRESSION_CATEGORY,
+          params: expect.objectContaining({
+            extension_name: expect.any(String),
+            author: expect.any(String),
+            page_path: expect.any(String),
+            trusted: false,
+          }),
+        });
+      });
 
-          await waitFor(() => {
-            expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
-          });
-          expect(tracking.sendEvent).toHaveBeenCalledWith({
-            action: PRIMARY_HERO_IMPRESSION_ACTION,
-            category: PRIMARY_HERO_IMPRESSION_CATEGORY,
-            label:
-              feature === 'addon'
-                ? shelfData.primaryProps.addon.guid
-                : PRIMARY_HERO_EXTERNAL_LABEL,
-          });
-        },
-      );
+      it('sends a tracking event for the impression on mount for external', () => {
+        renderWithHomeData(withExternalShelfData);
+
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          category: PRIMARY_HERO_IMPRESSION_CATEGORY,
+          params: { page_path: window.location.pathname },
+        });
+      });
+
+      it('sends a tracking event for the impression on update for addon', async () => {
+        render();
+
+        expect(tracking.sendEvent).not.toHaveBeenCalled();
+
+        _loadHomeData(withAddonShelfData);
+
+        await waitFor(() => {
+          expect(tracking.sendEvent).toHaveBeenCalled();
+        });
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          category: PRIMARY_HERO_IMPRESSION_CATEGORY,
+          params: expect.objectContaining({
+            extension_name: expect.any(String),
+            author: expect.any(String),
+            page_path: expect.any(String),
+            trusted: false,
+          }),
+        });
+      });
+
+      it('sends a tracking event for the impression on update for external', async () => {
+        render();
+
+        expect(tracking.sendEvent).not.toHaveBeenCalled();
+
+        _loadHomeData(withExternalShelfData);
+
+        await waitFor(() => {
+          expect(tracking.sendEvent).toHaveBeenCalled();
+        });
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          category: PRIMARY_HERO_IMPRESSION_CATEGORY,
+          params: { page_path: window.location.pathname },
+        });
+      });
 
       it('does not send a tracking event for the impression on mount or update if shelfData is missing', () => {
         render();
@@ -1190,9 +1194,7 @@ describe(__filename, () => {
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
       `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: INSTALL_SOURCE_FEATURED,
+        addonInstallSource: INSTALL_SOURCE_FEATURED,
       })}`,
     );
   });
@@ -1242,9 +1244,7 @@ describe(__filename, () => {
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
       `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: INSTALL_SOURCE_FEATURED,
+        addonInstallSource: INSTALL_SOURCE_FEATURED,
       })}`,
     );
   });

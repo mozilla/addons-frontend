@@ -3,18 +3,16 @@ import {
   Tracking,
   isDoNotTrackEnabled,
   getAddonEventCategory,
-  getAddonTypeForTracking,
+  getAddonNameParam,
+  getAddonEventParams,
 } from 'amo/tracking';
 import {
-  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   CLICK_CATEGORY,
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
-  INSTALL_ACTION,
   INSTALL_CANCELLED_ACTION,
   INSTALL_CANCELLED_EXTENSION_CATEGORY,
   INSTALL_CANCELLED_THEME_CATEGORY,
@@ -26,9 +24,6 @@ import {
   INSTALL_STARTED_EXTENSION_CATEGORY,
   INSTALL_STARTED_THEME_CATEGORY,
   INSTALL_THEME_CATEGORY,
-  TRACKING_TYPE_EXTENSION,
-  TRACKING_TYPE_INVALID,
-  TRACKING_TYPE_STATIC_THEME,
   UNINSTALL_ACTION,
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
@@ -39,18 +34,15 @@ import {
   getFakeLoggerWithJest as getFakeLogger,
 } from 'tests/unit/helpers';
 
-const trackingId = 'sample-tracking-id';
-const ga4PropertyId = 'sample-GA4-property-id';
+const gtmContainerId = 'GTM-WVHFHF6';
 
 function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
   return new Tracking({
     _isDoNotTrackEnabled: () => false,
     _config: getFakeConfig({
-      ga4DebugMode: true,
-      ga4PropertyId,
+      gtmContainerId,
       server: false,
       trackingEnabled: true,
-      trackingId,
       ...configOverrides,
     }),
     ...paramOverrides,
@@ -60,195 +52,70 @@ function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
 describe(__filename, () => {
   describe('Tracking', () => {
     beforeEach(() => {
-      window.ga = jest.fn();
-      window.dataLayer = { push: jest.fn() };
+      window.dataLayer = [];
     });
 
-    it('should not enable GA when configured off', () => {
+    it('should not enable tracking when configured off', () => {
       createTracking({
         configOverrides: { trackingEnabled: false },
       });
-      expect(window.ga).not.toHaveBeenCalled();
-      expect(window.dataLayer.push).not.toHaveBeenCalled();
+      expect(window.dataLayer).toEqual([]);
     });
 
-    it('should disable GA due to missing id', () => {
+    it('should disable tracking due to missing gtmContainerId', () => {
       createTracking({
-        configOverrides: { ga4PropertyId: null, trackingId: null },
+        configOverrides: { gtmContainerId: null },
         paramOverrides: {
           _isDoNotTrackEnabled: () => false,
         },
       });
-      expect(window.ga).not.toHaveBeenCalled();
-      expect(window.dataLayer.push).not.toHaveBeenCalled();
+      expect(window.dataLayer).toEqual([]);
     });
 
-    it('should disable GA due to Do Not Track', () => {
+    it('should disable tracking due to Do Not Track', () => {
       createTracking({
         paramOverrides: {
           _isDoNotTrackEnabled: () => true,
         },
       });
-      expect(window.ga).not.toHaveBeenCalled();
-      expect(window.dataLayer.push).not.toHaveBeenCalled();
+      expect(window.dataLayer).toEqual([]);
     });
 
-    it('should send initial page view when enabled', () => {
-      createTracking({
-        configOverrides: {
-          trackingSendInitPageView: true,
-        },
-      });
-      expect(window.ga).toHaveBeenCalledWith('send', 'pageview');
-    });
-
-    it('should initialize GA4 when enabled', () => {
+    it('should initialize window.dataLayer when enabled', () => {
       createTracking();
-
-      // We need to do this due to the way `arguments` works.
-      expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
-        'js',
-        expect.any(Date),
-      ]);
-      expect(Array.from(window.dataLayer.push.mock.calls[1][0])).toEqual([
-        'config',
-        ga4PropertyId,
-        { debug_mode: true },
-      ]);
+      // dataLayer should be initialized (it may be [] or an existing array)
+      expect(window.dataLayer).toBeDefined();
+      expect(Array.isArray(window.dataLayer)).toBe(true);
     });
 
-    it('should not configure debug_mode when ga4DebugMode is false', () => {
-      createTracking({
-        configOverrides: {
-          ga4DebugMode: false,
-        },
-      });
-
-      expect(Array.from(window.dataLayer.push.mock.calls[1][0])).toEqual([
-        'config',
-        ga4PropertyId,
-        {},
-      ]);
-    });
-
-    it('should set the transport mechanism to beacon', () => {
+    it('should push gtm.start bootstrap event to dataLayer when enabled', () => {
+      const startTime = Date.now();
       createTracking();
-      expect(window.ga).toHaveBeenCalledWith('set', 'transport', 'beacon');
+      expect(window.dataLayer).toHaveLength(1);
+      expect(window.dataLayer[0]).toMatchObject({ event: 'gtm.js' });
+      expect(window.dataLayer[0]['gtm.start']).toBeGreaterThanOrEqual(
+        startTime,
+      );
+      expect(window.dataLayer[0]['gtm.start']).toBeLessThanOrEqual(Date.now());
     });
 
-    it('should set dimension3', () => {
+    it('should not push a duplicate gtm.js event when a second Tracking instance is created', () => {
       createTracking();
-      expect(window.ga).toHaveBeenCalledWith(
-        'set',
-        'dimension3',
-        'addons-frontend',
+      expect(window.dataLayer).toHaveLength(1);
+
+      // Create a second instance — should NOT push another gtm.js event.
+      createTracking();
+      expect(window.dataLayer).toHaveLength(1);
+      expect(window.dataLayer.filter((e) => e.event === 'gtm.js')).toHaveLength(
+        1,
       );
     });
 
-    it('should not send initial page view when disabled', () => {
+    it('should not push gtm.start when tracking is disabled', () => {
       createTracking({
-        configOverrides: {
-          trackingSendInitPageView: false,
-        },
+        configOverrides: { trackingEnabled: false },
       });
-
-      // Make sure only 'create' and 'set' were called, not 'send'.
-      expect(window.ga).toHaveBeenCalledWith('create', trackingId, 'auto');
-      expect(window.ga).toHaveBeenCalledWith('set', 'transport', 'beacon');
-      expect(window.ga).toHaveBeenCalledWith(
-        'set',
-        'dimension3',
-        'addons-frontend',
-      );
-      expect(window.ga).toHaveBeenCalledTimes(3);
-    });
-
-    it('should throw if page not set', () => {
-      const tracking = createTracking();
-      expect(() => {
-        tracking.setPage();
-      }).toThrow(/page is required/);
-    });
-
-    it('should call ga with setPage', () => {
-      const tracking = createTracking();
-      const page = 'some/page/';
-      tracking.setPage(page);
-      expect(window.ga).toHaveBeenCalledWith('set', 'page', page);
-    });
-
-    it('should call _ga when pageView is called', () => {
-      const tracking = createTracking();
-      const data = {
-        dimension1: 'whatever',
-        dimension2: 'whatever2',
-      };
-
-      tracking.pageView(data);
-
-      expect(window.ga).toHaveBeenCalledWith('send', {
-        hitType: 'pageview',
-        ...data,
-      });
-    });
-
-    it('should set a custom dimension when requested', () => {
-      const tracking = createTracking();
-      const dimension = 'dimension1';
-      const value = 'a value';
-      tracking.setDimension({ dimension, value });
-      expect(window.ga).toHaveBeenCalledWith('set', dimension, value);
-    });
-
-    it('should set user properties when requested', () => {
-      const tracking = createTracking();
-      const props = { prop1: 'value1', prop2: 'value2' };
-      window.dataLayer.push.mockClear();
-
-      tracking.setUserProperties(props);
-      expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
-        'set',
-        'user_properties',
-        props,
-      ]);
-    });
-
-    it('should not send the web vitals when trackingSendWebVitals is false', () => {
-      const _onCLS = jest.fn();
-      const _onINP = jest.fn();
-      const _onLCP = jest.fn();
-
-      createTracking({
-        configOverrides: { trackingSendWebVitals: false },
-        paramOverrides: {
-          _onCLS,
-          _onINP,
-          _onLCP,
-        },
-      });
-
-      expect(_onCLS).not.toHaveBeenCalled();
-      expect(_onINP).not.toHaveBeenCalled();
-      expect(_onLCP).not.toHaveBeenCalled();
-    });
-
-    it('should send the web vitals when trackingSendWebVitals is true', () => {
-      const _onCLS = jest.fn();
-      const _onINP = jest.fn();
-      const _onLCP = jest.fn();
-
-      createTracking({
-        configOverrides: { trackingSendWebVitals: true },
-        paramOverrides: {
-          _onCLS,
-          _onINP,
-          _onLCP,
-        },
-      });
-
-      expect(_onCLS).toHaveBeenCalledTimes(1);
-      expect(_onINP).toHaveBeenCalledTimes(1);
-      expect(_onLCP).toHaveBeenCalledTimes(1);
+      expect(window.dataLayer).toEqual([]);
     });
 
     describe('sendEvent', () => {
@@ -260,42 +127,18 @@ describe(__filename, () => {
         tracking.sendEvent({
           _config,
           category: 'whatever',
-          action: 'some-action',
         });
-        expect(window.ga).not.toHaveBeenCalled();
-        expect(window.dataLayer.push).not.toHaveBeenCalled();
+        expect(window.dataLayer).toEqual([]);
       });
 
       it('should throw if category not set', () => {
         const tracking = createTracking();
         expect(() => {
-          tracking.sendEvent({
-            action: 'whatever',
-          });
+          tracking.sendEvent({});
         }).toThrow(/category is required/);
       });
 
-      it('should throw if action not set', () => {
-        const tracking = createTracking();
-        expect(() => {
-          tracking.sendEvent({
-            category: 'whatever',
-          });
-        }).toThrow(/action is required/);
-      });
-
-      // This is a way to check how many times window.ga was called with the
-      // arguments that signify that it was sending an event.
-      const countSendEventCalls = (spy) => {
-        return spy.mock.calls.filter(
-          (callArray) =>
-            callArray[0] === 'send' &&
-            Object.prototype.hasOwnProperty.call(callArray[1], 'hitType') &&
-            callArray[1].hitType === 'event',
-        ).length;
-      };
-
-      it('should call _ga with sendEvent on the client', () => {
+      it('should push event data to dataLayer on the client', () => {
         const _config = getFakeConfig({ server: false });
         const event = fakeTrackingEvent;
         const tracking = createTracking();
@@ -303,40 +146,25 @@ describe(__filename, () => {
           _config,
           ...event,
         });
-        expect(window.ga).toHaveBeenCalledWith(
-          'send',
-          expect.objectContaining({
-            eventAction: event.action,
-            eventCategory: event.category,
-            eventLabel: event.label,
-            eventValue: event.value,
-          }),
-        );
-        expect(countSendEventCalls(window.ga)).toEqual(1);
+        expect(window.dataLayer).toContainEqual({
+          event: event.category,
+          ...event.params,
+        });
       });
 
-      it('should send an event to GA4 with sendEvent on the client', () => {
+      it('should push event with no params when params not provided', () => {
         const _config = getFakeConfig({ server: false });
-        const event = fakeTrackingEvent;
         const tracking = createTracking();
-        window.dataLayer.push.mockClear();
-
-        tracking.sendEvent({ _config, ...event });
-        expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
-          'event',
-          event.category,
-          {
-            eventAction: event.action,
-            eventCategory: event.category,
-            eventLabel: event.label,
-            eventValue: event.value,
-            hitType: 'event',
-          },
-        ]);
-        expect(window.dataLayer.push).toHaveBeenCalledTimes(1);
+        tracking.sendEvent({
+          _config,
+          category: 'some_event',
+        });
+        expect(window.dataLayer).toContainEqual({
+          event: 'some_event',
+        });
       });
 
-      it('should call _ga twice when sendSecondEventWithOverrides is passed', () => {
+      it('should push two events to dataLayer when sendSecondEventWithOverrides is passed', () => {
         const _config = getFakeConfig({ server: false });
         const event = fakeTrackingEvent;
         const secondCategory = 'second-category';
@@ -347,63 +175,60 @@ describe(__filename, () => {
           sendSecondEventWithOverrides,
           ...event,
         });
-        expect(window.ga).toHaveBeenCalledWith(
-          'send',
-          expect.objectContaining({
-            eventAction: event.action,
-            eventCategory: event.category,
-            eventLabel: event.label,
-            eventValue: event.value,
-          }),
-        );
-        expect(window.ga).toHaveBeenCalledWith(
-          'send',
-          expect.objectContaining({
-            eventAction: event.action,
-            eventCategory: secondCategory,
-            eventLabel: event.label,
-            eventValue: event.value,
-          }),
-        );
-        expect(countSendEventCalls(window.ga)).toEqual(2);
+        expect(window.dataLayer).toContainEqual({
+          event: event.category,
+          ...event.params,
+        });
+        expect(window.dataLayer).toContainEqual({
+          event: secondCategory,
+          ...event.params,
+        });
+        // 3 entries: gtm.start bootstrap + 2 sendEvent pushes
+        expect(window.dataLayer).toHaveLength(3);
       });
 
-      it('should send an event to GA4 twice when sendSecondEventWithOverrides is passed', () => {
+      it('should merge params from sendSecondEventWithOverrides', () => {
         const _config = getFakeConfig({ server: false });
-        const event = fakeTrackingEvent;
-        const secondCategory = 'second-category';
-        const sendSecondEventWithOverrides = { category: secondCategory };
         const tracking = createTracking();
-        window.dataLayer.push.mockClear();
-
+        const params = { extension_name: 'My Addon', author: 'Some Author' };
+        const secondParams = { author: 'Override Author' };
         tracking.sendEvent({
           _config,
-          sendSecondEventWithOverrides,
-          ...event,
+          category: 'first_category',
+          params,
+          sendSecondEventWithOverrides: {
+            category: 'second_category',
+            params: secondParams,
+          },
         });
-        expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
-          'event',
-          event.category,
-          {
-            eventAction: event.action,
-            eventCategory: event.category,
-            eventLabel: event.label,
-            eventValue: event.value,
-            hitType: 'event',
+        expect(window.dataLayer).toContainEqual({
+          event: 'first_category',
+          ...params,
+        });
+        expect(window.dataLayer).toContainEqual({
+          event: 'second_category',
+          ...params,
+          ...secondParams,
+        });
+      });
+
+      it('should use original category when sendSecondEventWithOverrides has no category', () => {
+        const _config = getFakeConfig({ server: false });
+        const tracking = createTracking();
+        tracking.sendEvent({
+          _config,
+          category: 'original_category',
+          params: { extension_name: 'Test' },
+          sendSecondEventWithOverrides: {
+            params: { extra: 'param' },
           },
-        ]);
-        expect(Array.from(window.dataLayer.push.mock.calls[1][0])).toEqual([
-          'event',
-          secondCategory,
-          {
-            eventAction: event.action,
-            eventCategory: secondCategory,
-            eventLabel: event.label,
-            eventValue: event.value,
-            hitType: 'event',
-          },
-        ]);
-        expect(window.dataLayer.push).toHaveBeenCalledTimes(2);
+        });
+        // Index 0 is gtm.start bootstrap, index 1 is first event, index 2 is second
+        expect(window.dataLayer[2]).toEqual({
+          event: 'original_category',
+          extension_name: 'Test',
+          extra: 'param',
+        });
       });
 
       it('should throw an error if called on the server', () => {
@@ -417,79 +242,153 @@ describe(__filename, () => {
         }).toThrow('sendEvent: cannot send tracking events on the server');
       });
     });
+
+    describe('setUserProperties', () => {
+      it('should push user properties to dataLayer', () => {
+        const tracking = createTracking();
+        const props = { prop1: 'value1', prop2: 'value2' };
+
+        tracking.setUserProperties(props);
+
+        expect(window.dataLayer).toContainEqual({
+          event: 'set_user_properties',
+          user_properties: props,
+        });
+      });
+    });
   });
 
-  describe('sendWebVitalStats', () => {
-    const fakeCLS = {
-      name: 'CLS',
-      id: 'some-id',
-      delta: 123,
-      value: 987,
-    };
-
-    it('sends web vitals data to GA', () => {
-      const tracking = createTracking();
-
-      tracking.sendWebVitalStats(fakeCLS);
-
-      expect(window.ga).toHaveBeenCalledWith('send', 'event', {
-        eventCategory: 'Web Vitals',
-        eventAction: fakeCLS.name,
-        eventLabel: fakeCLS.id,
-        eventValue: Math.round(fakeCLS.delta * 1000),
-        nonInteraction: true,
-        transport: 'beacon',
+  describe('getAddonNameParam', () => {
+    it('returns extension_name for an extension type', () => {
+      const addon = { name: 'My Extension', type: ADDON_TYPE_EXTENSION };
+      expect(getAddonNameParam(addon)).toEqual({
+        extension_name: 'My Extension',
       });
     });
 
-    it('sends web vitals data to GA4', () => {
-      const tracking = createTracking();
-      window.dataLayer.push.mockClear();
-
-      tracking.sendWebVitalStats(fakeCLS);
-
-      expect(Array.from(window.dataLayer.push.mock.calls[0][0])).toEqual([
-        'event',
-        fakeCLS.name,
-        {
-          value: Math.round(fakeCLS.delta * 1000),
-          metric_id: fakeCLS.id,
-          metric_value: fakeCLS.value,
-          metric_delta: Math.round(fakeCLS.delta * 1000),
-        },
-      ]);
+    it('returns theme_name for a static theme type', () => {
+      const addon = { name: 'My Theme', type: ADDON_TYPE_STATIC_THEME };
+      expect(getAddonNameParam(addon)).toEqual({ theme_name: 'My Theme' });
     });
   });
 
-  describe('getAddonTypeForTracking', () => {
-    it('returns addon for TYPE_EXTENSION', () => {
-      expect(getAddonTypeForTracking(ADDON_TYPE_EXTENSION)).toEqual(
-        TRACKING_TYPE_EXTENSION,
-      );
+  describe('getAddonEventParams', () => {
+    it('returns extension_name and author for an extension with authors', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+        authors: [{ name: 'Author One' }],
+      };
+      expect(getAddonEventParams(addon)).toEqual({
+        extension_name: 'My Extension',
+        author: 'Author One',
+      });
     });
 
-    it('returns addon for TYPE_DICT', () => {
-      expect(getAddonTypeForTracking(ADDON_TYPE_DICT)).toEqual(
-        TRACKING_TYPE_EXTENSION,
-      );
+    it('returns theme_name and author for a theme with authors', () => {
+      const addon = {
+        name: 'My Theme',
+        type: ADDON_TYPE_STATIC_THEME,
+        authors: [{ name: 'Theme Author' }],
+      };
+      expect(getAddonEventParams(addon)).toEqual({
+        theme_name: 'My Theme',
+        author: 'Theme Author',
+      });
     });
 
-    it('returns addon for TYPE_LANG', () => {
-      expect(getAddonTypeForTracking(ADDON_TYPE_LANG)).toEqual(
-        TRACKING_TYPE_EXTENSION,
-      );
+    it('does not include author when authors array is empty', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+        authors: [],
+      };
+      expect(getAddonEventParams(addon)).toEqual({
+        extension_name: 'My Extension',
+      });
     });
 
-    it('returns addon:statictheme for TYPE_STATIC_THEME', () => {
-      expect(getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME)).toEqual(
-        TRACKING_TYPE_STATIC_THEME,
-      );
+    it('does not include author when authors is undefined', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+      };
+      expect(getAddonEventParams(addon)).toEqual({
+        extension_name: 'My Extension',
+      });
     });
 
-    it('returns invalid for unknown type', () => {
-      expect(getAddonTypeForTracking('whatever')).toEqual(
-        TRACKING_TYPE_INVALID,
-      );
+    it('includes page_path when pagePath is provided', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+        authors: [{ name: 'Author One' }],
+      };
+      expect(
+        getAddonEventParams(addon, '/en-US/firefox/addon/my-ext/'),
+      ).toEqual({
+        extension_name: 'My Extension',
+        author: 'Author One',
+        page_path: '/en-US/firefox/addon/my-ext/',
+      });
+    });
+
+    it('does not include page_path when pagePath is not provided', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+        authors: [{ name: 'Author One' }],
+      };
+      const result = getAddonEventParams(addon);
+      expect(result).not.toHaveProperty('page_path');
+    });
+
+    it('uses the first author when there are multiple authors', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+        authors: [{ name: 'First Author' }, { name: 'Second Author' }],
+      };
+      expect(getAddonEventParams(addon)).toEqual({
+        extension_name: 'My Extension',
+        author: 'First Author',
+      });
+    });
+
+    it('returns only page_path when addon is null and pagePath is provided', () => {
+      expect(getAddonEventParams(null, '/some/path/')).toEqual({
+        page_path: '/some/path/',
+      });
+    });
+
+    it('returns an empty object when addon is null and pagePath is not provided', () => {
+      expect(getAddonEventParams(null)).toEqual({});
+    });
+
+    it('returns an empty object when addon is undefined', () => {
+      expect(getAddonEventParams(undefined)).toEqual({});
+    });
+
+    it('omits author when author name is undefined', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+        authors: [{ name: undefined }],
+      };
+      expect(getAddonEventParams(addon)).toEqual({
+        extension_name: 'My Extension',
+      });
+    });
+
+    it('omits author when author name is an empty string', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+        authors: [{ name: '' }],
+      };
+      expect(getAddonEventParams(addon)).toEqual({
+        extension_name: 'My Extension',
+      });
     });
   });
 
@@ -518,15 +417,15 @@ describe(__filename, () => {
       ).toEqual(UNINSTALL_THEME_CATEGORY);
     });
 
-    it('returns the expected category when type is extension and installAction is install', () => {
+    it('returns the expected category when type is extension and installAction is the default', () => {
       expect(
-        getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
+        getAddonEventCategory(ADDON_TYPE_EXTENSION, 'some-default-action'),
       ).toEqual(INSTALL_EXTENSION_CATEGORY);
     });
 
-    it('returns the expected category when type is static theme and installAction is install', () => {
+    it('returns the expected category when type is static theme and installAction is the default', () => {
       expect(
-        getAddonEventCategory(ADDON_TYPE_STATIC_THEME, INSTALL_ACTION),
+        getAddonEventCategory(ADDON_TYPE_STATIC_THEME, 'some-default-action'),
       ).toEqual(INSTALL_THEME_CATEGORY);
     });
 
@@ -650,48 +549,50 @@ describe(__filename, () => {
   });
 
   describe('Tracking constants should not be changed or it risks breaking tracking stats', () => {
-    it('should not change the tracking constant for invalid', () => {
-      expect(TRACKING_TYPE_INVALID).toEqual('invalid');
-    });
-
-    it('should not change the tracking constant for an extension', () => {
-      expect(TRACKING_TYPE_EXTENSION).toEqual('addon');
-    });
-
-    it('should not change the tracking constant for static theme', () => {
-      expect(TRACKING_TYPE_STATIC_THEME).toEqual('statictheme');
-    });
-
     it('should not change the tracking category constants for theme installs', () => {
-      expect(INSTALL_THEME_CATEGORY).toEqual('AMO Theme Installs');
+      expect(INSTALL_THEME_CATEGORY).toEqual('amo_theme_installs_completed');
     });
 
     it('should not change the tracking category constants for extension installs', () => {
-      expect(INSTALL_EXTENSION_CATEGORY).toEqual('AMO Addon Installs');
+      expect(INSTALL_EXTENSION_CATEGORY).toEqual(
+        'amo_addon_installs_completed',
+      );
     });
 
     it('should not change the tracking category constants for starting theme installs', () => {
       expect(INSTALL_STARTED_THEME_CATEGORY).toEqual(
-        'AMO Theme Installs Started',
+        'amo_theme_installs_started',
       );
     });
 
     it('should not change the tracking category constants for starting extension installs', () => {
       expect(INSTALL_STARTED_EXTENSION_CATEGORY).toEqual(
-        'AMO Addon Installs Started',
+        'amo_addon_installs_started',
       );
     });
 
     it('should not change the tracking category constants for theme uninstalls', () => {
-      expect(UNINSTALL_THEME_CATEGORY).toEqual('AMO Theme Uninstalls');
+      expect(UNINSTALL_THEME_CATEGORY).toEqual('amo_theme_uninstalls');
     });
 
     it('should not change the tracking category constants for extension uninstalls', () => {
-      expect(UNINSTALL_EXTENSION_CATEGORY).toEqual('AMO Addon Uninstalls');
+      expect(UNINSTALL_EXTENSION_CATEGORY).toEqual('amo_addon_uninstalls');
     });
 
     it('should not change the tracking category constants for clicks', () => {
-      expect(CLICK_CATEGORY).toEqual('AMO Addon / Theme Clicks');
+      expect(CLICK_CATEGORY).toEqual('amo_addon_theme_clicks');
+    });
+
+    it('should not change the tracking action constant for install cancelled', () => {
+      expect(INSTALL_CANCELLED_ACTION).toEqual('install_cancelled');
+    });
+
+    it('should not change the tracking action constant for install download failed', () => {
+      expect(INSTALL_DOWNLOAD_FAILED_ACTION).toEqual('install_download_failed');
+    });
+
+    it('should not change the tracking action constant for install started', () => {
+      expect(INSTALL_STARTED_ACTION).toEqual('install_started');
     });
   });
 });

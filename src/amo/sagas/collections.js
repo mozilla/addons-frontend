@@ -1,8 +1,11 @@
 /* @flow */
+/* global window */
 import invariant from 'invariant';
 import { push as pushLocation } from 'redux-first-history';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
+import { COLLECTION_CREATE_COMPLETED_CATEGORY } from 'amo/constants';
+import tracking from 'amo/tracking';
 import {
   ADD_ADDON_TO_COLLECTION,
   CREATE_COLLECTION,
@@ -249,6 +252,14 @@ export function* modifyCollection(
         ...baseApiParams,
       };
       response = yield call(api.createCollection, apiParams);
+
+      tracking.sendEvent({
+        category: COLLECTION_CREATE_COMPLETED_CATEGORY,
+        params: {
+          page_path:
+            typeof window !== 'undefined' ? window.location.pathname : '',
+        },
+      });
 
       if (includeAddonId) {
         const params: CreateCollectionAddonParams = {

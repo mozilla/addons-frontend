@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -14,7 +15,8 @@ import {
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
-import defaultTracking from 'amo/tracking';
+import defaultTracking, { getAddonEventParams } from 'amo/tracking';
+import { getPromotedCategory } from 'amo/utils/addons';
 import LoadingText from 'amo/components/LoadingText';
 import type { Recommendations } from 'amo/reducers/recommendations';
 import type { AppState } from 'amo/store';
@@ -25,13 +27,15 @@ import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 
-export const TAAR_IMPRESSION_CATEGORY = 'AMO Addon / Recommendations Shown';
+export const TAAR_IMPRESSION_CATEGORY = 'amo_addon_recommendations_shown';
 
 type DefaultProps = {|
+  _getPromotedCategory: typeof getPromotedCategory,
   tracking: typeof defaultTracking,
 |};
 
 type PropsFromState = {|
+  clientApp: string,
   recommendations: Recommendations | null,
 |};
 
@@ -47,6 +51,7 @@ type Props = {|
 
 export class AddonRecommendationsBase extends React.Component<Props> {
   static defaultProps: DefaultProps = {
+    _getPromotedCategory: getPromotedCategory,
     tracking: defaultTracking,
   };
 
@@ -61,7 +66,9 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   componentDidUpdate(prevProps: Props) {
     const { addon: oldAddon, recommendations: oldRecommendations } = prevProps;
     const {
+      _getPromotedCategory,
       addon: newAddon,
+      clientApp,
       recommendations: newRecommendations,
       tracking,
       errorHandler,
@@ -77,7 +84,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
 
     // Send the GA ping when recommendations are loaded.
     if (newRecommendations && oldRecommendations !== newRecommendations) {
-      const { fallbackReason, loading, outcome } = newRecommendations;
+      const { loading, outcome } = newRecommendations;
 
       if (loading || errorHandler.hasError()) {
         return;
@@ -86,14 +93,12 @@ export class AddonRecommendationsBase extends React.Component<Props> {
       invariant(newAddon, 'newAddon is required');
       invariant(outcome, 'outcome is required');
 
-      let action = outcome;
-      if (fallbackReason) {
-        action = `${action}-${fallbackReason}`;
-      }
       tracking.sendEvent({
-        action,
         category: TAAR_IMPRESSION_CATEGORY,
-        label: newAddon.guid,
+        params: {
+          ...getAddonEventParams(newAddon, window.location.pathname),
+          trusted: !!_getPromotedCategory({ addon: newAddon, clientApp }),
+        },
       });
     }
   }
@@ -159,7 +164,7 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
         state: state.recommendations,
       })
     : null;
-  return { recommendations };
+  return { clientApp: state.api.clientApp, recommendations };
 };
 
 const AddonRecommendations: React.ComponentType<Props> = compose(

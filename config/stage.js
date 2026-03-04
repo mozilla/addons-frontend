@@ -2,9 +2,9 @@
 import {
   apiStageHost,
   baseUrlStage,
-  ga4AdditionalAnalyticsHost,
-  ga4AnalyticsHost,
-  ga4TagManagerHost,
+  gtmAdditionalAnalyticsHost,
+  gtmAnalyticsHost,
+  gtmHost,
   mediaPath,
   serverStaticPath,
   stageDomain,
@@ -23,9 +23,9 @@ module.exports = {
     directives: {
       connectSrc: [
         apiStageHost,
-        ga4AnalyticsHost,
-        ga4AdditionalAnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmAdditionalAnalyticsHost,
+        gtmHost,
       ],
       fontSrc: [
         `${baseUrlStage}${staticPath}`,
@@ -36,13 +36,13 @@ module.exports = {
         `${baseUrlStage}${mediaPath}`,
         `${baseUrlStage}${staticPath}`,
         `${baseUrlStage}${serverStaticPath}`,
-        ga4AnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmHost,
       ],
       scriptSrc: [
         `${baseUrlStage}${staticPath}`,
-        ga4AnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmHost,
       ],
       styleSrc: [
         `${baseUrlStage}${staticPath}`,
@@ -51,7 +51,6 @@ module.exports = {
   },
 
   allowErrorSimulation: true,
-  ga4DebugMode: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
 };

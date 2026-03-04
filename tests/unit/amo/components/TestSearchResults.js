@@ -5,7 +5,6 @@ import Paginate from 'amo/components/Paginate';
 import SearchResults from 'amo/components/SearchResults';
 import {
   ADDON_TYPE_STATIC_THEME,
-  DEFAULT_UTM_SOURCE,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_SEARCH,
   RECOMMENDED,
@@ -111,14 +110,9 @@ describe(__filename, () => {
       results,
     });
 
-    const expectedLink = [
-      `/en-US/android/addon/${results[0].slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-      'utm_medium=referral',
-      `utm_content=${INSTALL_SOURCE_SEARCH}`,
-    ].join('&');
     expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
       'href',
-      expectedLink,
+      `/en-US/android/addon/${results[0].slug}/?addonInstallSource=${INSTALL_SOURCE_SEARCH}`,
     );
   });
 
@@ -130,14 +124,9 @@ describe(__filename, () => {
       results,
     });
 
-    const expectedLink = [
-      `/en-US/android/addon/${results[0].slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-      'utm_medium=referral',
-      `utm_content=${INSTALL_SOURCE_FEATURED}`,
-    ].join('&');
     expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
       'href',
-      expectedLink,
+      `/en-US/android/addon/${results[0].slug}/?addonInstallSource=${INSTALL_SOURCE_FEATURED}`,
     );
   });
 

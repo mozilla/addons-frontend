@@ -9,14 +9,12 @@ import Root from 'amo/components/Root';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'amo/i18n/utils';
 import log from 'amo/logger';
 import { addQueryParamsToHistory } from 'amo/utils';
-import tracking from 'amo/tracking';
 
 export default async function createClient(
   createStore,
   {
     _config = config,
     _createBrowserHistory = createBrowserHistory,
-    _tracking = tracking,
     sagas = null,
   } = {},
 ) {
@@ -56,14 +54,6 @@ export default async function createClient(
           ? initialState.site.loadedPageIsAnonymous
           : false,
     }),
-  });
-
-  // See: https://github.com/mozilla/addons-frontend/issues/8647
-  history.listen((location) => {
-    _tracking.setPage(location.pathname);
-    // It is guaranteed that the navigation has happened but the title of the
-    // page is likely stale, so we are omitting it.
-    _tracking.pageView({ title: '' });
   });
 
   const { connectedHistory, sagaMiddleware, store } = createStore({

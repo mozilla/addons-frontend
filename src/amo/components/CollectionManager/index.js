@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import { oneLineTrim } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -14,7 +15,9 @@ import {
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'amo/errorHandler';
+import { COLLECTION_CREATE_STARTED_CATEGORY } from 'amo/constants';
 import translate from 'amo/i18n/translate';
+import tracking from 'amo/tracking';
 import Button from 'amo/components/Button';
 import LoadingText from 'amo/components/LoadingText';
 import type {
@@ -51,9 +54,14 @@ type PropsFromState = {|
   siteLang: string,
 |};
 
+type DefaultProps = {|
+  _tracking: typeof tracking,
+|};
+
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
+  ...DefaultProps,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
@@ -89,6 +97,10 @@ export class CollectionManagerBase extends React.Component<
   InternalProps,
   State,
 > {
+  static defaultProps: DefaultProps = {
+    _tracking: tracking,
+  };
+
   static getDerivedStateFromProps(
     props: InternalProps,
     state: State,
@@ -124,6 +136,7 @@ export class CollectionManagerBase extends React.Component<
 
   onSubmit: HTMLElementEventHandler = (event: ElementEvent) => {
     const {
+      _tracking,
       collection,
       creating,
       currentUserId,
@@ -135,6 +148,13 @@ export class CollectionManagerBase extends React.Component<
     } = this.props;
     event.preventDefault();
     event.stopPropagation();
+
+    if (creating) {
+      _tracking.sendEvent({
+        category: COLLECTION_CREATE_STARTED_CATEGORY,
+        params: { page_path: window.location.pathname },
+      });
+    }
 
     let { name, slug } = this.state;
 

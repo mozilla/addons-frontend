@@ -97,16 +97,12 @@ export default class ServerHtml extends Component {
   getAnalytics() {
     const { _config } = this.props;
     if (this.props.trackingEnabled) {
+      const gtmContainerId = _config.get('gtmContainerId');
       return (
-        <>
-          <script async src="https://www.google-analytics.com/analytics.js" />
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${_config.get(
-              'ga4PropertyId',
-            )}`}
-          />
-        </>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtm.js?id=${gtmContainerId}`}
+        />
       );
     }
     return null;
@@ -192,6 +188,8 @@ export default class ServerHtml extends Component {
           {head.link.toComponent()}
 
           {head.script.toComponent()}
+
+          {this.getAnalytics()}
         </head>
         <body>
           <div id="react-view" dangerouslySetInnerHTML={{ __html: content }} />
@@ -204,7 +202,6 @@ export default class ServerHtml extends Component {
             id="redux-store-state"
           />
 
-          {this.getAnalytics()}
           {this.getScript()}
         </body>
       </html>

@@ -4,7 +4,6 @@ import serialize from 'serialize-javascript';
 import createAmoStore from 'amo/store';
 import createClient from 'amo/client/base';
 import { loadedPageIsAnonymous } from 'amo/reducers/site';
-import { createFakeTracking } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('createClient()', () => {
@@ -35,17 +34,6 @@ describe(__filename, () => {
 
       const props = await _createClient({ createStore });
       expect(props).toHaveProperty('store', storeResult.store);
-    });
-
-    it('updates the tracking page on location change', async () => {
-      const _tracking = createFakeTracking();
-      const { connectedHistory } = await _createClient({ _tracking });
-      const pathname = '/foo';
-
-      connectedHistory.push({ pathname });
-
-      expect(_tracking.setPage).toHaveBeenCalledWith(pathname);
-      expect(_tracking.pageView).toHaveBeenCalledWith({ title: '' });
     });
 
     it('creates a browser history', async () => {

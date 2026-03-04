@@ -8,11 +8,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { getAddonURL, nl2br, sanitizeHTML } from 'amo/utils';
 import { getPromotedProps } from 'amo/utils/promoted';
-import {
-  ADDON_TYPE_STATIC_THEME,
-  DEFAULT_UTM_SOURCE,
-  DEFAULT_UTM_MEDIUM,
-} from 'amo/constants';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
 import { isRecentAddon } from 'amo/reducers/addons';
@@ -79,11 +75,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     let linkTo = getAddonURL(addon.slug);
 
     if (addonInstallSource) {
-      linkTo = addQueryParams(linkTo, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: addonInstallSource,
-      });
+      linkTo = addQueryParams(linkTo, { addonInstallSource });
     }
 
     return linkTo;

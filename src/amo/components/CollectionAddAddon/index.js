@@ -7,7 +7,9 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { compose } from 'redux';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
+import { COLLECTION_ADD_ADDON_CATEGORY } from 'amo/constants';
 import { addAddonToCollection } from 'amo/reducers/collections';
+import tracking, { getAddonNameParam } from 'amo/tracking';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import withUIState from 'amo/withUIState';
@@ -45,6 +47,7 @@ export type Props = {|
 |};
 
 export type DefaultProps = {|
+  _tracking: typeof tracking,
   clearTimeout: (TimeoutID) => void,
   setTimeout: (Function, delay?: number) => TimeoutID | void,
 |};
@@ -69,6 +72,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
   timeout: TimeoutID | void;
 
   static defaultProps: DefaultProps = {
+    _tracking: tracking,
     setTimeout:
       typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
     clearTimeout:
@@ -127,11 +131,20 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
   onAddonSelected: (suggestion: SuggestionType) => void = (
     suggestion: SuggestionType,
   ) => {
-    const { collection, dispatch, errorHandler, filters } = this.props;
+    const { _tracking, collection, dispatch, errorHandler, filters } =
+      this.props;
     const { addonId } = suggestion;
 
     invariant(addonId, 'addonId is required');
     invariant(collection, 'collection is required');
+
+    _tracking.sendEvent({
+      category: COLLECTION_ADD_ADDON_CATEGORY,
+      params: {
+        ...(suggestion.name ? getAddonNameParam(suggestion) : {}),
+        page_path: window.location.pathname,
+      },
+    });
 
     dispatch(
       addAddonToCollection({

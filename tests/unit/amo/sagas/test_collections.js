@@ -1,7 +1,10 @@
+/* global window */
 import SagaTester from 'redux-saga-tester';
 import { push as pushLocation } from 'redux-first-history';
 
 import * as collectionsApi from 'amo/api/collections';
+import { COLLECTION_CREATE_COMPLETED_CATEGORY } from 'amo/constants';
+import tracking from 'amo/tracking';
 import collectionsReducer, {
   abortAddAddonToCollection,
   abortFetchCurrentCollection,
@@ -35,6 +38,11 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
 } from 'tests/unit/helpers';
+
+jest.mock('amo/tracking', () => ({
+  ...jest.requireActual('amo/tracking'),
+  sendEvent: jest.fn(),
+}));
 
 describe(__filename, () => {
   const userId = 'some-user';
@@ -735,6 +743,53 @@ describe(__filename, () => {
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);
 
+        mockApi.verify();
+      });
+
+      it('sends a tracking event after a collection is created', async () => {
+        const state = sagaTester.getState();
+        const params = getParams({ lang: state.api.lang });
+
+        const collectionDetailResponse = createFakeCollectionDetail(params);
+
+        mockApi
+          .expects('createCollection')
+          .once()
+          .returns(Promise.resolve(collectionDetailResponse));
+
+        tracking.sendEvent.mockClear();
+
+        _createCollection(params);
+
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${userId}/${slug}/edit/`,
+        );
+
+        await sagaTester.waitFor(expectedAction.type);
+
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          category: COLLECTION_CREATE_COMPLETED_CATEGORY,
+          params: {
+            page_path: window.location.pathname,
+          },
+        });
+        mockApi.verify();
+      });
+
+      it('does not send a tracking event when updating a collection', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        tracking.sendEvent.mockClear();
+
+        const collectionSlug = 'some-collection';
+        _updateCollection({ collectionSlug });
+
+        const expectedAction = finishCollectionModification();
+
+        await sagaTester.waitFor(expectedAction.type);
+
+        expect(tracking.sendEvent).not.toHaveBeenCalled();
         mockApi.verify();
       });
     });

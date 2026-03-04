@@ -8,11 +8,9 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { logOutFromServer } from 'amo/api';
 import Page from 'amo/components/Page';
 import {
-  GET_FIREFOX_BANNER_CLICK_ACTION,
-  GET_FIREFOX_BANNER_DISMISS_ACTION,
+  GET_FIREFOX_BANNER_CLICK_CATEGORY,
   GET_FIREFOX_BANNER_DISMISS_CATEGORY,
 } from 'amo/components/GetFirefoxBanner';
-import { GET_FIREFOX_BUTTON_CLICK_CATEGORY } from 'amo/components/GetFirefoxButton';
 import {
   ADDONS_REVIEW,
   ADDON_TYPE_EXTENSION,
@@ -368,8 +366,8 @@ describe(__filename, () => {
 
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(tracking.sendEvent).toHaveBeenCalledWith({
-          action: GET_FIREFOX_BANNER_CLICK_ACTION,
-          category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+          category: GET_FIREFOX_BANNER_CLICK_CATEGORY,
+          params: { page_path: window.location.pathname },
         });
       });
 
@@ -382,8 +380,8 @@ describe(__filename, () => {
 
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(tracking.sendEvent).toHaveBeenCalledWith({
-          action: GET_FIREFOX_BANNER_DISMISS_ACTION,
           category: GET_FIREFOX_BANNER_DISMISS_CATEGORY,
+          params: { page_path: window.location.pathname },
         });
       });
     });
@@ -449,8 +447,8 @@ describe(__filename, () => {
 
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(tracking.sendEvent).toHaveBeenCalledWith({
-          action: GET_FIREFOX_BANNER_CLICK_ACTION,
-          category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+          category: GET_FIREFOX_BANNER_CLICK_CATEGORY,
+          params: { page_path: window.location.pathname },
         });
       });
 
@@ -463,8 +461,8 @@ describe(__filename, () => {
 
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(tracking.sendEvent).toHaveBeenCalledWith({
-          action: GET_FIREFOX_BANNER_DISMISS_ACTION,
           category: GET_FIREFOX_BANNER_DISMISS_CATEGORY,
+          params: { page_path: window.location.pathname },
         });
       });
     });

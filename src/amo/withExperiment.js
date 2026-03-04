@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -65,14 +66,11 @@ import type { DispatchFunc } from 'amo/types/redux';
 // See https://github.com/mozilla/addons-frontend/issues/8515
 export const DEFAULT_COOKIE_MAX_AGE = 30 * 24 * 60 * 60;
 export const EXPERIMENT_COOKIE_NAME = 'frontend_active_experiments';
-export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
+export const EXPERIMENT_ENROLLMENT_CATEGORY = 'amo_experiment_enrollment';
 // This is a special variant value that indicates the the user is not enrolled
 // in the experiment.
 export const NOT_IN_EXPERIMENT = 'notInExperiment';
 export const EXPERIMENT_ID_REGEXP: RegExp = /\d{8}_amo_.+/;
-// The GA custom dimensions used for experimentId and variation.
-export const EXPERIMENT_ID_GA_DIMENSION = 'dimension8';
-export const EXPERIMENT_VARIATION_GA_DIMENSION = 'dimension9';
 
 // https://github.com/reactivestack/cookies/tree/f9beead40a6bebac475d9bf17c1da55418d26751/packages/react-cookie#setcookiename-value-options
 type CookieConfig = {|
@@ -284,8 +282,12 @@ export const withExperiment =
             // Send an enrollment event.
             _tracking.sendEvent({
               _config,
-              action: variant,
-              category: [EXPERIMENT_ENROLLMENT_CATEGORY, id].join(' '),
+              category: EXPERIMENT_ENROLLMENT_CATEGORY,
+              params: {
+                page_path: window.location.pathname,
+                experiment_id: id,
+                experiment_variant: variant,
+              },
             });
           }
         }
@@ -298,17 +300,8 @@ export const withExperiment =
           );
         }
 
-        // If the user is enrolled in a branch, set the GA custom dimensions
-        // and GA4 user properties.
+        // If the user is enrolled in a branch, set the GA4 user properties.
         if (variant && variant !== NOT_IN_EXPERIMENT) {
-          _tracking.setDimension({
-            dimension: EXPERIMENT_ID_GA_DIMENSION,
-            value: id,
-          });
-          _tracking.setDimension({
-            dimension: EXPERIMENT_VARIATION_GA_DIMENSION,
-            value: variant,
-          });
           _tracking.setUserProperties({
             experimentId: id,
             experimentVariation: variant,

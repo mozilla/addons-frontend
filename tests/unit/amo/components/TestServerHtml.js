@@ -67,36 +67,24 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('renders GA scripts when trackingEnabled is true', () => {
+  it('renders GTM external script in head when trackingEnabled is true', () => {
     render({ trackingEnabled: true });
 
-    const ga = getElement(
-      'script[src="https://www.google-analytics.com/analytics.js"]',
+    const gtmContainerId = config.get('gtmContainerId');
+    const gtmScript = getElement(
+      `head script[src="https://www.googletagmanager.com/gtm.js?id=${gtmContainerId}"]`,
     );
-    expect(ga).toHaveAttribute('async');
-    const ga4 = getElement(
-      `script[src="https://www.googletagmanager.com/gtag/js?id=${config.get(
-        'ga4PropertyId',
-      )}"]`,
-    );
-    expect(ga4).toHaveAttribute('async');
+    expect(gtmScript).toBeInTheDocument();
+    expect(gtmScript).toHaveAttribute('async');
   });
 
-  it("doesn't render GA scripts when trackingEnabled is false", () => {
+  it("doesn't render GTM script when trackingEnabled is false", () => {
     render({ trackingEnabled: false });
 
-    expect(
-      getElements(
-        'script[src="https://www.google-analytics.com/analytics.js"]',
-      ),
-    ).toHaveLength(0);
-    expect(
-      getElements(
-        `script[src="https://www.googletagmanager.com/gtag/js?id=${config.get(
-          'ga4PropertyId',
-        )}"]`,
-      ),
-    ).toHaveLength(0);
+    const gtmScript = document.querySelector(
+      'head script[src*="googletagmanager.com/gtm.js"]',
+    );
+    expect(gtmScript).toBeNull();
   });
 
   it('renders css provided', () => {
