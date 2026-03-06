@@ -3,9 +3,9 @@ import {
   apiDevHost,
   baseUrlDev,
   devLangs,
-  ga4AdditionalAnalyticsHost,
-  ga4AnalyticsHost,
-  ga4TagManagerHost,
+  gtmAdditionalAnalyticsHost,
+  gtmAnalyticsHost,
+  gtmHost,
 } from './lib/shared';
 
 const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
@@ -22,7 +22,7 @@ module.exports = {
   proxyEnabled: true,
 
   fxaConfig: 'local',
-  trackingEnabled: false,
+  trackingEnabled: true,
   loggingLevel: 'debug',
 
   isDeployed: false,
@@ -53,9 +53,9 @@ module.exports = {
         webpackDevServer,
         // This is needed for pino-devtools.
         `${webpackServerHost}:3010`,
-        ga4AnalyticsHost,
-        ga4AdditionalAnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmAdditionalAnalyticsHost,
+        gtmHost,
       ],
       fontSrc: [
         webpackDevServer,
@@ -65,8 +65,8 @@ module.exports = {
         'data:',
         baseUrlDev,
         webpackDevServer,
-        ga4AnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmHost,
       ],
       scriptSrc: [
         "'self'",
@@ -74,8 +74,8 @@ module.exports = {
         "'unsafe-inline'",
         baseUrlDev,
         webpackDevServer,
-        ga4AnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmHost,
       ],
       styleSrc: [
         "'self'",
@@ -85,8 +85,6 @@ module.exports = {
     },
     reportOnly: true,
   },
-
-  ga4DebugMode: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
 

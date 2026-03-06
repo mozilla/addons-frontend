@@ -4,9 +4,9 @@ import {
   baseUrlDev,
   devDomain,
   devLangs,
-  ga4AdditionalAnalyticsHost,
-  ga4AnalyticsHost,
-  ga4TagManagerHost,
+  gtmAdditionalAnalyticsHost,
+  gtmAnalyticsHost,
+  gtmHost,
   mediaPath,
   serverStaticPath,
   staticPath,
@@ -25,9 +25,9 @@ module.exports = {
     directives: {
       connectSrc: [
         apiDevHost,
-        ga4AnalyticsHost,
-        ga4AdditionalAnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmAdditionalAnalyticsHost,
+        gtmHost,
       ],
       fontSrc: [
         `${baseUrlDev}${staticPath}`,
@@ -38,13 +38,13 @@ module.exports = {
         `${baseUrlDev}${mediaPath}`,
         `${baseUrlDev}${staticPath}`,
         `${baseUrlDev}${serverStaticPath}`,
-        ga4AnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmHost,
       ],
       scriptSrc: [
         `${baseUrlDev}${staticPath}`,
-        ga4AnalyticsHost,
-        ga4TagManagerHost,
+        gtmAnalyticsHost,
+        gtmHost,
       ],
       styleSrc: [
         `${baseUrlDev}${staticPath}`,

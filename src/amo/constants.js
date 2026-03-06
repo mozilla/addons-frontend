@@ -125,11 +125,6 @@ export const INCOMPATIBLE_NON_RESTARTLESS_ADDON =
 export const INCOMPATIBLE_ANDROID_UNSUPPORTED =
   'INCOMPATIBLE_ANDROID_UNSUPPORTED';
 
-// Tracking add-on types
-export const TRACKING_TYPE_EXTENSION = 'addon';
-export const TRACKING_TYPE_STATIC_THEME = ADDON_TYPE_STATIC_THEME;
-export const TRACKING_TYPE_INVALID = 'invalid';
-
 // Add-on install tracking sources.
 // These key values may be linked to historic analytic data.
 export const INSTALL_SOURCE_COLLECTION = 'collection';
@@ -206,41 +201,48 @@ export const INSTALL_ERROR = 'INSTALL_ERROR';
 
 // Tracking install actions.
 export const ENABLE_ACTION = 'enable';
-export const INSTALL_ACTION = 'install';
-export const INSTALL_CANCELLED_ACTION = 'install:cancelled';
-export const INSTALL_DOWNLOAD_FAILED_ACTION = 'install:download-failed';
-export const INSTALL_STARTED_ACTION = 'install:started';
+export const INSTALL_CANCELLED_ACTION = 'install_cancelled';
+export const INSTALL_DOWNLOAD_FAILED_ACTION = 'install_download_failed';
+export const INSTALL_STARTED_ACTION = 'install_started';
 export const UNINSTALL_ACTION = 'uninstall';
 
 // Tracking Event Categories.
-// WARNING: Do not change these without notifying data + metrics teams.
-// Changing these strings will break existing statistics without
-// updating the category matching at the same time.
-export const ENABLE_EXTENSION_CATEGORY = 'AMO Addon Activation';
-export const ENABLE_THEME_CATEGORY = 'AMO Theme Activation';
+// NOTE: These were migrated from UA-style names to GA4-style lowercase/underscore
+// naming convention. Data + metrics teams were notified of this intentional migration.
+export const ENABLE_EXTENSION_CATEGORY = 'amo_addon_activation';
+export const ENABLE_THEME_CATEGORY = 'amo_theme_activation';
 
-export const INSTALL_EXTENSION_CATEGORY = 'AMO Addon Installs';
-export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
-export const INSTALL_TRUSTED_EXTENSION_CATEGORY = 'AMO Trusted Addon Installs';
+export const INSTALL_EXTENSION_CATEGORY = 'amo_addon_installs_completed';
+export const INSTALL_THEME_CATEGORY = 'amo_theme_installs_completed';
+export const INSTALL_TRUSTED_EXTENSION_CATEGORY =
+  'amo_trusted_addon_install_completed';
 
 export const INSTALL_CANCELLED_EXTENSION_CATEGORY =
-  'AMO Addon Installs Cancelled';
-export const INSTALL_CANCELLED_THEME_CATEGORY = 'AMO Theme Installs Cancelled';
+  'amo_addon_installs_cancelled';
+export const INSTALL_CANCELLED_THEME_CATEGORY = 'amo_theme_installs_cancelled';
 
 export const INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY =
-  'AMO Addon Installs Download Failed';
+  'amo_addon_installs_download_failed';
 export const INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY =
-  'AMO Theme Installs Download Failed';
+  'amo_theme_installs_download_failed';
 
-export const INSTALL_STARTED_EXTENSION_CATEGORY = 'AMO Addon Installs Started';
-export const INSTALL_STARTED_THEME_CATEGORY = 'AMO Theme Installs Started';
+export const INSTALL_STARTED_EXTENSION_CATEGORY = 'amo_addon_installs_started';
+export const INSTALL_STARTED_THEME_CATEGORY = 'amo_theme_installs_started';
 
-export const UNINSTALL_EXTENSION_CATEGORY = 'AMO Addon Uninstalls';
-export const UNINSTALL_THEME_CATEGORY = 'AMO Theme Uninstalls';
+export const UNINSTALL_EXTENSION_CATEGORY = 'amo_addon_uninstalls';
+export const UNINSTALL_THEME_CATEGORY = 'amo_theme_uninstalls';
 
-export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
+export const CLICK_CATEGORY = 'amo_addon_theme_clicks';
 
-export const SUGGESTIONS_CLICK_CATEGORY = 'AMO Suggested Addon Clicks';
+export const SUGGESTIONS_CLICK_CATEGORY = 'amo_suggested_addon_clicks';
+
+// Collection tracking event categories
+export const COLLECTION_CREATE_STARTED_CATEGORY =
+  'amo_create_collection_started';
+export const COLLECTION_CREATE_COMPLETED_CATEGORY =
+  'amo_create_collection_completed';
+export const COLLECTION_ADD_ADDON_CATEGORY = 'amo_add_to_collection';
+export const COLLECTION_REMOVE_ADDON_CATEGORY = 'amo_remove_from_collection';
 
 // Error used to know that the setEnable method on addon is
 // not available.
