@@ -1,14 +1,18 @@
 /* @flow */
 /* global navigator, window */
+// GTM-based analytics tracking module.
+//
+// Uses `window.dataLayer.push()` to send events to Google Tag Manager (GTM).
+// The `Tracking` class is instantiated once as a singleton (exported at the
+// bottom of this file) and shared across the entire application.
+//
+// Also exports helper functions for building standardized GA4 event
+// parameters: `getAddonNameParam`, `getAddonEventParams`, and
+// `getAddonEventCategory`.
 import { oneLine } from 'common-tags';
 import config from 'config';
-import invariant from 'invariant';
-import { onCLS, onINP, onLCP } from 'web-vitals';
 
 import {
-  ADDON_TYPE_DICT,
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
@@ -24,9 +28,6 @@ import {
   INSTALL_STARTED_EXTENSION_CATEGORY,
   INSTALL_STARTED_THEME_CATEGORY,
   INSTALL_THEME_CATEGORY,
-  TRACKING_TYPE_EXTENSION,
-  TRACKING_TYPE_INVALID,
-  TRACKING_TYPE_STATIC_THEME,
   UNINSTALL_ACTION,
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
@@ -34,18 +35,19 @@ import {
 import log from 'amo/logger';
 import { convertBoolean } from 'amo/utils';
 
-type MakeTrackingEventDataParams = {|
-  action: string,
-  category: string,
-  label?: string,
-  value?: number,
-|};
-
 export type SendTrackingEventParams = {|
   _config?: typeof config,
-  sendSecondEventWithOverrides?: Object,
-  ...MakeTrackingEventDataParams,
+  category: string,
+  sendSecondEventWithOverrides?: {|
+    category?: string,
+    params?: Object,
+  |},
+  params?: Object,
 |};
+
+type TrackingEventDataParams = {
+  [string]: string | boolean | number,
+};
 
 type IsDoNoTrackEnabledParams = {
   _log: typeof log,
@@ -81,26 +83,15 @@ export function isDoNotTrackEnabled({
 type TrackingParams = {
   _config: typeof config,
   _isDoNotTrackEnabled: typeof isDoNotTrackEnabled,
-  _onCLS: typeof onCLS,
-  _onINP: typeof onINP,
-  _onLCP: typeof onLCP,
 };
 
-const makeTrackingEventData = ({
-  action,
-  category,
-  label,
-  value,
-}: MakeTrackingEventDataParams) => {
-  return {
-    eventAction: action,
-    eventCategory: category,
-    eventLabel: label,
-    eventValue: value,
-    hitType: 'event',
-  };
-};
-
+/*
+ * Singleton tracking class that wraps Google Tag Manager's dataLayer.
+ *
+ * A single instance is created at the bottom of this module and exported as
+ * the default export. All components import that instance rather than
+ * constructing their own.
+ */
 export class Tracking {
   _log: typeof log;
 
@@ -108,19 +99,11 @@ export class Tracking {
 
   trackingEnabled: boolean;
 
-  sendWebVitals: boolean;
-
-  // Tracking IDs for UA and GA4
-  id: string;
-
-  ga4Id: string;
+  gtmContainerId: string;
 
   constructor({
     _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
-    _onCLS = onCLS,
-    _onINP = onINP,
-    _onLCP = onLCP,
   }: TrackingParams = {}) {
     if (typeof window === 'undefined') {
       return;
@@ -128,14 +111,13 @@ export class Tracking {
 
     this._log = log;
     this.logPrefix = '[GA]'; // this gets updated below
-    this.id = _config.get('trackingId');
-    this.ga4Id = _config.get('ga4PropertyId');
+    this.gtmContainerId = _config.get('gtmContainerId');
 
     if (!convertBoolean(_config.get('trackingEnabled'))) {
       this.log('GA disabled because trackingEnabled was false');
       this.trackingEnabled = false;
-    } else if (!this.id && !this.ga4Id) {
-      this.log('GA Disabled because UA and GA4 trackingIds are empty');
+    } else if (!this.gtmContainerId) {
+      this.log('GA Disabled because gtmContainerId is empty');
       this.trackingEnabled = false;
     } else if (_isDoNotTrackEnabled()) {
       this.log(oneLine`Do Not Track Enabled; Google Analytics not
@@ -149,95 +131,18 @@ export class Tracking {
     this.logPrefix = `[GA: ${this.trackingEnabled ? 'ON' : 'OFF'}]`;
 
     if (this.trackingEnabled) {
-      // Create a Flow typed variable for `ga`.
-      declare var ga: {|
-        (string, string, ?string): void,
-        q: Array<string>,
-        l: number,
-      |};
-
-      /* eslint-disable */
-      // Snippet from Google UA docs: http://bit.ly/1O6Dsdh
-      window.ga =
-        window.ga ||
-        function () {
-          (ga.q = ga.q || []).push(arguments);
-        };
-      ga.l = +new Date();
-      /* eslint-enable */
-      ga('create', this.id, 'auto');
-      ga('set', 'transport', 'beacon');
-      if (convertBoolean(_config.get('trackingSendInitPageView'))) {
-        ga('send', 'pageview');
-      }
-      // Set a custom dimension; this allows us to tell which front-end
-      // (addons-frontend vs addons-server) is being used in analytics.
-      ga('set', 'dimension3', 'addons-frontend');
-
-      if (convertBoolean(_config.get('trackingSendWebVitals'))) {
-        this.log('trackingSendWebVitals is enabled');
-
-        // $FlowFixMe: Deal with method-unbinding error.
-        const sendWebVitalStats = this.sendWebVitalStats.bind(this);
-        _onCLS(sendWebVitalStats);
-        _onINP(sendWebVitalStats);
-        _onLCP(sendWebVitalStats);
-      }
-
-      // GA4 setup
       window.dataLayer = window.dataLayer || [];
-      const extraConfig = _config.get('ga4DebugMode')
-        ? { debug_mode: true }
-        : {};
-      // $FlowIgnore
-      this._ga4('js', new Date());
-      // $FlowIgnore
-      this._ga4('config', this.ga4Id, extraConfig);
+      // Bootstrap GTM: push the gtm.start timestamp so GTM knows when it
+      // was initialized. GTM replays any dataLayer items it finds on load.
+      // Guard against duplicate pushes when multiple Tracking instances are
+      // created (e.g. in tests or hot-reload scenarios).
+      if (!window.dataLayer.some((e) => e.event === 'gtm.js')) {
+        window.dataLayer.push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        });
+      }
     }
-  }
-
-  sendWebVitalStats({
-    delta,
-    id,
-    name,
-    value,
-  }: {|
-    delta: number,
-    id: number,
-    name: string,
-    value: number,
-  |}) {
-    this.log('sendWebVitalStats', { delta, id, name, value });
-
-    // Google Analytics metrics must be integers, so the value is rounded.
-    // For CLS the value is first multiplied by 1000 for greater precision
-    // (note: increase the multiplier for greater precision if needed).
-    const adjustedDelta = Math.round(name === 'CLS' ? delta * 1000 : delta);
-
-    this._ga('send', 'event', {
-      eventCategory: 'Web Vitals',
-      eventAction: name,
-      // The `id` value will be unique to the current page load. When sending
-      // multiple values from the same page (e.g. for CLS), Google Analytics
-      // can compute a total by grouping on this ID (note: requires
-      // `eventLabel` to be a dimension in your report).
-      eventLabel: id,
-      eventValue: adjustedDelta,
-      // Use a non-interaction event to avoid affecting bounce rate.
-      nonInteraction: true,
-      // Use `sendBeacon()` if the browser supports it.
-      transport: 'beacon',
-    });
-
-    // Also send to GA4.
-    // See https://github.com/GoogleChrome/web-vitals#using-gtagjs-google-analytics-4
-    // $FlowIgnore
-    this._ga4('event', name, {
-      value: adjustedDelta,
-      metric_id: id,
-      metric_value: value,
-      metric_delta: adjustedDelta,
-    });
   }
 
   log(message: string, obj?: Object) {
@@ -248,53 +153,34 @@ export class Tracking {
     }
   }
 
-  _ga(...args: Array<mixed>) {
+  // Low-level push to GTM's dataLayer, gated by `trackingEnabled`.
+  // All public methods route through here so that disabled tracking
+  // is handled in one place.
+  _pushToDataLayer(eventData: Object) {
     if (this.trackingEnabled) {
-      window.ga(...args);
-    }
-  }
-
-  _ga4() {
-    if (this.trackingEnabled) {
-      /* eslint-disable */
-      // $FlowIgnore
-      dataLayer.push(arguments);
-      /* eslint-enable */
+      window.dataLayer.push(eventData);
     }
   }
 
   /*
    * Param                            Type    Required  Description
-   * obj.action                       String  Yes       The type of interaction
-   *                                                    (e.g. click)
-   * obj.category                     String  Yes       Typically the object
-   *                                                    that was interacted
-   *                                                    with (e.g. button)
-   * obj.label                        String  No        Useful for categorizing
-   *                                                    events (e.g. nav
-   *                                                    buttons)
+   * obj.category                     String  Yes       The event name
+   *                                                    (e.g. amo_addon_installs_completed)
+   * obj.params                       Object  No        Additional event parameters
+   *                                                    (e.g. { extension_name, author, page_path })
    * obj.sendSecondEventWithOverrides Object  No        If passed, an extra
    *                                                    event will be sent
    *                                                    using the object's
    *                                                    properties as overrides
-   * obj.value      Number  No                          Values must be
-   *                                                    non-negative.
-   *                                                    Useful to pass counts
-   *                                                    (e.g. 4 times)
    */
   sendEvent({
     _config = config,
-    action,
     category,
-    label,
+    params,
     sendSecondEventWithOverrides,
-    value,
   }: SendTrackingEventParams) {
     if (!category) {
       throw new Error('sendEvent: category is required');
-    }
-    if (!action) {
-      throw new Error('sendEvent: action is required');
     }
 
     if (_config.get('server')) {
@@ -304,56 +190,30 @@ export class Tracking {
       // moved.
       throw new Error('sendEvent: cannot send tracking events on the server');
     } else {
-      const trackingData = { action, category, label, value };
-      const data = makeTrackingEventData(trackingData);
-      this._ga('send', data);
-      // Also send the event to GA4
-      // $FlowIgnore
-      this._ga4('event', data.eventCategory, data);
+      // `params` is optional; callers may pass `undefined`, so we default
+      // to an empty object to keep the spread safe.
+      const baseParams: TrackingEventDataParams =
+        ((params: any): TrackingEventDataParams) || {};
+      const data: TrackingEventDataParams = {
+        ...baseParams,
+        event: category,
+      };
+      this._pushToDataLayer(data);
       this.log('sendEvent', data);
 
-      if (typeof sendSecondEventWithOverrides === 'object') {
-        const secondEventData = makeTrackingEventData({
-          ...trackingData,
-          ...sendSecondEventWithOverrides,
-        });
-        this._ga('send', secondEventData);
-        // Also send the event to GA4
-        // $FlowIgnore
-        this._ga4('event', secondEventData.eventCategory, secondEventData);
-        this.log('sendEvent', secondEventData);
+      if (sendSecondEventWithOverrides) {
+        const secondParams: TrackingEventDataParams =
+          ((sendSecondEventWithOverrides.params: any): TrackingEventDataParams) ||
+          {};
+        const secondData: TrackingEventDataParams = {
+          ...baseParams,
+          ...secondParams,
+          event: sendSecondEventWithOverrides.category || category,
+        };
+        this._pushToDataLayer(secondData);
+        this.log('sendEvent', secondData);
       }
     }
-  }
-
-  /*
-   * Should be called when a view changes or a routing update.
-   * This is not needed by GA4.
-   */
-  setPage(page: string) {
-    if (!page) {
-      throw new Error('setPage: page is required');
-    }
-    this._ga('set', 'page', page);
-    this.log('setPage', page);
-  }
-
-  pageView(data: Object = {}) {
-    // See: https://developers.google.com/analytics/devguides/collection/analyticsjs/pages#pageview_fields
-    this._ga('send', { hitType: 'pageview', ...data });
-    this.log('pageView', data);
-  }
-
-  /*
-   * Can be called to set a dimension which will be sent with all subsequent
-   * calls to GA.
-   */
-  setDimension({ dimension, value }: {| dimension: string, value: string |}) {
-    invariant(dimension, 'A dimension is required');
-    invariant(value, 'A value is required');
-
-    this._ga('set', dimension, value);
-    this.log('set', { dimension, value });
   }
 
   /*
@@ -362,25 +222,74 @@ export class Tracking {
    */
   setUserProperties(props: { [string]: string }) {
     // $FlowIgnore
-    this._ga4('set', 'user_properties', props);
+    this._pushToDataLayer({
+      event: 'set_user_properties',
+      user_properties: props,
+    });
     this.log('setUserProperties', props);
   }
 }
 
-export function getAddonTypeForTracking(type: string): string {
-  return (
-    {
-      [ADDON_TYPE_DICT]: TRACKING_TYPE_EXTENSION,
-      [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
-      [ADDON_TYPE_LANG]: TRACKING_TYPE_EXTENSION,
-      [ADDON_TYPE_STATIC_THEME]: TRACKING_TYPE_STATIC_THEME,
-    }[type] || TRACKING_TYPE_INVALID
-  );
+// Returns { extension_name: name } or { theme_name: name } based on addon type
+export function getAddonNameParam(addon: {
+  +name: string | null,
+  +type: string,
+  ...
+}): TrackingEventDataParams {
+  if (!addon.name) {
+    return {};
+  }
+  const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
+  return isTheme ? { theme_name: addon.name } : { extension_name: addon.name };
 }
 
+/*
+ * Build the standard parameter object for an addon-related GA4 event.
+ *
+ * Accepts a nullable `addon` and an optional `pagePath`:
+ *   - When `addon` is null/undefined, returns `{}` or `{ page_path }`.
+ *   - When `addon` is present, includes `extension_name` or `theme_name`
+ *     (via `getAddonNameParam`), the first author's name (if non-empty),
+ *     and the page path.
+ *
+ * Used by most components to build consistent event params for sendEvent().
+ */
+export function getAddonEventParams(
+  addon: ?{
+    +name: string,
+    +type: string,
+    +authors?: $ReadOnlyArray<{ +name: string, ... }>,
+    ...
+  },
+  pagePath?: string,
+): TrackingEventDataParams {
+  if (!addon) {
+    return pagePath ? { page_path: pagePath } : {};
+  }
+
+  const nameParam = getAddonNameParam(addon);
+  const author =
+    addon.authors && addon.authors.length > 0 && addon.authors[0].name
+      ? addon.authors[0].name
+      : undefined;
+  const eventParams: TrackingEventDataParams = { ...nameParam };
+  if (author) {
+    eventParams.author = author;
+  }
+  if (pagePath) {
+    eventParams.page_path = pagePath;
+  }
+
+  return eventParams;
+}
+
+// Maps an addon type and install action to the correct GA4 event category
+// string. Extensions and themes each have their own set of category constants
+// (e.g. `amo_addon_installs_completed` vs `amo_theme_installs_completed`).
+// The `default` case handles install-completed (no explicit action constant).
 export const getAddonEventCategory = (
   type: string,
-  installAction: string,
+  installAction?: string,
 ): string => {
   const isThemeType = ADDON_TYPE_STATIC_THEME === type;
 
@@ -408,4 +317,6 @@ export const getAddonEventCategory = (
   }
 };
 
+// Singleton instance: every module that imports `tracking` shares this one
+// instance, ensuring a single dataLayer and consistent tracking state.
 export default (new Tracking(): Tracking);

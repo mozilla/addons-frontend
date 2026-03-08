@@ -25,7 +25,7 @@ import {
   fetchSuggestions,
   loadSuggestions,
 } from 'amo/reducers/suggestions';
-import tracking, { getAddonTypeForTracking } from 'amo/tracking';
+import tracking from 'amo/tracking';
 import {
   changeLocation,
   createFailedErrorHandler,
@@ -424,9 +424,10 @@ describe(__filename, () => {
 
       expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
       expect(tracking.sendEvent).toHaveBeenCalledWith({
-        action: getAddonTypeForTracking(addon.type),
         category: SUGGESTIONS_CLICK_CATEGORY,
-        label: addon.guid,
+        params: expect.objectContaining({
+          extension_name: suggestedAddonName,
+        }),
       });
     });
 

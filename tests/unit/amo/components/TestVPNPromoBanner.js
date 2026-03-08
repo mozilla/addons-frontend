@@ -1,3 +1,4 @@
+/* global window */
 import * as React from 'react';
 import { Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
@@ -5,10 +6,9 @@ import userEvent from '@testing-library/user-event';
 import VPNPromoBanner, {
   IMPRESSION_COUNT_KEY,
   VPN_PROMO_CAMPAIGN,
-  VPN_PROMO_CATEGORY,
-  VPN_PROMO_CLICK_ACTION,
-  VPN_PROMO_DISMISS_ACTION,
-  VPN_PROMO_IMPRESSION_ACTION,
+  VPN_PROMO_CLICK_CATEGORY,
+  VPN_PROMO_DISMISS_CATEGORY,
+  VPN_PROMO_IMPRESSION_CATEGORY,
   VPN_URL,
 } from 'amo/components/VPNPromoBanner';
 import {
@@ -259,7 +259,7 @@ describe(__filename, () => {
   });
 
   describe('tracking', () => {
-    it('sends a tracking event when the cta is clicked', async () => {
+    it('sends a vpn_promo_click tracking event when the cta is clicked', async () => {
       const impressionCount = '5';
       const _localStorage = createFakeLocalStorage({
         getItem: jest.fn().mockReturnValue(impressionCount),
@@ -269,15 +269,14 @@ describe(__filename, () => {
       await clickCta();
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
-        action: VPN_PROMO_CLICK_ACTION,
-        category: VPN_PROMO_CATEGORY,
-        label: impressionCount,
+        category: VPN_PROMO_CLICK_CATEGORY,
+        params: { page_path: window.location.pathname },
       });
-      // One event is the impression.
+      // One event is the impression, one is the click.
       expect(_tracking.sendEvent).toHaveBeenCalledTimes(2);
     });
 
-    it('sends a tracking event when the dismiss button is clicked', async () => {
+    it('sends a vpn_promo_dismiss tracking event when the dismiss button is clicked', async () => {
       const impressionCount = '5';
       const _localStorage = createFakeLocalStorage({
         getItem: jest.fn().mockReturnValue(impressionCount),
@@ -287,15 +286,14 @@ describe(__filename, () => {
       await clickDismiss();
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
-        action: VPN_PROMO_DISMISS_ACTION,
-        category: VPN_PROMO_CATEGORY,
-        label: impressionCount,
+        category: VPN_PROMO_DISMISS_CATEGORY,
+        params: { page_path: window.location.pathname },
       });
-      // One event is the impression.
+      // One event is the impression, one is the dismiss.
       expect(_tracking.sendEvent).toHaveBeenCalledTimes(2);
     });
 
-    it('sends a tracking event and increases the count for the impression on mount', () => {
+    it('sends a vpn_promo_impression tracking event and increases the count on mount', () => {
       const impressionCount = '5';
       const nextImpressionCount = 6;
       const _localStorage = createFakeLocalStorage({
@@ -305,9 +303,8 @@ describe(__filename, () => {
       render({ _tracking, _localStorage });
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
-        action: VPN_PROMO_IMPRESSION_ACTION,
-        category: VPN_PROMO_CATEGORY,
-        label: String(nextImpressionCount),
+        category: VPN_PROMO_IMPRESSION_CATEGORY,
+        params: { page_path: window.location.pathname },
       });
       expect(_tracking.sendEvent).toHaveBeenCalledTimes(1);
       expect(_localStorage.setItem).toHaveBeenCalledWith(
@@ -340,7 +337,7 @@ describe(__filename, () => {
       expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
 
-    it('sends a tracking event and increases the count for the impression on update', async () => {
+    it('sends a vpn_promo_impression tracking event and increases the count on update', async () => {
       const impressionCount = '5';
       const nextImpressionCount = 6;
       const _localStorage = createFakeLocalStorage({
@@ -358,9 +355,8 @@ describe(__filename, () => {
       });
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
-        action: VPN_PROMO_IMPRESSION_ACTION,
-        category: VPN_PROMO_CATEGORY,
-        label: String(nextImpressionCount),
+        category: VPN_PROMO_IMPRESSION_CATEGORY,
+        params: { page_path: window.location.pathname },
       });
       expect(_tracking.sendEvent).toHaveBeenCalledTimes(1);
 

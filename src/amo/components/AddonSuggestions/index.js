@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -18,7 +19,8 @@ import {
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
-import defaultTracking, { getAddonTypeForTracking } from 'amo/tracking';
+import defaultTracking, { getAddonEventParams } from 'amo/tracking';
+import { getPromotedCategory } from 'amo/utils/addons';
 import LoadingText from 'amo/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
@@ -29,10 +31,12 @@ import type { DispatchFunc } from 'amo/types/redux';
 import './styles.scss';
 
 type DefaultProps = {|
+  _getPromotedCategory: typeof getPromotedCategory,
   tracking: typeof defaultTracking,
 |};
 
 type PropsFromState = {|
+  clientApp: string,
   loading: boolean,
   suggestions: Array<CollectionAddonType> | null,
 |};
@@ -156,6 +160,7 @@ const getCategory = (
 
 export class AddonSuggestionsBase extends React.Component<Props> {
   static defaultProps: DefaultProps = {
+    _getPromotedCategory: getPromotedCategory,
     tracking: defaultTracking,
   };
 
@@ -200,11 +205,13 @@ export class AddonSuggestionsBase extends React.Component<Props> {
   onAddonClick: (addon: AddonType | CollectionAddonType) => void = (
     addon: AddonType | CollectionAddonType,
   ) => {
-    const { tracking } = this.props;
+    const { _getPromotedCategory, clientApp, tracking } = this.props;
     tracking.sendEvent({
-      action: getAddonTypeForTracking(addon.type),
       category: SUGGESTIONS_CLICK_CATEGORY,
-      label: addon.guid,
+      params: {
+        ...getAddonEventParams(addon, window.location.pathname),
+        trusted: !!_getPromotedCategory({ addon, clientApp }),
+      },
     });
   };
 
@@ -286,7 +293,7 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
       state: state.suggestions,
     });
   }
-  return { loading, suggestions };
+  return { clientApp: state.api.clientApp, loading, suggestions };
 };
 
 const AddonSuggestions: React.ComponentType<Props> = compose(

@@ -11,10 +11,10 @@ export const baseUrlProd = apiProdHost;
 export const baseUrlStage = apiStageHost;
 
 // https://github.com/mozilla/addons/issues/14799#issuecomment-2127359422
-// These match Google's recommendations for CSP with GA4.
-export const ga4TagManagerHost = 'https://*.googletagmanager.com';
-export const ga4AnalyticsHost = 'https://*.google-analytics.com';
-export const ga4AdditionalAnalyticsHost = 'https://*.analytics.google.com';
+// These match Google's recommendations for CSP with GTM/GA4.
+export const gtmHost = 'https://*.googletagmanager.com';
+export const gtmAnalyticsHost = 'https://*.google-analytics.com';
+export const gtmAdditionalAnalyticsHost = 'https://*.analytics.google.com';
 
 export const staticPath = '/static-frontend/';
 export const serverStaticPath = '/static-server/';  // addons-server statics.

@@ -1,3 +1,4 @@
+/* global window */
 import { LOCATION_CHANGE } from 'redux-first-history';
 import config from 'config';
 import serialize from 'serialize-javascript';
@@ -8,10 +9,7 @@ import { createAddonReview, setLatestReview } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import { getAddon } from 'amo/addonManager';
 import { TAAR_IMPRESSION_CATEGORY } from 'amo/components/AddonRecommendations';
-import {
-  CONTRIBUTE_BUTTON_CLICK_ACTION,
-  CONTRIBUTE_BUTTON_CLICK_CATEGORY,
-} from 'amo/components/ContributeCard';
+import { CONTRIBUTE_BUTTON_CLICK_CATEGORY } from 'amo/components/ContributeCard';
 import {
   ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
@@ -122,7 +120,6 @@ jest.mock('amo/addonManager', () => ({
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
-  setDimension: jest.fn(),
   setUserProperties: jest.fn(),
 }));
 
@@ -1889,9 +1886,11 @@ describe(__filename, () => {
 
       expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
       expect(tracking.sendEvent).toHaveBeenCalledWith({
-        action: CONTRIBUTE_BUTTON_CLICK_ACTION,
         category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,
-        label: addon.guid,
+        params: expect.objectContaining({
+          page_path: window.location.pathname,
+          trusted: expect.any(Boolean),
+        }),
       });
     });
   });
@@ -2593,7 +2592,6 @@ describe(__filename, () => {
     });
 
     it('should send a GA ping when recommendations are loaded', async () => {
-      const fallbackReason = 'timeout';
       const outcome = OUTCOME_RECOMMENDED_FALLBACK;
       renderWithAddon();
 
@@ -2601,21 +2599,22 @@ describe(__filename, () => {
 
       doLoadRecommendations({
         outcome,
-        fallbackReason,
+        fallbackReason: 'timeout',
       });
 
       await waitFor(() => {
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
       });
       expect(tracking.sendEvent).toHaveBeenCalledWith({
-        action: `${outcome}-${fallbackReason}`,
         category: TAAR_IMPRESSION_CATEGORY,
-        label: addon.guid,
+        params: expect.objectContaining({
+          extension_name: defaultAddonName,
+          author: authorName,
+        }),
       });
     });
 
     it('should send a GA ping without a fallback', async () => {
-      const fallbackReason = null;
       const outcome = OUTCOME_RECOMMENDED;
       renderWithAddon();
 
@@ -2623,16 +2622,18 @@ describe(__filename, () => {
 
       doLoadRecommendations({
         outcome,
-        fallbackReason,
+        fallbackReason: null,
       });
 
       await waitFor(() => {
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
       });
       expect(tracking.sendEvent).toHaveBeenCalledWith({
-        action: outcome,
         category: TAAR_IMPRESSION_CATEGORY,
-        label: addon.guid,
+        params: expect.objectContaining({
+          extension_name: defaultAddonName,
+          author: authorName,
+        }),
       });
     });
 
