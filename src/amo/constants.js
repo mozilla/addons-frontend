@@ -236,6 +236,14 @@ export const CLICK_CATEGORY = 'amo_addon_theme_clicks';
 
 export const SUGGESTIONS_CLICK_CATEGORY = 'amo_suggested_addon_clicks';
 
+// Collection tracking event categories
+export const COLLECTION_CREATE_STARTED_CATEGORY =
+  'amo_create_collection_started';
+export const COLLECTION_CREATE_COMPLETED_CATEGORY =
+  'amo_create_collection_completed';
+export const COLLECTION_ADD_ADDON_CATEGORY = 'amo_add_to_collection';
+export const COLLECTION_REMOVE_ADDON_CATEGORY = 'amo_remove_from_collection';
+
 // Error used to know that the setEnable method on addon is
 // not available.
 export const SET_ENABLE_NOT_AVAILABLE = 'SET_ENABLE_NOT_AVAILABLE';

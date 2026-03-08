@@ -16,6 +16,7 @@ import {
 } from 'amo/components/HomepageShelves';
 import {
   SECONDARY_HERO_CLICK_CATEGORY,
+  SECONDARY_HERO_IMPRESSION_CATEGORY,
   SECONDARY_HERO_SRC,
 } from 'amo/components/SecondaryHero';
 import {
@@ -228,6 +229,16 @@ describe(__filename, () => {
       expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
       expect(tracking.sendEvent).toHaveBeenCalledWith({
         category: SECONDARY_HERO_CLICK_CATEGORY,
+        params: { page_path: window.location.pathname },
+      });
+    });
+
+    it('sends a tracking event for the impression on mount', () => {
+      const cta = { text: 'cta text', url: '/some/url', outgoing: '/out/url' };
+      renderWithHomeData({ secondaryProps: { cta } });
+
+      expect(tracking.sendEvent).toHaveBeenCalledWith({
+        category: SECONDARY_HERO_IMPRESSION_CATEGORY,
         params: { page_path: window.location.pathname },
       });
     });
