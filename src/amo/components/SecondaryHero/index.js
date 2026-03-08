@@ -25,14 +25,6 @@ type InternalProps = {|
   _tracking: typeof tracking,
 |};
 
-export const makeCallToActionURL = (urlString: string): string => {
-  return addQueryParams(urlString, {
-    utm_source: DEFAULT_UTM_SOURCE,
-    utm_medium: DEFAULT_UTM_MEDIUM,
-    utm_content: SECONDARY_HERO_SRC,
-  });
-};
-
 export const SecondaryHeroBase = ({
   _checkInternalURL = checkInternalURL,
   _tracking = tracking,
@@ -58,11 +50,20 @@ export const SecondaryHeroBase = ({
     if (link) {
       const urlInfo = _checkInternalURL({ urlString: link.url });
       if (urlInfo.isInternal) {
-        return { ...props, to: makeCallToActionURL(urlInfo.relativeURL) };
+        return {
+          ...props,
+          to: addQueryParams(urlInfo.relativeURL, {
+            addonInstallSource: SECONDARY_HERO_SRC,
+          }),
+        };
       }
       return {
         ...props,
-        href: makeCallToActionURL(link.url),
+        href: addQueryParams(link.url, {
+          utm_source: DEFAULT_UTM_SOURCE,
+          utm_medium: DEFAULT_UTM_MEDIUM,
+          utm_content: SECONDARY_HERO_SRC,
+        }),
         prependClientApp: false,
         prependLang: false,
         target: '_blank',

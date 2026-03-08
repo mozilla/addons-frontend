@@ -73,9 +73,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
     if (addon) {
       return addQueryParams(getAddonURL(addon.slug), {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: PRIMARY_HERO_SRC,
+        addonInstallSource: PRIMARY_HERO_SRC,
       });
     }
 

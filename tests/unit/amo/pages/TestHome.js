@@ -175,9 +175,7 @@ describe(__filename, () => {
       expect(link).toHaveAttribute(
         'href',
         `/${defaultLang}/${defaultClientApp}${addQueryParams(cta.url, {
-          utm_source: DEFAULT_UTM_SOURCE,
-          utm_medium: DEFAULT_UTM_MEDIUM,
-          utm_content: SECONDARY_HERO_SRC,
+          addonInstallSource: SECONDARY_HERO_SRC,
         })}`,
       );
       expect(link).not.toHaveAttribute('target');
@@ -327,9 +325,7 @@ describe(__filename, () => {
                 `/${defaultLang}/${defaultClientApp}${addQueryParams(
                   moduleData.cta.url,
                   {
-                    utm_source: DEFAULT_UTM_SOURCE,
-                    utm_medium: DEFAULT_UTM_MEDIUM,
-                    utm_content: SECONDARY_HERO_SRC,
+                    addonInstallSource: SECONDARY_HERO_SRC,
                   },
                 )}`,
               );
@@ -483,11 +479,7 @@ describe(__filename, () => {
 
         expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
           'href',
-          [
-            `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-            `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-            `utm_content=${addonInstallSource}`,
-          ].join('&'),
+          `/${defaultLang}/${defaultClientApp}/addon/${slug}/?addonInstallSource=${addonInstallSource}`,
         );
       },
     );
@@ -512,11 +504,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
         'href',
-        [
-          `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-          `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-          `utm_content=${INSTALL_SOURCE_TAG_SHELF_PREFIX}${tagName}`,
-        ].join('&'),
+        `/${defaultLang}/${defaultClientApp}/addon/${slug}/?addonInstallSource=${INSTALL_SOURCE_TAG_SHELF_PREFIX}${tagName}`,
       );
     });
 
@@ -624,9 +612,7 @@ describe(__filename, () => {
         ).toHaveAttribute(
           'href',
           addQueryParams(`/${defaultLang}/${defaultClientApp}/addon/${slug}/`, {
-            utm_source: DEFAULT_UTM_SOURCE,
-            utm_medium: DEFAULT_UTM_MEDIUM,
-            utm_content: PRIMARY_HERO_SRC,
+            addonInstallSource: PRIMARY_HERO_SRC,
           }),
         );
       });
@@ -1197,9 +1183,7 @@ describe(__filename, () => {
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
       `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: INSTALL_SOURCE_FEATURED,
+        addonInstallSource: INSTALL_SOURCE_FEATURED,
       })}`,
     );
   });
@@ -1249,9 +1233,7 @@ describe(__filename, () => {
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
       `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: INSTALL_SOURCE_FEATURED,
+        addonInstallSource: INSTALL_SOURCE_FEATURED,
       })}`,
     );
   });

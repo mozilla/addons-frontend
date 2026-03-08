@@ -20,7 +20,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  DEFAULT_UTM_SOURCE,
   FATAL_ERROR,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   INSTALLING,
@@ -2380,17 +2379,11 @@ describe(__filename, () => {
       });
       renderWithAddon();
 
-      const expectedLink = [
-        `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-        'utm_medium=referral',
-        `utm_content=${outcome}`,
-      ].join('&');
-
       // This shows that the add-on was passed to AddonsCard, along
       // with a correct addonInstallSource.
       expect(screen.getByRole('link', { name })).toHaveAttribute(
         'href',
-        expectedLink,
+        `/${lang}/${clientApp}/addon/${slug}/?addonInstallSource=${outcome}`,
       );
       // This shows that the header was passed.
       expect(
@@ -2439,14 +2432,9 @@ describe(__filename, () => {
       });
       renderWithAddon();
 
-      const expectedLink = [
-        `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-        'utm_medium=referral',
-        `utm_content=${outcome}`,
-      ].join('&');
       expect(screen.getByRole('link', { name })).toHaveAttribute(
         'href',
-        expectedLink,
+        `/${lang}/${clientApp}/addon/${slug}/?addonInstallSource=${outcome}`,
       );
       expect(screen.getByText('Other popular extensions')).toBeInTheDocument();
     });
@@ -2468,14 +2456,9 @@ describe(__filename, () => {
       });
       renderWithAddon();
 
-      const expectedLink = [
-        `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-        'utm_medium=referral',
-        `utm_content=${outcome}`,
-      ].join('&');
       expect(screen.getByRole('link', { name })).toHaveAttribute(
         'href',
-        expectedLink,
+        `/${lang}/${clientApp}/addon/${slug}/?addonInstallSource=${outcome}`,
       );
       expect(screen.getByText('Other popular extensions')).toBeInTheDocument();
     });
