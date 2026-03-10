@@ -14,13 +14,13 @@ references:
     working_directory: ~/addons-frontend
     docker:
       # This is the NodeJS version we run in production.
-      - image: cimg/node:20.19
+      - image: cimg/node:22.22.1
 
-  defaults-next: &defaults-next
-    working_directory: ~/addons-frontend
-    docker:
-      # This is the next NodeJS version we will support.
-      - image: cimg/node:22.14
+  # defaults-next: &defaults-next
+  #   working_directory: ~/addons-frontend
+  #   docker:
+  #     # This is the next NodeJS version we will support.
+  #     - image: cimg/node:24.14
 
   defaults-release: &defaults-release
     machine:
@@ -189,23 +189,23 @@ jobs:
       - run: yarn prettier-ci
       - run: pip install 'fonttools<4.44.1' brotli && yarn check-fonts
 
-  build-next:
-    <<: *defaults-next
-    steps:
-      - checkout
-      - *restore_next_build_cache
-      - *run_yarn_install
-      - *save_next_build_cache
-      - run: yarn build
+  # build-next:
+  #   <<: *defaults-next
+  #   steps:
+  #     - checkout
+  #     - *restore_next_build_cache
+  #     - *run_yarn_install
+  #     - *save_next_build_cache
+  #     - run: yarn build
 
-  test-next:
-    <<: *defaults-next
-    steps:
-      - better_checkout
-      - *restore_next_build_cache
-      - *run_yarn_install
-      - *save_next_build_cache
-      - run: yarn test-ci-next
+  # test-next:
+  #   <<: *defaults-next
+  #   steps:
+  #     - better_checkout
+  #     - *restore_next_build_cache
+  #     - *run_yarn_install
+  #     - *save_next_build_cache
+  #     - run: yarn test-ci-next
 
   dennis-lint:
     <<: *defaults-release
@@ -354,8 +354,8 @@ workflows:
             tags:
               ignore: /.*/
       - test
-      - build-next
-      - test-next
+      # - build-next
+      # - test-next
       - check
       - dennis-lint
       - build-blog-utils:
