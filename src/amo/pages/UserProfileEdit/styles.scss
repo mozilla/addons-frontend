@@ -137,7 +137,7 @@ $font-size-aside: $font-size-xs;
   max-width: 500px;
 
   .Card-contents {
-    background: $base-color;
+    background: var(--amo-bg-content);
     font-size: $font-size-default;
 
     p {

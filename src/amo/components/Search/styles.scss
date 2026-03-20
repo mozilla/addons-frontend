@@ -58,7 +58,7 @@
   }
 
   .SearchResults-message {
-    background: $base-color;
+    background: var(--amo-bg-content);
     border-bottom-left-radius: $border-radius-default;
     border-bottom-right-radius: $border-radius-default;
     margin-top: 0;

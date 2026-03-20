@@ -50,7 +50,7 @@
   flex-direction: column;
 
   & .Addon-theme-thumbnail {
-    background-color: $background-grey;
+    background-color: var(--amo-bg-page);
     border-radius: $border-radius-default;
     grid-area: theme;
     margin-top: 16px;

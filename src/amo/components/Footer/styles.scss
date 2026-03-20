@@ -3,7 +3,7 @@
 .Footer {
   @include font-regular;
 
-  background: $footer-base-color;
+  background: var(--amo-bg-footer);
   color: $white;
   width: 100%;
 

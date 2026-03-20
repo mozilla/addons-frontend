@@ -1,0 +1,32 @@
+// CSS custom properties for theming.
+// This file maps existing SCSS variables to CSS custom properties,
+// enabling runtime theme switching in future.
+
+:root {
+  // Page & content backgrounds
+  --amo-bg-page: #{$background-grey};
+  --amo-bg-content: #{$white};
+  --amo-bg-body: #{$header-base-color};
+  --amo-bg-header: #{$color-ink-80};
+  --amo-bg-footer: #{$footer-base-color};
+  --amo-bg-input: #{$white};
+
+  // Text colors
+  --amo-text-primary: #{$primary-font-color};
+  --amo-text-body: #{$body-font-color};
+  --amo-text-secondary: #{$sub-text-color};
+  --amo-text-heading: #{$text-color-default};
+
+  // Interactive colors
+  --amo-link-color: #{$link-color};
+  --amo-border-color: #{$grey-50};
+  --amo-input-text: #{$black};
+
+  // Misc
+  --amo-showmorecard-gradient: #{$showmorecard-gradient-color};
+  --amo-block-hover: #{$block-hover-white-color};
+  --amo-bg-grey: #{$background-grey};
+  --amo-hover-bg: #{$grey-10};
+  --amo-select-bg: #{$grey-30};
+  --amo-placeholder-bg: #ccc;
+}

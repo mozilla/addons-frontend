@@ -9,10 +9,10 @@
   @include padding-start(28px);
 
   // This prevents a flicker of black when focusing on mobile.
-  background-color: $white;
-  border: 1px solid $white;
+  background-color: var(--amo-bg-input);
+  border: 1px solid var(--amo-border-color);
   border-radius: $border-radius-s;
-  color: $black;
+  color: var(--amo-input-text);
   height: 27px;
   outline: 0;
   text-overflow: ellipsis;
@@ -42,11 +42,11 @@
 .AutoSearchInput-suggestions-list {
   @include end(0);
 
-  background-color: $white;
+  background-color: var(--amo-bg-content);
   border-bottom-left-radius: $border-radius-s;
   border-bottom-right-radius: $border-radius-s;
   box-shadow: 1px 4px 3px transparentize($black, 0.5);
-  color: $black;
+  color: var(--amo-input-text);
   margin: 0;
   padding: 0;
   position: absolute;

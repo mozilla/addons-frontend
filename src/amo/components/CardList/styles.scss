@@ -13,7 +13,7 @@
     padding: 0;
 
     > li {
-      background: $white;
+      background: var(--amo-bg-content);
       margin-bottom: 1px;
       padding: $padding-page;
 

@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .DropdownMenuItem-section {
-  color: $grey-50;
+  color: var(--amo-text-secondary);
   font-size: $font-size-s;
   margin: 16px 0 0;
 }
@@ -12,7 +12,7 @@
 
   &,
   &:link {
-    color: $grey-90;
+    color: var(--amo-text-primary);
     cursor: pointer;
     font-size: $font-size-default;
     margin: 0;

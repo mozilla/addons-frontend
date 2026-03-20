@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .SecondaryHero {
-  color: $black;
+  color: var(--amo-text-primary);
   display: grid;
   grid-gap: $padding-page;
   grid-template-columns: auto;
@@ -62,7 +62,7 @@
 
 .SecondaryHero-module {
   align-items: center;
-  background-color: $white;
+  background-color: var(--amo-bg-content);
   border-radius: $border-radius-s;
   display: flex;
   flex-direction: column;

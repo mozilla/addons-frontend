@@ -1,5 +1,6 @@
 // This import will also import `./inc/vars.scss`.
 @import './inc/mixins';
+@import './inc/theme';
 
 /* Shared CSS lib code. Bear in mind that changes here impacts *everything*. */
 .visually-hidden {

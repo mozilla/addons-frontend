@@ -5,7 +5,7 @@
     // rgba(255, 255, 255, 0%) instead of transparent prevents
     // grey line in Safari.
     // See: https://github.com/mozilla/addons-frontend/issues/2865
-    background: linear-gradient(rgba(255, 255, 255, 0%), $base-color);
+    background: linear-gradient(rgba(255, 255, 255, 0%), var(--amo-bg-content));
     bottom: 0;
     content: '';
     height: 20px;

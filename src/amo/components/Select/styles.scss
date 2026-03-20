@@ -5,8 +5,9 @@
   @include padding-start(6px);
 
   appearance: none;
-  background: $grey-30 url('~amo/components/Icon/img/triangle-down-black.svg')
+  background: var(--amo-select-bg) url('~amo/components/Icon/img/triangle-down-black.svg')
     no-repeat calc(100% - 10px) 50%;
+  color: var(--amo-input-text);
   background-size: 12px;
   border: 0;
   border-radius: $border-radius-s;

@@ -29,7 +29,7 @@
 
     &:first-child,
     &:last-child {
-      color: $black;
+      color: var(--amo-text-primary);
       display: flex;
     }
 
@@ -47,7 +47,7 @@
 }
 
 .Paginate .Button.Paginate-item--current-page {
-  color: $black;
+  color: var(--amo-text-primary);
   opacity: 1;
 }
 

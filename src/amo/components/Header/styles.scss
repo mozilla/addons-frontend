@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .Header {
-  background: $color-ink-80;
+  background: var(--amo-bg-header);
 }
 
 .Header-wrapper {
