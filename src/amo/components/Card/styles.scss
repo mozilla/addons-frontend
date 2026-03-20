@@ -79,7 +79,7 @@ $footer-padding: 10px;
   }
 
   a:focus {
-    outline: 1px dotted $link-color;
+    outline: 1px dotted var(--amo-link-color);
     outline: auto 5px -webkit-focus-ring-color;
   }
 }

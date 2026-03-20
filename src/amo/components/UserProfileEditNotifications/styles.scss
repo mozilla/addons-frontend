@@ -57,8 +57,8 @@ $input-height: 16px;
     // This creates a white tick.
     &::before {
       background-color: transparent;
-      border-bottom: 2px solid $white;
-      border-right: 2px solid $white;
+      border-bottom: 2px solid var(--amo-text-on-dark);
+      border-right: 2px solid var(--amo-text-on-dark);
       content: '';
       display: block;
       height: 55%;

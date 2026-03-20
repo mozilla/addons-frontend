@@ -33,7 +33,7 @@ $cell-padding: 6px;
 // values.
 .LanguageTools-table.responsiveTable {
   tbody tr {
-    border: 1px solid $grey-30;
+    border: 1px solid var(--amo-border-color);
     border-bottom: 0;
     padding: 0;
 
@@ -42,7 +42,7 @@ $cell-padding: 6px;
     }
 
     &:last-child {
-      border-bottom: 1px solid $grey-30;
+      border-bottom: 1px solid var(--amo-border-color);
     }
   }
 
