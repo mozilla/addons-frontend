@@ -20,13 +20,13 @@
   width: 100%;
 
   &:hover {
-    border-color: $teal-50;
+    border-color: var(--amo-focus-border);
   }
 
   &:focus {
     @include focus;
 
-    border-color: $teal-50;
+    border-color: var(--amo-focus-border);
   }
 
   @include respond-to(medium) {
@@ -66,7 +66,7 @@
 .AutoSearchInput-suggestions-item:active,
 .AutoSearchInput-suggestions-item:focus,
 .AutoSearchInput-suggestions-item--highlighted {
-  color: $link-color;
+  color: var(--amo-link-color);
   white-space: normal;
 
   .SearchSuggestion-icon-arrow {

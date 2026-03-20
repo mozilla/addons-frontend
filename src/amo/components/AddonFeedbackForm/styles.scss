@@ -41,7 +41,7 @@ $icon-size: 32px;
   }
 
   .AddonFeedbackForm-header-metadata {
-    color: $grey-50;
+    color: var(--amo-text-muted);
     grid-column: 2 / span 2;
     grid-row: 2;
 

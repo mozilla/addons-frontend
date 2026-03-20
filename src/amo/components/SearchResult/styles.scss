@@ -10,7 +10,7 @@ $icon-default-size: 32px;
     cursor: pointer;
 
     .SearchResult-link {
-      color: $link-color;
+      color: var(--amo-link-color);
     }
   }
 }
@@ -30,7 +30,7 @@ $icon-default-size: 32px;
 
   &:focus,
   &:hover {
-    color: $link-color;
+    color: var(--amo-link-color);
   }
 }
 
@@ -236,7 +236,7 @@ $icon-default-size: 32px;
 .SearchResult-note {
   background-color: transparentize($blue-50, 0.95);
   border-radius: $border-radius-default;
-  color: $type-black;
+  color: var(--amo-text-heading);
   flex-grow: 1;
   font-weight: normal;
   margin-top: 12px;

@@ -31,7 +31,7 @@
 }
 
 .HeroRecommendation-content {
-  color: $white;
+  color: var(--amo-text-on-dark);
   display: flex;
   min-width: 0;
   padding: 24px;
@@ -111,7 +111,7 @@
   &:hover,
   &:link,
   &:visited {
-    color: $white;
+    color: var(--amo-text-on-dark);
     font-weight: normal;
     opacity: 0.5;
     text-decoration: none;
@@ -131,7 +131,7 @@
 .HeroRecommendation-heading {
   @include font-medium;
 
-  color: $white;
+  color: var(--amo-text-on-dark);
   font-size: $font-size-heading-s;
   margin: 14px 0 0;
 
@@ -214,7 +214,7 @@
   &:link,
   &:hover,
   &:visited {
-    color: $white;
+    color: var(--amo-text-on-dark);
     text-decoration: none;
   }
 

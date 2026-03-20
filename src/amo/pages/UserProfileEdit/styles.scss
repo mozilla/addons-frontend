@@ -47,7 +47,7 @@ $font-size-aside: $font-size-xs;
 
 .UserProfileEdit-notifications-aside,
 .UserProfileEdit-profile-aside {
-  color: $grey-50;
+  color: var(--amo-text-muted);
   font-size: $font-size-aside;
   margin-top: 0;
 
@@ -71,7 +71,7 @@ $font-size-aside: $font-size-xs;
 .UserProfileEdit-email--help,
 .UserProfileEdit-homepage--help,
 .UserProfileEdit-notifications--help {
-  color: $grey-50;
+  color: var(--amo-text-muted);
   display: block;
   font-size: $font-size-aside;
   margin-top: 4px;
@@ -88,7 +88,7 @@ $font-size-aside: $font-size-xs;
   width: 100%;
 
   &:disabled {
-    background: $grey-20;
+    background: var(--amo-bg-neutral);
     cursor: not-allowed;
   }
 

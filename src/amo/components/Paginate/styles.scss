@@ -4,7 +4,7 @@
   padding: $padding-page;
 
   @include respond-to(large) {
-    background-color: $grey-10;
+    background-color: var(--amo-hover-bg);
     border-radius: $border-radius-default;
     display: inline-block;
     margin: 0 auto;
@@ -20,8 +20,8 @@
   &,
   &:link,
   &:visited {
-    background-color: $grey-20;
-    color: $link-color;
+    background-color: var(--amo-bg-neutral);
+    color: var(--amo-link-color);
     display: none;
     font-weight: normal;
     min-width: 48%;
@@ -42,7 +42,7 @@
 
   &:hover,
   &:active {
-    background-color: $grey-30;
+    background-color: var(--amo-select-bg);
   }
 }
 
@@ -62,7 +62,7 @@
 .Paginate-page-number {
   @include font-light;
 
-  color: $grey-50;
+  color: var(--amo-text-muted);
   margin: $padding-page 0 0;
   text-align: center;
 }

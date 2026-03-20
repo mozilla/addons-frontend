@@ -10,23 +10,35 @@
   --amo-bg-header: #{$color-ink-80};
   --amo-bg-footer: #{$footer-base-color};
   --amo-bg-input: #{$white};
+  --amo-bg-neutral: #{$grey-20};
 
   // Text colors
   --amo-text-primary: #{$primary-font-color};
   --amo-text-body: #{$body-font-color};
   --amo-text-secondary: #{$sub-text-color};
   --amo-text-heading: #{$text-color-default};
+  --amo-text-on-dark: #{$white};
+  --amo-text-dark: #{$grey-90};
+  --amo-text-muted: #{$grey-50};
+  --amo-text-muted-light: #{$grey-40};
+  --amo-text-date: #b1b1b1;
 
   // Interactive colors
   --amo-link-color: #{$link-color};
   --amo-border-color: #{$grey-50};
   --amo-input-text: #{$black};
+  --amo-focus-border: #{$teal-50};
+  --amo-action-hover: #{$action-hover-color};
+  --amo-accent-color: #{$blue-60};
 
-  // Misc
+  // Component-specific
   --amo-showmorecard-gradient: #{$showmorecard-gradient-color};
   --amo-block-hover: #{$block-hover-white-color};
   --amo-bg-grey: #{$background-grey};
   --amo-hover-bg: #{$grey-10};
   --amo-select-bg: #{$grey-30};
   --amo-placeholder-bg: #ccc;
+  --amo-rating-bar-bg: #{rgba($yellow-50, 0.25)};
+  --amo-rating-bar-fill: #{$yellow-40};
+  --amo-loading-bg: #{$grey-30};
 }

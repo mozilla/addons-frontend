@@ -96,7 +96,7 @@
   &:visited,
   &:hover,
   &:active {
-    color: $link-color;
+    color: var(--amo-link-color);
     font-weight: normal;
     text-decoration: none;
   }

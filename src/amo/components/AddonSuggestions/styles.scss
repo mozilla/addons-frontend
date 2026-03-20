@@ -36,7 +36,7 @@
             cursor: pointer;
 
             .SearchResult-name {
-              color: $link-color;
+              color: var(--amo-link-color);
             }
 
             .SearchResult-users {

@@ -18,7 +18,7 @@
 .Definition-dt {
   @include font-regular;
 
-  color: $grey-50;
+  color: var(--amo-text-muted);
   margin: 0;
   padding: 0;
 }

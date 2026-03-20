@@ -23,7 +23,7 @@
   &:hover,
   &:focus,
   &:active {
-    color: $blue-50;
+    color: var(--amo-link-color);
   }
 }
 

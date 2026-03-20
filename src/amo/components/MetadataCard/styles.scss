@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .MetadataCard {
-  background-color: $grey-10;
+  background-color: var(--amo-hover-bg);
   border-radius: $border-radius-m;
   display: flex;
   flex-direction: row;
@@ -26,6 +26,6 @@
   }
 
   dt {
-    color: $grey-50;
+    color: var(--amo-text-muted);
   }
 }

@@ -114,7 +114,7 @@
   &:active,
   &:focus,
   &:hover {
-    color: $link-color;
+    color: var(--amo-link-color);
     text-decoration: underline;
   }
 }

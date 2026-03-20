@@ -8,7 +8,7 @@ $badge-size-small: 12px;
   border-radius: 22px;
   border: 1px solid $color-light-gray-40;
   box-sizing: border-box;
-  color: $grey-90;
+  color: var(--amo-text-dark);
   display: inline-flex;
   font-size: $font-size-default;
   gap: 6px;
@@ -20,13 +20,13 @@ $badge-size-small: 12px;
     &:hover,
     &:active,
     &:focus {
-      border-color: $color-light-gray-90;
+      border-color: var(--amo-border-color);
     }
   }
 
   .Badge-link {
     align-items: center;
-    color: $color-dark-gray-05;
+    color: var(--amo-text-dark);
     display: flex;
     flex-grow: 0;
     flex-shrink: 0;

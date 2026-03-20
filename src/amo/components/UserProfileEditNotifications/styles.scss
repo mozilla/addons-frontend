@@ -25,7 +25,7 @@ $input-height: 16px;
     z-index: -1;
 
     &:checked ~ .UserProfileEditNotification-checkbox {
-      background-color: $blue-50;
+      background-color: var(--amo-accent-color);
 
       &::before {
         opacity: 1;
@@ -39,7 +39,7 @@ $input-height: 16px;
   }
 
   .UserProfileEditNotification-checkbox {
-    background-color: $grey-30;
+    background-color: var(--amo-select-bg);
     border: 0;
     border-radius: 4px;
     display: inline-block;

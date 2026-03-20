@@ -31,7 +31,7 @@
   .DropdownMenu-button-text {
     @include font-regular;
 
-    color: $white;
+    color: var(--amo-text-on-dark);
     display: inline-block;
     font-size: $font-size-s;
     font-weight: normal;

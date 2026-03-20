@@ -45,20 +45,20 @@
 }
 
 .UserReview-byLine {
-  color: $sub-text-color;
+  color: var(--amo-text-secondary);
   display: flex;
   font-size: $font-size-s;
 
   a,
   a:link,
   a:visited {
-    color: $sub-text-color;
+    color: var(--amo-text-secondary);
     font-weight: normal;
   }
 
   a:active,
   a:hover {
-    color: $link-color;
+    color: var(--amo-link-color);
   }
 
   a:focus {
@@ -69,7 +69,7 @@
 .UserReview-reply-header {
   @include margin-end(6px);
 
-  color: $text-color-default;
+  color: var(--amo-text-heading);
   margin-bottom: 6px;
   margin-top: 0;
 

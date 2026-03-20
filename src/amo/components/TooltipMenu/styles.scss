@@ -13,7 +13,7 @@
 }
 
 .TooltipMenu-opener {
-  color: $blue-50;
+  color: var(--amo-link-color);
   cursor: pointer;
   line-height: $line-height-body;
   margin: 0;
@@ -81,7 +81,7 @@
       &:not(.Button) {
         @include text-align-start;
 
-        color: $grey-90;
+        color: var(--amo-text-dark);
         font-size: $font-size-default;
         line-height: $line-height-body;
       }
@@ -104,14 +104,14 @@
     a:focus,
     a:active {
       &:not(.Button) {
-        color: $blue-50;
+        color: var(--amo-link-color);
       }
     }
 
     @include respond-to(medium) {
       button:hover,
       button:focus {
-        color: $blue-50;
+        color: var(--amo-link-color);
       }
     }
 

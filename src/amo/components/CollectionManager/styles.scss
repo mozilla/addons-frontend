@@ -43,7 +43,7 @@
 }
 
 .CollectionManager-slug-url-hint {
-  background-color: $grey-20;
+  background-color: var(--amo-bg-neutral);
   border: 1px solid $grey-50;
   border-radius: $border-radius-xs 0 0 $border-radius-xs;
 
