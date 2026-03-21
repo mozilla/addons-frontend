@@ -2,6 +2,7 @@
 /* global window */
 import * as React from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
 import makeClassName from 'classnames';
 
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
@@ -11,6 +12,7 @@ import { getPromotedCategory } from 'amo/utils/addons';
 import Button from 'amo/components/Button';
 import Icon from 'amo/components/Icon';
 import type { AddonType } from 'amo/types/addons';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -20,12 +22,16 @@ export const CONTRIBUTE_BUTTON_CLICK_CATEGORY =
 
 type Props = {|
   addon: AddonType | null,
-  clientApp: string,
   i18n: I18nType,
+|};
+
+type PropsFromState = {|
+  clientApp: string,
 |};
 
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   _tracking: typeof tracking,
   _getPromotedCategory: typeof getPromotedCategory,
 |};
@@ -128,7 +134,15 @@ export const ContributeCardBase = ({
   );
 };
 
-const ContributeCard: React.ComponentType<Props> =
-  compose(translate())(ContributeCardBase);
+const mapStateToProps = (state: AppState): PropsFromState => {
+  return {
+    clientApp: state.api.clientApp,
+  };
+};
+
+const ContributeCard: React.ComponentType<Props> = compose(
+  connect(mapStateToProps),
+  translate(),
+)(ContributeCardBase);
 
 export default ContributeCard;
