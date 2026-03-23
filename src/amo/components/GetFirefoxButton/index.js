@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -17,9 +18,10 @@ import {
   GET_FIREFOX_BANNER_UTM_CONTENT,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
-import tracking from 'amo/tracking';
+import tracking, { getAddonEventParams } from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { isFirefox } from 'amo/utils/compatibility';
+import { getPromotedCategory } from 'amo/utils/addons';
 import { makeQueryString } from 'amo/api';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AppState } from 'amo/store';
@@ -28,8 +30,7 @@ import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
-export const GET_FIREFOX_BUTTON_CLICK_ACTION = 'download-firefox-click';
-export const GET_FIREFOX_BUTTON_CLICK_CATEGORY = 'AMO Download Firefox';
+export const GET_FIREFOX_BUTTON_CLICK_CATEGORY = 'amo_download_firefox_button';
 
 export type Props = {|
   addon: AddonType,
@@ -40,6 +41,7 @@ export type Props = {|
 
 export type DefaultProps = {|
   _encode: typeof encode,
+  _getPromotedCategory: typeof getPromotedCategory,
   _tracking: typeof tracking,
 |};
 
@@ -116,6 +118,7 @@ export const getDownloadLink = ({
 
 export const GetFirefoxButtonBase = ({
   _encode = encode,
+  _getPromotedCategory = getPromotedCategory,
   _tracking = tracking,
   addon,
   className,
@@ -133,9 +136,11 @@ export const GetFirefoxButtonBase = ({
 
   const onButtonClick = () => {
     _tracking.sendEvent({
-      action: GET_FIREFOX_BUTTON_CLICK_ACTION,
       category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-      label: addon.guid,
+      params: {
+        ...getAddonEventParams(addon, window.location.pathname),
+        trusted: !!_getPromotedCategory({ addon, clientApp }),
+      },
     });
   };
 

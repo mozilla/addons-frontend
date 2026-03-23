@@ -1,8 +1,9 @@
 /* @flow */
+/* global window */
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
+import { checkInternalURL } from 'amo/utils';
 import tracking from 'amo/tracking';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'amo/constants';
 import { addQueryParams } from 'amo/utils/url';
@@ -11,12 +12,9 @@ import type {
   LinkWithTextType,
   SecondaryHeroShelfType,
 } from 'amo/reducers/home';
-import type { AnchorEvent } from 'amo/types/dom';
-
 import './styles.scss';
 
-export const SECONDARY_HERO_CLICK_ACTION = 'secondary-hero-click';
-export const SECONDARY_HERO_CLICK_CATEGORY = 'AMO Secondary Hero Clicks';
+export const SECONDARY_HERO_CLICK_CATEGORY = 'amo_secondary_hero_clicks';
 export const SECONDARY_HERO_SRC = 'homepage-secondary-hero';
 
 type Props = {| shelfData?: SecondaryHeroShelfType |};
@@ -24,7 +22,6 @@ type Props = {| shelfData?: SecondaryHeroShelfType |};
 type InternalProps = {|
   ...Props,
   _checkInternalURL: typeof checkInternalURL,
-  _stripLangFromAmoUrl: typeof stripLangFromAmoUrl,
   _tracking: typeof tracking,
 |};
 
@@ -38,7 +35,6 @@ export const makeCallToActionURL = (urlString: string): string => {
 
 export const SecondaryHeroBase = ({
   _checkInternalURL = checkInternalURL,
-  _stripLangFromAmoUrl = stripLangFromAmoUrl,
   _tracking = tracking,
   shelfData,
 }: InternalProps): null | React.Node => {
@@ -50,11 +46,10 @@ export const SecondaryHeroBase = ({
   const { headline, description, cta } = shelfData || {};
   const modules = (shelfData && shelfData.modules) || Array(3).fill({});
 
-  const onHeroClick = (event: AnchorEvent) => {
+  const onHeroClick = () => {
     _tracking.sendEvent({
-      action: SECONDARY_HERO_CLICK_ACTION,
       category: SECONDARY_HERO_CLICK_CATEGORY,
-      label: _stripLangFromAmoUrl({ urlString: event.currentTarget.href }),
+      params: { page_path: window.location.pathname },
     });
   };
 

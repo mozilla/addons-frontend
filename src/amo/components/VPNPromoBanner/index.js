@@ -36,10 +36,9 @@ import dismissX from './img/x-close-black.svg';
 
 export const IMPRESSION_COUNT_KEY = 'VPNPromoImpressionCount';
 export const VPN_PROMO_CAMPAIGN = 'amo-vpn-promo';
-export const VPN_PROMO_CATEGORY = 'VPN Promo Banner';
-export const VPN_PROMO_CLICK_ACTION = 'vpn-promo-banner-click';
-export const VPN_PROMO_DISMISS_ACTION = 'vpn-promo-banner-dismiss';
-export const VPN_PROMO_IMPRESSION_ACTION = 'vpn-promo-banner-impression';
+export const VPN_PROMO_CLICK_CATEGORY = 'vpn_promo_click';
+export const VPN_PROMO_DISMISS_CATEGORY = 'vpn_promo_dismiss';
+export const VPN_PROMO_IMPRESSION_CATEGORY = 'vpn_promo_impression';
 export const VPN_URL = 'https://www.mozilla.org/products/vpn';
 
 export type Props = {| variant: string | null |};
@@ -113,15 +112,10 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
     );
   }
 
-  onInteract: (action: string) => void = (action) => {
-    const { _tracking, _localStorage, cookies } = this.props;
+  // Private helper: handles cleanup after click or dismiss (no tracking).
+  _cleanUpAfterInteract: () => void = () => {
+    const { _localStorage, cookies } = this.props;
 
-    const impressionCount = getImpressionCount(_localStorage);
-    _tracking.sendEvent({
-      action,
-      category: VPN_PROMO_CATEGORY,
-      label: String(impressionCount),
-    });
     _localStorage.removeItem(IMPRESSION_COUNT_KEY);
     this.setState({ dismissed: true });
 
@@ -134,11 +128,23 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
   };
 
   onButtonClick: () => void = () => {
-    this.onInteract(VPN_PROMO_CLICK_ACTION);
+    const { _tracking } = this.props;
+
+    _tracking.sendEvent({
+      category: VPN_PROMO_CLICK_CATEGORY,
+      params: { page_path: window.location.pathname },
+    });
+    this._cleanUpAfterInteract();
   };
 
   onDismiss: () => void = () => {
-    this.onInteract(VPN_PROMO_DISMISS_ACTION);
+    const { _tracking } = this.props;
+
+    _tracking.sendEvent({
+      category: VPN_PROMO_DISMISS_CATEGORY,
+      params: { page_path: window.location.pathname },
+    });
+    this._cleanUpAfterInteract();
   };
 
   onImpression: () => void = () => {
@@ -147,9 +153,8 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
     if (this.shouldShowBanner()) {
       const impressionCount = getImpressionCount(_localStorage) + 1;
       _tracking.sendEvent({
-        action: VPN_PROMO_IMPRESSION_ACTION,
-        category: VPN_PROMO_CATEGORY,
-        label: String(impressionCount),
+        category: VPN_PROMO_IMPRESSION_CATEGORY,
+        params: { page_path: window.location.pathname },
       });
       _localStorage.setItem(IMPRESSION_COUNT_KEY, impressionCount);
     }

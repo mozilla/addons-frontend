@@ -1,17 +1,16 @@
+/* global window */
 import * as React from 'react';
 import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { encode } from 'universal-base64url';
 
 import {
-  GET_FIREFOX_BUTTON_CLICK_ACTION,
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
   getDownloadLink,
   getDownloadCampaign,
 } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import {
-  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   ALL_PROMOTED_CATEGORIES,
@@ -38,7 +37,6 @@ import {
   INACTIVE,
   INSTALLED,
   INSTALLING,
-  INSTALL_ACTION,
   INSTALL_CANCELLED,
   INSTALL_CANCELLED_ACTION,
   INSTALL_DOWNLOAD_FAILED_ACTION,
@@ -49,7 +47,6 @@ import {
   RECOMMENDED,
   SET_ENABLE_NOT_AVAILABLE,
   START_DOWNLOAD,
-  TRACKING_TYPE_INVALID,
   UNINSTALLED,
   UNINSTALLING,
   UNINSTALL_ACTION,
@@ -58,8 +55,8 @@ import { makeProgressHandler } from 'amo/installAddon';
 import { setInstallError, setInstallState } from 'amo/reducers/installations';
 import { loadVersions } from 'amo/reducers/versions';
 import tracking, {
-  getAddonTypeForTracking,
   getAddonEventCategory,
+  getAddonEventParams,
 } from 'amo/tracking';
 import {
   createFakeTracking,
@@ -642,9 +639,11 @@ describe(__filename, () => {
 
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(tracking.sendEvent).toHaveBeenCalledWith({
-          action: GET_FIREFOX_BUTTON_CLICK_ACTION,
           category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-          label: addon.guid,
+          params: expect.objectContaining({
+            page_path: window.location.pathname,
+            trusted: expect.any(Boolean),
+          }),
         });
       });
     });
@@ -941,12 +940,14 @@ describe(__filename, () => {
     });
 
     describe('makeProgressHandler', () => {
+      const fakeProgressAddon = createInternalAddonWithLang(fakeAddon);
+
       const createProgressHandler = (props = {}) => {
         return makeProgressHandler({
           _tracking: createFakeTracking(),
           dispatch: jest.fn(),
           guid: 'some-guid',
-          name: 'some-name',
+          addon: fakeProgressAddon,
           type: ADDON_TYPE_EXTENSION,
           ...props,
         });
@@ -972,13 +973,11 @@ describe(__filename, () => {
         const _tracking = createFakeTracking();
         const dispatch = jest.fn();
         const guid = '{my-addon}';
-        const name = 'my-addon';
         const type = ADDON_TYPE_EXTENSION;
         const handler = createProgressHandler({
           _tracking,
           dispatch,
           guid,
-          name,
           type,
         });
 
@@ -989,9 +988,11 @@ describe(__filename, () => {
           payload: { guid, error: DOWNLOAD_FAILED },
         });
         expect(_tracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(type),
           category: getAddonEventCategory(type, INSTALL_DOWNLOAD_FAILED_ACTION),
-          label: guid,
+          params: getAddonEventParams(
+            fakeProgressAddon,
+            window.location.pathname,
+          ),
         });
       });
 
@@ -1013,13 +1014,11 @@ describe(__filename, () => {
         const _tracking = createFakeTracking();
         const dispatch = jest.fn();
         const guid = '{my-addon}';
-        const name = 'my-addon';
         const type = ADDON_TYPE_EXTENSION;
         const handler = createProgressHandler({
           _tracking,
           dispatch,
           guid,
-          name,
           type,
         });
 
@@ -1030,9 +1029,11 @@ describe(__filename, () => {
           payload: { guid },
         });
         expect(_tracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(type),
           category: getAddonEventCategory(type, INSTALL_CANCELLED_ACTION),
-          label: guid,
+          params: getAddonEventParams(
+            fakeProgressAddon,
+            window.location.pathname,
+          ),
         });
       });
 
@@ -1063,13 +1064,11 @@ describe(__filename, () => {
         const _tracking = createFakeTracking();
         const dispatch = jest.fn();
         const guid = '{my-addon}';
-        const name = 'my-addon';
         const type = ADDON_TYPE_EXTENSION;
         const handler = createProgressHandler({
           _tracking,
           dispatch,
           guid,
-          name,
           type,
         });
 
@@ -1112,9 +1111,11 @@ describe(__filename, () => {
         expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(ADDON_TYPE_EXTENSION, ENABLE_ACTION),
-          label: addon.guid,
+          params: getAddonEventParams(
+            createInternalAddonWithLang(addon),
+            window.location.pathname,
+          ),
         });
       });
 
@@ -1270,12 +1271,17 @@ describe(__filename, () => {
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(
             ADDON_TYPE_EXTENSION,
             INSTALL_STARTED_ACTION,
           ),
-          label: addon.guid,
+          params: {
+            ...getAddonEventParams(
+              createInternalAddonWithLang(addon),
+              window.location.pathname,
+            ),
+            trusted: false,
+          },
         });
       });
 
@@ -1286,12 +1292,6 @@ describe(__filename, () => {
         {
           ...fakeAddon,
           promoted: { apps: [CLIENT_APP_ANDROID], category: RECOMMENDED },
-        },
-        // A non-extension which is promoted.
-        {
-          ...fakeAddon,
-          promoted: { apps: [CLIENT_APP_FIREFOX], category: RECOMMENDED },
-          type: ADDON_TYPE_DICT,
         },
       ])('tracks an untrusted addon install', async (addonOverride) => {
         addon = addonOverride;
@@ -1318,17 +1318,27 @@ describe(__filename, () => {
           expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2),
         );
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(
             ADDON_TYPE_EXTENSION,
             INSTALL_STARTED_ACTION,
           ),
-          label: addon.guid,
+          params: {
+            ...getAddonEventParams(
+              createInternalAddonWithLang(addon),
+              window.location.pathname,
+            ),
+            trusted: false,
+          },
         });
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
-          category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
-          label: addon.guid,
+          category: getAddonEventCategory(ADDON_TYPE_EXTENSION),
+          params: {
+            ...getAddonEventParams(
+              createInternalAddonWithLang(addon),
+              window.location.pathname,
+            ),
+            trusted: false,
+          },
         });
       });
 
@@ -1361,25 +1371,37 @@ describe(__filename, () => {
             expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(3),
           );
           expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-            action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
             category: getAddonEventCategory(
               ADDON_TYPE_EXTENSION,
               INSTALL_STARTED_ACTION,
             ),
-            label: addon.guid,
+            params: {
+              ...getAddonEventParams(
+                createInternalAddonWithLang(addon),
+                window.location.pathname,
+              ),
+              trusted: true,
+            },
           });
           expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-            action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
-            category: getAddonEventCategory(
-              ADDON_TYPE_EXTENSION,
-              INSTALL_ACTION,
-            ),
-            label: addon.guid,
+            category: getAddonEventCategory(ADDON_TYPE_EXTENSION),
+            params: {
+              ...getAddonEventParams(
+                createInternalAddonWithLang(addon),
+                window.location.pathname,
+              ),
+              trusted: true,
+            },
           });
           expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-            action: category,
             category: INSTALL_TRUSTED_EXTENSION_CATEGORY,
-            label: addon.guid,
+            params: {
+              ...getAddonEventParams(
+                createInternalAddonWithLang(addon),
+                window.location.pathname,
+              ),
+              trusted: true,
+            },
           });
         },
       );
@@ -1408,12 +1430,17 @@ describe(__filename, () => {
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
           category: getAddonEventCategory(
             ADDON_TYPE_STATIC_THEME,
             INSTALL_STARTED_ACTION,
           ),
-          label: addon.guid,
+          params: {
+            ...getAddonEventParams(
+              createInternalAddonWithLang(addon),
+              window.location.pathname,
+            ),
+            trusted: false,
+          },
         });
       });
 
@@ -1451,20 +1478,27 @@ describe(__filename, () => {
           expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2),
         );
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
           category: getAddonEventCategory(
             ADDON_TYPE_STATIC_THEME,
             INSTALL_STARTED_ACTION,
           ),
-          label: addon.guid,
+          params: {
+            ...getAddonEventParams(
+              createInternalAddonWithLang(addon),
+              window.location.pathname,
+            ),
+            trusted: expect.any(Boolean),
+          },
         });
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
-          category: getAddonEventCategory(
-            ADDON_TYPE_STATIC_THEME,
-            INSTALL_ACTION,
-          ),
-          label: addon.guid,
+          category: getAddonEventCategory(ADDON_TYPE_STATIC_THEME),
+          params: {
+            ...getAddonEventParams(
+              createInternalAddonWithLang(addon),
+              window.location.pathname,
+            ),
+            trusted: expect.any(Boolean),
+          },
         });
       });
 
@@ -1591,12 +1625,14 @@ describe(__filename, () => {
         expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(
             ADDON_TYPE_EXTENSION,
             UNINSTALL_ACTION,
           ),
-          label: addon.guid,
+          params: getAddonEventParams(
+            createInternalAddonWithLang(addon),
+            window.location.pathname,
+          ),
         });
       });
 
@@ -1619,12 +1655,14 @@ describe(__filename, () => {
         expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
           category: getAddonEventCategory(
             ADDON_TYPE_STATIC_THEME,
             UNINSTALL_ACTION,
           ),
-          label: addon.guid,
+          params: getAddonEventParams(
+            createInternalAddonWithLang(addon),
+            window.location.pathname,
+          ),
         });
       });
 
@@ -1647,9 +1685,11 @@ describe(__filename, () => {
         expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
-          action: TRACKING_TYPE_INVALID,
           category: getAddonEventCategory(INVALID_TYPE, UNINSTALL_ACTION),
-          label: addon.guid,
+          params: getAddonEventParams(
+            createInternalAddonWithLang(addon),
+            window.location.pathname,
+          ),
         });
       });
     });

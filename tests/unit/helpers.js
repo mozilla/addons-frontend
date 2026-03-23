@@ -1204,10 +1204,7 @@ export function fakeCookies(overrides = {}) {
 
 export const createFakeTracking = (overrides = {}) => {
   return {
-    pageView: jest.fn(),
     sendEvent: jest.fn(),
-    setDimension: jest.fn(),
-    setPage: jest.fn(),
     setUserProperties: jest.fn(),
     ...overrides,
   };
@@ -1400,10 +1397,8 @@ export const createFailedErrorHandler = ({
 };
 
 export const fakeTrackingEvent = Object.freeze({
-  action: 'some-action',
   category: 'some-category',
-  label: 'some-label',
-  value: 19,
+  params: { page_path: '/some/path' },
 });
 
 export const makeExperimentId = (id) => `20210219_amo_${id}`;
