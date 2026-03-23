@@ -22,7 +22,6 @@ export const CONTRIBUTE_BUTTON_CLICK_CATEGORY =
 
 type Props = {|
   addon: AddonType | null,
-  clientApp: string,
   i18n: I18nType,
 |};
 
