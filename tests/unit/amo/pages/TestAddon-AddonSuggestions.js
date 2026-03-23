@@ -496,7 +496,7 @@ describe(__filename, () => {
         screen.getByRole('link', { name: suggestedAddonName }),
       ).toHaveAttribute(
         'href',
-        `/${lang}/${defaultClientApp}/addon/${suggestedAddonSlug}/?addonInstallSource=${INSTALL_SOURCE_SUGGESTIONS}`,
+        `/${lang}/${defaultClientApp}/addon/${suggestedAddonSlug}/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=${INSTALL_SOURCE_SUGGESTIONS}`,
       );
     });
   });
