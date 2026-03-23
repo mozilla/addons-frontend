@@ -496,7 +496,7 @@ export class AddonBase extends React.Component {
           </Card>
 
           <div>
-            <ContributeCard addon={addon} clientApp={clientApp} />
+            <ContributeCard addon={addon} />
 
             {this.renderRecommendations()}
           </div>
