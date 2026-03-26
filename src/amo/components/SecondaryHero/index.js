@@ -15,6 +15,8 @@ import type {
 import './styles.scss';
 
 export const SECONDARY_HERO_CLICK_CATEGORY = 'amo_secondary_hero_clicks';
+export const SECONDARY_HERO_IMPRESSION_CATEGORY =
+  'amo_secondary_hero_impressions';
 export const SECONDARY_HERO_SRC = 'homepage-secondary-hero';
 
 type Props = {| shelfData?: SecondaryHeroShelfType |};
@@ -45,6 +47,16 @@ export const SecondaryHeroBase = ({
 
   const { headline, description, cta } = shelfData || {};
   const modules = (shelfData && shelfData.modules) || Array(3).fill({});
+
+  // Fire impression event when shelfData is loaded.
+  React.useEffect(() => {
+    if (shelfData) {
+      _tracking.sendEvent({
+        category: SECONDARY_HERO_IMPRESSION_CATEGORY,
+        params: { page_path: window.location.pathname },
+      });
+    }
+  }, [shelfData, _tracking]);
 
   const onHeroClick = () => {
     _tracking.sendEvent({

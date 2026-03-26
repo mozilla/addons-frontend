@@ -1,3 +1,4 @@
+/* global window */
 import * as React from 'react';
 import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -6,7 +7,12 @@ import AddAddonToCollection, {
   extractId,
 } from 'amo/components/AddAddonToCollection';
 import { setClientApp } from 'amo/reducers/api';
-import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  COLLECTION_ADD_ADDON_CATEGORY,
+} from 'amo/constants';
+import { getAddonEventParams } from 'amo/tracking';
+import { getPromotedCategory } from 'amo/utils/addons';
 import { ErrorHandler } from 'amo/errorHandler';
 import {
   FETCH_USER_COLLECTIONS,
@@ -19,6 +25,7 @@ import collectionsSaga from 'amo/sagas/collections';
 import {
   DEFAULT_LANG_IN_TESTS,
   createFakeCollectionDetail,
+  createFakeTracking,
   createHistory,
   createInternalAddonWithLang,
   dispatchClientMetadata,
@@ -264,7 +271,7 @@ describe(__filename, () => {
       });
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      render({ addon });
+      render({ addon, _tracking: createFakeTracking() });
 
       await userEvent.selectOptions(screen.getByRole('combobox'), secondName);
 
@@ -277,6 +284,36 @@ describe(__filename, () => {
           userId,
         }),
       );
+    });
+
+    it('sends a tracking event when adding an addon to a collection', async () => {
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id: 234 });
+      const secondName = 'second';
+      const userId = 10;
+      const clientApp = CLIENT_APP_FIREFOX;
+
+      const { firstCollection, secondCollection } = createSomeCollections({
+        secondName,
+        userId,
+      });
+      signInAndDispatchCollections({
+        clientApp,
+        userId,
+        collections: [firstCollection, secondCollection],
+      });
+
+      const _tracking = createFakeTracking();
+      render({ addon, _tracking });
+
+      await userEvent.selectOptions(screen.getByRole('combobox'), secondName);
+
+      expect(_tracking.sendEvent).toHaveBeenCalledWith({
+        category: COLLECTION_ADD_ADDON_CATEGORY,
+        params: {
+          ...getAddonEventParams(addon, window.location.pathname),
+          trusted: !!getPromotedCategory({ addon, clientApp }),
+        },
+      });
     });
 
     it('sorts collection by name in select box', () => {
@@ -344,7 +381,7 @@ describe(__filename, () => {
         collections: [firstCollection],
       });
 
-      render({ addon });
+      render({ addon, _tracking: createFakeTracking() });
 
       await userEvent.selectOptions(screen.getByRole('combobox'), firstName);
 
@@ -372,7 +409,7 @@ describe(__filename, () => {
         collections: [firstCollection, secondCollection],
       });
 
-      render({ addon });
+      render({ addon, _tracking: createFakeTracking() });
 
       await userEvent.selectOptions(screen.getByRole('combobox'), firstName);
       await userEvent.selectOptions(screen.getByRole('combobox'), secondName);
@@ -397,7 +434,7 @@ describe(__filename, () => {
         collections: [firstCollection],
       });
 
-      render({ addon });
+      render({ addon, _tracking: createFakeTracking() });
 
       await userEvent.selectOptions(screen.getByRole('combobox'), '(no name)');
 
