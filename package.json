@@ -47,14 +47,12 @@
     "build": {
       "command": "npm run build-check && npm run version-check && npm run build-locales && webpack --progress --color --config webpack.prod.config.babel.js",
       "env": {
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
       }
     },
     "build:blog-utils": {
       "command": "webpack --config webpack.blog-utils.config.babel.js",
       "env": {
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
         "NODE_CONFIG_ENV": "prod"
       }
@@ -93,7 +91,6 @@
       "command": "zx ./bin/extract-locales",
       "env": {
         "NODE_ENV": "production",
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
       }
     },
@@ -101,7 +98,6 @@
       "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'nodemon bin/server.js | pino-devtools --mode buffer --tee | pino-pretty'",
       "env": {
         "NODE_ENV": "development",
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
       }
     },
@@ -109,34 +105,27 @@
       "command": "npm run clean && concurrently -c 'dim' 'npm run webpack-dev-server' 'nodemon bin/server.js | pino-devtools --mode buffer --tee | pino-pretty' 'node bin/proxy.js | pino-pretty'",
       "env": {
         "NODE_ENV": "development",
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
       }
     },
     "node": {
       "command": "node",
       "env": {
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
       }
     },
     "jest": {
-      "command": "jest",
-      "env": {
-        "NODE_ICU_DATA": "./node_modules/full-icu"
-      }
+      "command": "jest"
     },
     "jest-debug": {
       "command": "jest",
       "env": {
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "TEST_DEBUG": "FULL"
       }
     },
     "test-ci": {
       "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --color=false --coverage --maxWorkers=2 --workerIdleMemoryLimit=1G",
       "env": {
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test",
         "NO_FLOW": "1",
@@ -146,7 +135,6 @@
     "test-ci-next": {
       "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --color=false --coverage --maxWorkers=2 --workerIdleMemoryLimit=1G",
       "env": {
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test",
         "NO_FLOW": "1",
@@ -157,7 +145,6 @@
       "command": "node bin/webpack-dev-server.js",
       "env": {
         "NODE_ENV": "development",
-        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
       }
     }
@@ -193,7 +180,6 @@
     "filesize": "11.0.2",
     "focus-visible": "5.2.1",
     "fs-extra": "11.3.4",
-    "full-icu": "1.5.0",
     "helmet": "8.1.0",
     "history": "4.10.1",
     "hot-shots": "14.2.0",
