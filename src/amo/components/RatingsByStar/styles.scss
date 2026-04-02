@@ -3,7 +3,7 @@
 $yellow-40: #ffbd4f;
 
 .RatingsByStar-graph {
-  color: $grey-50;
+  color: var(--amo-text-muted);
   display: grid;
   font-size: $font-size-default;
   grid-gap: 12px;
@@ -13,7 +13,7 @@ $yellow-40: #ffbd4f;
 
 .RatingsByStar-row,
 a.RatingsByStar-row {
-  color: $grey-50;
+  color: var(--amo-text-muted);
 }
 
 .RatingsByStar-star {
@@ -32,12 +32,12 @@ a.RatingsByStar-row {
 }
 
 .RatingsByStar-barFrame {
-  background-color: rgba($yellow-50, 0.25);
+  background-color: var(--amo-rating-bar-bg);
   width: 100%;
 }
 
 .RatingsByStar-barValue {
-  background-color: $yellow-40;
+  background-color: var(--amo-rating-bar-fill);
 
   @for $num from 0 through 100 {
     $pct: percentage($num / 100);
@@ -72,11 +72,11 @@ a.RatingsByStar-row {
   a:active,
   a:link,
   a:visited {
-    color: $grey-50;
+    color: var(--amo-text-muted);
     font-weight: normal;
   }
 
   a:hover {
-    color: $link-color;
+    color: var(--amo-link-color);
   }
 }

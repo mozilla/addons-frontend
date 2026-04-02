@@ -51,7 +51,7 @@ $icon-size: 32px;
   span {
     @include margin-end(4px);
 
-    color: $grey-50;
+    color: var(--amo-text-muted);
     display: inline-block;
 
     @include respond-to(large) {

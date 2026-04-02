@@ -108,13 +108,13 @@
 
   &:link,
   &:visited {
-    color: $black;
+    color: var(--amo-text-primary);
   }
 
   &:active,
   &:focus,
   &:hover {
-    color: $link-color;
+    color: var(--amo-link-color);
     text-decoration: underline;
   }
 }
@@ -154,7 +154,7 @@
 }
 
 .Home-heroHeader {
-  color: $black;
+  color: var(--amo-text-primary);
   padding: $padding-page 0 $padding-page-l;
   text-align: center;
 

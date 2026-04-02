@@ -19,7 +19,7 @@
   }
 
   .AMInstallButton-loading-button {
-    background-color: $grey-20;
+    background-color: var(--amo-bg-neutral);
     border-radius: 2px;
     height: 32px;
   }
@@ -103,7 +103,7 @@
 
     .AMInstallButton-loader-ball {
       animation: squash $speed ease-in-out infinite alternate;
-      background: $blue-60;
+      background: var(--amo-accent-color);
       border-radius: 50%;
       height: $height;
       width: $width;

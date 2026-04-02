@@ -14,12 +14,12 @@
       &,
       &:link,
       &:visited {
-        color: $black;
+        color: var(--amo-input-text);
       }
 
       &:active,
       &:hover {
-        color: $link-color;
+        color: var(--amo-link-color);
       }
     }
   }
@@ -38,7 +38,7 @@
 .AddonReviewManager-savedRating {
   @include margin-start(6px);
 
-  color: $grey-50;
+  color: var(--amo-text-muted);
   flex-grow: 1;
   opacity: 1;
   text-align: right;

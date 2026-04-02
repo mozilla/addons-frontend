@@ -13,7 +13,7 @@
 }
 
 .TooltipMenu-opener {
-  color: $blue-50;
+  color: var(--amo-link-color);
   cursor: pointer;
   line-height: $line-height-body;
   margin: 0;
@@ -23,7 +23,7 @@
 // This is the triangle at the top of the tooltip menu which is
 // actually just a tilted square.
 .TooltipMenu-arrow {
-  background-color: $white;
+  background-color: var(--amo-bg-content);
   box-shadow: 0 0 2px transparentize($black, 0.5);
   display: block;
   height: 8px;
@@ -46,7 +46,7 @@
 
 .TooltipMenu-list,
 .CardList .TooltipMenu-list {
-  background: $white;
+  background: var(--amo-bg-content);
   border-radius: $border-radius-default;
   list-style-type: none;
   margin: 0;
@@ -81,7 +81,7 @@
       &:not(.Button) {
         @include text-align-start;
 
-        color: $grey-90;
+        color: var(--amo-text-dark);
         font-size: $font-size-default;
         line-height: $line-height-body;
       }
@@ -104,14 +104,14 @@
     a:focus,
     a:active {
       &:not(.Button) {
-        color: $blue-50;
+        color: var(--amo-link-color);
       }
     }
 
     @include respond-to(medium) {
       button:hover,
       button:focus {
-        color: $blue-50;
+        color: var(--amo-link-color);
       }
     }
 

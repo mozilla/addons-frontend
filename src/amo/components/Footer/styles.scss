@@ -3,8 +3,8 @@
 .Footer {
   @include font-regular;
 
-  background: $footer-base-color;
-  color: $white;
+  background: var(--amo-bg-footer);
+  color: var(--amo-text-on-dark);
   width: 100%;
 
   a:link,
@@ -13,7 +13,7 @@
   a:active {
     @include font-regular;
 
-    color: $white;
+    color: var(--amo-text-on-dark);
     font-size: $font-size-l;
     font-weight: 400;
     margin: 0 0 12px;
@@ -22,7 +22,7 @@
 
   a:active,
   a:hover {
-    color: $white;
+    color: var(--amo-text-on-dark);
     text-decoration: underline;
   }
 }
@@ -120,7 +120,7 @@
 
   a:link,
   a:visited {
-    color: $grey-40;
+    color: var(--amo-text-muted-light);
     font-size: $font-size-s;
   }
 }
@@ -158,8 +158,8 @@
      just for this. */
 
   .LanguagePicker-selector {
-    background-color: $white;
-    color: $black;
+    background-color: var(--amo-bg-content);
+    color: var(--amo-input-text);
     display: inline-block;
     font-family: sans-serif;
   }

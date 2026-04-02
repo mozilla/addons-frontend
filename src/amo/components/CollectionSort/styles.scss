@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .CollectionSort-label {
-  color: $grey-50;
+  color: var(--amo-text-muted);
   display: block;
   padding-bottom: 6px;
 }

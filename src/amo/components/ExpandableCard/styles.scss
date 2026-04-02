@@ -6,7 +6,7 @@
   text-decoration: none;
 
   &:link {
-    color: $grey-60;
+    color: var(--amo-text-primary);
   }
 
   @include respond-to(large) {
