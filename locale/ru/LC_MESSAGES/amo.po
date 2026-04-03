@@ -2542,9 +2542,9 @@ msgstr[2] "%(total)s отзывов"
 #: src/amo/pages/AddonVersions/index.js:132
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] "История версий «%(addonName)s» — %(total)s версия"
-msgstr[1] "История версий «%(addonName)s» — %(total)s версии"
-msgstr[2] "История версий «%(addonName)s» — %(total)s версий"
+msgstr[0] "История версий «%(addonName)s» – %(total)s версия"
+msgstr[1] "История версий «%(addonName)s» – %(total)s версии"
+msgstr[2] "История версий «%(addonName)s» – %(total)s версий"
 
 #: src/amo/pages/AddonVersions/index.js:169
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
