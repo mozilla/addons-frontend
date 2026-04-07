@@ -11741,10 +11741,10 @@ universal-base64url@1.1.0:
   dependencies:
     universal-base64 "^2.1.0"
 
-universal-cookie-express@8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-8.0.1.tgz#c45a4d5917a6a188ae252cc3f8c91cf7ef8f5a74"
-  integrity sha512-h9Kgv9pOm1jXbBKLX7HIERvzLKcIazOhVAf9OdWVItFNtGBqH5pC8zHuM84naKgJcg+Cc8J69q2H07OWVai/Xw==
+universal-cookie-express@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-8.1.0.tgz#721b5b1c6cc6db90d5626febd63988a656b0678f"
+  integrity sha512-SLpkFMMleaoWSWptAgGzT2+kNqAhv6cOepzrDtaS3KmPx5nklRjNUOyjO/xNqQEk7nqSPVw7fX0KFk6TatHb/g==
   dependencies:
     universal-cookie "^8.0.0"
 
