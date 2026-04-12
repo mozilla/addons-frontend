@@ -61,11 +61,11 @@ msgstr "مراجعة كود الإضافة"
 
 #: src/amo/components/AddonBadges/index.js:126
 msgid "%(average)s (%(count)s review)"
-msgstr ""
+msgstr "%(average)s (%(count)s مراجعة)"
 
 #: src/amo/components/AddonBadges/index.js:130
 msgid "%(average)s (%(count)s reviews)"
-msgstr ""
+msgstr "%(average)s (%(count)s مراجعات)"
 
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
@@ -83,7 +83,7 @@ msgstr "لا مستخدمين"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "متاح في Firefox لنظام أندرويد™"
 
 #: src/amo/components/AddonBadges/index.js:72
 msgid "Experimental"
@@ -113,15 +113,15 @@ msgstr[5] "%(total)s مستخدم"
 
 #: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
-msgstr ""
+msgstr "أبلغ عن هذه الإضافة ل Mozilla"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
-msgstr ""
+msgstr "أرسل بعض الملاحظات حول الإضافة"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "أبلغ عن الإضافة لأنها غير قانونية أو غير متوافقة"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -231,9 +231,8 @@ msgid "Last updated"
 msgstr "آخر تحديث"
 
 #: src/amo/components/AddonMoreInfo/index.js:414
-#, fuzzy
 msgid "Related Categories"
-msgstr "الفئات"
+msgstr "تصنيفات ذات صلة"
 
 #: src/amo/components/AddonMoreInfo/index.js:424
 msgid "License"
@@ -257,7 +256,7 @@ msgstr "إحصائيات الاستخدام"
 
 #: src/amo/components/AddonMoreInfo/index.js:466
 msgid "Tags"
-msgstr ""
+msgstr "الوسوم"
 
 #: src/amo/components/AddonMoreInfo/index.js:473 src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
@@ -490,19 +489,19 @@ msgstr "إضافات أخرى من هؤلاء المطورين"
 
 #: src/amo/components/AddonSuggestions/index.js:100
 msgid "More powerful tools for translations, writing & grammar support"
-msgstr ""
+msgstr "أدوات أقوى للترجمة، الكتابة، ودعم القواعد النحوية"
 
 #: src/amo/components/AddonSuggestions/index.js:107
 msgid "More amazing extensions to change the way Firefox looks"
-msgstr ""
+msgstr "مزيد من الامتدادات المذهلة لتغيير شكل Firefox"
 
 #: src/amo/components/AddonSuggestions/index.js:114
 msgid "More incredible social media extensions"
-msgstr ""
+msgstr "مزيد من امتدادات وسائل التواصل الاجتماعي المذهلة"
 
 #: src/amo/components/AddonSuggestions/index.js:119
 msgid "More excellent search extensions"
-msgstr ""
+msgstr "مزيد من امتدادات البحث الممتازة"
 
 #: src/amo/components/AddonSuggestions/index.js:124
 msgid "More great extensions for feeds, news & media"
@@ -510,27 +509,27 @@ msgstr ""
 
 #: src/amo/components/AddonSuggestions/index.js:129
 msgid "More great notification extensions"
-msgstr ""
+msgstr "المزيد من امتدادات الإشعارات الممتازة"
 
 #: src/amo/components/AddonSuggestions/index.js:138
 msgid "More great tools for web developers"
-msgstr ""
+msgstr "مزيد من الأدوات الممتازة لمطوري الويب"
 
 #: src/amo/components/AddonSuggestions/index.js:268
 msgid "See Firefox Staff Picks"
-msgstr ""
+msgstr "اطّلع على اختيارات طاقم Firefox"
 
 #: src/amo/components/AddonSuggestions/index.js:57
 msgid "Explore our 'Starter Pack' to get started with extensions"
-msgstr ""
+msgstr "استكشف 'حزمة البدء' الخاصة بنا للبدء في استخدام الامتدادات"
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
-msgstr ""
+msgstr "امتدادات خصوصية و أمان أكثر قوة"
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
-msgstr ""
+msgstr "مزيد من برامج تنزيل أكثر روعة"
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
