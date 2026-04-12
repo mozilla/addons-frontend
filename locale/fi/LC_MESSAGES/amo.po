@@ -61,11 +61,11 @@ msgstr "Katselmoi lisäosan koodi"
 
 #: src/amo/components/AddonBadges/index.js:126
 msgid "%(average)s (%(count)s review)"
-msgstr ""
+msgstr "%(average)s (%(count)s arvio)"
 
 #: src/amo/components/AddonBadges/index.js:130
 msgid "%(average)s (%(count)s reviews)"
-msgstr ""
+msgstr "%(average)s (%(count)s arviota)"
 
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
@@ -1306,7 +1306,7 @@ msgstr ""
 
 #: src/amo/components/FeedbackForm/index.js:819
 msgid "Type of illegal content"
-msgstr ""
+msgstr "Laittoman sisällön tyyppi"
 
 #: src/amo/components/FeedbackForm/index.js:846
 msgid "Specific violation"
@@ -2822,7 +2822,7 @@ msgstr "tekijä %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Ilmoita tästä arvostelusta Mozillalle"
 
 #: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
