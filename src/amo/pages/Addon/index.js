@@ -38,6 +38,7 @@ import {
   isAddonLoading,
   isRecentAddon,
 } from 'amo/reducers/addons';
+import { clearAddonInstallSource } from 'amo/reducers/addonInstallSource';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import {
@@ -135,6 +136,12 @@ export class AddonBase extends React.Component {
         );
       }
     }
+  }
+
+  componentWillUnmount() {
+    // Clear the install source so stale values from a previous addon page
+    // aren't used for a future install on a different page.
+    this.props.dispatch(clearAddonInstallSource());
   }
 
   componentDidUpdate(prevProps) {

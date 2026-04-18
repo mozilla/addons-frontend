@@ -944,6 +944,7 @@ describe(__filename, () => {
 
       const createProgressHandler = (props = {}) => {
         return makeProgressHandler({
+          _removeUTMParams: jest.fn(),
           _tracking: createFakeTracking(),
           dispatch: jest.fn(),
           guid: 'some-guid',

@@ -609,15 +609,9 @@ describe(__filename, () => {
       ],
     });
 
-    const expectedQuerystring = [
-      'utm_source=addons.mozilla.org',
-      'utm_medium=referral',
-      'utm_content=collection',
-    ].join('&');
-
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
-      `/${lang}/${clientApp}/addon/${fakeAddon.slug}/?${expectedQuerystring}`,
+      `/${lang}/${clientApp}/addon/${fakeAddon.slug}/`,
     );
     expect(screen.getByAltText(addonName)).toHaveAttribute(
       'src',
@@ -639,15 +633,9 @@ describe(__filename, () => {
       location: `${getLocation()}?addonInstallSource=${INSTALL_SOURCE_SUGGESTIONS}`,
     });
 
-    const expectedQuerystring = [
-      'utm_source=addons.mozilla.org',
-      'utm_medium=referral',
-      `utm_content=${INSTALL_SOURCE_SUGGESTIONS}`,
-    ].join('&');
-
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
-      `/${lang}/${clientApp}/addon/${fakeAddon.slug}/?${expectedQuerystring}`,
+      `/${lang}/${clientApp}/addon/${fakeAddon.slug}/`,
     );
   });
 

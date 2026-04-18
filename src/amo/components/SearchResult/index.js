@@ -8,16 +8,12 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { getAddonURL, nl2br, sanitizeHTML } from 'amo/utils';
 import { getPromotedProps } from 'amo/utils/promoted';
-import {
-  ADDON_TYPE_STATIC_THEME,
-  DEFAULT_UTM_SOURCE,
-  DEFAULT_UTM_MEDIUM,
-} from 'amo/constants';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
 import { isRecentAddon } from 'amo/reducers/addons';
+import { setAddonInstallSource } from 'amo/reducers/addonInstallSource';
 import { getPromotedCategory } from 'amo/utils/addons';
-import { addQueryParams } from 'amo/utils/url';
 import Icon from 'amo/components/Icon';
 import LoadingText from 'amo/components/LoadingText';
 import Rating from 'amo/components/Rating';
@@ -55,6 +51,7 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   _getPromotedCategory: typeof getPromotedCategory,
+  dispatch: (action: Object) => void,
   history: ReactRouterHistoryType,
   i18n: I18nType,
 |};
@@ -72,21 +69,11 @@ export class SearchResultBase extends React.Component<InternalProps> {
     useThemePlaceholder: false,
   };
 
-  getAddonLink(
-    addon: AddonType | CollectionAddonType,
-    addonInstallSource?: string,
-  ): string {
-    let linkTo = getAddonURL(addon.slug);
-
-    if (addonInstallSource) {
-      linkTo = addQueryParams(linkTo, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: addonInstallSource,
-      });
-    }
-
-    return linkTo;
+  // Returns a clean addon URL without UTM params. The install source is
+  // dispatched to Redux on click (see onClickResult) and injected into the
+  // page URL at install time instead. See utils/installAttribution.js.
+  getAddonLink(addon: AddonType | CollectionAddonType): string {
+    return getAddonURL(addon.slug);
   }
 
   onClickAddon: HTMLElementEventHandler = (e: ElementEvent) => {
@@ -129,7 +116,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
   renderResult(): React.Node {
     const {
       addon,
-      addonInstallSource,
       i18n,
       onImpression,
       showFullSizePreview,
@@ -154,7 +140,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       addonTitle = (
         <Link
           className="SearchResult-link"
-          to={this.getAddonLink(addon, addonInstallSource)}
+          to={this.getAddonLink(addon)}
           onClick={this.onClickAddon}
         >
           {addon.name}
@@ -275,13 +261,25 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 
   onClickResult: () => void = () => {
-    const { addon, addonInstallSource, clientApp, history, lang, onClick } =
-      this.props;
+    const {
+      addon,
+      addonInstallSource,
+      clientApp,
+      dispatch,
+      history,
+      lang,
+      onClick,
+    } = this.props;
 
     if (addon) {
-      history.push(
-        `/${lang}/${clientApp}${this.getAddonLink(addon, addonInstallSource)}`,
-      );
+      // Store the install source in Redux so it survives navigation to the
+      // addon detail page. It will be used at install time to inject UTM
+      // params into the URL for Firefox attribution.
+      if (addonInstallSource) {
+        dispatch(setAddonInstallSource(addonInstallSource));
+      }
+
+      history.push(`/${lang}/${clientApp}${this.getAddonLink(addon)}`);
 
       if (onClick) {
         onClick(addon);

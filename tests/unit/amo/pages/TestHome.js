@@ -28,7 +28,6 @@ import {
   DEFAULT_UTM_SOURCE,
   INSTALL_SOURCE_FEATURED_COLLECTION,
   INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_TAG_SHELF_PREFIX,
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
   LINE,
@@ -175,11 +174,7 @@ describe(__filename, () => {
       const link = screen.getByRole('link', { name: cta.text });
       expect(link).toHaveAttribute(
         'href',
-        `/${defaultLang}/${defaultClientApp}${addQueryParams(cta.url, {
-          utm_source: DEFAULT_UTM_SOURCE,
-          utm_medium: DEFAULT_UTM_MEDIUM,
-          utm_content: SECONDARY_HERO_SRC,
-        })}`,
+        `/${defaultLang}/${defaultClientApp}${cta.url}`,
       );
       expect(link).not.toHaveAttribute('target');
       expect(checkInternalURL).toHaveBeenCalledWith({ urlString: cta.url });
@@ -335,14 +330,7 @@ describe(__filename, () => {
               // eslint-disable-next-line jest/no-conditional-expect
               expect(link).toHaveAttribute(
                 'href',
-                `/${defaultLang}/${defaultClientApp}${addQueryParams(
-                  moduleData.cta.url,
-                  {
-                    utm_source: DEFAULT_UTM_SOURCE,
-                    utm_medium: DEFAULT_UTM_MEDIUM,
-                    utm_content: SECONDARY_HERO_SRC,
-                  },
-                )}`,
+                `/${defaultLang}/${defaultClientApp}${moduleData.cta.url}`,
               );
               // eslint-disable-next-line jest/no-conditional-expect
               expect(link).not.toHaveAttribute('target');
@@ -494,11 +482,7 @@ describe(__filename, () => {
 
         expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
           'href',
-          [
-            `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-            `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-            `utm_content=${addonInstallSource}`,
-          ].join('&'),
+          `/${defaultLang}/${defaultClientApp}/addon/${slug}/`,
         );
       },
     );
@@ -523,11 +507,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
         'href',
-        [
-          `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-          `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-          `utm_content=${INSTALL_SOURCE_TAG_SHELF_PREFIX}${tagName}`,
-        ].join('&'),
+        `/${defaultLang}/${defaultClientApp}/addon/${slug}/`,
       );
     });
 
@@ -634,11 +614,7 @@ describe(__filename, () => {
           screen.getByRole('link', { name: 'Get the extension' }),
         ).toHaveAttribute(
           'href',
-          addQueryParams(`/${defaultLang}/${defaultClientApp}/addon/${slug}/`, {
-            utm_source: DEFAULT_UTM_SOURCE,
-            utm_medium: DEFAULT_UTM_MEDIUM,
-            utm_content: PRIMARY_HERO_SRC,
-          }),
+          `/${defaultLang}/${defaultClientApp}/addon/${slug}/`,
         );
       });
 
@@ -1207,11 +1183,7 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
-      `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: INSTALL_SOURCE_FEATURED,
-      })}`,
+      `/${defaultLang}/${clientApp}/addon/${addon.slug}/`,
     );
   });
 
@@ -1259,11 +1231,7 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
-      `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: INSTALL_SOURCE_FEATURED,
-      })}`,
+      `/${defaultLang}/${clientApp}/addon/${addon.slug}/`,
     );
   });
 
