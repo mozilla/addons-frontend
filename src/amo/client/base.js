@@ -29,7 +29,9 @@ export default async function createClient(
       dispatching. See: https://github.com/mozilla/addons-frontend/issues/6424`);
   }
 
-  const initialStateContainer = document.getElementById('redux-store-state');
+  const initialStateContainer = document.querySelector(
+    'script[id="redux-store-state"]',
+  );
   let initialState;
 
   const html = document.querySelector('html');
