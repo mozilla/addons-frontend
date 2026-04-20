@@ -46,6 +46,7 @@ jest.mock('config');
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
   setDimension: jest.fn(),
   setUserProperties: jest.fn(),
 }));
@@ -312,7 +313,7 @@ describe(__filename, () => {
       doLoadSuggestions();
 
       const dispatch = jest.spyOn(store, 'dispatch');
- 
+
       renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
       dispatch.mockClear();

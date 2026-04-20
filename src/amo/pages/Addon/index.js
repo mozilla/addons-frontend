@@ -146,7 +146,8 @@ export class AddonBase extends React.Component {
   pushPageVariables() {
     const { addon, lang } = this.props;
     if (addon && addon.type && lang) {
-      const addonType = addon.type === ADDON_TYPE_STATIC_THEME ? 'theme' : 'extension';
+      const addonType =
+        addon.type === ADDON_TYPE_STATIC_THEME ? 'theme' : 'extension';
       tracking.setPageVariables({ addon_type: addonType, page_locale: lang });
     }
   }
@@ -179,7 +180,12 @@ export class AddonBase extends React.Component {
       dispatch(setViewContext(newAddon.type));
     }
 
-    if (newAddon && (!oldAddon || oldAddon.slug !== newAddon.slug || prevProps.lang !== this.props.lang)) {
+    if (
+      newAddon &&
+      (!oldAddon ||
+        oldAddon.slug !== newAddon.slug ||
+        prevProps.lang !== this.props.lang)
+    ) {
       this.pushPageVariables();
     }
 

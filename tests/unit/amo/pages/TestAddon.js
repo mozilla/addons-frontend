@@ -265,12 +265,17 @@ describe(__filename, () => {
     tracking.setPageVariables.mockClear();
 
     addon.slug = `${defaultSlug}-new`;
+    _loadAddon();
+
     await changeLocation({
       history,
       pathname: getLocation({ slug: addon.slug }),
     });
 
-    expect(tracking.setPageVariables).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(tracking.setPageVariables).toHaveBeenCalledTimes(1);
+    });
+
     expect(tracking.setPageVariables).toHaveBeenCalledWith({
       addon_type: 'extension',
       page_locale: 'en-US',

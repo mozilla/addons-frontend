@@ -78,6 +78,7 @@ import {
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
 }));
 
 const INVALID_TYPE = 'not-a-real-type';
