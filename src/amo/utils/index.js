@@ -188,7 +188,13 @@ export function sanitizeHTML(
 ): {| __html: string |} {
   // TODO: Accept tags to allow and run through dom-purify.
   return {
-    __html: _purify.sanitize(text, { ALLOWED_TAGS: allowTags }),
+    __html: _purify.sanitize(text, {
+      ALLOWED_TAGS: allowTags,
+      ALLOW_DATA_ATTR: false,
+      ALLOW_ARIA_ATTR: false,
+      SANITIZE_NAMED_PROPS: true,
+      FORBID_ATTR: ['class', 'style'],
+    }),
   };
 }
 
