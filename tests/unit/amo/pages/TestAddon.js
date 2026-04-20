@@ -119,6 +119,7 @@ jest.mock('amo/addonManager', () => ({
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
   setUserProperties: jest.fn(),
 }));
 
@@ -243,6 +244,37 @@ describe(__filename, () => {
     renderWithAddon();
 
     expect(dispatch).toHaveBeenCalledWith(setViewContext(addon.type));
+  });
+
+  it('pushes page variables to tracking on mount', () => {
+    tracking.setPageVariables.mockClear();
+    renderWithAddon();
+
+    expect(tracking.setPageVariables).toHaveBeenCalledTimes(1);
+    expect(tracking.setPageVariables).toHaveBeenCalledWith({
+      addon_type: 'extension',
+      page_locale: 'en-US',
+    });
+  });
+
+  it('pushes page variables to tracking on update', async () => {
+    tracking.setPageVariables.mockClear();
+    renderWithAddon();
+
+    expect(tracking.setPageVariables).toHaveBeenCalledTimes(1);
+    tracking.setPageVariables.mockClear();
+
+    addon.slug = `${defaultSlug}-new`;
+    await changeLocation({
+      history,
+      pathname: getLocation({ slug: addon.slug }),
+    });
+
+    expect(tracking.setPageVariables).toHaveBeenCalledTimes(1);
+    expect(tracking.setPageVariables).toHaveBeenCalledWith({
+      addon_type: 'extension',
+      page_locale: 'en-US',
+    });
   });
 
   it('updates the ViewContext on update', async () => {
