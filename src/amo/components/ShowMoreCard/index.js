@@ -173,6 +173,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
             '<span class="visually-hidden">Expand to</span> Read more',
           ),
           ['span'],
+          ['class'],
         )}
       />
     );
