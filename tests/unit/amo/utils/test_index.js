@@ -682,8 +682,10 @@ describe(__filename, () => {
 
     it('does not allow certain tags', () => {
       expect(
-        sanitize('<b>my add-on</b> <script>alert("does XSS")</script>'),
-      ).toEqual('<b>my add-on</b> ');
+        sanitize(
+          '<b id="foo">my add-on</b> <script>alert("does XSS")</script>',
+        ),
+      ).toEqual('<b id="user-content-foo">my add-on</b> ');
     });
 
     it('does nothing to null values', () => {
@@ -704,6 +706,48 @@ describe(__filename, () => {
       const html = '<a href="http://example.org" target="_blank">link</a>';
       expect(sanitizeHTML(html, ['a'])).toEqual({
         __html: '<a href="http://example.org">link</a>',
+      });
+    });
+
+    it('removes aria attributes', () => {
+      const html = '<strong aria-label="foo">bar</strong>';
+      expect(sanitizeHTML(html, ['strong'])).toEqual({
+        __html: '<strong>bar</strong>',
+      });
+    });
+
+    it('removes data attributes', () => {
+      const html = '<strong data-foo="bar">alice</strong>';
+      expect(sanitizeHTML(html, ['strong'])).toEqual({
+        __html: '<strong>alice</strong>',
+      });
+    });
+
+    it('removes style attributes', () => {
+      const html = '<strong style="color: red">foo</strong>';
+      expect(sanitizeHTML(html, ['strong'])).toEqual({
+        __html: '<strong>foo</strong>',
+      });
+    });
+
+    it('removes class attributes', () => {
+      const html = '<strong class="foo">bar</strong>';
+      expect(sanitizeHTML(html, ['strong'])).toEqual({
+        __html: '<strong>bar</strong>',
+      });
+    });
+
+    it('allows attributes to be allowed back', () => {
+      const html = '<strong class="foo">bar</strong>';
+      expect(sanitizeHTML(html, ['strong'], ['class'])).toEqual({
+        __html: '<strong class="foo">bar</strong>',
+      });
+    });
+
+    it('sanitizes named props', () => {
+      const html = '<strong id="foo">bar</strong>';
+      expect(sanitizeHTML(html, ['strong'])).toEqual({
+        __html: '<strong id="user-content-foo">bar</strong>',
       });
     });
 

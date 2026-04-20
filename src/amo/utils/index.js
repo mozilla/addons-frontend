@@ -184,11 +184,22 @@ export function isValidClientApp(
 export function sanitizeHTML(
   text: ?string,
   allowTags: Array<string> = [],
+  allowAttributes: Array<string> = [],
   _purify: typeof purify = purify,
 ): {| __html: string |} {
   // TODO: Accept tags to allow and run through dom-purify.
+  const forbiddenAttributes = ['class', 'style'];
   return {
-    __html: _purify.sanitize(text, { ALLOWED_TAGS: allowTags }),
+    __html: _purify.sanitize(text, {
+      ALLOWED_TAGS: allowTags,
+      ALLOW_DATA_ATTR: false,
+      ALLOW_ARIA_ATTR: false,
+      SANITIZE_NAMED_PROPS: true,
+      FORBID_ATTR: forbiddenAttributes.filter(
+        (attrName) => !allowAttributes.includes(attrName),
+      ),
+      ADD_ATTR: allowAttributes,
+    }),
   };
 }
 
