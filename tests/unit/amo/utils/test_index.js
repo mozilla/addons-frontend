@@ -737,6 +737,13 @@ describe(__filename, () => {
       });
     });
 
+    it('allows attributes to be allowed back', () => {
+      const html = '<strong class="foo">bar</strong>';
+      expect(sanitizeHTML(html, ['strong'], ['class'])).toEqual({
+        __html: '<strong class="foo">bar</strong>',
+      });
+    });
+
     it('sanitizes named props', () => {
       const html = '<strong id="foo">bar</strong>';
       expect(sanitizeHTML(html, ['strong'])).toEqual({

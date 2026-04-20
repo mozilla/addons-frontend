@@ -12,6 +12,7 @@ import {
   dispatchClientMetadata,
   render as defaultRender,
   screen,
+  within,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -48,6 +49,20 @@ describe(__filename, () => {
       configurable: true,
       value: height,
     });
+
+  it('has a "Read more" link with visually-hidden Expand to text', () => {
+    // Mock the clientHeight to the "read more" link will be present.
+    mockClientHeight(DEFAULT_MAX_HEIGHT + 1);
+    render();
+    expect(
+      screen.getByRole('link', { name: 'Expand to read more' }),
+    ).toBeInTheDocument();
+    expect(
+      within(
+        screen.getByRole('link', { name: 'Expand to read more' }),
+      ).getByClassName('visually-hidden'),
+    ).toHaveTextContent('Expand to');
+  });
 
   it('reveals more text when clicking "read more" link', async () => {
     // Mock the clientHeight to the "read more" link will be present.
