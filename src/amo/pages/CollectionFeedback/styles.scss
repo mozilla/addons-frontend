@@ -13,7 +13,7 @@
 .CollectionFeedback-header-name {
   @include font-regular;
 
-  color: $black;
+  color: var(--amo-input-text);
   font-size: $font-size-heading-xs;
   grid-column: 1 / span 2;
   margin: 0;
@@ -52,7 +52,7 @@
   span {
     @include margin-end(4px);
 
-    color: $grey-50;
+    color: var(--amo-text-muted);
     display: inline-block;
 
     @include respond-to(large) {

@@ -2,7 +2,7 @@
 
 html,
 body {
-  background: $header-base-color;
+  background: var(--amo-bg-body);
   height: 100%;
 }
 
@@ -17,11 +17,11 @@ textarea {
   // Fix search input and possibly other inputs.
   // See https://github.com/mozilla/addons-frontend/issues/3640
 
-  background: $white;
-  border: 1px solid $grey-50;
+  background: var(--amo-bg-input);
+  border: 1px solid var(--amo-border-color);
   border-radius: $border-radius-xs;
   box-shadow: none;
-  color: $black;
+  color: var(--amo-input-text);
   font-size: $font-size-default;
   padding: 4px;
 }
@@ -42,7 +42,7 @@ textarea {
 body {
   @include font-regular;
 
-  color: $body-font-color;
+  color: var(--amo-text-body);
   font-size: $font-size-default;
   line-height: $line-height-body;
 }
@@ -55,7 +55,7 @@ h1,
 h2 {
   @include font-bold;
 
-  color: $primary-font-color;
+  color: var(--amo-text-primary);
   font-weight: 600;
   line-height: $line-height-compressed;
 }
@@ -78,7 +78,7 @@ h3 {
 a:link {
   @include font-medium;
 
-  color: $link-color;
+  color: var(--amo-link-color);
 }
 
 em {
@@ -90,12 +90,12 @@ strong {
 }
 
 .caption {
-  color: $primary-font-color;
+  color: var(--amo-text-primary);
   font-size: $font-size-xs;
 }
 
 .date-time {
-  color: #b1b1b1;
+  color: var(--amo-text-date);
   font-size: $font-size-default;
 }
 

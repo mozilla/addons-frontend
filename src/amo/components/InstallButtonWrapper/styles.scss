@@ -5,7 +5,7 @@
 
   a,
   a:link {
-    color: $sub-text-color;
+    color: var(--amo-text-secondary);
     font-size: $font-size-s;
     font-weight: 300;
   }

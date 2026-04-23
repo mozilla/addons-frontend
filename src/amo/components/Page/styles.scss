@@ -7,7 +7,7 @@
 }
 
 .Page-content {
-  background: $background-grey;
+  background: var(--amo-bg-page);
   flex-grow: 1;
   padding: 0 0 $padding-page;
 

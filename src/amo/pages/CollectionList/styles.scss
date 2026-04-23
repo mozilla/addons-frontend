@@ -4,7 +4,7 @@
   @include page-padding;
 
   .Card-contents {
-    background: $white;
+    background: var(--amo-bg-content);
     font-size: $font-size-default;
 
     .CollectionList-listing {

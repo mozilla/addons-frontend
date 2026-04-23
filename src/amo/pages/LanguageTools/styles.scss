@@ -11,7 +11,7 @@ $cell-padding: 6px;
 }
 
 .LanguageTools-header-row {
-  background: $grey-30;
+  background: var(--amo-select-bg);
 }
 
 .LanguageTools-header-cell {
@@ -33,16 +33,16 @@ $cell-padding: 6px;
 // values.
 .LanguageTools-table.responsiveTable {
   tbody tr {
-    border: 1px solid $grey-30;
+    border: 1px solid var(--amo-border-color);
     border-bottom: 0;
     padding: 0;
 
     &:nth-child(even) {
-      background: $grey-20;
+      background: var(--amo-bg-neutral);
     }
 
     &:last-child {
-      border-bottom: 1px solid $grey-30;
+      border-bottom: 1px solid var(--amo-border-color);
     }
   }
 

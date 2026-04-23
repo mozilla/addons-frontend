@@ -33,7 +33,7 @@
 .PermissionsCard,
 .AddonMoreInfo,
 .Addon-description-and-ratings {
-  border-top: 1px solid $grey-30;
+  border-top: 1px solid var(--amo-border-color);
   margin-top: 32px;
   padding-top: 16px;
 }
@@ -50,7 +50,7 @@
   flex-direction: column;
 
   & .Addon-theme-thumbnail {
-    background-color: $background-grey;
+    background-color: var(--amo-bg-page);
     border-radius: $border-radius-default;
     grid-area: theme;
     margin-top: 16px;
@@ -145,7 +145,7 @@
   flex-direction: column;
 
   .AddonDescription {
-    border-bottom: 1px solid $grey-30;
+    border-bottom: 1px solid var(--amo-border-color);
     margin: 0 0 16px;
     padding-bottom: 32px;
 

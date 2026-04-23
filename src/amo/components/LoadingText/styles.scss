@@ -24,7 +24,7 @@
 
 .LoadingText {
   animation: place-holder-shimmer 3s infinite cubic-bezier(0.65, 0.05, 0.36, 1);
-  background: $grey-30;
+  background: var(--amo-loading-bg);
   display: inline-block;
   height: 1rem;
   margin: 0;

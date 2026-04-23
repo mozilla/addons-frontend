@@ -43,8 +43,8 @@
 }
 
 .CollectionManager-slug-url-hint {
-  background-color: $grey-20;
-  border: 1px solid $grey-50;
+  background-color: var(--amo-bg-neutral);
+  border: 1px solid var(--amo-border-color);
   border-radius: $border-radius-xs 0 0 $border-radius-xs;
 
   // Disregarding text direction is intentional.

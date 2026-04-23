@@ -45,11 +45,11 @@
 }
 
 .FeedbackForm-label > span {
-  color: $grey-50;
+  color: var(--amo-text-muted);
 }
 
 .FeedbackForm--help {
-  color: $grey-50;
+  color: var(--amo-text-muted);
   display: block;
   margin-top: 0;
 }
@@ -63,7 +63,7 @@
   width: 100%;
 
   &:disabled {
-    background: $grey-20;
+    background: var(--amo-bg-neutral);
     cursor: not-allowed;
   }
 
