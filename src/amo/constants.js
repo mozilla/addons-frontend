@@ -236,6 +236,11 @@ export const CLICK_CATEGORY = 'amo_addon_theme_clicks';
 
 export const SUGGESTIONS_CLICK_CATEGORY = 'amo_suggested_addon_clicks';
 
+export const SET_ADDON_INSTALL_SOURCE: 'SET_ADDON_INSTALL_SOURCE' =
+  'SET_ADDON_INSTALL_SOURCE';
+export const CLEAR_ADDON_INSTALL_SOURCE: 'CLEAR_ADDON_INSTALL_SOURCE' =
+  'CLEAR_ADDON_INSTALL_SOURCE';
+
 // Collection tracking event categories
 export const COLLECTION_CREATE_STARTED_CATEGORY =
   'amo_create_collection_started';

@@ -3,13 +3,7 @@ import * as React from 'react';
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
 import Paginate from 'amo/components/Paginate';
 import SearchResults from 'amo/components/SearchResults';
-import {
-  ADDON_TYPE_STATIC_THEME,
-  DEFAULT_UTM_SOURCE,
-  INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_SEARCH,
-  RECOMMENDED,
-} from 'amo/constants';
+import { ADDON_TYPE_STATIC_THEME, RECOMMENDED } from 'amo/constants';
 import {
   createInternalAddonWithLang,
   fakeAddon,
@@ -103,7 +97,7 @@ describe(__filename, () => {
     expect(screen.getByClassName('SearchResult-users')).toBeInTheDocument();
   });
 
-  it('sets add-on install source to search by default', () => {
+  it('renders a clean add-on link for search results', () => {
     const results = [createInternalAddonWithLang(fakeAddon)];
     render({
       filters: { query: 'ad blockers' },
@@ -111,18 +105,13 @@ describe(__filename, () => {
       results,
     });
 
-    const expectedLink = [
-      `/en-US/android/addon/${results[0].slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-      'utm_medium=referral',
-      `utm_content=${INSTALL_SOURCE_SEARCH}`,
-    ].join('&');
     expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
       'href',
-      expectedLink,
+      `/en-US/android/addon/${results[0].slug}/`,
     );
   });
 
-  it('sets add-on install source to recommended when approrpriate', () => {
+  it('renders a clean add-on link for recommended search results', () => {
     const results = [createInternalAddonWithLang(fakeAddon)];
     render({
       filters: { query: 'ad blockers', promoted: RECOMMENDED },
@@ -130,14 +119,9 @@ describe(__filename, () => {
       results,
     });
 
-    const expectedLink = [
-      `/en-US/android/addon/${results[0].slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-      'utm_medium=referral',
-      `utm_content=${INSTALL_SOURCE_FEATURED}`,
-    ].join('&');
     expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
       'href',
-      expectedLink,
+      `/en-US/android/addon/${results[0].slug}/`,
     );
   });
 
