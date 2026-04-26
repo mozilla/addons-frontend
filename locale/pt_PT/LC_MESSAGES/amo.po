@@ -278,15 +278,15 @@ msgstr "Outras extensões populares"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:40
 msgid "You reported this add-on"
-msgstr "Reportou este extra"
+msgstr "Reportou este complemento"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:44
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr "Recebemos o seu relatório. Obrigado por nos deixar saber acerca das suas preocupações com este extra."
+msgstr "Recebemos o seu relatório. Obrigado por nos informar das suas preocupações em relação a este complemento."
 
 #: src/amo/components/AddonReportAbuseLink/index.js:56
 msgid "Report this add-on"
-msgstr "Reportar este extra"
+msgstr "Reportar este complemento"
 
 #: src/amo/components/AddonReviewCard/index.js:209
 msgid "Edit reply"
@@ -1792,7 +1792,7 @@ msgstr "Atualize a sua avaliação para %(starRating)s de 5"
 
 #: src/amo/components/Rating/index.js:115
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Avalie este extra em %(starRating)s de 5"
+msgstr "Classificar este complemento com %(starRating)s de 5"
 
 #: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
@@ -1816,7 +1816,7 @@ msgstr "Iniciar sessão para avaliar esta extensão"
 
 #: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this add-on"
-msgstr "Iniciar sessão para avaliar este extra"
+msgstr "Iniciar sessão para avaliar este complemento"
 
 #: src/amo/components/RatingManager/index.js:184
 msgid "Are you sure you want to delete your review of %(addonName)s?"
@@ -1918,7 +1918,7 @@ msgstr "Temas recomendados"
 
 #: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
-msgstr "Extras recomendados"
+msgstr "Complementos recomendados"
 
 #: src/amo/components/Search/index.js:155
 msgid "Extensions by Firefox"
@@ -1930,7 +1930,7 @@ msgstr "Temas do Firefox"
 
 #: src/amo/components/Search/index.js:161
 msgid "Add-ons by Firefox"
-msgstr "Extras do Firefox"
+msgstr "Complementos do Firefox"
 
 #: src/amo/components/Search/index.js:166
 msgid "Reviewed extensions"
@@ -1942,7 +1942,7 @@ msgstr "Temas revistos"
 
 #: src/amo/components/Search/index.js:172
 msgid "Reviewed add-ons"
-msgstr "Extras revistos"
+msgstr "Complementos revistos"
 
 #: src/amo/components/Search/index.js:180 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
@@ -1954,7 +1954,7 @@ msgstr "Temas em tendência"
 
 #: src/amo/components/Search/index.js:186
 msgid "Trending add-ons"
-msgstr "Extras em tendência"
+msgstr "Complementos em tendência"
 
 #: src/amo/components/Search/index.js:192 src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
@@ -1966,7 +1966,7 @@ msgstr "Temas no top de avaliações"
 
 #: src/amo/components/Search/index.js:198
 msgid "Top rated add-ons"
-msgstr "Extras no top de avaliações"
+msgstr "Complementos no topo das avaliações"
 
 #: src/amo/components/Search/index.js:204
 msgid "Popular extensions"
@@ -1978,7 +1978,7 @@ msgstr "Temas populares"
 
 #: src/amo/components/Search/index.js:210
 msgid "Popular add-ons"
-msgstr "Extras populares"
+msgstr "Complementos populares"
 
 #: src/amo/components/Search/index.js:216
 msgid "Search results for \"%(query)s\""
@@ -2080,7 +2080,7 @@ msgstr "A pesquisar por \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
-msgstr "Pesquisar por extras"
+msgstr "Pesquisar por complementos"
 
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
@@ -2206,7 +2206,7 @@ msgstr "Ordenar por"
 
 #: src/amo/components/SearchFilters/index.js:322
 msgid "Add-on Type"
-msgstr "Tipo de extra"
+msgstr "Tipo de complemento"
 
 #: src/amo/components/SearchFilters/index.js:344
 msgid "Theme Color"
@@ -2222,15 +2222,15 @@ msgstr "Atribuição de distintivo"
 
 #: src/amo/components/SearchForm/index.js:65
 msgid "Firefox Add-ons for Android"
-msgstr "Extras do Firefox para Android"
+msgstr "Complementos do Firefox para Android"
 
 #: src/amo/components/SearchForm/index.js:66
 msgid "Firefox Add-ons"
-msgstr "Extras do Firefox"
+msgstr "Complementos do Firefox"
 
 #: src/amo/components/SearchForm/index.js:89
 msgid "Go to the add-on page"
-msgstr "Ir para a página do extra"
+msgstr "Ir para a página do complemento"
 
 #: src/amo/components/SearchResult/index.js:209
 msgid "No theme preview available"
@@ -2238,7 +2238,7 @@ msgstr "Sem pré-visualização de tema disponível"
 
 #: src/amo/components/SearchResult/index.js:238
 msgid "Add-on note"
-msgstr "Nota do extra"
+msgstr "Nota do complemento"
 
 #: src/amo/components/SearchResults/index.js:45
 msgid "Searching…"
@@ -2274,7 +2274,7 @@ msgstr "Outros sites de navegadores"
 
 #: src/amo/components/SectionLinks/index.js:146
 msgid "Add-ons for Android"
-msgstr "Extras para Android"
+msgstr "Complementos para Android"
 
 #: src/amo/components/SectionLinks/index.js:96 src/amo/pages/CategoryPage/index.js:66 src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
@@ -2314,7 +2314,7 @@ msgstr "Navegar todos os temas"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
-msgstr "Página inicial dos extras"
+msgstr "Página inicial dos complementos"
 
 #: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:183
 msgid "Preview of %(title)s"
@@ -2323,8 +2323,8 @@ msgstr "Pré-visualização de %(title)s"
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "%(total)s extra"
-msgstr[1] "%(total)s extras"
+msgstr[0] "%(total)s complemento"
+msgstr[1] "%(total)s complementos"
 
 #: src/amo/components/UserProfileEditPicture/index.js:100
 msgid "Do you really want to delete this picture?"
@@ -2392,7 +2392,7 @@ msgstr "%(localizedSize)s TB"
 
 #: src/amo/pages/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr "Este extra não pode ser avaliado porque não foram publicadas versões."
+msgstr "Este complemento não pode ser avaliado porque não foram publicadas versões."
 
 #: src/amo/pages/Addon/index.js:221
 msgid "Read %(count)s review"
@@ -2429,7 +2429,7 @@ msgstr "Acerca deste tema"
 
 #: src/amo/pages/Addon/index.js:301
 msgid "About this add-on"
-msgstr "Acerca deste extra"
+msgstr "Sobre este complemento"
 
 #: src/amo/pages/Addon/index.js:334
 msgid "Developer comments"
@@ -2449,7 +2449,7 @@ msgstr "Capturas de ecrã"
 
 #: src/amo/pages/AddonFeedback/index.js:88
 msgid "Submit feedback or report an add-on to Mozilla"
-msgstr "Submeter feedback ou reportar um extra para a Mozilla"
+msgstr "Partilhar opinião ou reportar um complemento à Mozilla"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
@@ -2513,7 +2513,7 @@ msgstr "Tenha cuidado com versões antigas! Estas versões são mostradas para f
 
 #: src/amo/pages/AddonVersions/index.js:175
 msgid "You should always use the latest version of an add-on."
-msgstr "Deve sempre utilizar a versão mais recente de um extra."
+msgstr "Recomenda-se que utilize sempre a versão mais recente de um complemento."
 
 #: src/amo/pages/AddonVersions/index.js:189
 msgid "Versions"
@@ -2533,7 +2533,7 @@ msgstr "%(addonName)s está restrito por violar as políticas da Mozilla"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
-msgstr "Este extra está restringido por violar as políticas da Mozilla"
+msgstr "Este complemento está restringido por violar as políticas da Mozilla"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
@@ -2541,7 +2541,7 @@ msgstr "%(addonName)s está bloqueado por violar as políticas da Mozilla"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
-msgstr "Este extra está bloqueado por violar as políticas da Mozilla"
+msgstr "Este complemento está bloqueado por violar as políticas da Mozilla"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
@@ -2549,7 +2549,7 @@ msgstr "Por que motivo isto aconteceu?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr "Esta extensão, tema ou plugin viola as %(startLink)spolíticas de extras da Mozilla%(endLink)s."
+msgstr "Esta extensão, tema ou plugin viola as %(startLink)spolíticas de complementos da Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2560,12 +2560,12 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
-"Até que a violação seja resolvida, este extra não estará disponível para transferência de addons.mozilla.org. Se já estiver instalado, será desativado e os utilizadores serão informados da violação "
-"de dados. Estes podem optar por ativar o extra novamente por sua conta e risco."
+"Até que a violação seja resolvida, este complemento não estará disponível para transferência de addons.mozilla.org. Se já estiver instalado, será desativado e os utilizadores serão informados da "
+"violação de dados. Estes podem optar por ativar o complemento novamente, por sua conta e risco."
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr "Até que a violação seja resolvida, este extra não estará disponível para transferência de addons.mozilla.org. Será automaticamente desativado e deixará de ser utilizável no Firefox."
+msgstr "Até que a violação seja resolvida, este complemento não estará disponível para transferência de addons.mozilla.org. Será automaticamente desativado e deixará de ser utilizável no Firefox."
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
@@ -2576,9 +2576,9 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
-"Quando a Mozilla toma conhecimento de extras, plugins, ou software de terceiros que comprometem seriamente a segurança, estabilidade ou desempenho do Firefox e que reúnam "
-"%(criteriaStartLink)sdeterminados critérios%(criteriaEndLink)s, a utilização geral do software pode ser impedida ou restringida. Para obter mais informações, por favor consulte "
-"%(supportStartLink)seste artigo de apoio%(supportEndLink)s."
+"Quando a Mozilla toma conhecimento de complementos, plugins, ou software de terceiros que comprometem seriamente a segurança, estabilidade ou desempenho do Firefox e que reúnam "
+"%(criteriaStartLink)sdeterminados critérios%(criteriaEndLink)s, a utilização geral do software pode ser impedida ou restringida. Para obter mais informações, consulte %(supportStartLink)seste artigo"
+" de apoio%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
@@ -2678,7 +2678,7 @@ msgstr "Inicie a sessão para ver as suas coleções"
 
 #: src/amo/pages/CollectionList/index.js:133
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr "As coleções tornam mais fácil seguir os extras favoritos e partilhar o seu navegador perfeitamente personalizado com outros."
+msgstr "As coleções facilitam o acompanhamento dos seus complementos favoritos e partilhar o seu navegador personalizado com outras pessoas."
 
 #: src/amo/pages/CollectionList/index.js:143
 msgid "Create a collection"
@@ -2792,7 +2792,7 @@ msgstr "Transfira dicionários e pacotes de idiomas do Firefox. Adicione uma nov
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "Instalar um extra de dicionário irá adicionar uma nova opção de idioma para o seu verificador de ortografia, que verifica a sua ortografia ao escrever no Firefox."
+msgstr "A instalação de um complemento de dicionário irá adicionar uma nova opção de idioma para o seu verificador ortográfico, que verifica a sua ortografia ao escrever no Firefox."
 
 #: src/amo/pages/LanguageTools/index.js:171
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -2835,8 +2835,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
-"Pretende interagir com addons.mozilla.org (AMO) programaticamente? Consulte a %(startAddonsServerDocumentation)sdocumentação dos servidores de extras%(endAddonsServerDocumentation)s para detalhes "
-"acerca das APIs utilizadas pelo AMO e %(startAddonsManager)sGestor de extras%(endAddonsManager)s."
+"Pretende interagir com addons.mozilla.org (AMO) programaticamente? Consulte a %(startAddonsServerDocumentation)sdocumentação dos servidores de complementos%(endAddonsServerDocumentation)s para "
+"detalhes sobre as API utilizadas pelo AMO e %(startAddonsManager)sGestor de complementos%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2848,15 +2848,15 @@ msgstr "Participe no nosso %(startLink)sfórum%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:162
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr "Deixe feedback nos seus extras favoritos. Os autores dos extras terão mais vontade de melhorar ou de criar novos extras quando sabem que as pessoas gostam do seu trabalho."
+msgstr "Deixe a sua opinião sobre os seus complementos favoritos. Os autores dos complementos têm mais motivação para melhorar e criar novos complementos quando sabem que o seu trabalho é valorizado."
 
 #: src/amo/pages/StaticPages/About/index.js:167
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr "Digam aos vossos amigos e familiares que o Firefox é um navegador rápido e seguro, que protege a sua privacidade, e que podem utilizar extras para o personalizar ao seu gosto!"
+msgstr "Informe os seus amigos e familiares de que o Firefox é um navegador rápido e seguro, que protege a sua privacidade, e que podem utilizar complementos para o personalizar!"
 
 #: src/amo/pages/StaticPages/About/index.js:175
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Para ver mais formas de contribuir para a comunidade de extras, por favor visite a nossa %(startLink)swiki%(endLink)s."
+msgstr "Para conhecer mais formas de contribuir para a comunidade de complementos, visite a nossa %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Report an issue"
@@ -2864,7 +2864,7 @@ msgstr "Reportar um problema"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
-msgstr "Acerca dos extras do Firefox"
+msgstr "Sobre os complementos do Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
@@ -2889,20 +2889,20 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Se quiser saber mais sobre como gerir extras no Firefox, ou se precisar de encontrar apoio geral para o Firefox, por favor visite o %(startSUMOLink)sApoio%(endSUMOLink)s da Mozilla. Se não encontrar"
-" uma resposta aqui, pode %(startForumLink)sfazer questões no nosso fórum da comunidade%(endForumLink)s."
+"Se quiser saber mais sobre como gerir complementos no Firefox, ou se precisar de encontrar apoio geral para o Firefox, visite o %(startSUMOLink)sApoio%(endSUMOLink)s da Mozilla. Se não encontrar uma"
+" resposta aqui, pode %(startForumLink)sfazer questões no nosso fórum da comunidade%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:256
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr "%(startLink)sInformação sobre como contactar a equipa de extras da Mozilla pode ser encontrada aqui%(endLink)s."
+msgstr "%(startLink)sInformações sobre como contactar a equipa de complementos da Mozilla pode ser encontrada aqui%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO), é o site oficial da Mozilla para descobrir e instalar extras para o navegador Firefox. Os extras ajudam-lhe a modificar e a personalizar a sua experiência de navegação "
-"adicionando novas funcionalidades ao Firefox, melhorando as suas interações com o conteúdo Web e modificando o aspeto visual do seu navegador."
+"O addons.mozilla.org (AMO) é o site oficial da Mozilla para descobrir e instalar complementos para o navegador Firefox. Os complementos permitem-lhe adaptar e personalizar a sua experiência de "
+"navegação, acrescentando novas funcionalidades ao Firefox, melhorando a interação com conteúdos Web e alterando o aspeto do seu navegador."
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
