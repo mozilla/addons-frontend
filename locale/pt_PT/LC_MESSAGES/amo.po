@@ -381,7 +381,7 @@ msgstr "Responder a esta análise"
 
 #: src/amo/components/AddonReviewCard/index.js:541
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr "Esta avaliação ou análise foi apagada. Apenas a está a ver por causa de permissões elevadas."
+msgstr "Esta avaliação ou análise foi eliminada. Apenas a está a ver devido a permissões elevadas."
 
 #: src/amo/components/AddonReviewCard/index.js:587
 msgid "Write a review"
@@ -2437,7 +2437,7 @@ msgstr "Comentários do programador"
 
 #: src/amo/pages/Addon/index.js:435
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr "Esta não é uma listagem pública. Apenas a está a ver por causa de permissões elevadas."
+msgstr "Esta não é uma listagem pública. Apenas a está a ver devido a permissões elevadas."
 
 #: src/amo/pages/Addon/index.js:463
 msgid "Extension Metadata"
