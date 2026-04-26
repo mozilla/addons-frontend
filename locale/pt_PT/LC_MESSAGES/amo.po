@@ -2906,8 +2906,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
-"Se está à procura de extras para o Thunderbird ou SeaMonkey, por favor visite %(startTBLink)saddons.thunderbird.net%(endTBLink)s ou %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
+msgstr "Se está à procura de complementos para o Thunderbird ou SeaMonkey, visite %(startTBLink)saddons.thunderbird.net%(endTBLink)s ou %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
@@ -2918,8 +2917,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"Os extras aqui listados são criados por milhares de programadores e designers de temas de todo o mundo, que vão desde amadores individuais a grandes empresas. Alguns extras listados no AMO foram "
-"publicados automaticamente e podem ser sujeitos a uma revisão por uma equipa de editores quando listados publicamente."
+"Os complementos aqui listados são criados por milhares de programadores e designers de temas de todo o mundo, que vão desde amadores individuais a grandes empresas. Alguns complementos listados no "
+"AMO foram publicados automaticamente e podem estar sujeitos a uma revisão por uma equipa de editores, quando listados publicamente."
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
@@ -2930,12 +2929,13 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
-"A Mozilla é uma defensora sem fins lucrativos da Internet, nós construímos o Firefox para a manter saudável, aberta e acessível. Os extras apoiam a escolha dos utilizadores e a personalização no "
-"Firefox, e você pode contribuir das seguintes formas:"
+"A Mozilla é uma organização sem fins lucrativos que defende a Internet; desenvolvemos o Firefox para a manter saudável, aberta e acessível. Os complementos promovem a escolha e personalização dos "
+"utilizadores no Firefox, e pode contribuir do seguinte modo:"
 
 #: src/amo/pages/StaticPages/About/index.js:77
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr "%(startLink)sFaça o seu próprio extra%(endLink)s. Nós fornecemos os serviços de alojamento e de atualização gratuitamente, e podemos ajudá-lo a atingir uma grande audiência de utilizadores."
+msgstr ""
+"%(startLink)sFaça o seu próprio complemento%(endLink)s. Nós fornecemos os serviços de alojamento e de atualização gratuitamente, e podemos ajudar a atingir uma grande audiência de utilizadores."
 
 #: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
@@ -2951,15 +2951,15 @@ msgstr "Inclua o seu email, número de telefone ou quaisquer outros dados ou os 
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr "Publicar análises para um extra que você ou a sua organização escreveu ou representa."
+msgstr "Publicar análises para um complemento que você ou a sua organização escreveu ou representa."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
-"Criticar um extra por algo que é suposto fazer. Por exemplo, deixar uma análise negativa para um extra por apresentar anúncios ou obrigar à recolha de dados, quando esse é o intuito do extra ou o "
-"extra requer a recolha de dados para funcionar."
+"Criticar um complemento por algo que é suposto fazer. Por exemplo, deixar uma análise negativa para um complemento por apresentar publicidade ou obrigar à recolha de dados, quando esse é o intuito "
+"do complemento ou o complemento requer a recolha de dados para funcionar."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
@@ -2979,17 +2979,15 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr "Eu sou um autor de extras, posso responder a análises?"
+msgstr "Eu sou um autor de complementos, posso responder a análises?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
-"Sim, os autores de extras podem fornecer uma resposta única a uma revisão. Você pode configurar um tópico de uma discussão no nosso %(startLink)sfórum%(endLink)s para acompanhar em discussões ou "
-"respostas seguintes."
+msgstr "Sim, os autores de complementos podem responder uma vez a uma avaliação. Pode criar um tópico de discussão no nosso %(startLink)sfórum%(endLink)s para continuar a conversa ou dar seguimento."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr "Eu sou autor de extras, posso eliminar análises ou avaliações desfavoráveis?"
+msgstr "Eu sou autor de complementos, posso eliminar análises ou avaliações desfavoráveis?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
@@ -2997,7 +2995,7 @@ msgid ""
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
 "Em geral, não. Mas se a análise não cumprir com as diretrizes descritas acima, pode clicar em \"Reportar esta análise\" para a mesma ser moderada. Se uma análise incluir uma queixa que já não é "
-"válida devido a um novo lançamento do seu extra, podemos considerar a remoção da análise."
+"válida devido a um novo lançamento do seu complemento, podemos considerar a remoção da análise."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
@@ -3012,8 +3010,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
-"As análises de extras são uma forma de partilhas as suas opiniões sobre os extras que instalou e utilizou. A nossa equipa de moderação reserva o direito de recusar ou de remover qualquer análise "
-"não-conforme com as diretrizes."
+"As análises de complementos são uma forma de partilhar as suas opiniões sobre os complementos que instalou e utilizou. A nossa equipa de moderação reserva o direito de recusar ou de remover qualquer"
+" análise não-conforme com as diretrizes."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
@@ -3025,7 +3023,7 @@ msgstr "Fazer:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Escreva como se estivesse dizer a um amigo a sua experiência com o extra."
+msgstr "Descreva a sua experiência com o complemento como se estivesse a partilhar com um amigo."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -3037,7 +3035,7 @@ msgstr "Forneça detalhes úteis e específicos. Por exemplo:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
-msgstr "O extra funcionou como esperava?"
+msgstr "O complemento funcionou como esperava?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
@@ -3053,7 +3051,7 @@ msgstr "Foi fácil de utilizar?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
-msgstr "Irá continuar a utilizar este extra?"
+msgstr "Irá continuar a utilizar este complemento?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -3072,12 +3070,12 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
-"Coloque questões técnicas, pedidos de apoio ou sugestões de funcionalidades. Utilize as opções de apoio disponíveis para cada extra, se disponíveis. Pode encontrá-las na secção \"Mais informação\" "
-"na barra lateral da página de detalhes do extra."
+"Coloque questões técnicas, pedidos de apoio ou sugestões de funcionalidades. Utilize as opções de apoio disponíveis para cada complemento, se disponíveis. Pode encontrá-las na secção \"Mais "
+"informação\" na barra lateral da página de detalhes do complemento."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr "Escrever análises para extras que não utilizou pessoalmente."
+msgstr "Escrever análises para complementos que não utilizou pessoalmente."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
 msgid "Use profanity, sexual language or language that can be construed as hateful."
@@ -3089,11 +3087,11 @@ msgstr "Incluir HTML, ligações, código fonte ou trechos de código. As análi
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr "Fazer afirmações falsas, menosprezar ou insultar os autores do extra."
+msgstr "Fazer afirmações falsas, menosprezar ou insultar os autores do complemento."
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr "Extras etiquetados com %(tag)s"
+msgstr "Complementos etiquetados com %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
@@ -3137,7 +3135,7 @@ msgstr "Avatar do utilizador"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
-msgstr "Programador de extras"
+msgstr "Programador de complementos"
 
 #: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
@@ -3157,11 +3155,11 @@ msgstr "Ocupação"
 
 #: src/amo/pages/UserProfile/index.js:395
 msgid "Number of add-ons"
-msgstr "Número de extras"
+msgstr "Número de complementos"
 
 #: src/amo/pages/UserProfile/index.js:403
 msgid "Average rating of developer’s add-ons"
-msgstr "Avaliação média dos extras do programador"
+msgstr "Avaliação média dos complementos do programador"
 
 #: src/amo/pages/UserProfile/index.js:415 src/amo/pages/UserProfileEdit/index.js:730
 msgid "Biography"
@@ -3283,17 +3281,15 @@ msgstr "Notificações"
 
 #: src/amo/pages/UserProfileEdit/index.js:773
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr "De tempo a tempo, a Mozilla poderá enviar-lhe um email acerca dos próximos lançamentos e eventos de extras. Por favor, selecione os tópicos em que está interessado(a)."
+msgstr "Ocasionalmente, a Mozilla poderá enviar-lhe e-mails sobre futuros lançamentos e eventos de complementos. Selecione, por favor, os temas do seu interesse."
 
 #: src/amo/pages/UserProfileEdit/index.js:778
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
-"De tempo a tempo, a Mozilla poderá enviar a este utilizador um email acerca dos próximos lançamentos e eventos de extras. Por favor, selecione os tópicos em que este utilizador pode estar "
-"interessado."
+msgstr "Ocasionalmente, a Mozilla poderá enviar a este utilizador e-mails sobre futuros lançamentos e eventos de complementos. Por favor, selecione os temas do interesse deste utilizador."
 
 #: src/amo/pages/UserProfileEdit/index.js:793
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr "A Mozilla reserva o direito de lhe contactar individualmente acerca de preocupações específicas com os seus extras alojados."
+msgstr "A Mozilla reserva-se o direito de o contactar diretamente sobre questões específicas relacionadas com os seus complementos alojados."
 
 #: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete My Profile"
@@ -3305,11 +3301,11 @@ msgstr "Apagar o meu perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "IMPORTANTE: Apagar o seu perfil do Extras do Firefox é irreversível."
+msgstr "IMPORTANTE: Eliminar o seu perfil dos complemento do Firefox é irreversível."
 
 #: src/amo/pages/UserProfileEdit/index.js:835
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "IMPORTANTE: Apagar este perfil do Extras do Firefox é irreversível."
+msgstr "IMPORTANTE: Eliminar este perfil dos complementos do Firefox é irreversível."
 
 #: src/amo/pages/UserProfileEdit/index.js:844
 msgid ""
@@ -3331,20 +3327,20 @@ msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
-"Se você criou quaisquer extras, estes também serão excluídos, a menos que partilhe a propriedade com outros autores. Neste caso, você será removido como autor e os autores restantes manterão a "
-"propriedade do extra."
+"Se criou quaisquer complementos, estes também serão eliminados, a menos que partilhe a propriedade com outros autores. Neste caso, você será removido como autor e os restantes autores manterão a "
+"propriedade do complemento."
 
 #: src/amo/pages/UserProfileEdit/index.js:865
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
-"Se o utilizador criou quaisquer extras, estes também serão excluídos, a menos que a propriedade seja partilhada com outros autores. Neste caso, o utilizador será removido como autor e os restantes "
-"autores manterão a propriedade do extra."
+"Se o utilizador criou quaisquer complementos, estes também serão eliminados, a menos que a propriedade seja partilhada com outros autores. Neste caso, o utilizador será removido como autor e os "
+"restantes autores manterão a propriedade do complemento."
 
 #: src/amo/pages/UserProfileEdit/index.js:875
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "Quando utiliza este endereço de e-mail para iniciar sessão novamente em addons.mozilla.org, o seu perfile em Extras do Firefox não terá acesso a quaisquer conteúdos anteriores."
+msgstr "Quando utiliza este endereço de e-mail para iniciar sessão novamente em addons.mozilla.org, o seu perfile em complementos do Firefox não terá acesso a quaisquer conteúdos anteriores."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:103
 msgid "Unsubscribe"
@@ -3384,7 +3380,7 @@ msgstr "Funciona com %(listOfApplicatonsAndVersions)s"
 
 #: src/amo/utils/addons.js:35
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr "Instalação abortada porque o extra parece estar corrompido."
+msgstr "Instalação abortada porque o complemento parece estar corrompido."
 
 #: src/amo/utils/addons.js:39
 msgid "Installation failed. Please try again."
