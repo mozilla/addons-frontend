@@ -78,6 +78,7 @@ import {
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
 }));
 
 const INVALID_TYPE = 'not-a-real-type';
@@ -944,6 +945,7 @@ describe(__filename, () => {
 
       const createProgressHandler = (props = {}) => {
         return makeProgressHandler({
+          _removeUTMParams: jest.fn(),
           _tracking: createFakeTracking(),
           dispatch: jest.fn(),
           guid: 'some-guid',

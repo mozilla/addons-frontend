@@ -7,7 +7,6 @@ import AddonsCard from 'amo/components/AddonsCard';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
-  DEFAULT_UTM_SOURCE,
   RECOMMENDED,
 } from 'amo/constants';
 import {
@@ -280,18 +279,12 @@ describe(__filename, () => {
       expect(stopPropagationWatcher).toHaveBeenCalled();
     });
 
-    it('links the heading to the detail page with UTM params', () => {
-      const addonInstallSource = 'home-page-featured';
-      renderWithResult({ props: { addonInstallSource } });
+    it('links the heading to the detail page', () => {
+      renderWithResult();
 
-      const expectedLink = [
-        `/en-US/android/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-        'utm_medium=referral',
-        `utm_content=${addonInstallSource}`,
-      ].join('&');
       expect(screen.getByRole('link', { name })).toHaveAttribute(
         'href',
-        expectedLink,
+        `/en-US/android/addon/${slug}/`,
       );
     });
 

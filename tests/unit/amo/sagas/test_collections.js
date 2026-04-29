@@ -42,6 +42,7 @@ import {
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
 }));
 
 describe(__filename, () => {

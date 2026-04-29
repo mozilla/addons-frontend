@@ -228,6 +228,16 @@ export class Tracking {
     });
     this.log('setUserProperties', props);
   }
+
+  /*
+   * Push generic key-value pairs into the dataLayer. Useful for background
+   * variables (e.g., page_locale, addon_type) that GTM tags might read.
+   */
+  setPageVariables(variables: { [string]: string }) {
+    // $FlowIgnore
+    this._pushToDataLayer(variables);
+    this.log('setPageVariables', variables);
+  }
 }
 
 // Returns { extension_name: name } or { theme_name: name } based on addon type
