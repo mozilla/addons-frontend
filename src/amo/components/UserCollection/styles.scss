@@ -22,7 +22,7 @@
 .UserCollection-name {
   @include font-bold;
 
-  color: $black;
+  color: var(--amo-input-text);
   flex-grow: 1;
   font-size: $font-size-default;
   margin: 0;
@@ -31,7 +31,7 @@
   .UserCollection-link:active &,
   .UserCollection-link:focus &,
   .UserCollection-link:hover & {
-    color: $link-color;
+    color: var(--amo-link-color);
   }
 
   @include respond-to(large) {
@@ -42,7 +42,7 @@
 .UserCollection-number {
   @include font-light;
 
-  color: $grey-50;
+  color: var(--amo-text-muted);
   font-size: $font-size-default;
   margin: 0;
 }

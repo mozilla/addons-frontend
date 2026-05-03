@@ -46,7 +46,7 @@
     &:visited,
     &:hover,
     &:active {
-      color: $blue-50;
+      color: var(--amo-link-color);
       font-weight: normal;
       text-decoration: underline;
     }
@@ -56,7 +56,7 @@
 .AddonReviewCard-delete {
   background: none;
   border: 0;
-  color: $blue-50;
+  color: var(--amo-link-color);
   font-size: $font-size-s;
   height: auto;
   line-height: $line-height-body;
@@ -71,11 +71,11 @@
   }
 
   .AddonReviewCard-ratingOnly.AddonReviewCard-slim & {
-    color: $text-color-default;
+    color: var(--amo-text-heading);
 
     &:active,
     &:hover {
-      color: $blue-50;
+      color: var(--amo-link-color);
     }
   }
 }

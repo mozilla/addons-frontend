@@ -10,7 +10,7 @@
 
   h1,
   h2 {
-    color: $grey-90;
+    color: var(--amo-text-dark);
   }
 
   h1 {
@@ -23,7 +23,7 @@
   }
 
   h3 {
-    color: $grey-60;
+    color: var(--amo-text-secondary);
   }
 }
 
