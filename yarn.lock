@@ -11638,10 +11638,10 @@ universal-base64url@1.1.0:
   dependencies:
     universal-base64 "^2.1.0"
 
-universal-cookie-express@8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-8.1.0.tgz#721b5b1c6cc6db90d5626febd63988a656b0678f"
-  integrity sha512-SLpkFMMleaoWSWptAgGzT2+kNqAhv6cOepzrDtaS3KmPx5nklRjNUOyjO/xNqQEk7nqSPVw7fX0KFk6TatHb/g==
+universal-cookie-express@8.1.2:
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-8.1.2.tgz#e847430a81c2808bb37c2b1725e632132a5a5a93"
+  integrity sha512-3LqDGMU9AcrWs5cPMcnqQVrNGO/vXWyPWjgf7Y0kAnfGXpxqyPATCORE4GNdKd2m2fHz2L8lyTpOIZOSqXagUQ==
   dependencies:
     universal-cookie "^8.0.0"
 
