@@ -1617,11 +1617,11 @@ msgstr "Página %(thisPage)s de %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:102
 msgid "Optional permissions:"
-msgstr ""
+msgstr "Permisos opcionales:"
 
 #: src/amo/components/PermissionsCard/index.js:122
 msgid "Optional data collection, according to the developer:"
-msgstr ""
+msgstr "Recopilación de datos opcional, según el desarrollador:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "Data collection:"
@@ -1629,15 +1629,15 @@ msgstr "Recopilación de datos:"
 
 #: src/amo/components/PermissionsCard/index.js:78
 msgid "Required data collection, according to the developer:"
-msgstr ""
+msgstr "Recopilación de datos requerida, según el desarrollador:"
 
 #: src/amo/components/PermissionsCard/index.js:82
 msgid "Permissions and data"
-msgstr ""
+msgstr "Permisos y datos"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Required permissions:"
-msgstr ""
+msgstr "Permisos necesarios:"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Read and modify bookmarks"
@@ -1733,7 +1733,7 @@ msgstr "Acceder a la actividad del navegador mientras navegas"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Authentication information"
-msgstr ""
+msgstr "Información de autenticación"
 
 #: src/amo/components/PermissionsCard/permissions.js:67
 msgid "Bookmarks"
@@ -1741,7 +1741,7 @@ msgstr "Marcadores"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Browsing activity"
-msgstr ""
+msgstr "Actividad de navegación"
 
 #: src/amo/components/PermissionsCard/permissions.js:69
 msgid "Financial and payment information"
