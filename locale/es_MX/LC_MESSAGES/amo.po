@@ -2443,9 +2443,8 @@ msgid "About this add-on"
 msgstr "Sobre este complemento"
 
 #: src/amo/pages/Addon/index.js:334
-#, fuzzy
 msgid "Developer comments"
-msgstr "Normativas para desarrolladores"
+msgstr "Comentarios del desarrollador"
 
 #: src/amo/pages/Addon/index.js:435
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
@@ -2549,7 +2548,7 @@ msgstr "Este complemento está restringido por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:137
 msgid "%(addonName)s is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s está bloqueado por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
@@ -2655,7 +2654,7 @@ msgstr "Descarga y crea colecciones de Firefox para estar al tanto de tus extens
 
 #: src/amo/pages/CollectionFeedback/index.js:129
 msgid "Submit feedback or report a collection to Mozilla"
-msgstr ""
+msgstr "Envía tus comentarios o informa sobre una colección a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
