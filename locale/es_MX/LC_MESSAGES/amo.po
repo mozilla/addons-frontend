@@ -1942,9 +1942,8 @@ msgid "Reviewed themes"
 msgstr "Temas revisados"
 
 #: src/amo/components/Search/index.js:172
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Revisar código del complemento"
+msgstr "Complementos revisados"
 
 #: src/amo/components/Search/index.js:180 src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
@@ -2169,9 +2168,8 @@ msgid "By Firefox"
 msgstr "Por Firefox"
 
 #: src/amo/components/SearchFilters/index.js:216
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Comentario"
+msgstr "Todos revisados"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Black"
@@ -2234,14 +2232,12 @@ msgid "Badging"
 msgstr "Insignia"
 
 #: src/amo/components/SearchForm/index.js:65
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Complementos para Android"
+msgstr "Complementos de Firefox para Android"
 
 #: src/amo/components/SearchForm/index.js:66
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Acerca de los complementos de Firefox"
+msgstr "Complementos de Firefox"
 
 #: src/amo/components/SearchForm/index.js:89
 msgid "Go to the add-on page"
@@ -2379,12 +2375,11 @@ msgstr "Obtén Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:100
 msgid "To find extensions compatible with Firefox for Android, %(linkStart)sclick here%(linkEnd)s."
-msgstr ""
+msgstr "Para encontrar extensiones compatibles con Firefox para Android, %(linkStart)shaz clic aquí%(linkEnd)s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:89
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Este complemento no es compatible con tu versión de Firefox."
+msgstr "Los complementos no son compatibles con Firefox para iOS. Intenta instalarlos en Firefox para escritorio."
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -2628,7 +2623,7 @@ msgstr "Has denunciado esta colección"
 
 #: src/amo/pages/Collection/index.js:427
 msgid "We have received your report. Thanks for letting us know about your concerns with this collection."
-msgstr ""
+msgstr "Hemos recibido tu informe. Gracias por comunicarnos tus inquietudes respecto a esta colección."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Report this collection"
