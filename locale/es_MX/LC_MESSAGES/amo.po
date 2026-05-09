@@ -920,13 +920,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Lo sentimos, pero ha habido un error con nuestro servidor y no hemos podido completar tu petición. Hemos registrado el error y vamos a investigarlo."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Intenta volver a la página más tarde, puede que el tema o extensión esté disponible en unos minutos. También puedes probar a buscar entre las %(extensionStart)sextensiones%(extensionEnd)s o "
-"%(themeStart)stemas%(themeEnd)s ya disponibles o pidiendo ayuda en los %(communityStart)sforos de la comunidad%(communityEnd)s."
+"Es posible que encuentres lo que buscas en una de las %(extensionStart)sextensiones%(extensionEnd)s o %(themeStart)stemas%(themeEnd)s disponibles, o pidiendo ayuda en nuestros "
+"%(communityStart)sforos de la comunidad%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 #, fuzzy
