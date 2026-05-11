@@ -11,33 +11,33 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:186
 msgid "Loading…"
-msgstr ""
+msgstr "Учитавање…"
 
 #: src/amo/components/AddAddonToCollection/index.js:188
 msgid "Adding…"
-msgstr ""
+msgstr "Додајем…"
 
 #: src/amo/components/AddAddonToCollection/index.js:204
 msgid "Select a collection…"
-msgstr ""
+msgstr "Изаберите збирку…"
 
 #: src/amo/components/AddAddonToCollection/index.js:211
 msgid "Create new collection"
-msgstr ""
+msgstr "Направи нову збирку"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "Додато у %(collectionName)s"
 
 #. This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:268
 msgid "Add to…"
-msgstr ""
+msgstr "Додај у…"
 
 #. This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:49 src/amo/components/AddonMoreInfo/index.js:219
 msgid "Edit add-on"
-msgstr ""
+msgstr "Измени додатак"
 
 #. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:63
@@ -47,17 +47,17 @@ msgstr ""
 #. This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Content review add-on"
-msgstr ""
+msgstr "Додатак за преглед садржаја"
 
 #. This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:85
 msgid "Review theme"
-msgstr ""
+msgstr "Тема рецензије"
 
 #. This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:87
 msgid "Review add-on code"
-msgstr ""
+msgstr "Прегледајте код додатка"
 
 #: src/amo/components/AddonBadges/index.js:126
 msgid "%(average)s (%(count)s review)"
@@ -254,12 +254,12 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:473 src/amo/components/CollectionAddAddon/index.js:183
 msgid "Add to collection"
-msgstr ""
+msgstr "Додај у колекцију"
 
 #. This is a list of links to administrative functions.
 #: src/amo/components/AddonMoreInfo/index.js:483
 msgid "Admin Links"
-msgstr ""
+msgstr "Админ везе"
 
 #. This is a list of links to Developer functions.
 #: src/amo/components/AddonMoreInfo/index.js:495
