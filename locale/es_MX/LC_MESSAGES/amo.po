@@ -2595,14 +2595,12 @@ msgid "All theme categories"
 msgstr "Todas las categorías de temas"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Temas en %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "%(count)s extensión encontrada en %(categoryName)s"
+msgstr "Extensiones en %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:404
 msgid "Do you really want to delete this collection?"
@@ -2654,7 +2652,7 @@ msgstr "Envía tus comentarios o informa sobre una colección a Mozilla"
 
 #: src/amo/pages/CollectionFeedback/index.js:144
 msgid "by %(authorName)s"
-msgstr ""
+msgstr "por %(authorName)s"
 
 #: src/amo/pages/CollectionFeedback/index.js:171
 msgid "Report this collection to Mozilla"
@@ -2666,7 +2664,7 @@ msgstr "Envíenos sus comentarios sobre la colección"
 
 #: src/amo/pages/CollectionFeedback/index.js:175
 msgid "Report the collection because it's illegal or incompliant"
-msgstr ""
+msgstr "Reportar la colección por ser ilegal o incumplir las normas"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2702,11 +2700,11 @@ msgstr "Estacional"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Firefox for Android extensions"
-msgstr ""
+msgstr "Extensiones de Firefox para Android"
 
 #: src/amo/pages/Home/index.js:144
 msgid "Personalize Firefox for Android with powerful extensions."
-msgstr ""
+msgstr "Personaliza Firefox para Android con potentes extensiones."
 
 #: src/amo/pages/Home/index.js:163 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
@@ -2714,7 +2712,7 @@ msgstr "Ver más extensiones recomendadas"
 
 #: src/amo/pages/Home/index.js:180
 msgid "Explore all Android extensions"
-msgstr ""
+msgstr "Explorar todas las extensiones para Android"
 
 #: src/amo/pages/Home/index.js:181 src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
@@ -2820,15 +2818,15 @@ msgstr "Diccionarios"
 
 #: src/amo/pages/RatingFeedback/index.js:125
 msgid "Submit feedback or report a review to Mozilla"
-msgstr ""
+msgstr "Enviar comentarios o reportar una reseña a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:155
 msgid "by %(userName)s, %(timestamp)s"
-msgstr ""
+msgstr "por %(userName)s, %(timestamp)s"
 
 #: src/amo/pages/RatingFeedback/index.js:171
 msgid "Report this review to Mozilla"
-msgstr ""
+msgstr "Reportar esta reseña a Mozilla"
 
 #: src/amo/pages/RatingFeedback/index.js:175
 msgid "Report the review because it is illegal or incompliant"
@@ -2863,9 +2861,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "Para ver otras formas de colaborar con la comunidad de complementos, visita nuestra %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "Informar de un error"
+msgstr "Reportar un problema"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2873,7 +2870,7 @@ msgstr "Acerca de los complementos de Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr ""
+msgstr "Si encuentras un problema con el sitio, nos encantaría solucionarlo. Por favor, presenta un %(startIssueLink)sproblema%(endIssueLink)s e incluye tantos detalles como sea posible."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -2884,6 +2881,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla. All security vulnerability "
 "reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Para reportar una vulnerabilidad de seguridad en una extensión, incluso si no está alojada en este sitio, envía un %(startSecIssueLink)ssue%(endSecIssueLink)s en Bugzilla. Todos los reportes de "
+"vulnerabilidad de seguridad son %(startLink)sconfidenciales%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "Get support"
@@ -3095,11 +3094,11 @@ msgstr "Hacer alegaciones falsas, denigrar o insultar a los autores de complemen
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Complementos con la etiqueta %(tag)s"
 
 #: src/amo/pages/UserFeedback/index.js:124
 msgid "Submit feedback or report a user to Mozilla"
-msgstr ""
+msgstr "Enviar comentarios o reportar a una persona a Mozilla"
 
 #: src/amo/pages/UserFeedback/index.js:144 src/amo/pages/UserProfile/index.js:387
 msgid "User since"
