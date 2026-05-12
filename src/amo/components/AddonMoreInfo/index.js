@@ -8,6 +8,7 @@ import AddAddonToCollection from 'amo/components/AddAddonToCollection';
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonReportAbuseLink from 'amo/components/AddonReportAbuseLink';
 import Card from 'amo/components/Card';
+import CopyAddonId from 'amo/components/CopyAddonId';
 import DefinitionList, { Definition } from 'amo/components/DefinitionList';
 import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
@@ -348,6 +349,11 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             })
           : null,
       adminLinks,
+      addonId: addon ? (
+        <li>
+          <CopyAddonId addonId={addon.guid} />
+        </li>
+      ) : null,
     });
   }
 
@@ -367,12 +373,13 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     versionLastUpdated,
     versionLicenseLink = null,
     adminLinks = null,
+    addonId = null,
   }: Object): React.Node {
     const { addon, i18n } = this.props;
     return (
       <>
         <DefinitionList className="AddonMoreInfo-dl">
-          {(homepage || supportUrl || supportEmail) && (
+          {(homepage || supportUrl || supportEmail || addonId) && (
             <Definition
               className="AddonMoreInfo-links"
               term={i18n.gettext('Add-on Links')}
@@ -381,6 +388,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
                 {homepage}
                 {supportUrl}
                 {supportEmail}
+                {addonId}
               </ul>
             </Definition>
           )}

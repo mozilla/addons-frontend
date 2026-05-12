@@ -1,0 +1,14 @@
+@import '~amo/css/styles';
+
+.CopyAddonId {
+  .Icon {
+    @include margin-end(2px);
+
+    height: 14px;
+    vertical-align: center;
+
+    &.Icon-check-mark {
+      height: 12px;
+    }
+  }
+}

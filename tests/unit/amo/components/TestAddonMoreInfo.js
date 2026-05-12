@@ -97,6 +97,18 @@ describe(__filename, () => {
     expect(screen.getByText('Add-on Links')).toBeInTheDocument();
   });
 
+  it('renders a CopyAddonId link when the add-on is loaded', () => {
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      guid: 'some-guid',
+    });
+    render({ addon });
+
+    expect(screen.getByRole('link', { name: 'Copy add-on ID' })).toHaveClass(
+      'CopyAddonId',
+    );
+  });
+
   it('renders an "Add-on Links" heading if support email exists', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
@@ -107,16 +119,6 @@ describe(__filename, () => {
     render({ addon });
 
     expect(screen.getByText('Add-on Links')).toBeInTheDocument();
-  });
-
-  it('does not render an "Add-on Links" heading if no links exist', () => {
-    const partialAddon = createInternalAddonWithLang(fakeAddon);
-    delete partialAddon.homepage;
-    delete partialAddon.support_email;
-    delete partialAddon.support_url;
-    render({ addon: partialAddon });
-
-    expect(screen.queryByText('Add-on Links')).not.toBeInTheDocument();
   });
 
   it('does not render a homepage if none exists', () => {
@@ -136,7 +138,7 @@ describe(__filename, () => {
     });
     render({ addon });
 
-    expect(screen.queryByText('Add-on Links')).not.toBeInTheDocument();
+    expect(screen.queryByText('Support Email')).not.toBeInTheDocument();
   });
 
   it('renders the homepage of an add-on', () => {

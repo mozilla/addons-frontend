@@ -183,3 +183,11 @@
 .Icon-android {
   @include icon($name: 'android');
 }
+
+.Icon-check-mark {
+  @include icon($name: 'check-mark');
+}
+
+.Icon-copy {
+  @include icon($name: 'copy');
+}
