@@ -25,8 +25,9 @@ export class CopyAddonIdBase extends React.Component<InternalProps, State> {
 
   onClick: (SyntheticEvent<HTMLAnchorElement>) => void = (event) => {
     event.preventDefault();
-    navigator.clipboard.writeText(this.props.addonId);
-    this.setState({ copied: true });
+    navigator.clipboard.writeText(this.props.addonId).then(() => {
+      this.setState({ copied: true });
+    });
   };
 
   render(): React.Node {
