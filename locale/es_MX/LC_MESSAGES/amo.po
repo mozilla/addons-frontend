@@ -2098,11 +2098,10 @@ msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)
 msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s extensión encontrada en %(categoryName)s"
-msgstr[1] "%(count)s extensiones encontradas en %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada con las etiquetas %(tag)s en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas con las etiquetas %(tag)s en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -2111,11 +2110,10 @@ msgstr[0] "%(count)s extensión encontrada en %(categoryName)s"
 msgstr[1] "%(count)s extensiones encontradas en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)s"
-msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" con las etiquetas %(tag)s"
+msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" con las etiquetas %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "All"
@@ -2413,8 +2411,8 @@ msgstr "Aún no hay revisiones"
 #: src/amo/pages/Addon/index.js:252
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Calificado %(ratingAverage)s por 1 revisor"
+msgstr[1] "Calificado %(ratingAverage)s por %(ratingCount)s revisores"
 
 #: src/amo/pages/Addon/index.js:289
 msgid "About this dictionary"
@@ -2534,7 +2532,7 @@ msgstr "Versiones antiguas"
 
 #: src/amo/pages/Block/index.js:123
 msgid "%(addonName)s is restricted for violating Mozilla policies"
-msgstr ""
+msgstr "%(addonName)s está restringido por infringir las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:130
 msgid "This add-on is restricted for violating Mozilla policies"
@@ -2546,7 +2544,7 @@ msgstr "%(addonName)s está bloqueado por violar las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:144
 msgid "This add-on is blocked for violating Mozilla policies"
-msgstr ""
+msgstr "Este complemento está bloqueado por infringir las políticas de Mozilla"
 
 #: src/amo/pages/Block/index.js:158
 msgid "Why did this happen?"
@@ -2554,7 +2552,7 @@ msgstr "¿Por qué pasó esto?"
 
 #: src/amo/pages/Block/index.js:163
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
-msgstr ""
+msgstr "Esta extensión, tema o complemento infringe %(startLink)slas políticas de complementos de Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:175
 msgid "What does this mean?"
@@ -2565,10 +2563,12 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it’s already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Hasta que se resuelva la infracción, este complemento no estará disponible para su descarga en addons.mozilla.org. Si ya está instalado, se deshabilitará y se informará sobre la infracción. Es "
+"posible elegir volver a habilitarlo bajo el propio riesgo."
 
 #: src/amo/pages/Block/index.js:183
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
-msgstr ""
+msgstr "Hasta que se resuelva la infracción, este complemento no estará disponible para su descarga en addons.mozilla.org. Se deshabilitará automáticamente y ya no podrá usarse en Firefox."
 
 #: src/amo/pages/Block/index.js:189
 msgid "How does Mozilla enforce its policies?"
@@ -2579,6 +2579,8 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromise Firefox security, stability, or performance and meet %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked or restricted from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Cuando Mozilla detecta complementos u otro software de terceros que comprometen seriamente la seguridad, la estabilidad o el rendimiento de Firefox y se cumplen %(criteriaStartLink)sciertos "
+"criterios%(criteriaEndLink)s, el software puede ser bloqueado o restringirse para su uso general. Para obtener más información, revisa %(supportStartLink)seste artículo de soporte%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:97
 msgid "View block request"
