@@ -1994,11 +1994,10 @@ msgstr[0] "%(count)s extensión encontrada para \"%(query)s\""
 msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:113
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s extensión encontrada en %(categoryName)s"
-msgstr[1] "%(count)s extensiones encontradas en %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada con la etiqueta %(tag)s"
+msgstr[1] "%(count)s extensiones encontradas con la etiqueta %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
@@ -2007,11 +2006,10 @@ msgstr[0] "%(count)s extensión encontrada"
 msgstr[1] "%(count)s extensiones encontradas"
 
 #: src/amo/components/SearchContextCard/index.js:134
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s tema encontrado para \"%(query)s\" en %(categoryName)s"
-msgstr[1] "%(count)s temas encontrados para \"%(query)s\" en %(categoryName)s"
+msgstr[0] "%(count)s tema encontrado para \"%(query)s\" con las etiquetas %(tag)s en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados para \"%(query)s\" con las etiquetas %(tag)s en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -2020,11 +2018,10 @@ msgstr[0] "%(count)s tema encontrado para \"%(query)s\" en %(categoryName)s"
 msgstr[1] "%(count)s temas encontrados para \"%(query)s\" en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s tema encontrado en %(categoryName)s"
-msgstr[1] "%(count)s temas encontrados en %(categoryName)s"
+msgstr[0] "%(count)s tema encontrado con las etiquetas %(tag)s en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados con las etiquetas %(tag)s en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
@@ -2033,11 +2030,10 @@ msgstr[0] "%(count)s tema encontrado en %(categoryName)s"
 msgstr[1] "%(count)s temas encontrados en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:170
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s tema encontrado para \"%(query)s\" en %(categoryName)s"
-msgstr[1] "%(count)s temas encontrados para \"%(query)s\" en %(categoryName)s"
+msgstr[0] "%(count)s tema encontrado para \"%(query)s\" con las etiquetas %(tag)s"
+msgstr[1] "%(count)s temas encontrados para \"%(query)s\" con las etiquetas %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -2046,11 +2042,10 @@ msgstr[0] "%(count)s tema encontrado para \"%(query)s\""
 msgstr[1] "%(count)s temas encontrados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:188
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "%(count)s tema encontrado en %(categoryName)s"
-msgstr[1] "%(count)s temas encontrados en %(categoryName)s"
+msgstr[0] "%(count)s tema encontrado con la etiqueta %(tag)s"
+msgstr[1] "%(count)s temas encontradas con la etiqueta %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
@@ -2059,11 +2054,10 @@ msgstr[0] "%(count)s tema encontrado"
 msgstr[1] "%(count)s temas encontrados"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
-msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
+msgstr[0] "%(count)s resultado encontrado para \"%(query)s\" con las etiquetas %(tag)s"
+msgstr[1] "%(count)s resultados encontrados para \"%(query)s\" con las etiquetas %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -2072,11 +2066,10 @@ msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
 msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:227
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
-msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
+msgstr[0] "%(count)s resultado encontrado con las etiquetas %(tag)s"
+msgstr[1] "%(count)s resultados encontrados con las etiquetas %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
@@ -2093,11 +2086,10 @@ msgid "Searching for add-ons"
 msgstr "Buscando complementos"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)s"
-msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
+msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" con las etiquetas %(tag)s en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" con las etiquetas %(tag)s en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
