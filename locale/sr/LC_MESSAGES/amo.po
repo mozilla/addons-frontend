@@ -42,7 +42,7 @@ msgstr "Измени додатак"
 #. This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:63
 msgid "Admin add-on"
-msgstr ""
+msgstr "Админ додатак"
 
 #. This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:77
@@ -61,26 +61,26 @@ msgstr "Прегледајте код додатка"
 
 #: src/amo/components/AddonBadges/index.js:126
 msgid "%(average)s (%(count)s review)"
-msgstr ""
+msgstr "%(average)s (%(count)s рецензија)"
 
 #: src/amo/components/AddonBadges/index.js:130
 msgid "%(average)s (%(count)s reviews)"
-msgstr ""
+msgstr "%(average)s (%(count)s рецензија)"
 
 #: src/amo/components/AddonBadges/index.js:157
 msgid "%(count)s User"
 msgid_plural "%(count)s Users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s корисник"
+msgstr[1] "%(count)s корисника"
+msgstr[2] "%(count)s корисника"
 
 #: src/amo/components/AddonBadges/index.js:164
 msgid "No Users"
-msgstr ""
+msgstr "Нема корисника"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Available on Firefox for Android™"
-msgstr ""
+msgstr "Доступно на Firefox-у за Android™"
 
 #: src/amo/components/AddonBadges/index.js:72
 msgid "Experimental"
@@ -88,88 +88,88 @@ msgstr "Експериментално"
 
 #: src/amo/components/AddonBadges/index.js:86
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Неке могућности могу захтевати плаћање"
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Овај додатак није усаглашен са вашим издањем Firefox-а."
 
 #: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "Овај додатак није доступан на вашој платформи."
 
 #: src/amo/components/AddonFeedbackForm/index.js:148 src/amo/components/SearchResult/index.js:256
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(total)s корисник"
+msgstr[1] "%(total)s корисника"
+msgstr[2] "%(total)s корисника"
 
 #: src/amo/components/AddonFeedbackForm/index.js:209
 msgid "Report this add-on to Mozilla"
-msgstr ""
+msgstr "Пријавите овај додатак Mozilla-и"
 
 #: src/amo/components/AddonFeedbackForm/index.js:210
 msgid "Send some feedback about the add-on"
-msgstr ""
+msgstr "Пошаљите примедбе о овом додатку"
 
 #: src/amo/components/AddonFeedbackForm/index.js:211
 msgid "Report the add-on because it's illegal or incompliant"
-msgstr ""
+msgstr "Пријавите овај додатак зато што је противзаконит или није усклађен"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите овај додатак за 🦊 Firefox (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите овај језички пакет за 🦊 Firefox (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите ову тему за 🦊 Firefox (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите овај додатак за 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:131
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Преузмите %(addonName)s за Firefox. %(summary)s"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите овај речник за 🦊 Firefox за Android (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите овај додатак за 🦊 Firefox за Android (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите овај језички пакет за 🦊 Firefox за Android (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите ову тему за 🦊 Firefox за Android (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox Android".
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите овај додатак за 🦊 Firefox за Android (%(locale)s)"
 
 #. please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s - Преузмите овај речник за 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:154 src/amo/pages/UserProfile/index.js:361 src/amo/pages/UserProfile/index.js:364 src/amo/pages/UserProfileEdit/index.js:676
 msgid "Homepage"
@@ -177,7 +177,7 @@ msgstr "Почетна страница"
 
 #: src/amo/components/AddonMoreInfo/index.js:171
 msgid "Support site"
-msgstr ""
+msgstr "Страница подршке"
 
 #: src/amo/components/AddonMoreInfo/index.js:185
 msgid "Support Email"
@@ -185,7 +185,7 @@ msgstr "Е-пошта подршке"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Посетите командну таблу статистике"
 
 #: src/amo/components/AddonMoreInfo/index.js:241
 msgid "Custom License"
@@ -194,23 +194,23 @@ msgstr "Произвољна дозвола"
 #. This will output, in English: "2 months ago (Dec 12 2016)"
 #: src/amo/components/AddonMoreInfo/index.js:286
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:303
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Прочитајте политику приватности за овај додатак"
 
 #: src/amo/components/AddonMoreInfo/index.js:315
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Прочитајте уговор о лиценци за овај додатак"
 
 #: src/amo/components/AddonMoreInfo/index.js:328
 msgid "See all versions"
-msgstr ""
+msgstr "Погледајте сва издања"
 
 #: src/amo/components/AddonMoreInfo/index.js:378
 msgid "Add-on Links"
-msgstr ""
+msgstr "Везе додатка"
 
 #: src/amo/components/AddonMoreInfo/index.js:390
 msgid "Version"
@@ -226,7 +226,7 @@ msgstr "Последњи пут ажурирано"
 
 #: src/amo/components/AddonMoreInfo/index.js:414
 msgid "Related Categories"
-msgstr ""
+msgstr "Повезане категорије"
 
 #: src/amo/components/AddonMoreInfo/index.js:424
 msgid "License"
@@ -246,7 +246,7 @@ msgstr "Историјат верзија"
 
 #: src/amo/components/AddonMoreInfo/index.js:458
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Статистика коришћења"
 
 #: src/amo/components/AddonMoreInfo/index.js:466
 msgid "Tags"
@@ -264,7 +264,7 @@ msgstr "Админ везе"
 #. This is a list of links to Developer functions.
 #: src/amo/components/AddonMoreInfo/index.js:495
 msgid "Author Links"
-msgstr ""
+msgstr "Везе аутора"
 
 #: src/amo/components/AddonMoreInfo/index.js:516
 msgid "More information"
@@ -272,39 +272,39 @@ msgstr "Више информација"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Други корисници који имају овај додатак такође су инсталирали"
 
 #: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
-msgstr ""
+msgstr "Други популарни додаци"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:40
 msgid "You reported this add-on"
-msgstr ""
+msgstr "Пријавили сте овај додатак"
 
 #: src/amo/components/AddonReportAbuseLink/index.js:44
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Примили смо вашу пријаву. Хвала што сте нас обавестили о својим забринутостима у вези са овим додатком."
 
 #: src/amo/components/AddonReportAbuseLink/index.js:56
 msgid "Report this add-on"
-msgstr ""
+msgstr "Пријави овај додатак"
 
 #: src/amo/components/AddonReviewCard/index.js:209
 msgid "Edit reply"
-msgstr ""
+msgstr "Уреди одговор"
 
 #: src/amo/components/AddonReviewCard/index.js:212
 msgid "Edit review"
-msgstr ""
+msgstr "Измени рецензију"
 
 #: src/amo/components/AddonReviewCard/index.js:219 src/amo/components/AddonReviewCard/index.js:251
 msgid "Delete reply"
-msgstr ""
+msgstr "Обриши одговор"
 
 #: src/amo/components/AddonReviewCard/index.js:223 src/amo/components/AddonReviewCard/index.js:255
 msgid "Delete rating"
-msgstr ""
+msgstr "Обриши оцену"
 
 #: src/amo/components/AddonReviewCard/index.js:226 src/amo/components/AddonReviewCard/index.js:258
 msgid "Delete review"
@@ -312,15 +312,15 @@ msgstr "Обриши рецензију"
 
 #: src/amo/components/AddonReviewCard/index.js:233
 msgid "Do you really want to delete this reply?"
-msgstr ""
+msgstr "Да ли стварно желите да обришете овај одговор?"
 
 #: src/amo/components/AddonReviewCard/index.js:237
 msgid "Do you really want to delete this rating?"
-msgstr ""
+msgstr "Да ли стварно желите да обришете ову оцену?"
 
 #: src/amo/components/AddonReviewCard/index.js:240
 msgid "Do you really want to delete this review?"
-msgstr ""
+msgstr "Да ли стварно желите да обришете ову рецензију?"
 
 #: src/amo/components/AddonReviewCard/index.js:247 src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
@@ -333,45 +333,45 @@ msgstr "Откажи"
 
 #: src/amo/components/AddonReviewCard/index.js:269
 msgid "Keep reply"
-msgstr ""
+msgstr "Задржи одговор"
 
 #: src/amo/components/AddonReviewCard/index.js:273
 msgid "Keep rating"
-msgstr ""
+msgstr "Задржи оцену"
 
 #: src/amo/components/AddonReviewCard/index.js:276
 msgid "Keep review"
-msgstr ""
+msgstr "Задржи коментар"
 
 #: src/amo/components/AddonReviewCard/index.js:312
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "Напишите одговор на овај коментар."
 
 #: src/amo/components/AddonReviewCard/index.js:315
 msgid "Update reply"
-msgstr ""
+msgstr "Ажурирајте одговор"
 
 #: src/amo/components/AddonReviewCard/index.js:316
 msgid "Publish reply"
-msgstr ""
+msgstr "Објавите одговор"
 
 #: src/amo/components/AddonReviewCard/index.js:320
 msgid "Updating reply"
-msgstr ""
+msgstr "Ажурирање одговора"
 
 #: src/amo/components/AddonReviewCard/index.js:321
 msgid "Publishing reply"
-msgstr ""
+msgstr "Објављивање одговора"
 
 #. Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:365
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "објављено %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #. Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:367
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "од %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:480
 msgid "Deleting…"
@@ -379,11 +379,11 @@ msgstr "Брисање…"
 
 #: src/amo/components/AddonReviewCard/index.js:511
 msgid "Reply to this review"
-msgstr ""
+msgstr "Одговорите на ову рецензију"
 
 #: src/amo/components/AddonReviewCard/index.js:541
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Ова оцена или рецензија су обрисани. Видите их само зато што имате повећана овлашћења."
 
 #: src/amo/components/AddonReviewCard/index.js:587
 msgid "Write a review"
@@ -391,23 +391,23 @@ msgstr "Напишите рецензију"
 
 #: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
-msgstr ""
+msgstr "Пишите о свом искуству са овим додатком."
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
-msgstr ""
+msgstr "Пошаљите рецензију"
 
 #: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
-msgstr ""
+msgstr "Слање рецензије"
 
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
-msgstr ""
+msgstr "Ажурирајте рецензију"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
-msgstr ""
+msgstr "Ажурирање рецензије"
 
 #: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
@@ -419,123 +419,123 @@ msgstr "Сачувано"
 
 #: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Пратите наше %(linkStart)s смернице за рецензије%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "Ваша оцена:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Више речника од %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:256
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Више речника ових преводилаца"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Више додатака од %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:266
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "Још додатака ових програмера"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:270
 msgid "Extensions by %(author)s"
-msgstr ""
+msgstr "Додаци аутора %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:273
 msgid "Extensions by these developers"
-msgstr ""
+msgstr "Додаци ових програмера"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:279
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Још језичких пакета аутора %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Још језичких пакета ових преводилаца"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Још тема аутора %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:292
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Још тема ових уметника"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:296
 msgid "Themes by %(author)s"
-msgstr ""
+msgstr "Теме аутора %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:299
 msgid "Themes by these artists"
-msgstr ""
+msgstr "Теме ових уметника"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:305
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Још додатака аутора %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Још додатака од ових програмера"
 
 #: src/amo/components/AddonSuggestions/index.js:100
 msgid "More powerful tools for translations, writing & grammar support"
-msgstr ""
+msgstr "Моћнији алати за преводе, писање и подршку за граматику"
 
 #: src/amo/components/AddonSuggestions/index.js:107
 msgid "More amazing extensions to change the way Firefox looks"
-msgstr ""
+msgstr "Још сјајних додатака за промену изгледа Firefox-а"
 
 #: src/amo/components/AddonSuggestions/index.js:114
 msgid "More incredible social media extensions"
-msgstr ""
+msgstr "Још невероватних додатака за друштвене мреже"
 
 #: src/amo/components/AddonSuggestions/index.js:119
 msgid "More excellent search extensions"
-msgstr ""
+msgstr "Још одличних додатака за претрагу"
 
 #: src/amo/components/AddonSuggestions/index.js:124
 msgid "More great extensions for feeds, news & media"
-msgstr ""
+msgstr "Још сјајних додатака за доводе, вести и медије"
 
 #: src/amo/components/AddonSuggestions/index.js:129
 msgid "More great notification extensions"
-msgstr ""
+msgstr "Још сјајних додатака за обавештења"
 
 #: src/amo/components/AddonSuggestions/index.js:138
 msgid "More great tools for web developers"
-msgstr ""
+msgstr "Још сјајних алата за веб-програмере"
 
 #: src/amo/components/AddonSuggestions/index.js:268
 msgid "See Firefox Staff Picks"
-msgstr ""
+msgstr "Погледајте препоруке особља Firefox-а"
 
 #: src/amo/components/AddonSuggestions/index.js:57
 msgid "Explore our 'Starter Pack' to get started with extensions"
-msgstr ""
+msgstr "Истражите наш 'Почетни пакет' да бисте почели са додацима"
 
 #: src/amo/components/AddonSuggestions/index.js:69
 msgid "More powerful privacy & security extensions"
-msgstr ""
+msgstr "Још моћнији додаци за приватност и безбедност"
 
 #: src/amo/components/AddonSuggestions/index.js:74
 msgid "More incredible download managers"
-msgstr ""
+msgstr "Још невероватнији управљачи преузимањем"
 
 #: src/amo/components/AddonSuggestions/index.js:80 src/amo/components/AddonSuggestions/index.js:85
 msgid "More fantastic tab & bookmark extensions"
-msgstr ""
+msgstr "Још фантастичнији додаци за језичке и обележиваче"
 
 #: src/amo/components/AddonSuggestions/index.js:90
 msgid "More great extensions for games & entertainment"
-msgstr ""
+msgstr "Још одличнији додаци за игре и забаву"
 
 #: src/amo/components/AddonSuggestions/index.js:95
 msgid "More amazing image, photo & media extensions"
-msgstr ""
+msgstr "Још задивљујућији додаци за слике, фотографије и мултимедију"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -545,43 +545,43 @@ msgstr "Иконица додатка"
 #: src/amo/components/AddonSummaryCard/index.js:78
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(rating)s звезда од 5"
+msgstr[1] "%(rating)s звезде од 5"
+msgstr[2] "%(rating)s звезда од 5"
 
 #. A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
-msgstr ""
+msgstr ","
 
 #. Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
 msgid "by"
-msgstr ""
+msgstr "од"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr ""
+msgstr "Изворни код је објављен под %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr ""
+msgstr "Изворни код је објављен под %(linkStart)s прилагођеном лиценцом%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
-msgstr ""
+msgstr "Изворни код објављен под %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
-msgstr ""
+msgstr "Није пронађено издање"
 
 #: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Издање %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Објављено %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/AMInstallButton/index.js:133
 msgid "Enable"
@@ -593,11 +593,11 @@ msgstr "Уклони"
 
 #: src/amo/components/AMInstallButton/index.js:138
 msgid "Enabling"
-msgstr ""
+msgstr "Омогућавање"
 
 #: src/amo/components/AMInstallButton/index.js:140
 msgid "Disabling"
-msgstr ""
+msgstr "Онемогућавање"
 
 #: src/amo/components/AMInstallButton/index.js:142
 msgid "Downloading"
@@ -617,23 +617,23 @@ msgstr "Инсталирај тему"
 
 #: src/amo/components/AMInstallButton/index.js:155
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Додај у Firefox"
 
 #: src/amo/components/App/index.js:122 src/amo/components/HeadMetaTags/index.js:91
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "Додаци за Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:126 src/amo/components/HeadMetaTags/index.js:85
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(title)s - Додаци за Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:134 src/amo/components/HeadMetaTags/index.js:90
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "Додаци за Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:138 src/amo/components/HeadMetaTags/index.js:84
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s - Додаци за Firefox за Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:151
 msgid "Log out"
@@ -645,7 +645,7 @@ msgstr "Пријавите се"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:146
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Ова радња је тренутно недоступна. Поново учитајте страницу за неколико тренутака."
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
@@ -653,7 +653,7 @@ msgstr "Учитавање"
 
 #: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
-msgstr ""
+msgstr "Пронађи додатке"
 
 #: src/amo/components/AutoSearchInput/index.js:323 src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
@@ -665,35 +665,35 @@ msgstr "Категорије"
 
 #: src/amo/components/Categories/index.js:111
 msgid "Loading categories."
-msgstr ""
+msgstr "Учитавање категорија."
 
 #: src/amo/components/Categories/index.js:99
 msgid "No categories found."
-msgstr ""
+msgstr "Није пронађена ниједна категорија."
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
-msgstr ""
+msgstr "Додато у збирку"
 
 #: src/amo/components/CollectionAddAddon/index.js:170
 msgid "Removed from collection"
-msgstr ""
+msgstr "Уклоњено из збирке"
 
 #: src/amo/components/CollectionAddAddon/index.js:179
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Пронађи додатак који ћете укључити у ову збирку"
 
 #: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
-msgstr ""
+msgstr "Уреди ову збирку"
 
 #: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
-msgstr ""
+msgstr "Уреди детаље збирке"
 
 #: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
-msgstr ""
+msgstr "Назад на збирку"
 
 #: src/amo/components/CollectionDetails/index.js:77 src/amo/components/Footer/index.js:59 src/amo/pages/CollectionFeedback/index.js:155
 msgid "Add-ons"
@@ -705,7 +705,7 @@ msgstr "Творац"
 
 #: src/amo/components/CollectionManager/index.js:248
 msgid "Create collection"
-msgstr ""
+msgstr "Направи збирку"
 
 #: src/amo/components/CollectionManager/index.js:249
 msgid "Save changes"
@@ -725,15 +725,15 @@ msgstr "Прилагођена адреса"
 
 #: src/amo/components/CollectionSort/index.js:108
 msgid "Sort add-ons by"
-msgstr ""
+msgstr "Поређај додатке по"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Newest first"
-msgstr ""
+msgstr "Најновије прво"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Oldest first"
-msgstr ""
+msgstr "Најстарије прво"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Name"
@@ -749,59 +749,59 @@ msgstr "Потврди"
 
 #: src/amo/components/ContributeCard/index.js:117
 msgid "Contribute now"
-msgstr ""
+msgstr "Допринесите сада"
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this developer"
-msgstr ""
+msgstr "Подржите овог програмера"
 
 #: src/amo/components/ContributeCard/index.js:47
 msgid "Support these developers"
-msgstr ""
+msgstr "Подржите ове програмере"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Програмер овог додатка вас моли да помогнете у подршци за његов даљи развој тако што ћете дати мали допринос."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Програмери овог додатка вас моле да помогнете у подршци за његов даљи развој тако што ћете дати мали допринос."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
-msgstr ""
+msgstr "Подржите овог уметника"
 
 #: src/amo/components/ContributeCard/index.js:61
 msgid "Support these artists"
-msgstr ""
+msgstr "Подржите ове уметнике"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Творац ове теме вас моли да помогнете у подршци за њено даље стварање тако што ћете дати мали допринос."
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Творци ове теме вас моле да помогнете у подршци за њено даље стварање тако што ћете дати мали допринос."
 
 #: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
-msgstr ""
+msgstr "Подржите овог аутора"
 
 #: src/amo/components/ContributeCard/index.js:75
 msgid "Support these authors"
-msgstr ""
+msgstr "Подржите ове ауторе"
 
 #: src/amo/components/ContributeCard/index.js:79
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Аутор овог додатка вас моли да помогнете у подршци за његов даљи рад тако што ћете дати мали допринос."
 
 #: src/amo/components/ContributeCard/index.js:81
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Аутори овог додатка вас моле да помогнете у подршци за његов даљи рад тако што ћете дати мали допринос."
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
-msgstr ""
+msgstr "Унесите текст."
 
 #: src/amo/components/DismissibleTextForm/index.js:200
 msgid "Submit"
@@ -809,19 +809,19 @@ msgstr "Потврди"
 
 #: src/amo/components/DismissibleTextForm/index.js:202
 msgid "Submitting"
-msgstr ""
+msgstr "Слање..."
 
 #: src/amo/components/EditableCollectionAddon/index.js:132 src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
-msgstr ""
+msgstr "Оставите поруку"
 
 #: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
-msgstr ""
+msgstr "Белешка колекционара"
 
 #: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
-msgstr ""
+msgstr "Додајте коментар о овом додатку."
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
@@ -833,7 +833,7 @@ msgstr "Уреди"
 
 #: src/amo/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Ваша сесија је истекла"
 
 #: src/amo/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
