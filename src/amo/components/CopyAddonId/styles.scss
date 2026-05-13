@@ -5,7 +5,8 @@
     @include margin-end(2px);
 
     height: 14px;
-    vertical-align: center;
+    margin-top: -2px;
+    vertical-align: middle;
 
     &.Icon-check-mark {
       height: 12px;
