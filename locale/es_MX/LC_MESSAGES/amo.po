@@ -670,7 +670,7 @@ msgstr "No se encontró ninguna categoría."
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
-msgstr "Se añadió a la colección"
+msgstr "Agregado a la colección"
 
 #: src/amo/components/CollectionAddAddon/index.js:170
 msgid "Removed from collection"
@@ -714,7 +714,7 @@ msgstr "Nombre de la colección"
 
 #: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
-msgstr "Decripción"
+msgstr "Descripción"
 
 #: src/amo/components/CollectionManager/index.js:284
 msgid "Custom URL"
@@ -750,15 +750,15 @@ msgstr "Contribuir ahora"
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this developer"
-msgstr "Ayudar a este desarrollador"
+msgstr "Ayuda el equipo desarrollador"
 
 #: src/amo/components/ContributeCard/index.js:47
 msgid "Support these developers"
-msgstr "Ayudar a estos desarrolladores"
+msgstr "Ayudar al equipo desarrollador"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "El desarrollador de esta extensión te pide le ayudes a seguir con el desarrollo haciendo una pequeña contribución."
+msgstr "Quien desarrolló esta extensión te pide apoyo para continuar con su desarrollo mediante una pequeña contribución."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
@@ -1882,7 +1882,7 @@ msgstr "No hay reseñas de cinco estrellas"
 #: src/amo/components/RatingsByStar/index.js:78
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Lea la reseña de cuatro estrellas"
+msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/components/RatingsByStar/index.js:88
