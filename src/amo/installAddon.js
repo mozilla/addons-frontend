@@ -103,8 +103,8 @@ export function makeProgressHandler({
           category: getAddonEventCategory(type, INSTALL_DOWNLOAD_FAILED_ACTION),
           params: getAddonEventParams(addon, window.location.pathname),
         });
-        _removeUTMParams();
       }
+      _removeUTMParams();
     } else if (event.type === 'onInstallCancelled') {
       dispatch({
         type: INSTALL_CANCELLED,
