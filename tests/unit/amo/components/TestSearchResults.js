@@ -1,9 +1,15 @@
 import * as React from 'react';
+import userEvent from '@testing-library/user-event';
 
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
 import Paginate from 'amo/components/Paginate';
 import SearchResults from 'amo/components/SearchResults';
-import { ADDON_TYPE_STATIC_THEME, RECOMMENDED } from 'amo/constants';
+import {
+  ADDON_TYPE_STATIC_THEME,
+  INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_SEARCH,
+  RECOMMENDED,
+} from 'amo/constants';
 import {
   createInternalAddonWithLang,
   fakeAddon,
@@ -147,5 +153,35 @@ describe(__filename, () => {
     expect(
       screen.queryByClassName('SearchResult-users'),
     ).not.toBeInTheDocument();
+  });
+
+  it('dispatches INSTALL_SOURCE_SEARCH when clicking on a search result (not promoted)', async () => {
+    const results = [createInternalAddonWithLang(fakeAddon)];
+    const { store } = render({
+      filters: { query: 'test' },
+      loading: false,
+      results,
+    });
+
+    await userEvent.click(screen.getByRole('link', { name: results[0].name }));
+
+    expect(store.getState().addonInstallSource.installSource).toEqual(
+      INSTALL_SOURCE_SEARCH,
+    );
+  });
+
+  it('dispatches INSTALL_SOURCE_FEATURED when clicking on a promoted search result', async () => {
+    const results = [createInternalAddonWithLang(fakeAddon)];
+    const { store } = render({
+      filters: { query: 'test', promoted: RECOMMENDED },
+      loading: false,
+      results,
+    });
+
+    await userEvent.click(screen.getByRole('link', { name: results[0].name }));
+
+    expect(store.getState().addonInstallSource.installSource).toEqual(
+      INSTALL_SOURCE_FEATURED,
+    );
   });
 });

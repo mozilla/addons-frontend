@@ -77,7 +77,11 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 
   onClickAddon: HTMLElementEventHandler = (e: ElementEvent) => {
-    const { addon, onClick } = this.props;
+    const { addon, addonInstallSource, dispatch, onClick } = this.props;
+
+    if (addon && addonInstallSource) {
+      dispatch(setAddonInstallSource(addonInstallSource));
+    }
 
     e.stopPropagation();
     if (addon && onClick) {

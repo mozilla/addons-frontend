@@ -1548,7 +1548,7 @@ export const render = (ui, options = {}) => {
   };
 
   const result = libraryRender(ui, { wrapper });
-  return { ...result, history, root: result.container.firstChild };
+  return { ...result, history, store, root: result.container.firstChild };
 };
 /* eslint-enable testing-library/no-node-access */
 

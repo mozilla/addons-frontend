@@ -102,6 +102,18 @@ describe(__filename, () => {
     expect(onAddonClick).toHaveBeenCalledWith(addons[0]);
   });
 
+  it('dispatches the addonInstallSource to Redux store on click', async () => {
+    const addonInstallSource = 'some-featured-shelf';
+    const addons = [createInternalAddonWithLang(fakeAddon)];
+    const { store } = render({ addons, addonInstallSource });
+
+    await userEvent.click(screen.getByRole('listitem'));
+
+    expect(store.getState().addonInstallSource.installSource).toEqual(
+      addonInstallSource,
+    );
+  });
+
   it('overrides the default placeholder value when passed in', () => {
     render({
       addons: [],

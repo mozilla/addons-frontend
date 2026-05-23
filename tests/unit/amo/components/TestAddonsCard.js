@@ -394,6 +394,17 @@ describe(__filename, () => {
       expect(onClick).toHaveBeenCalledWith(createAddon());
     });
 
+    it('dispatches the addonInstallSource to Redux store on click', async () => {
+      const addonInstallSource = 'some-custom-install-source';
+      renderWithResult({ props: { addonInstallSource } });
+
+      await userEvent.click(screen.getByRole('listitem'));
+
+      expect(store.getState().addonInstallSource.installSource).toEqual(
+        addonInstallSource,
+      );
+    });
+
     it('does not call the custom onClick handler for the li element without an addon', async () => {
       const onClick = jest.fn();
       render({ loading: true, onAddonClick: onClick, placeholderCount: 1 });

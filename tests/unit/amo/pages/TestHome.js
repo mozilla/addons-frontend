@@ -229,6 +229,21 @@ describe(__filename, () => {
       });
     });
 
+    it('dispatches the install source when the cta is clicked', async () => {
+      checkInternalURL.mockReturnValue({
+        isInternal: true,
+        relativeURL: '/some/url',
+      });
+      const cta = { text: 'cta text', url: '/some/url', outgoing: '/out/url' };
+      renderWithHomeData({ secondaryProps: { cta } });
+
+      await userEvent.click(screen.getByRole('link', { name: cta.text }));
+
+      expect(store.getState().addonInstallSource.installSource).toEqual(
+        SECONDARY_HERO_SRC,
+      );
+    });
+
     it('sends a tracking event for the impression on mount', () => {
       const cta = { text: 'cta text', url: '/some/url', outgoing: '/out/url' };
       renderWithHomeData({ secondaryProps: { cta } });
@@ -466,7 +481,7 @@ describe(__filename, () => {
       [INSTALL_SOURCE_FEATURED, HOMESHELVES_ENDPOINT_SEARCH],
     ])(
       'passes addonInstallSource as %s when endpoint is %s',
-      (addonInstallSource, endpoint) => {
+      async (addonInstallSource, endpoint) => {
         const addonName = 'Some add-on name';
         const slug = 'some-slug';
         renderWithHomeData({
@@ -485,10 +500,16 @@ describe(__filename, () => {
           'href',
           `/${defaultLang}/${defaultClientApp}/addon/${slug}/`,
         );
+
+        await userEvent.click(screen.getByRole('link', { name: addonName }));
+
+        expect(store.getState().addonInstallSource.installSource).toEqual(
+          addonInstallSource,
+        );
       },
     );
 
-    it('passes addonInstallSource as tag-shelf-{tag} when endpoint is random-tag', () => {
+    it('passes addonInstallSource as tag-shelf-{tag} when endpoint is random-tag', async () => {
       const tagName = 'foo';
       const url = `https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&tag=${tagName}`;
       const addonName = 'Some add-on name';
@@ -509,6 +530,12 @@ describe(__filename, () => {
       expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
         'href',
         `/${defaultLang}/${defaultClientApp}/addon/${slug}/`,
+      );
+
+      await userEvent.click(screen.getByRole('link', { name: addonName }));
+
+      expect(store.getState().addonInstallSource.installSource).toEqual(
+        `tag-shelf-${tagName}`,
       );
     });
 
@@ -1003,6 +1030,18 @@ describe(__filename, () => {
             trusted: false,
           }),
         });
+      });
+
+      it('dispatches the install source when clicked for addon', async () => {
+        renderWithHomeData(withAddonShelfData);
+
+        await userEvent.click(
+          screen.getByRole('link', { name: 'Get the extension' }),
+        );
+
+        expect(store.getState().addonInstallSource.installSource).toEqual(
+          PRIMARY_HERO_SRC,
+        );
       });
 
       it('sends a tracking event when the cta is clicked for external', async () => {
