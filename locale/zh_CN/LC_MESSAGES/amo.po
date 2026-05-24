@@ -1557,7 +1557,7 @@ msgstr "访问您在所有网站的数据"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "访问您在 %(param)s 域名的数据"
+msgstr "访问您用于 %(param)s 域名的网站的数据"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
