@@ -35,7 +35,6 @@ import {
   EXPERIMENT_CONFIG,
   VARIANT_SHOW,
 } from 'amo/experiments/20210714_amo_vpn_promo';
-import { EXPERIMENT_CONFIG as suggestionsExperimentConfig } from 'amo/experiments/20221130_amo_detail_category';
 import { extractId } from 'amo/pages/Addon';
 import {
   FETCH_ADDON,
@@ -163,10 +162,8 @@ describe(__filename, () => {
       slug: defaultSlug,
     };
 
-    // Disable the AddonSuggestions experiment for the tests in this file.
-    const fakeConfig = getMockConfig({
-      experiments: { [suggestionsExperimentConfig.id]: false },
-    });
+    // Prevent any experiment from being loaded by default.
+    const fakeConfig = getMockConfig({ experiments: {} });
 
     config.get.mockImplementation((key) => {
       return fakeConfig[key];

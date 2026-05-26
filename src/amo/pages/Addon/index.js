@@ -22,12 +22,6 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
-import {
-  EXPERIMENT_CONFIG,
-  VARIANT_SHOW_MIDDLE,
-  VARIANT_SHOW_TOP,
-  shouldExcludeUser,
-} from 'amo/experiments/20221130_amo_detail_category';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getAddonURL, sanitizeUserHTML } from 'amo/utils';
@@ -55,8 +49,6 @@ import LoadingText from 'amo/components/LoadingText';
 import ShowMoreCard from 'amo/components/ShowMoreCard';
 import ThemeImage from 'amo/components/ThemeImage';
 import Notice from 'amo/components/Notice';
-import AddonSuggestions from 'amo/components/AddonSuggestions';
-import { withExperiment } from 'amo/withExperiment';
 import tracking from 'amo/tracking';
 
 import './styles.scss';
@@ -373,16 +365,6 @@ export class AddonBase extends React.Component {
     ) : null;
   }
 
-  renderCategorySuggestions(requiredVariant) {
-    const { addon, clientApp, variant } = this.props;
-
-    if (variant !== requiredVariant || shouldExcludeUser({ clientApp })) {
-      return null;
-    }
-
-    return <AddonSuggestions addon={addon} />;
-  }
-
   renderRecommendations() {
     const { addon, clientApp } = this.props;
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
@@ -450,8 +432,6 @@ export class AddonBase extends React.Component {
 
           {errorBanner}
 
-          {this.renderCategorySuggestions(VARIANT_SHOW_TOP)}
-
           <Card className="Addon-content">
             <div className="Addon-warnings">
               <AddonInstallError error={this.props.installError} />
@@ -500,8 +480,6 @@ export class AddonBase extends React.Component {
                 {i18n.gettext('Extension Metadata')}
               </h2>
             </header>
-
-            {this.renderCategorySuggestions(VARIANT_SHOW_MIDDLE)}
 
             <div className="Addon-main-content">
               {addonPreviews.length > 0 && !isThemeType ? (
@@ -577,5 +555,4 @@ export default compose(
   translate(),
   connect(mapStateToProps),
   withFixedErrorHandler({ fileName: __filename, extractId }),
-  withExperiment({ experimentConfig: EXPERIMENT_CONFIG }),
 )(AddonBase);
