@@ -261,7 +261,6 @@ export class AddonSuggestionsBase extends React.Component<Props> {
           pathname: `/collections/${config.get('mozillaUserId')}/${
             category.collection
           }/`,
-          query: { addonInstallSource: INSTALL_SOURCE_SUGGESTIONS },
         }
       : null;
 

@@ -28,7 +28,6 @@ import {
   DEFAULT_UTM_SOURCE,
   INSTALL_SOURCE_FEATURED_COLLECTION,
   INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_TAG_SHELF_PREFIX,
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
   LINE,
@@ -70,6 +69,7 @@ jest.mock('amo/utils', () => ({
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
 }));
 
 describe(__filename, () => {
@@ -175,11 +175,7 @@ describe(__filename, () => {
       const link = screen.getByRole('link', { name: cta.text });
       expect(link).toHaveAttribute(
         'href',
-        `/${defaultLang}/${defaultClientApp}${addQueryParams(cta.url, {
-          utm_source: DEFAULT_UTM_SOURCE,
-          utm_medium: DEFAULT_UTM_MEDIUM,
-          utm_content: SECONDARY_HERO_SRC,
-        })}`,
+        `/${defaultLang}/${defaultClientApp}${cta.url}`,
       );
       expect(link).not.toHaveAttribute('target');
       expect(checkInternalURL).toHaveBeenCalledWith({ urlString: cta.url });
@@ -231,6 +227,21 @@ describe(__filename, () => {
         category: SECONDARY_HERO_CLICK_CATEGORY,
         params: { page_path: window.location.pathname },
       });
+    });
+
+    it('dispatches the install source when the cta is clicked', async () => {
+      checkInternalURL.mockReturnValue({
+        isInternal: true,
+        relativeURL: '/some/url',
+      });
+      const cta = { text: 'cta text', url: '/some/url', outgoing: '/out/url' };
+      renderWithHomeData({ secondaryProps: { cta } });
+
+      await userEvent.click(screen.getByRole('link', { name: cta.text }));
+
+      expect(store.getState().addonInstallSource.installSource).toEqual(
+        SECONDARY_HERO_SRC,
+      );
     });
 
     it('sends a tracking event for the impression on mount', () => {
@@ -335,14 +346,7 @@ describe(__filename, () => {
               // eslint-disable-next-line jest/no-conditional-expect
               expect(link).toHaveAttribute(
                 'href',
-                `/${defaultLang}/${defaultClientApp}${addQueryParams(
-                  moduleData.cta.url,
-                  {
-                    utm_source: DEFAULT_UTM_SOURCE,
-                    utm_medium: DEFAULT_UTM_MEDIUM,
-                    utm_content: SECONDARY_HERO_SRC,
-                  },
-                )}`,
+                `/${defaultLang}/${defaultClientApp}${moduleData.cta.url}`,
               );
               // eslint-disable-next-line jest/no-conditional-expect
               expect(link).not.toHaveAttribute('target');
@@ -477,7 +481,7 @@ describe(__filename, () => {
       [INSTALL_SOURCE_FEATURED, HOMESHELVES_ENDPOINT_SEARCH],
     ])(
       'passes addonInstallSource as %s when endpoint is %s',
-      (addonInstallSource, endpoint) => {
+      async (addonInstallSource, endpoint) => {
         const addonName = 'Some add-on name';
         const slug = 'some-slug';
         renderWithHomeData({
@@ -494,16 +498,18 @@ describe(__filename, () => {
 
         expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
           'href',
-          [
-            `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-            `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-            `utm_content=${addonInstallSource}`,
-          ].join('&'),
+          `/${defaultLang}/${defaultClientApp}/addon/${slug}/`,
+        );
+
+        await userEvent.click(screen.getByRole('link', { name: addonName }));
+
+        expect(store.getState().addonInstallSource.installSource).toEqual(
+          addonInstallSource,
         );
       },
     );
 
-    it('passes addonInstallSource as tag-shelf-{tag} when endpoint is random-tag', () => {
+    it('passes addonInstallSource as tag-shelf-{tag} when endpoint is random-tag', async () => {
       const tagName = 'foo';
       const url = `https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&tag=${tagName}`;
       const addonName = 'Some add-on name';
@@ -523,11 +529,13 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
         'href',
-        [
-          `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-          `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-          `utm_content=${INSTALL_SOURCE_TAG_SHELF_PREFIX}${tagName}`,
-        ].join('&'),
+        `/${defaultLang}/${defaultClientApp}/addon/${slug}/`,
+      );
+
+      await userEvent.click(screen.getByRole('link', { name: addonName }));
+
+      expect(store.getState().addonInstallSource.installSource).toEqual(
+        `tag-shelf-${tagName}`,
       );
     });
 
@@ -634,11 +642,7 @@ describe(__filename, () => {
           screen.getByRole('link', { name: 'Get the extension' }),
         ).toHaveAttribute(
           'href',
-          addQueryParams(`/${defaultLang}/${defaultClientApp}/addon/${slug}/`, {
-            utm_source: DEFAULT_UTM_SOURCE,
-            utm_medium: DEFAULT_UTM_MEDIUM,
-            utm_content: PRIMARY_HERO_SRC,
-          }),
+          `/${defaultLang}/${defaultClientApp}/addon/${slug}/`,
         );
       });
 
@@ -1028,6 +1032,18 @@ describe(__filename, () => {
         });
       });
 
+      it('dispatches the install source when clicked for addon', async () => {
+        renderWithHomeData(withAddonShelfData);
+
+        await userEvent.click(
+          screen.getByRole('link', { name: 'Get the extension' }),
+        );
+
+        expect(store.getState().addonInstallSource.installSource).toEqual(
+          PRIMARY_HERO_SRC,
+        );
+      });
+
       it('sends a tracking event when the cta is clicked for external', async () => {
         renderWithHomeData(withExternalShelfData);
         tracking.sendEvent.mockClear();
@@ -1207,11 +1223,7 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
-      `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: INSTALL_SOURCE_FEATURED,
-      })}`,
+      `/${defaultLang}/${clientApp}/addon/${addon.slug}/`,
     );
   });
 
@@ -1259,11 +1271,7 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
-      `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: INSTALL_SOURCE_FEATURED,
-      })}`,
+      `/${defaultLang}/${clientApp}/addon/${addon.slug}/`,
     );
   });
 

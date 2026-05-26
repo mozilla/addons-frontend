@@ -78,6 +78,7 @@ import {
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
 }));
 
 const INVALID_TYPE = 'not-a-real-type';
@@ -944,6 +945,7 @@ describe(__filename, () => {
 
       const createProgressHandler = (props = {}) => {
         return makeProgressHandler({
+          _removeUTMParams: jest.fn(),
           _tracking: createFakeTracking(),
           dispatch: jest.fn(),
           guid: 'some-guid',
@@ -971,10 +973,12 @@ describe(__filename, () => {
 
       it('sets status to error on onDownloadFailed', () => {
         const _tracking = createFakeTracking();
+        const _removeUTMParams = jest.fn();
         const dispatch = jest.fn();
         const guid = '{my-addon}';
         const type = ADDON_TYPE_EXTENSION;
         const handler = createProgressHandler({
+          _removeUTMParams,
           _tracking,
           dispatch,
           guid,
@@ -994,6 +998,7 @@ describe(__filename, () => {
             window.location.pathname,
           ),
         });
+        expect(_removeUTMParams).toHaveBeenCalled();
       });
 
       it('sets status to installing onDownloadEnded', () => {
@@ -1062,10 +1067,12 @@ describe(__filename, () => {
 
       it('sets status to error when file appears to be corrupt', () => {
         const _tracking = createFakeTracking();
+        const _removeUTMParams = jest.fn();
         const dispatch = jest.fn();
         const guid = '{my-addon}';
         const type = ADDON_TYPE_EXTENSION;
         const handler = createProgressHandler({
+          _removeUTMParams,
           _tracking,
           dispatch,
           guid,
@@ -1082,6 +1089,7 @@ describe(__filename, () => {
           payload: { guid, error: ERROR_CORRUPT_FILE },
         });
         expect(_tracking.sendEvent).not.toHaveBeenCalled();
+        expect(_removeUTMParams).toHaveBeenCalled();
       });
     });
 
@@ -1213,6 +1221,60 @@ describe(__filename, () => {
           expect.any(Function),
           { hash: addon.current_version.file.hash },
         );
+      });
+
+      it('injects and removes UTM parameters during install flow if installSource is present', async () => {
+        const _injectUTMParams = jest.fn();
+        const _removeUTMParams = jest.fn();
+        const installSource = 'some-install-source';
+
+        store.dispatch({
+          type: 'SET_ADDON_INSTALL_SOURCE',
+          payload: installSource,
+        });
+
+        const addonManagerOverrides = {
+          getAddon: Promise.reject(),
+        };
+
+        renderWithCurrentVersion({
+          addonManagerOverrides,
+          _injectUTMParams,
+          _removeUTMParams,
+        });
+
+        const button = screen.getByRole('link', { name: 'Add to Firefox' });
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+        await userEvent.click(button);
+
+        expect(_injectUTMParams).toHaveBeenCalledWith(installSource);
+        await waitFor(() => {
+          expect(_removeUTMParams).toHaveBeenCalled();
+        });
+      });
+
+      it('does not inject UTM parameters if no installSource is present', async () => {
+        const _injectUTMParams = jest.fn();
+        const _removeUTMParams = jest.fn();
+
+        const addonManagerOverrides = {
+          getAddon: Promise.reject(),
+        };
+
+        renderWithCurrentVersion({
+          addonManagerOverrides,
+          _injectUTMParams,
+          _removeUTMParams,
+        });
+
+        const button = screen.getByRole('link', { name: 'Add to Firefox' });
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+        await userEvent.click(button);
+
+        expect(_injectUTMParams).not.toHaveBeenCalled();
+        await waitFor(() => {
+          expect(_removeUTMParams).toHaveBeenCalled();
+        });
       });
 
       it('uses a version instead of the currentVersion when one exists in props', async () => {

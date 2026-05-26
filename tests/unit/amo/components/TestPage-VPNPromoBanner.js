@@ -24,6 +24,7 @@ jest.mock('config');
 // We need this to avoid firing sendEvent during tests, which will throw.
 jest.mock('amo/tracking', () => ({
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
   setUserProperties: jest.fn(),
 }));
 

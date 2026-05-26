@@ -38,6 +38,7 @@ import {
   isAddonLoading,
   isRecentAddon,
 } from 'amo/reducers/addons';
+import { clearAddonInstallSource } from 'amo/reducers/addonInstallSource';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import {
@@ -56,6 +57,7 @@ import ThemeImage from 'amo/components/ThemeImage';
 import Notice from 'amo/components/Notice';
 import AddonSuggestions from 'amo/components/AddonSuggestions';
 import { withExperiment } from 'amo/withExperiment';
+import tracking from 'amo/tracking';
 
 import './styles.scss';
 
@@ -137,6 +139,25 @@ export class AddonBase extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.pushPageVariables();
+  }
+
+  pushPageVariables() {
+    const { addon, lang } = this.props;
+    if (addon && addon.type && lang) {
+      const addonType =
+        addon.type === ADDON_TYPE_STATIC_THEME ? 'theme' : 'extension';
+      tracking.setPageVariables({ addon_type: addonType, page_locale: lang });
+    }
+  }
+
+  componentWillUnmount() {
+    // Clear the install source so stale values from a previous addon page
+    // aren't used for a future install on a different page.
+    this.props.dispatch(clearAddonInstallSource());
+  }
+
   componentDidUpdate(prevProps) {
     const {
       addon: oldAddon,
@@ -157,6 +178,15 @@ export class AddonBase extends React.Component {
     const oldAddonType = oldAddon ? oldAddon.type : null;
     if (newAddon && newAddon.type !== oldAddonType) {
       dispatch(setViewContext(newAddon.type));
+    }
+
+    if (
+      newAddon &&
+      (!oldAddon ||
+        oldAddon.slug !== newAddon.slug ||
+        prevProps.lang !== this.props.lang)
+    ) {
+      this.pushPageVariables();
     }
 
     if (!addonIsLoading && (!newAddon || oldParams.slug !== params.slug)) {

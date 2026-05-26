@@ -1,11 +1,14 @@
 /* @flow */
 /* global window */
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import { checkInternalURL } from 'amo/utils';
 import tracking from 'amo/tracking';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'amo/constants';
+import { setAddonInstallSource } from 'amo/reducers/addonInstallSource';
 import { addQueryParams } from 'amo/utils/url';
 import LoadingText from 'amo/components/LoadingText';
 import type {
@@ -25,6 +28,7 @@ type InternalProps = {|
   ...Props,
   _checkInternalURL: typeof checkInternalURL,
   _tracking: typeof tracking,
+  dispatch: (action: Object) => void,
 |};
 
 export const makeCallToActionURL = (urlString: string): string => {
@@ -38,6 +42,7 @@ export const makeCallToActionURL = (urlString: string): string => {
 export const SecondaryHeroBase = ({
   _checkInternalURL = checkInternalURL,
   _tracking = tracking,
+  dispatch,
   shelfData,
 }: InternalProps): null | React.Node => {
   if (shelfData === null) {
@@ -65,15 +70,24 @@ export const SecondaryHeroBase = ({
     });
   };
 
+  // Store install source in Redux for install-time UTM injection.
+  const onInternalLinkClick = () => {
+    dispatch(setAddonInstallSource(SECONDARY_HERO_SRC));
+    onHeroClick();
+  };
+
   const getLinkProps = (link: LinkWithTextType | null) => {
-    const props = { onClick: onHeroClick };
     if (link) {
       const urlInfo = _checkInternalURL({ urlString: link.url });
       if (urlInfo.isInternal) {
-        return { ...props, to: makeCallToActionURL(urlInfo.relativeURL) };
+        // Internal link: clean URL without UTM params. Install source is
+        // dispatched to Redux on click and injected at install time.
+        // See utils/installAttribution.js.
+        return { onClick: onInternalLinkClick, to: urlInfo.relativeURL };
       }
+      // External link: keep UTM params (these go to third-party sites).
       return {
-        ...props,
+        onClick: onHeroClick,
         href: makeCallToActionURL(link.url),
         prependClientApp: false,
         prependLang: false,
@@ -155,4 +169,7 @@ export const SecondaryHeroBase = ({
   );
 };
 
-export default SecondaryHeroBase;
+const SecondaryHero: React.ComponentType<Props> =
+  compose(connect())(SecondaryHeroBase);
+
+export default SecondaryHero;

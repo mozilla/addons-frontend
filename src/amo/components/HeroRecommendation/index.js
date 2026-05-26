@@ -19,6 +19,7 @@ import {
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
+import { setAddonInstallSource } from 'amo/reducers/addonInstallSource';
 import tracking, { getAddonEventParams } from 'amo/tracking';
 import { getPromotedCategory } from 'amo/utils/addons';
 import { addQueryParams } from 'amo/utils/url';
@@ -55,6 +56,7 @@ export type InternalProps = {|
   ...Props,
   ...PropsFromState,
   ...DefaultProps,
+  dispatch: (action: Object) => void,
   i18n: I18nType,
 |};
 
@@ -72,14 +74,14 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     const { addon, external } = shelfData;
 
     if (addon) {
-      return addQueryParams(getAddonURL(addon.slug), {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: PRIMARY_HERO_SRC,
-      });
+      // Internal addon link: clean URL without UTM params. The install source
+      // is dispatched to Redux in onHeroClick() and injected into the page URL
+      // at install time. See utils/installAttribution.js.
+      return getAddonURL(addon.slug);
     }
 
     invariant(external, 'Either an addon or an external is required');
+    // External link: keep UTM params (these go to third-party sites).
     return external.homepage
       ? addQueryParams(external.homepage.url, {
           utm_source: DEFAULT_UTM_SOURCE,
@@ -90,12 +92,17 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   };
 
   onHeroClick: () => void = () => {
-    const { _tracking, _getPromotedCategory, clientApp, shelfData } =
+    const { _tracking, _getPromotedCategory, clientApp, dispatch, shelfData } =
       this.props;
 
     invariant(shelfData, 'The shelfData property is required');
 
     const { addon } = shelfData;
+
+    // Store install source in Redux for install-time UTM injection.
+    if (addon) {
+      dispatch(setAddonInstallSource(PRIMARY_HERO_SRC));
+    }
 
     _tracking.sendEvent({
       category: PRIMARY_HERO_CLICK_CATEGORY,

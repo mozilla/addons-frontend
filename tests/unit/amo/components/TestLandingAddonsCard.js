@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import {
   ADDON_TYPE_STATIC_THEME,
-  DEFAULT_UTM_SOURCE,
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
@@ -81,14 +80,9 @@ describe(__filename, () => {
     const addons = [createInternalAddonWithLang(fakeAddon)];
     render({ addons, addonInstallSource });
 
-    const expectedLink = [
-      `/en-US/android/addon/${addons[0].slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-      'utm_medium=referral',
-      `utm_content=${addonInstallSource}`,
-    ].join('&');
     expect(screen.getByRole('link', { name: addons[0].name })).toHaveAttribute(
       'href',
-      expectedLink,
+      `/en-US/android/addon/${addons[0].slug}/`,
     );
   });
 
@@ -106,6 +100,18 @@ describe(__filename, () => {
     await userEvent.click(screen.getByRole('listitem'));
 
     expect(onAddonClick).toHaveBeenCalledWith(addons[0]);
+  });
+
+  it('dispatches the addonInstallSource to Redux store on click', async () => {
+    const addonInstallSource = 'some-featured-shelf';
+    const addons = [createInternalAddonWithLang(fakeAddon)];
+    const { store } = render({ addons, addonInstallSource });
+
+    await userEvent.click(screen.getByRole('listitem'));
+
+    expect(store.getState().addonInstallSource.installSource).toEqual(
+      addonInstallSource,
+    );
   });
 
   it('overrides the default placeholder value when passed in', () => {

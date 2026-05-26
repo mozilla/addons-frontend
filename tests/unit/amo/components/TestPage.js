@@ -53,6 +53,7 @@ jest.mock('config');
 // We are also asserting on the calling of sendEvent in some tests.
 jest.mock('amo/tracking', () => ({
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
 }));
 
 // We need to mock logOutFromServer as it is called directly and we want

@@ -256,6 +256,17 @@ describe(__filename, () => {
         });
       });
     });
+
+    describe('setPageVariables', () => {
+      it('should push page variables to dataLayer', () => {
+        const tracking = createTracking();
+        const variables = { addon_type: 'extension', page_locale: 'en-US' };
+
+        tracking.setPageVariables(variables);
+
+        expect(window.dataLayer).toContainEqual(variables);
+      });
+    });
   });
 
   describe('getAddonNameParam', () => {

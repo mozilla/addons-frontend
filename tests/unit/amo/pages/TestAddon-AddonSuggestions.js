@@ -8,9 +8,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  DEFAULT_UTM_SOURCE,
-  DEFAULT_UTM_MEDIUM,
-  INSTALL_SOURCE_SUGGESTIONS,
   SUGGESTIONS_CLICK_CATEGORY,
 } from 'amo/constants';
 import {
@@ -49,6 +46,7 @@ jest.mock('config');
 jest.mock('amo/tracking', () => ({
   ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
+  setPageVariables: jest.fn(),
   setDimension: jest.fn(),
   setUserProperties: jest.fn(),
 }));
@@ -443,7 +441,7 @@ describe(__filename, () => {
         'href',
         `/${lang}/${defaultClientApp}/collections/${config.get(
           'mozillaUserId',
-        )}/${collectionForCategory}/?addonInstallSource=${INSTALL_SOURCE_SUGGESTIONS}`,
+        )}/${collectionForCategory}/`,
       );
     });
 
@@ -494,17 +492,11 @@ describe(__filename, () => {
       doLoadSuggestions();
       renderWithAddon({ variant: VARIANT_SHOW_TOP });
 
-      const expectedQuerystring = [
-        `utm_source=${DEFAULT_UTM_SOURCE}`,
-        `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-        `utm_content=${INSTALL_SOURCE_SUGGESTIONS}`,
-      ].join('&');
-
       expect(
         screen.getByRole('link', { name: suggestedAddonName }),
       ).toHaveAttribute(
         'href',
-        `/${lang}/${defaultClientApp}/addon/${suggestedAddonSlug}/?${expectedQuerystring}`,
+        `/${lang}/${defaultClientApp}/addon/${suggestedAddonSlug}/`,
       );
     });
   });

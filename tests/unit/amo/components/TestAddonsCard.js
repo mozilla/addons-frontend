@@ -7,7 +7,6 @@ import AddonsCard from 'amo/components/AddonsCard';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
-  DEFAULT_UTM_SOURCE,
   RECOMMENDED,
 } from 'amo/constants';
 import {
@@ -280,18 +279,12 @@ describe(__filename, () => {
       expect(stopPropagationWatcher).toHaveBeenCalled();
     });
 
-    it('links the heading to the detail page with UTM params', () => {
-      const addonInstallSource = 'home-page-featured';
-      renderWithResult({ props: { addonInstallSource } });
+    it('links the heading to the detail page', () => {
+      renderWithResult();
 
-      const expectedLink = [
-        `/en-US/android/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
-        'utm_medium=referral',
-        `utm_content=${addonInstallSource}`,
-      ].join('&');
       expect(screen.getByRole('link', { name })).toHaveAttribute(
         'href',
-        expectedLink,
+        `/en-US/android/addon/${slug}/`,
       );
     });
 
@@ -399,6 +392,17 @@ describe(__filename, () => {
       await userEvent.click(screen.getByRole('listitem'));
 
       expect(onClick).toHaveBeenCalledWith(createAddon());
+    });
+
+    it('dispatches the addonInstallSource to Redux store on click', async () => {
+      const addonInstallSource = 'some-custom-install-source';
+      renderWithResult({ props: { addonInstallSource } });
+
+      await userEvent.click(screen.getByRole('listitem'));
+
+      expect(store.getState().addonInstallSource.installSource).toEqual(
+        addonInstallSource,
+      );
     });
 
     it('does not call the custom onClick handler for the li element without an addon', async () => {

@@ -8,6 +8,7 @@ import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
 import { configureStore } from '@reduxjs/toolkit';
 
+import addonInstallSource from 'amo/reducers/addonInstallSource';
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
 import collectionAbuseReports from 'amo/reducers/collectionAbuseReports';
@@ -37,6 +38,7 @@ import versions from 'amo/reducers/versions';
 import log from 'amo/logger';
 import suggestions from 'amo/reducers/suggestions';
 import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
+import type { AddonInstallSourceState } from 'amo/reducers/addonInstallSource';
 import type { BlocksState } from 'amo/reducers/blocks';
 import type { CollectionsState } from 'amo/reducers/collections';
 import type { CollectionAbuseReportsState } from 'amo/reducers/collectionAbuseReports';
@@ -118,6 +120,7 @@ export function middleware({
 
 type InternalAppState = {|
   abuse: AbuseState,
+  addonInstallSource: AddonInstallSourceState,
   addons: AddonsState,
   addonsByAuthors: AddonsByAuthorsState,
   api: ApiState,
@@ -175,6 +178,7 @@ export const createRootReducer = ({
 
 export const reducers: AppReducersType = {
   abuse,
+  addonInstallSource,
   addons,
   addonsByAuthors,
   api,
