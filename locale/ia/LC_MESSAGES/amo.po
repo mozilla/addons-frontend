@@ -742,11 +742,11 @@ msgstr "Le autores de iste additivo te demanda adjuta a supportar su continuatio
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "ID del additivo copiate"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "Copiar ID del additivo"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2490,12 +2490,16 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
+"Quando un additivo es delite, illo non plus sera disponibile a esser discargate ab addons.mozilla.org. Si illo es jam installate, illo sera disactivate e le usatores sera informate. Illes pote "
+"eliger de activar le additivo ancora a lor proprie risco."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Usque le violation non es resolvite, iste additivo non sera disponibile a discargar ab addons.mozilla.org. Si illo es jam installate, illo sera disactivate e le usatores sera informate re le "
+"violation. Illes pote seliger de activar le additivo ancora a lor proprie risco."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2503,7 +2507,7 @@ msgstr "Usque le violation es resolvite, iste additivo non sera disponibile a di
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s es restricte perque illo era delite per le autor(es)"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"

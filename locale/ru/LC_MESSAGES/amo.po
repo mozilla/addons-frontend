@@ -2591,6 +2591,9 @@ msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Когда автор удаляет свое дополнение, оно больше не поддерживается и не обновляется, что может поставить под угрозу безопасность, стабильность или производительность Firefox. Чтобы предотвратить это,"
+" для дополнения будет ограничено использование в широкой публике для защиты пользователей Firefox. Для получения дополнительной информации, пожалуйста, прочитайте %(supportStartLink)sэту статью "
+"поддержки%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
