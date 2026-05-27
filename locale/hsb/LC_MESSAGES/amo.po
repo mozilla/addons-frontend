@@ -748,11 +748,11 @@ msgstr "Awtorojo tutoho přidatka was proša, mały přinošk darić, zo byšće
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "ID přidatka kopěrowany"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "ID přidatka kopěrować"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2564,6 +2564,8 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Doniž přestupjenje rozrisane njeje, tutón přidatk za sćehnjenje wot addons.mozilla.org k dispoziciji njeje. Jeli přidatk je hižo instalowany, budźe so znjemóžnjeć a informuja wužiwarjow wo tutym "
+"přestupjenju. Móža přidatk zaso na swoje riziko zmóžnić."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2571,11 +2573,11 @@ msgstr "Doniž přestupjenje rozrisane njeje, tutón přidatk za sćehnjenje wot
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s je wobmjezowany, dokelž je so wot awtorow zhašał"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Tutón přidatk je wobmjezowany, dokelž je so wot awtorow zhašał"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2611,7 +2613,7 @@ msgstr "Što to rěka?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "Čehodla Mozilla zhašane přidatki wobmjezuje?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
