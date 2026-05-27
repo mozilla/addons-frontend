@@ -2508,7 +2508,7 @@ msgstr "Bis der Verstoß behoben wurde, steht dieses Add-on nicht auf addons.moz
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr "%(addonName)s wurde vorläufig aufgrund einer Löschung durch ihre(n) Autor(en) gesperrt"
+msgstr "%(addonName)s ist gesperrt, weil es von dem/den Autor(en) gelöscht wurde"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
