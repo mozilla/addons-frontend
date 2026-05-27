@@ -2535,7 +2535,7 @@ msgstr "Proque occurreva isto?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "Le version de iste extension, thema, or plugin era delite per le autor(es) e ha ergo essite restricte per Mozilla."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2547,13 +2547,15 @@ msgstr "Que significa isto?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "Perque Mozilla restringe le additivos delite?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Quando le autor dele su additivo, illo non plus es mantenite o actualisate, lo que pote compromitter le securitate, stabilitate, or prestationes de Firefox. Pro impedir isto, le additivo sera "
+"restricte del uso general pro proteger le usatores de Firefox. Pro altere informationes, lege %(supportStartLink)siste articulo de assistentia%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
