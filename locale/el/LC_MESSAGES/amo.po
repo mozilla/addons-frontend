@@ -2507,11 +2507,11 @@ msgstr "Μέχρι να επιλυθεί η παραβίαση, αυτό το π
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Το πρόσθετο %(addonName)s έχει περιορισμό επειδή διαγράφηκε από τους δημιουργούς του"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Αυτό το πρόσθετο έχει περιορισμό επειδή διαγράφηκε από τους δημιουργούς του"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2535,7 +2535,7 @@ msgstr "Γιατί συνέβη αυτό;"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "Η έκδοση αυτής της επέκτασης, του θέματος ή της πρόσθετης λειτουργίας διαγράφηκε από τους δημιουργούς του και επομένως έχει τεθεί περιορισμός από τη Mozilla."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2547,13 +2547,16 @@ msgstr "Τι σημαίνει αυτό;"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "Γιατί η Mozilla θέτει περιορισμούς στα διαγραμμένα πρόσθετα;"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Όταν ο δημιουργός διαγράφει το πρόσθετό του, αυτό πλέον δεν συντηρείται ή ενημερώνεται, γεγονός που θα μπορούσε να βάλει σε κίνδυνο την ασφάλεια, τη σταθερότητα ή τις επιδόσεις του Firefox. Για να "
+"αποφευχθεί αυτό, η γενική χρήση του πρόσθετου θα περιοριστεί για την προστασία των χρηστών του Firefox. Για περισσότερες πληροφορίες, παρακαλούμε δείτε %(supportStartLink)sαυτό το άρθρο "
+"υποστήριξης%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"

@@ -742,11 +742,11 @@ msgstr "Die Autoren dieses Add-ons bitten Sie, dass Sie ihre Arbeit unterstütze
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "Add-on-ID wurde kopiert"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "Add-on-ID kopieren"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2491,12 +2491,16 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
+"Wenn ein Add-on gelöscht wird, steht es nicht mehr auf addons.mozilla.org zum Download bereit. Falls es bereits durch Nutzer installiert wurde, werden diese über die Änderung informiert und das Add-"
+"on deaktiviert. Es steht den Nutzern frei, das Add-on auf eigenes Risiko wieder zu aktivieren."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Solange der Verstoß nicht behoben ist, steht dieses Add-on nicht mehr auf addons.mozilla.org zum Download bereit. Falls es bereits durch Nutzer installiert wurde, werden diese über den Verstoß "
+"informiert und das Add-on deaktiviert. Es steht den Nutzern frei, das Add-on auf eigenes Risiko wieder zu aktivieren."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2504,11 +2508,11 @@ msgstr "Bis der Verstoß behoben wurde, steht dieses Add-on nicht auf addons.moz
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s wurde vorläufig aufgrund einer Löschung durch ihre(n) Autor(en) gesperrt"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Dieses Add-on wurde vorläufig aufgrund einer Löschung durch ihre(n) Autor(en) gesperrt"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2532,7 +2536,7 @@ msgstr "Warum ist dies passiert?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "Diese Version der Erweiterung bzw. des Themes oder Plugins wurde durch ihre(n) Autor(en) gelöscht und wurde daher vorläufig durch Mozilla gesperrt."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2544,13 +2548,15 @@ msgstr "Was bedeutet das?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "Weshalb sperrt Mozilla gelöschte Add-ons?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Wenn ein Autor sein Add-on löscht, wird es nicht mehr gepflegt oder aktualisiert, was die Sicherheit, Stabilität oder Leistung von Firefox beeinträchtigen könnte. Um weiterhin eine gute "
+"Nutzererfahrung für die Allgemeinheit zu gewährleisten, wird das Add-on vorläufig gesperrt. Weitere Informationen finden Sie in %(supportStartLink)sdiesem Support-Artikel%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
