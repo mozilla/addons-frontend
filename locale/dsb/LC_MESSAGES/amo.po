@@ -748,11 +748,11 @@ msgstr "Awtory toś togo dodanka was pšose, mały pśinosk pósćiś, aby jogo 
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "ID dodanka kopěrowany"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "ID dodanka kopěrowaś"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2558,12 +2558,16 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
+"Gaž dodank jo wulašowany, njejo wěcej za ześěgnjenje wót addons.mozilla.org k dispoziciji. Jolic dodank jo južo instalěrowany, buźo se znjemóžnjaś a informěruju wužywarjow. Mógu dodank zasej na "
+"swójo riziko zmóžniś."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Daniž pśestupjenje njejo rozwězane, toś ten dodank njejo k dispoziciji za ześěgnjenje wót addons.mozilla.org. Jolic dodank jo južo instalěrowany, buźo se znjemóžnjaś a informěruju wužywarjow wó toś "
+"tom pśestupjenju. Mógu dodank zasej na swójo riziko zmóžniś."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2571,11 +2575,11 @@ msgstr "Daniž pśestupjenje njejo rozwězane, toś ten dodank njejo k dispozici
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s jo wobgranicowany, dokulaž jo se wulašował wót awtorow"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Toś ten dodank jo wobgranicowany, dokulaž jo se wulašował wót awtorow"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2599,7 +2603,7 @@ msgstr "Cogodla jo se to stało?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "Wersija toś togo rozšyrjenja, toś teje drastwy abo toś togo tykaca jo se wulašowała wót awtorow a jo se togodla wobgranicowała wót Mozilla."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
