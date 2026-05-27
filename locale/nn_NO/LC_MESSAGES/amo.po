@@ -2503,11 +2503,11 @@ msgstr "Før brotet er løyst, vil ikkje dette tillegget vere tilgjengeleg for n
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s er avgrensa fordi tillegget vart sletta av utviklaren/utviklarane"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Dette tillegget er avgrensa fordi det vart sletta av utviklaren/utviklarane"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
