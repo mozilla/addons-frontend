@@ -2498,7 +2498,7 @@ msgstr "為什麼 Mozilla 要限制已刪除的附加元件？"
 msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
-msgstr ""
+msgstr "作者刪除附加元件後就不會再維護或進行更新，可能會影響 Firefox 的安全性、穩定性與效能。為了避免這個問題，Firefox 將會限制一般大眾使用被刪除的附加元件，以保護使用者。若需更多資訊，請閱讀%(supportStartLink)s這篇技術支援文章%(supportEndLink)s。"
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
