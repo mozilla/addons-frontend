@@ -742,11 +742,11 @@ msgstr "Os autores desta extensão pedem que você ajude a apoiar o seu trabalho
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "ID da extensão copiado"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "Copiar ID da extensão"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2488,12 +2488,16 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
+"Quando uma extensão é excluída, ela não estará mais disponível para ser baixada no addons.mozilla.org. Se já estiver instalado, será desativado e os usuários serão informados. Eles podem optar por "
+"ativar o complemento novamente por sua conta e risco."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Até que a violação seja resolvida, esta extensão não estará disponível para download no addons.mozilla.org. Se já estiver instalado, será desativado e os usuários serão informados sobre a violação. "
+"Eles podem optar por ativar o complemento novamente por sua conta e risco."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2501,11 +2505,11 @@ msgstr "Até que a violação seja resolvida, esta extensão não estará dispon
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s é restrito porque foi excluído pelo(s) autor(es)"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Esta extensão é restrita porque foi excluída pelo(s) autor(es)"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2529,7 +2533,7 @@ msgstr "Por que isso aconteceu?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "A versão desta extensão, tema ou plugin foi excluída pelo(s) autor(es) e, portanto, foi restringida pela Mozilla."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2541,13 +2545,15 @@ msgstr "O que isso significa?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "Por que a Mozilla restringiu as extensões excluídas?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Quando o autor exclui sua extensão, ela não será mais mantida ou atualizada, o que pode comprometer a segurança, estabilidade ou desempenho do Firefox. Para evitar isso, o complemento terá uso geral"
+" restrito para proteger os usuários do Firefox. Para mais informações, leia %(supportStartLink)seste artigo de suporte%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
