@@ -2488,12 +2488,16 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
+"Wannear’t in add-on fuortsmiten wurdt, kin dizze net mear download wurde fan addons.mozilla.org ôf. As de add-on al ynstallearre is, wurdt dizze útskeakele en wurde brûkers ynformearre. Se kinne "
+"derfoar kieze op eigen risiko de add-on wer yn te skeakeljen."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Oant de skeining oplost is, sil dizze tafoeging net beskikber wêze om te downloaden fan addons.mozilla.org. As it al ynstallearre is, sil it útskeakele wurde en brûkers wurde ynformearre oer de "
+"skeining. Se kinne der foar kieze om de add-on opnij yn te skeakeljen op eigen risiko."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2501,11 +2505,11 @@ msgstr "Oant de skeining oplost is, sil dizze add-on net beskikber wêze om te d
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s is beheind omdat dizze troch de skriuwer(s) fuortsmiten is"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Dizze add-on is beheind omdat dizze troch de skriuwer(s) fuortsmiten is"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2529,7 +2533,7 @@ msgstr "Wêrom barde dit?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "De ferzje fan dizze útwreiding, tema of ynstekker is fuortsmiten troch de skriuwer(s) en is dêrom beheind troch Mozilla."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2541,13 +2545,15 @@ msgstr "Wat betsjut dit?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "Wêrom beheint Mozilla fuortsmiten add-ons?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Wannear’t de skriuwer syn/har add-on fuortsmyt, wurdt dizze net mear ûnderhâlden of bywurke, wat de feilichheid, stabiliteit of prestaasjes fan Firefox yn gefaar bringe kin. Om dit foar te kommen, "
+"wurdt ta beskerming fan Firefox-brûkers de add-on beheint foar algemien gebrûk. Lês foar mear ynformaasje %(supportStartLink)sdit stipe-artikel%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
