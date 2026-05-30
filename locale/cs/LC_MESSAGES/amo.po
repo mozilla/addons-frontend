@@ -2569,7 +2569,7 @@ msgstr "Proč se to stalo?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr "Verze tohoto rozšíření, motivu nebo doplňku byla smazána autory, a proto byla Mozillou omezena."
+msgstr "Tato verze rozšíření, šablony nebo pluginu byla autorem (autory) odstraněna, a proto byla společností Mozilla zablokována."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2588,8 +2588,8 @@ msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
-"Když autor smaže svůj doplněk, není již nadále spravován nebo aktualizován, což může ohrozit bezpečnost, stabilitu nebo výkon Firefoxu. Z důvodu ochrany uživatelů Firefoxu bude obecně používání "
-"doplňku zakázáno. Pro více informací si prosím přečtěte %(supportStartLink)stento článek podpory%(supportEndLink)s."
+"Jakmile autor doplněk odstraní, přestane být udržován a aktualizován, což by mohlo ohrozit bezpečnost, stabilitu nebo výkon prohlížeče Firefox. Aby se tomu zabránilo, bude použití tohoto doplňku "
+"omezeno v zájmu ochrany uživatelů prohlížeče Firefox. Další informace najdete v %(supportStartLink)stomto článku podpory%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
