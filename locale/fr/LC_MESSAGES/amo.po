@@ -742,11 +742,11 @@ msgstr "Les auteurs de ce module demandent que vous les aidiez à assurer la pou
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "Identifiant du module copié"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "Copier l’identifiant du module"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2497,6 +2497,8 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Jusqu’à la résolution de la violation, ce module complémentaire ne sera pas disponible au téléchargement sur addons.mozilla.org. S’il est déjà installé, il est désactivé et les personnes qui "
+"l’utilisaient sont informées de cette violation. Elles peuvent choisir de réactiver le module à leurs risques et périls."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
