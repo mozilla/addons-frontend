@@ -2524,16 +2524,16 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
-"Po smazání doplňku nebude nadále dostupný ke stažení na stránkách addons.mozilla.org. Pokud je již nainstalována, bude zakázána a uživatelé budou informováni. Uživatel může doplněk znovu povolit na "
-"vlastní riziko."
+"Jakmile je doplněk odstraněn, nebude již k dispozici ke stažení na stránkách addons.mozilla.org. Pokud je již nainstalován, bude deaktivován a uživatelé o tom budou informováni. Mohou se rozhodnout "
+"doplněk znovu aktivovat na vlastní odpovědnost."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
-"Dokud nebude problém vyřešen, nebude doplněk dostupný ke stažení z webu addons.mozilla.org. Pokud je již nainstalována, bude zakázána a uživatelé budou informováni o porušení. Uživatel může doplněk "
-"znovu povolit na vlastní riziko."
+"Dokud nebude tento problém vyřešen, nebude možné tento doplněk stáhnout z webu addons.mozilla.org. Pokud je již nainstalován, bude deaktivován a uživatelé budou o tomto problému informováni. Mohou "
+"se rozhodnout doplněk znovu aktivovat na vlastní odpovědnost."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2541,11 +2541,11 @@ msgstr "Dokud nebude problém vyřešen, nebude doplněk dostupný ke stažení 
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr "Doplněk %(addonName)s je omezen, protože byl smazán autory"
+msgstr "Doplněk %(addonName)s je omezen, protože byl autory smazán"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr "Tento doplněk je omezen, protože byl smazán autory"
+msgstr "Tento doplněk je omezen, protože byl autory smazán"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
