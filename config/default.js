@@ -69,9 +69,11 @@ module.exports = {
   apiPath: '/api/',
   apiVersion: 'v5',
 
-  // The version for the favicon.
-  // This should be changed when a new favicon is pushed to the CDN to prevent
-  // client caching.
+  // The favicon URL and version.
+  // faviconURL is the URL of the favicon icon.
+  // faviconVersion should be incremented when a new favicon is pushed to the CDN
+  // to prevent client caching.
+  faviconURL: '/static-frontend/img/favicon.ico',
   faviconVersion: 3,
 
   // URL patterns of anonymous/stateless pages. These pages won't authenticate
