@@ -742,11 +742,11 @@ msgstr "Bu eklentinin geliştiricileri, küçük bir bağışta bulunarak çalı
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "Eklenti kimliği kopyalandı"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "Eklenti kimliğini kopyala"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2494,6 +2494,8 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"İhlal giderilene kadar bu eklenti addons.mozilla.org adresinden indirilemez. Zaten yüklenmişse devre dışı bırakılacak ve kullanıcılar ihlal hakkında bilgilendirilecektir. Kullanıcılar eklentiyi "
+"yeniden etkinleştirmeyi seçebilir, ancak risk kendilerine aittir."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2541,7 +2543,7 @@ msgstr "Bu ne anlama geliyor?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "Mozilla neden silinen eklentileri kısıtlıyor?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
