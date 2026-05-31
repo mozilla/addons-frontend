@@ -739,11 +739,11 @@ msgstr "Các tác giả của tiện ích bổ sung này yêu cầu bạn giúp 
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "Đã sao chép ID tiện ích"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "Sao chép ID tiện ích"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2457,12 +2457,16 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
+"Khi một tiện ích bị xoá, nó sẽ không có sẵn để tải xuống từ addons.mozilla.org. Nếu nó đã được cài đặt, nó sẽ bị vô hiệu hóa và người dùng sẽ được thông báo. Họ có thể chọn bật lại tiện ích và tự "
+"chịu rủi ro."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Cho đến khi vi phạm được giải quyết, tiện ích này sẽ không có sẵn để tải xuống từ addons.mozilla.org. Nếu nó đã được cài đặt, nó sẽ bị vô hiệu hóa và người dùng sẽ được thông báo về vi phạm. Họ có "
+"thể chọn bật lại tiện ích và tự chịu rủi ro."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2470,11 +2474,11 @@ msgstr "Cho đến khi vi phạm được giải quyết, tiện ích này sẽ 
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s đã bị hạn chế vì nó đã bị xoá bởi (các) tác giả"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Tiện ích này bị hạn chế vì nó đã bị xoá bởi (các) tác giả"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2498,7 +2502,7 @@ msgstr "Tại sao điều này xảy ra?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "Phiên bản của tiện ích mở rộng, chủ đề hoặc plugin này đã bị (các) tác giả xoá và do đó đã bị Mozilla hạn chế."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2510,13 +2514,15 @@ msgstr "Điều này có nghĩa là gì?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "Tại sao Mozilla hạn chế truy cập các tiện ích bị xóa?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Khi tác giả xóa tiện ích của họ, nó sẽ không còn được bảo trì hoặc cập nhật nữa, điều này có thể ảnh hưởng đến bảo mật, tính ổn định hoặc hiệu suất của Firefox. Để ngăn chặn điều này, tiện ích sẽ bị"
+" hạn chế sử dụng chung nhằm bảo vệ người dùng Firefox. Để biết thêm thông tin, vui lòng đọc %(supportStartLink)sbài viết hỗ trợ này%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
