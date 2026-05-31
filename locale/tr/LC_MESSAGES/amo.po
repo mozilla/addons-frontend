@@ -2503,11 +2503,11 @@ msgstr "İhlal giderilene kadar bu eklenti addons.mozilla.org adresinden indiril
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s geliştiricileri tarafından silindiği için kısıtlanmıştır"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Bu eklenti, geliştiricileri tarafından silindiği için kısıtlanmıştır"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2531,7 +2531,7 @@ msgstr "Neden böyle bir şey oldu?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "Bu uzantının, temanın veya yan uygulamanın bu sürümü geliştiricileri tarafından silindiği için Mozilla tarafından kısıtlandı."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
