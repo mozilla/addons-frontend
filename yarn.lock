@@ -1040,10 +1040,10 @@
     "@babel/plugin-transform-react-jsx-development" "^7.27.1"
     "@babel/plugin-transform-react-pure-annotations" "^7.27.1"
 
-"@babel/register@^7.29.3":
-  version "7.29.3"
-  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.29.3.tgz#726233ed488d52bb67aa8fd0dc5cdf19d10a2584"
-  integrity sha512-F6C1KpIdoImKQfsD6HSxZ+mS4YY/2Q+JsqrmTC5ApVkTR2rG+nnbpjhWwzA5bDNu8mJjB3AryqDaWFLd4gCbJQ==
+"@babel/register@^7.29.7":
+  version "7.29.7"
+  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.29.7.tgz#d5bb4337065512f643b29cb565b6e8ccadcc1ec6"
+  integrity sha512-AMGJoWuES861riy6pcB0fphE1YXybtQnBYQMuIyPv6mKLiosfa79BKTnAOyx215c/3RJPJpdQwoHZ3earVH7AA==
   dependencies:
     clone-deep "^4.0.1"
     find-cache-dir "^2.0.0"
