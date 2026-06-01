@@ -2508,11 +2508,11 @@ msgstr "Hasta que se resuelva la infracción, este complemento no estará dispon
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Se restringió %(addonName)s debido a que se eliminó por cuenta de la autoría"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Este complemento está restringido debido a que se eliminó por cuenta de la autoría"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2536,7 +2536,7 @@ msgstr "¿Por qué pasó esto?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "Se eliminó la versión de esta extensión, tema o complemento por cuenta de la autoría y, por lo tanto, Mozilla aplicó una restricción."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2548,13 +2548,16 @@ msgstr "¿Qué significa esto?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "¿Por qué Mozilla restringe los complementos eliminados?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Al eliminarse un complemento por cuenta de la autoría, este deja de recibir mantenimiento o actualizaciones, lo que podría poner en riesgo la seguridad, estabilidad o rendimiento de Firefox. A fin "
+"de evitarlo, se restringirá el uso general del complemento para proteger a la comunidad de usuarios. Para obtener más información, se sugiere consultar %(supportStartLink)s este artículo de "
+"soporte%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
