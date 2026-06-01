@@ -742,11 +742,11 @@ msgstr "El autor de este complemento te pide le ayudes a seguir con su trabajo h
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "Se copió el ID del complemento"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "Copiar ID del complemento"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2491,12 +2491,16 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
+"Al eliminar un complemento, ya no estará disponible para su descarga en addons.mozilla.org. Si ya está instalado, se desactivará y se dará aviso a los usuarios, quienes podrán optar por activarlo de"
+" nuevo bajo su propio riesgo."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Hasta que se resuelva la infracción, este complemento no estará disponible para su descarga en addons.mozilla.org. Si ya está instalado, se desactivará y se dará aviso a los usuarios sobre la falta."
+" Quienes lo deseen podrán optar por activarlo de nuevo bajo su propio riesgo."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
