@@ -739,11 +739,11 @@ msgstr "此附加组件的作者寻求您的小小捐助以支持其继续创造
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "已复制附加组件 ID"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "复制附加组件 ID"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2438,13 +2438,13 @@ msgstr "查看屏蔽请求"
 msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
-msgstr ""
+msgstr "删除附加组件后，addons.mozilla.org 将不再提供此附加组件的下载，已经安装的附加组件也将被禁用，并告知用户。用户可选择自担风险，重新启用此附加组件。"
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
-msgstr ""
+msgstr "在消除违规情况前，addons.mozilla.org 将不再提供此附加组件的下载，已经安装的附加组件也将被禁用，并告知用户此违规情况。用户可选择自担风险，重新启用此附加组件。"
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
