@@ -2496,6 +2496,8 @@ msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Før brotet er løyst, vil ikkje dette tillegget vere tilgjengeleg for nedlasting frå addons.mozilla.org. Viss det allereie er installert, vil det bli deaktiverte og brukarar vil bli informert om "
+"brotet. Dei kan velje å aktivere tillegget igjen på eigen risiko."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
