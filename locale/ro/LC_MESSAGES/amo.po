@@ -745,11 +745,11 @@ msgstr "Autorii acestui supliment îți solicită să contribui pentru sprijinir
 
 #: src/amo/components/CopyAddonId/index.js:40
 msgid "Add-on ID copied"
-msgstr ""
+msgstr "ID-ul suplimentului a fost copiat"
 
 #: src/amo/components/CopyAddonId/index.js:49
 msgid "Copy add-on ID"
-msgstr ""
+msgstr "Copiază ID-ul suplimentului"
 
 #: src/amo/components/DismissibleTextForm/index.js:199
 msgid "Enter text."
@@ -2523,12 +2523,16 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
+"Când este șters un supliment, nu va fi disponibil pentru descărcare de pe addons.mozilla.org. Dacă este deja instalat, va fi dezactivat, iar utilizatorii vor fi informați. Aceștia pot alege să "
+"activeze din nou suplimentul pe propriul risc."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
+"Până la rezolvarea încălcării, suplimentul nu va fi disponibil pentru descărcare de pe addons.mozilla.org. Dacă este deja instalat, va fi dezactivat, iar utilizatorii vor fi informați despre "
+"încălcare. Aceștia pot alege să activeze din nou suplimentul pe propriul risc."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2536,11 +2540,11 @@ msgstr "Până la rezolvarea încălcării, suplimentul nu va fi disponibil pent
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s este restricționat deoarece a fost șters de către autor(i)"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "Acest supliment este restricționat deoarece a fost șters de către autor(i)"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2576,7 +2580,7 @@ msgstr "Ce înseamnă?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr ""
+msgstr "De ce restricționează Mozilla suplimente șterse?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
