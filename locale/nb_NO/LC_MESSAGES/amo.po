@@ -2534,7 +2534,7 @@ msgstr "Hvorfor skjedde dette?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr ""
+msgstr "Denne versjonen av utvidelsen, temaet eller programtillegget ble slettet av utvikleren(e) og er derfor begrenset av Mozilla."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2553,6 +2553,8 @@ msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Når utvikleren av tillegget sletter det, blir det ikke lenger vedlikeholdt eller oppdatert, noe som kan påvirke sikkerheten, stabiliteten eller ytelsen i Firefox. For å forhindre dette blir "
+"tillegget begrenset fra generell bruk for å beskytte Firefox-brukere. For mer informasjon, les %(supportStartLink)sdenne støtteartikkelen%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"
