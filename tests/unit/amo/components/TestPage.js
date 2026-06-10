@@ -880,68 +880,91 @@ describe(__filename, () => {
         'https://developer.mozilla.org/docs/Mozilla/Add-ons/Contact_us',
       );
 
-      expect(screen.getByRole('link', { name: 'VPN' })).toHaveAttribute(
+      const footerLinkQueryString = makeQueryStringWithUTM({
+        utm_content: 'footer-link',
+        utm_campaign: null,
+      });
+
+      // Download Section
+      expect(
+        screen.getByRole('link', { name: 'Download Firefox' }),
+      ).toHaveAttribute(
         'href',
-        `https://www.mozilla.org/products/vpn/${makeQueryStringWithUTM({
-          utm_content: 'footer-link',
-          utm_campaign: null,
-        })}#pricing`,
+        `https://www.firefox.com/thanks/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'Windows' })).toHaveAttribute(
+        'href',
+        `https://www.firefox.com/en-US/download/windows/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'macOS' })).toHaveAttribute(
+        'href',
+        `https://www.firefox.com/en-US/download/mac/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'iOS' })).toHaveAttribute(
+        'href',
+        `https://www.firefox.com/en-US/download/ios/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'Android' })).toHaveAttribute(
+        'href',
+        `https://www.firefox.com/en-US/download/android/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'Linux' })).toHaveAttribute(
+        'href',
+        `https://www.firefox.com/en-US/download/linux/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'All' })).toHaveAttribute(
+        'href',
+        `https://www.firefox.com/en-US/download/all/${footerLinkQueryString}`,
       );
 
-      expect(screen.getByRole('link', { name: 'Relay' })).toHaveAttribute(
+      // Builds Section
+      expect(screen.getByRole('link', { name: 'Nightly' })).toHaveAttribute(
         'href',
-        `https://relay.firefox.com/${makeQueryStringWithUTM({
-          utm_content: 'footer-link',
-          utm_campaign: null,
-        })}`,
+        `https://www.firefox.com/en-US/channel/desktop/#nightly${footerLinkQueryString}`,
       );
-
-      expect(screen.getByRole('link', { name: 'Monitor' })).toHaveAttribute(
+      expect(screen.getByRole('link', { name: 'Beta' })).toHaveAttribute(
         'href',
-        `https://monitor.firefox.com/${makeQueryStringWithUTM({
-          utm_content: 'footer-link',
-          utm_campaign: null,
-        })}`,
+        `https://www.firefox.com/en-US/channel/desktop/#beta${footerLinkQueryString}`,
       );
-
-      expect(screen.getByRole('link', { name: 'Browsers' })).toHaveAttribute(
-        'href',
-        `https://www.mozilla.org/firefox/browsers/${makeQueryStringWithUTM({
-          utm_content: 'footer-link',
-          utm_campaign: null,
-        })}`,
-      );
-
-      expect(screen.getByRole('link', { name: 'Pocket' })).toHaveAttribute(
-        'href',
-        `https://getpocket.com${makeQueryStringWithUTM({
-          utm_content: 'footer-link',
-          utm_campaign: null,
-        })}`,
-      );
-
-      expect(screen.getByRole('link', { name: 'Desktop' })).toHaveAttribute(
-        'href',
-        `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM({
-          utm_content: 'footer-link',
-          utm_campaign: null,
-        })}`,
-      );
-
-      expect(screen.getByRole('link', { name: 'Mobile' })).toHaveAttribute(
-        'href',
-        `https://www.mozilla.org/firefox/mobile/${makeQueryStringWithUTM({
-          utm_content: 'footer-link',
-          utm_campaign: null,
-        })}`,
-      );
-
       expect(screen.getByRole('link', { name: 'Enterprise' })).toHaveAttribute(
         'href',
-        `https://www.mozilla.org/firefox/enterprise/${makeQueryStringWithUTM({
-          utm_content: 'footer-link',
-          utm_campaign: null,
-        })}`,
+        `https://www.firefox.com/en-US/browsers/enterprise/${footerLinkQueryString}`,
+      );
+
+      // Community Section
+      expect(screen.getByRole('link', { name: 'Connect' })).toHaveAttribute(
+        'href',
+        `https://connect.mozilla.org/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'Contribute' })).toHaveAttribute(
+        'href',
+        `https://www.mozilla.org/contribute/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'Developer' })).toHaveAttribute(
+        'href',
+        `https://www.firefox.com/en-US/channel/desktop/developer/${footerLinkQueryString}`,
+      );
+
+      // Follow Section
+      expect(screen.getByRole('link', { name: 'Instagram' })).toHaveAttribute(
+        'href',
+        `https://www.instagram.com/firefox/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'Youtube' })).toHaveAttribute(
+        'href',
+        `https://www.youtube.com/user/firefoxchannel${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'TikTok' })).toHaveAttribute(
+        'href',
+        `https://www.tiktok.com/@firefox/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'Bluesky' })).toHaveAttribute(
+        'href',
+        `https://bsky.app/profile/firefox.com/${footerLinkQueryString}`,
+      );
+      expect(screen.getByRole('link', { name: 'Podcast' })).toHaveAttribute(
+        'href',
+        `https://www.youtube.com/@firefox/podcasts/${footerLinkQueryString}`,
       );
 
       expect(

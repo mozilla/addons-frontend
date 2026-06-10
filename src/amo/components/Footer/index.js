@@ -37,6 +37,11 @@ export class FooterBase extends React.Component<InternalProps> {
     const { _config, includeGoogleDisclaimer, i18n, noLangPicker } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
+    const footerLinkQueryString = makeQueryStringWithUTM({
+      utm_content: 'footer-link',
+      utm_campaign: null,
+    });
+
     return (
       <footer className="Footer">
         <div className="Footer-wrapper">
@@ -53,8 +58,7 @@ export class FooterBase extends React.Component<InternalProps> {
               />
             </a>
           </div>
-
-          <section className="Footer-amo-links">
+          <section className="Footer-column Footer-amo-links">
             <h4 className="Footer-links-header">
               <Link href="/">{i18n.gettext('Add-ons')}</Link>
             </h4>
@@ -136,129 +140,185 @@ export class FooterBase extends React.Component<InternalProps> {
               </li>
             </ul>
           </section>
-
-          <section className="Footer-browsers-links">
-            <h4 className="Footer-links-header">{i18n.gettext('Browsers')}</h4>
+          <section className="Footer-column Footer-download-links">
+            <h4 className="Footer-links-header">{i18n.gettext('Download')}</h4>
             <ul className="Footer-links">
               <li>
                 <a
-                  className="Footer-desktop-link"
-                  href={`https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM(
-                    {
-                      utm_content: 'footer-link',
-                      utm_campaign: null,
-                    },
-                  )}`}
+                  className="Footer-link"
+                  href={`https://www.firefox.com/thanks/${footerLinkQueryString}`}
                 >
-                  Desktop
+                  Download Firefox
                 </a>
               </li>
               <li>
                 <a
-                  className="Footer-mobile-link"
-                  href={`https://www.mozilla.org/firefox/mobile/${makeQueryStringWithUTM(
-                    {
-                      utm_content: 'footer-link',
-                      utm_campaign: null,
-                    },
-                  )}`}
+                  className="Footer-link"
+                  href={`https://www.firefox.com/en-US/download/windows/${footerLinkQueryString}`}
                 >
-                  Mobile
+                  Windows
                 </a>
               </li>
               <li>
                 <a
-                  className="Footer-enterprise-link"
-                  href={`https://www.mozilla.org/firefox/enterprise/${makeQueryStringWithUTM(
-                    {
-                      utm_content: 'footer-link',
-                      utm_campaign: null,
-                    },
-                  )}`}
+                  className="Footer-link"
+                  href={`https://www.firefox.com/en-US/download/mac/${footerLinkQueryString}`}
                 >
-                  Enterprise
+                  macOS
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-link"
+                  href={`https://www.firefox.com/en-US/download/ios/${footerLinkQueryString}`}
+                >
+                  iOS
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-link"
+                  href={`https://www.firefox.com/en-US/download/android/${footerLinkQueryString}`}
+                >
+                  Android
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-link"
+                  href={`https://www.firefox.com/en-US/download/linux/${footerLinkQueryString}`}
+                >
+                  Linux
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-link"
+                  href={`https://www.firefox.com/en-US/download/all/${footerLinkQueryString}`}
+                >
+                  All
                 </a>
               </li>
             </ul>
           </section>
 
-          <section className="Footer-product-links">
-            <h4 className="Footer-links-header">{i18n.gettext('Products')}</h4>
+          <section className="Footer-column Footer-build-links">
+            <section className="Footer-latest-links">
+              <h4 className="Footer-links-header">
+                {i18n.gettext('Latest Builds')}
+              </h4>
+              <ul className="Footer-links">
+                <li>
+                  <a
+                    className="Footer-link"
+                    href={`https://www.firefox.com/en-US/channel/desktop/#nightly${footerLinkQueryString}`}
+                  >
+                    Nightly
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="Footer-link"
+                    href={`https://www.firefox.com/en-US/channel/desktop/#beta${footerLinkQueryString}`}
+                  >
+                    Beta
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            <section className="Footer-business-links">
+              <h4 className="Footer-links-header">
+                {i18n.gettext('Firefox for Business')}
+              </h4>
+              <ul className="Footer-links">
+                <li>
+                  <a
+                    className="Footer-link"
+                    href={`https://www.firefox.com/en-US/browsers/enterprise/${footerLinkQueryString}`}
+                  >
+                    Enterprise
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </section>
+
+          <section className="Footer-column Footer-community-links">
+            <h4 className="Footer-links-header">{i18n.gettext('Community')}</h4>
             <ul className="Footer-links">
               <li>
                 <a
-                  className="Footer-browsers-link"
-                  href={`https://www.mozilla.org/firefox/browsers/${makeQueryStringWithUTM(
-                    {
-                      utm_content: 'footer-link',
-                      utm_campaign: null,
-                    },
-                  )}`}
+                  className="Footer-link"
+                  href={`https://connect.mozilla.org/${footerLinkQueryString}`}
                 >
-                  Browsers
+                  Connect
                 </a>
               </li>
               <li>
                 <a
-                  className="Footer-vpn-link"
-                  href={`https://www.mozilla.org/products/vpn/${makeQueryStringWithUTM(
-                    {
-                      utm_content: 'footer-link',
-                      utm_campaign: null,
-                    },
-                  )}#pricing`}
+                  className="Footer-link"
+                  href={`https://www.mozilla.org/contribute/${footerLinkQueryString}`}
                 >
-                  VPN
+                  Contribute
                 </a>
               </li>
               <li>
                 <a
-                  className="Footer-relay-link"
-                  href={`https://relay.firefox.com/${makeQueryStringWithUTM({
-                    utm_content: 'footer-link',
-                    utm_campaign: null,
-                  })}`}
+                  className="Footer-link"
+                  href={`https://www.firefox.com/en-US/channel/desktop/developer/${footerLinkQueryString}`}
                 >
-                  Relay
-                </a>
-              </li>
-              <li>
-                <a
-                  className="Footer-monitor-link"
-                  href={`https://monitor.firefox.com/${makeQueryStringWithUTM({
-                    utm_content: 'footer-link',
-                    utm_campaign: null,
-                  })}`}
-                >
-                  Monitor
-                </a>
-              </li>
-              <li>
-                <a
-                  className="Footer-pocket-link"
-                  href={`https://getpocket.com${makeQueryStringWithUTM({
-                    utm_content: 'footer-link',
-                    utm_campaign: null,
-                  })}`}
-                >
-                  Pocket
+                  Developer
                 </a>
               </li>
             </ul>
-            <ul className="Footer-links Footer-links-social">
-              <li className="Footer-link-social">
-                <a href="https://bsky.app/profile/firefox.com">
-                  <Icon name="bluesky" alt="Bluesky (@firefox.com)" />
+          </section>
+
+          <section className="Footer-column Footer-follow-links">
+            <h4 className="Footer-links-header">{i18n.gettext('Follow')}</h4>
+            <ul className="Footer-links">
+              <li>
+                <a
+                  className="Footer-link"
+                  href={`https://www.instagram.com/firefox/${footerLinkQueryString}`}
+                >
+                  Instagram
                 </a>
               </li>
-              <li className="Footer-link-social">
-                <a href="https://www.instagram.com/firefox/">
-                  <Icon name="instagram" alt="Instagram (Firefox)" />
+
+              <li>
+                <a
+                  className="Footer-link"
+                  href={`https://www.youtube.com/user/firefoxchannel${footerLinkQueryString}`}
+                >
+                  Youtube
                 </a>
               </li>
-              <li className="Footer-link-social">
-                <a href="https://www.youtube.com/firefoxchannel">
-                  <Icon name="youtube" alt="YouTube (firefoxchannel)" />
+
+              <li>
+                <a
+                  className="Footer-link"
+                  href={`https://www.tiktok.com/@firefox/${footerLinkQueryString}`}
+                >
+                  TikTok
+                </a>
+              </li>
+
+              <li>
+                <a
+                  className="Footer-link"
+                  href={`https://bsky.app/profile/firefox.com/${footerLinkQueryString}`}
+                >
+                  Bluesky
+                </a>
+              </li>
+
+              <li>
+                <a
+                  className="Footer-link-social"
+                  href={`https://www.youtube.com/@firefox/podcasts/${footerLinkQueryString}`}
+                >
+                  Podcast
                 </a>
               </li>
             </ul>
