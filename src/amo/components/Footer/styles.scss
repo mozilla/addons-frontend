@@ -37,13 +37,28 @@
   @include respond-to(large) {
     display: grid;
     grid-template-areas:
-      'logo amo-links browsers-links product-links'
+      'logo amo-links download-links build-links'
+      'logo community-links follow-links follow-links'
       'legal-links legal-links legal-links legal-links'
       'copyright copyright copyright language';
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 0 auto;
     max-width: $max-content-width;
     width: 100%;
+    gap: 0 2em;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    display: grid;
+    grid-template-areas:
+      'logo amo-links download-links build-links community-links follow-links'
+      'legal-links legal-links legal-links legal-links legal-links legal-links'
+      'copyright copyright copyright copyright copyright language';
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    max-width: $max-content-width;
+    width: 100%;
+    gap: 0 2em;
   }
 }
 
@@ -51,12 +66,38 @@
   grid-area: amo-links;
 }
 
-.Footer-browsers-links {
-  grid-area: browsers-links;
+.Footer-download-links {
+  grid-area: download-links;
 }
 
-.Footer-product-links {
-  grid-area: product-links;
+.Footer-build-links {
+  grid-area: build-links;
+}
+
+.Footer-community-links {
+  grid-area: community-links;
+}
+
+.Footer-follow-links {
+  grid-area: follow-links;
+}
+
+.Footer-column > section:not(:last-child) {
+  @include respond-to(large) {
+    padding-bottom: 1em;
+  }
+}
+
+.Footer-column:nth-child(-n + 3 of .Footer-column) .Footer-links-header {
+  @include respond-to(large) {
+    margin: 0;
+  }
+}
+
+.Footer-column:nth-child(n + 4 of .Footer-column) .Footer-links-header {
+  @include respond-to(extraExtraLarge) {
+    margin: 0;
+  }
 }
 
 .Footer-links-header {
@@ -64,10 +105,6 @@
 
   font-size: $font-size-l;
   margin: 40px 0 0;
-
-  @include respond-to(large) {
-    margin: 0;
-  }
 
   a:link,
   a:visited {
