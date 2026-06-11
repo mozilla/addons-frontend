@@ -948,23 +948,23 @@ describe(__filename, () => {
       // Follow Section
       expect(screen.getByRole('link', { name: 'Instagram' })).toHaveAttribute(
         'href',
-        `https://www.instagram.com/firefox/${footerLinkQueryString}`,
+        `https://www.instagram.com/firefox`,
       );
       expect(screen.getByRole('link', { name: 'Youtube' })).toHaveAttribute(
         'href',
-        `https://www.youtube.com/user/firefoxchannel${footerLinkQueryString}`,
+        `https://www.youtube.com/user/firefoxchannel`,
       );
       expect(screen.getByRole('link', { name: 'TikTok' })).toHaveAttribute(
         'href',
-        `https://www.tiktok.com/@firefox/${footerLinkQueryString}`,
+        `https://www.tiktok.com/@firefox`,
       );
       expect(screen.getByRole('link', { name: 'Bluesky' })).toHaveAttribute(
         'href',
-        `https://bsky.app/profile/firefox.com/${footerLinkQueryString}`,
+        `https://bsky.app/profile/firefox.com`,
       );
       expect(screen.getByRole('link', { name: 'Podcast' })).toHaveAttribute(
         'href',
-        `https://www.youtube.com/@firefox/podcasts/${footerLinkQueryString}`,
+        `https://www.youtube.com/@firefox/podcasts`,
       );
 
       expect(
