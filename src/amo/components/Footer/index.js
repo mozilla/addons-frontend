@@ -280,7 +280,7 @@ export class FooterBase extends React.Component<InternalProps> {
               <li>
                 <a
                   className="Footer-link"
-                  href={`https://www.instagram.com/firefox/${footerLinkQueryString}`}
+                  href={`https://www.instagram.com/firefox`}
                 >
                   Instagram
                 </a>
@@ -289,7 +289,7 @@ export class FooterBase extends React.Component<InternalProps> {
               <li>
                 <a
                   className="Footer-link"
-                  href={`https://www.youtube.com/user/firefoxchannel${footerLinkQueryString}`}
+                  href={`https://www.youtube.com/user/firefoxchannel`}
                 >
                   Youtube
                 </a>
@@ -298,7 +298,7 @@ export class FooterBase extends React.Component<InternalProps> {
               <li>
                 <a
                   className="Footer-link"
-                  href={`https://www.tiktok.com/@firefox/${footerLinkQueryString}`}
+                  href={`https://www.tiktok.com/@firefox`}
                 >
                   TikTok
                 </a>
@@ -307,7 +307,7 @@ export class FooterBase extends React.Component<InternalProps> {
               <li>
                 <a
                   className="Footer-link"
-                  href={`https://bsky.app/profile/firefox.com/${footerLinkQueryString}`}
+                  href={`https://bsky.app/profile/firefox.com`}
                 >
                   Bluesky
                 </a>
@@ -316,7 +316,7 @@ export class FooterBase extends React.Component<InternalProps> {
               <li>
                 <a
                   className="Footer-link-social"
-                  href={`https://www.youtube.com/@firefox/podcasts/${footerLinkQueryString}`}
+                  href={`https://www.youtube.com/@firefox/podcasts`}
                 >
                   Podcast
                 </a>
