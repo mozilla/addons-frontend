@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-05-27 08:57+0000\n"
+"POT-Creation-Date: 2026-06-11 13:18+0000\n"
 "PO-Revision-Date: 2019-02-19 18:23+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -686,7 +686,7 @@ msgid "Back to collection"
 msgstr ""
 
 #: src/amo/components/CollectionDetails/index.js:77
-#: src/amo/components/Footer/index.js:59
+#: src/amo/components/Footer/index.js:63
 #: src/amo/pages/CollectionFeedback/index.js:155
 msgid "Add-ons"
 msgstr ""
@@ -1440,47 +1440,59 @@ msgstr ""
 msgid "Flagged as misplaced bug report or support request"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:102
+#: src/amo/components/Footer/index.js:106
 msgid "Developer Policies"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:116
+#: src/amo/components/Footer/index.js:120
 msgid "Community Blog"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:121
+#: src/amo/components/Footer/index.js:125
 msgid "Forum"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:129
+#: src/amo/components/Footer/index.js:133
 msgid "Report a bug"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:134
+#: src/amo/components/Footer/index.js:138
 msgid "Review Guide"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:141
-msgid "Browsers"
+#: src/amo/components/Footer/index.js:144
+msgid "Download"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:186
-msgid "Products"
+#: src/amo/components/Footer/index.js:208
+msgid "Latest Builds"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:273
+#: src/amo/components/Footer/index.js:232
+msgid "Firefox for Business"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:248
+msgid "Community"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:278
+msgid "Follow"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:333
 msgid "Privacy"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:281
+#: src/amo/components/Footer/index.js:341
 msgid "Cookies"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:289
+#: src/amo/components/Footer/index.js:349
 msgid "Legal"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:300
+#: src/amo/components/Footer/index.js:360
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1488,7 +1500,7 @@ msgid ""
 "Android is a trademark of Google LLC."
 msgstr ""
 
-#: src/amo/components/Footer/index.js:306
+#: src/amo/components/Footer/index.js:366
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1499,19 +1511,19 @@ msgstr ""
 msgid "Go to Mozilla's homepage"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:64
+#: src/amo/components/Footer/index.js:68
 msgid "About"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:69 src/amo/components/Header/index.js:200
+#: src/amo/components/Footer/index.js:73 src/amo/components/Header/index.js:200
 msgid "Firefox Add-ons Blog"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:82 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:226
+#: src/amo/components/Footer/index.js:91 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr ""
 
