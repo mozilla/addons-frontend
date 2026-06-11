@@ -291,7 +291,7 @@ export class FooterBase extends React.Component<InternalProps> {
                   className="Footer-link"
                   href={`https://www.youtube.com/user/firefoxchannel`}
                 >
-                  Youtube
+                  YouTube
                 </a>
               </li>
 

@@ -950,7 +950,7 @@ describe(__filename, () => {
         'href',
         `https://www.instagram.com/firefox`,
       );
-      expect(screen.getByRole('link', { name: 'Youtube' })).toHaveAttribute(
+      expect(screen.getByRole('link', { name: 'YouTube' })).toHaveAttribute(
         'href',
         `https://www.youtube.com/user/firefoxchannel`,
       );
