@@ -69,7 +69,6 @@ export default [
       // Those dependencies are declared in the `package.json` file of this
       // library.
       jsdom: 'jsdom',
-      'node-fetch': 'commonjs2 node-fetch',
     },
   }),
 ];
