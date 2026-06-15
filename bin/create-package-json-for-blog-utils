@@ -7,11 +7,6 @@ const distDir = path.join(rootDir, 'dist');
 const nodeModulesDir = path.join(rootDir, 'node_modules');
 
 const mainPackageJson = require(path.join(rootDir, 'package.json'));
-const isomorphicFetchPackageJson = require(path.join(
-  nodeModulesDir,
-  'isomorphic-fetch',
-  'package.json',
-));
 
 const packageJsonForBlogUtils = `{
   "name": "addons-frontend-blog-utils",
@@ -20,8 +15,7 @@ const packageJsonForBlogUtils = `{
   "browser": "web.js",
   "style": "style.css",
   "dependencies": {
-    "jsdom": "${mainPackageJson.dependencies.jsdom}",
-    "node-fetch": "${isomorphicFetchPackageJson.dependencies['node-fetch']}"
+    "jsdom": "${mainPackageJson.dependencies.jsdom}"
   },
   "license": "${mainPackageJson.license}",
   "author": "${mainPackageJson.author}",

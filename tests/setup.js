@@ -9,6 +9,11 @@ import * as matchers from 'jest-extended';
 
 import '@testing-library/jest-dom';
 
+// `isomorphic-fetch` used to polyfill the `fetch` API (`fetch`, `Response`,
+// `Request`, `Headers`), which the `jsdom` test environment does not provide.
+// `whatwg-fetch` installs these as globals.
+import 'whatwg-fetch';
+
 import 'amo/polyfill';
 
 global.TextEncoder = TextEncoder;
