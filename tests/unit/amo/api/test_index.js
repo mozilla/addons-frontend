@@ -183,7 +183,7 @@ describe(__filename, () => {
       await api
         .callApi({ endpoint: 'resource' })
         .then(unexpectedSuccess, (err) => {
-          expect(err.message).toContain('invalid json response body at');
+          expect(err.message).toContain('is not valid JSON');
         });
     });
 

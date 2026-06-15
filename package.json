@@ -184,7 +184,6 @@
     "history": "4.10.1",
     "hot-shots": "15.0.0",
     "invariant": "2.2.4",
-    "isomorphic-fetch": "3.0.0",
     "jed": "1.1.1",
     "join-url": "2.0.0",
     "jsdom": "26.1.0",
@@ -283,7 +282,6 @@
     "jest-json-schema": "^6.1.0",
     "jest-watch-typeahead": "^3.0.1",
     "mini-css-extract-plugin": "^2.10.2",
-    "node-fetch": "^3.3.2",
     "node-mocks-http": "^1.17.2",
     "nodemon": "^3.1.14",
     "pino-devtools": "^2.8.0",
@@ -314,6 +312,7 @@
     "webpack-dev-middleware": "^8.0.3",
     "webpack-hot-middleware": "^2.26.1",
     "webpack-subresource-integrity": "5.1.0",
+    "whatwg-fetch": "^3.6.20",
     "zx": "^8.8.5"
   },
   "bundlewatch": [

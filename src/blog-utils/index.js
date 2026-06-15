@@ -3,7 +3,6 @@ import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
-import 'isomorphic-fetch';
 import { createBrowserHistory } from 'history';
 
 import I18nProvider from 'amo/i18n/Provider';
