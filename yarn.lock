@@ -6149,10 +6149,10 @@ hosted-git-info@^4.0.1:
   dependencies:
     lru-cache "^6.0.0"
 
-hot-shots@15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-15.0.0.tgz#3e0633b7f26724f2056254151b449b5e26745ddf"
-  integrity sha512-89EmKbvjVbDdFmUcvMl1x9XaKdEzg1VDLElbKaQCPC88wrus6O5XlCyZ+KbwZk9Dy4BNcsyfEHMfSkUtRZHBQg==
+hot-shots@16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-16.0.0.tgz#51d6f0b51dc383965f16300f8c63797d84d68058"
+  integrity sha512-1WHuq7vv0Hj6wiSmR89XpxxiNnw9s1W50yGJExC3/PSqVv+Kr7GSk3rz0jsTWjhIkF1c5Nz9mpLdzJ+CqKKwMg==
   optionalDependencies:
     unix-dgram "2.x"
 
