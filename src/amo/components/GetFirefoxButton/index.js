@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { encode } from 'universal-base64url';
 
-import Button from 'amo/components/Button';
 import {
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -17,6 +17,7 @@ import {
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   GET_FIREFOX_BANNER_UTM_CONTENT,
 } from 'amo/constants';
+import Button from 'amo/components/Button';
 import translate from 'amo/i18n/translate';
 import tracking, { getAddonEventParams } from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
@@ -144,7 +145,9 @@ export const GetFirefoxButtonBase = ({
     });
   };
 
-  const supportsRTAMO = clientApp === CLIENT_APP_FIREFOX;
+  const supportsRTAMO =
+    clientApp === CLIENT_APP_FIREFOX ||
+    (clientApp === CLIENT_APP_ANDROID && addon.type === ADDON_TYPE_EXTENSION);
 
   let downloadTextForRTAMO =
     addon.type === ADDON_TYPE_STATIC_THEME
