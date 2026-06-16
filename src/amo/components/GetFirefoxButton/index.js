@@ -8,7 +8,6 @@ import { compose } from 'redux';
 import { encode } from 'universal-base64url';
 
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -147,7 +146,7 @@ export const GetFirefoxButtonBase = ({
 
   const supportsRTAMO =
     clientApp === CLIENT_APP_FIREFOX ||
-    (clientApp === CLIENT_APP_ANDROID && addon.type === ADDON_TYPE_EXTENSION);
+    (clientApp === CLIENT_APP_ANDROID && addon.isAndroidCompatible);
 
   let downloadTextForRTAMO =
     addon.type === ADDON_TYPE_STATIC_THEME
