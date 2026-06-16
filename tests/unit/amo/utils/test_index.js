@@ -16,6 +16,7 @@ import {
   apiAddonTypeIsValid,
   checkInternalURL,
   convertBoolean,
+  getAddonListingURL,
   getAddonURL,
   getCanonicalURL,
   getClientApp,
@@ -45,6 +46,24 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  describe('getAddonListingURL', () => {
+    const baseURL = 'https://example.org';
+    it('returns the correct listing URL for given parameters', () => {
+      const _config = getFakeConfig({ baseURL });
+      const addon = { ...fakeAddon, slug: 'some-slug' };
+      expect(
+        getAddonListingURL({
+          _config,
+          addon,
+          clientApp: CLIENT_APP_FIREFOX,
+          lang: 'en-US',
+        }),
+      ).toEqual(
+        `${baseURL}/en-US/${CLIENT_APP_FIREFOX}/addon/${addon.slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+      );
+    });
+  });
+
   describe('getCanonicalURL', () => {
     it(`returns an absolute canonical URL`, () => {
       const locationPathname = '/path/name';

@@ -40,6 +40,7 @@ export type Props = {|
   // eslint-disable-next-line react/no-unused-prop-types
   version?: AddonVersionType | null,
   showLinkInsteadOfButton?: boolean,
+  desktopViewAndroidCompatible?: boolean,
 |};
 
 type PropsFromState = {|
@@ -76,6 +77,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     showLinkInsteadOfButton,
     uninstall,
     userAgentInfo,
+    desktopViewAndroidCompatible,
   } = props;
 
   const browserIsFirefox = isFirefox({ userAgentInfo });
@@ -131,7 +133,9 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
 
   return (
     addon && (
-      <div className="InstallButtonWrapper">
+      <div
+        className={`InstallButtonWrapper ${desktopViewAndroidCompatible ? 'Addon-qr-visible' : ''}`}
+      >
         {!showLinkInsteadOfButton && (
           <>
             {showInstallButton ? (

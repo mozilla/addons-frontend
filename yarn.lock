@@ -9237,6 +9237,11 @@ qhistory@1.1.0:
   dependencies:
     invariant "^2.2.2"
 
+qrcode-generator@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/qrcode-generator/-/qrcode-generator-2.0.4.tgz#e8b3f30922577eba52078aa9c0d5a2a74fe1fd94"
+  integrity sha512-mZSiP6RnbHl4xL2Ap5HfkjLnmxfKcPWpWe/c+5XxCuetEenqmNFf1FH/ftXPCtFG5/TDobjsjz6sSNL0Sr8Z9g==
+
 qs@6.15.2, qs@^6.1.0, qs@^6.12.3, qs@^6.14.0, qs@^6.14.1:
   version "6.15.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.15.2.tgz#fd55426d710403ddccc45e0f9eab16db7727ece9"
@@ -9433,6 +9438,14 @@ react-photoswipe-gallery@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-photoswipe-gallery/-/react-photoswipe-gallery-4.0.0.tgz#a96d3c91871a3b92d89ee1b09ab1ead72241b407"
   integrity sha512-rpvGSBddLp1hZfTZgi3UFLJKlupHfDhW6e7w6jUUr5bagTWfrxJ7nB8yzNkx+BaoiMyy4FvJBwc4n/+QW2ft4g==
+
+react-qr-code@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-qr-code/-/react-qr-code-2.2.0.tgz#301b5dc4d2fed503e1e313f237a7f32c1885152a"
+  integrity sha512-e5nS0UUN22K3Nf8KBRUzemfdJ6OmnN5w+kbnj1lvJaol9RyVRFeGl05bCkxSN2ZegbLxjjYjX1+mmAoX9+fAhw==
+  dependencies:
+    prop-types "^15.8.1"
+    qrcode-generator "^2.0.4"
 
 react-redux@8.1.3:
   version "8.1.3"

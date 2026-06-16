@@ -61,7 +61,7 @@ import {
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getVersionById } from 'amo/reducers/versions';
 import tracking from 'amo/tracking';
-import { getCanonicalURL } from 'amo/utils';
+import { getAddonListingURL, getCanonicalURL } from 'amo/utils';
 import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
 import { getAddonJsonLinkedData } from 'amo/utils/addons';
 import {
@@ -2850,6 +2850,50 @@ describe(__filename, () => {
       expect(
         screen.queryByText(/Android is a trademark of Google LLC/),
       ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for QR card', () => {
+    it('does not render a card for non-Android extensions', () => {
+      addon = {
+        ...addon,
+        current_version: {
+          ...addon.current_version,
+          compatibility: {
+            firefox: addon.current_version.compatibility.firefox,
+          },
+        },
+      };
+      renderWithAddon();
+      expect(screen.queryByClassName('qr-card')).toBeNull();
+    });
+
+    it('does not render a card for Android themes', () => {
+      addon = { ...addon, type: ADDON_TYPE_STATIC_THEME };
+      renderWithAddon();
+      expect(screen.queryByClassName('qr-card')).toBeNull();
+    });
+
+    it('does not render a card on Android', () => {
+      addon = { ...addon, type: ADDON_TYPE_STATIC_THEME };
+      store.dispatch(setClientApp(CLIENT_APP_ANDROID));
+      renderWithAddon();
+      expect(screen.queryByClassName('qr-card')).toBeNull();
+    });
+
+    it('renders a card for Android extensions', () => {
+      renderWithAddon();
+      expect(screen.getByClassName('qr-card')).not.toBeNull();
+      const qr = screen.queryByClassName('qr-code');
+      expect(screen.getByClassName('qr-label')).toHaveTextContent(
+        'Scan the QR code to open this extension in Firefox for Android',
+      );
+      const expectedURL = getAddonListingURL({
+        addon: { slug: defaultSlug },
+        clientApp: CLIENT_APP_ANDROID,
+        lang,
+      });
+      expect(qr.getAttribute('href')).toEqual(expectedURL);
     });
   });
 

@@ -67,6 +67,24 @@ export const makeQueryStringWithUTM = ({
   });
 };
 
+export const getAddonListingURL = ({
+  _config = config,
+  addon,
+  clientApp,
+  lang,
+  utmSource = DEFAULT_UTM_SOURCE,
+}: {|
+  _config?: typeof config,
+  addon: AddonType,
+  clientApp: string,
+  lang: string,
+  utmSource?: string,
+|}): string => {
+  return `${_config.get('baseURL')}/${lang}/${clientApp}${getAddonURL(
+    addon.slug,
+  )}${makeQueryString({ utm_source: utmSource })}`;
+};
+
 export const getCanonicalURL = ({
   _config = config,
   locationPathname,
