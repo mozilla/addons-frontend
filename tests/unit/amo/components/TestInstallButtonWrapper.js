@@ -380,7 +380,9 @@ describe(__filename, () => {
     render();
 
     expect(
-      screen.getByRole('link', { name: 'Download Firefox' }),
+      screen.getByRole('link', {
+        name: 'Download Firefox and get the extension',
+      }),
     ).toHaveAttribute('href', expectedHref);
   });
 
@@ -539,7 +541,9 @@ describe(__filename, () => {
         render();
 
         expect(
-          screen.queryByRole('link', { name: 'Download Firefox' }),
+          screen.queryByRole('link', {
+            name: 'Download Firefox and get the extension',
+          }),
         ).not.toBeInTheDocument();
       });
 
@@ -548,7 +552,9 @@ describe(__filename, () => {
         render();
 
         expect(
-          screen.queryByRole('link', { name: 'Download Firefox' }),
+          screen.queryByRole('link', {
+            name: 'Download Firefox and get the extension',
+          }),
         ).not.toBeInTheDocument();
       });
 
@@ -579,13 +585,45 @@ describe(__filename, () => {
         expect(getFirefoxButton()).toBeInTheDocument();
       });
 
-      it('has the expected button text when client is Android', () => {
+      it('has the expected button text when client is Android and add-on type is extension', () => {
         // The default clientApp is `CLIENT_APP_ANDROID`.
         _dispatchClientMetadata({ userAgent: userAgents.chrome[0] });
         render();
 
         expect(
-          screen.getByRole('link', { name: 'Download Firefox' }),
+          screen.getByRole('link', {
+            name: 'Download Firefox and get the extension',
+          }),
+        ).toBeInTheDocument();
+      });
+
+      it('has the expected button text when client is Android but add-on is not an extension', () => {
+        // The default clientApp is `CLIENT_APP_ANDROID`.
+        _dispatchClientMetadata({ userAgent: userAgents.chrome[0] });
+        addon.type = ADDON_TYPE_STATIC_THEME;
+        render();
+
+        expect(
+          screen.getByRole('link', {
+            name: 'Download Firefox',
+          }),
+        ).toBeInTheDocument();
+      });
+
+      it('has the expected button text when add-on is not Android compatible', () => {
+        // The default clientApp is `CLIENT_APP_ANDROID`.
+        _dispatchClientMetadata({ userAgent: userAgents.chrome[0] });
+        render({
+          addon: {
+            ...createInternalAddonWithLang(addon),
+            isAndroidCompatible: false,
+          },
+        });
+
+        expect(
+          screen.getByRole('link', {
+            name: 'Download Firefox',
+          }),
         ).toBeInTheDocument();
       });
 
