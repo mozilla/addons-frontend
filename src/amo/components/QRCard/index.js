@@ -9,7 +9,7 @@ import type { AppState } from 'amo/store';
 import { getAddonListingURL } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import type { I18nType } from 'amo/types/i18n';
-import { CLIENT_APP_ANDROID } from 'amo/constants';
+import { CLIENT_APP_ANDROID, QR_CODE_UTM_CAMPAIGN } from 'amo/constants';
 
 import './styles.scss';
 import KitQR from './img/kit-qr.svg';
@@ -35,6 +35,8 @@ export class QRCardBase extends React.Component<InternalProps> {
       addon,
       clientApp: CLIENT_APP_ANDROID,
       lang,
+      utmCampaign: QR_CODE_UTM_CAMPAIGN,
+      utmContent: addon.slug,
     });
     return (
       <div className="qr-card">

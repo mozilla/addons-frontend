@@ -30,6 +30,7 @@ import {
   REVIEWER_TOOLS_VIEW,
   SET_VIEW_CONTEXT,
   STATIC_THEMES_REVIEW,
+  QR_CODE_UTM_CAMPAIGN,
 } from 'amo/constants';
 import {
   EXPERIMENT_CONFIG,
@@ -2892,6 +2893,8 @@ describe(__filename, () => {
         addon: { slug: defaultSlug },
         clientApp: CLIENT_APP_ANDROID,
         lang,
+        utmCampaign: QR_CODE_UTM_CAMPAIGN,
+        utmContent: defaultSlug,
       });
       expect(qr.getAttribute('href')).toEqual(expectedURL);
     });

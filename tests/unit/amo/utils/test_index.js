@@ -9,6 +9,7 @@ import {
   DEFAULT_UTM_SOURCE,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   PROMOTED_ADDONS_SUMO_URL,
+  QR_CODE_UTM_CAMPAIGN,
 } from 'amo/constants';
 import {
   addQueryParamsToHistory,
@@ -60,6 +61,23 @@ describe(__filename, () => {
         }),
       ).toEqual(
         `${baseURL}/en-US/${CLIENT_APP_FIREFOX}/addon/${addon.slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+      );
+    });
+
+    it('adds UTM campaign and content params when provided', () => {
+      const _config = getFakeConfig({ baseURL });
+      const addon = { ...fakeAddon, slug: 'some-slug' };
+      expect(
+        getAddonListingURL({
+          _config,
+          addon,
+          clientApp: CLIENT_APP_ANDROID,
+          lang: 'en-US',
+          utmCampaign: QR_CODE_UTM_CAMPAIGN,
+          utmContent: addon.slug,
+        }),
+      ).toEqual(
+        `${baseURL}/en-US/${CLIENT_APP_ANDROID}/addon/${addon.slug}/?utm_campaign=${QR_CODE_UTM_CAMPAIGN}&utm_content=${addon.slug}&utm_source=${DEFAULT_UTM_SOURCE}`,
       );
     });
   });

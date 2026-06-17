@@ -72,17 +72,25 @@ export const getAddonListingURL = ({
   addon,
   clientApp,
   lang,
+  utmCampaign = null,
+  utmContent = null,
   utmSource = DEFAULT_UTM_SOURCE,
 }: {|
   _config?: typeof config,
   addon: AddonType,
   clientApp: string,
   lang: string,
+  utmCampaign?: string | null,
+  utmContent?: string | null,
   utmSource?: string,
 |}): string => {
   return `${_config.get('baseURL')}/${lang}/${clientApp}${getAddonURL(
     addon.slug,
-  )}${makeQueryString({ utm_source: utmSource })}`;
+  )}${makeQueryString({
+    utm_campaign: utmCampaign,
+    utm_content: utmContent,
+    utm_source: utmSource,
+  })}`;
 };
 
 export const getCanonicalURL = ({
