@@ -585,7 +585,7 @@ describe(__filename, () => {
         expect(getFirefoxButton()).toBeInTheDocument();
       });
 
-      it('has the expected button text when client is an Android extension', () => {
+      it('has the expected button text when client is Android and add-on type is extension', () => {
         // The default clientApp is `CLIENT_APP_ANDROID`.
         _dispatchClientMetadata({ userAgent: userAgents.chrome[0] });
         render();
@@ -597,7 +597,7 @@ describe(__filename, () => {
         ).toBeInTheDocument();
       });
 
-      it('has the expected button text when client is an non-compatible Android theme', () => {
+      it('has the expected button text when client is Android but add-on is not an extension', () => {
         // The default clientApp is `CLIENT_APP_ANDROID`.
         _dispatchClientMetadata({ userAgent: userAgents.chrome[0] });
         addon.type = ADDON_TYPE_STATIC_THEME;
@@ -610,20 +610,19 @@ describe(__filename, () => {
         ).toBeInTheDocument();
       });
 
-      it('has the expected button text when client is a compatible Android theme', () => {
+      it('has the expected button text when add-on is not Android compatible', () => {
         // The default clientApp is `CLIENT_APP_ANDROID`.
         _dispatchClientMetadata({ userAgent: userAgents.chrome[0] });
-        addon.type = ADDON_TYPE_STATIC_THEME;
         render({
           addon: {
             ...createInternalAddonWithLang(addon),
-            isAndroidCompatible: true,
+            isAndroidCompatible: false,
           },
         });
 
         expect(
           screen.getByRole('link', {
-            name: 'Download Firefox and get the theme',
+            name: 'Download Firefox',
           }),
         ).toBeInTheDocument();
       });
