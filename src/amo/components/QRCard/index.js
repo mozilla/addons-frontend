@@ -45,7 +45,7 @@ export class QRCardBase extends React.Component<InternalProps> {
         </div>
         <div className="kit-qr-wrapper">
           <div className="kit-wrapper">
-            <img className="qr-kit-svg" src={KitQR} alt="kit" />
+            <img className="qr-kit-svg" src={KitQR} alt="" />
           </div>
           <div className="qr-wrapper">
             <QRCode

@@ -3,19 +3,16 @@
 .qr-card {
   background-color: rgba($blue-60, 0.1);
   border-radius: $border-radius-default;
-  min-height: 171px;
-  width: 100%;
-  margin: 24px 0 0;
-  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px 20px;
+  margin: 24px 0 0;
+  gap: 10px;
 }
 
 .qr-label {
   font-size: $font-size-default;
-  padding: 16px 0 16px 16px;
-  flex: 0 0 50%;
   text-wrap: balance;
 }
 
@@ -26,18 +23,19 @@
   position: relative;
 }
 
-.qr-kit-svg,
 .qr-code {
   width: 100%;
 }
 
-.kit-wrapper {
-  width: 80%;
+.qr-kit-svg {
+  min-width: 200px;
+  width: 100%;
 }
 
 .qr-wrapper {
   position: absolute;
   z-index: 10;
-  max-width: 28%;
-  margin: -12px 0 0 -5.5px;
+  width: 35%;
+  min-width: 76px;
+  transform: translate(-2.5px, -8px);
 }
