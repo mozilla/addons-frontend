@@ -1,6 +1,6 @@
 @import '~amo/css/styles';
 
-.qr-card {
+.QRCard {
   background-color: rgba($blue-60, 0.1);
   border-radius: $border-radius-default;
   display: flex;
@@ -11,28 +11,28 @@
   gap: 10px;
 }
 
-.qr-label {
+.QRCard-label {
   font-size: $font-size-default;
   text-wrap: balance;
 }
 
-.kit-qr-wrapper {
+.QRCard-kit-qr-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.qr-code {
+.QRCard-qr-code {
   width: 100%;
 }
 
-.qr-kit-svg {
+.QRCard-kit-svg {
   min-width: 200px;
   width: 100%;
 }
 
-.qr-wrapper {
+.QRCard-qr-wrapper {
   position: absolute;
   z-index: 10;
   width: 35%;

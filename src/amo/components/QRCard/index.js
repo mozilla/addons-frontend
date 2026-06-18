@@ -39,19 +39,19 @@ export class QRCardBase extends React.Component<InternalProps> {
       utmContent: addon.slug,
     });
     return (
-      <div className="qr-card">
-        <div className="qr-label">
+      <div className="QRCard">
+        <div className="QRCard-label">
           {i18n.gettext(
             'Scan the QR code to open this extension in Firefox for Android',
           )}
         </div>
-        <div className="kit-qr-wrapper">
-          <div className="kit-wrapper">
-            <img className="qr-kit-svg" src={KitQR} alt="" />
+        <div className="QRCard-kit-qr-wrapper">
+          <div className="QRCard-kit-wrapper">
+            <img className="QRCard-kit-svg" src={KitQR} alt="" />
           </div>
-          <div className="qr-wrapper">
+          <div className="QRCard-qr-wrapper">
             <QRCode
-              className="qr-code"
+              className="QRCard-qr-code"
               href={downloadLink}
               value={downloadLink}
             />

@@ -2866,27 +2866,27 @@ describe(__filename, () => {
         },
       };
       renderWithAddon();
-      expect(screen.queryByClassName('qr-card')).toBeNull();
+      expect(screen.queryByClassName('QRCard')).toBeNull();
     });
 
     it('does not render a card for Android themes', () => {
       addon = { ...addon, type: ADDON_TYPE_STATIC_THEME };
       renderWithAddon();
-      expect(screen.queryByClassName('qr-card')).toBeNull();
+      expect(screen.queryByClassName('QRCard')).toBeNull();
     });
 
     it('does not render a card on Android', () => {
       addon = { ...addon, type: ADDON_TYPE_STATIC_THEME };
       store.dispatch(setClientApp(CLIENT_APP_ANDROID));
       renderWithAddon();
-      expect(screen.queryByClassName('qr-card')).toBeNull();
+      expect(screen.queryByClassName('QRCard')).toBeNull();
     });
 
     it('renders a card for Android extensions', () => {
       renderWithAddon();
-      expect(screen.getByClassName('qr-card')).not.toBeNull();
-      const qr = screen.queryByClassName('qr-code');
-      expect(screen.getByClassName('qr-label')).toHaveTextContent(
+      expect(screen.getByClassName('QRCard')).not.toBeNull();
+      const qr = screen.queryByClassName('QRCard-qr-code');
+      expect(screen.getByClassName('QRCard-label')).toHaveTextContent(
         'Scan the QR code to open this extension in Firefox for Android',
       );
       const expectedURL = getAddonListingURL({

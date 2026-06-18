@@ -67,6 +67,16 @@ export const makeQueryStringWithUTM = ({
   });
 };
 
+export const getCanonicalURL = ({
+  _config = config,
+  locationPathname,
+}: {|
+  _config?: typeof config,
+  locationPathname: string,
+|}): string => {
+  return `${_config.get('baseURL')}${locationPathname}`;
+};
+
 export const getAddonListingURL = ({
   _config = config,
   addon,
@@ -84,23 +94,16 @@ export const getAddonListingURL = ({
   utmContent?: string | null,
   utmSource?: string,
 |}): string => {
-  return `${_config.get('baseURL')}/${lang}/${clientApp}${getAddonURL(
-    addon.slug,
-  )}${makeQueryString({
-    utm_campaign: utmCampaign,
-    utm_content: utmContent,
-    utm_source: utmSource,
-  })}`;
-};
-
-export const getCanonicalURL = ({
-  _config = config,
-  locationPathname,
-}: {|
-  _config?: typeof config,
-  locationPathname: string,
-|}): string => {
-  return `${_config.get('baseURL')}${locationPathname}`;
+  return getCanonicalURL({
+    _config,
+    locationPathname: `/${lang}/${clientApp}${getAddonURL(
+      addon.slug,
+    )}${makeQueryString({
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      utm_source: utmSource,
+    })}`,
+  });
 };
 
 export const checkInternalURL = ({
