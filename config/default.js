@@ -38,6 +38,9 @@ module.exports = {
   cookieDomain: `.${prodDomain}`,
   cookieSameSite: 'lax',
 
+  // Stores the user's color theme preference (auto/light/dark). Read on the server to render <html data-theme> for a flash-free first paint.
+  themeCookieName: 'amo_theme',
+
   // Enable devtools for: Redux.
   enableDevTools: false,
   // Logging level, see:
@@ -92,6 +95,7 @@ module.exports = {
     'baseURL',
     'cookieMaxAge',
     'cookieName',
+    'cookieSameSite',
     'cookieSecure',
     'defaultLang',
     'enableDevTools',
@@ -112,6 +116,7 @@ module.exports = {
     'recentAddonCutOffDays',
     'rtlLangs',
     'staticPath',
+    'themeCookieName',
     'trackingEnabled',
     'unsupportedHrefLangs',
     'validClientAppUrlExceptions',

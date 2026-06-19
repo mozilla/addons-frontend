@@ -79,6 +79,7 @@ export default class ServerHtml extends Component {
     appState: PropTypes.object.isRequired,
     assets: PropTypes.object.isRequired,
     component: PropTypes.element.isRequired,
+    htmlDataTheme: PropTypes.string,
     htmlDir: PropTypes.string,
     htmlLang: PropTypes.string,
     includeSri: PropTypes.bool.isRequired,
@@ -163,7 +164,8 @@ export default class ServerHtml extends Component {
   }
 
   render() {
-    const { appState, component, htmlDir, htmlLang } = this.props;
+    const { appState, component, htmlDataTheme, htmlDir, htmlLang } =
+      this.props;
 
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
@@ -171,7 +173,7 @@ export default class ServerHtml extends Component {
     const head = Helmet.rewind();
 
     return (
-      <html lang={htmlLang} dir={htmlDir}>
+      <html lang={htmlLang} dir={htmlDir} data-theme={htmlDataTheme}>
         <head>
           {head.title.toComponent()}
 

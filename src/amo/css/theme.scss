@@ -145,3 +145,17 @@
   @include theme-aliases;
 }
 
+@media (prefers-color-scheme: dark) {
+  // Respect an explicit light override even when the OS prefers dark.
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    @include theme-dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  @include theme-dark;
+}

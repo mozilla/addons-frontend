@@ -5,6 +5,7 @@ import config from 'config';
 
 import LanguagePicker from 'amo/components/LanguagePicker';
 import Link from 'amo/components/Link';
+import ThemePicker from 'amo/components/ThemePicker';
 import { makeQueryStringWithUTM, sanitizeHTML } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import Icon from 'amo/components/Icon';
@@ -381,11 +382,12 @@ export class FooterBase extends React.Component<InternalProps> {
             )}
           />
 
-          {!noLangPicker && (
-            <div className="Footer-language-picker">
+          <div className="Footer-language-picker">
+            {!noLangPicker && (
               <LanguagePicker />
-            </div>
-          )}
+            )}
+            <ThemePicker />
+          </div>
         </div>
       </footer>
     );
