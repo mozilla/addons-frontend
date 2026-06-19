@@ -9,7 +9,7 @@ describe(__filename, () => {
       const html = cheerio.load(buildFooter());
 
       expect(html('.Footer')).toHaveLength(1);
-      expect(html('.Footer-language-picker')).toHaveLength(0);
+      expect(html('.LanguagePicker')).toHaveLength(0);
 
       const blogLink = html('.Footer-blog-link');
       expect(blogLink).toHaveLength(1);
