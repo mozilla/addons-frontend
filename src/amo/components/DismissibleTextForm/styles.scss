@@ -23,7 +23,7 @@
 }
 
 .DismissibleTextForm-submit.disabled {
-  background-color: $action-hover-color;
+  background-color: var(--action-hover-color);
   cursor: not-allowed;
 }
 

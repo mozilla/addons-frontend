@@ -1,22 +1,8 @@
 @import '~photon-colors/photon-colors';
 @import '~@mozilla-protocol/tokens/dist/index';
 
-// Add-on details
-$primary-font-color: #000;
-$body-font-color: #1d1d1d;
-$header-font-color: #fff;
-
-// Colours
-$text-color-default: #333;
-$text-color-headings: $text-color-default;
-$text-color-message: #fff;
-$sub-text-color: #6a6a6a;
-$form-border-color: $primary-font-color;
-$button-background-color: #0095dd;
-$base-color: #fff;
-$link-color: $blue-60;
-$warning: #d63920;
-$showmorecard-gradient-color: #f4f9ff;
+$black: #343a40;
+$white: #fff;
 
 // Fonts
 $default-font-family: 'Clear Sans', Helvetica, Arial, sans-serif;
@@ -79,41 +65,6 @@ $max-content-width: 1366px;
 // Control the gutter to the left and right of the header and footer.
 // Mainly relevant to non-mobile screen-sizes.
 $header-footer-gutter: 24px;
-
-// Desktop variables (from specs)
-$black: #343a40;
-$white: #fff;
-$header-base-color: #0f1126;
-$footer-base-color: #051818;
-$header-search-color: #36395b;
-$action-base-color: #329af0;
-$action-hover-color: #72c3fc;
-$action-active-color: #1c7cd6;
-$cancel-base-color: $grey-50;
-$cancel-hover-color: $grey-40;
-$cancel-active-color: $grey-50;
-$confirm-base-color: #51cf66;
-$confirm-hover-color: #8ce99a;
-$confirm-active-color: #37b24d;
-$alert-base-color: #fcc419;
-$alert-hover-color: #ffe066;
-$alert-active-color: #f59f00;
-$report-base-color: #fa5252;
-$report-hover-color: #ff8787;
-$report-active-color: #e03131;
-$neutral-base-color: #adb5bd;
-$neutral-hover-color: #dee2e6;
-$neutral-active-color: #868e96;
-$light-base-color: $white;
-$light-hover-color: darken($white, 15%);
-$light-active-color: darken($white, 5%);
-$block-base-white-color: $white;
-$block-hover-white-color: #f8f9fa;
-$background-grey: #e9ecef;
-$background-gray: $background-grey;
-$type-black: $black;
-$header-accent-color: $link-color;
-$header-text-not-active-color: transparentize($white, 0.5);
 
 // Category Colors
 // There are currently 12 colors and this number must be kept in sync with

@@ -45,6 +45,6 @@
 .GetFirefoxBanner-button {
   &,
   &:link {
-    color: $link-color;
+    color: var(--link-color);
   }
 }
