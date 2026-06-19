@@ -55,6 +55,22 @@
 
 /* Shared mixins. Bear in mind changes here impact *all* apps. */
 
+// Emits styles that apply only when the dark theme is active: either the OS
+// prefers dark and the user has not forced light, or the user forced dark.
+// Use for the rare cases a color custom property can't cover (e.g. swapping a
+// background-image asset). Mirrors the activation logic in amo/css/theme.scss.
+@mixin dark-theme() {
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) & {
+      @content;
+    }
+  }
+
+  :root[data-theme='dark'] & {
+    @content;
+  }
+}
+
 @mixin focus() {
   box-shadow:
     0 0 0 1px $blue-50 inset,
