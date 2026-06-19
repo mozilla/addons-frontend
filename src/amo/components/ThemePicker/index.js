@@ -69,11 +69,12 @@ export class ThemePickerBase extends React.Component<InternalProps> {
 
     // Update <html data-theme> immediately so the page recolors without a
     // reload. "auto" removes the attribute and defers to prefers-color-scheme.
-    if (_document) {
+    const documentElement = _document && _document.documentElement;
+    if (documentElement) {
       if (theme === THEME_AUTO) {
-        _document.documentElement.removeAttribute('data-theme');
+        documentElement.removeAttribute('data-theme');
       } else {
-        _document.documentElement.setAttribute('data-theme', theme);
+        documentElement.setAttribute('data-theme', theme);
       }
     }
   }
