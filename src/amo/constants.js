@@ -180,7 +180,7 @@ export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 
 // Color theme preferences. `THEME_AUTO` follows the OS via the `prefers-color-scheme` media query;
 // light/dark force a theme regardless of the OS setting.
-// See amo/reducers/theme and amo/css/inc/vars.scss.
+// See amo/reducers/theme and amo/css/theme.scss.
 export const THEME_AUTO = 'auto';
 export const THEME_LIGHT = 'light';
 export const THEME_DARK = 'dark';

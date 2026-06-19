@@ -383,9 +383,7 @@ export class FooterBase extends React.Component<InternalProps> {
           />
 
           <div className="Footer-language-picker">
-            {!noLangPicker && (
-              <LanguagePicker />
-            )}
+            {!noLangPicker && <LanguagePicker />}
             <ThemePicker />
           </div>
         </div>
