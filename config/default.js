@@ -213,6 +213,7 @@ module.exports = {
     'sk',
     'sl',
     'sq',
+    'sr',
     'sv-SE',
     'tr',
     'uk',
