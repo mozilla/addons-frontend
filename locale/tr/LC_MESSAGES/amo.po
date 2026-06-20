@@ -2500,6 +2500,8 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
+"Silinen eklentiler artık addons.mozilla.org adresinden indirilemez. Eklenti zaten yüklenmişse devre dışı bırakılacak ve kullanıcılar bilgilendirilecektir. Kullanıcılar eklentiyi yeniden "
+"etkinleştirmeyi seçebilir, ancak risk kendilerine aittir."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
