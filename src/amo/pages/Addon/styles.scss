@@ -103,9 +103,10 @@
 
     & .Addon-install {
       justify-self: end;
+      width: min-content;
 
       .InstallButtonWrapper {
-        width: 320px;
+        width: 450px;
       }
     }
   }
@@ -113,8 +114,9 @@
   @include respond-to(extraLarge) {
     grid-template:
       'icon info  install' auto
-      '.    badge .' auto
-      / 64px auto;
+      '.    badge install' auto
+      '.    .     install' auto
+      / 64px auto auto;
 
     .Addon-theme & {
       grid-template:

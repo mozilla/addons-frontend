@@ -77,6 +77,35 @@ export const getCanonicalURL = ({
   return `${_config.get('baseURL')}${locationPathname}`;
 };
 
+export const getAddonListingURL = ({
+  _config = config,
+  addon,
+  clientApp,
+  lang,
+  utmCampaign = null,
+  utmContent = null,
+  utmSource = DEFAULT_UTM_SOURCE,
+}: {|
+  _config?: typeof config,
+  addon: AddonType,
+  clientApp: string,
+  lang: string,
+  utmCampaign?: string | null,
+  utmContent?: string | null,
+  utmSource?: string,
+|}): string => {
+  return getCanonicalURL({
+    _config,
+    locationPathname: `/${lang}/${clientApp}${getAddonURL(
+      addon.slug,
+    )}${makeQueryString({
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      utm_source: utmSource,
+    })}`,
+  });
+};
+
 export const checkInternalURL = ({
   _config = config,
   urlString,
