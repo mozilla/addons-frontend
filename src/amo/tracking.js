@@ -233,7 +233,7 @@ export class Tracking {
    * Push generic key-value pairs into the dataLayer. Useful for background
    * variables (e.g., page_locale, addon_type) that GTM tags might read.
    */
-  setPageVariables(variables: { [string]: string }) {
+  setPageVariables(variables: { [string]: string | null }) {
     // $FlowIgnore
     this._pushToDataLayer(variables);
     this.log('setPageVariables', variables);

@@ -173,6 +173,8 @@ export class AddonBase extends React.Component {
   }
 
   componentWillUnmount() {
+    tracking.setPageVariables({ addon_type: null, page_locale: null });
+
     // Clear the install source so stale values from a previous addon page
     // aren't used for a future install on a different page.
     this.props.dispatch(clearAddonInstallSource());

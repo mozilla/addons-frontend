@@ -280,6 +280,19 @@ describe(__filename, () => {
     });
   });
 
+  it('clears page variables from tracking on unmount', () => {
+    const { unmount } = renderWithAddon();
+    tracking.setPageVariables.mockClear();
+
+    unmount();
+
+    expect(tracking.setPageVariables).toHaveBeenCalledTimes(1);
+    expect(tracking.setPageVariables).toHaveBeenCalledWith({
+      addon_type: null,
+      page_locale: null,
+    });
+  });
+
   it('sends a tracking event when the add-on detail page is viewed', () => {
     renderWithAddon();
 
