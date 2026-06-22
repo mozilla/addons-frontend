@@ -52,7 +52,6 @@ import ShowMoreCard from 'amo/components/ShowMoreCard';
 import ThemeImage from 'amo/components/ThemeImage';
 import Notice from 'amo/components/Notice';
 import tracking, { getAddonEventParams } from 'amo/tracking';
-import tracking from 'amo/tracking';
 import QRCard from 'amo/components/QRCard';
 
 import './styles.scss';
