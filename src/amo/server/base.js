@@ -20,11 +20,7 @@ import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import log from 'amo/logger';
 import { REGION_CODE_HEADER, createApiError } from 'amo/api';
 import Root from 'amo/components/Root';
-import {
-  AMO_REQUEST_ID_HEADER,
-  THEME_AUTO,
-  THEME_PREFERENCES,
-} from 'amo/constants';
+import { AMO_REQUEST_ID_HEADER } from 'amo/constants';
 import ServerHtml from 'amo/components/ServerHtml';
 import * as middleware from 'amo/middleware';
 import requestId from 'amo/middleware/requestId';
@@ -42,7 +38,6 @@ import {
   setRequestId,
   setUserAgent,
 } from 'amo/reducers/api';
-import { setTheme } from 'amo/reducers/theme';
 import {
   getDirection,
   isValidLang,
@@ -96,22 +91,10 @@ export function getPageProps({ store, req, res, config }) {
     log.debug(`No ${REGION_CODE_HEADER} found in request headers.`);
   }
 
-  // Read the saved color theme preference so we can render <html data-theme> server-side, avoiding a flash of the wrong theme before hydration.
-  // An invalid or missing cookie falls back to "auto" (no attribute), which lets the `prefers-color-scheme` media query decide.
-  const themeCookie =
-    req && req.universalCookies
-      ? req.universalCookies.get(config.get('themeCookieName'))
-      : undefined;
-  const theme = THEME_PREFERENCES.includes(themeCookie)
-    ? themeCookie
-    : THEME_AUTO;
-  store.dispatch(setTheme(theme));
-
   return {
     assets: webpackIsomorphicTools.assets(),
     htmlLang: lang,
     htmlDir: dir,
-    htmlDataTheme: theme === THEME_AUTO ? undefined : theme,
     includeSri: isDeployed,
     sriData,
     // A DNT header set to "1" means Do Not Track

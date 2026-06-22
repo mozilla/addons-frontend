@@ -49,18 +49,6 @@ describe(__filename, () => {
     expect(html).toHaveAttribute('dir', RTL);
   });
 
-  it('renders the data-theme attribute when a theme is forced', () => {
-    render({ htmlDataTheme: 'dark' });
-
-    expect(screen.getByTagName('html')).toHaveAttribute('data-theme', 'dark');
-  });
-
-  it('omits the data-theme attribute for the automatic theme', () => {
-    render({ htmlDataTheme: undefined });
-
-    expect(screen.getByTagName('html')).not.toHaveAttribute('data-theme');
-  });
-
   it('renders meta attrs inside helmet', async () => {
     render();
 

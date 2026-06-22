@@ -186,6 +186,8 @@ export const THEME_LIGHT = 'light';
 export const THEME_DARK = 'dark';
 export const THEME_PREFERENCES = [THEME_AUTO, THEME_LIGHT, THEME_DARK];
 export const SET_THEME = 'SET_THEME';
+// localStorage key holding the user's color theme preference
+export const THEME_STORAGE_KEY = 'amo_theme';
 
 export const INSTALL_EVENT_LIST = [
   'onDownloadStarted',

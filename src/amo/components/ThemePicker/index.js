@@ -1,16 +1,17 @@
 /* @flow */
+/* global window */
 import * as React from 'react';
-import config from 'config';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withCookies, Cookies } from 'react-cookie';
 
+import log from 'amo/logger';
 import { setTheme } from 'amo/reducers/theme';
 import {
   THEME_AUTO,
   THEME_DARK,
   THEME_LIGHT,
   THEME_PREFERENCES,
+  THEME_STORAGE_KEY,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import type { AppState } from 'amo/store';
@@ -27,23 +28,22 @@ type PropsFromState = {|
 |};
 
 type DefaultProps = {|
-  _config: typeof config,
   _document: typeof document | null,
+  _localStorage: typeof window.localStorage | null,
 |};
 
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
   ...DefaultProps,
-  cookies: typeof Cookies,
   dispatch: DispatchFunc,
   i18n: I18nType,
 |};
 
 export class ThemePickerBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
-    _config: config,
     _document: typeof document !== 'undefined' ? document : null,
+    _localStorage: typeof window !== 'undefined' ? window.localStorage : null,
   };
 
   onChange: (event: SyntheticEvent<HTMLSelectElement>) => void = (event) => {
@@ -54,18 +54,22 @@ export class ThemePickerBase extends React.Component<InternalProps> {
   };
 
   changeTheme(theme: ThemePreference) {
-    const { _config, _document, cookies, dispatch } = this.props;
+    const { _document, _localStorage, dispatch } = this.props;
 
     dispatch(setTheme(theme));
 
-    // Persist the choice so the server can render the right theme on the next
-    // request (see amo/server/base.js), avoiding a flash on reload.
-    cookies.set(_config.get('themeCookieName'), theme, {
-      maxAge: _config.get('cookieMaxAge'),
-      path: '/',
-      sameSite: _config.get('cookieSameSite'),
-      secure: _config.get('cookieSecure'),
-    });
+    // Persist the choice client-side so it can be re-applied on the next page
+    // load (see amo/client/base.js). We deliberately avoid a cookie so the
+    // preference never reaches the server and HTML responses stay cacheable.
+    if (_localStorage) {
+      try {
+        _localStorage.setItem(THEME_STORAGE_KEY, theme);
+      } catch (error) {
+        // localStorage can throw (e.g. private mode or quota); the theme still
+        // applies for this session, we just can't persist it.
+        log.warn(`Could not persist theme preference: ${error}`);
+      }
+    }
 
     // Update <html data-theme> immediately so the page recolors without a
     // reload. "auto" removes the attribute and defers to prefers-color-scheme.
@@ -115,7 +119,6 @@ function mapStateToProps(state: AppState): PropsFromState {
 }
 
 const ThemePicker: React.ComponentType<Props> = compose(
-  withCookies,
   connect(mapStateToProps),
   translate(),
 )(ThemePickerBase);

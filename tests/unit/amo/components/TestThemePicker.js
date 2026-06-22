@@ -2,17 +2,26 @@ import * as React from 'react';
 import userEvent from '@testing-library/user-event';
 
 import ThemePicker from 'amo/components/ThemePicker';
-import { THEME_AUTO, THEME_DARK, THEME_LIGHT } from 'amo/constants';
+import {
+  THEME_AUTO,
+  THEME_DARK,
+  THEME_LIGHT,
+  THEME_STORAGE_KEY,
+} from 'amo/constants';
 import { setTheme } from 'amo/reducers/theme';
 import {
   dispatchClientMetadata,
-  fakeCookies,
   render as defaultRender,
   screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
+
+  const fakeLocalStorage = () => ({
+    getItem: jest.fn(),
+    setItem: jest.fn(),
+  });
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
@@ -23,10 +32,13 @@ describe(__filename, () => {
     document.documentElement.removeAttribute('data-theme');
   });
 
-  const render = ({ cookies = fakeCookies(), ...props } = {}) => {
-    return defaultRender(<ThemePicker cookies={cookies} {...props} />, {
-      store,
-    });
+  const render = ({ _localStorage = fakeLocalStorage(), ...props } = {}) => {
+    return defaultRender(
+      <ThemePicker _localStorage={_localStorage} {...props} />,
+      {
+        store,
+      },
+    );
   };
 
   it('renders one option per theme preference', () => {
@@ -60,16 +72,15 @@ describe(__filename, () => {
     expect(store.getState().theme.theme).toEqual(THEME_DARK);
   });
 
-  it('persists the selected theme in a cookie', async () => {
-    const cookies = fakeCookies();
-    render({ cookies });
+  it('persists the selected theme in localStorage', async () => {
+    const _localStorage = fakeLocalStorage();
+    render({ _localStorage });
 
     await userEvent.selectOptions(screen.getByRole('combobox'), THEME_LIGHT);
 
-    expect(cookies.set).toHaveBeenCalledWith(
-      'amo_theme',
+    expect(_localStorage.setItem).toHaveBeenCalledWith(
+      THEME_STORAGE_KEY,
       THEME_LIGHT,
-      expect.objectContaining({ path: '/' }),
     );
   });
 
