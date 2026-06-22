@@ -108,6 +108,8 @@ If you would like to run tests without Eslint checks, set an environment variabl
 
 There is limited support for using [Flow](https://flowtype.org/) to validate the intention of our program.
 
+> The current version of Flow does not have default support for Silicon Macs. To allow Flow to run on Silicon Macs, first install Rosetta 2 using `sudo softwareupdate --install-rosetta --agree-to-license`
+
 As you run tests you will see a report of Flow errors at the end of the test output:
 
     yarn test
