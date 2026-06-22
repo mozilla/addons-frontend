@@ -469,11 +469,8 @@ export class AddonBase extends React.Component {
               <AddonBadges addon={addon} hideUsers={hideMetadata} />
 
               <div className="Addon-install">
-                <InstallButtonWrapper
-                  addon={addon}
-                  desktopViewAndroidCompatible={desktopViewAndroidCompatible}
-                />
-                {desktopViewAndroidCompatible ? <QRCard addon={addon} /> : ''}
+                <InstallButtonWrapper addon={addon} />
+                {desktopViewAndroidCompatible && <QRCard addon={addon} />}
               </div>
 
               {addon && ADDON_TYPE_STATIC_THEME === addon.type && (
