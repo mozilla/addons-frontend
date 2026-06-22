@@ -27,7 +27,7 @@ import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 
-export const TAAR_IMPRESSION_CATEGORY = 'amo_addon_recommendations_shown';
+export const TAAR_IMPRESSION_CATEGORY = 'amo_addon_recommendations_clicked';
 
 type DefaultProps = {|
   _getPromotedCategory: typeof getPromotedCategory,

@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/heading-has-content */
+/* global window */
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -36,6 +37,7 @@ import { clearAddonInstallSource } from 'amo/reducers/addonInstallSource';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import {
+  ADDON_DETAIL_PAGE_VIEW_CATEGORY,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -49,7 +51,7 @@ import LoadingText from 'amo/components/LoadingText';
 import ShowMoreCard from 'amo/components/ShowMoreCard';
 import ThemeImage from 'amo/components/ThemeImage';
 import Notice from 'amo/components/Notice';
-import tracking from 'amo/tracking';
+import tracking, { getAddonEventParams } from 'amo/tracking';
 
 import './styles.scss';
 
@@ -84,6 +86,8 @@ export class AddonBase extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.addonDetailPageViewKey = null;
 
     const {
       addon,
@@ -133,6 +137,7 @@ export class AddonBase extends React.Component {
 
   componentDidMount() {
     this.pushPageVariables();
+    this.sendAddonDetailPageView();
   }
 
   pushPageVariables() {
@@ -142,6 +147,29 @@ export class AddonBase extends React.Component {
         addon.type === ADDON_TYPE_STATIC_THEME ? 'theme' : 'extension';
       tracking.setPageVariables({ addon_type: addonType, page_locale: lang });
     }
+  }
+
+  sendAddonDetailPageView() {
+    const {
+      addon,
+      errorHandler,
+      match: { params },
+    } = this.props;
+
+    if (!addon || errorHandler.hasError() || addon.slug !== params.slug) {
+      return;
+    }
+
+    const key = `${addon.id}-${window.location.pathname}`;
+    if (this.addonDetailPageViewKey === key) {
+      return;
+    }
+
+    this.addonDetailPageViewKey = key;
+    tracking.sendEvent({
+      category: ADDON_DETAIL_PAGE_VIEW_CATEGORY,
+      params: getAddonEventParams(addon, window.location.pathname),
+    });
   }
 
   componentWillUnmount() {
@@ -180,6 +208,8 @@ export class AddonBase extends React.Component {
     ) {
       this.pushPageVariables();
     }
+
+    this.sendAddonDetailPageView();
 
     if (!addonIsLoading && (!newAddon || oldParams.slug !== params.slug)) {
       dispatch(

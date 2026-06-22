@@ -260,7 +260,7 @@ export function getAddonNameParam(addon: {
  *   - When `addon` is null/undefined, returns `{}` or `{ page_path }`.
  *   - When `addon` is present, includes `extension_name` or `theme_name`
  *     (via `getAddonNameParam`), the first author's name (if non-empty),
- *     and the page path.
+ *     the first add-on category slug, and the page path.
  *
  * Used by most components to build consistent event params for sendEvent().
  */
@@ -269,6 +269,7 @@ export function getAddonEventParams(
     +name: string,
     +type: string,
     +authors?: $ReadOnlyArray<{ +name: string, ... }>,
+    +categories?: $ReadOnlyArray<string>,
     ...
   },
   pagePath?: string,
@@ -285,6 +286,9 @@ export function getAddonEventParams(
   const eventParams: TrackingEventDataParams = { ...nameParam };
   if (author) {
     eventParams.author = author;
+  }
+  if (addon.categories && addon.categories.length > 0) {
+    eventParams.addon_category = addon.categories[0];
   }
   if (pagePath) {
     eventParams.page_path = pagePath;
