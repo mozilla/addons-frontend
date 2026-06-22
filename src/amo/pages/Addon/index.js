@@ -52,6 +52,8 @@ import ShowMoreCard from 'amo/components/ShowMoreCard';
 import ThemeImage from 'amo/components/ThemeImage';
 import Notice from 'amo/components/Notice';
 import tracking, { getAddonEventParams } from 'amo/tracking';
+import tracking from 'amo/tracking';
+import QRCard from 'amo/components/QRCard';
 
 import './styles.scss';
 
@@ -442,15 +444,16 @@ export class AddonBase extends React.Component {
       ? addonsByAuthors.length
       : 0;
 
+    const desktopViewAndroidCompatible =
+      clientApp === CLIENT_APP_FIREFOX && !!addon?.isAndroidCompatible;
+
     return (
       <Page
         showVPNPromo={Boolean(addon && addon.type === ADDON_TYPE_EXTENSION)}
         errorHandler={errorHandler}
         isAddonInstallPage
         showWrongPlatformWarning={false}
-        includeGoogleDisclaimerInFooter={
-          clientApp === CLIENT_APP_FIREFOX && !!addon?.isAndroidCompatible
-        }
+        includeGoogleDisclaimerInFooter={desktopViewAndroidCompatible}
       >
         <div
           className={makeClassName('Addon', `Addon-${addonType}`, {
@@ -500,6 +503,7 @@ export class AddonBase extends React.Component {
 
               <div className="Addon-install">
                 <InstallButtonWrapper addon={addon} />
+                {desktopViewAndroidCompatible && <QRCard addon={addon} />}
               </div>
 
               {addon && ADDON_TYPE_STATIC_THEME === addon.type && (

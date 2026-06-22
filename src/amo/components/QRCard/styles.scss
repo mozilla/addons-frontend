@@ -1,0 +1,41 @@
+@import '~amo/css/styles';
+
+.QRCard {
+  background-color: rgba($blue-60, 0.1);
+  border-radius: $border-radius-default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  margin: 24px 0 0;
+  gap: 10px;
+}
+
+.QRCard-label {
+  font-size: $font-size-default;
+  text-wrap: balance;
+}
+
+.QRCard-kit-qr-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.QRCard-qr-code {
+  width: 100%;
+}
+
+.QRCard-kit-svg {
+  min-width: 200px;
+  width: 100%;
+}
+
+.QRCard-qr-wrapper {
+  position: absolute;
+  z-index: 10;
+  width: 35%;
+  min-width: 76px;
+  transform: translate(-2.5px, -8px);
+}

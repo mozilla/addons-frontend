@@ -20,9 +20,6 @@ const packageJson = JSON.parse(
 // release with the fixes to its dependencies.
 
 // babel-gettext-extractor: kinda the same as po2json
-//
-// sass-embedded: versions > 1.91.0 cause UI regressions, see:
-// https://github.com/mozilla/addons/issues/15869
 const skipDevDeps = [
   'babel-gettext-extractor',
   'prettier',
@@ -30,7 +27,6 @@ const skipDevDeps = [
   'html-webpack-plugin',
   'webpack-subresource-integrity',
   'po2json',
-  'sass-embedded',
 ];
 
 describe(__filename, () => {
