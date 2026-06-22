@@ -303,6 +303,7 @@ describe(__filename, () => {
         extension_name: defaultAddonName,
         author: authorName,
         addon_category: 'other',
+        addon_categories_all: 'other',
         page_path: window.location.pathname,
       },
     });
@@ -337,7 +338,7 @@ describe(__filename, () => {
       loadAddon({
         addon: {
           ...addon,
-          categories: ['privacy-security'],
+          categories: ['privacy-security', 'other'],
           guid: `${addon.guid}-new`,
           id: defaultAddonId + 1,
           name: createLocalizedString(newAddonName),
@@ -360,6 +361,7 @@ describe(__filename, () => {
         extension_name: newAddonName,
         author: authorName,
         addon_category: 'privacy-security',
+        addon_categories_all: 'privacy-security,other',
         page_path: window.location.pathname,
       },
     });
@@ -2726,6 +2728,7 @@ describe(__filename, () => {
           extension_name: defaultAddonName,
           author: authorName,
           addon_category: 'other',
+          addon_categories_all: 'other',
         }),
       });
     });
@@ -2750,6 +2753,7 @@ describe(__filename, () => {
           extension_name: defaultAddonName,
           author: authorName,
           addon_category: 'other',
+          addon_categories_all: 'other',
         }),
       });
     });

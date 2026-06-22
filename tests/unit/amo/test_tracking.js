@@ -297,7 +297,7 @@ describe(__filename, () => {
       });
     });
 
-    it('includes addon_category when categories are provided', () => {
+    it('includes addon category params when categories are provided', () => {
       const addon = {
         name: 'My Extension',
         type: ADDON_TYPE_EXTENSION,
@@ -306,10 +306,11 @@ describe(__filename, () => {
       expect(getAddonEventParams(addon)).toEqual({
         extension_name: 'My Extension',
         addon_category: 'privacy-security',
+        addon_categories_all: 'privacy-security,other',
       });
     });
 
-    it('does not include addon_category when categories are empty', () => {
+    it('does not include addon category params when categories are empty', () => {
       const addon = {
         name: 'My Extension',
         type: ADDON_TYPE_EXTENSION,
