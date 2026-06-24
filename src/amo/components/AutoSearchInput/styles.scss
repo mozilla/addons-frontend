@@ -5,9 +5,6 @@
 }
 
 .AutoSearchInput-query {
-  @include padding-end(6px);
-  @include padding-start(28px);
-
   // This prevents a flicker of black when focusing on mobile.
   background-color: $white;
   border: 1px solid $white;
@@ -18,6 +15,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
+  @include padding-end(6px);
+  @include padding-start(28px);
 
   &:hover {
     border-color: $teal-50;

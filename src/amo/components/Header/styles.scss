@@ -54,11 +54,10 @@
   }
 
   @include respond-to(extraLarge) {
-    @include margin-end(24px);
-
     align-self: center;
     grid-column: 1;
     grid-row: 2 / 2;
+    @include margin-end(24px);
 
     &,
     .Header--loaded-page-is-anonymous & {
@@ -72,11 +71,6 @@
 }
 
 .Header-title {
-  &,
-  &:link {
-    color: $white;
-  }
-
   // This is width / height of the source SVG.
   $aspectRatio: 4.3125;
   $smallHeight: 48px;
@@ -92,6 +86,11 @@
   height: $smallHeight;
   margin: 0;
   width: 100%;
+
+  &,
+  &:link {
+    color: $white;
+  }
 
   @include respond-to(medium) {
     background-position: left bottom;
@@ -131,11 +130,10 @@
 }
 
 .Header-button {
-  @include margin-start(20px);
-
   margin-bottom: 12px;
   vertical-align: top;
   white-space: nowrap;
+  @include margin-start(20px);
 }
 
 .Header-blog-link,
@@ -164,11 +162,10 @@
 }
 
 .Header-authenticate-button {
-  @include margin-start(6px);
-
   display: inline-flex;
   min-height: 24px;
   white-space: nowrap;
+  @include margin-start(6px);
 
   &,
   &:link {
@@ -181,9 +178,8 @@
   }
 
   @include respond-to(medium) {
-    @include margin-start(20px);
-
     display: initial;
+    @include margin-start(20px);
 
     &.DropdownMenu {
       display: inline-flex;
@@ -209,20 +205,18 @@
   }
 
   @include respond-to(medium) {
-    @include margin-start(-12px);
-
     align-self: end;
     grid-column: 1 / 3;
     grid-row: 2 / 2;
+    @include margin-start(-12px);
   }
 
   @include respond-to(extraLarge) {
-    @include margin-end(12px);
-
     align-self: center;
     grid-column: 2;
     margin: 22px 0 0;
     padding: 0;
+    @include margin-end(12px);
   }
 }
 

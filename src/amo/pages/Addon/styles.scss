@@ -164,12 +164,11 @@
 
   @include respond-to(extraExtraLarge) {
     .AddonDescription {
-      @include padding-end(64px);
-
       border: 0;
       flex: 1;
       margin: 0;
       padding-bottom: 0;
+      @include padding-end(64px);
     }
   }
 }

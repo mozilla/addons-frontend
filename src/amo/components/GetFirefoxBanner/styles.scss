@@ -1,15 +1,6 @@
 @import '~amo/css/styles';
 
 .GetFirefoxBanner {
-  @include respond-to(extraLarge) {
-    border-radius: 0 0 $border-radius-m $border-radius-m;
-    width: 890px;
-
-    .Notice-content {
-      max-width: 590px;
-    }
-  }
-
   border-radius: 0;
   box-shadow: 0 1px 7px transparentize($black, 0.5);
   color: $grey-90;
@@ -21,6 +12,14 @@
   transform: translate(-50%, 0);
   width: 100%;
   z-index: 1000;
+  @include respond-to(extraLarge) {
+    border-radius: 0 0 $border-radius-m $border-radius-m;
+    width: 890px;
+
+    .Notice-content {
+      max-width: 590px;
+    }
+  }
 
   &.Notice {
     align-items: center;

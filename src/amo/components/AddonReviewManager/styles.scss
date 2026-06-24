@@ -36,12 +36,11 @@
 }
 
 .AddonReviewManager-savedRating {
-  @include margin-start(6px);
-
   color: $grey-50;
   flex-grow: 1;
   opacity: 1;
   text-align: right;
+  @include margin-start(6px);
 
   [dir='rtl'] & {
     text-align: left;

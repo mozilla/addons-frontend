@@ -1,9 +1,6 @@
 @import '~amo/css/styles';
 
 .Select {
-  @include padding-end(24px);
-  @include padding-start(6px);
-
   appearance: none;
   background: $grey-30 url('~amo/components/Icon/img/triangle-down-black.svg')
     no-repeat calc(100% - 10px) 50%;
@@ -18,6 +15,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
+  @include padding-end(24px);
+  @include padding-start(6px);
 
   [dir='rtl'] & {
     background-position: 10px 50%;

@@ -109,13 +109,12 @@ $footer-padding: 10px;
 }
 
 .Card-shelf-footer-in-header {
-  @include respond-to(mediumOnly) {
-    display: none;
-  }
-
   margin-left: 16px;
   padding: 0;
   text-align: right;
+  @include respond-to(mediumOnly) {
+    display: none;
+  }
 
   a,
   a:active,

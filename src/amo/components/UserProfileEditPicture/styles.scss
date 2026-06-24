@@ -4,10 +4,9 @@ $picture-size: 128px;
 
 .UserProfileEditPicture {
   .UserAvatar {
-    @include margin-end(24px);
-
     display: inline-block;
     width: $picture-size;
+    @include margin-end(24px);
 
     .UserAvatar-image {
       margin-bottom: 4px;

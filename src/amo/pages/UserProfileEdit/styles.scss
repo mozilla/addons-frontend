@@ -16,11 +16,10 @@ $font-size-aside: $font-size-xs;
   display: none;
 
   @include respond-to(large) {
-    @include margin-end($padding-page);
-
     display: block;
     min-width: 300px;
     width: 35%;
+    @include margin-end($padding-page);
 
     ul {
       padding: 0;

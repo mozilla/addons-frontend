@@ -53,9 +53,8 @@ $avatar-size: 64px;
   }
 
   .Icon {
-    @include margin-start(6px);
-
     margin-bottom: -2px;
+    @include margin-start(6px);
   }
 }
 
