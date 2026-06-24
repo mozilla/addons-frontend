@@ -3,7 +3,7 @@ import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import { createMemoryHistory } from 'history';
 
 import I18nProvider from 'amo/i18n/Provider';
 import { makeI18n } from 'amo/i18n/utils';
@@ -33,7 +33,7 @@ const render = ({ app, lang, component }: RenderParams) => {
   const i18n = makeI18n({}, lang);
   const { connectedHistory, store } = createStore({
     history: addQueryParamsToHistory({
-      history: createBrowserHistory(),
+      history: createMemoryHistory(),
     }),
     initialState: {},
   });

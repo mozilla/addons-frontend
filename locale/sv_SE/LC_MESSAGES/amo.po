@@ -1441,23 +1441,23 @@ msgstr ""
 "För att använda Android-tillägg behöver du %(downloadLinkStart)sFirefox för Android%(downloadLinkEnd)s. För att utforska Firefox för datorer, vänligen %(linkStart)sbesök vår "
 "datorwebbplats%(linkEnd)s."
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:153
 msgid "Download Firefox and get the theme"
 msgstr "Hämta Firefox och få temat"
 
-#: src/amo/components/GetFirefoxButton/index.js:152
+#: src/amo/components/GetFirefoxButton/index.js:154
 msgid "Download Firefox and get the extension"
 msgstr "Hämta Firefox och få tillägget"
 
-#: src/amo/components/GetFirefoxButton/index.js:156
+#: src/amo/components/GetFirefoxButton/index.js:158
 msgid "Download the new Firefox and get the theme"
 msgstr "Ladda ner nya Firefox och få temat"
 
-#: src/amo/components/GetFirefoxButton/index.js:157
+#: src/amo/components/GetFirefoxButton/index.js:159
 msgid "Download the new Firefox and get the extension"
 msgstr "Ladda ner nya Firefox och få tillägget"
 
-#: src/amo/components/GetFirefoxButton/index.js:161
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox"
 msgstr "Hämta Firefox"
 
@@ -1747,6 +1747,10 @@ msgstr "Webbplatsinnehåll"
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
 msgstr "Utvecklaren säger att detta tillägg inte kräver datainsamling."
+
+#: src/amo/components/QRCard/index.js:44
+msgid "Scan the QR code to open this extension in Firefox for Android"
+msgstr ""
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -2282,7 +2286,7 @@ msgstr "Bläddra bland alla teman"
 msgid "Add-ons Home Page"
 msgstr "Hemsida för tillägg"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:203
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
 msgid "Preview of %(title)s"
 msgstr "Förhandsvisning av %(title)s"
 
@@ -2356,60 +2360,60 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:230
+#: src/amo/pages/Addon/index.js:231
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Detta tillägg kan inte klassificeras eftersom inga versioner har publicerats."
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:242
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Läs %(count)s recension"
 msgstr[1] "Läs alla %(count)s recensioner"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "No reviews yet"
 msgstr "Inga recensioner ännu"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:273
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Betyg %(ratingAverage)s av 1 recensent"
 msgstr[1] "Betyg %(ratingAverage)s av %(ratingCount)s recensenter"
 
-#: src/amo/pages/Addon/index.js:309
+#: src/amo/pages/Addon/index.js:310
 msgid "About this dictionary"
 msgstr "Om denna ordbok"
 
-#: src/amo/pages/Addon/index.js:312
+#: src/amo/pages/Addon/index.js:313
 msgid "About this extension"
 msgstr "Om detta tillägg"
 
-#: src/amo/pages/Addon/index.js:315
+#: src/amo/pages/Addon/index.js:316
 msgid "About this language pack"
 msgstr "Om detta språkpaket"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:319
 msgid "About this theme"
 msgstr "Om detta tema"
 
-#: src/amo/pages/Addon/index.js:321
+#: src/amo/pages/Addon/index.js:322
 msgid "About this add-on"
 msgstr "Om detta tillägg"
 
-#: src/amo/pages/Addon/index.js:354
+#: src/amo/pages/Addon/index.js:355
 msgid "Developer comments"
 msgstr "Utvecklarens kommentarer"
 
-#: src/amo/pages/Addon/index.js:444
+#: src/amo/pages/Addon/index.js:446
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Detta är inte en publik listning. Du ser endast det på grund av förhöjda behörigheter."
 
-#: src/amo/pages/Addon/index.js:480
+#: src/amo/pages/Addon/index.js:483
 msgid "Extension Metadata"
 msgstr "Metadata för tillägg"
 
-#: src/amo/pages/Addon/index.js:488
+#: src/amo/pages/Addon/index.js:491
 msgid "Screenshots"
 msgstr "Skärmbilder"
 

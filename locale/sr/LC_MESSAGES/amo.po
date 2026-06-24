@@ -1444,23 +1444,23 @@ msgstr ""
 "Да бисте користили Android додатке, биће вам потребан %(downloadLinkStart)s Firefox за Android %(downloadLinkEnd)s. Да бисте истражили додатке за Firefox за стони рачунар, посетите %(linkStart)s "
 "нашу страницу за стоне рачунаре %(linkEnd)s."
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:153
 msgid "Download Firefox and get the theme"
 msgstr "Преузмите Firefox и добијте тему"
 
-#: src/amo/components/GetFirefoxButton/index.js:152
+#: src/amo/components/GetFirefoxButton/index.js:154
 msgid "Download Firefox and get the extension"
 msgstr "Преузмите Firefox и добијте додатак"
 
-#: src/amo/components/GetFirefoxButton/index.js:156
+#: src/amo/components/GetFirefoxButton/index.js:158
 msgid "Download the new Firefox and get the theme"
 msgstr "Преузмите нови Firefox и добијте тему"
 
-#: src/amo/components/GetFirefoxButton/index.js:157
+#: src/amo/components/GetFirefoxButton/index.js:159
 msgid "Download the new Firefox and get the extension"
 msgstr "Преузмите нови Firefox и добијте додатак"
 
-#: src/amo/components/GetFirefoxButton/index.js:161
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox"
 msgstr "Преузмите Firefox"
 
@@ -1750,6 +1750,10 @@ msgstr "Садржај веб странице"
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
 msgstr "Програмер наводи да овом додатку није потребно прикупљање података."
+
+#: src/amo/components/QRCard/index.js:44
+msgid "Scan the QR code to open this extension in Firefox for Android"
+msgstr ""
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -2310,7 +2314,7 @@ msgstr "Погледај све теме"
 msgid "Add-ons Home Page"
 msgstr "Почетна страница за додатке"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:203
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
 msgid "Preview of %(title)s"
 msgstr "Преглед %(title)s"
 
@@ -2385,62 +2389,62 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:230
+#: src/amo/pages/Addon/index.js:231
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Овај додатак не може оценити зато што ниједно издање није објављено."
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:242
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Прочитајте %(count)s рецензију"
 msgstr[1] "Прочитајте %(count)s рецензије"
 msgstr[2] "Прочитајте свих %(count)s рецензија"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "No reviews yet"
 msgstr "Још увек нема рецензија"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:273
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Оцењено са %(ratingAverage)s од стране %(ratingCount)s рецензента"
 msgstr[1] "Оцењено са %(ratingAverage)s од стране %(ratingCount)s рецензената"
 msgstr[2] "Оцењено са %(ratingAverage)s од стране %(ratingCount)s рецензената"
 
-#: src/amo/pages/Addon/index.js:309
+#: src/amo/pages/Addon/index.js:310
 msgid "About this dictionary"
 msgstr "О овом речнику"
 
-#: src/amo/pages/Addon/index.js:312
+#: src/amo/pages/Addon/index.js:313
 msgid "About this extension"
 msgstr "О овом додатку"
 
-#: src/amo/pages/Addon/index.js:315
+#: src/amo/pages/Addon/index.js:316
 msgid "About this language pack"
 msgstr "О овом језичком пакету"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:319
 msgid "About this theme"
 msgstr "О овој теми"
 
-#: src/amo/pages/Addon/index.js:321
+#: src/amo/pages/Addon/index.js:322
 msgid "About this add-on"
 msgstr "О овом додатку"
 
-#: src/amo/pages/Addon/index.js:354
+#: src/amo/pages/Addon/index.js:355
 msgid "Developer comments"
 msgstr "Програмерске напомене"
 
-#: src/amo/pages/Addon/index.js:444
+#: src/amo/pages/Addon/index.js:446
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Ово није јаван запис. Видите га само зато што имате проширена овлашћења."
 
-#: src/amo/pages/Addon/index.js:480
+#: src/amo/pages/Addon/index.js:483
 msgid "Extension Metadata"
 msgstr "Метаподаци додатка"
 
-#: src/amo/pages/Addon/index.js:488
+#: src/amo/pages/Addon/index.js:491
 msgid "Screenshots"
 msgstr "Снимци екрана"
 

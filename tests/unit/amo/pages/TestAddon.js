@@ -30,6 +30,7 @@ import {
   REVIEWER_TOOLS_VIEW,
   SET_VIEW_CONTEXT,
   STATIC_THEMES_REVIEW,
+  QR_CODE_UTM_CAMPAIGN,
 } from 'amo/constants';
 import {
   EXPERIMENT_CONFIG,
@@ -61,7 +62,7 @@ import {
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getVersionById } from 'amo/reducers/versions';
 import tracking from 'amo/tracking';
-import { getCanonicalURL } from 'amo/utils';
+import { getAddonListingURL, getCanonicalURL } from 'amo/utils';
 import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
 import { getAddonJsonLinkedData } from 'amo/utils/addons';
 import {
@@ -2850,6 +2851,52 @@ describe(__filename, () => {
       expect(
         screen.queryByText(/Android is a trademark of Google LLC/),
       ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for QR card', () => {
+    it('does not render a card for non-Android extensions', () => {
+      addon = {
+        ...addon,
+        current_version: {
+          ...addon.current_version,
+          compatibility: {
+            firefox: addon.current_version.compatibility.firefox,
+          },
+        },
+      };
+      renderWithAddon();
+      expect(screen.queryByClassName('QRCard')).toBeNull();
+    });
+
+    it('does not render a card for Android themes', () => {
+      addon = { ...addon, type: ADDON_TYPE_STATIC_THEME };
+      renderWithAddon();
+      expect(screen.queryByClassName('QRCard')).toBeNull();
+    });
+
+    it('does not render a card on Android', () => {
+      addon = { ...addon, type: ADDON_TYPE_STATIC_THEME };
+      store.dispatch(setClientApp(CLIENT_APP_ANDROID));
+      renderWithAddon();
+      expect(screen.queryByClassName('QRCard')).toBeNull();
+    });
+
+    it('renders a card for Android extensions', () => {
+      renderWithAddon();
+      expect(screen.getByClassName('QRCard')).not.toBeNull();
+      const qr = screen.queryByClassName('QRCard-qr-code');
+      expect(screen.getByClassName('QRCard-label')).toHaveTextContent(
+        'Scan the QR code to open this extension in Firefox for Android',
+      );
+      const expectedURL = getAddonListingURL({
+        addon: { slug: defaultSlug },
+        clientApp: CLIENT_APP_ANDROID,
+        lang,
+        utmCampaign: QR_CODE_UTM_CAMPAIGN,
+        utmContent: defaultSlug,
+      });
+      expect(qr.getAttribute('href')).toEqual(expectedURL);
     });
   });
 

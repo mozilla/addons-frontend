@@ -1435,23 +1435,23 @@ msgid ""
 "To use Android extensions, you'll need %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To explore Firefox for desktop add-ons, please %(linkStart)svisit our desktop site%(linkEnd)s."
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:153
 msgid "Download Firefox and get the theme"
 msgstr "Firefox ਡਾਊਨਲੋਡ ਕਰੋ ਤੇ ਥੀਮ ਲਵੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:152
+#: src/amo/components/GetFirefoxButton/index.js:154
 msgid "Download Firefox and get the extension"
 msgstr "Firefox ਡਾਊਨਲੋਡ ਕਰੋ ਤੇ ਇਕਸਟੈਨਸ਼ਨ ਲਵੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:156
+#: src/amo/components/GetFirefoxButton/index.js:158
 msgid "Download the new Firefox and get the theme"
 msgstr "ਨਵਾਂ Firefox ਡਾਊਨਲੋਡ ਕਰੋ ਤੇ ਥੀਮ ਲਵੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:157
+#: src/amo/components/GetFirefoxButton/index.js:159
 msgid "Download the new Firefox and get the extension"
 msgstr "ਨਵਾਂ Firefox ਡਾਊਨਲੋਡ ਕਰੋ ਤੇ ਇਕਸਟੈਨਸ਼ਨ ਲਵੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:161
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox"
 msgstr "Firefox ਡਾਊਨਲੋਡ ਕਰੋ"
 
@@ -1740,6 +1740,10 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
+msgstr ""
+
+#: src/amo/components/QRCard/index.js:44
+msgid "Scan the QR code to open this extension in Firefox for Android"
 msgstr ""
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
@@ -2286,7 +2290,7 @@ msgstr "ਸਾਰੇ ਥੀਮਾਂ ਦੀ ਝਲਕ ਵੇਖੋ"
 msgid "Add-ons Home Page"
 msgstr "ਐਡ-ਆਨ ਮੁੱਖ ਸਫ਼ਾ"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:203
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
 msgid "Preview of %(title)s"
 msgstr "%(title)s ਦੀ ਝਲਕ"
 
@@ -2361,60 +2365,60 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:230
+#: src/amo/pages/Addon/index.js:231
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "ਇਹ ਐਡ-ਆਨ ਨੂੰ ਦਰਜਾ ਨਹੀਂ ਦਿੱਤਾ ਜਾ ਸਕਦਾ ਕਿਉਂਕਿ ਕੋਈ ਵਰਜ਼ਨ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ।"
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:242
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s ਦੀ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 msgstr[1] "ਸਾਰੇ %(count)s ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "No reviews yet"
 msgstr "ਅਜੇ ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:273
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/pages/Addon/index.js:309
+#: src/amo/pages/Addon/index.js:310
 msgid "About this dictionary"
 msgstr "ਇਸ ਸ਼ਬਦਕੋਸ਼ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:312
+#: src/amo/pages/Addon/index.js:313
 msgid "About this extension"
 msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:315
+#: src/amo/pages/Addon/index.js:316
 msgid "About this language pack"
 msgstr "ਇਸ ਭਾਸ਼ਾ ਪੈਕ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:319
 msgid "About this theme"
 msgstr "ਇਸ ਥੀਮ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:321
+#: src/amo/pages/Addon/index.js:322
 msgid "About this add-on"
 msgstr "ਇਸ ਐਡ-ਆਨ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:354
+#: src/amo/pages/Addon/index.js:355
 msgid "Developer comments"
 msgstr "ਵਿਕਾਸਕਾਰ ਟਿੱਪਣੀਆਂ"
 
-#: src/amo/pages/Addon/index.js:444
+#: src/amo/pages/Addon/index.js:446
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "ਇਹ ਜਨਤਕ ਸੂਚੀ ਨਹੀਂ ਹੈ। ਉੱਚੇ ਅਧਿਕਾਰਾਂ ਦੇ ਕਾਰਨ ਤੁਸੀਂ ਇਸ ਨੂੰ ਕੇਵਲ ਦੇਖ ਰਹੇ ਹੋ।"
 
-#: src/amo/pages/Addon/index.js:480
+#: src/amo/pages/Addon/index.js:483
 msgid "Extension Metadata"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਮੈਟਾਡੇਟਾ"
 
-#: src/amo/pages/Addon/index.js:488
+#: src/amo/pages/Addon/index.js:491
 msgid "Screenshots"
 msgstr "ਸਕਰੀਨਸ਼ਾਟ"
 

@@ -1368,11 +1368,11 @@ msgstr "Λήψη"
 
 #: src/amo/components/Footer/index.js:208
 msgid "Latest Builds"
-msgstr ""
+msgstr "Τελευταίες εκδόσεις"
 
 #: src/amo/components/Footer/index.js:232
 msgid "Firefox for Business"
-msgstr ""
+msgstr "Firefox για επιχειρήσεις"
 
 #: src/amo/components/Footer/index.js:248
 msgid "Community"
@@ -1380,7 +1380,7 @@ msgstr "Κοινότητα"
 
 #: src/amo/components/Footer/index.js:278
 msgid "Follow"
-msgstr ""
+msgstr "Ακολουθήστε"
 
 #: src/amo/components/Footer/index.js:333
 msgid "Privacy"
@@ -1441,23 +1441,23 @@ msgstr ""
 "Για να χρησιμοποιήσετε τις επεκτάσεις για Android, θα χρειαστείτε το %(downloadLinkStart)sFirefox για Android%(downloadLinkEnd)s. Για να εξερευνήσετε τα πρόσθετα του Firefox για υπολογιστές, "
 "%(linkStart)sεπισκεφτείτε τον ιστότοπό μας για υπολογιστές%(linkEnd)s."
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:153
 msgid "Download Firefox and get the theme"
 msgstr "Λήψη Firefox και απόκτηση θέματος"
 
-#: src/amo/components/GetFirefoxButton/index.js:152
+#: src/amo/components/GetFirefoxButton/index.js:154
 msgid "Download Firefox and get the extension"
 msgstr "Λήψη Firefox και απόκτηση επέκτασης"
 
-#: src/amo/components/GetFirefoxButton/index.js:156
+#: src/amo/components/GetFirefoxButton/index.js:158
 msgid "Download the new Firefox and get the theme"
 msgstr "Λήψη του νέου Firefox και απόκτηση θέματος"
 
-#: src/amo/components/GetFirefoxButton/index.js:157
+#: src/amo/components/GetFirefoxButton/index.js:159
 msgid "Download the new Firefox and get the extension"
 msgstr "Λήψη του νέου Firefox και απόκτηση επέκτασης"
 
-#: src/amo/components/GetFirefoxButton/index.js:161
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox"
 msgstr "Λήψη του Firefox"
 
@@ -1747,6 +1747,10 @@ msgstr "Περιεχόμενο ιστοτόπων"
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
 msgstr "Ο δημιουργός δηλώνει ότι αυτή η επέκταση δεν απαιτεί συλλογή δεδομένων."
+
+#: src/amo/components/QRCard/index.js:44
+msgid "Scan the QR code to open this extension in Firefox for Android"
+msgstr "Σαρώστε τον κωδικό QR για να ανοίξετε αυτήν την επέκταση στο Firefox για Android"
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -2282,7 +2286,7 @@ msgstr "Περιήγηση σε όλα τα θέματα"
 msgid "Add-ons Home Page"
 msgstr "Αρχική σελίδα προσθέτων"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:203
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
 msgid "Preview of %(title)s"
 msgstr "Προεπισκόπηση του %(title)s"
 
@@ -2356,60 +2360,60 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:230
+#: src/amo/pages/Addon/index.js:231
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Αυτό το πρόσθετο δεν μπορεί να αξιολογηθεί, επειδή δεν έχει εκδοθεί καμία έκδοση."
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:242
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Ανάγνωση %(count)s κριτικής"
 msgstr[1] "Ανάγνωση και των %(count)s κριτικών"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "No reviews yet"
 msgstr "Καμία κριτική ακόμα"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:273
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Βαθμολογήθηκε με %(ratingAverage)s από έναν αξιολογητή"
 msgstr[1] "Βαθμολογήθηκε με %(ratingAverage)s από %(ratingCount)s αξιολογητές"
 
-#: src/amo/pages/Addon/index.js:309
+#: src/amo/pages/Addon/index.js:310
 msgid "About this dictionary"
 msgstr "Σχετικά με το λεξικό"
 
-#: src/amo/pages/Addon/index.js:312
+#: src/amo/pages/Addon/index.js:313
 msgid "About this extension"
 msgstr "Σχετικά με την επέκταση"
 
-#: src/amo/pages/Addon/index.js:315
+#: src/amo/pages/Addon/index.js:316
 msgid "About this language pack"
 msgstr "Σχετικά με το πακέτο γλώσσας"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:319
 msgid "About this theme"
 msgstr "Σχετικά με το θέμα"
 
-#: src/amo/pages/Addon/index.js:321
+#: src/amo/pages/Addon/index.js:322
 msgid "About this add-on"
 msgstr "Σχετικά με το πρόσθετο"
 
-#: src/amo/pages/Addon/index.js:354
+#: src/amo/pages/Addon/index.js:355
 msgid "Developer comments"
 msgstr "Σχόλια προγραμματιστών"
 
-#: src/amo/pages/Addon/index.js:444
+#: src/amo/pages/Addon/index.js:446
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Αυτή δεν είναι δημόσια καταχώρηση. Τη βλέπετε μόνο επειδή έχετε αυξημένα δικαιώματα."
 
-#: src/amo/pages/Addon/index.js:480
+#: src/amo/pages/Addon/index.js:483
 msgid "Extension Metadata"
 msgstr "Μεταδεδομένα επέκτασης"
 
-#: src/amo/pages/Addon/index.js:488
+#: src/amo/pages/Addon/index.js:491
 msgid "Screenshots"
 msgstr "Στιγμιότυπα"
 

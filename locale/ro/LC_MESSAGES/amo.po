@@ -1444,23 +1444,23 @@ msgstr ""
 "Ca să folosești extensii Android, ai nevoie de %(downloadLinkStart)sFirefox pentru Android%(downloadLinkEnd)s. Ca să explorezi extensii Firefox pentru desktop, te rugăm %(linkStart)s să intri pe "
 "site-ul nostru pentru desktop%(linkEnd)s."
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:153
 msgid "Download Firefox and get the theme"
 msgstr "Descarcă Firefox și obține tema"
 
-#: src/amo/components/GetFirefoxButton/index.js:152
+#: src/amo/components/GetFirefoxButton/index.js:154
 msgid "Download Firefox and get the extension"
 msgstr "Descarcă Firefox și obține extensia"
 
-#: src/amo/components/GetFirefoxButton/index.js:156
+#: src/amo/components/GetFirefoxButton/index.js:158
 msgid "Download the new Firefox and get the theme"
 msgstr "Descarcă noul Firefox și obține tema"
 
-#: src/amo/components/GetFirefoxButton/index.js:157
+#: src/amo/components/GetFirefoxButton/index.js:159
 msgid "Download the new Firefox and get the extension"
 msgstr "Descarcă noul Firefox și obține extensia"
 
-#: src/amo/components/GetFirefoxButton/index.js:161
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox"
 msgstr "Descarcă Firefox"
 
@@ -1750,6 +1750,10 @@ msgstr "Conținut site-uri web"
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
 msgstr "Dezvoltatorul spune că extensia nu necesită colectarea de date."
+
+#: src/amo/components/QRCard/index.js:44
+msgid "Scan the QR code to open this extension in Firefox for Android"
+msgstr ""
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -2310,7 +2314,7 @@ msgstr "Răsfoiește toate temele"
 msgid "Add-ons Home Page"
 msgstr "Pagina de start pentru suplimente"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:203
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
 msgid "Preview of %(title)s"
 msgstr "Previzualizare %(title)s"
 
@@ -2385,62 +2389,62 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:230
+#: src/amo/pages/Addon/index.js:231
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Acest supliment nu poate fi evaluat deoarece nu au fost publicate versiuni."
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:242
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Citește %(count)s recenzie"
 msgstr[1] "Citește toate cele %(count)s recenzii"
 msgstr[2] "Citește toate cele %(count)s de recenzii"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "No reviews yet"
 msgstr "Nicio recenzie încă"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:273
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Evaluat cu %(ratingAverage)s de către %(ratingCount)s recenzor"
 msgstr[1] "Evaluat cu %(ratingAverage)s de către %(ratingCount)s recenzori"
 msgstr[2] "Evaluat cu %(ratingAverage)s de către %(ratingCount)s de recenzori"
 
-#: src/amo/pages/Addon/index.js:309
+#: src/amo/pages/Addon/index.js:310
 msgid "About this dictionary"
 msgstr "Despre acest dicționar"
 
-#: src/amo/pages/Addon/index.js:312
+#: src/amo/pages/Addon/index.js:313
 msgid "About this extension"
 msgstr "Despre această extensie"
 
-#: src/amo/pages/Addon/index.js:315
+#: src/amo/pages/Addon/index.js:316
 msgid "About this language pack"
 msgstr "Despre acest pachet lingvistic"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:319
 msgid "About this theme"
 msgstr "Despre această temă"
 
-#: src/amo/pages/Addon/index.js:321
+#: src/amo/pages/Addon/index.js:322
 msgid "About this add-on"
 msgstr "Despre acest supliment"
 
-#: src/amo/pages/Addon/index.js:354
+#: src/amo/pages/Addon/index.js:355
 msgid "Developer comments"
 msgstr "Comentarii de la dezvoltator"
 
-#: src/amo/pages/Addon/index.js:444
+#: src/amo/pages/Addon/index.js:446
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Aceasta nu este o listare publică. O vezi numai pentru că ai permisiuni de nivel ridicat."
 
-#: src/amo/pages/Addon/index.js:480
+#: src/amo/pages/Addon/index.js:483
 msgid "Extension Metadata"
 msgstr "Metadate extensie"
 
-#: src/amo/pages/Addon/index.js:488
+#: src/amo/pages/Addon/index.js:491
 msgid "Screenshots"
 msgstr "Capturi de ecran"
 
