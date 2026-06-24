@@ -2521,11 +2521,11 @@ msgstr "Até que a violação seja resolvida, esta extensão não estará dispon
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr "%(addonName)s é restrito porque foi excluído pelo(s) autor(es)"
+msgstr "%(addonName)s está com restrição porque foi excluído pelo autor"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr "Esta extensão é restrita porque foi excluída pelo(s) autor(es)"
+msgstr "Esta extensão está com restrição porque foi excluída pelo autor"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
@@ -2549,7 +2549,7 @@ msgstr "Por que isso aconteceu?"
 
 #: src/amo/pages/Block/index.js:212
 msgid "The version of this extension, theme, or plugin was deleted by the author(s) and has therefore been restricted by Mozilla."
-msgstr "A versão desta extensão, tema ou plugin foi excluída pelo(s) autor(es) e, portanto, foi restringida pela Mozilla."
+msgstr "A versão desta extensão, tema ou plugin foi excluída pelo autor, por isso foi colocada com restrição pela Mozilla."
 
 #: src/amo/pages/Block/index.js:221
 msgid "This extension, theme, or plugin violates %(startLink)sMozilla's add-on policies%(endLink)s."
@@ -2561,7 +2561,7 @@ msgstr "O que isso significa?"
 
 #: src/amo/pages/Block/index.js:239
 msgid "Why does Mozilla restrict deleted add-ons?"
-msgstr "Por que a Mozilla restringiu as extensões excluídas?"
+msgstr "Por que a Mozilla põe restrição em extensões excluídas?"
 
 #: src/amo/pages/Block/index.js:245
 msgid ""
