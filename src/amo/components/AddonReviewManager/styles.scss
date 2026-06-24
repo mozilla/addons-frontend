@@ -19,7 +19,7 @@
 
       &:active,
       &:hover {
-        color: $link-color;
+        color: var(--link-color);
       }
     }
   }

@@ -21,7 +21,7 @@
   &:link,
   &:visited {
     background-color: $grey-20;
-    color: $link-color;
+    color: var(--link-color);
     display: none;
     font-weight: normal;
     min-width: 48%;

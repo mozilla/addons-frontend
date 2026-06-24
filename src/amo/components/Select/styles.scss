@@ -4,9 +4,14 @@
   appearance: none;
   background: $grey-30 url('~amo/components/Icon/img/triangle-down-black.svg')
     no-repeat calc(100% - 10px) 50%;
+  background-color: $grey-30;
+  background-image: url('~amo/components/Icon/img/triangle-down-black.svg');
+  background-position: calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
   background-size: 12px;
   border: 0;
   border-radius: $border-radius-s;
+  color: var(--text-color-default);
   display: block;
   line-height: $line-height-compressed;
   overflow: hidden;

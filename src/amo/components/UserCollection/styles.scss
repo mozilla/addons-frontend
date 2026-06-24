@@ -31,7 +31,7 @@
   .UserCollection-link:active &,
   .UserCollection-link:focus &,
   .UserCollection-link:hover & {
-    color: $link-color;
+    color: var(--link-color);
   }
 
   @include respond-to(large) {

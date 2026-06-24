@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .ReloadPageLink {
-  color: $link-color;
+  color: var(--link-color);
   text-decoration: underline;
   cursor: pointer;
 }

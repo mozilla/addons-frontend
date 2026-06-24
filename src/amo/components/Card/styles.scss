@@ -69,7 +69,7 @@ $footer-padding: 10px;
   a:hover,
   a:link,
   a:visited {
-    color: $link-color;
+    color: var(--link-color);
     display: block;
     font-weight: normal;
     padding: $footer-padding;
@@ -77,7 +77,7 @@ $footer-padding: 10px;
   }
 
   a:focus {
-    outline: 1px dotted $link-color;
+    outline: 1px dotted var(--link-color);
     outline: auto 5px -webkit-focus-ring-color;
   }
 }

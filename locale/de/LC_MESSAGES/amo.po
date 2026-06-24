@@ -560,19 +560,19 @@ msgstr "Theme installieren"
 msgid "Add to Firefox"
 msgstr "Zu Firefox hinzufügen"
 
-#: src/amo/components/App/index.js:122 src/amo/components/HeadMetaTags/index.js:91
+#: src/amo/components/App/index.js:123 src/amo/components/HeadMetaTags/index.js:91
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Add-ons für Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:126 src/amo/components/HeadMetaTags/index.js:85
+#: src/amo/components/App/index.js:127 src/amo/components/HeadMetaTags/index.js:85
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Add-ons für Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:134 src/amo/components/HeadMetaTags/index.js:90
+#: src/amo/components/App/index.js:135 src/amo/components/HeadMetaTags/index.js:90
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Add-ons für Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:138 src/amo/components/HeadMetaTags/index.js:84
+#: src/amo/components/App/index.js:139 src/amo/components/HeadMetaTags/index.js:84
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Add-ons für Firefox Android (%(locale)s)"
 
@@ -1751,7 +1751,7 @@ msgstr "Der Entwickler sagt, dass diese Erweiterung keine Datenerhebung benötig
 
 #: src/amo/components/QRCard/index.js:44
 msgid "Scan the QR code to open this extension in Firefox for Android"
-msgstr ""
+msgstr "Scannen Sie den QR-Code, um diese Erweiterung in Firefox für Android zu öffnen"
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
