@@ -132,16 +132,16 @@ $micro-font-size: $font-size-xs;
     $background: color.adjust($grey-90, $alpha: -0.9),
     $background-active: color.adjust($grey-90, $alpha: -0.7),
     $background-hover: color.adjust($grey-90, $alpha: -0.8),
-    $color: $grey-90
+    $color: var(--text-color-default)
   );
 }
 
 .Button--light {
   @include button(
-    $background: $white,
-    $background-active: $grey-10,
-    $background-hover: $grey-20,
-    $color: $black
+    $background: var(--light-base-color),
+    $background-active: var(--light-active-color),
+    $background-hover: var(--light-hover-color),
+    $color: var(--text-color-default)
   );
 }
 

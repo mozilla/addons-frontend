@@ -15,6 +15,7 @@ import { compose } from 'redux';
 import 'fonts/inter.scss';
 import 'fonts/inter-subset.scss';
 import 'normalize.css/normalize.css';
+import 'amo/css/theme.scss';
 import './styles.scss';
 
 /* eslint-disable import/first */

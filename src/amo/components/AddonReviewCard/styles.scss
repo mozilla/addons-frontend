@@ -72,7 +72,7 @@
   }
 
   .AddonReviewCard-ratingOnly.AddonReviewCard-slim & {
-    color: $text-color-default;
+    color: var(--text-color-default);
 
     &:active,
     &:hover {
@@ -128,7 +128,7 @@
   .ShowMoreCard-contents::after {
     background: linear-gradient(
       rgba(255, 255, 255, 0%),
-      $showmorecard-gradient-color
+      var(--showmorecard-gradient-color)
     );
   }
 

@@ -35,15 +35,15 @@
     vertical-align: top;
 
     &:hover {
-      outline-color: $action-hover-color;
+      outline-color: var(--action-hover-color);
     }
 
     &:has(button:focus, input:focus) {
-      outline-color: $action-active-color;
+      outline-color: var(--action-active-color);
     }
 
     &.SearchFilter-ThemeColors-ColorItem--active {
-      outline-color: $action-active-color;
+      outline-color: var(--action-active-color);
     }
 
     button,

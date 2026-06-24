@@ -5,7 +5,7 @@
     position: relative;
 
     .Card-contents {
-      background: $white;
+      background: var(--base-color);
       border-bottom-left-radius: $border-radius-default;
       border-bottom-right-radius: $border-radius-default;
       padding: 12px 6px;

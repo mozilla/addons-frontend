@@ -1,0 +1,146 @@
+/* Theme color custom properties.
+ *
+ * Semantic colors are emitted as CSS custom properties so they can change at
+ * runtime for dark mode. The light and dark values are defined directly below
+ * as two flat blocks; component stylesheets consume them as `var(--token)`.
+ *
+ * This file must be imported a SINGLE time (from App/index.js). `inc/vars`
+ * (imported everywhere) produces no CSS, so importing this file more than once
+ * would duplicate these declarations.
+ */
+@import './inc/vars';
+
+@mixin theme-light {
+  // Text.
+  --primary-font-color: #000;
+  --body-font-color: #1d1d1d;
+  --text-color-default: #333;
+  --sub-text-color: #6a6a6a;
+  --type-black: #{$black};
+
+  // Text already on a dark/colored element.
+  --header-font-color: #fff;
+  --text-color-message: #fff;
+
+  // Surfaces.
+  --base-color: #fff;
+  --background-grey: #e9ecef;
+  --block-base-white-color: #{$white};
+  --block-hover-white-color: #f8f9fa;
+  --showmorecard-gradient-color: #f4f9ff;
+
+  // Light buttons (base / hover / active).
+  --light-base-color: #{$white};
+  --light-hover-color: #{$grey-20};
+  --light-active-color: #{$grey-10};
+
+  // Header / footer (already dark; identical in both themes).
+  --header-base-color: #0f1126;
+  --footer-base-color: #051818;
+  --header-search-color: #36395b;
+  --header-text-not-active-color: #{transparentize($white, 0.5)};
+
+  // Links.
+  --link-color: #{$blue-60};
+  --button-background-color: #0095dd;
+
+  // Action buttons (brand blue).
+  --action-base-color: #329af0;
+  --action-hover-color: #72c3fc;
+  --action-active-color: #1c7cd6;
+
+  // Status hues.
+  --confirm-base-color: #51cf66;
+  --confirm-hover-color: #8ce99a;
+  --confirm-active-color: #37b24d;
+  --alert-base-color: #fcc419;
+  --alert-hover-color: #ffe066;
+  --alert-active-color: #f59f00;
+  --report-base-color: #fa5252;
+  --report-hover-color: #ff8787;
+  --report-active-color: #e03131;
+  --warning: #d63920;
+
+  // Neutral / cancel buttons.
+  --neutral-base-color: #adb5bd;
+  --neutral-hover-color: #dee2e6;
+  --neutral-active-color: #868e96;
+  --cancel-base-color: #{$grey-50};
+  --cancel-hover-color: #{$grey-40};
+  --cancel-active-color: #{$grey-50};
+}
+
+@mixin theme-dark {
+  // Text — light greys on dark surfaces.
+  --primary-font-color: #{$grey-10};
+  --body-font-color: #{$grey-20};
+  --text-color-default: #{$grey-20};
+  --sub-text-color: #{$grey-40};
+  --type-black: #{$grey-20};
+
+  // Text already on a dark/colored element (unchanged).
+  --header-font-color: #fff;
+  --text-color-message: #fff;
+
+  // Surfaces — Firefox dark-gray ramp.
+  --base-color: #{$color-dark-gray-60};
+  --background-grey: #{$color-dark-gray-50};
+  --block-base-white-color: #{$color-dark-gray-60};
+  --block-hover-white-color: #{$color-dark-gray-40};
+  --showmorecard-gradient-color: #{$color-dark-gray-60};
+
+  // Light buttons — dark-gray ramp (hover lighter than base, active darker).
+  --light-base-color: #{$color-dark-gray-30};
+  --light-hover-color: #{$color-dark-gray-20};
+  --light-active-color: #{$color-dark-gray-40};
+
+  // Header / footer (already dark; unchanged).
+  --header-base-color: #0f1126;
+  --footer-base-color: #051818;
+  --header-search-color: #36395b;
+  --header-text-not-active-color: #{transparentize($white, 0.5)};
+
+  // Links — lightened for AA contrast on dark.
+  --link-color: #{$blue-40};
+  --button-background-color: #0095dd;
+
+  // Action buttons (brand blue; read well on dark).
+  --action-base-color: #329af0;
+  --action-hover-color: #72c3fc;
+  --action-active-color: #1c7cd6;
+
+  // Status hues (kept).
+  --confirm-base-color: #51cf66;
+  --confirm-hover-color: #8ce99a;
+  --confirm-active-color: #37b24d;
+  --alert-base-color: #fcc419;
+  --alert-hover-color: #ffe066;
+  --alert-active-color: #f59f00;
+  --report-base-color: #fa5252;
+  --report-hover-color: #ff8787;
+  --report-active-color: #e03131;
+  --warning: #d63920;
+
+  // Neutral / cancel buttons — light greys flip to the dark-gray ramp.
+  --neutral-base-color: #{$color-dark-gray-20};
+  --neutral-hover-color: #{$color-dark-gray-10};
+  --neutral-active-color: #{$color-dark-gray-30};
+  --cancel-base-color: #{$color-dark-gray-20};
+  --cancel-hover-color: #{$color-dark-gray-10};
+  --cancel-active-color: #{$color-dark-gray-30};
+}
+
+// Aliases that always track another token. Theme-independent (they resolve to whichever value the referenced token holds), so they're emitted once.
+@mixin theme-aliases {
+  --text-color-headings: var(--text-color-default);
+  --form-border-color: var(--primary-font-color);
+  --header-accent-color: var(--link-color);
+}
+
+// `color-scheme` makes native controls (form inputs, canvas, scrollbars) follow the active theme.
+:root {
+  color-scheme: light;
+
+  @include theme-light;
+  @include theme-aliases;
+}

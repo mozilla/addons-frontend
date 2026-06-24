@@ -46,7 +46,7 @@
 .AddonVersionCard-version {
   @include font-medium;
 
-  color: $link-color;
+  color: var(--link-color);
 }
 
 .AddonVersionCard-fileInfo,

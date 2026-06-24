@@ -11,7 +11,7 @@ $icon-default-size: 32px;
     cursor: pointer;
 
     .SearchResult-link {
-      color: $link-color;
+      color: var(--link-color);
     }
   }
 }
@@ -26,12 +26,12 @@ $icon-default-size: 32px;
   &:active,
   &:link,
   &:visited {
-    color: $text-color-default;
+    color: var(--text-color-default);
   }
 
   &:focus,
   &:hover {
-    color: $link-color;
+    color: var(--link-color);
   }
 }
 
@@ -118,7 +118,7 @@ $icon-default-size: 32px;
   @include font-medium;
 
   align-items: flex-start;
-  color: $type-black;
+  color: var(--type-black);
   display: flex;
   flex-flow: column wrap;
   flex-grow: 1;
@@ -154,7 +154,7 @@ $icon-default-size: 32px;
   display: none;
 
   @include respond-to(medium) {
-    color: $type-black;
+    color: var(--type-black);
     display: block;
     flex-grow: 1;
     font-size: $font-size-s;
@@ -227,7 +227,7 @@ $icon-default-size: 32px;
 }
 
 .SearchResult--meta-section {
-  color: $sub-text-color;
+  color: var(--sub-text-color);
   font-size: $font-size-s;
   font-weight: normal;
   margin: 0;
@@ -237,7 +237,7 @@ $icon-default-size: 32px;
 .SearchResult-note {
   background-color: color.adjust($blue-50, $alpha: -0.95);
   border-radius: $border-radius-default;
-  color: $type-black;
+  color: var(--type-black);
   flex-grow: 1;
   font-weight: normal;
   margin-top: 12px;
