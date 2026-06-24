@@ -1,5 +1,5 @@
-// This import will also import `./inc/vars.scss`.
-@import './inc/mixins';
+// This forward will also import `./inc/vars.scss`.
+@forward 'inc/mixins';
 
 /* Shared CSS lib code. Bear in mind that changes here impacts *everything*. */
 .visually-hidden {

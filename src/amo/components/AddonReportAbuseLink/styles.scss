@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .AddonReportAbuseLink {
   margin: 24px auto 0;

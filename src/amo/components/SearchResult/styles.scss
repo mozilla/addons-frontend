@@ -1,4 +1,5 @@
-@import '~amo/css/styles';
+@use 'sass:color';
+@use '~amo/css/styles' as *;
 
 $icon-default-size: 32px;
 
@@ -234,7 +235,7 @@ $icon-default-size: 32px;
 }
 
 .SearchResult-note {
-  background-color: transparentize($blue-50, 0.95);
+  background-color: color.adjust($blue-50, $alpha: -0.95);
   border-radius: $border-radius-default;
   color: $type-black;
   flex-grow: 1;

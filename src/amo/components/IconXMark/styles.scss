@@ -1,5 +1,5 @@
-@import '~amo/css/styles';
-@import '~amo/components/Icon/vars';
+@use '~amo/css/styles' as *;
+@use '~amo/components/Icon/vars' as *;
 
 .IconXMark-svg {
   height: $default-icon-size;

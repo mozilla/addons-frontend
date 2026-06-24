@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .AddonRecommendations {
   // stylelint-disable max-nesting-depth

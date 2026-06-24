@@ -1,5 +1,8 @@
-@import '~photon-colors/photon-colors';
-@import '~@mozilla-protocol/tokens/dist/index';
+@use 'sass:color';
+@use '~photon-colors/photon-colors' as *;
+
+@forward '~photon-colors/photon-colors';
+@forward '~@mozilla-protocol/tokens/dist/index';
 
 // Add-on details
 $primary-font-color: #000;
@@ -105,15 +108,15 @@ $neutral-base-color: #adb5bd;
 $neutral-hover-color: #dee2e6;
 $neutral-active-color: #868e96;
 $light-base-color: $white;
-$light-hover-color: darken($white, 15%);
-$light-active-color: darken($white, 5%);
+$light-hover-color: color.adjust($white, $lightness: -15%);
+$light-active-color: color.adjust($white, $lightness: -5%);
 $block-base-white-color: $white;
 $block-hover-white-color: #f8f9fa;
 $background-grey: #e9ecef;
 $background-gray: $background-grey;
 $type-black: $black;
 $header-accent-color: $link-color;
-$header-text-not-active-color: transparentize($white, 0.5);
+$header-text-not-active-color: color.adjust($white, $alpha: -0.5);
 
 // Category Colors
 // There are currently 12 colors and this number must be kept in sync with

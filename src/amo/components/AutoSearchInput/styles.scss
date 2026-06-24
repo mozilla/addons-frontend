@@ -1,4 +1,5 @@
-@import '~amo/css/styles';
+@use 'sass:color';
+@use '~amo/css/styles' as *;
 
 .AutoSearchInput-search-box {
   position: relative;
@@ -45,7 +46,7 @@
   background-color: $white;
   border-bottom-left-radius: $border-radius-s;
   border-bottom-right-radius: $border-radius-s;
-  box-shadow: 1px 4px 3px transparentize($black, 0.5);
+  box-shadow: 1px 4px 3px color.adjust($black, $alpha: -0.5);
   color: $black;
   margin: 0;
   padding: 0;

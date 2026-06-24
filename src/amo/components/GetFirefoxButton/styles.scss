@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .GetFirefoxButton-button {
   padding: 12px 18px;

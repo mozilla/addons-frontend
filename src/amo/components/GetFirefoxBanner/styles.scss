@@ -1,4 +1,5 @@
-@import '~amo/css/styles';
+@use 'sass:color';
+@use '~amo/css/styles' as *;
 
 .GetFirefoxBanner {
   @include respond-to(extraLarge) {
@@ -11,7 +12,7 @@
   }
 
   border-radius: 0;
-  box-shadow: 0 1px 7px transparentize($black, 0.5);
+  box-shadow: 0 1px 7px color.adjust($black, $alpha: -0.5);
   color: $grey-90;
   font-size: $font-size-s;
   left: 50%;

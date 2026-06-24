@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .MetadataCard {
   background-color: $grey-10;

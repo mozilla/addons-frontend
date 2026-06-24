@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .CardList ul > li.UserCollection {
   padding: 4px $padding-page-l;

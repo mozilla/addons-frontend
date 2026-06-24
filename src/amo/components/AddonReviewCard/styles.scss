@@ -1,4 +1,5 @@
-@import '~amo/css/styles';
+@use 'sass:color';
+@use '~amo/css/styles' as *;
 
 .AddonReviewCard {
   .Rating {
@@ -112,7 +113,7 @@
 }
 
 .AddonReviewCard-reply {
-  background-color: transparentize($blue-50, 0.95);
+  background-color: color.adjust($blue-50, $alpha: -0.95);
   border-radius: $border-radius-default;
   margin-top: 12px;
   padding: 12px;
@@ -214,7 +215,7 @@
       .AddonReviewCard-isReply
     )
     > .AddonReviewCard-container {
-    background-color: transparentize($blue-50, 0.95);
+    background-color: color.adjust($blue-50, $alpha: -0.95);
     border-radius: $border-radius-default;
     padding: 12px;
     margin-bottom: 6px;
