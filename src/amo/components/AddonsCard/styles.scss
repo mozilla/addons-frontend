@@ -100,7 +100,7 @@
 
       .SearchResult-wrapper:focus,
       .SearchResult-wrapper:hover {
-        background-color: $grey-10;
+        background-color: var(--light-active-color);
 
         // stylelint-disable max-nesting-depth
         .SearchResult-users {

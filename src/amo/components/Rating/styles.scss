@@ -106,6 +106,35 @@ $icon-small: 13px;
   }
 }
 
+.Rating:not(.Rating--yellowStars) {
+  .Rating-star {
+    @include dark-theme {
+      background-image: url('./img/closed-star-gray.svg');
+    }
+  }
+
+  .Rating-selected-star {
+    @include dark-theme {
+        background-image: none;
+        mask: url('./img/closed-star-gray.svg') center/contain no-repeat;
+        background-color: var(--primary-font-color);
+      }
+    }
+
+    .Rating-half-star {
+      @include dark-theme {
+        background-image: url('./img/half-star-gray.svg');
+        transform: scaleX(-1);
+      }
+
+      [dir='rtl'] & {
+        @include dark-theme {
+          transform: scaleX(1);
+        }
+      }
+    }
+}
+
 .Rating--yellowStars {
   // When stars are read-only, they are closed. Otherwise, they are open.
   .Rating-star {

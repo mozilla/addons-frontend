@@ -51,7 +51,7 @@
 
 .AddonVersionCard-fileInfo,
 .AddonVersionCard-compatibility {
-  color: $grey-50;
+  color: var(--sub-text-color);
 }
 
 .AddonVersionCard-releaseNotes {
@@ -64,5 +64,5 @@
 }
 
 .AddonVersionCard-license {
-  color: $grey-50;
+  color: var(--sub-text-color);
 }

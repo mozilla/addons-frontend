@@ -61,6 +61,9 @@
   --report-active-color: #e03131;
   --warning: #d63920;
 
+  // Unfilled track behind the ratings histogram bars.
+  --ratings-bar-track-color: #{rgba($yellow-50, 0.25)};
+
   // Neutral / cancel buttons.
   --neutral-base-color: #adb5bd;
   --neutral-hover-color: #dee2e6;
@@ -120,6 +123,9 @@
   --report-hover-color: #ff8787;
   --report-active-color: #e03131;
   --warning: #d63920;
+
+  // Unfilled track behind the ratings histogram bars.
+  --ratings-bar-track-color: #604F3A;
 
   // Neutral / cancel buttons — light greys flip to the dark-gray ramp.
   --neutral-base-color: #{$color-dark-gray-20};
