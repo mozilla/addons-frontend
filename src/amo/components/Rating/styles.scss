@@ -115,24 +115,24 @@ $icon-small: 13px;
 
   .Rating-selected-star {
     @include dark-theme {
-        background-image: none;
-        mask: url('./img/closed-star-gray.svg') center/contain no-repeat;
-        background-color: var(--primary-font-color);
-      }
+      background-image: none;
+      mask: url('./img/closed-star-gray.svg') center/contain no-repeat;
+      background-color: var(--primary-font-color);
+    }
+  }
+
+  .Rating-half-star {
+    @include dark-theme {
+      background-image: url('./img/half-star-gray.svg');
+      transform: scaleX(-1);
     }
 
-    .Rating-half-star {
+    [dir='rtl'] & {
       @include dark-theme {
-        background-image: url('./img/half-star-gray.svg');
-        transform: scaleX(-1);
-      }
-
-      [dir='rtl'] & {
-        @include dark-theme {
-          transform: scaleX(1);
-        }
+        transform: scaleX(1);
       }
     }
+  }
 }
 
 .Rating--yellowStars {

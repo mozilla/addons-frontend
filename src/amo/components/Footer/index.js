@@ -37,7 +37,13 @@ export class FooterBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { _config, includeGoogleDisclaimer, i18n, noLangPicker, noThemePicker } = this.props;
+    const {
+      _config,
+      includeGoogleDisclaimer,
+      i18n,
+      noLangPicker,
+      noThemePicker,
+    } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
     const footerLinkQueryString = makeQueryStringWithUTM({
