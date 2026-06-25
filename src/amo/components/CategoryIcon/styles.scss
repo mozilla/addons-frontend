@@ -1,4 +1,5 @@
-@import '~amo/css/styles';
+@use 'sass:list';
+@use '~amo/css/styles' as *;
 
 $default-icon-size: 64px;
 
@@ -27,7 +28,7 @@ $default-icon-size: 64px;
 
 @for $i from 1 through 12 {
   .CategoryIcon-#{$i} {
-    background-color: nth($category-colors, $i);
+    background-color: list.nth($category-colors, $i);
   }
 }
 

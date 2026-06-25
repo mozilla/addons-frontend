@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 $badge-size-large: 16px;
 $badge-size-small: 12px;

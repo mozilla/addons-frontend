@@ -1,11 +1,12 @@
-@import '~amo/css/styles';
+@use 'sass:color';
+@use '~amo/css/styles' as *;
 
 .Block-page {
   @include page-padding;
 }
 
 .Block-reason {
-  background-color: transparentize($blue-50, 0.95);
+  background-color: color.adjust($blue-50, $alpha: -0.95);
   border-radius: $border-radius-default;
   margin-top: 8px;
   padding: $padding-page;
