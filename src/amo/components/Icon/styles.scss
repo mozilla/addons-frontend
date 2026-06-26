@@ -1,5 +1,5 @@
-@import '~amo/css/styles';
-@import './vars';
+@use '~amo/css/styles' as *;
+@use 'vars' as *;
 
 @mixin icon($name) {
   background: url('./img/#{$name}.svg') center no-repeat;

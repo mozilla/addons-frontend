@@ -1,4 +1,5 @@
-@import '~amo/css/styles';
+@use 'sass:color';
+@use '~amo/css/styles' as *;
 
 .DropdownMenu {
   @include text-align-start;
@@ -70,7 +71,7 @@
   background: var(--base-color);
   border: 0;
   border-radius: $border-radius-default;
-  box-shadow: 0 0 2px transparentize($black, 0.5);
+  box-shadow: 0 0 2px color.adjust($black, $alpha: -0.5);
   color: var(--text-color-default);
   display: none;
   list-style-type: none;

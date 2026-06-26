@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .QRCard {
   background-color: rgba($blue-60, 0.1);

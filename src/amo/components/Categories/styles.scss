@@ -1,4 +1,6 @@
-@import '~amo/css/styles';
+@use 'sass:color';
+@use 'sass:list';
+@use '~amo/css/styles' as *;
 
 .Categories .Card-contents {
   @include respond-to(large) {
@@ -52,11 +54,14 @@
 
 @for $i from 1 through 12 {
   .Categories--category-color-#{$i} {
-    background: nth($category-colors, $i);
+    background: list.nth($category-colors, $i);
 
     &:focus,
     &:hover {
-      background: darken(nth($category-colors, $i), 20);
+      background: color.adjust(
+        list.nth($category-colors, $i),
+        $lightness: -20%
+      );
     }
   }
 }

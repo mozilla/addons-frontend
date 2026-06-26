@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .AMInstallButton-transition-enter {
   opacity: 0.01;

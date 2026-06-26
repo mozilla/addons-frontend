@@ -749,4 +749,16 @@ describe(__filename, () => {
       expect(history).toHaveProperty('location.query');
     });
   });
+
+  describe('heartbeat', () => {
+    it('returns a 200 for the __frontend_heartbeat__ endpoint', async () => {
+      const response = await testClient().get('/__frontend_heartbeat__/');
+      expect(response.statusCode).toEqual(200);
+    });
+
+    it('returns a 200 for the __frontend_lbheartbeat__ endpoint', async () => {
+      const response = await testClient().get('/__frontend_lbheartbeat__/');
+      expect(response.statusCode).toEqual(200);
+    });
+  });
 });

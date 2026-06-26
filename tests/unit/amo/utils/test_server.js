@@ -6,7 +6,7 @@ import httpMocks from 'node-mocks-http';
 
 import {
   viewFrontendVersionHandler,
-  viewHeartbeatHandler,
+  viewMonitorHandler,
 } from 'amo/utils/server';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
@@ -91,14 +91,18 @@ describe(__filename, () => {
     });
   });
 
-  describe('viewHeartbeatHandler', () => {
+  describe('viewMonitorHandler', () => {
     it('calls the site API and returns 200 if successful', async () => {
       const apiHost = 'https://somehost/';
       const apiPath = 'some/path/';
       const apiVersion = 'someVersion';
       const _config = getFakeConfig({ apiHost, apiPath, apiVersion });
-      const _fetch = jest.fn().mockResolvedValue({ status: 200 });
-      const handler = viewHeartbeatHandler({ _config, _fetch });
+      const apiJsonData = { some: 'thing' };
+      const _fetch = jest.fn().mockResolvedValue({
+        status: 200,
+        json: jest.fn().mockResolvedValue(apiJsonData),
+      });
+      const handler = viewMonitorHandler({ _config, _fetch });
 
       const res = httpMocks.createResponse();
       await handler(null, res);
@@ -107,11 +111,14 @@ describe(__filename, () => {
         `${apiHost}${apiPath}${apiVersion}/site/?disable_caching`,
       );
       expect(res.statusCode).toEqual(200);
+      expect(res._getJSONData()).toMatchObject({
+        api: { state: true, response: apiJsonData },
+      });
     });
 
     it('returns a 500 if there is an API error', async () => {
       const _fetch = jest.fn().mockResolvedValue({ status: 400 });
-      const handler = viewHeartbeatHandler({ _fetch });
+      const handler = viewMonitorHandler({ _fetch });
 
       const res = httpMocks.createResponse();
       await handler(null, res);
@@ -121,7 +128,7 @@ describe(__filename, () => {
 
     it('returns a 500 if fetch fails', async () => {
       const _fetch = jest.fn().mockRejectedValue();
-      const handler = viewHeartbeatHandler({ _fetch });
+      const handler = viewMonitorHandler({ _fetch });
 
       const res = httpMocks.createResponse();
       await handler(null, res);

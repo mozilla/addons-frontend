@@ -1,5 +1,5 @@
-@import '~amo/css/styles';
-@import '~amo/components/Button/styles';
+@use '~amo/css/styles' as *;
+@use '~amo/components/Button/styles' as *;
 
 .Notice {
   border-radius: $border-radius-s;

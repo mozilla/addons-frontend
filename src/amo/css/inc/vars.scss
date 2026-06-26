@@ -1,5 +1,8 @@
-@import '~photon-colors/photon-colors';
-@import '~@mozilla-protocol/tokens/dist/index';
+@use 'sass:color';
+@use '~photon-colors/photon-colors' as *;
+
+@forward '~photon-colors/photon-colors';
+@forward '~@mozilla-protocol/tokens/dist/index';
 
 $black: #343a40;
 $white: #fff;
