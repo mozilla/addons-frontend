@@ -41,7 +41,7 @@ a.RatingsByStar-row {
   background-color: $yellow-40;
 
   @for $num from 0 through 100 {
-    $pct: math.percentage($num / 100);
+    $pct: math.percentage($num * 0.01);
     &.RatingsByStar-barValue--#{$num}pct {
       width: $pct;
     }

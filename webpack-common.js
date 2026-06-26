@@ -34,8 +34,6 @@ export function getStyleRules({
       quietDeps: true,
       silenceDeprecations: [
         'mixed-decls', // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
-        'color-functions', // https://sass-lang.com/documentation/breaking-changes/color-functions/
-        'slash-div', // https://sass-lang.com/documentation/breaking-changes/slash-div/
       ],
     },
   };
