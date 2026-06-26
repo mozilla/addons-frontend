@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .Home {
   width: 100%;
@@ -108,13 +108,13 @@
 
   &:link,
   &:visited {
-    color: $black;
+    color: var(--text-color-default);
   }
 
   &:active,
   &:focus,
   &:hover {
-    color: $link-color;
+    color: var(--link-color);
     text-decoration: underline;
   }
 }
@@ -154,7 +154,7 @@
 }
 
 .Home-heroHeader {
-  color: $black;
+  color: var(--text-color-default);
   padding: $padding-page 0 $padding-page-l;
   text-align: center;
 

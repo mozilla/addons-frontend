@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .RatingManager-ratingControl {
   align-items: center;
@@ -32,7 +32,7 @@
   .ShowMoreCard-contents::after {
     background: linear-gradient(
       rgba(255, 255, 255, 0%),
-      $showmorecard-gradient-color
+      var(--showmorecard-gradient-color)
     );
   }
 }

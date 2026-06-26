@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .CardList {
   margin: $padding-page 0;
@@ -13,7 +13,7 @@
     padding: 0;
 
     > li {
-      background: $white;
+      background: var(--base-color);
       margin-bottom: 1px;
       padding: $padding-page;
 

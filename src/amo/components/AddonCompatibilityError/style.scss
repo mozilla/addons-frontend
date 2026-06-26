@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .AddonCompatibilityError {
   margin-top: 12px;

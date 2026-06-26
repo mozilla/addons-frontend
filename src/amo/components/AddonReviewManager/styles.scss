@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .AddonReviewManager {
   font-size: $font-size-default;
@@ -19,7 +19,7 @@
 
       &:active,
       &:hover {
-        color: $link-color;
+        color: var(--link-color);
       }
     }
   }

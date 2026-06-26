@@ -1,8 +1,8 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 html,
 body {
-  background: $header-base-color;
+  background: var(--header-base-color);
   height: 100%;
 }
 
@@ -11,17 +11,18 @@ html {
 }
 
 input,
+select,
 textarea {
   @include font-regular;
 
   // Fix search input and possibly other inputs.
   // See https://github.com/mozilla/addons-frontend/issues/3640
 
-  background: $white;
+  background: var(--base-color);
   border: 1px solid $grey-50;
   border-radius: $border-radius-xs;
   box-shadow: none;
-  color: $black;
+  color: var(--text-color-default);
   font-size: $font-size-default;
   padding: 4px;
 }
@@ -42,7 +43,7 @@ textarea {
 body {
   @include font-regular;
 
-  color: $body-font-color;
+  color: var(--body-font-color);
   font-size: $font-size-default;
   line-height: $line-height-body;
 }
@@ -55,7 +56,7 @@ h1,
 h2 {
   @include font-bold;
 
-  color: $primary-font-color;
+  color: var(--primary-font-color);
   font-weight: 600;
   line-height: $line-height-compressed;
 }
@@ -78,7 +79,7 @@ h3 {
 a:link {
   @include font-medium;
 
-  color: $link-color;
+  color: var(--link-color);
 }
 
 em {
@@ -90,7 +91,7 @@ strong {
 }
 
 .caption {
-  color: $primary-font-color;
+  color: var(--primary-font-color);
   font-size: $font-size-xs;
 }
 

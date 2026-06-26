@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .DismissibleTextForm-form {
   margin: 6px 0;
@@ -23,7 +23,7 @@
 }
 
 .DismissibleTextForm-submit.disabled {
-  background-color: $action-hover-color;
+  background-color: var(--action-hover-color);
   cursor: not-allowed;
 }
 

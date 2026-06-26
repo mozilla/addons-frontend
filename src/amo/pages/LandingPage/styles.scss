@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .LandingPage {
   @include page-padding;
@@ -10,7 +10,7 @@
 }
 
 .LandingPage-header {
-  background-color: $white;
+  background-color: var(--base-color);
   border-radius: $border-radius-default;
   margin-bottom: 12px;
   padding: 24px;

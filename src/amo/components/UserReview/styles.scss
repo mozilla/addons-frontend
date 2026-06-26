@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .UserReview {
   .Rating {
@@ -45,20 +45,20 @@
 }
 
 .UserReview-byLine {
-  color: $sub-text-color;
+  color: var(--sub-text-color);
   display: flex;
   font-size: $font-size-s;
 
   a,
   a:link,
   a:visited {
-    color: $sub-text-color;
+    color: var(--sub-text-color);
     font-weight: normal;
   }
 
   a:active,
   a:hover {
-    color: $link-color;
+    color: var(--link-color);
   }
 
   a:focus {
@@ -69,7 +69,7 @@
 .UserReview-reply-header {
   @include margin-end(6px);
 
-  color: $text-color-default;
+  color: var(--text-color-default);
   margin-bottom: 6px;
   margin-top: 0;
 

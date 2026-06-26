@@ -1,11 +1,11 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .InstallButtonWrapper-download {
   margin: 12px 0;
 
   a,
   a:link {
-    color: $sub-text-color;
+    color: var(--sub-text-color);
     font-size: $font-size-s;
     font-weight: 300;
   }

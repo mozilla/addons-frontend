@@ -1,9 +1,9 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .Footer {
   @include font-regular;
 
-  background: $footer-base-color;
+  background: var(--footer-base-color);
   color: $white;
   width: 100%;
 

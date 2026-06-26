@@ -1,6 +1,5 @@
 @use 'sass:math';
-
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 $yellow-40: #ffbd4f;
 
@@ -79,6 +78,6 @@ a.RatingsByStar-row {
   }
 
   a:hover {
-    color: $link-color;
+    color: var(--link-color);
   }
 }
