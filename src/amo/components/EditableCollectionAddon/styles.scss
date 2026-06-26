@@ -34,11 +34,10 @@ $icon-size: 32px;
 }
 
 .EditableCollectionAddon-icon {
-  @include margin-end(12px);
-
   display: inline-block;
   height: $icon-size;
   width: $icon-size;
+  @include margin-end(12px);
 
   .EditableCollectionAddon--statictheme & {
     opacity: 0;

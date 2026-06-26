@@ -68,9 +68,8 @@
   min-width: 300px;
 
   @include respond-to(medium) {
-    @include margin-start(24px);
-
     flex: 60%;
+    @include margin-start(24px);
   }
 
   @include respond-to(extraLarge) {
@@ -78,9 +77,8 @@
   }
 
   @include respond-to(extraExtraLarge) {
-    @include margin-start(132px);
-
     flex: initial;
+    @include margin-start(132px);
   }
 }
 

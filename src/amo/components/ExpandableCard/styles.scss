@@ -15,9 +15,8 @@
 }
 
 .ExpandableCard-ToggleArrow {
-  @include margin-end(5px);
-
   transition: all 70ms ease-out;
+  @include margin-end(5px);
 
   .ExpandableCard--expanded & {
     transform: rotateX(180deg);

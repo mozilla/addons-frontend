@@ -28,11 +28,11 @@
     $category-gutter: 12px;
   }
 
-  @include margin-end($category-gutter);
-
   display: inline-block;
   margin: 0 0 $category-gutter;
   padding: 0;
+
+  @include margin-end($category-gutter);
 }
 
 .Categories-link,

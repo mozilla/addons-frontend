@@ -29,14 +29,6 @@ export function getStyleRules({
       plugins: postCssPlugins,
     },
   };
-  const sassLoaderOptions = {
-    sassOptions: {
-      quietDeps: true,
-      silenceDeprecations: [
-        'mixed-decls', // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
-      ],
-    },
-  };
 
   if (bundleStylesWithJs) {
     // In development, we bundle styles with the JS.
@@ -47,7 +39,7 @@ export function getStyleRules({
           { loader: 'style-loader' },
           { loader: 'css-loader', options: cssLoaderOptions },
           { loader: 'postcss-loader', options: postcssLoaderOptions },
-          { loader: 'sass-loader', options: sassLoaderOptions },
+          { loader: 'sass-loader' },
         ],
       },
     ];
@@ -61,7 +53,7 @@ export function getStyleRules({
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: cssLoaderOptions },
           { loader: 'postcss-loader', options: postcssLoaderOptions },
-          { loader: 'sass-loader', options: sassLoaderOptions },
+          { loader: 'sass-loader' },
         ],
       },
     ];

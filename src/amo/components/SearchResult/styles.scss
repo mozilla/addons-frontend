@@ -17,10 +17,10 @@ $icon-default-size: 32px;
 }
 
 .SearchResult-link {
+  text-decoration: none;
+
   // This margin gives the recommended badge some space.
   @include margin-end(8px);
-
-  text-decoration: none;
 
   &,
   &:active,
@@ -107,9 +107,8 @@ $icon-default-size: 32px;
 
   .SearchResult--theme & {
     @include respond-to(medium) {
-      @include margin-start(0);
-
       width: 50%;
+      @include margin-start(0);
     }
   }
 }
@@ -173,10 +172,9 @@ $icon-default-size: 32px;
 }
 
 .SearchResult-rating {
-  @include margin-end(10px);
-
   display: inline-block;
   width: auto;
+  @include margin-end(10px);
 
   .Rating {
     justify-content: flex-start;
@@ -203,18 +201,16 @@ $icon-default-size: 32px;
 }
 
 .SearchResult-users {
-  @include margin-start(39.5px);
-
   flex-grow: 1;
   order: 3;
   width: 100%;
+  @include margin-start(39.5px);
 
   @include respond-to(medium) {
-    @include margin-start(0);
-
     flex-grow: 0;
     order: 1;
     width: auto;
+    @include margin-start(0);
   }
 
   .SearchResult--theme & {

@@ -20,12 +20,11 @@
   grid-template-columns: auto 1fr;
 
   input {
-    @include margin-end(12px);
-
     align-self: start;
     grid-column: 1;
     grid-row: 1 / span 2;
     margin-top: 4px;
+    @include margin-end(12px);
   }
 
   label {

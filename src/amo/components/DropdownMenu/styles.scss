@@ -52,12 +52,11 @@
   }
 
   .Icon-inverted-caret {
-    @include margin-start(5px);
-
     display: inline-block;
     opacity: 0.6;
     transition: opacity $transition-short ease-in-out;
     width: 9px;
+    @include margin-start(5px);
 
     .DropdownMenu--active & {
       opacity: 1;

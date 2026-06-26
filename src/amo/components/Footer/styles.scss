@@ -184,10 +184,9 @@
   }
 
   .LanguagePicker-header {
-    @include margin-end(20px);
-
     display: inline-block;
     font-size: $font-size-s;
+    @include margin-end(20px);
   }
 
   /* The language picker shows text in a bunch of different locales, use a
