@@ -4,7 +4,10 @@ import EventEmitter from 'events';
 import fs from 'fs-extra';
 import httpMocks from 'node-mocks-http';
 
-import { viewFrontendVersionHandler } from 'amo/utils/server';
+import {
+  viewFrontendVersionHandler,
+  viewMonitorHandler,
+} from 'amo/utils/server';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -85,6 +88,52 @@ describe(__filename, () => {
 
         done();
       });
+    });
+  });
+
+  describe('viewMonitorHandler', () => {
+    it('calls the site API and returns 200 if successful', async () => {
+      const apiHost = 'https://somehost/';
+      const apiPath = 'some/path/';
+      const apiVersion = 'someVersion';
+      const _config = getFakeConfig({ apiHost, apiPath, apiVersion });
+      const apiJsonData = { some: 'thing' };
+      const _fetch = jest.fn().mockResolvedValue({
+        status: 200,
+        json: jest.fn().mockResolvedValue(apiJsonData),
+      });
+      const handler = viewMonitorHandler({ _config, _fetch });
+
+      const res = httpMocks.createResponse();
+      await handler(null, res);
+
+      expect(_fetch).toHaveBeenCalledWith(
+        `${apiHost}${apiPath}${apiVersion}/site/?disable_caching`,
+      );
+      expect(res.statusCode).toEqual(200);
+      expect(res._getJSONData()).toMatchObject({
+        api: { state: true, response: apiJsonData },
+      });
+    });
+
+    it('returns a 500 if there is an API error', async () => {
+      const _fetch = jest.fn().mockResolvedValue({ status: 400 });
+      const handler = viewMonitorHandler({ _fetch });
+
+      const res = httpMocks.createResponse();
+      await handler(null, res);
+
+      expect(res.statusCode).toEqual(500);
+    });
+
+    it('returns a 500 if fetch fails', async () => {
+      const _fetch = jest.fn().mockRejectedValue();
+      const handler = viewMonitorHandler({ _fetch });
+
+      const res = httpMocks.createResponse();
+      await handler(null, res);
+
+      expect(res.statusCode).toEqual(500);
     });
   });
 });
