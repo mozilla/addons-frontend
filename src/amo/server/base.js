@@ -28,7 +28,7 @@ import { loadErrorPage } from 'amo/reducers/errorPage';
 import { addQueryParamsToHistory, convertBoolean } from 'amo/utils';
 import {
   viewFrontendVersionHandler,
-  viewHeartbeatHandler,
+  viewMonitorHandler,
 } from 'amo/utils/server';
 import {
   setAuthToken,
@@ -208,8 +208,12 @@ function baseServer(
   app.get('/__version__', viewFrontendVersionHandler());
   // For AMO, this helps differentiate from /__version__ served by addons-server.
   app.get('/__frontend_version__', viewFrontendVersionHandler());
+  // Simple monitor endpoint that proves we can talk to the API.
+  app.get('/frontend_monitor.json', viewMonitorHandler());
   // Also return info for requests to __heartbeat__ and __lbheartbeat__.
-  app.get('/__frontend_heartbeat__', viewHeartbeatHandler());
+  app.get('/__frontend_heartbeat__', (req, res) => {
+    return res.status(200).end('ok');
+  });
   app.get('/__frontend_lbheartbeat__', (req, res) => {
     return res.status(200).end('ok');
   });
