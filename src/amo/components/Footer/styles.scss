@@ -3,7 +3,7 @@
 .Footer {
   @include font-regular;
 
-  background: var(--footer-base-color);
+  background: #051818;
   color: $white;
   width: 100%;
 
@@ -175,7 +175,7 @@
   }
 }
 
-.Footer-language-picker {
+.Footer-setting-pickers {
   grid-area: language;
   margin-top: 40px;
 
@@ -183,7 +183,8 @@
     margin-top: 7px;
   }
 
-  .LanguagePicker-header {
+  .LanguagePicker-header,
+  .ThemePicker-header {
     @include margin-end(20px);
 
     display: inline-block;
@@ -194,9 +195,8 @@
      generic sans-serif font to avoid downloading the full Inter variant
      just for this. */
 
-  .LanguagePicker-selector {
-    background-color: $white;
-    color: $black;
+  .LanguagePicker-selector,
+  .ThemePicker-selector {
     display: inline-block;
     font-family: sans-serif;
   }

@@ -1,8 +1,10 @@
+/* global window */
 import { createBrowserHistory } from 'history';
 import serialize from 'serialize-javascript';
 
 import createAmoStore from 'amo/store';
 import createClient from 'amo/client/base';
+import { THEME_AUTO, THEME_DARK, THEME_STORAGE_KEY } from 'amo/constants';
 import { loadedPageIsAnonymous } from 'amo/reducers/site';
 
 describe(__filename, () => {
@@ -13,6 +15,11 @@ describe(__filename, () => {
     } = {}) => {
       return createClient(createStore, { ...others });
     };
+
+    afterEach(() => {
+      window.localStorage.clear();
+      document.documentElement.removeAttribute('data-theme');
+    });
 
     it('returns an object with a `renderApp` function', async () => {
       const props = await _createClient();
@@ -59,6 +66,41 @@ describe(__filename, () => {
       await _createClient({ _createBrowserHistory });
 
       sinon.assert.calledWith(_createBrowserHistory, { forceRefresh: true });
+    });
+
+    it('applies a forced theme saved in localStorage', async () => {
+      const storeResult = createAmoStore();
+      window.localStorage.setItem(THEME_STORAGE_KEY, THEME_DARK);
+
+      const { store } = await _createClient({
+        createStore: () => storeResult,
+      });
+
+      expect(store.getState().theme.theme).toEqual(THEME_DARK);
+      expect(document.documentElement).toHaveAttribute(
+        'data-theme',
+        THEME_DARK,
+      );
+    });
+
+    it('does not set a data-theme attribute for the automatic theme', async () => {
+      const storeResult = createAmoStore();
+      window.localStorage.setItem(THEME_STORAGE_KEY, THEME_AUTO);
+
+      const { store } = await _createClient({
+        createStore: () => storeResult,
+      });
+
+      expect(store.getState().theme.theme).toEqual(THEME_AUTO);
+      expect(document.documentElement).not.toHaveAttribute('data-theme');
+    });
+
+    it('ignores an invalid theme saved in localStorage', async () => {
+      window.localStorage.setItem(THEME_STORAGE_KEY, 'purple');
+
+      await _createClient();
+
+      expect(document.documentElement).not.toHaveAttribute('data-theme');
     });
   });
 });

@@ -92,6 +92,7 @@ module.exports = {
     'baseURL',
     'cookieMaxAge',
     'cookieName',
+    'cookieSameSite',
     'cookieSecure',
     'defaultLang',
     'enableDevTools',

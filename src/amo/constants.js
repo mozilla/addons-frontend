@@ -178,6 +178,17 @@ export const FEATURED_GET = 'FEATURED_GET';
 export const FEATURED_LOADED = 'FEATURED_LOADED';
 export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 
+// Color theme preferences. `THEME_AUTO` follows the OS via the `prefers-color-scheme` media query;
+// light/dark force a theme regardless of the OS setting.
+// See amo/reducers/theme and amo/css/theme.scss.
+export const THEME_AUTO = 'auto';
+export const THEME_LIGHT = 'light';
+export const THEME_DARK = 'dark';
+export const THEME_PREFERENCES = [THEME_AUTO, THEME_LIGHT, THEME_DARK];
+export const SET_THEME = 'SET_THEME';
+// localStorage key holding the user's color theme preference
+export const THEME_STORAGE_KEY = 'amo_theme';
+
 export const INSTALL_EVENT_LIST = [
   'onDownloadStarted',
   'onDownloadProgress',

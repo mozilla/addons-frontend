@@ -1,3 +1,4 @@
+/* global window */
 import 'amo/polyfill';
 import { oneLine } from 'common-tags';
 import config from 'config';
@@ -6,8 +7,14 @@ import * as React from 'react';
 import { createRoot } from 'react-dom';
 
 import Root from 'amo/components/Root';
+import {
+  THEME_AUTO,
+  THEME_PREFERENCES,
+  THEME_STORAGE_KEY,
+} from 'amo/constants';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'amo/i18n/utils';
 import log from 'amo/logger';
+import { setTheme } from 'amo/reducers/theme';
 import { addQueryParamsToHistory } from 'amo/utils';
 
 export default async function createClient(
@@ -67,6 +74,21 @@ export default async function createClient(
     sagaMiddleware.run(sagas);
   } else {
     log.warn(`sagas not found`);
+  }
+
+  // Re-apply the saved color theme preference. It lives in localStorage which
+  // means we can only read it here on the client. We set <html data-theme> as
+  // early as possible to minimise the flash for users who forced a theme that
+  // differs from their OS preference; users on "auto" are handled entirely in
+  // CSS via `prefers-color-scheme` with no flash. See amo/css/theme.scss.
+  try {
+    const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+    if (THEME_PREFERENCES.includes(savedTheme) && savedTheme !== THEME_AUTO) {
+      store.dispatch(setTheme(savedTheme));
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (error) {
+    log.warn(`Could not read theme preference: ${error}`);
   }
 
   let i18nData = {};

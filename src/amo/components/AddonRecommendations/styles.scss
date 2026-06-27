@@ -19,10 +19,10 @@
       .SearchResult {
         @include respond-to(large) {
           padding: 12px 24px;
+          border-radius: $border-radius-default;
 
           &:hover {
             background-color: $grey-10;
-            border-radius: $border-radius-default;
             cursor: pointer;
 
             .SearchResult-name {

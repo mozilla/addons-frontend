@@ -33,6 +33,7 @@ import installations from 'amo/reducers/installations';
 import redirectTo from 'amo/reducers/redirectTo';
 import search from 'amo/reducers/search';
 import site from 'amo/reducers/site';
+import theme from 'amo/reducers/theme';
 import uiState from 'amo/reducers/uiState';
 import versions from 'amo/reducers/versions';
 import log from 'amo/logger';
@@ -61,6 +62,7 @@ import type { InstallationsState } from 'amo/reducers/installations';
 import type { RedirectToState } from 'amo/reducers/redirectTo';
 import type { SearchState } from 'amo/reducers/search';
 import type { SiteState } from 'amo/reducers/site';
+import type { ThemeState } from 'amo/reducers/theme';
 import type { UIStateState } from 'amo/reducers/uiState';
 import type { VersionsState } from 'amo/reducers/versions';
 import type { SuggestionsState } from 'amo/reducers/suggestions';
@@ -142,6 +144,7 @@ type InternalAppState = {|
   search: SearchState,
   site: SiteState,
   suggestions: SuggestionsState,
+  theme: ThemeState,
   uiState: UIStateState,
   userAbuseReports: UserAbuseReportsState,
   users: UsersState,
@@ -200,6 +203,7 @@ export const reducers: AppReducersType = {
   search,
   site,
   suggestions,
+  theme,
   uiState,
   userAbuseReports,
   users,

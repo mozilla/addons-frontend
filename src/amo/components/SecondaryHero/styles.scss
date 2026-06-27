@@ -80,6 +80,10 @@
   margin: $padding-page auto;
   width: 60px;
 
+  @include dark-theme {
+    filter: invert(1);
+  }
+
   @include respond-to(large) {
     margin: 30px auto;
   }
