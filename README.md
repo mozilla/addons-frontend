@@ -20,7 +20,7 @@ Never submit security-related bugs through a Github Issue or by email.
 ## Requirements
 
 - You need [Node](https://nodejs.org/en/) [LTS](https://github.com/nodejs/Release) (long term support) release.
-- Install [yarn](https://yarnpkg.com/en/) to manage dependencies and run scripts.
+- [npm](https://www.npmjs.com/) is used to manage dependencies and run scripts. It ships with Node.
 
 The easiest way to manage multiple node versions in development is to use [nvm](https://github.com/nvm-sh/nvm).
 
@@ -28,8 +28,8 @@ The easiest way to manage multiple node versions in development is to use [nvm](
 
 If you are on Windows, please make sure to follow [windows guidelines](docs/windows.md#windows) too.
 
-- type `yarn` to install all dependencies
-- type `yarn amo:stage` to start a local server that connects to a hosted staging server
+- type `npm install` to install all dependencies
+- type `npm run amo:stage` to start a local server that connects to a hosted staging server
 
 ## Development commands
 
@@ -37,53 +37,53 @@ Here are some commands you can run:
 
 | Command | Description |
 | --- | --- |
-| yarn amo:olympia | Start the dev server/proxy (for amo) using data from a local addons-server environment. |
-| yarn amo:dev | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/) |
-| yarn amo:dev-https | Same as `amo:dev` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended) |
-| yarn amo:stage | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
-| yarn build | Build the app. |
-| yarn build-ci | Run the `build` and `bundlewatch` npm scripts. |
-| yarn bundlewatch | Run [bundlewatch][] to check the generated AMO bundle sizes. [Building AMO is required first](#building-and-running-services). |
-| yarn flow | Run Flow. By default this checks for errors and exits |
-| yarn flow:check | Explicitly check for Flow errors and exit |
-| yarn flow:dev | Continuously check for Flow errors |
-| yarn eslint | Lint the JS |
-| yarn start-func-test-server | Start a Docker container for functional tests |
-| yarn stylelint | Lint the SCSS |
-| yarn lint | Run all the JS + SCSS linters |
-| yarn prettier | Run [Prettier][] to automatically format the entire codebase |
-| yarn prettier-dev | Run [Pretty-Quick][] to automatically compare and format modified source files against the master branch |
-| yarn prettier-ci | Run [Prettier][] and fail if some code has been changed without being formatted |
-| yarn version-check | Check you have the required dependencies |
-| yarn test | Run all tests (Enters [jest][] in `--watch` mode) |
-| yarn test-debug | Run all tests with full console output and full error messages (Enters [jest][] in `--watch` mode) |
-| yarn test-coverage | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
-| yarn test-coverage-once | Run all tests, generate code coverage report, then exit |
-| yarn test-once | Run all tests, run all JS + SCSS linters, then exit |
-| yarn test-ci | Run all continuous integration checks. This is only meant to run on CI. |
+| npm run amo:olympia | Start the dev server/proxy (for amo) using data from a local addons-server environment. |
+| npm run amo:dev | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/) |
+| npm run amo:dev-https | Same as `amo:dev` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended) |
+| npm run amo:stage | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
+| npm run build | Build the app. |
+| npm run build-ci | Run the `build` and `bundlewatch` npm scripts. |
+| npm run bundlewatch | Run [bundlewatch][] to check the generated AMO bundle sizes. [Building AMO is required first](#building-and-running-services). |
+| npm run flow | Run Flow. By default this checks for errors and exits |
+| npm run flow:check | Explicitly check for Flow errors and exit |
+| npm run flow:dev | Continuously check for Flow errors |
+| npm run eslint | Lint the JS |
+| npm run start-func-test-server | Start a Docker container for functional tests |
+| npm run stylelint | Lint the SCSS |
+| npm run lint | Run all the JS + SCSS linters |
+| npm run prettier | Run [Prettier][] to automatically format the entire codebase |
+| npm run prettier-dev | Run [Pretty-Quick][] to automatically compare and format modified source files against the master branch |
+| npm run prettier-ci | Run [Prettier][] and fail if some code has been changed without being formatted |
+| npm run version-check | Check you have the required dependencies |
+| npm test | Run all tests (Enters [jest][] in `--watch` mode) |
+| npm run test-debug | Run all tests with full console output and full error messages (Enters [jest][] in `--watch` mode) |
+| npm run test-coverage | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
+| npm run test-coverage-once | Run all tests, generate code coverage report, then exit |
+| npm run test-once | Run all tests, run all JS + SCSS linters, then exit |
+| npm run test-ci | Run all continuous integration checks. This is only meant to run on CI. |
 
 ### Running tests
 
-You can enter the interactive [jest][] mode by typing `yarn test` or `yarn test-debug`. This is the easiest way to develop new features.
+You can enter the interactive [jest][] mode by typing `npm test` or `npm run test-debug`. This is the easiest way to develop new features.
 
 Here are a few tips:
 
-- `yarn test` will hide most console output and detailed test failure messages, so it is best when you are running a full suite of tests. When working on an individual test, you likely want to run `yarn test-debug`.
-- When you start `yarn test`, you can switch to your code editor and begin adding test files or changing existing code. As you save each file, [jest][] will only run tests related to the code you change.
+- `npm test` will hide most console output and detailed test failure messages, so it is best when you are running a full suite of tests. When working on an individual test, you likely want to run `npm run test-debug`.
+- When you start `npm test`, you can switch to your code editor and begin adding test files or changing existing code. As you save each file, [jest][] will only run tests related to the code you change.
 - If you had typed `a` when you first started then [jest][] will continue to run the full suite even when you change specific files. Type `o` to switch back to the mode of only running tests related to the files you are changing.
 - Sometimes running tests related to your file changes is slow. In these cases, you can type `p` or `t` to filter tests by name while you working fixing a specific test suite. [More info](https://github.com/jest-community/jest-watch-typeahead).
 - If you see something like `Error watching file for changes: EMFILE` on Mac OS then `brew install watchman` might fix it. See https://github.com/facebook/jest/issues/1767
 
 #### Run a subset of the tests
 
-By default, `yarn test` will only run a subset of tests that relate to the code you are working on.
+By default, `npm test` will only run a subset of tests that relate to the code you are working on.
 
 To explicitly run a subset of tests, you can type `t` or `p` which are explained in the [jest][] watch usage.
 
 Alternatively, you can start the test runner with a [specific file or regular expression](https://facebook.github.io/jest/docs/en/cli.html#jest-regexfortestfiles), like:
 
 ```
-yarn test tests/unit/amo/components/TestAddon.js
+npm test -- tests/unit/amo/components/TestAddon.js
 ```
 
 #### Run all tests
@@ -91,18 +91,18 @@ yarn test tests/unit/amo/components/TestAddon.js
 If you want to run all tests and exit, type:
 
 ```
-yarn test-once
+npm run test-once
 ```
 
 ### Eslint
 
 As you run tests you will see a report of Eslint errors at the end of the test output:
 
-    yarn test
+    npm test
 
 If you would like to run tests without Eslint checks, set an environment variable:
 
-    NO_ESLINT=1 yarn test
+    NO_ESLINT=1 npm test
 
 ### Flow
 
@@ -112,15 +112,15 @@ There is limited support for using [Flow](https://flowtype.org/) to validate the
 
 As you run tests you will see a report of Flow errors at the end of the test output:
 
-    yarn test
+    npm test
 
 If you would like to run tests without Flow checks, set an environment variable:
 
-    NO_FLOW=1 yarn test
+    NO_FLOW=1 npm test
 
 To only check for Flow issues during development while you edit files, run:
 
-    yarn flow:dev
+    npm run flow:dev
 
 If you are new to working with Flow, here are some tips:
 
@@ -184,7 +184,7 @@ export default ConfirmButton;
 
 - Try to avoid loose types like `Object` or `any` but feel free to use them if you are spending too much time declaring types that depend on other types that depend on other types, and so on.
 - You can add a `$FlowFixMe` comment to skip a Flow check if you run into a bug or if you hit something that's making you bang your head on the keyboard. If it's something you think is unfixable then use `$FlowIgnore` instead. Please explain your rationale in the comment and link to a GitHub issue if possible.
-- If you're stumped on why some Flow annotations aren't working, try using the `yarn flow type-at-pos ...` command to trace which types are being applied to the code. See `yarn flow -- --help type-at-pos` for details.
+- If you're stumped on why some Flow annotations aren't working, try using the `npm run flow -- type-at-pos ...` command to trace which types are being applied to the code. See `npm run flow -- --help type-at-pos` for details.
 
 ### Prettier
 
@@ -195,7 +195,7 @@ We use [Prettier][] to automatically format our JavaScript code and stop all the
 To see a report of code coverage, type:
 
 ```
-yarn test-coverage-once
+npm run test-coverage-once
 ```
 
 This will print a table of files showing the percentage of code coverage. The uncovered lines will be shown in the right column but you can open the full report in a browser:
@@ -211,18 +211,18 @@ A proxy server is provided for running the AMO app with the API on the same host
 Start developing against a hosted API like this:
 
 ```
-yarn amo:dev
+npm run amo:dev
 ```
 
 This configures the proxy to use `https://addons-dev.allizom.org` for API data. This command is the most common way to develop new frontend features. See the table of commands up above for similar ways to run the server.
 
-To use a [local API server running in Docker](https://addons-server.readthedocs.io/en/latest/topics/install/index.html), you can use the `yarn amo` command. However, this is currently not working. See [issue-7196][].
+To use a [local API server running in Docker](https://addons-server.readthedocs.io/en/latest/topics/install/index.html), you can use the `npm run amo` command. However, this is currently not working. See [issue-7196][].
 
 Authentication will work when initiated from addons-frontend and will persist to addons-server but it will not work when logging in from an addons-server page. See [mozilla/addons-server#4684](https://github.com/mozilla/addons-server/issues/4684) for more information on fixing this.
 
 ### Local configuration
 
-If you need to override any settings while running `yarn amo`, `yarn amo:dev`, or `yarn amo:stage`, first create a local config file named exactly like this:
+If you need to override any settings while running `npm run amo`, `npm run amo:dev`, or `npm run amo:stage`, first create a local config file named exactly like this:
 
     touch config/local-development.js
 
@@ -246,7 +246,7 @@ If you want to access your local server on an Android device you will need to ch
 API_HOST=http://10.0.0.1:3000 \
     SERVER_HOST=10.0.0.1 \
     WEBPACK_SERVER_HOST=10.0.0.1 \
-    yarn amo:dev
+    npm run amo:dev
 ```
 
 On your Android device, you could then access the development site at `http://10.0.0.1:3000`.
@@ -282,23 +282,23 @@ The env vars are:
 - `NODE_ENV`: the node environment, e.g. `production` or `development`
 - `NODE_CONFIG_ENV`: the name of the configuration to load, e.g., `dev`, `stage`, `prod`
 
-| Script     | Description                                    |
-| ---------- | ---------------------------------------------- |
-| yarn start | Starts the express server (requires env vars)  |
-| yarn build | Builds the libs (all apps) (requires env vars) |
+| Script        | Description                                    |
+| ------------- | ---------------------------------------------- |
+| npm start     | Starts the express server (requires env vars)  |
+| npm run build | Builds the libs (all apps) (requires env vars) |
 
 **Example:** Building and running a production instance of the app:
 
 ```
-NODE_ENV=production NODE_CONFIG_ENV=prod yarn build
-NODE_ENV=production NODE_CONFIG_ENV=prod yarn start
+NODE_ENV=production NODE_CONFIG_ENV=prod npm run build
+NODE_ENV=production NODE_CONFIG_ENV=prod npm start
 ```
 
 #### Running builds locally
 
 **To run the app locally in production mode you'll need to create a config file for local production builds.** Production builds can be built for different environments: `dev`, `stage` and `prod` (controlled by the `NODE_CONFIG_ENV` env var), but only one extra config file is needed for these environments to run locally.
 
-Rename the file named `config/local.js.dist` to `config/local.js`. After this, re-build and restart using `yarn build` and `yarn start` as documented above. If you have used `127.0.0.1` before with a different configuration, be sure to clear your cookies. The application should be available at: http://127.0.0.1:4000/.
+Rename the file named `config/local.js.dist` to `config/local.js`. After this, re-build and restart using `npm run build` and `npm start` as documented above. If you have used `127.0.0.1` before with a different configuration, be sure to clear your cookies. The application should be available at: http://127.0.0.1:4000/.
 
 **NOTE**: At this time, it's not possible to sign in using this approach.
 
@@ -337,8 +337,8 @@ curl https://addons-dev.allizom.org/__version__
 
 This project also contains code to build a library named `addons-frontend-blog-utils` and offers the following commands:
 
-- `yarn build:blog-utils-dev`: build the library, start a watcher to rebuild the library on change and serve a development page at http://127.0.0.1:11000
-- `yarn build:blog-utils-prod`: build the library in production mode
+- `npm run build:blog-utils-dev`: build the library, start a watcher to rebuild the library on change and serve a development page at http://127.0.0.1:11000
+- `npm run build:blog-utils-prod`: build the library in production mode
 
 This library is exclusively designed to work with [addons-blog][].
 
