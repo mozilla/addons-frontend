@@ -6,7 +6,7 @@ FROM node:22.22.2-slim AS builder
 WORKDIR /srv/node
 COPY package.json package-lock.json /srv/node/
 
-RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates git && rm -rf /var/lib/apt/lists/
+RUN apt-get update && apt-get install -y --no-install-recommends python3 build-essential ca-certificates git && rm -rf /var/lib/apt/lists/
 RUN npm ci
 
 #
