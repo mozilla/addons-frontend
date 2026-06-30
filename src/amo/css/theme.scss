@@ -34,9 +34,8 @@
   --light-hover-color: #{$grey-20};
   --light-active-color: #{$grey-10};
 
-  // Header / footer (already dark; identical in both themes).
+  // Header (already dark; identical in both themes).
   --header-base-color: #0f1126;
-  --footer-base-color: #051818;
   --header-search-color: #36395b;
   --header-text-not-active-color: #{transparentize($white, 0.5)};
 
@@ -60,6 +59,9 @@
   --report-hover-color: #ff8787;
   --report-active-color: #e03131;
   --warning: #d63920;
+
+  // Unfilled track behind the ratings histogram bars.
+  --ratings-bar-track-color: #{rgba($yellow-50, 0.25)};
 
   // Neutral / cancel buttons.
   --neutral-base-color: #adb5bd;
@@ -94,9 +96,8 @@
   --light-hover-color: #{$color-dark-gray-20};
   --light-active-color: #{$color-dark-gray-40};
 
-  // Header / footer (already dark; unchanged).
+  // Header (already dark; unchanged).
   --header-base-color: #0f1126;
-  --footer-base-color: #051818;
   --header-search-color: #36395b;
   --header-text-not-active-color: #{transparentize($white, 0.5)};
 
@@ -121,6 +122,9 @@
   --report-active-color: #e03131;
   --warning: #d63920;
 
+  // Unfilled track behind the ratings histogram bars.
+  --ratings-bar-track-color: #604f3a;
+
   // Neutral / cancel buttons — light greys flip to the dark-gray ramp.
   --neutral-base-color: #{$color-dark-gray-20};
   --neutral-hover-color: #{$color-dark-gray-10};
@@ -143,4 +147,19 @@
 
   @include theme-light;
   @include theme-aliases;
+}
+
+@media (prefers-color-scheme: dark) {
+  // Respect an explicit light override even when the OS prefers dark.
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    @include theme-dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  @include theme-dark;
 }

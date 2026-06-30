@@ -40,6 +40,7 @@
         display: inline-block;
         height: 100%;
         padding: 12px 24px;
+        border-radius: $border-radius-default;
         transition: background-color $transition-short ease-in-out;
         width: 100%;
       }
@@ -98,8 +99,7 @@
 
       .SearchResult-wrapper:focus,
       .SearchResult-wrapper:hover {
-        background-color: $grey-10;
-        border-radius: $border-radius-default;
+        background-color: var(--light-active-color);
 
         // stylelint-disable max-nesting-depth
         .SearchResult-users {

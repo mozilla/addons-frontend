@@ -5,6 +5,7 @@ import config from 'config';
 
 import LanguagePicker from 'amo/components/LanguagePicker';
 import Link from 'amo/components/Link';
+import ThemePicker from 'amo/components/ThemePicker';
 import { makeQueryStringWithUTM, sanitizeHTML } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import Icon from 'amo/components/Icon';
@@ -14,6 +15,7 @@ import './styles.scss';
 
 type Props = {|
   noLangPicker?: boolean,
+  noThemePicker?: boolean,
   includeGoogleDisclaimer?: boolean,
 |};
 
@@ -31,10 +33,17 @@ export class FooterBase extends React.Component<InternalProps> {
   static defaultProps: {| ...Props, ...DefaultProps |} = {
     _config: config,
     noLangPicker: false,
+    noThemePicker: false,
   };
 
   render(): React.Node {
-    const { _config, includeGoogleDisclaimer, i18n, noLangPicker } = this.props;
+    const {
+      _config,
+      includeGoogleDisclaimer,
+      i18n,
+      noLangPicker,
+      noThemePicker,
+    } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
     const footerLinkQueryString = makeQueryStringWithUTM({
@@ -381,11 +390,10 @@ export class FooterBase extends React.Component<InternalProps> {
             )}
           />
 
-          {!noLangPicker && (
-            <div className="Footer-language-picker">
-              <LanguagePicker />
-            </div>
-          )}
+          <div className="Footer-setting-pickers">
+            {!noLangPicker && <LanguagePicker />}
+            {!noThemePicker && <ThemePicker />}
+          </div>
         </div>
       </footer>
     );

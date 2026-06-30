@@ -191,3 +191,21 @@
 .Icon-copy {
   @include icon($name: 'copy');
 }
+
+// These icons are baked black/dark in their SVGs and are used as neutral
+// foreground icons, so they can't be recolored via `color`. In dark mode they
+// sit on dark surfaces, so invert them to read as light. (Intentionally
+// colored icons — brand blues/purples/orange/gold — are deliberately omitted.)
+.Icon-magnifying-glass,
+.Icon-copy,
+.Icon-comments,
+.Icon-developer,
+.Icon-artist,
+.Icon-android,
+.Icon-user-dark,
+.Icon-triangle-down-black,
+.Icon-external-dark {
+  @include dark-theme {
+    filter: invert(1);
+  }
+}

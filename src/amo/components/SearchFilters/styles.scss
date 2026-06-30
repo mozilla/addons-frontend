@@ -1,7 +1,7 @@
 @use '~amo/css/styles' as *;
 
 .SearchFilters-label {
-  color: $grey-50;
+  color: var(--sub-text-color);
   display: block;
 }
 

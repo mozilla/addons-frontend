@@ -19,15 +19,11 @@
       .SearchResult {
         @include respond-to(large) {
           padding: 12px 24px;
+          border-radius: $border-radius-default;
 
           &:hover {
-            background-color: $grey-10;
-            border-radius: $border-radius-default;
+            background-color: var(--light-active-color);
             cursor: pointer;
-
-            .SearchResult-name {
-              color: var(--link-color);
-            }
 
             .SearchResult-users {
               display: none;
