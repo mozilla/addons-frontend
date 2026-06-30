@@ -49,15 +49,13 @@ $icon-size: 32px;
   }
 
   span {
-    @include margin-end(4px);
-
     color: $grey-50;
     display: inline-block;
+    @include margin-end(4px);
 
     @include respond-to(large) {
-      @include margin-end(0);
-
       display: block;
+      @include margin-end(0);
     }
   }
 }

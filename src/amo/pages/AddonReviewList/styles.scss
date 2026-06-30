@@ -25,9 +25,8 @@
 
 .AddonReviewList-reviews {
   @include respond-to(large) {
-    @include margin-start($padding-page-l);
-
     width: 65%;
+    @include margin-start($padding-page-l);
   }
 }
 

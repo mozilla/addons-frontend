@@ -118,6 +118,9 @@
   $notice-link-color,
   $button-link-color: inherit
 ) {
+  background-color: $notice-background-color;
+  color: $notice-link-color;
+
   .Notice-button {
     @include button(
       $background: $button-background-color,
@@ -142,9 +145,6 @@
   .IconXMark-path {
     fill: $iconXMark-path-color;
   }
-
-  background-color: $notice-background-color;
-  color: $notice-link-color;
 }
 
 .Notice-error {
