@@ -20,7 +20,7 @@ type ViewFrontendVersionHandlerParams = {
   versionFilename?: string,
 };
 
-type ViewHeartbeatHandlerParams = {
+type ViewMonitorHandlerParams = {
   _config?: typeof config,
   _fetch?: typeof fetch,
 };
@@ -69,24 +69,32 @@ export const viewFrontendVersionHandler = ({
   };
 };
 
-export const viewHeartbeatHandler = ({
+export const viewMonitorHandler = ({
   _config = config,
   _fetch = fetch,
-}: ViewHeartbeatHandlerParams = {}): ExpressHandler => {
+}: ViewMonitorHandlerParams = {}): ExpressHandler => {
   const apiURL = `${_config.get('apiHost')}${_config.get(
     'apiPath',
   )}${_config.get('apiVersion')}/site/?disable_caching`;
 
   return async (req: typeof $Request, res: typeof $Response) => {
-    let ok;
+    const monitors = {};
 
     try {
       const response = await _fetch(apiURL);
-      ok = response.status === 200;
+      monitors.api = {
+        state: response.status === 200,
+        response: await response.json(),
+      };
     } catch (err) {
-      ok = false;
+      monitors.api = {
+        state: false,
+        response: err !== undefined ? err.toString() : '?',
+      };
     }
-
-    res.status(ok ? 200 : 500).end(ok ? 'ok' : 'ko');
+    const ok = Object.keys(monitors)
+      .map((key) => monitors[key])
+      .every((item) => item.state);
+    res.status(ok ? 200 : 500).json(monitors);
   };
 };

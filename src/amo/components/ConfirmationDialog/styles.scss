@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .ConfirmationDialog-buttons {
   align-items: center;

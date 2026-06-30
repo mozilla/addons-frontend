@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 $input-height: 16px;
 
@@ -7,11 +7,10 @@ $input-height: 16px;
     line-height: $line-height-compressed;
 
     label {
-      @include padding-start(12px);
-
       cursor: pointer;
       position: relative;
       user-select: none;
+      @include padding-start(12px);
     }
   }
 

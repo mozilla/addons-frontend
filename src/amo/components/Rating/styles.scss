@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 $icon-large: 64px;
 $icon-medium: 19px;

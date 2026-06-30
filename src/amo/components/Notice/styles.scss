@@ -1,5 +1,5 @@
-@import '~amo/css/styles';
-@import '~amo/components/Button/styles';
+@use '~amo/css/styles' as *;
+@use '~amo/components/Button/styles' as *;
 
 .Notice {
   border-radius: $border-radius-s;
@@ -118,6 +118,9 @@
   $notice-link-color,
   $button-link-color: inherit
 ) {
+  background-color: $notice-background-color;
+  color: $notice-link-color;
+
   .Notice-button {
     @include button(
       $background: $button-background-color,
@@ -142,9 +145,6 @@
   .IconXMark-path {
     fill: $iconXMark-path-color;
   }
-
-  background-color: $notice-background-color;
-  color: $notice-link-color;
 }
 
 .Notice-error {

@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .AddonSummaryCard-overallRatingStars {
   align-items: center;
@@ -24,11 +24,10 @@
 }
 
 .AddonSummaryCard-header-icon {
-  @include margin-end(12px);
-
   align-items: center;
   display: flex;
   height: 36px;
+  @include margin-end(12px);
 
   .AddonSummaryCard--statictheme & {
     display: none;

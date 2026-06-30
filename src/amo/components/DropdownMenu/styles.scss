@@ -1,4 +1,5 @@
-@import '~amo/css/styles';
+@use 'sass:color';
+@use '~amo/css/styles' as *;
 
 .DropdownMenu {
   @include text-align-start;
@@ -51,12 +52,11 @@
   }
 
   .Icon-inverted-caret {
-    @include margin-start(5px);
-
     display: inline-block;
     opacity: 0.6;
     transition: opacity $transition-short ease-in-out;
     width: 9px;
+    @include margin-start(5px);
 
     .DropdownMenu--active & {
       opacity: 1;
@@ -71,7 +71,7 @@
   background: var(--base-color);
   border: 0;
   border-radius: $border-radius-default;
-  box-shadow: 0 0 2px transparentize($black, 0.5);
+  box-shadow: 0 0 2px color.adjust($black, $alpha: -0.5);
   color: var(--text-color-default);
   display: none;
   list-style-type: none;

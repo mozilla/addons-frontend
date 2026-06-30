@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .SearchSuggestion {
   align-items: center;
@@ -17,8 +17,6 @@
 }
 
 .SearchSuggestion-icon {
-  @include margin-end(12px);
-
   height: 16px;
 
   // To handle 404 images, image width is very small so alt text distorts UI
@@ -26,6 +24,7 @@
 
   overflow: hidden;
   width: 16px;
+  @include margin-end(12px);
 
   .SearchSuggestion--statictheme & {
     opacity: 0;

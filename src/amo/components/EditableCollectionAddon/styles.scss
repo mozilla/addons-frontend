@@ -1,4 +1,5 @@
-@import '~amo/css/styles';
+@use 'sass:color';
+@use '~amo/css/styles' as *;
 
 $icon-size: 32px;
 
@@ -33,11 +34,10 @@ $icon-size: 32px;
 }
 
 .EditableCollectionAddon-icon {
-  @include margin-end(12px);
-
   display: inline-block;
   height: $icon-size;
   width: $icon-size;
+  @include margin-end(12px);
 
   .EditableCollectionAddon--statictheme & {
     opacity: 0;
@@ -82,7 +82,7 @@ div.EditableCollectionAddon-leaveNote {
 }
 
 div.EditableCollectionAddon-notes {
-  background-color: transparentize($blue-50, 0.95);
+  background-color: color.adjust($blue-50, $alpha: -0.95);
   border-radius: $border-radius-default;
   grid-column: 1 / 3;
   margin-top: $padding-page;

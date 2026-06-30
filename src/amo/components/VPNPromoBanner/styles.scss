@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 $cta-text-color: #1d1133;
 $cta-alternate-color: #f9f7fd;

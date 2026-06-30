@@ -1,4 +1,8 @@
-@import './vars';
+@use 'sass:color';
+@use 'sass:map';
+@use 'vars' as *;
+
+@forward 'vars';
 
 @mixin page-padding() {
   // This adds consistent padding to any top-level page component.
@@ -75,7 +79,7 @@
   box-shadow:
     0 0 0 1px $blue-50 inset,
     0 0 0 1px $blue-50,
-    0 0 0 4px transparentize($blue-50, 0.7);
+    0 0 0 4px color.adjust($blue-50, $alpha: -0.7);
   outline: none;
 }
 
@@ -85,8 +89,8 @@
 }
 
 @mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media #{map-get($breakpoints, $breakpoint)} {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media #{map.get($breakpoints, $breakpoint)} {
       @content;
     }
   } @else {

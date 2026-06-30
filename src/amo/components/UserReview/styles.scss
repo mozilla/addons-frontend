@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .UserReview {
   .Rating {
@@ -67,11 +67,10 @@
 }
 
 .UserReview-reply-header {
-  @include margin-end(6px);
-
   color: var(--text-color-default);
   margin-bottom: 6px;
   margin-top: 0;
+  @include margin-end(6px);
 
   .Icon-reply-arrow {
     @include margin-end(12px);

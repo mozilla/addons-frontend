@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .AddonVersions {
   @include page-padding;
@@ -54,9 +54,8 @@
   margin-top: $padding-page;
 
   @include respond-to(large) {
-    @include margin-start($padding-page-l);
-
     margin-top: 0;
     width: 65%;
+    @include margin-start($padding-page-l);
   }
 }

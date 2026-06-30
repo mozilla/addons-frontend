@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .AddonsCard--horizontal {
   @include respond-to(large) {
@@ -73,10 +73,9 @@
       }
 
       .SearchResult-users {
-        @include margin-start(-3.5px);
-
         grid-column: 2 / 2;
         grid-row: 2 / 2;
+        @include margin-start(-3.5px);
       }
 
       .SearchResult-users,

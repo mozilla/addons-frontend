@@ -1,4 +1,4 @@
-@import '~amo/css/styles';
+@use '~amo/css/styles' as *;
 
 .AMInstallButton-transition-enter {
   opacity: 0.01;
@@ -82,12 +82,11 @@
     }
 
     .AMInstallButton-loader-container {
-      @include margin-start(8px);
-
       animation: move $speed cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite
         alternate;
       height: $height;
       width: $width;
+      @include margin-start(8px);
 
       [dir='rtl'] & {
         animation-name: move-rtl;
@@ -95,9 +94,8 @@
 
       // Center the blue ball when we disable animations.
       @media (prefers-reduced-motion: reduce) {
-        @include margin-start(14px);
-
         animation: none;
+        @include margin-start(14px);
       }
     }
 
