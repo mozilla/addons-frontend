@@ -12,6 +12,7 @@ import translate from 'amo/i18n/translate';
 import Button from 'amo/components/Button';
 import Icon from 'amo/components/Icon';
 import log from 'amo/logger';
+import universalWindow from 'amo/window';
 import type { ButtonType } from 'amo/components/Button';
 import type { AppState } from 'amo/store';
 import type { ApiState } from 'amo/reducers/api';
@@ -23,12 +24,13 @@ import type { ReactRouterLocationType } from 'amo/types/router';
 
 type HandleLogInFunc = (
   location: ReactRouterLocationType,
-  options?: {| _window: typeof window |},
+  options?: {| _window?: typeof window |},
 ) => void;
 
 type HandleLogOutFunction = ({| api: ApiState |}) => Promise<void>;
 
 type DefaultProps = {|
+  _window?: typeof window,
   buttonType?: ButtonType,
   noIcon?: boolean,
 |};
@@ -58,6 +60,7 @@ type InternalProps = {|
 
 export class AuthenticateButtonBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
+    _window: universalWindow,
     buttonType: 'action',
     noIcon: false,
   };
@@ -65,14 +68,15 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
   onClick: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
     event.stopPropagation();
-    const { api, handleLogIn, handleLogOut, location, siteUser } = this.props;
+    const { _window, api, handleLogIn, handleLogOut, location, siteUser } =
+      this.props;
 
     invariant(handleLogOut, 'handleLogOut() is undefined');
 
     if (siteUser) {
       handleLogOut({ api });
     } else {
-      handleLogIn(location);
+      handleLogIn(location, { _window });
     }
   };
 
@@ -124,7 +128,6 @@ export const mapStateToProps = (
   ownProps: Props,
 ): PropsFromState => {
   const defaultHandleLogIn = (location, { _window = window } = {}) => {
-    // eslint-disable-next-line no-param-reassign
     _window.location.assign(startLoginUrl({ location }));
   };
 

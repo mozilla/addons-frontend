@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import * as React from 'react';
 import { compose } from 'redux';
 import config from 'config';
@@ -9,11 +10,13 @@ import ThemePicker from 'amo/components/ThemePicker';
 import { makeQueryStringWithUTM, sanitizeHTML } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import Icon from 'amo/components/Icon';
+import universalWindow from 'amo/window';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
 type Props = {|
+  _window?: typeof window,
   noLangPicker?: boolean,
   noThemePicker?: boolean,
   includeGoogleDisclaimer?: boolean,
@@ -32,6 +35,7 @@ type InternalProps = {|
 export class FooterBase extends React.Component<InternalProps> {
   static defaultProps: {| ...Props, ...DefaultProps |} = {
     _config: config,
+    _window: universalWindow,
     noLangPicker: false,
     noThemePicker: false,
   };
@@ -39,11 +43,13 @@ export class FooterBase extends React.Component<InternalProps> {
   render(): React.Node {
     const {
       _config,
+      _window,
       includeGoogleDisclaimer,
       i18n,
       noLangPicker,
       noThemePicker,
     } = this.props;
+
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
     const footerLinkQueryString = makeQueryStringWithUTM({
@@ -391,7 +397,7 @@ export class FooterBase extends React.Component<InternalProps> {
           />
 
           <div className="Footer-setting-pickers">
-            {!noLangPicker && <LanguagePicker />}
+            {!noLangPicker && <LanguagePicker _window={_window} />}
             {!noThemePicker && <ThemePicker />}
           </div>
         </div>

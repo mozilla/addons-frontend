@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import makeClassName from 'classnames';
 import config from 'config';
 import * as React from 'react';
@@ -14,6 +15,7 @@ import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import VPNPromoBanner from 'amo/components/VPNPromoBanner';
+import universalWindow from 'amo/window';
 import { API_ERRORS_SESSION_EXPIRY, CLIENT_APP_ANDROID } from 'amo/constants';
 import { EXPERIMENT_CONFIG } from 'amo/experiments/20210714_amo_vpn_promo';
 import log from 'amo/logger';
@@ -26,6 +28,7 @@ import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 import './styles.scss';
 
 type Props = {|
+  _window?: typeof window,
   children: React.Node,
   errorHandler?: ErrorHandlerType,
   includeGoogleDisclaimerInFooter?: boolean,
@@ -51,6 +54,7 @@ type InternalProps = {|
 export const PageBase = ({
   _config = config,
   _log = log,
+  _window = universalWindow,
   children,
   clientApp,
   errorHandler,
@@ -70,7 +74,7 @@ export const PageBase = ({
       errorHandler.capturedError.responseStatusCode === 401 &&
       API_ERRORS_SESSION_EXPIRY.includes(errorHandler.capturedError.code)
     ) {
-      errorContent = <AuthExpired />;
+      errorContent = <AuthExpired _window={_window} />;
     } else if (
       errorHandler.capturedError.responseStatusCode === 401 ||
       errorHandler.capturedError.responseStatusCode === 403 ||
@@ -125,7 +129,10 @@ export const PageBase = ({
         </div>
       </div>
 
-      <Footer includeGoogleDisclaimer={includeGoogleDisclaimerInFooter} />
+      <Footer
+        _window={_window}
+        includeGoogleDisclaimer={includeGoogleDisclaimerInFooter}
+      />
     </div>
   );
 };

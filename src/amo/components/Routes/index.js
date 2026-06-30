@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import config from 'config';
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
@@ -39,14 +40,19 @@ import SimulateSyncError from 'amo/pages/error-simulation/SimulateSyncError';
 import About from 'amo/pages/StaticPages/About';
 import ReviewGuide from 'amo/pages/StaticPages/ReviewGuide';
 import TagPage from 'amo/pages/TagPage';
+import universalWindow from 'amo/window';
 import type { ConfigType } from 'amo/types/config';
 
 type Props = {
   _config?: ConfigType,
+  _window?: typeof window,
 };
 
 // If you add a new route here, check the nginx rules maintained by ops.
-const Routes = ({ _config = config }: Props = {}): React.Node => (
+const Routes = ({
+  _config = config,
+  _window = universalWindow,
+}: Props = {}): React.Node => (
   <Switch>
     <Route exact path="/:lang/about" component={About} />
     {/* TODO: Post launch update this URL and redirect see #3374/ */}
@@ -105,12 +111,12 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
     <Route
       exact
       path="/:lang/:application(firefox|android)/users/edit"
-      component={UserProfileEdit}
+      render={(props) => <UserProfileEdit _window={_window} {...props} />}
     />
     <Route
       exact
       path="/:lang/:application(firefox|android)/user/:userId/edit/"
-      component={UserProfileEdit}
+      render={(props) => <UserProfileEdit _window={_window} {...props} />}
     />
     <Route
       exact
