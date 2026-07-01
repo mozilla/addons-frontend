@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-07-01 09:47+0000\n"
+"POT-Creation-Date: 2026-07-01 14:32+0000\n"
 "Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1866,43 +1866,48 @@ msgstr ""
 msgid "There are no ratings yet"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this dictionary"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this language pack"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:133
+#: src/amo/components/RatingManager/index.js:134
 msgid "Log in to rate this theme"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:135
+#: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this extension"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:143
+#: src/amo/components/RatingManager/index.js:144
 msgid "Log in to rate this add-on"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:184
-msgid "Are you sure you want to delete your review of %(addonName)s?"
+#. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
+#: src/amo/components/RatingManager/index.js:185
+msgid "Add-on ratings are temporarily disabled."
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:189
-msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr ""
-
-#: src/amo/components/RatingManager/index.js:213
+#: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:239
+#: src/amo/components/RatingManager/index.js:229
+msgid "Are you sure you want to delete your review of %(addonName)s?"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:234
+msgid "Are you sure you want to delete your rating of %(addonName)s?"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:270
 msgid "Saving star rating"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:240
+#: src/amo/components/RatingManager/index.js:271
 msgid "Star rating saved"
 msgstr ""
 
