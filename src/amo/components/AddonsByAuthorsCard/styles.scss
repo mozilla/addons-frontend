@@ -38,7 +38,7 @@
 
     @include respond-to(large) {
       .Card-contents .AddonsCard-list {
-        background-color: $white;
+        background-color: var(--base-color);
         display: grid;
         grid-auto-flow: initial;
         grid-gap: 6px;

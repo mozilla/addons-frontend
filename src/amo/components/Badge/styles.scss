@@ -16,11 +16,19 @@ $badge-size-small: 12px;
   padding: 4px 6px;
   white-space: nowrap;
 
+  @include dark-theme {
+    border-color: $color-dark-gray-20;
+  }
+
   &.Badge--has-link {
     &:hover,
     &:active,
     &:focus {
       border-color: $color-light-gray-90;
+
+      @include dark-theme {
+        border-color: $color-dark-gray-10;
+      }
     }
   }
 

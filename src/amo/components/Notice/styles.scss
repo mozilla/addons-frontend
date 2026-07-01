@@ -15,6 +15,16 @@
     justify-content: center;
     line-height: $line-height-body;
     padding: 0;
+
+    @include dark-theme {
+      color: var(--text-color-default);
+    }
+
+    .Notice-icon {
+      @include dark-theme {
+        filter: grayscale(1) invert(1);
+      }
+    }
   }
 
   &.Notice-dismissible {
@@ -121,6 +131,19 @@
   background-color: $notice-background-color;
   color: $notice-link-color;
 
+  a {
+    &:link,
+    &:hover,
+    &:active,
+    &:focus {
+      color: $blue-60;
+    }
+
+    &:visited {
+      color: $purple-60;
+    }
+  }
+
   .Notice-button {
     @include button(
       $background: $button-background-color,
@@ -182,6 +205,48 @@
 
   .Button:hover {
     color: $grey-90;
+  }
+
+  // The generic variant is a light-grey banner in light mode; on dark it needs
+  // a dark surface, with custom overrides for contrast.
+  @include dark-theme {
+    background-color: var(--background-grey);
+    color: var(--text-color-default);
+
+    .Notice-icon {
+      filter: grayscale(1) invert(1);
+    }
+
+    .IconXMark-path {
+      fill: var(--text-color-default);
+    }
+
+    a {
+      &:link,
+      &:hover,
+      &:active,
+      &:focus {
+        color: var(--link-color);
+      }
+    }
+
+    .Notice-button {
+      &,
+      &.Button--micro,
+      &.Button--micro:link {
+        background: var(--neutral-button-bg);
+        color: var(--text-color-default);
+      }
+
+      &:hover {
+        background: var(--neutral-button-bg-hover);
+        color: var(--text-color-default);
+      }
+
+      &:active:not(.Button--disabled) {
+        background: var(--neutral-button-bg-active);
+      }
+    }
   }
 }
 

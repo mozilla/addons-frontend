@@ -1,5 +1,9 @@
 @use '~amo/css/styles' as *;
 
-.RatingManagerNotice-savedRating.RatingManagerNotice-savedRating-hidden {
-  display: none;
+.RatingManagerNotice-savedRating {
+  margin: 11px 0 -17px; // TODO: Magic numbers, to make the confirmation message appear in the same place as the delete button
+
+  &.RatingManagerNotice-savedRating-hidden {
+    display: none;
+  }
 }

@@ -94,7 +94,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   render(): null | React.Node {
     const { i18n } = this.props;
 
-    if (this.couldShowWarning()) {
+    if (true) {
       return (
         <Notice
           actionHref={WARNING_LINK_DESTINATION}

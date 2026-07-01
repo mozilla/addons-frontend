@@ -22,7 +22,7 @@
 .UserCollection-name {
   @include font-bold;
 
-  color: $black;
+  color: var(--text-color-default);
   flex-grow: 1;
   font-size: $font-size-default;
   margin: 0;
@@ -42,7 +42,7 @@
 .UserCollection-number {
   @include font-light;
 
-  color: $grey-50;
+  color: var(--sub-text-color);
   font-size: $font-size-default;
   margin: 0;
 }

@@ -44,11 +44,11 @@
 }
 
 .FeedbackForm-label > span {
-  color: $grey-50;
+  color: var(--sub-text-color);
 }
 
 .FeedbackForm--help {
-  color: $grey-50;
+  color: var(--sub-text-color);
   display: block;
   margin-top: 0;
 }
@@ -62,7 +62,7 @@
   width: 100%;
 
   &:disabled {
-    background: $grey-20;
+    background: var(--background-grey);
     cursor: not-allowed;
   }
 

@@ -13,7 +13,7 @@
 .CollectionFeedback-header-name {
   @include font-regular;
 
-  color: $black;
+  color: var(--text-color-default);
   font-size: $font-size-heading-xs;
   grid-column: 1 / span 2;
   margin: 0;
@@ -50,7 +50,7 @@
   }
 
   span {
-    color: $grey-50;
+    color: var(--sub-text-color);
     display: inline-block;
     @include margin-end(4px);
 
