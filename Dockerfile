@@ -4,10 +4,10 @@
 FROM node:22.22.2-slim AS builder
 
 WORKDIR /srv/node
-COPY package.json yarn.lock /srv/node/
+COPY package.json package-lock.json /srv/node/
 
-RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates git && rm -rf /var/lib/apt/lists/
-RUN yarn install --pure-lockfile
+RUN apt-get update && apt-get install -y --no-install-recommends python3 build-essential ca-certificates git && rm -rf /var/lib/apt/lists/
+RUN npm ci
 
 #
 # Install
@@ -37,4 +37,4 @@ COPY --from=builder --chown=${app_uid}:${app_uid} /srv/node/node_modules ${app_d
 ENV SERVER_HOST 0.0.0.0
 ENV SERVER_PORT 4000
 
-CMD yarn start
+CMD npm start

@@ -29,35 +29,35 @@ references:
 
   restore_build_cache: &restore_build_cache
     restore_cache:
-      name: restore yarn package cache
+      name: restore npm package cache
       keys:
-        - yarn-packages-v16-{{ checksum "yarn.lock" }}
+        - npm-packages-v16-{{ checksum "package-lock.json" }}
 
-  run_yarn_install: &run_yarn_install
+  run_npm_install: &run_npm_install
     run:
       name: install dependencies
       # See: https://github.com/mozilla/addons-frontend/issues/3034
-      command: yarn install --pure-lockfile
+      command: npm ci
 
   save_build_cache: &save_build_cache
     save_cache:
-      name: save yarn package cache
-      key: yarn-packages-v16-{{ checksum "yarn.lock" }}
+      name: save npm package cache
+      key: npm-packages-v16-{{ checksum "package-lock.json" }}
       paths:
-        - ~/.cache/yarn
+        - ~/.npm
 
   restore_next_build_cache: &restore_next_build_cache
     restore_cache:
-      name: restore yarn package cache
+      name: restore npm package cache
       keys:
-        - next-yarn-packages-v18-{{ checksum "yarn.lock" }}
+        - next-npm-packages-v18-{{ checksum "package-lock.json" }}
 
   save_next_build_cache: &save_next_build_cache
     save_cache:
-      name: save yarn package cache
-      key: next-yarn-packages-v18-{{ checksum "yarn.lock" }}
+      name: save npm package cache
+      key: next-npm-packages-v18-{{ checksum "package-lock.json" }}
       paths:
-        - ~/.cache/yarn
+        - ~/.npm
 
 commands:
   better_checkout:
@@ -139,9 +139,9 @@ jobs:
     steps:
       - checkout
       - *restore_build_cache
-      - *run_yarn_install
+      - *run_npm_install
       - *save_build_cache
-      - run: yarn build-ci
+      - run: npm run build-ci
 
   build-docker-image:
     <<: *defaults-release
@@ -156,9 +156,9 @@ jobs:
     steps:
       - checkout
       - *restore_build_cache
-      - *run_yarn_install
+      - *run_npm_install
       - *save_build_cache
-      - run: yarn build:blog-utils-prod
+      - run: npm run build:blog-utils-prod
       # Set up a workspace to share data between this job and the
       # `release-blog-utils` one when we want to publish a new npm version.
       - persist_to_workspace:
@@ -171,9 +171,9 @@ jobs:
     steps:
       - better_checkout
       - *restore_build_cache
-      - *run_yarn_install
+      - *run_npm_install
       - *save_build_cache
-      - run: yarn test-ci
+      - run: npm run test-ci
       - codecov/upload
 
   check:
@@ -183,29 +183,29 @@ jobs:
     steps:
       - better_checkout
       - *restore_build_cache
-      - *run_yarn_install
+      - *run_npm_install
       - *save_build_cache
-      - run: yarn lint
-      - run: yarn prettier-ci
-      - run: pip install 'fonttools<4.44.1' brotli && yarn check-fonts
+      - run: npm run lint
+      - run: npm run prettier-ci
+      - run: pip install 'fonttools<4.44.1' brotli && npm run check-fonts
 
   # build-next:
   #   <<: *defaults-next
   #   steps:
   #     - checkout
   #     - *restore_next_build_cache
-  #     - *run_yarn_install
+  #     - *run_npm_install
   #     - *save_next_build_cache
-  #     - run: yarn build
+  #     - run: npm run build
 
   # test-next:
   #   <<: *defaults-next
   #   steps:
   #     - better_checkout
   #     - *restore_next_build_cache
-  #     - *run_yarn_install
+  #     - *run_npm_install
   #     - *save_next_build_cache
-  #     - run: yarn test-ci-next
+  #     - run: npm run test-ci-next
 
   dennis-lint:
     <<: *defaults-release
@@ -264,7 +264,7 @@ jobs:
       - run:
           name: Build the app and check bundlesize from container
           command: |
-            docker run --rm addons-frontend yarn build-ci
+            docker run --rm addons-frontend npm run build-ci
       - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
@@ -277,7 +277,7 @@ jobs:
       - run:
           name: Check image works
           command: |
-            docker run --rm -p 4000:4000 -d -e NODE_ENV=production -e NODE_CONFIG_ENV=prod  addons-frontend sh -c "yarn build && yarn start"
+            docker run --rm -p 4000:4000 -d -e NODE_ENV=production -e NODE_CONFIG_ENV=prod  addons-frontend sh -c "npm run build && npm start"
             sleep 60
             curl --retry 3 --retry-delay 2 http://127.0.0.1:4000/__frontend_lbheartbeat__
       - run:
@@ -319,7 +319,7 @@ jobs:
       - run:
           name: Build the app and check bundlesize from container
           command: |
-            docker run --rm addons-frontend yarn build-ci
+            docker run --rm addons-frontend npm run build-ci
       - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
@@ -332,7 +332,7 @@ jobs:
       - run:
           name: Check image works
           command: |
-            docker run --rm -p 4000:4000 -d -e NODE_ENV=production -e NODE_CONFIG_ENV=prod  addons-frontend sh -c "yarn build && yarn start"
+            docker run --rm -p 4000:4000 -d -e NODE_ENV=production -e NODE_CONFIG_ENV=prod  addons-frontend sh -c "npm run build && npm start"
             sleep 60
             curl --retry 3 --retry-delay 2 http://127.0.0.1:4000/__frontend_lbheartbeat__
       - run:
