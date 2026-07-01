@@ -14,6 +14,7 @@ import {
   ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
   ADDONS_REVIEW,
+  ADDON_DETAIL_PAGE_VIEW_CATEGORY,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -278,6 +279,99 @@ describe(__filename, () => {
       addon_type: 'extension',
       page_locale: 'en-US',
     });
+  });
+
+  it('clears page variables from tracking on unmount', () => {
+    const { unmount } = renderWithAddon();
+    tracking.setPageVariables.mockClear();
+
+    unmount();
+
+    expect(tracking.setPageVariables).toHaveBeenCalledTimes(1);
+    expect(tracking.setPageVariables).toHaveBeenCalledWith({
+      addon_type: null,
+      page_locale: null,
+    });
+  });
+
+  it('sends a tracking event when the add-on detail page is viewed', () => {
+    renderWithAddon();
+
+    expect(tracking.sendEvent).toHaveBeenCalledWith({
+      category: ADDON_DETAIL_PAGE_VIEW_CATEGORY,
+      params: {
+        extension_name: defaultAddonName,
+        author: authorName,
+        addon_category: 'other',
+        addon_categories_all: 'other',
+        page_path: window.location.pathname,
+      },
+    });
+  });
+
+  it('does not send an add-on detail page view before the add-on is loaded', () => {
+    render();
+
+    expect(tracking.sendEvent).not.toHaveBeenCalled();
+  });
+
+  it('does not duplicate the add-on detail page view on unrelated updates', async () => {
+    renderWithAddon();
+    tracking.sendEvent.mockClear();
+
+    await changeLocation({
+      history,
+      pathname: getLocation(),
+    });
+
+    expect(tracking.sendEvent).not.toHaveBeenCalledWith(
+      expect.objectContaining({
+        category: ADDON_DETAIL_PAGE_VIEW_CATEGORY,
+      }),
+    );
+  });
+
+  it('sends a new add-on detail page view after navigating to another add-on', async () => {
+    const newSlug = `${defaultSlug}-new`;
+    const newAddonName = `${defaultAddonName} new`;
+    store.dispatch(
+      loadAddon({
+        addon: {
+          ...addon,
+          categories: ['privacy-security', 'other'],
+          guid: `${addon.guid}-new`,
+          id: defaultAddonId + 1,
+          name: createLocalizedString(newAddonName),
+          slug: newSlug,
+        },
+        slug: newSlug,
+      }),
+    );
+    renderWithAddon();
+    tracking.sendEvent.mockClear();
+
+    await changeLocation({
+      history,
+      pathname: getLocation({ slug: newSlug }),
+    });
+
+    expect(tracking.sendEvent).toHaveBeenCalledWith({
+      category: ADDON_DETAIL_PAGE_VIEW_CATEGORY,
+      params: {
+        extension_name: newAddonName,
+        author: authorName,
+        addon_category: 'privacy-security',
+        addon_categories_all: 'privacy-security,other',
+        page_path: window.location.pathname,
+      },
+    });
+  });
+
+  it('does not send an add-on detail page view before canonical URL redirect', () => {
+    store.dispatch(loadAddon({ addon, slug: 'addon-id-in-url' }));
+    render({ location: getLocation({ slug: 'addon-id-in-url' }) });
+
+    expect(tracking.sendEvent).not.toHaveBeenCalled();
   });
 
   it('updates the ViewContext on update', async () => {
@@ -2354,6 +2448,12 @@ describe(__filename, () => {
   describe('Tests for AddonRecommendations', () => {
     const thisErrorHandlerId = 'AddonRecommendations';
 
+    it('defines the tracking category for recommendations clicks', () => {
+      expect(TAAR_IMPRESSION_CATEGORY).toEqual(
+        'amo_addon_recommendations_clicked',
+      );
+    });
+
     function doFetchRecommendations(guid = addon.guid) {
       store.dispatch(
         fetchRecommendations({
@@ -2627,6 +2727,8 @@ describe(__filename, () => {
         params: expect.objectContaining({
           extension_name: defaultAddonName,
           author: authorName,
+          addon_category: 'other',
+          addon_categories_all: 'other',
         }),
       });
     });
@@ -2650,6 +2752,8 @@ describe(__filename, () => {
         params: expect.objectContaining({
           extension_name: defaultAddonName,
           author: authorName,
+          addon_category: 'other',
+          addon_categories_all: 'other',
         }),
       });
     });
@@ -2657,6 +2761,7 @@ describe(__filename, () => {
     it('should not send a GA ping when recommendations are loading', () => {
       doFetchRecommendations();
       renderWithAddon();
+      tracking.sendEvent.mockClear();
 
       expect(tracking.sendEvent).not.toHaveBeenCalled();
     });
@@ -2664,6 +2769,7 @@ describe(__filename, () => {
     it('should not send a GA ping when there an error', () => {
       createFailedErrorHandler({ id: thisErrorHandlerId, store });
       renderWithAddon();
+      tracking.sendEvent.mockClear();
 
       expect(tracking.sendEvent).not.toHaveBeenCalled();
     });

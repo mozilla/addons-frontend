@@ -9,6 +9,7 @@ import {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  ADDON_DETAIL_PAGE_VIEW_CATEGORY,
   CLICK_CATEGORY,
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
@@ -293,6 +294,30 @@ describe(__filename, () => {
       expect(getAddonEventParams(addon)).toEqual({
         extension_name: 'My Extension',
         author: 'Author One',
+      });
+    });
+
+    it('includes addon category params when categories are provided', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+        categories: ['privacy-security', 'other'],
+      };
+      expect(getAddonEventParams(addon)).toEqual({
+        extension_name: 'My Extension',
+        addon_category: 'privacy-security',
+        addon_categories_all: 'privacy-security,other',
+      });
+    });
+
+    it('does not include addon category params when categories are empty', () => {
+      const addon = {
+        name: 'My Extension',
+        type: ADDON_TYPE_EXTENSION,
+        categories: [],
+      };
+      expect(getAddonEventParams(addon)).toEqual({
+        extension_name: 'My Extension',
       });
     });
 
@@ -592,6 +617,12 @@ describe(__filename, () => {
 
     it('should not change the tracking category constants for clicks', () => {
       expect(CLICK_CATEGORY).toEqual('amo_addon_theme_clicks');
+    });
+
+    it('should not change the tracking category constant for add-on detail page views', () => {
+      expect(ADDON_DETAIL_PAGE_VIEW_CATEGORY).toEqual(
+        'amo_addon_detail_page_view',
+      );
     });
 
     it('should not change the tracking action constant for install cancelled', () => {
