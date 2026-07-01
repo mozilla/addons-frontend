@@ -20,6 +20,7 @@ import {
   setReview,
   updateAddonReview,
 } from 'amo/actions/reviews';
+import { loadSiteStatus } from 'amo/reducers/site';
 import RatingManager from 'amo/components/RatingManager';
 import {
   createFailedErrorHandler,
@@ -531,6 +532,32 @@ describe(__filename, () => {
       // When Rating is in readOnly mode, the title for all stars is as below.
       expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6);
     });
+  });
+
+  it('renders a notice instead of the rating control when the site is in read-only mode', () => {
+    store.dispatch(loadSiteStatus({ readOnly: true, notice: null }));
+    renderWithReview();
+
+    expect(
+      screen.getByText('Add-on ratings are temporarily disabled.'),
+    ).toBeInTheDocument();
+
+    // The rating control should not be rendered.
+    expect(
+      screen.queryByClassName('RatingManager-UserRating'),
+    ).not.toBeInTheDocument();
+  });
+
+  it('renders the rating control when the site is not in read-only mode', () => {
+    store.dispatch(loadSiteStatus({ readOnly: false, notice: null }));
+    renderWithReview();
+
+    expect(
+      screen.queryByText('Add-on ratings are temporarily disabled.'),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByClassName('RatingManager-UserRating'),
+    ).toBeInTheDocument();
   });
 
   it('renders RatingsByStar with an add-on', () => {
