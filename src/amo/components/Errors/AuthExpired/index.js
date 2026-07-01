@@ -9,6 +9,7 @@ import Link from 'amo/components/Link';
 import { replaceStringsWithJSX } from 'amo/i18n/utils';
 import translate from 'amo/i18n/translate';
 import { logOutUser } from 'amo/reducers/users';
+import universalWindow from 'amo/window';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 
@@ -29,7 +30,7 @@ type InternalProps = {|
 
 export class AuthExpiredBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
-    _window: typeof window !== 'undefined' ? window : {},
+    _window: universalWindow,
   };
 
   componentDidMount() {
@@ -72,9 +73,7 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
   }
 }
 
-const AuthExpired: React.ComponentType<Props> = compose(
-  connect(),
-  translate(),
-)(AuthExpiredBase);
+const AuthExpired: React.ComponentType<{| ...Props, ...DefaultProps |}> =
+  compose(connect(), translate())(AuthExpiredBase);
 
 export default AuthExpired;

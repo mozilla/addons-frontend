@@ -67,17 +67,14 @@ describe(__filename, () => {
   let history;
   let store;
   let userEvent;
-
-  const savedLocation = window.location;
+  let fakeWindow;
 
   afterEach(() => {
     jest.clearAllMocks().resetModules();
-    window.location = savedLocation;
   });
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
-    delete window.location;
     userEvent = defaultUserEvent.setup({ delay: null });
   });
 
@@ -92,14 +89,21 @@ describe(__filename, () => {
       initialEntries: [location],
       store,
     };
-    window.location = Object.assign(new URL(`https://example.org${location}`), {
-      assign: jest.fn(),
-      reload: jest.fn(),
-      replace: jest.fn(),
-    });
+    // jsdom no longer allows replacing the global window.location, so we inject
+    // a fake `_window` into <Page> and thread it down to the components that
+    // navigate (LanguagePicker, AuthExpired).
+    fakeWindow = {
+      location: Object.assign(new URL(`https://example.org${location}`), {
+        assign: jest.fn(),
+        reload: jest.fn(),
+        replace: jest.fn(),
+      }),
+    };
 
     const renderResults = defaultRender(
-      <Page {...props}>{children || <div>Some content</div>}</Page>,
+      <Page _window={fakeWindow} {...props}>
+        {children || <div>Some content</div>}
+      </Page>,
       renderOptions,
     );
     history = renderResults.history;
@@ -1013,14 +1017,14 @@ describe(__filename, () => {
     it('changes the language in the URL on change', async () => {
       _dispatchClientMetadata({ lang: 'de' });
       render({ location: '/de/firefox/' });
-      expect(window.location.pathname).toEqual('/de/firefox/');
+      expect(fakeWindow.location.pathname).toEqual('/de/firefox/');
 
       await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
         screen.getByRole('option', { name: 'Français' }),
       );
 
-      expect(window.location).toEqual('/fr/firefox/');
+      expect(fakeWindow.location).toEqual('/fr/firefox/');
     });
 
     it('changes the language in the URL on change with a query', async () => {
@@ -1028,14 +1032,14 @@ describe(__filename, () => {
       render({
         location: '/de/firefox/?page=1&q=something',
       });
-      expect(window.location.pathname).toEqual('/de/firefox/');
+      expect(fakeWindow.location.pathname).toEqual('/de/firefox/');
 
       await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
         screen.getByRole('option', { name: 'Français' }),
       );
 
-      expect(window.location).toEqual('/fr/firefox/?page=1&q=something');
+      expect(fakeWindow.location).toEqual('/fr/firefox/?page=1&q=something');
     });
 
     it('only changes the locale section of the URL', async () => {
@@ -1043,7 +1047,7 @@ describe(__filename, () => {
       render({
         location: '/en-US/firefox/en-US-to-en-GB-guide/?foo=en-US',
       });
-      expect(window.location.pathname).toEqual(
+      expect(fakeWindow.location.pathname).toEqual(
         '/en-US/firefox/en-US-to-en-GB-guide/',
       );
 
@@ -1052,7 +1056,7 @@ describe(__filename, () => {
         screen.getByRole('option', { name: 'עברית' }),
       );
 
-      expect(window.location).toEqual(
+      expect(fakeWindow.location).toEqual(
         '/he/firefox/en-US-to-en-GB-guide/?foo=en-US',
       );
     });
@@ -1187,7 +1191,7 @@ describe(__filename, () => {
         screen.getByRole('link', { name: 'Reload the page' }),
       );
 
-      expect(window.location.reload).toHaveBeenCalled();
+      expect(fakeWindow.location.reload).toHaveBeenCalled();
     });
   });
 

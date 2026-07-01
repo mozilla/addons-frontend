@@ -1,5 +1,5 @@
 /* @flow */
-/* global Navigator, navigator */
+/* global Navigator, navigator, window */
 import config from 'config';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
@@ -32,6 +32,7 @@ import { CLIENT_APP_ANDROID } from 'amo/constants';
 import ErrorPage from 'amo/components/ErrorPage';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
+import universalWindow from 'amo/window';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
@@ -52,6 +53,7 @@ type PropsFromState = {|
 type DefaultProps = {|
   _addChangeListeners: (callback: Function, mozAddonManager: Object) => any,
   _navigator: typeof navigator | null,
+  _window: typeof window,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
   userAgent: string | null,
 |};
@@ -70,6 +72,7 @@ export class AppBase extends React.Component<Props> {
   static defaultProps: DefaultProps = {
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
+    _window: universalWindow,
     mozAddonManager: config.get('server')
       ? {}
       : (navigator: MozNavigator).mozAddonManager,
@@ -148,7 +151,7 @@ export class AppBase extends React.Component<Props> {
         <ScrollToTop>
           <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
           <ErrorPage>
-            <Routes />
+            <Routes _window={this.props._window} />
           </ErrorPage>
         </ScrollToTop>
       </NestedStatus>

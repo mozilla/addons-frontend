@@ -1570,8 +1570,10 @@ export const renderPage = (options = {}) => {
   window.scrollTo = jest.fn();
 
   // Render the App component, which will use the location from options to
-  // render the correct page.
-  return render(<App />, options);
+  // render the correct page. `_window` can be injected so that pages which
+  // navigate (and would otherwise touch the immutable global window.location)
+  // can be tested.
+  return render(<App _window={options._window} />, options);
 };
 
 export const getSearchErrorHandlerId = (page) =>

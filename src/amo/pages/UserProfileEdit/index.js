@@ -31,6 +31,7 @@ import { USERS_EDIT, VIEW_CONTEXT_HOME } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
+import universalWindow from 'amo/window';
 import { sanitizeHTML } from 'amo/utils';
 import Button from 'amo/components/Button';
 import Card from 'amo/components/Card';
@@ -70,7 +71,7 @@ type PropsFromState = {|
 |};
 
 type DefaultProps = {|
-  _window: typeof window | Object,
+  _window: typeof window,
 |};
 
 type InternalProps = {|
@@ -108,7 +109,7 @@ type State = {|
 
 export class UserProfileEditBase extends React.Component<InternalProps, State> {
   static defaultProps: DefaultProps = {
-    _window: typeof window !== 'undefined' ? window : {},
+    _window: universalWindow,
   };
 
   constructor(props: InternalProps) {
@@ -157,6 +158,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
     } = prevProps;
 
     const {
+      _window,
       clientApp,
       currentUser,
       dispatch,
@@ -218,16 +220,14 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
         toPath = url.parse(toPath).pathname;
         if (toPath && !toPath.startsWith('//')) {
           try {
-            this.props._window.location.assign(toPath);
+            _window.location.assign(toPath);
             return;
           } catch (error) {
             log.warn(`Error redirecting to location: ${toPath}: ${error}`);
           }
         }
       }
-      this.props._window.location.assign(
-        `/${lang}/${clientApp}/user/${newUserId}/`,
-      );
+      _window.location.assign(`/${lang}/${clientApp}/user/${newUserId}/`);
     }
 
     if (
@@ -235,7 +235,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
         this.props.errorHandler.hasError()) ||
       (!prevState.successMessage && this.state.successMessage)
     ) {
-      this.props._window.scroll(0, 0);
+      _window.scroll(0, 0);
     }
   }
 

@@ -1,4 +1,3 @@
-/* global window */
 import * as React from 'react';
 import { createEvent, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -19,20 +18,15 @@ import {
 
 describe(__filename, () => {
   let store;
-
-  const savedLocation = window.location;
+  let fakeWindow;
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
-    delete window.location;
-    window.location = Object.assign(new URL('https://example.org'), {
-      assign: jest.fn(),
-    });
+    fakeWindow = { location: { assign: jest.fn() } };
   });
 
   afterEach(() => {
     jest.clearAllMocks().resetModules();
-    window.location = savedLocation;
   });
 
   const render = ({ location, ...props } = {}) => {
@@ -42,7 +36,10 @@ describe(__filename, () => {
       }),
       store,
     };
-    return defaultRender(<AuthenticateButton {...props} />, renderOptions);
+    return defaultRender(
+      <AuthenticateButton _window={fakeWindow} {...props} />,
+      renderOptions,
+    );
   };
 
   it('passes along a className', () => {
@@ -97,6 +94,7 @@ describe(__filename, () => {
     fireEvent(link, clickEvent);
     expect(handleLogIn).toHaveBeenCalledWith(
       expect.objectContaining({ pathname: location }),
+      { _window: fakeWindow },
     );
     expect(preventDefaultWatcher).toHaveBeenCalled();
   });
@@ -127,7 +125,7 @@ describe(__filename, () => {
     expect(startLoginUrl).toHaveBeenCalledWith({
       location: expect.objectContaining({ pathname: location }),
     });
-    expect(window.location.assign).toHaveBeenCalledWith(mockLoginURL);
+    expect(fakeWindow.location.assign).toHaveBeenCalledWith(mockLoginURL);
   });
 
   it('calls logOutFromServer on handleLogOut', async () => {
