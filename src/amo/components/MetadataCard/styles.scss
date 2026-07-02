@@ -7,6 +7,10 @@
   flex-direction: row;
   justify-content: space-between;
 
+  @include dark-theme {
+    background-color: var(--background-grey);
+  }
+
   @include respond-to(large) {
     margin: 0 -12px;
   }
@@ -26,6 +30,6 @@
   }
 
   dt {
-    color: $grey-50;
+    color: var(--sub-text-color);
   }
 }
