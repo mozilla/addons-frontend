@@ -40,7 +40,7 @@ module.exports = {
   webpackServerPort,
 
   // In local dev, we serve static files using webpack-dev-server.
-  // We need to remove the protocol because of `yarn amo:dev-https`.
+  // We need to remove the protocol because of `npm run amo:dev-https`.
   staticPath: `//${webpackDevServer}/`,
 
   CSP: {

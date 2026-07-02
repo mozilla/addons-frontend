@@ -43,11 +43,11 @@ jobs:
       - name: Install gettext
         run: sudo apt-get install gettext
 
-      - name: Yarn install
-        run: yarn install --frozen-lockfile --prefer-offline
+      - name: Install dependencies
+        run: npm ci --prefer-offline
 
       - name: Extract locales
-        run: yarn extract-locales
+        run: npm run extract-locales
 
       - name: Push Locales
         env:
