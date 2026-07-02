@@ -1789,7 +1789,7 @@ msgstr "Bu eklentiyi derecelendirmek için giriş yapın"
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr ""
+msgstr "Eklenti değerlendirmeleri geçici olarak devre dışıdır."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2295,19 +2295,19 @@ msgstr "%(title)s ön izlemesi"
 
 #: src/amo/components/ThemePicker/index.js:90
 msgid "Automatic (match system)"
-msgstr ""
+msgstr "Otomatik (sisteme uy)"
 
 #: src/amo/components/ThemePicker/index.js:91
 msgid "Light"
-msgstr ""
+msgstr "Açık"
 
 #: src/amo/components/ThemePicker/index.js:92
 msgid "Dark"
-msgstr ""
+msgstr "Koyu"
 
 #: src/amo/components/ThemePicker/index.js:98
 msgid "Change theme"
-msgstr ""
+msgstr "Temayı değiştir"
 
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
