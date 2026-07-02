@@ -1791,7 +1791,7 @@ msgstr "Logg inn for å vurdere denne utvidinga"
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr ""
+msgstr "Vurderingar av utvidingar er mellombels deaktiverte."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2291,7 +2291,7 @@ msgstr "Bla i alle tema"
 msgid "Add-ons Home Page"
 msgstr "Heimeside for utvidingar"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:236
 msgid "Preview of %(title)s"
 msgstr "Førehandsvising %(title)s"
 
@@ -2381,60 +2381,60 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:263
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Denne utvidinga kan ikkje vurderast fordi ingen versonar er publiserte."
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:274
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Les %(count)s vurdering"
 msgstr[1] "Les %(count)s vurderingar"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:295
 msgid "No reviews yet"
 msgstr "Ingen vurderingar enno"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:305
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Vurdert %(ratingAverage)s av 1 meldar"
 msgstr[1] "Vurdert %(ratingAverage)s av %(ratingCount)s meldarar"
 
-#: src/amo/pages/Addon/index.js:310
+#: src/amo/pages/Addon/index.js:342
 msgid "About this dictionary"
 msgstr "Om denne ordboka"
 
-#: src/amo/pages/Addon/index.js:313
+#: src/amo/pages/Addon/index.js:345
 msgid "About this extension"
 msgstr "Om denne utvidinga"
 
-#: src/amo/pages/Addon/index.js:316
+#: src/amo/pages/Addon/index.js:348
 msgid "About this language pack"
 msgstr "Om denne språkpakken"
 
-#: src/amo/pages/Addon/index.js:319
+#: src/amo/pages/Addon/index.js:351
 msgid "About this theme"
 msgstr "Om dette temaet"
 
-#: src/amo/pages/Addon/index.js:322
+#: src/amo/pages/Addon/index.js:354
 msgid "About this add-on"
 msgstr "Om dette tillegget"
 
-#: src/amo/pages/Addon/index.js:355
+#: src/amo/pages/Addon/index.js:387
 msgid "Developer comments"
 msgstr "Utviklarkommentarar"
 
-#: src/amo/pages/Addon/index.js:446
+#: src/amo/pages/Addon/index.js:478
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Dette er ikkje ei offentleg liste. Du ser det berre på grunn av forhøgde løyve."
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:515
 msgid "Extension Metadata"
 msgstr "Metadata for utvidingar"
 
-#: src/amo/pages/Addon/index.js:491
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "Skjermbilde"
 

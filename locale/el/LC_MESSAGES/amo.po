@@ -2291,7 +2291,7 @@ msgstr "Περιήγηση σε όλα τα θέματα"
 msgid "Add-ons Home Page"
 msgstr "Αρχική σελίδα προσθέτων"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:236
 msgid "Preview of %(title)s"
 msgstr "Προεπισκόπηση του %(title)s"
 
@@ -2381,60 +2381,60 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:263
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Αυτό το πρόσθετο δεν μπορεί να αξιολογηθεί, επειδή δεν έχει εκδοθεί καμία έκδοση."
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:274
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Ανάγνωση %(count)s κριτικής"
 msgstr[1] "Ανάγνωση και των %(count)s κριτικών"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:295
 msgid "No reviews yet"
 msgstr "Καμία κριτική ακόμα"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:305
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Βαθμολογήθηκε με %(ratingAverage)s από έναν αξιολογητή"
 msgstr[1] "Βαθμολογήθηκε με %(ratingAverage)s από %(ratingCount)s αξιολογητές"
 
-#: src/amo/pages/Addon/index.js:310
+#: src/amo/pages/Addon/index.js:342
 msgid "About this dictionary"
 msgstr "Σχετικά με το λεξικό"
 
-#: src/amo/pages/Addon/index.js:313
+#: src/amo/pages/Addon/index.js:345
 msgid "About this extension"
 msgstr "Σχετικά με την επέκταση"
 
-#: src/amo/pages/Addon/index.js:316
+#: src/amo/pages/Addon/index.js:348
 msgid "About this language pack"
 msgstr "Σχετικά με το πακέτο γλώσσας"
 
-#: src/amo/pages/Addon/index.js:319
+#: src/amo/pages/Addon/index.js:351
 msgid "About this theme"
 msgstr "Σχετικά με το θέμα"
 
-#: src/amo/pages/Addon/index.js:322
+#: src/amo/pages/Addon/index.js:354
 msgid "About this add-on"
 msgstr "Σχετικά με το πρόσθετο"
 
-#: src/amo/pages/Addon/index.js:355
+#: src/amo/pages/Addon/index.js:387
 msgid "Developer comments"
 msgstr "Σχόλια προγραμματιστών"
 
-#: src/amo/pages/Addon/index.js:446
+#: src/amo/pages/Addon/index.js:478
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Αυτή δεν είναι δημόσια καταχώρηση. Τη βλέπετε μόνο επειδή έχετε αυξημένα δικαιώματα."
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:515
 msgid "Extension Metadata"
 msgstr "Μεταδεδομένα επέκτασης"
 
-#: src/amo/pages/Addon/index.js:491
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "Στιγμιότυπα"
 

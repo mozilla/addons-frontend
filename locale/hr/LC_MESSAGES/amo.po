@@ -2317,7 +2317,7 @@ msgstr "Pregledaj sve teme"
 msgid "Add-ons Home Page"
 msgstr "Početna stranica dodataka"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:236
 msgid "Preview of %(title)s"
 msgstr "Pregled za %(title)s"
 
@@ -2408,62 +2408,62 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:263
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Ovaj se dodatak ne može ocijeniti, jer nije objavljena nijedna verzija."
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:274
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Pročitaj %(count)s recenziju"
 msgstr[1] "Pročitaj %(count)s recenzije"
 msgstr[2] "Pročitaj %(count)s recenzija"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:295
 msgid "No reviews yet"
 msgstr "Još nema recenzija"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:305
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Ocjena %(ratingAverage)s od jednog recenzenta"
 msgstr[1] "Ocjena %(ratingAverage)s od %(ratingCount)s recenzenta"
 msgstr[2] "Ocjena %(ratingAverage)s od %(ratingCount)s recenzenta"
 
-#: src/amo/pages/Addon/index.js:310
+#: src/amo/pages/Addon/index.js:342
 msgid "About this dictionary"
 msgstr "Informacije o ovom rječniku"
 
-#: src/amo/pages/Addon/index.js:313
+#: src/amo/pages/Addon/index.js:345
 msgid "About this extension"
 msgstr "Informacije o ovom proširenju"
 
-#: src/amo/pages/Addon/index.js:316
+#: src/amo/pages/Addon/index.js:348
 msgid "About this language pack"
 msgstr "Informacije o ovom jezičnom paketu"
 
-#: src/amo/pages/Addon/index.js:319
+#: src/amo/pages/Addon/index.js:351
 msgid "About this theme"
 msgstr "Informacije o ovoj temi"
 
-#: src/amo/pages/Addon/index.js:322
+#: src/amo/pages/Addon/index.js:354
 msgid "About this add-on"
 msgstr "Informacije o ovom dodatku"
 
-#: src/amo/pages/Addon/index.js:355
+#: src/amo/pages/Addon/index.js:387
 msgid "Developer comments"
 msgstr "Komentari razvijatelja"
 
-#: src/amo/pages/Addon/index.js:446
+#: src/amo/pages/Addon/index.js:478
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Ovo nije javni popis. Vidiš ih samo zbog povlaštenih dozvola."
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:515
 msgid "Extension Metadata"
 msgstr "Metapodaci proširenja"
 
-#: src/amo/pages/Addon/index.js:491
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "Snimke ekrana"
 

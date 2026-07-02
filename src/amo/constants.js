@@ -245,6 +245,8 @@ export const UNINSTALL_THEME_CATEGORY = 'amo_theme_uninstalls';
 
 export const CLICK_CATEGORY = 'amo_addon_theme_clicks';
 
+export const ADDON_DETAIL_PAGE_VIEW_CATEGORY = 'amo_addon_detail_page_view';
+
 export const SUGGESTIONS_CLICK_CATEGORY = 'amo_suggested_addon_clicks';
 
 export const SET_ADDON_INSTALL_SOURCE: 'SET_ADDON_INSTALL_SOURCE' =

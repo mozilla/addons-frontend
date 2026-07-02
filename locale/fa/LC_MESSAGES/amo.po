@@ -2416,7 +2416,7 @@ msgstr "مرور تمام تم‌ها"
 msgid "Add-ons Home Page"
 msgstr "صفحه خانگی افزودنه‌ها"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:236
 msgid "Preview of %(title)s"
 msgstr ""
 
@@ -2511,61 +2511,61 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:263
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:274
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "همه‌ی %(count)s بازخورد‌ها را بخوانید"
 msgstr[1] "همه‌ی %(count)s بازخورد‌ها را بخوانید"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:295
 msgid "No reviews yet"
 msgstr "تاکنون بدون بازخوردی ندارد"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:305
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/pages/Addon/index.js:310
+#: src/amo/pages/Addon/index.js:342
 msgid "About this dictionary"
 msgstr "درباره این لغت‌نامه"
 
-#: src/amo/pages/Addon/index.js:313
+#: src/amo/pages/Addon/index.js:345
 msgid "About this extension"
 msgstr "دربارهٔ این افزونه"
 
-#: src/amo/pages/Addon/index.js:316
+#: src/amo/pages/Addon/index.js:348
 msgid "About this language pack"
 msgstr "دربارهٔ این بسته زبانی"
 
-#: src/amo/pages/Addon/index.js:319
+#: src/amo/pages/Addon/index.js:351
 msgid "About this theme"
 msgstr "دربارهٔ این تم"
 
-#: src/amo/pages/Addon/index.js:322
+#: src/amo/pages/Addon/index.js:354
 msgid "About this add-on"
 msgstr "دربارهٔ این افزونه"
 
-#: src/amo/pages/Addon/index.js:355
+#: src/amo/pages/Addon/index.js:387
 #, fuzzy
 msgid "Developer comments"
 msgstr "پاسخ توسعه‌دهنده"
 
-#: src/amo/pages/Addon/index.js:446
+#: src/amo/pages/Addon/index.js:478
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:515
 msgid "Extension Metadata"
 msgstr "فرادادهٔ ضمیمه"
 
-#: src/amo/pages/Addon/index.js:491
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "تصاویر صفحه"
 

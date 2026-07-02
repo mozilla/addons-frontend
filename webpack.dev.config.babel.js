@@ -10,8 +10,6 @@ import webpackConfig from './webpack.prod.config.babel';
 import webpackIsomorphicToolsConfig from './src/amo/server/webpack-isomorphic-tools-config';
 import { WEBPACK_ENTRYPOINT } from './src/amo/constants';
 
-const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';
-
 const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(
   webpackIsomorphicToolsConfig,
 );
@@ -19,13 +17,10 @@ const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(
 const babelConfig = require('./babel.config');
 
 const babelPlugins = babelConfig.plugins || [];
-const babelDevPlugins = ['react-hot-loader/babel'];
 
 export const babelOptions = {
   ...babelConfig,
-  plugins: localDevelopment
-    ? babelPlugins.concat(babelDevPlugins)
-    : babelPlugins,
+  plugins: babelPlugins,
 };
 
 const hmr = `webpack-hot-middleware/client?path=${config.get(
@@ -47,7 +42,7 @@ export default {
     ...webpackConfig.output,
     filename: '[name]-[contenthash].js',
     chunkFilename: '[name]-[contenthash].js',
-    // We need to remove the protocol because of `yarn amo:dev-https`.
+    // We need to remove the protocol because of `npm run amo:dev-https`.
     publicPath: config.get('staticPath'),
   },
   module: {

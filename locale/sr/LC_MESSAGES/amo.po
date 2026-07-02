@@ -2319,7 +2319,7 @@ msgstr "Погледај све теме"
 msgid "Add-ons Home Page"
 msgstr "Почетна страница за додатке"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:204
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:236
 msgid "Preview of %(title)s"
 msgstr "Преглед %(title)s"
 
@@ -2410,62 +2410,62 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:263
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Овај додатак не може оценити зато што ниједно издање није објављено."
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:274
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Прочитајте %(count)s рецензију"
 msgstr[1] "Прочитајте %(count)s рецензије"
 msgstr[2] "Прочитајте свих %(count)s рецензија"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:295
 msgid "No reviews yet"
 msgstr "Још увек нема рецензија"
 
 #. ratingAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:305
 msgid "Rated %(ratingAverage)s by 1 reviewer"
 msgid_plural "Rated %(ratingAverage)s by %(ratingCount)s reviewers"
 msgstr[0] "Оцењено са %(ratingAverage)s од стране %(ratingCount)s рецензента"
 msgstr[1] "Оцењено са %(ratingAverage)s од стране %(ratingCount)s рецензената"
 msgstr[2] "Оцењено са %(ratingAverage)s од стране %(ratingCount)s рецензената"
 
-#: src/amo/pages/Addon/index.js:310
+#: src/amo/pages/Addon/index.js:342
 msgid "About this dictionary"
 msgstr "О овом речнику"
 
-#: src/amo/pages/Addon/index.js:313
+#: src/amo/pages/Addon/index.js:345
 msgid "About this extension"
 msgstr "О овом додатку"
 
-#: src/amo/pages/Addon/index.js:316
+#: src/amo/pages/Addon/index.js:348
 msgid "About this language pack"
 msgstr "О овом језичком пакету"
 
-#: src/amo/pages/Addon/index.js:319
+#: src/amo/pages/Addon/index.js:351
 msgid "About this theme"
 msgstr "О овој теми"
 
-#: src/amo/pages/Addon/index.js:322
+#: src/amo/pages/Addon/index.js:354
 msgid "About this add-on"
 msgstr "О овом додатку"
 
-#: src/amo/pages/Addon/index.js:355
+#: src/amo/pages/Addon/index.js:387
 msgid "Developer comments"
 msgstr "Програмерске напомене"
 
-#: src/amo/pages/Addon/index.js:446
+#: src/amo/pages/Addon/index.js:478
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr "Ово није јаван запис. Видите га само зато што имате проширена овлашћења."
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:515
 msgid "Extension Metadata"
 msgstr "Метаподаци додатка"
 
-#: src/amo/pages/Addon/index.js:491
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "Снимци екрана"
 

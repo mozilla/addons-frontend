@@ -28,7 +28,7 @@
     "stylelint": "stylelint **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
     "prettier": "prettier --write '**'",
-    "prettier-ci": "prettier --list-different '**' || (echo '\n\nThis failure means you did not run `yarn prettier-dev` before committing\n\n' && exit 1)",
+    "prettier-ci": "prettier --list-different '**' || (echo '\n\nThis failure means you did not run `npm run prettier-dev` before committing\n\n' && exit 1)",
     "prettier-dev": "pretty-quick --branch master",
     "start": "npm run version-check && better-npm-run --silent node bin/server.js | node bin/pino-mozlog.js",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
@@ -292,7 +292,6 @@
     "postcss-loader": "^8.2.1",
     "prettier": "3.8.4",
     "pretty-quick": "4.2.2",
-    "react-hot-loader": "^4.13.1",
     "redux-saga-tester": "^1.0.372",
     "rimraf": "^6.1.3",
     "sass-embedded": "^1.100.0",
@@ -307,6 +306,7 @@
     "terser-webpack-plugin": "^5.6.0",
     "tmp": "^0.2.7",
     "tosource": "^1.0.0",
+    "unix-dgram": "^2.0.7",
     "url-loader": "^4.1.1",
     "webpack": "^5.107.2",
     "webpack-cli": "^4.0.0",
@@ -315,6 +315,14 @@
     "webpack-subresource-integrity": "5.1.0",
     "whatwg-fetch": "^3.6.20",
     "zx": "^8.8.5"
+  },
+  "overrides": {
+    "react-nested-status": {
+      "react": "$react"
+    }
+  },
+  "optionalDependencies": {
+    "sass-embedded-linux-x64": "^1.101.0"
   },
   "bundlewatch": [
     {

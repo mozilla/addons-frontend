@@ -65,7 +65,7 @@ It is possible to serve the local development version of this project with HTTPS
 5. Start `addons-frontend` with the command below:
 
    ```
-   yarn amo:dev-https
+   npm run amo:dev-https
    ```
 
 This allows you to browse the project at https://example.com:3000/ (and not `localhost`).

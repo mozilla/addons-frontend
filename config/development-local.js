@@ -1,5 +1,5 @@
 // This config should be used with a local addons-server setup, i.e. run
-// addons-server locally (docker env) and use `yarn amo:olympia` in this
+// addons-server locally (docker env) and use `npm run amo:olympia` in this
 // project to allow the frontend to talk to the addons-server API.
 //
 // This configuration is also used by the `addons-frontend` container in
