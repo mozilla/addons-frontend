@@ -309,7 +309,7 @@ You can check to see what commit of `addons-frontend` is deployed, which A/B exp
 ```
 curl https://addons-dev.allizom.org/__frontend_version__
 {
-    "build": "https://circleci.com/gh/mozilla/addons-frontend/10333",
+    "build": "https://github.com/mozilla/addons-frontend/actions/runs/10333",
     "commit": "47edfa6f24e333897b25516c587f504e294e8fa9",
     "experiments": {
         "homeHero": true
