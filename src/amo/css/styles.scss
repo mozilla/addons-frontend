@@ -4,6 +4,10 @@
 /* Shared CSS lib code. Bear in mind that changes here impacts *everything*. */
 .visually-hidden {
   border: 0;
+
+  // `clip` is deprecated but remains the most widely-supported way to
+  // implement the visually-hidden (screen-reader-only) pattern.
+  // stylelint-disable-next-line property-no-deprecated
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;

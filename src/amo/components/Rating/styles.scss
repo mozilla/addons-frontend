@@ -12,14 +12,14 @@ $icon-small: 13px;
 
   // The width of small rating stars are controlled by .Rating-star.
   &.Rating--small {
-    grid-column-gap: 4px;
+    column-gap: 4px;
     min-height: $icon-small;
     width: min-content;
   }
 
   // The width of large rating stars are controlled by the container.
   &.Rating--large {
-    grid-column-gap: 6px;
+    column-gap: 6px;
     max-width: 250px;
     min-height: 32px;
     width: 100%;
@@ -27,7 +27,7 @@ $icon-small: 13px;
 
   @include respond-to(extraExtraLarge) {
     &.Rating--large {
-      grid-column-gap: 12px;
+      column-gap: 12px;
     }
   }
 }

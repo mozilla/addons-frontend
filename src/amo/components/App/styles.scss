@@ -37,6 +37,7 @@ textarea {
   overflow-wrap: anywhere;
 
   // This is needed for Safari, which does not support `anywhere`.
+  // stylelint-disable-next-line declaration-property-value-keyword-no-deprecated
   word-break: break-word;
 }
 
