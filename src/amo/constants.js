@@ -22,7 +22,7 @@ export const MOBILE_HOME_PAGE_RECOMMENDED_EXTENSIONS_COUNT = 4;
 export const MOBILE_HOME_PAGE_TRENDING_EXTENSIONS_COUNT = 8;
 
 export const DOWNLOAD_FIREFOX_BASE_URL =
-  'https://www.mozilla.org/firefox/download/thanks/';
+  'https://www.firefox.com/thanks/';
 export const PROMOTED_ADDONS_SUMO_URL =
   'https://support.mozilla.org/kb/add-on-badges';
 export const DOWNLOAD_FIREFOX_FOR_ANDROID_BASE_URL =
