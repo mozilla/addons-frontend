@@ -29,6 +29,10 @@
   height: 1rem;
   margin: 0;
   vertical-align: middle;
+
+  @include dark-theme {
+    background: $color-dark-gray-30;
+  }
 }
 
 @for $delay from 1 through 3 {

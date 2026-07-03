@@ -190,6 +190,10 @@
     @include margin-end(20px);
   }
 
+  .ThemePicker-header {
+    @include margin-end(40px);
+  }
+
   /* The language picker shows text in a bunch of different locales, use a
      generic sans-serif font to avoid downloading the full Inter variant
      just for this. */

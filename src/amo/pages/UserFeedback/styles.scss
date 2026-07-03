@@ -49,7 +49,7 @@ $icon-size: 32px;
   }
 
   span {
-    color: $grey-50;
+    color: var(--sub-text-color);
     display: inline-block;
     @include margin-end(4px);
 
