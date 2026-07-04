@@ -527,7 +527,7 @@ msgstr "활성화"
 
 #: src/amo/components/AMInstallButton/index.js:136 src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
-msgstr "삭제"
+msgstr "제거"
 
 #: src/amo/components/AMInstallButton/index.js:138
 msgid "Enabling"
@@ -1728,7 +1728,7 @@ msgstr "웹 사이트 콘텐츠"
 
 #: src/amo/components/PermissionsCard/permissions.js:85
 msgid "The developer says this extension doesn't require data collection."
-msgstr "개발자가 이 확장 기능은 데이터 수집이 필요하지 않다고 합니다."
+msgstr "개발자는 이 확장 기능이 데이터 수집을 요구하지 않는다고 밝히고 있습니다."
 
 #: src/amo/components/QRCard/index.js:44
 msgid "Scan the QR code to open this extension in Firefox for Android"
