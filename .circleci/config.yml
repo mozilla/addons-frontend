@@ -4,10 +4,11 @@
 # DOCKER_USER - Login user for docker hub
 # DOCKER_PASS - Login password for docker hub user
 # NPM_TOKEN - A valid NPM token for releases
+#
+# NOTE: build, test, lint, check-fonts and locale extraction now run on GitHub
+# Actions (see .github/workflows/ci.yml). CircleCI still builds/releases the
+# docker image and publishes the blog-utils npm package.
 version: 2.1
-
-orbs:
-  codecov: codecov/codecov@3.2.4
 
 references:
   defaults: &defaults
@@ -134,15 +135,6 @@ commands:
             git reset --hard "$CIRCLE_SHA1"
 
 jobs:
-  build:
-    <<: *defaults
-    steps:
-      - checkout
-      - *restore_build_cache
-      - *run_npm_install
-      - *save_build_cache
-      - run: npm run build-ci
-
   build-docker-image:
     <<: *defaults-release
     steps:
@@ -166,29 +158,6 @@ jobs:
           paths: dist
 
 
-  test:
-    <<: *defaults
-    steps:
-      - better_checkout
-      - *restore_build_cache
-      - *run_npm_install
-      - *save_build_cache
-      - run: npm run test-ci
-      - codecov/upload
-
-  check:
-    <<: *defaults
-    docker:
-      - image: cimg/python:3.11-node
-    steps:
-      - better_checkout
-      - *restore_build_cache
-      - *run_npm_install
-      - *save_build_cache
-      - run: npm run lint
-      - run: npm run prettier-ci
-      - run: pip install 'fonttools<4.44.1' brotli && npm run check-fonts
-
   # build-next:
   #   <<: *defaults-next
   #   steps:
@@ -206,20 +175,6 @@ jobs:
   #     - *run_npm_install
   #     - *save_next_build_cache
   #     - run: npm run test-ci-next
-
-  dennis-lint:
-    <<: *defaults-release
-    steps:
-      - better_checkout
-      - run:
-          name: Install Dennis
-          command: pip install dennis==1.1.0
-      - run:
-          name: Lint locales
-          command: |
-            bash -c 'dennis-cmd lint locale/*/LC_MESSAGES/*.po --rules W202'
-            bash -c 'dennis-cmd lint --errorsonly locale/*/LC_MESSAGES/*.po'
-            bash -c 'dennis-cmd lint --errorsonly locale/templates/LC_MESSAGES/*.pot'
 
   release-blog-utils:
     <<: *defaults
@@ -346,18 +301,14 @@ workflows:
   version: 2
   default-workflow:
     jobs:
-      - build
       - build-docker-image:
           filters:
             branches:
               ignore: master
             tags:
               ignore: /.*/
-      - test
       # - build-next
       # - test-next
-      - check
-      - dennis-lint
       - build-blog-utils:
           filters: # required since `release-blog-utils` has tag filters AND requires this job
             tags:
