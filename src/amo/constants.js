@@ -339,7 +339,7 @@ export const AMO_REQUEST_ID_HEADER = 'amo-request-id';
 
 export const DEFAULT_UTM_SOURCE = 'addons.mozilla.org';
 export const DEFAULT_UTM_MEDIUM = 'referral';
-export const DOWNLOAD_FIREFOX_UTM_CAMPAIGN = 'amo-fx-cta-100795';
+export const DOWNLOAD_FIREFOX_UTM_CAMPAIGN = 'amo-fx-cta';
 export const GET_FIREFOX_BANNER_UTM_CONTENT = 'banner-download-button';
 export const QR_CODE_UTM_CAMPAIGN = 'amo-fx-android-qr';
 
