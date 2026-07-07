@@ -9,13 +9,7 @@ import log from 'amo/logger';
 import './styles.scss';
 
 export type ButtonType =
-  | 'neutral'
-  | 'light'
-  | 'action'
-  | 'cancel'
-  | 'confirm'
-  | 'alert'
-  | 'none';
+  'neutral' | 'light' | 'action' | 'cancel' | 'confirm' | 'alert' | 'none';
 
 export type DefaultProps = {|
   buttonType: ButtonType,

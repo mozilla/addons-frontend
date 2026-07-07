@@ -362,10 +362,7 @@ export const EXCLUDE_WARNING_CATEGORIES = [LINE, RECOMMENDED, SPOTLIGHT];
 export const REVIEWED_FILTER = 'badged';
 
 export type PromotedCategoryType =
-  | typeof LINE
-  | typeof RECOMMENDED
-  | typeof SPOTLIGHT
-  | typeof STRATEGIC;
+  typeof LINE | typeof RECOMMENDED | typeof SPOTLIGHT | typeof STRATEGIC;
 
 export const APP_NAME = 'amo';
 export const WEBPACK_ENTRYPOINT = APP_NAME;

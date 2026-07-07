@@ -90,9 +90,7 @@ type PrimaryHeroShelfWithExternalType = {|
 |};
 
 export type PrimaryHeroShelfType =
-  | PrimaryHeroShelfWithAddonType
-  | PrimaryHeroShelfWithExternalType
-  | null;
+  PrimaryHeroShelfWithAddonType | PrimaryHeroShelfWithExternalType | null;
 
 export type ExternalLinkWithTextType = {|
   url: string,
