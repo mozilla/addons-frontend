@@ -1789,7 +1789,7 @@ msgstr "Bu eklentiyi derecelendirmek için giriş yapın"
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr ""
+msgstr "Eklenti değerlendirmeleri geçici olarak devre dışıdır."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2295,19 +2295,19 @@ msgstr "%(title)s ön izlemesi"
 
 #: src/amo/components/ThemePicker/index.js:90
 msgid "Automatic (match system)"
-msgstr ""
+msgstr "Otomatik (sisteme uy)"
 
 #: src/amo/components/ThemePicker/index.js:91
 msgid "Light"
-msgstr ""
+msgstr "Açık"
 
 #: src/amo/components/ThemePicker/index.js:92
 msgid "Dark"
-msgstr ""
+msgstr "Koyu"
 
 #: src/amo/components/ThemePicker/index.js:98
 msgid "Change theme"
-msgstr ""
+msgstr "Temayı değiştir"
 
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
@@ -2589,6 +2589,8 @@ msgid ""
 "When the author deletes their add-on, it's no longer maintained or updated, which could compromise Firefox security, stability, or performance. To prevent this, the add-on will be restricted from "
 "general use to protect Firefox users. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Geliştiricisi tarafından kaldırılan eklentinin bakımı ve güncellemesi yapılamaz. Firefox'un güvenliği, kararlılığı ve performansını tehlikeye atabilecek bu durumu önlemek ve Firefox kullanıcılarını "
+"korumak için eklentinin genel kullanımı kısıtlanacaktır. Daha fazla bilgi için lütfen %(supportStartLink)sbu destek makalesini%(supportEndLink)s okuyun."
 
 #: src/amo/pages/Block/index.js:263
 msgid "How does Mozilla enforce its policies?"

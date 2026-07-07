@@ -1791,7 +1791,7 @@ msgstr "Iniciar sesión para evaluar este complemento"
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr ""
+msgstr "La evaluación de complementos está temporalmente deshabilitada."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2297,19 +2297,19 @@ msgstr "Vista previa de %(title)s"
 
 #: src/amo/components/ThemePicker/index.js:90
 msgid "Automatic (match system)"
-msgstr ""
+msgstr "Automático (usar el del sistema)"
 
 #: src/amo/components/ThemePicker/index.js:91
 msgid "Light"
-msgstr ""
+msgstr "Claro"
 
 #: src/amo/components/ThemePicker/index.js:92
 msgid "Dark"
-msgstr ""
+msgstr "Oscuro"
 
 #: src/amo/components/ThemePicker/index.js:98
 msgid "Change theme"
-msgstr ""
+msgstr "Cambiar tema"
 
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"

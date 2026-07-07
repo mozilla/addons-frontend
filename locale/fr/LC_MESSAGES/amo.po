@@ -1792,7 +1792,7 @@ msgstr "Connectez-vous pour noter ce module complémentaire"
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr ""
+msgstr "Les notes des modules complémentaires sont temporairement désactivées."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2298,19 +2298,19 @@ msgstr "Aperçu de %(title)s"
 
 #: src/amo/components/ThemePicker/index.js:90
 msgid "Automatic (match system)"
-msgstr ""
+msgstr "Automatique (suivre le thème du système)"
 
 #: src/amo/components/ThemePicker/index.js:91
 msgid "Light"
-msgstr ""
+msgstr "Clair"
 
 #: src/amo/components/ThemePicker/index.js:92
 msgid "Dark"
-msgstr ""
+msgstr "Sombre"
 
 #: src/amo/components/ThemePicker/index.js:98
 msgid "Change theme"
-msgstr ""
+msgstr "Changer de thème"
 
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"

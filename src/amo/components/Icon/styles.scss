@@ -201,10 +201,10 @@
 .Icon-comments,
 .Icon-developer,
 .Icon-artist,
-.Icon-android,
 .Icon-user-dark,
 .Icon-triangle-down-black,
-.Icon-external-dark {
+.Icon-external-dark,
+.Icon-star-full {
   @include dark-theme {
     filter: invert(1);
   }
