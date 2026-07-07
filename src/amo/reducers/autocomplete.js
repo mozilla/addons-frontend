@@ -118,9 +118,7 @@ export const createInternalSuggestion = (
 };
 
 type Action =
-  | AutocompleteCancelAction
-  | AutocompleteLoadAction
-  | AutocompleteStartAction;
+  AutocompleteCancelAction | AutocompleteLoadAction | AutocompleteStartAction;
 
 export default function reducer(
   // eslint-disable-next-line default-param-last

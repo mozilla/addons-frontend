@@ -110,9 +110,7 @@ export const getSuggestionsByCollection = ({
 };
 
 type Action =
-  | AbortFetchSuggestionsAction
-  | FetchSuggestionsAction
-  | LoadSuggestionsAction;
+  AbortFetchSuggestionsAction | FetchSuggestionsAction | LoadSuggestionsAction;
 
 const reducer = (
   // eslint-disable-next-line default-param-last

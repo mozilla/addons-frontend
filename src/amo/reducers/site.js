@@ -66,9 +66,7 @@ export const loadedPageIsAnonymous = (): LoadedPageIsAnonymousAction => {
 };
 
 type Action =
-  | FetchSiteStatusAction
-  | LoadSiteStatusAction
-  | LoadedPageIsAnonymousAction;
+  FetchSiteStatusAction | LoadSiteStatusAction | LoadedPageIsAnonymousAction;
 
 export default function siteReducer(
   // eslint-disable-next-line default-param-last
