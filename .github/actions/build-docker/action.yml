@@ -1,5 +1,5 @@
 name: 'Build Docker Image'
-description: 'Build, smoke-test and optionally push the addons-frontend production docker image'
+description: 'Build and optionally push the addons-frontend production docker image to a registry'
 
 inputs:
   registry:
@@ -14,7 +14,11 @@ inputs:
   push:
     required: false
     default: 'false'
-    description: Whether to push the built image to the registry (also enables the smoke test)
+    description: Whether to push the built image to the registry
+  load:
+    required: false
+    default: 'false'
+    description: Whether to load the built image into the local docker daemon (e.g. to smoke test it)
 
 outputs:
   tags:
@@ -54,54 +58,15 @@ runs:
           # a single tag is associated with the build.
           type=raw,value=${{ inputs.version }}
 
-    # Build the image. When we intend to push (releases) we `load` it into the
-    # local daemon so it can be smoke-tested before being pushed; on PRs we just
-    # verify that the build succeeds.
     - name: Build
       id: build
       uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
       with:
         context: .
         pull: true
-        load: ${{ inputs.push }}
-        push: false
+        load: ${{ inputs.load }}
+        push: ${{ inputs.push }}
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
-
-    # Boot the built image and confirm it serves the load balancer heartbeat,
-    # mirroring the "Check image works" step from the old CircleCI release jobs.
-    - name: Smoke test image
-      if: ${{ inputs.push == 'true' }}
-      shell: bash
-      env:
-        image_ref: ${{ steps.meta.outputs.tags }}
-      run: |
-        set -euo pipefail
-        cid=$(docker run --rm -d -p 4000:4000 \
-          -e NODE_ENV=production -e NODE_CONFIG_ENV=prod \
-          "$image_ref" sh -c "npm run build && npm start")
-
-        cleanup() { docker stop "$cid" >/dev/null 2>&1 || true; }
-        trap cleanup EXIT
-
-        # The container builds the app on start, so give it time before polling.
-        for _ in $(seq 1 30); do
-          if curl -sf http://127.0.0.1:4000/__frontend_lbheartbeat__; then
-            echo "heartbeat OK"
-            exit 0
-          fi
-          sleep 10
-        done
-
-        echo "heartbeat did not respond in time"
-        docker logs "$cid" || true
-        exit 1
-
-    - name: Push image
-      if: ${{ inputs.push == 'true' }}
-      shell: bash
-      env:
-        image_ref: ${{ steps.meta.outputs.tags }}
-      run: docker push "$image_ref"
