@@ -1792,7 +1792,7 @@ msgstr "Jentre par dâ un vôt a chest component adizionâl"
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr ""
+msgstr "Pal moment lis valutazions dai components adizionâi a son stadis disativadis."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2298,19 +2298,19 @@ msgstr "Anteprime di %(title)s"
 
 #: src/amo/components/ThemePicker/index.js:90
 msgid "Automatic (match system)"
-msgstr ""
+msgstr "Automatic (come lis impostazions di sisteme)"
 
 #: src/amo/components/ThemePicker/index.js:91
 msgid "Light"
-msgstr ""
+msgstr "Clâr"
 
 #: src/amo/components/ThemePicker/index.js:92
 msgid "Dark"
-msgstr ""
+msgstr "Scûr"
 
 #: src/amo/components/ThemePicker/index.js:98
 msgid "Change theme"
-msgstr ""
+msgstr "Cambie teme"
 
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
