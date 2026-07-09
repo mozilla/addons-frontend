@@ -370,7 +370,7 @@ describe(__filename, () => {
     });
     const encodedGUID = encode(addon.guid);
     const expectedHref = [
-      'https://www.mozilla.org/firefox/download/thanks/?s=direct',
+      'https://www.firefox.com/thanks/?s=direct',
       'utm_campaign=amo-fx-cta-1234',
       `utm_content=rta%3A${encodedGUID}`,
       'utm_medium=referral',
