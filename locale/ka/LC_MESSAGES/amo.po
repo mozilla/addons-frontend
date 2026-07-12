@@ -1791,7 +1791,7 @@ msgstr "შედით ანგარიშზე დამატების 
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr ""
+msgstr "დამატებების შეფასებები დროებით შეჩერებულია."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2297,19 +2297,19 @@ msgstr "%(title)s – წინასწარი შეთვალიერე
 
 #: src/amo/components/ThemePicker/index.js:90
 msgid "Automatic (match system)"
-msgstr ""
+msgstr "ავტომატური (თანხვედრის სისტემა)"
 
 #: src/amo/components/ThemePicker/index.js:91
 msgid "Light"
-msgstr ""
+msgstr "ნათელი"
 
 #: src/amo/components/ThemePicker/index.js:92
 msgid "Dark"
-msgstr ""
+msgstr "მუქი"
 
 #: src/amo/components/ThemePicker/index.js:98
 msgid "Change theme"
-msgstr ""
+msgstr "იერსახის შეცვლა"
 
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
