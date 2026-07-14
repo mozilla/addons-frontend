@@ -1,0 +1,72 @@
+name: 'Build Docker Image'
+description: 'Build and optionally push the addons-frontend production docker image to a registry'
+
+inputs:
+  registry:
+    required: true
+    description: The registry to tag the image with
+  image:
+    required: true
+    description: The image name to tag with
+  version:
+    required: true
+    description: The image version/tag to build
+  push:
+    required: false
+    default: 'false'
+    description: Whether to push the built image to the registry
+  load:
+    required: false
+    default: 'false'
+    description: Whether to load the built image into the local docker daemon (e.g. to smoke test it)
+
+outputs:
+  tags:
+    description: The full docker tag(s) the image was built with
+    value: ${{ steps.meta.outputs.tags }}
+  digest:
+    description: The image digest of the built image
+    value: ${{ steps.build.outputs.digest }}
+
+runs:
+  using: 'composite'
+  steps:
+    # Write version.json into the build context so it is copied into the image.
+    # Consumed at runtime by src/amo/utils/server.js (served at /__frontend_version__).
+    - name: Write version.json
+      shell: bash
+      env:
+        commit: ${{ github.sha }}
+        version: ${{ inputs.version }}
+        source: ${{ github.server_url }}/${{ github.repository }}
+        build: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      run: |
+        printf '{"commit":"%s","version":"%s","source":"%s","build":"%s"}\n' \
+          "$commit" "$version" "$source" "$build" > version.json
+        cat version.json
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
+
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
+      with:
+        images: ${{ inputs.registry }}/${{ inputs.image }}
+        tags: |
+          # Use a raw tag so the calling workflow fully controls the version and
+          # a single tag is associated with the build.
+          type=raw,value=${{ inputs.version }}
+
+    - name: Build
+      id: build
+      uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
+      with:
+        context: .
+        pull: true
+        load: ${{ inputs.load }}
+        push: ${{ inputs.push }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
