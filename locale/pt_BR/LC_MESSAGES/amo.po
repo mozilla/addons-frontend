@@ -1378,7 +1378,7 @@ msgstr "Versões mais recentes"
 
 #: src/amo/components/Footer/index.js:247
 msgid "Firefox for Business"
-msgstr "Firefox para Empresas"
+msgstr "Firefox para empresas"
 
 #: src/amo/components/Footer/index.js:263
 msgid "Community"
@@ -1789,7 +1789,7 @@ msgstr "Identifique-se para avaliar esta extensão"
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr "As avaliações das extensões estão temporariamente desativadas."
+msgstr "As avaliações de extensões estão temporariamente desativadas."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2295,7 +2295,7 @@ msgstr "Pré-visualização de %(title)s"
 
 #: src/amo/components/ThemePicker/index.js:90
 msgid "Automatic (match system)"
-msgstr "Automático (match system)"
+msgstr "Automático (tema do sistema)"
 
 #: src/amo/components/ThemePicker/index.js:91
 msgid "Light"
@@ -2307,7 +2307,7 @@ msgstr "Escuro"
 
 #: src/amo/components/ThemePicker/index.js:98
 msgid "Change theme"
-msgstr "Alterar tema"
+msgstr "Mudar tema"
 
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
