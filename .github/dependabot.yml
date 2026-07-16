@@ -4,12 +4,14 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 99
     cooldown:
       default-days: 7
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 99
     cooldown:
       default-days: 7
     open-pull-requests-limit: 99
@@ -20,5 +22,6 @@ updates:
     directory: "/"
     schedule:
       interval: daily
+    open-pull-requests-limit: 99
     cooldown:
       default-days: 7
