@@ -1750,7 +1750,7 @@ msgstr "Utvecklaren säger att detta tillägg inte kräver datainsamling."
 
 #: src/amo/components/QRCard/index.js:44
 msgid "Scan the QR code to open this extension in Firefox for Android"
-msgstr ""
+msgstr "Skanna QR-koden för att öppna det här tillägget i Firefox för Android"
 
 #: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
@@ -1791,7 +1791,7 @@ msgstr "Logga in för att betygsätta detta tillägg"
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr ""
+msgstr "Betyg för tillägg är tillfälligt inaktiverade."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2297,19 +2297,19 @@ msgstr "Förhandsvisning av %(title)s"
 
 #: src/amo/components/ThemePicker/index.js:90
 msgid "Automatic (match system)"
-msgstr ""
+msgstr "Automatisk (matcha systemets)"
 
 #: src/amo/components/ThemePicker/index.js:91
 msgid "Light"
-msgstr ""
+msgstr "Ljust"
 
 #: src/amo/components/ThemePicker/index.js:92
 msgid "Dark"
-msgstr ""
+msgstr "Mörkt"
 
 #: src/amo/components/ThemePicker/index.js:98
 msgid "Change theme"
-msgstr ""
+msgstr "Ändra tema"
 
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
