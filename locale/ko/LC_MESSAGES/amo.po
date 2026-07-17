@@ -1540,7 +1540,7 @@ msgstr "더 알아보기"
 
 #: src/amo/components/InstallWarning/index.js:106
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "이 부가 기능은 Mozilla에서 적극적인 보안 모니터링을 하지 않습니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
+msgstr "이 부가 기능은 Mozilla가 보안을 상시 확인하지 않습니다. 먼저 안전한지 확인하고 설치하세요."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
