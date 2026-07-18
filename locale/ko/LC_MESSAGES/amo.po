@@ -2452,11 +2452,11 @@ msgstr[0] "%(addonName)s의 버전 기록 - %(total)s개 버전"
 
 #: src/amo/pages/AddonVersions/index.js:169
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr "이전 버전의 사용에 주의하십시오! 이 버전들은 테스트 및 참조 용도로만 표시되는 것입니다."
+msgstr "이전 버전은 주의해서 사용하세요! 아래 버전들은 테스트 및 참조용으로만 제공됩니다."
 
 #: src/amo/pages/AddonVersions/index.js:175
 msgid "You should always use the latest version of an add-on."
-msgstr "항상 최신 버전의 부가 기능을 사용해야 합니다."
+msgstr "부가 기능은 항상 최신 버전으로 사용해 주세요."
 
 #: src/amo/pages/AddonVersions/index.js:189
 msgid "Versions"
