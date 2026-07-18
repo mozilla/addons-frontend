@@ -2492,7 +2492,7 @@ msgstr "위반 사항이 해결될 때까지 이 부가 기능을 addons.mozilla
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr ""
+msgstr "%(addonName)s 부가 기능은 작성자에 의해 삭제되었기 때문에 사용할 수 없습니다."
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
