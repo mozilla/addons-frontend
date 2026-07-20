@@ -41,7 +41,7 @@
         background-color: var(--base-color);
         display: grid;
         grid-auto-flow: initial;
-        grid-gap: 6px;
+        gap: 6px;
         grid-template-columns: repeat(2, minmax(50%, 1fr));
       }
     }
