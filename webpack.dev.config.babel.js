@@ -66,7 +66,6 @@ export default {
     //   /^react-dom$/,
     //   'react-dom/umd/react-dom.development.js',
     // ),
-    new webpack.NormalModuleReplacementPlugin(/^redux$/, 'redux/dist/redux.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin({ resourceRegExp: /webpack-stats\.json$/ }),
     webpackIsomorphicToolsPlugin.development(),
