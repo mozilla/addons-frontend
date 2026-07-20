@@ -2,7 +2,7 @@
 
 .AddonVersionCard {
   display: grid;
-  grid-gap: $padding-page;
+  gap: $padding-page;
 
   .InstallButtonWrapper {
     grid-column: 1;

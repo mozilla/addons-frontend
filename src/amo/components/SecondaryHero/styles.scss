@@ -3,7 +3,7 @@
 .SecondaryHero {
   color: var(--text-color-default);
   display: grid;
-  grid-gap: $padding-page;
+  gap: $padding-page;
   grid-template-columns: auto;
   min-height: 568px;
   padding: $padding-page 0 0 0;
@@ -13,7 +13,7 @@
   }
 
   @include respond-to(large) {
-    grid-gap: 32px;
+    gap: 32px;
     grid-template-columns: repeat(4, 1fr);
     min-height: 340px;
     padding: 48px 0 24px;

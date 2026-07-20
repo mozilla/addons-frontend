@@ -7,7 +7,7 @@ $yellow-40: #ffbd4f;
   color: var(--sub-text-color);
   display: grid;
   font-size: $font-size-default;
-  grid-gap: 12px;
+  gap: 12px;
   grid-template-columns: auto 1fr auto;
   line-height: 1;
 }
