@@ -50,23 +50,6 @@ export default {
   },
   plugins: [
     ...getPlugins(),
-    // Load unminified React and Redux in development to get better error
-    // messages, because they use
-    // [Invariant](https://github.com/zertosh/invariant) which hides error
-    // messages in the production build.
-    //
-    // We can no longer load the React versions from /umd/ as it no longer
-    // exists.
-    // See https://github.com/mozilla/addons-frontend/issues/11737
-    // new webpack.NormalModuleReplacementPlugin(
-    //   /^react$/,
-    //   'react/umd/react.development.js',
-    // ),
-    // new webpack.NormalModuleReplacementPlugin(
-    //   /^react-dom$/,
-    //   'react-dom/umd/react-dom.development.js',
-    // ),
-    new webpack.NormalModuleReplacementPlugin(/^redux$/, 'redux/dist/redux.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin({ resourceRegExp: /webpack-stats\.json$/ }),
     webpackIsomorphicToolsPlugin.development(),
