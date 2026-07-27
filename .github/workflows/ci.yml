@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - master
-    # Keep the git-tag-push release behaviour we had on CircleCI:
-    #   - version tags (e.g. 1234...) build and push the production image
+    # Keep the git-tag-push release behaviour we had on CircleCI for blog-utils
     #   - blog-utils-* tags publish the blog-utils npm package
     tags:
-      - '[0-9]*'
       - 'blog-utils-*'
   pull_request:
+  workflow_dispatch:
+  release:
+    types: [published]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
@@ -26,6 +27,7 @@ jobs:
       is_fork: ${{ steps.context.outputs.is_fork }}
       is_default_branch: ${{ steps.context.outputs.is_default_branch }}
       is_release_master: ${{ steps.context.outputs.is_release_master }}
+      is_release_tag: ${{ steps.context.outputs.is_release_tag }}
 
     steps:
       - name: Context
@@ -148,7 +150,7 @@ jobs:
   build_docker:
     needs: context
     # Build the production image to verify every PR. On a release (master push or
-    # version-tag push) also load + smoke-test it, so it gates the push jobs.
+    # release publish) also load + smoke-test it, so it gates the push jobs.
     # blog-utils-* tags never build an image.
     if: ${{ !startsWith(github.ref, 'refs/tags/blog-utils-') }}
     runs-on: ubuntu-latest
@@ -169,6 +171,7 @@ jobs:
         env:
           is_fork: ${{ needs.context.outputs.is_fork }}
           is_release_master: ${{ needs.context.outputs.is_release_master }}
+          is_release_tag: ${{ needs.context.outputs.is_release_tag }}
           event_name: ${{ github.event_name }}
           ref: ${{ github.ref }}
           ref_name: ${{ github.ref_name }}
@@ -182,7 +185,7 @@ jobs:
               # Push to master -> tag the image as latest.
               version="latest"
               is_release="true"
-            elif [[ "$event_name" == 'push' && "$ref" == refs/tags/* ]]; then
+            elif [[ "$is_release_tag" == 'true' ]]; then
               # A version tag push -> tag the image with the git tag.
               version="$ref_name"
               is_release="true"
