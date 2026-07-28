@@ -172,8 +172,6 @@ jobs:
           is_fork: ${{ needs.context.outputs.is_fork }}
           is_release_master: ${{ needs.context.outputs.is_release_master }}
           is_release_tag: ${{ needs.context.outputs.is_release_tag }}
-          event_name: ${{ github.event_name }}
-          ref: ${{ github.ref }}
           ref_name: ${{ github.ref_name }}
         run: |
           # Default: PR / branch build -> verify only, no release.
