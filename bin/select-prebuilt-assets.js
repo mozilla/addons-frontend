@@ -8,9 +8,9 @@
  *   <root>/dist/sri.json         (src/amo/server/base.js)
  *   <root>/dist/static/          (src/amo/middleware/staticAssets.js)
  *
- * This runs at container start *instead of* `npm run build`, so booting is
- * just the cost of a few symlinks rather than a 2-5 min webpack build. See
- * AMOENG-473.
+ * This runs at container start not `npm run build`, so booting is
+ * just the cost of a few symlinks rather than a 2-5 min webpack build.
+ * See https://github.com/mozilla/addons/issues/2184
  *
  * Usage:
  *   NODE_CONFIG_ENV=stage node bin/select-prebuilt-assets.js

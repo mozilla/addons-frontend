@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /*
- * Build the production webpack assets once per environment at *image build
- * time* and stash each set under dist-prebuilt/<env>/. At container start
+ * Build the production webpack assets once per environment at image build
+ * time and stash each set under dist-prebuilt/<env>/. At container start
  * bin/select-prebuilt-assets.js links the right set into place, so no webpack
- * build has to run when the app boots. See AMOENG-473.
+ * build has to run when the app boots.
+ * See https://github.com/mozilla/addons/issues/2184
  *
  * The env-specific values (apiHost, baseURL, fxaConfig, extensionWorkshopUrl,
  * langs, ...) are baked into the client bundle via webpack's DefinePlugin
