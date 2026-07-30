@@ -204,6 +204,10 @@ jobs:
           push: false
           # Only load into the local daemon when we are going to smoke test it.
           load: ${{ steps.target.outputs.is_release }}
+          # A release ships a single generic image with every env's assets; a
+          # PR/verify build only needs one env, so prebuild just prod to keep
+          # the build fast.
+          prebuild_envs: ${{ steps.target.outputs.is_release == 'true' && 'dev,stage,prod' || 'prod' }}
 
       # Boot the built image and confirm it serves the load balancer heartbeat,
       # mirroring the "Check image works" step from the old CircleCI release jobs.
@@ -213,20 +217,22 @@ jobs:
           image_ref: ${{ steps.build.outputs.tags }}
         run: |
           set -euo pipefail
+          # Assets are prebuilt into the image, so the default CMD
+          # (npm run start:prebuilt) selects the NODE_CONFIG_ENV=prod set and
+          # starts without a build.
           cid=$(docker run --rm -d -p 4000:4000 \
             -e NODE_ENV=production -e NODE_CONFIG_ENV=prod \
-            "$image_ref" sh -c "npm run build && npm start")
+            "$image_ref")
 
           cleanup() { docker stop "$cid" >/dev/null 2>&1 || true; }
           trap cleanup EXIT
 
-          # The container builds the app on start, so give it time before polling.
-          for _ in $(seq 1 30); do
+          for _ in $(seq 1 20); do
             if curl -sf http://127.0.0.1:4000/__frontend_lbheartbeat__; then
               echo "heartbeat OK"
               exit 0
             fi
-            sleep 10
+            sleep 3
           done
 
           echo "heartbeat did not respond in time"

@@ -9,6 +9,10 @@ COPY package.json package-lock.json /srv/node/
 RUN apt-get update && apt-get install -y --no-install-recommends python3 build-essential ca-certificates git && rm -rf /var/lib/apt/lists/
 RUN npm ci
 
+ARG PREBUILD_ENVS=dev,stage,prod
+COPY . /srv/node/
+RUN PREBUILD_ENVS="${PREBUILD_ENVS}" npm run build:prebuilt
+
 #
 # Install
 #
@@ -34,7 +38,12 @@ COPY --chown=${app_uid}:${app_uid} . ${app_dir}/
 RUN rm -rf node_modules
 COPY --from=builder --chown=${app_uid}:${app_uid} /srv/node/node_modules ${app_dir}/node_modules
 
+# Bring in the assets built for every environment. bin/select-prebuilt-assets.js
+# links the set matching NODE_CONFIG_ENV into place at container start.
+COPY --from=builder --chown=${app_uid}:${app_uid} /srv/node/dist-prebuilt ${app_dir}/dist-prebuilt
+
 ENV SERVER_HOST 0.0.0.0
 ENV SERVER_PORT 4000
 
-CMD npm start
+# Select the prebuilt assets for the target env and start -- no build on boot.
+CMD npm run start:prebuilt
