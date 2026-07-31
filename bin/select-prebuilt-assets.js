@@ -44,8 +44,8 @@ const LINKS = [
 for (const [artifact, canonical] of LINKS) {
   const target = path.join(src, artifact);
   const linkPath = path.join(ROOT, canonical);
-  fs.ensureDirSync(path.dirname(linkPath));
   fs.removeSync(linkPath);
+  // ensureSymlinkSync creates any missing parent directories itself.
   fs.ensureSymlinkSync(target, linkPath);
 }
 
