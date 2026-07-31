@@ -42,8 +42,8 @@ COPY --from=builder --chown=${app_uid}:${app_uid} /srv/node/node_modules ${app_d
 # links the set matching NODE_CONFIG_ENV into place at container start.
 COPY --from=builder --chown=${app_uid}:${app_uid} /srv/node/dist-prebuilt ${app_dir}/dist-prebuilt
 
-ENV SERVER_HOST 0.0.0.0
-ENV SERVER_PORT 4000
+ENV SERVER_HOST=0.0.0.0
+ENV SERVER_PORT=4000
 
 # Select the prebuilt assets for the target env and start -- no build on boot.
-CMD npm run start:prebuilt
+CMD ["npm", "run", "start:prebuilt"]
