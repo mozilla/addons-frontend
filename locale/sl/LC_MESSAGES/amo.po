@@ -1797,7 +1797,7 @@ msgstr "Prijavite se, da ocenite ta dodatek"
 #. This is shown on the rating manager of an add-on detail page when the site is put in read-only mode (for maintenance), which prevents users from rating said add-on.
 #: src/amo/components/RatingManager/index.js:185
 msgid "Add-on ratings are temporarily disabled."
-msgstr "Ocene dodatkov so začasno onemogočene."
+msgstr "Ocenjevanje dodatkov je začasno onemogočeno."
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Click to rate:"
@@ -2593,15 +2593,15 @@ msgid ""
 "When an add-on is deleted, it will no longer be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed. They may choose to enable "
 "the add-on again at their own risk."
 msgstr ""
-"Ko je dodatek izbrisan, ne bo več na voljo za prenos z addons.mozilla.org. Če je že nameščen, bo onemogočen in uporabniki o tem obveščeni. Dodatek se lahko ponovno omogoči na lastno odgovornost."
+"Po izbrisu dodatek ne bo več na voljo za prenos z addons.mozilla.org. Kjer je že nameščen, bo onemogočen, uporabniki pa bodo o tem obveščeni. Na lastno odgovornost lahko dodatek ponovno omogočijo."
 
 #: src/amo/pages/Block/index.js:128
 msgid ""
 "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. If it's already installed, it will be disabled and users will be informed about the violation. "
 "They may choose to enable the add-on again at their own risk."
 msgstr ""
-"Dokler se kršitev ne odpravi, ta dodatek ne bo na voljo za prenos z addons.mozilla.org. Če je že nameščen, bo onemogočen, uporabniki pa bodo o kršitvi obveščeni. Dodatek se lahko ponovno omogoči na "
-"lastno odgovornost."
+"Dokler se kršitev ne odpravi, ta dodatek ne bo na voljo za prenos z addons.mozilla.org. Kjer je že nameščen, bo onemogočen, uporabniki pa bodo o kršitvi obveščeni. Na lastno odgovornost lahko "
+"dodatek ponovno omogočijo."
 
 #: src/amo/pages/Block/index.js:135
 msgid "Until the violation is resolved, this add-on won't be available for download from addons.mozilla.org. It will be automatically disabled and no longer usable in Firefox."
@@ -2609,11 +2609,11 @@ msgstr "Dokler se kršitev ne odpravi, ta dodatek ne bo na voljo za prenos z add
 
 #: src/amo/pages/Block/index.js:158
 msgid "%(addonName)s is restricted because it was deleted by the author(s)"
-msgstr "%(addonName)s je omejen, ker so ga izbrisali avtor(i)"
+msgstr "%(addonName)s je omejen, ker ga je avtor izbrisal"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on is restricted because it was deleted by the author(s)"
-msgstr "Ta dodatek je omejen, ker so ga avtorji izbrisali"
+msgstr "Ta dodatek je omejen, ker ga je avtor izbrisal"
 
 #: src/amo/pages/Block/index.js:172
 msgid "%(addonName)s is restricted for violating Mozilla policies"
