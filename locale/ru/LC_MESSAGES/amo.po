@@ -505,7 +505,7 @@ msgstr "от"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "Исходный код выпущен на условиях %(linkStart)s%(licenseName)s%(linkEnd)s"
+msgstr "Исходный код выпущен на условиях: %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
@@ -513,7 +513,7 @@ msgstr "Исходный код выпущен на условиях %(linkStart
 
 #: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
-msgstr "Исходный код выпущен на условиях %(licenseName)s"
+msgstr "Исходный код выпущен на условиях: %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
