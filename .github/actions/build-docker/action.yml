@@ -19,6 +19,13 @@ inputs:
     required: false
     default: 'false'
     description: Whether to load the built image into the local docker daemon (e.g. to smoke test it)
+  prebuild_envs:
+    required: false
+    default: 'dev,stage,prod'
+    description: >-
+      Comma-separated NODE_CONFIG_ENV values to prebuild client assets for. The
+      release image builds all envs (one generic image); PR/verify builds can
+      pass a single env to keep the build fast.
 
 outputs:
   tags:
@@ -68,5 +75,7 @@ runs:
         push: ${{ inputs.push }}
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+        build-args: |
+          PREBUILD_ENVS=${{ inputs.prebuild_envs }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
