@@ -1,7 +1,7 @@
 #
 # Build
 #
-FROM node:22.22.2-slim AS builder
+FROM node:26.6.0-slim AS builder
 
 WORKDIR /srv/node
 COPY package.json package-lock.json /srv/node/
@@ -16,7 +16,7 @@ RUN PREBUILD_ENVS="${PREBUILD_ENVS}" npm run build:prebuilt
 #
 # Install
 #
-FROM node:22.22.2-slim
+FROM node:26.6.0-slim
 
 ARG app_uid=9500
 ARG app_dir=/app
