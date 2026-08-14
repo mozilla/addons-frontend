@@ -227,6 +227,15 @@ jobs:
           cleanup() { docker stop "$cid" >/dev/null 2>&1 || true; }
           trap cleanup EXIT
 
+          # The server require()s src/locale/<locale>/amo.js at SSR time to
+          # translate pages; check they exist.
+          if ! docker exec "$cid" sh -c 'test -f src/locale/it/amo.js && test -f src/locale/de/amo.js'; then
+            echo "SSR locale catalogs missing from image (mozilla/addons#16410)"
+            docker logs "$cid" || true
+            exit 1
+          fi
+          echo "locale catalogs present"
+
           for _ in $(seq 1 20); do
             if curl -sf http://127.0.0.1:4000/__frontend_lbheartbeat__; then
               echo "heartbeat OK"
