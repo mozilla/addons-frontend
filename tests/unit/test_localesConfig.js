@@ -24,7 +24,7 @@ describe(__filename, () => {
   for (const localeDir of globSync('locale/*')) {
     const locale = path.basename(localeDir);
     const lang = localeToLang(locale);
-    if (locale === 'templates') {
+    if (locale === 'templates' || locale === 'README.md') {
       continue;
     }
     // eslint-disable no-loop-func
