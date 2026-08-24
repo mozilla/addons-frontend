@@ -55,6 +55,10 @@ tests/ui/.pytest_cache/
 *.pyc
 
 .DS_Store
+
+# locales/ should be a clone of https://github.com/mozilla-l10n/addons-frontend-l10n
+locale/
+# src/locale/* is generated at build time by build-locales.
 src/locale/*
 
 # storybook
