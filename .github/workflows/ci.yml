@@ -47,6 +47,12 @@ jobs:
         with:
           persist-credentials: false
 
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: mozilla-l10n/addons-frontend-l10n
+          persist-credentials: false
+          path: locale
+
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22
@@ -69,6 +75,12 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: mozilla-l10n/addons-frontend-l10n
+          persist-credentials: false
+          path: locale
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -134,6 +146,12 @@ jobs:
         with:
           persist-credentials: false
 
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: mozilla-l10n/addons-frontend-l10n
+          persist-credentials: false
+          path: locale
+
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.11'
@@ -165,6 +183,12 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: mozilla-l10n/addons-frontend-l10n
+          persist-credentials: false
+          path: locale
 
       - name: Determine image version
         id: target
@@ -262,6 +286,12 @@ jobs:
         with:
           persist-credentials: false
 
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: mozilla-l10n/addons-frontend-l10n
+          persist-credentials: false
+          path: locale
+
       - name: Login to Dockerhub
         id: docker_hub
         uses: mozilla/addons/.github/actions/login-docker@f748fdc2c8057ad7b574521a60c182939f2ee687
@@ -297,6 +327,12 @@ jobs:
         with:
           persist-credentials: false
 
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: mozilla-l10n/addons-frontend-l10n
+          persist-credentials: false
+          path: locale
+
       - name: Login to GAR
         uses: mozilla/addons/.github/actions/login-gar@f748fdc2c8057ad7b574521a60c182939f2ee687
         with:
@@ -324,6 +360,12 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: mozilla-l10n/addons-frontend-l10n
+          persist-credentials: false
+          path: locale
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -353,10 +395,16 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           persist-credentials: ${{ needs.context.outputs.is_default_branch }}
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: mozilla-l10n/addons-frontend-l10n
+          token: ${{ secrets.L10N_GITHUB_TOKEN }}
+          persist-credentials: ${{ needs.context.outputs.is_default_branch }}
+          path: locale
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
