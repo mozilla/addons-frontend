@@ -19,6 +19,10 @@ within(async () => {
     --verbose \
   `;
 
+  // Before running git diff, go in the locale dir, which should be a clone of
+  // the addons-frontend-l10n repo.
+  cd(localeDir);
+
   const {stdout: output} = await $`git diff --numstat -- ${templateFile}`;
 
   // git diff --numstat returns the number of insertions and deletions for each file
