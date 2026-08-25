@@ -325,12 +325,7 @@ export const getVersionInfo = ({
       })
       .join(', ');
 
-    const compatibilityString = i18n.sprintf(
-      // eslint-disable-next-line max-len
-      // L10n: This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-      i18n.gettext('Works with %(listOfApplicatonsAndVersions)s'),
-      { listOfApplicatonsAndVersions: appInfo },
-    );
+    const compatibilityString = '';
 
     return {
       compatibilityString,
