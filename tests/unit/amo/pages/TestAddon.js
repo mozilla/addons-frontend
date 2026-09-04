@@ -484,14 +484,12 @@ describe(__filename, () => {
     expect(
       screen.getByClassName('Addon-WrongPlatformWarning'),
     ).toBeInTheDocument();
+    expect(screen.getByText(/To use Android extensions/)).toBeInTheDocument();
     expect(
-      screen.getByRole('link', {
+      screen.queryByRole('link', {
         name: 'visit our desktop site',
       }),
-    ).toHaveAttribute('href', '/a/different/location/');
-    expect(
-      screen.getByText(/To explore Firefox for desktop add-ons, please/),
-    ).toBeInTheDocument();
+    ).not.toBeInTheDocument();
   });
 
   it('does not render a WrongPlatformWarning component without an addon', () => {
