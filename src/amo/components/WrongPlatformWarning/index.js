@@ -122,12 +122,9 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
         utm_campaign: location.query.utm_campaign || undefined,
       };
 
-      // Redirecting to new page on the desktop site.
       message = replaceStringsWithJSX({
         text: i18n.gettext(`To use Android extensions, you'll need
-          %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To
-          explore Firefox for desktop add-ons, please %(linkStart)svisit our
-          desktop site%(linkEnd)s.`),
+          %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s.`),
         replacements: [
           [
             'downloadLinkStart',
@@ -135,19 +132,6 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
             (text) => (
               <Link
                 href={getDownloadLink({ clientApp, overrideQueryParams })}
-                prependClientApp={false}
-                prependLang={false}
-              >
-                {text}
-              </Link>
-            ),
-          ],
-          [
-            'linkStart',
-            'linkEnd',
-            (text) => (
-              <Link
-                to={newLocation}
                 prependClientApp={false}
                 prependLang={false}
               >

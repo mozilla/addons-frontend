@@ -2,6 +2,8 @@
 import invariant from 'invariant';
 import UAParser from 'ua-parser-js';
 
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import { getClientApp } from 'amo/utils/getClientApp';
 import { LOG_OUT_USER } from 'amo/reducers/users';
 import type { LogOutUserAction } from 'amo/reducers/users';
 import type { Exact } from 'amo/types/util';
@@ -141,6 +143,19 @@ type Action =
   | SetUserAgentAction
   | LogOutUserAction;
 
+// If it's a `firefox` clientApp - i.e. `/firefox/` - pages behave like `/android/` on
+// Android devices. It only, effectively, turns `firefox` into  `android`, never the reverse.
+export const getEffectiveClientApp = (
+  clientApp: string,
+  userAgent: ?string,
+): string => {
+  if (clientApp === CLIENT_APP_FIREFOX) {
+    return getClientApp(userAgent || '');
+  }
+
+  return clientApp;
+};
+
 export default function api(
   // eslint-disable-next-line default-param-last
   state: Exact<ApiState> = initialApiState,
@@ -155,7 +170,13 @@ export default function api(
     case SET_LANG:
       return { ...state, lang: action.payload.lang };
     case SET_CLIENT_APP:
-      return { ...state, clientApp: action.payload.clientApp };
+      return {
+        ...state,
+        clientApp: getEffectiveClientApp(
+          action.payload.clientApp,
+          state.userAgent,
+        ),
+      };
     case SET_REGION_CODE:
       return { ...state, regionCode: action.payload.regionCode };
     case SET_REQUEST_ID:
@@ -165,6 +186,10 @@ export default function api(
 
       return {
         ...state,
+        clientApp: getEffectiveClientApp(
+          state.clientApp,
+          action.payload.userAgent,
+        ),
         userAgent: action.payload.userAgent,
         userAgentInfo: { browser, device, os },
       };

@@ -1,8 +1,9 @@
 import UAParser from 'ua-parser-js';
 
 import * as actions from 'amo/reducers/api';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import { logOutUser } from 'amo/reducers/users';
-import api, { initialApiState } from 'amo/reducers/api';
+import api, { getEffectiveClientApp, initialApiState } from 'amo/reducers/api';
 import { userAgents, userAuthSessionId } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -168,6 +169,85 @@ describe(__filename, () => {
   describe('setAuthToken', () => {
     it('requires a token', () => {
       expect(() => actions.setAuthToken()).toThrow(/token cannot be falsey/);
+    });
+  });
+
+  describe('getEffectiveClientApp', () => {
+    it('returns android when clientApp is firefox and UA is Android', () => {
+      expect(
+        getEffectiveClientApp(CLIENT_APP_FIREFOX, userAgents.firefoxAndroid[0]),
+      ).toEqual(CLIENT_APP_ANDROID);
+    });
+
+    it('returns android for a non-Firefox Android UA', () => {
+      expect(
+        getEffectiveClientApp(CLIENT_APP_FIREFOX, userAgents.chromeAndroid[0]),
+      ).toEqual(CLIENT_APP_ANDROID);
+    });
+
+    it('keeps firefox when clientApp is firefox and UA is desktop', () => {
+      expect(
+        getEffectiveClientApp(CLIENT_APP_FIREFOX, userAgents.firefox[5]),
+      ).toEqual(CLIENT_APP_FIREFOX);
+    });
+
+    it('keeps firefox when clientApp is firefox and UA is Firefox for iOS', () => {
+      expect(
+        getEffectiveClientApp(CLIENT_APP_FIREFOX, userAgents.firefoxIOS[1]),
+      ).toEqual(CLIENT_APP_FIREFOX);
+    });
+
+    it('keeps firefox when clientApp is firefox and there is no userAgent', () => {
+      expect(getEffectiveClientApp(CLIENT_APP_FIREFOX, null)).toEqual(
+        CLIENT_APP_FIREFOX,
+      );
+    });
+
+    it('keeps android when clientApp is android and UA is desktop', () => {
+      // A desktop user who explicitly chose the Android site keeps it.
+      expect(
+        getEffectiveClientApp(CLIENT_APP_ANDROID, userAgents.firefox[5]),
+      ).toEqual(CLIENT_APP_ANDROID);
+    });
+  });
+
+  describe('deriving clientApp from a mobile user agent', () => {
+    it('turns a firefox clientApp into android for a mobile UA', () => {
+      const userAgent = userAgents.firefoxAndroid[0];
+      let state = api(undefined, actions.setClientApp(CLIENT_APP_FIREFOX));
+      state = api(state, actions.setUserAgent(userAgent));
+
+      expect(state.clientApp).toEqual(CLIENT_APP_ANDROID);
+    });
+
+    it('derives android regardless of the order of the actions', () => {
+      // On the server the userAgent may be set before the clientApp.
+      const userAgent = userAgents.firefoxAndroid[0];
+      let state = api(undefined, actions.setUserAgent(userAgent));
+      state = api(state, actions.setClientApp(CLIENT_APP_FIREFOX));
+
+      expect(state.clientApp).toEqual(CLIENT_APP_ANDROID);
+    });
+
+    it('keeps a firefox clientApp for a desktop UA', () => {
+      let state = api(undefined, actions.setClientApp(CLIENT_APP_FIREFOX));
+      state = api(state, actions.setUserAgent(userAgents.firefox[5]));
+
+      expect(state.clientApp).toEqual(CLIENT_APP_FIREFOX);
+    });
+
+    it('keeps a firefox clientApp for a Firefox for iOS UA', () => {
+      let state = api(undefined, actions.setClientApp(CLIENT_APP_FIREFOX));
+      state = api(state, actions.setUserAgent(userAgents.firefoxIOS[1]));
+
+      expect(state.clientApp).toEqual(CLIENT_APP_FIREFOX);
+    });
+
+    it('does not turn android back into firefox for a desktop UA', () => {
+      let state = api(undefined, actions.setClientApp(CLIENT_APP_ANDROID));
+      state = api(state, actions.setUserAgent(userAgents.firefox[5]));
+
+      expect(state.clientApp).toEqual(CLIENT_APP_ANDROID);
     });
   });
 });

@@ -122,8 +122,9 @@ describe(__filename, () => {
     render({ isHomePage: true, showWrongPlatformWarning: true });
 
     expect(
-      screen.getByRole('link', { name: 'visit our desktop site' }),
-    ).toHaveAttribute('href', '/');
+      screen.getByRole('link', { name: 'Firefox for Android' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/To use Android extensions/)).toBeInTheDocument();
   });
 
   it('assigns a className to a page other than the home page', () => {
@@ -317,6 +318,17 @@ describe(__filename, () => {
         expect(
           screen.getByText(/To use Android extensions, you'll need/),
         ).toBeInTheDocument();
+      });
+
+      it('does not link to the desktop site', () => {
+        render(props);
+
+        expect(
+          screen.queryByRole('link', { name: 'visit our desktop site' }),
+        ).not.toBeInTheDocument();
+        expect(
+          screen.queryByText(/explore Firefox for desktop add-ons/),
+        ).not.toBeInTheDocument();
       });
 
       it('sets the href on the button with the expected utm params', () => {
@@ -766,6 +778,23 @@ describe(__filename, () => {
           screen.getByText('Dictionaries & Language Packs'),
         ).toHaveAttribute('href', '/en-US/firefox/language-tools/');
         expect(screen.getByText('Add-ons for Android')).toBeInTheDocument();
+      });
+
+      it('hides the Firefox-only section links for a mobile user agent on the Firefox site', () => {
+        // A mobile user agent switches the clientApp to Android, which hides
+        // the Themes and Language Packs links.
+        _dispatchClientMetadata({
+          clientApp: CLIENT_APP_FIREFOX,
+          userAgent: userAgents.firefoxAndroid[0],
+        });
+        render();
+
+        expect(
+          screen.queryByRole('link', { name: 'Themes' }),
+        ).not.toBeInTheDocument();
+        expect(
+          screen.queryByText('Dictionaries & Language Packs'),
+        ).not.toBeInTheDocument();
       });
 
       it('renders a DropdownMenu for the "More" section', () => {

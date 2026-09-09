@@ -197,13 +197,13 @@ describe(__filename, () => {
     expect(screen.getByText(/To use Android extensions/)).toBeInTheDocument();
 
     expect(
-      screen.getByRole('link', {
+      screen.queryByRole('link', {
         name: 'visit our desktop site',
       }),
-    ).toHaveAttribute('href', newLocation);
+    ).not.toBeInTheDocument();
     expect(
-      screen.getByText(/To explore Firefox for desktop add-ons, please/),
-    ).toBeInTheDocument();
+      screen.queryByText(/To explore Firefox for desktop add-ons, please/),
+    ).not.toBeInTheDocument();
   });
 
   it('generates the expected message when being directed to other than the mobile home page, from other pages', () => {
@@ -232,13 +232,13 @@ describe(__filename, () => {
     expect(screen.getByText(/To use Android extensions/)).toBeInTheDocument();
 
     expect(
-      screen.getByRole('link', {
+      screen.queryByRole('link', {
         name: 'visit our desktop site',
       }),
-    ).toHaveAttribute('href', newLocation);
+    ).not.toBeInTheDocument();
     expect(
-      screen.getByText(/To explore Firefox for desktop add-ons, please/),
-    ).toBeInTheDocument();
+      screen.queryByText(/To explore Firefox for desktop add-ons, please/),
+    ).not.toBeInTheDocument();
   });
 
   it('passes the utm_campaign value to the Play Store link when available', () => {

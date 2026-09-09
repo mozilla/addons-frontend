@@ -13,7 +13,6 @@ import {
 import Button from 'amo/components/Button';
 import { getDownloadLink } from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
-import Link from 'amo/components/Link';
 import tracking from 'amo/tracking';
 import { isFirefox } from 'amo/utils/compatibility';
 import translate from 'amo/i18n/translate';
@@ -102,27 +101,13 @@ export const GetFirefoxBannerBase = ({
     ],
   ];
 
-  if (clientApp === CLIENT_APP_ANDROID) {
-    replacements.push([
-      'linkStart',
-      'linkEnd',
-      (text) => (
-        <Link to={`/${CLIENT_APP_FIREFOX}/`} prependClientApp={false}>
-          {text}
-        </Link>
-      ),
-    ]);
-  }
-
   const bannerContent = replaceStringsWithJSX({
     text:
       clientApp === CLIENT_APP_FIREFOX
         ? i18n.gettext(`To use these add-ons, you'll need to
             %(downloadLinkStart)sdownload Firefox%(downloadLinkEnd)s.`)
         : i18n.gettext(`To use Android extensions, you'll need
-            %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s. To
-            explore Firefox for desktop add-ons, please %(linkStart)svisit our
-            desktop site%(linkEnd)s.`),
+            %(downloadLinkStart)sFirefox for Android%(downloadLinkEnd)s.`),
     replacements,
   });
 
