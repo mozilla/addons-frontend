@@ -13,8 +13,9 @@
 // A simple check that node + npm versions
 // meet the expected minimums.
 
-const { exec } = require('shelljs');
 const util = require('node:util');
+
+const { exec } = require('shelljs');
 const semver = require('semver');
 
 const MIN_NODE_VERSION = 22;
