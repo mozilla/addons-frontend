@@ -6,8 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
-
-const chalk = require('chalk');
+const util = require('node:util');
 
 const root = path.resolve(path.join(path.dirname(__filename), '..'));
 if (!fs.statSync(root).isDirectory()) {
@@ -33,12 +32,12 @@ const disallowedFiles = fs
 
 if (disallowedFiles.length) {
   console.log(
-    chalk.red(
+    util.styleText('red',
       'These local config files are not allowed because they might pollute ' +
         'the test environment. Prefix them with local-development- or remove ' +
         'them:',
     ),
   );
-  console.log(chalk.red(disallowedFiles.join('\n')));
+  console.log(util.styleText('red', disallowedFiles.join('\n')));
   process.exit(1);
 }
