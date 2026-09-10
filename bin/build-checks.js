@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable global-require, no-console */
 
-const chalk = require('chalk');
+const util = require('node:util');
 require('@babel/register');
 
-console.log(chalk.green(`\n--->  BUILDING app\n`));
+console.log(util.styleText('green', `\n--->  BUILDING app\n`));
