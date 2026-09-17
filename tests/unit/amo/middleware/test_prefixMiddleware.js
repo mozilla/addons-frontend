@@ -118,7 +118,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
-  it('should vary on accept-language and user-agent', () => {
+  it('should vary on accept-language but not user-agent', () => {
     const fakeReq = {
       originalUrl: '/whatever',
       headers: {
@@ -128,11 +128,11 @@ describe(__filename, () => {
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-BR/firefox/whatever');
     sinon.assert.calledWith(fakeRes.vary, 'accept-language');
-    sinon.assert.calledWith(fakeRes.vary, 'user-agent');
+    sinon.assert.neverCalledWith(fakeRes.vary, 'user-agent');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
-  it('should find the app based on ua string', () => {
+  it('should default to the firefox app regardless of the ua string', () => {
     const fakeReq = {
       originalUrl: '/en-US/whatever',
       headers: {
@@ -141,8 +141,8 @@ describe(__filename, () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/android/whatever');
-    sinon.assert.calledWith(fakeRes.vary, 'user-agent');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
+    sinon.assert.neverCalledWith(fakeRes.vary, 'user-agent');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 

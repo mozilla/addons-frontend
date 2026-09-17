@@ -4,14 +4,11 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
-import { setClientApp } from 'amo/reducers/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'amo/constants';
@@ -21,10 +18,7 @@ import DropdownMenu from 'amo/components/DropdownMenu';
 import DropdownMenuItem from 'amo/components/DropdownMenuItem';
 import type { AppState } from 'amo/store';
 import type { ViewContextType } from 'amo/reducers/viewContext';
-import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
-import type { DispatchFunc } from 'amo/types/redux';
-import type { ReactRouterHistoryType } from 'amo/types/router';
 
 import './styles.scss';
 
@@ -41,29 +35,10 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  dispatch: DispatchFunc,
-  history: ReactRouterHistoryType,
   i18n: I18nType,
 |};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
-  setClientApp: HTMLElementEventHandler = (event: ElementEvent) => {
-    event.preventDefault();
-
-    const { dispatch, history } = this.props;
-
-    const clientApp = event.currentTarget.getAttribute('data-clientapp');
-    const href = event.currentTarget.getAttribute('href');
-
-    if (clientApp) {
-      dispatch(setClientApp(clientApp));
-    }
-
-    if (href) {
-      history.push(href);
-    }
-  };
-
   render(): React.Node {
     const { className, clientApp, forBlog, i18n, viewContext } = this.props;
 
@@ -132,20 +107,6 @@ export class SectionLinksBase extends React.Component<InternalProps> {
                   {i18n.gettext('Dictionaries & Language Packs')}
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem className="SectionLinks-subheader">
-                {i18n.gettext('Other Browser Sites')}
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link
-                  className={`SectionLinks-clientApp-${CLIENT_APP_ANDROID}`}
-                  data-clientapp={CLIENT_APP_ANDROID}
-                  onClick={this.setClientApp}
-                  prependClientApp={false}
-                  to={`/${CLIENT_APP_ANDROID}/`}
-                >
-                  {i18n.gettext('Add-ons for Android')}
-                </Link>
-              </DropdownMenuItem>
             </>
           </DropdownMenu>
         </li>
@@ -162,7 +123,6 @@ function mapStateToProps(state: AppState): PropsFromState {
 }
 
 const SectionLinks: React.ComponentType<Props> = compose(
-  withRouter,
   connect(mapStateToProps),
   translate(),
 )(SectionLinksBase);

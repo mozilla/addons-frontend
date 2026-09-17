@@ -1,5 +1,4 @@
 import { waitFor } from '@testing-library/react';
-import UAParser from 'ua-parser-js';
 
 import {
   FETCH_VERSIONS,
@@ -27,10 +26,7 @@ import { formatFilesize } from 'amo/i18n/utils';
 import { FETCH_ADDON, fetchAddon, loadAddon } from 'amo/reducers/addons';
 import { setInstallError, setInstallState } from 'amo/reducers/installations';
 import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
-import {
-  correctedLocationForPlatform,
-  getClientCompatibility,
-} from 'amo/utils/compatibility';
+import { getClientCompatibility } from 'amo/utils/compatibility';
 import {
   changeLocation,
   createFailedErrorHandler,
@@ -54,7 +50,6 @@ import {
 
 jest.mock('amo/utils/compatibility', () => ({
   ...jest.requireActual('amo/utils/compatibility'),
-  correctedLocationForPlatform: jest.fn().mockReturnValue(''),
   getClientCompatibility: jest.fn().mockReturnValue({
     compatible: true,
     reason: null,
@@ -1130,40 +1125,6 @@ describe(__filename, () => {
               `Make sure you trust it before installing.`,
           ),
         ).not.toBeInTheDocument();
-      });
-
-      it('returns false if the WrongPlatformWarning would be shown', () => {
-        correctedLocationForPlatform.mockReturnValue('/some/path/');
-        renderWithAddonAndVersions();
-
-        expect(
-          screen.queryByText(
-            `This add-on is not actively monitored for security by Mozilla. ` +
-              `Make sure you trust it before installing.`,
-          ),
-        ).not.toBeInTheDocument();
-      });
-
-      it('calls correctedLocationForPlatform with clientApp, location and userAgentInfo', () => {
-        const userAgent = userAgentsByPlatform.mac.firefox57;
-        const parsedUserAgent = UAParser(userAgent);
-        dispatchClientMetadata({
-          clientApp: CLIENT_APP_ANDROID,
-          lang: 'fr',
-          store,
-          userAgent,
-        });
-        renderWithAddonAndVersions();
-
-        expect(correctedLocationForPlatform).toHaveBeenCalledWith({
-          clientApp: CLIENT_APP_ANDROID,
-          lang: 'fr',
-          location: expect.objectContaining({ pathname: getLocation() }),
-          userAgentInfo: expect.objectContaining({
-            browser: parsedUserAgent.browser,
-            os: parsedUserAgent.os,
-          }),
-        });
       });
     });
   });

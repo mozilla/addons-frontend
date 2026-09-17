@@ -4,15 +4,10 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import { mozCompare } from 'addons-moz-compare';
 
-import {
-  USER_AGENT_BROWSER_FIREFOX,
-  USER_AGENT_OS_ANDROID,
-  USER_AGENT_OS_IOS,
-} from 'amo/reducers/api';
+import { USER_AGENT_OS_ANDROID, USER_AGENT_OS_IOS } from 'amo/reducers/api';
 import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -25,7 +20,6 @@ import log from 'amo/logger';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';
-import type { ReactRouterLocationType } from 'amo/types/router';
 
 export type GetCompatibleVersionsParams = {|
   _log?: typeof log,
@@ -288,51 +282,3 @@ export function getClientCompatibility({
     reason,
   };
 }
-
-export const getMobileHomepageLink = (lang: string): string =>
-  `/${lang}/${CLIENT_APP_ANDROID}/`;
-
-export const correctedLocationForPlatform = ({
-  clientApp,
-  lang,
-  location,
-  userAgentInfo,
-}: {|
-  clientApp: string,
-  isHomePage?: boolean,
-  lang: string,
-  location: ReactRouterLocationType,
-  userAgentInfo: UserAgentInfoType,
-|}): string | null => {
-  // If the userAgent is false there was likely a programming error.
-  invariant(userAgentInfo, 'userAgentInfo is required');
-
-  const { browser, os } = userAgentInfo;
-
-  if (isFirefoxForIOS(userAgentInfo) || !isFirefox({ userAgentInfo })) {
-    return null;
-  }
-
-  if (
-    // Android browser on desktop site.
-    isFirefoxForAndroid(userAgentInfo) &&
-    clientApp === CLIENT_APP_FIREFOX
-  ) {
-    // Redirect to `android` home page.
-    return getMobileHomepageLink(lang);
-  }
-
-  if (
-    os.name !== USER_AGENT_OS_ANDROID &&
-    browser.name === USER_AGENT_BROWSER_FIREFOX &&
-    clientApp === CLIENT_APP_ANDROID
-  ) {
-    // Desktop browser on android site: Redirect to same page on `firefox`.
-    return `${location.pathname.replace(
-      CLIENT_APP_ANDROID,
-      CLIENT_APP_FIREFOX,
-    )}${location.search}`;
-  }
-
-  return null;
-};
