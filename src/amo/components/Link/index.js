@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Icon from 'amo/components/Icon';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 
 export class LinkBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    clientApp: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     external: PropTypes.bool,
     externalDark: PropTypes.bool,
@@ -31,13 +31,15 @@ export class LinkBase extends React.Component {
     prependLang: true,
   };
 
-  urlPrefix({ clientApp, lang, prependClientApp, prependLang } = {}) {
+  urlPrefix({ lang, prependClientApp, prependLang } = {}) {
     const prefix = [];
     if (prependLang) {
       prefix.push(lang);
     }
     if (prependClientApp) {
-      prefix.push(clientApp);
+      // All internal URLs reference `/firefox/`, regardless of the effective
+      // clientApp. `/firefox/` pages adapt to Android devices at render time.
+      prefix.push(CLIENT_APP_FIREFOX);
     }
     if (prefix.length) {
       return `/${prefix.join('/')}/`;
@@ -50,7 +52,6 @@ export class LinkBase extends React.Component {
 
   render() {
     const {
-      clientApp,
       children,
       dispatch,
       external,
@@ -66,7 +67,6 @@ export class LinkBase extends React.Component {
     } = this.props;
 
     const urlPrefix = this.urlPrefix({
-      clientApp,
       lang,
       prependClientApp,
       prependLang,
@@ -134,7 +134,6 @@ export class LinkBase extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    clientApp: state.api.clientApp,
     lang: state.api.lang,
   };
 }

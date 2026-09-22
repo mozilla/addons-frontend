@@ -1,7 +1,7 @@
 /* global window */
 import config from 'config';
 import * as React from 'react';
-import { createEvent, fireEvent, waitFor } from '@testing-library/react';
+import { waitFor } from '@testing-library/react';
 import defaultUserEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
@@ -24,7 +24,6 @@ import {
   GET_FIREFOX_BANNER_UTM_CONTENT,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'amo/constants';
-import { setClientApp } from 'amo/reducers/api';
 import { loadSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
 import { logOutUser } from 'amo/reducers/users';
 import tracking from 'amo/tracking';
@@ -118,13 +117,15 @@ describe(__filename, () => {
     dispatchClientMetadata({ ...props, store });
   };
 
-  it('passes isHomePage to WrongPlatformWarning', () => {
+  it('renders the WrongPlatformWarning on the home page when applicable', () => {
+    _dispatchClientMetadata({ userAgent: userAgents.firefoxIOS[0] });
     render({ isHomePage: true, showWrongPlatformWarning: true });
 
     expect(
-      screen.getByRole('link', { name: 'Firefox for Android' }),
+      screen.getByText(
+        'Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop.',
+      ),
     ).toBeInTheDocument();
-    expect(screen.getByText(/To use Android extensions/)).toBeInTheDocument();
   });
 
   it('assigns a className to a page other than the home page', () => {
@@ -517,7 +518,7 @@ describe(__filename, () => {
       ).toBeInTheDocument();
       expect(
         screen.getByRole('link', { name: 'Firefox Browser Add-ons' }),
-      ).toHaveAttribute('href', '/en-US/android/');
+      ).toHaveAttribute('href', '/en-US/firefox/');
       expect(screen.getByRole('banner')).not.toHaveClass(
         'Header--loaded-page-is-anonymous',
       );
@@ -549,7 +550,7 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
       expect(
         screen.getByRole('link', { name: 'Firefox Browser Add-ons' }),
-      ).toHaveAttribute('href', '/en-US/android/');
+      ).toHaveAttribute('href', '/en-US/firefox/');
     });
 
     it('displays `Log in` text when user is not signed in', () => {
@@ -578,7 +579,7 @@ describe(__filename, () => {
 
       expect(screen.getByText('View My Collections')).toHaveAttribute(
         'href',
-        '/en-US/android/collections/',
+        '/en-US/firefox/collections/',
       );
     });
 
@@ -589,7 +590,7 @@ describe(__filename, () => {
 
       expect(screen.getByText('View My Profile')).toHaveAttribute(
         'href',
-        `/en-US/android/user/${id}/`,
+        `/en-US/firefox/user/${id}/`,
       );
     });
 
@@ -599,7 +600,7 @@ describe(__filename, () => {
 
       expect(screen.getByText('Edit My Profile')).toHaveAttribute(
         'href',
-        '/en-US/android/users/edit',
+        '/en-US/firefox/users/edit',
       );
     });
 
@@ -762,7 +763,7 @@ describe(__filename, () => {
     });
 
     describe('Tests for SectionLinks', () => {
-      it('renders four sections on Firefox', () => {
+      it('renders the expected section links on Firefox', () => {
         _dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
         render();
 
@@ -777,7 +778,10 @@ describe(__filename, () => {
         expect(
           screen.getByText('Dictionaries & Language Packs'),
         ).toHaveAttribute('href', '/en-US/firefox/language-tools/');
-        expect(screen.getByText('Add-ons for Android')).toBeInTheDocument();
+        // The Android site switcher link has been removed.
+        expect(
+          screen.queryByText('Add-ons for Android'),
+        ).not.toBeInTheDocument();
       });
 
       it('hides the Firefox-only section links for a mobile user agent on the Firefox site', () => {
@@ -836,38 +840,12 @@ describe(__filename, () => {
         );
       });
 
-      it('shows Firefox name and hides link in header on Desktop', () => {
+      it('shows the "for Firefox" subheader on Desktop', () => {
         _dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
         store.dispatch(setViewContext(VIEW_CONTEXT_LANGUAGE_TOOLS));
         render();
 
         expect(screen.getByText('for Firefox')).toBeInTheDocument();
-        expect(
-          screen.queryByClassName(
-            `SectionLinks-clientApp-${CLIENT_APP_ANDROID}`,
-          ),
-        ).toHaveTextContent('Add-ons for Android');
-        expect(
-          screen.queryByClassName(
-            `SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`,
-          ),
-        ).not.toBeInTheDocument();
-      });
-
-      it('changes clientApp when different site link clicked', () => {
-        _dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-        const dispatch = jest.spyOn(store, 'dispatch');
-        render();
-
-        const pushSpy = jest.spyOn(history, 'push');
-        const link = screen.getByText('Add-ons for Android');
-        const clickEvent = createEvent.click(link);
-
-        fireEvent(link, clickEvent);
-
-        expect(dispatch).toHaveBeenCalledWith(setClientApp(CLIENT_APP_ANDROID));
-        expect(clickEvent.defaultPrevented).toBeTruthy();
-        expect(pushSpy).toHaveBeenCalledWith(`/en-US/${CLIENT_APP_ANDROID}/`);
       });
     });
   });
@@ -1191,7 +1169,7 @@ describe(__filename, () => {
       );
       expect(link).toHaveAttribute(
         'href',
-        `/${lang}/${clientApp}/opensearch.xml`,
+        `/${lang}/${CLIENT_APP_FIREFOX}/opensearch.xml`,
       );
       expect(link).toHaveAttribute('title', title);
     });

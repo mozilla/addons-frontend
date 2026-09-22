@@ -23,6 +23,7 @@ import {
   selectReviews,
 } from 'amo/reducers/reviews';
 import { getCurrentUser } from 'amo/reducers/users';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
   fetchAddon,
   getAddonByIdInURL,
@@ -205,7 +206,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   onSelectOption: (event: SelectEventWithTarget) => void = (
     event: SelectEventWithTarget,
   ) => {
-    const { addon, clientApp, history, lang, location } = this.props;
+    const { addon, history, lang, location } = this.props;
     invariant(addon, 'addon is required');
 
     event.preventDefault();
@@ -217,7 +218,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       location,
     });
 
-    history.push(`/${lang}/${clientApp}${listURL}`);
+    history.push(`/${lang}/${CLIENT_APP_FIREFOX}${listURL}`);
   };
 
   filterByScoreSelector(): React.Node {

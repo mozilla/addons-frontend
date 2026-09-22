@@ -20,8 +20,8 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
-        url: '/en-US/android/extensions/category/search-tools/',
+        status: 302,
+        url: '/en-US/firefox/extensions/category/search-tools/',
       }),
     );
     // Once for the redirect.

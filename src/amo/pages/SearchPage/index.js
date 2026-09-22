@@ -9,6 +9,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
+  CLIENT_APP_FIREFOX,
   DEFAULT_CATEGORY_SORT,
   DEFAULT_TAG_SORT,
 } from 'amo/constants';
@@ -47,7 +48,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    const { clientApp, filters, lang, location } = props;
+    const { filters, lang, location } = props;
 
     let pathname = '/search/';
     let shouldRedirect = false;
@@ -124,8 +125,8 @@ export class SearchPageBase extends React.Component<InternalProps> {
 
       props.dispatch(
         sendServerRedirect({
-          status: 301,
-          url: `/${lang}/${clientApp}${pathname}${queryString}`,
+          status: 302,
+          url: `/${lang}/${CLIENT_APP_FIREFOX}${pathname}${queryString}`,
         }),
       );
     }

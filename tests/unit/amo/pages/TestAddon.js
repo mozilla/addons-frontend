@@ -66,10 +66,7 @@ import tracking from 'amo/tracking';
 import { getAddonListingURL, getCanonicalURL } from 'amo/utils';
 import { getPromotedBadgesLinkUrl } from 'amo/utils/promoted';
 import { getAddonJsonLinkedData } from 'amo/utils/addons';
-import {
-  correctedLocationForPlatform,
-  getClientCompatibility,
-} from 'amo/utils/compatibility';
+import { getClientCompatibility } from 'amo/utils/compatibility';
 import {
   changeLocation,
   createCapturedErrorHandler,
@@ -91,16 +88,13 @@ import {
   getMockConfig,
   renderPage as defaultRender,
   screen,
+  userAgentsByPlatform,
   within,
 } from 'tests/unit/helpers';
 
-// In order to force the WrongPlatformWarning to appear, mock correctedLocationForPlatform,
-// and mock getClientCompatibility for InstallButtonWrapper.
+// Mock getClientCompatibility for InstallButtonWrapper.
 jest.mock('amo/utils/compatibility', () => ({
   ...jest.requireActual('amo/utils/compatibility'),
-  correctedLocationForPlatform: jest
-    .fn()
-    .mockReturnValue('/a/different/location/'),
   getClientCompatibility: jest.fn().mockReturnValue({
     compatible: true,
     reason: null,
@@ -479,17 +473,18 @@ describe(__filename, () => {
   });
 
   it('renders a WrongPlatformWarning component', () => {
+    // The WrongPlatformWarning only renders a message on Firefox for iOS.
+    dispatchClientMetadata({
+      clientApp,
+      lang,
+      store,
+      userAgent: userAgentsByPlatform.ios.firefox1iPhone,
+    });
     renderWithAddon();
 
     expect(
       screen.getByClassName('Addon-WrongPlatformWarning'),
     ).toBeInTheDocument();
-    expect(screen.getByText(/To use Android extensions/)).toBeInTheDocument();
-    expect(
-      screen.queryByRole('link', {
-        name: 'visit our desktop site',
-      }),
-    ).not.toBeInTheDocument();
   });
 
   it('does not render a WrongPlatformWarning component without an addon', () => {
@@ -630,6 +625,13 @@ describe(__filename, () => {
   });
 
   it('passes props to the Page component', () => {
+    // Use a Firefox for iOS user agent so the WrongPlatformWarning renders.
+    dispatchClientMetadata({
+      clientApp,
+      lang,
+      store,
+      userAgent: userAgentsByPlatform.ios.firefox1iPhone,
+    });
     renderWithAddon();
 
     // By passing isAddonInstallPage to Page, the GetFirefoxBanner is not shown.
@@ -701,7 +703,7 @@ describe(__filename, () => {
 
     expect(dispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: getLocation(addon.slug),
       }),
     );
@@ -1285,7 +1287,6 @@ describe(__filename, () => {
     });
 
     it('contains InstallWarning when addon exists', () => {
-      correctedLocationForPlatform.mockReturnValue('');
       renderWithAddon();
 
       const warningsSection = getWarningsSection();
@@ -1297,8 +1298,13 @@ describe(__filename, () => {
     });
 
     it('contains WrongPlatformWarning when addon exists', () => {
-      // Mock to ensure WrongPlatformWarning renders with a message
-      correctedLocationForPlatform.mockReturnValue('/en-US/android/');
+      // The WrongPlatformWarning only renders a message on Firefox for iOS.
+      dispatchClientMetadata({
+        clientApp,
+        lang,
+        store,
+        userAgent: userAgentsByPlatform.ios.firefox1iPhone,
+      });
       renderWithAddon();
 
       const warningsSection = getWarningsSection();
@@ -1308,7 +1314,6 @@ describe(__filename, () => {
     });
 
     it('does not contain InstallWarning when addon does not exist', () => {
-      correctedLocationForPlatform.mockReturnValue('');
       render();
 
       const warningsSection = getWarningsSection();
@@ -1483,7 +1488,6 @@ describe(__filename, () => {
 
   describe('InstallWarning', () => {
     it('renders the InstallWarning if an add-on exists', () => {
-      correctedLocationForPlatform.mockReturnValue('');
       renderWithAddon();
 
       expect(
@@ -1495,7 +1499,6 @@ describe(__filename, () => {
     });
 
     it('does not render the InstallWarning if an add-on does not exist', () => {
-      correctedLocationForPlatform.mockReturnValue('');
       render();
 
       expect(
@@ -1508,7 +1511,6 @@ describe(__filename, () => {
 
     it('passes the addon to the InstallWarning', () => {
       // Rendering with a static theme will cause the InstallWarning to not be shown.
-      correctedLocationForPlatform.mockReturnValue('');
       addon.type = ADDON_TYPE_STATIC_THEME;
       renderWithAddon();
 
@@ -2995,7 +2997,7 @@ describe(__filename, () => {
       );
       const expectedURL = getAddonListingURL({
         addon: { slug: defaultSlug },
-        clientApp: CLIENT_APP_ANDROID,
+        clientApp: CLIENT_APP_FIREFOX,
         lang,
         utmCampaign: QR_CODE_UTM_CAMPAIGN,
         utmContent: defaultSlug,

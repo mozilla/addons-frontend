@@ -1,7 +1,6 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import type { AppState } from 'amo/store';
@@ -12,15 +11,11 @@ import {
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getPromotedCategory } from 'amo/utils/addons';
-import {
-  correctedLocationForPlatform,
-  isFirefox,
-} from 'amo/utils/compatibility';
+import { isFirefox } from 'amo/utils/compatibility';
 import Notice, { genericWarningType } from 'amo/components/Notice';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 
@@ -30,12 +25,10 @@ type Props = {|
 
 type PropsFromState = {|
   clientApp: string,
-  lang: string,
   userAgentInfo: UserAgentInfoType,
 |};
 
 type DefaultProps = {|
-  _correctedLocationForPlatform: typeof correctedLocationForPlatform,
   _getPromotedCategory: typeof getPromotedCategory,
 |};
 
@@ -44,7 +37,6 @@ type InternalProps = {|
   ...PropsFromState,
   ...DefaultProps,
   i18n: I18nType,
-  location: ReactRouterLocationType,
 |};
 
 export const VARIANT_INCLUDE_WARNING_PROPOSED = 'includeWarning-proposed';
@@ -54,28 +46,12 @@ const WARNING_LINK_DESTINATION = getPromotedBadgesLinkUrl({
 
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
-    _correctedLocationForPlatform: correctedLocationForPlatform,
     _getPromotedCategory: getPromotedCategory,
   };
 
   couldShowWarning: () => boolean = () => {
-    const {
-      _correctedLocationForPlatform,
-      _getPromotedCategory,
-      addon,
-      clientApp,
-      lang,
-      location,
-      userAgentInfo,
-    } = this.props;
-
-    // Do not show this warning if we are also going to show a WrongPlatformWarning.
-    const correctedLocation = _correctedLocationForPlatform({
-      clientApp,
-      lang,
-      location,
-      userAgentInfo,
-    });
+    const { _getPromotedCategory, addon, clientApp, userAgentInfo } =
+      this.props;
 
     const promotedCategory = _getPromotedCategory({
       addon,
@@ -83,7 +59,6 @@ export class InstallWarningBase extends React.Component<InternalProps> {
     });
 
     return (
-      !correctedLocation &&
       isFirefox({ userAgentInfo }) &&
       addon.type === ADDON_TYPE_EXTENSION &&
       (!promotedCategory ||
@@ -116,13 +91,11 @@ export class InstallWarningBase extends React.Component<InternalProps> {
 const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     clientApp: state.api.clientApp,
-    lang: state.api.lang,
     userAgentInfo: state.api.userAgentInfo,
   };
 };
 
 const InstallWarning: React.ComponentType<Props> = compose(
-  withRouter,
   connect(mapStateToProps),
   translate(),
 )(InstallWarningBase);

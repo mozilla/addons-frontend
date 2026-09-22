@@ -37,7 +37,7 @@ describe(__filename, () => {
     const button = screen.getByRole('link');
     expect(button).toHaveTextContent('Link text!');
     expect(button).toHaveClass('Bar');
-    expect(button).toHaveAttribute('href', `/en-US/android${href}`);
+    expect(button).toHaveAttribute('href', `/en-US/firefox${href}`);
   });
 
   it('renders a link with a href', () => {

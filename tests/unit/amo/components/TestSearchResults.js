@@ -113,7 +113,7 @@ describe(__filename, () => {
 
     expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
       'href',
-      `/en-US/android/addon/${results[0].slug}/`,
+      `/en-US/firefox/addon/${results[0].slug}/`,
     );
   });
 
@@ -127,7 +127,7 @@ describe(__filename, () => {
 
     expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
       'href',
-      `/en-US/android/addon/${results[0].slug}/`,
+      `/en-US/firefox/addon/${results[0].slug}/`,
     );
   });
 

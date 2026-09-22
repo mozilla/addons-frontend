@@ -3,7 +3,10 @@ import SagaTester from 'redux-saga-tester';
 import { push as pushLocation } from 'redux-first-history';
 
 import * as collectionsApi from 'amo/api/collections';
-import { COLLECTION_CREATE_COMPLETED_CATEGORY } from 'amo/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  COLLECTION_CREATE_COMPLETED_CATEGORY,
+} from 'amo/constants';
 import tracking from 'amo/tracking';
 import collectionsReducer, {
   abortAddAddonToCollection,
@@ -621,9 +624,9 @@ describe(__filename, () => {
           userId,
         });
 
-        const { lang, clientApp } = clientData.state.api;
+        const { lang } = clientData.state.api;
         const expectedAction = pushLocation({
-          pathname: `/${lang}/${clientApp}/collections/${userId}/${returnedSlug}/edit/`,
+          pathname: `/${lang}/${CLIENT_APP_FIREFOX}/collections/${userId}/${returnedSlug}/edit/`,
           query: convertFiltersToQueryParams(updateFilters),
         });
 
@@ -736,9 +739,9 @@ describe(__filename, () => {
           getParams({ lang: state.api.lang, slug: submittedSlug }),
         );
 
-        const { lang, clientApp } = clientData.state.api;
+        const { lang } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${userId}/${returnedSlug}/edit/`,
+          `/${lang}/${CLIENT_APP_FIREFOX}/collections/${userId}/${returnedSlug}/edit/`,
         );
 
         const action = await sagaTester.waitFor(expectedAction.type);
@@ -904,7 +907,7 @@ describe(__filename, () => {
         userId: 'some-other-user',
       };
       const state = sagaTester.getState();
-      const { lang, clientApp } = state.api;
+      const { lang } = state.api;
 
       mockApi
         .expects('deleteCollection')
@@ -919,7 +922,7 @@ describe(__filename, () => {
       _deleteCollection(params);
 
       const expectedPushAction = pushLocation(
-        `/${lang}/${clientApp}/collections/`,
+        `/${lang}/${CLIENT_APP_FIREFOX}/collections/`,
       );
 
       const pushAction = await sagaTester.waitFor(expectedPushAction.type);

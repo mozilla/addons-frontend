@@ -14,7 +14,10 @@ import {
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'amo/errorHandler';
-import { COLLECTION_ADD_ADDON_CATEGORY } from 'amo/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  COLLECTION_ADD_ADDON_CATEGORY,
+} from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import tracking, { getAddonEventParams } from 'amo/tracking';
@@ -200,7 +203,6 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   getSelectData(): SelectData {
     const {
       addon,
-      clientApp,
       i18n,
       lang,
       loadingAddonsInCollections,
@@ -244,7 +246,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
         onSelect: () => {
           invariant(addon, 'addon is required');
           history.push(
-            `/${lang}/${clientApp}/collections/add/?include_addon_id=${addon.id}`,
+            `/${lang}/${CLIENT_APP_FIREFOX}/collections/add/?include_addon_id=${addon.id}`,
           );
         },
       }),

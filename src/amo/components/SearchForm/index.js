@@ -9,7 +9,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
-import { CLIENT_APP_ANDROID } from 'amo/constants';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import translate from 'amo/i18n/translate';
 import type { SearchFilters } from 'amo/components/AutoSearchInput';
@@ -54,8 +54,8 @@ export class SearchFormBase extends React.Component<InternalProps> {
   };
 
   baseSearchURL(): string {
-    const { lang, clientApp, pathname } = this.props;
-    return `/${lang}/${clientApp}${pathname}`;
+    const { lang, pathname } = this.props;
+    return `/${lang}/${CLIENT_APP_FIREFOX}${pathname}`;
   }
 
   render(): React.Node {
@@ -71,7 +71,7 @@ export class SearchFormBase extends React.Component<InternalProps> {
             title={openSearchTitle}
             rel="search"
             type="application/opensearchdescription+xml"
-            href={`/${lang}/${clientApp}/opensearch.xml`}
+            href={`/${lang}/${CLIENT_APP_FIREFOX}/opensearch.xml`}
           />
         </Helmet>
 

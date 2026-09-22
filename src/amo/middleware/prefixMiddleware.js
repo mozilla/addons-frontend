@@ -1,13 +1,12 @@
 import config from 'config';
 
 import {
-  getClientApp,
   isValidClientApp,
   isValidClientAppUrlException,
   isValidLocaleUrlException,
 } from 'amo/utils';
 import { getLanguage, isValidLang } from 'amo/i18n/utils';
-import { ONE_YEAR_IN_SECONDS } from 'amo/constants';
+import { CLIENT_APP_FIREFOX, ONE_YEAR_IN_SECONDS } from 'amo/constants';
 import log from 'amo/logger';
 
 export function prefixMiddleware(req, res, next, { _config = config } = {}) {
@@ -17,10 +16,9 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   const URLPathParts = URLParts[0].replace(/^\//, '').split('/');
   log.debug(`path: ${URLParts[0]}, URLPathParts: [${[URLPathParts]}]`);
 
-  // Get the application from the UA in case one wasn't specified in the URL (or
-  // if it turns out to be invalid).
-  const userAgentApp = getClientApp(req.headers['user-agent']);
-  let isApplicationFromHeader = false;
+  // When a clientApp isn't specified in the URL (or it turns out to be
+  // invalid), always default to `firefox`.
+  const defaultApp = CLIENT_APP_FIREFOX;
   // Get language from URL or fall-back to detecting it from accept-language
   // header.
   const acceptLanguage = req.headers['accept-language'];
@@ -48,9 +46,8 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   if (hasValidLang && hasValidClientAppInPartTwo) {
     log.debug('URL already has a valid lang and clientApp, nothing to fix');
   } else if (hasValidLang) {
-    log.debug(`Prepending clientApp to URL: ${userAgentApp}`);
-    URLPathParts.splice(1, 0, userAgentApp);
-    isApplicationFromHeader = true;
+    log.debug(`Prepending clientApp to URL: ${defaultApp}`);
+    URLPathParts.splice(1, 0, defaultApp);
   } else if (hasValidClientAppInPartOne) {
     log.debug(`Prepending lang to URL: ${lang}`);
     URLPathParts.splice(0, 0, lang);
@@ -62,10 +59,9 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     hasUnknownPartOne = true;
     URLPathParts.splice(0, 1, lang);
   } else {
-    log.debug(`Prepending lang and clientApp to URL: ${lang}/${userAgentApp}`);
+    log.debug(`Prepending lang and clientApp to URL: ${lang}/${defaultApp}`);
     hasUnknownPartOne = !!URLPathParts[0];
-    URLPathParts.splice(0, 0, lang, userAgentApp);
-    isApplicationFromHeader = true;
+    URLPathParts.splice(0, 0, lang, defaultApp);
   }
 
   const hasValidLocaleException = isValidLocaleUrlException(URLPathParts[2], {
@@ -77,9 +73,6 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
       _config,
     },
   );
-  if (hasValidClientAppUrlException) {
-    isApplicationFromHeader = false;
-  }
 
   // Now drop lang and clientApp if required from URLPaths
   if (hasValidLocaleException && hasValidClientAppUrlException) {
@@ -101,11 +94,9 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
 
   if (newURL !== req.originalUrl && !newURL.startsWith('//')) {
     // Collect vary headers to apply to the redirect
-    // so we can make it cacheable.
+    // so we can make it cacheable. The redirect target no longer depends on the
+    // user-agent (we always default to `firefox`), so we only vary on language.
     res.vary('accept-language');
-    if (isApplicationFromHeader) {
-      res.vary('user-agent');
-    }
     res.set('Cache-Control', [`max-age=${ONE_YEAR_IN_SECONDS}`]);
     // If there was something at the beginning of the URL we didn't recognize,
     // it could be an old locale we have since disabled and might re-enable
@@ -119,7 +110,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   res.locals.lang = newLang;
   // The newApp part of the URL might not be a client application
   // so it's important to re-check that here before assuming it's good.
-  res.locals.clientApp = isValidClientApp(newApp) ? newApp : userAgentApp;
+  res.locals.clientApp = isValidClientApp(newApp) ? newApp : defaultApp;
   // Get detailed info on the current user agent so we can make sure add-ons
   // are compatible with the current clientApp/version combo.
   res.locals.userAgent = req.headers['user-agent'];

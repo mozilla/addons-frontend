@@ -81,7 +81,7 @@ describe(__filename, () => {
       for (const link of links) {
         expect(link).toHaveAttribute(
           'href',
-          `/en-US/android${reviewListURL({ addonSlug: addon.slug, score })}`,
+          `/en-US/firefox${reviewListURL({ addonSlug: addon.slug, score })}`,
         );
         expect(link).toHaveAttribute('rel', 'nofollow');
       }
@@ -122,7 +122,7 @@ describe(__filename, () => {
       for (const link of links) {
         expect(link).toHaveAttribute(
           'href',
-          `/en-US/android/addon/${addon.slug}/reviews/?${expectedQueryString}`,
+          `/en-US/firefox/addon/${addon.slug}/reviews/?${expectedQueryString}`,
         );
       }
     }

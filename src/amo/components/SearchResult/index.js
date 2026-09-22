@@ -8,7 +8,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { getAddonURL, nl2br, sanitizeHTML } from 'amo/utils';
 import { getPromotedProps } from 'amo/utils/promoted';
-import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
+import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
 import { isRecentAddon } from 'amo/reducers/addons';
@@ -265,15 +265,8 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 
   onClickResult: () => void = () => {
-    const {
-      addon,
-      addonInstallSource,
-      clientApp,
-      dispatch,
-      history,
-      lang,
-      onClick,
-    } = this.props;
+    const { addon, addonInstallSource, dispatch, history, lang, onClick } =
+      this.props;
 
     if (addon) {
       // Store the install source in Redux so it survives navigation to the
@@ -283,7 +276,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
         dispatch(setAddonInstallSource(addonInstallSource));
       }
 
-      history.push(`/${lang}/${clientApp}${this.getAddonLink(addon)}`);
+      history.push(`/${lang}/${CLIENT_APP_FIREFOX}${this.getAddonLink(addon)}`);
 
       if (onClick) {
         onClick(addon);

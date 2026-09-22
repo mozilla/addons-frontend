@@ -3,7 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION } from 'amo/constants';
+import { ADDON_TYPE_EXTENSION, CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
@@ -28,7 +28,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    const { clientApp, dispatch, lang } = props;
+    const { dispatch, lang } = props;
 
     const pathname = getCategoryResultsPathname({
       addonType: ADDON_TYPE_EXTENSION,
@@ -37,8 +37,8 @@ export class SearchToolsBase extends React.Component<InternalProps> {
 
     dispatch(
       sendServerRedirect({
-        status: 301,
-        url: `/${lang}/${clientApp}${pathname}`,
+        status: 302,
+        url: `/${lang}/${CLIENT_APP_FIREFOX}${pathname}`,
       }),
     );
   }

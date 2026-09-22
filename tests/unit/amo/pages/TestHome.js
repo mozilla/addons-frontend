@@ -1223,7 +1223,7 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
-      `/${defaultLang}/${clientApp}/addon/${addon.slug}/`,
+      `/${defaultLang}/${CLIENT_APP_FIREFOX}/addon/${addon.slug}/`,
     );
   });
 
@@ -1271,7 +1271,7 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
       'href',
-      `/${defaultLang}/${clientApp}/addon/${addon.slug}/`,
+      `/${defaultLang}/${CLIENT_APP_FIREFOX}/addon/${addon.slug}/`,
     );
   });
 

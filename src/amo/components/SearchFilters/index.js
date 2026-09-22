@@ -10,6 +10,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   LINE,
   RECOMMENDED,
   REVIEWED_FILTER,
@@ -144,7 +145,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
   };
 
   doSearch(newFilters: SearchFiltersType) {
-    const { clientApp, lang, history, pathname } = this.props;
+    const { lang, history, pathname } = this.props;
 
     const filters = { ...newFilters };
 
@@ -166,7 +167,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     }
 
     history.push({
-      pathname: `/${lang}/${clientApp}${pathname}`,
+      pathname: `/${lang}/${CLIENT_APP_FIREFOX}${pathname}`,
       query: convertFiltersToQueryParams(filters),
     });
   }
