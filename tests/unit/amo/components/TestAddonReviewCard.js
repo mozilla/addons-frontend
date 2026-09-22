@@ -1065,7 +1065,7 @@ describe(__filename, () => {
         screen.getByTitle(i18n.moment(review.created).format('lll')),
       ).toHaveAttribute(
         'href',
-        `/en-US/android${reviewListURL({ addonSlug: slug, id: review.id })}`,
+        `/en-US/firefox${reviewListURL({ addonSlug: slug, id: review.id })}`,
       );
     });
 
@@ -1086,7 +1086,7 @@ describe(__filename, () => {
         screen.getByTitle(i18n.moment(review.created).format('lll')),
       ).toHaveAttribute(
         'href',
-        `/en-US/android${reviewListURL({ addonSlug: addonId, id: review.id })}`,
+        `/en-US/firefox${reviewListURL({ addonSlug: addonId, id: review.id })}`,
       );
     });
 
@@ -1125,7 +1125,7 @@ describe(__filename, () => {
 
       expect(
         screen.getByRole('link', { name: review.userName }),
-      ).toHaveAttribute('href', `/en-US/android/user/${review.userId}/`);
+      ).toHaveAttribute('href', `/en-US/firefox/user/${review.userId}/`);
     });
 
     it('renders a short byLine for replies by default', () => {
@@ -1217,7 +1217,7 @@ describe(__filename, () => {
 
       expect(
         screen.getByRole('link', { name: reviewUserName }),
-      ).toHaveAttribute('href', `/en-US/android/user/${reviewUserId}/`);
+      ).toHaveAttribute('href', `/en-US/firefox/user/${reviewUserId}/`);
       expect(screen.queryByText(replyUserName)).not.toBeInTheDocument();
     });
 

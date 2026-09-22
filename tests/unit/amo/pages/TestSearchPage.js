@@ -160,7 +160,7 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: `/${lang}/${clientApp}/search/?type=extension`,
       }),
     );
@@ -178,8 +178,8 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
-        url: `/${lang}/${CLIENT_APP_ANDROID}/search/?type=extension`,
+        status: 302,
+        url: `/${lang}/${CLIENT_APP_FIREFOX}/search/?type=extension`,
       }),
     );
   });
@@ -193,7 +193,7 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: `/${apiLang}/${clientApp}/search/?type=extension`,
       }),
     );
@@ -206,7 +206,7 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: `/${lang}/${clientApp}/search/?type=dictionary`,
       }),
     );
@@ -219,7 +219,7 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: `/${lang}/${clientApp}/search/?type=language`,
       }),
     );
@@ -254,7 +254,7 @@ describe(__filename, () => {
       `sort=${SEARCH_SORT_RECOMMENDED}`,
     ].join('&');
     expect(fakeDispatch).toHaveBeenCalledWith(
-      sendServerRedirect({ status: 301, url }),
+      sendServerRedirect({ status: 302, url }),
     );
   });
 
@@ -291,7 +291,7 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: `/${lang}/${clientApp}/extensions/category/${category}/?page=${page}`,
       }),
     );
@@ -317,7 +317,7 @@ describe(__filename, () => {
       `type=${ADDON_TYPE_EXTENSION}`,
     ].join('&');
     expect(fakeDispatch).toHaveBeenCalledWith(
-      sendServerRedirect({ status: 301, url }),
+      sendServerRedirect({ status: 302, url }),
     );
   });
 
@@ -336,7 +336,7 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: `/${lang}/${clientApp}/tag/${tag}/?page=${page}`,
       }),
     );
@@ -349,7 +349,7 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: defaultLocation,
       }),
     );
@@ -363,7 +363,7 @@ describe(__filename, () => {
 
     expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: `${defaultLocation}?page=123`,
       }),
     );

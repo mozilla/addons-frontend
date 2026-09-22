@@ -185,7 +185,7 @@ describe(__filename, () => {
       expect(item).toHaveClass('DropdownMenuItem-link');
       expect(screen.getByRole('link', { name: linkText })).toHaveAttribute(
         'href',
-        `/en-US/android${linkHref}`,
+        `/en-US/firefox${linkHref}`,
       );
     });
 

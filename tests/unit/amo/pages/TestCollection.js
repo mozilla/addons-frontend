@@ -1072,7 +1072,7 @@ describe(__filename, () => {
 
     expect(dispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: `/${lang}/${clientApp}/collections/${authorId}/${defaultSlug}/`,
       }),
     );
@@ -1089,7 +1089,7 @@ describe(__filename, () => {
 
     expect(dispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: `/${lang}/${clientApp}/collections/${defaultUserId}/${defaultSlug}/`,
       }),
     );

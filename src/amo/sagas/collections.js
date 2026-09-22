@@ -4,7 +4,10 @@ import invariant from 'invariant';
 import { push as pushLocation } from 'redux-first-history';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
-import { COLLECTION_CREATE_COMPLETED_CATEGORY } from 'amo/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  COLLECTION_CREATE_COMPLETED_CATEGORY,
+} from 'amo/constants';
 import tracking from 'amo/tracking';
 import {
   ADD_ADDON_TO_COLLECTION,
@@ -281,10 +284,10 @@ export function* modifyCollection(
       response = yield call(api.updateCollection, apiParams);
     }
 
-    const { lang, clientApp } = state.api;
+    const { lang } = state.api;
     const effectiveSlug = (response && response.slug) || slug || collectionSlug;
     invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
-    const newLocation = `/${lang}/${clientApp}/collections/${userId}/${effectiveSlug}/edit/`;
+    const newLocation = `/${lang}/${CLIENT_APP_FIREFOX}/collections/${userId}/${effectiveSlug}/edit/`;
 
     if (creating) {
       invariant(response, 'response is required when creating');
@@ -368,7 +371,7 @@ export function* deleteCollection({
 
   try {
     const state = yield select(getState);
-    const { lang, clientApp } = state.api;
+    const { lang } = state.api;
 
     const params: DeleteCollectionParams = {
       api: state.api,
@@ -378,7 +381,7 @@ export function* deleteCollection({
 
     yield call(api.deleteCollection, params);
 
-    yield put(pushLocation(`/${lang}/${clientApp}/collections/`));
+    yield put(pushLocation(`/${lang}/${CLIENT_APP_FIREFOX}/collections/`));
 
     // Unload the collection from state.
     yield put(unloadCollectionBySlug(slug));

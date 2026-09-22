@@ -15,7 +15,10 @@ import {
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'amo/errorHandler';
-import { COLLECTION_CREATE_STARTED_CATEGORY } from 'amo/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  COLLECTION_CREATE_STARTED_CATEGORY,
+} from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import tracking from 'amo/tracking';
 import Button from 'amo/components/Button';
@@ -122,10 +125,10 @@ export class CollectionManagerBase extends React.Component<
   }
 
   onCancel: HTMLElementEventHandler = (event: ElementEvent) => {
-    const { clientApp, creating, dispatch, history, siteLang } = this.props;
+    const { creating, dispatch, history, siteLang } = this.props;
 
     if (creating) {
-      history.push(`/${siteLang}/${clientApp}/collections/`);
+      history.push(`/${siteLang}/${CLIENT_APP_FIREFOX}/collections/`);
     }
 
     event.preventDefault();

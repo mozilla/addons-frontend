@@ -518,7 +518,7 @@ describe(__filename, () => {
       ).toBeInTheDocument();
       expect(
         screen.getByRole('link', { name: 'Firefox Browser Add-ons' }),
-      ).toHaveAttribute('href', '/en-US/android/');
+      ).toHaveAttribute('href', '/en-US/firefox/');
       expect(screen.getByRole('banner')).not.toHaveClass(
         'Header--loaded-page-is-anonymous',
       );
@@ -550,7 +550,7 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
       expect(
         screen.getByRole('link', { name: 'Firefox Browser Add-ons' }),
-      ).toHaveAttribute('href', '/en-US/android/');
+      ).toHaveAttribute('href', '/en-US/firefox/');
     });
 
     it('displays `Log in` text when user is not signed in', () => {
@@ -579,7 +579,7 @@ describe(__filename, () => {
 
       expect(screen.getByText('View My Collections')).toHaveAttribute(
         'href',
-        '/en-US/android/collections/',
+        '/en-US/firefox/collections/',
       );
     });
 
@@ -590,7 +590,7 @@ describe(__filename, () => {
 
       expect(screen.getByText('View My Profile')).toHaveAttribute(
         'href',
-        `/en-US/android/user/${id}/`,
+        `/en-US/firefox/user/${id}/`,
       );
     });
 
@@ -600,7 +600,7 @@ describe(__filename, () => {
 
       expect(screen.getByText('Edit My Profile')).toHaveAttribute(
         'href',
-        '/en-US/android/users/edit',
+        '/en-US/firefox/users/edit',
       );
     });
 
@@ -1169,7 +1169,7 @@ describe(__filename, () => {
       );
       expect(link).toHaveAttribute(
         'href',
-        `/${lang}/${clientApp}/opensearch.xml`,
+        `/${lang}/${CLIENT_APP_FIREFOX}/opensearch.xml`,
       );
       expect(link).toHaveAttribute('title', title);
     });

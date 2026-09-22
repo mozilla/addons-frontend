@@ -182,7 +182,7 @@ describe(__filename, () => {
     expect(screen.getByText('Page 2 of 3')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
       'href',
-      `/en-US/android${pathname}?color=red&page=3`,
+      `/en-US/firefox${pathname}?color=red&page=3`,
     );
   });
 
@@ -206,7 +206,7 @@ describe(__filename, () => {
     expect(screen.getByText('Page 9 of 10')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
       'href',
-      `/en-US/android${pathname}?color=red&page=10`,
+      `/en-US/firefox${pathname}?color=red&page=10`,
     );
   });
 
@@ -240,7 +240,7 @@ describe(__filename, () => {
 
     expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
       'href',
-      `/en-US/android/some/path?${pageParam}=2`,
+      `/en-US/firefox/some/path?${pageParam}=2`,
     );
   });
 
@@ -262,7 +262,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
         'href',
-        `/en-US/android${pathname}&page=2`,
+        `/en-US/firefox${pathname}&page=2`,
       );
     });
 
@@ -282,7 +282,7 @@ describe(__filename, () => {
 
         const link = screen.getByRole('link', { name: '2' });
         expect(link).not.toHaveClass('Paginate-item--current-page');
-        expect(link).toHaveAttribute('href', '/en-US/android/some/path?page=2');
+        expect(link).toHaveAttribute('href', '/en-US/firefox/some/path?page=2');
       });
     });
 

@@ -34,6 +34,7 @@ import { getCurrentUser } from 'amo/reducers/users';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
 import Paginate from 'amo/components/Paginate';
 import {
+  CLIENT_APP_FIREFOX,
   COLLECTION_REMOVE_ADDON_CATEGORY,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   INSTALL_SOURCE_COLLECTION,
@@ -251,7 +252,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     // See: https://github.com/mozilla/addons-frontend/issues/4271
     if (!collectionChanged && collection) {
       if (params.slug !== collection.slug || !/^\d+$/.test(params.userId)) {
-        const { editing, lang, clientApp } = this.props;
+        const { editing, lang } = this.props;
 
         const path = editing
           ? collectionEditUrl({ collection })
@@ -259,8 +260,8 @@ export class CollectionBase extends React.Component<InternalProps> {
 
         this.props.dispatch(
           sendServerRedirect({
-            status: 301,
-            url: `/${lang}/${clientApp}${path}`,
+            status: 302,
+            url: `/${lang}/${CLIENT_APP_FIREFOX}${path}`,
           }),
         );
         return;

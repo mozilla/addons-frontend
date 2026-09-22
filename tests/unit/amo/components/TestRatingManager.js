@@ -572,7 +572,7 @@ describe(__filename, () => {
     for (const link of links) {
       expect(link).toHaveAttribute(
         'href',
-        `/en-US/android/addon/${addon.slug}/reviews/?score=5`,
+        `/en-US/firefox/addon/${addon.slug}/reviews/?score=5`,
       );
     }
   });

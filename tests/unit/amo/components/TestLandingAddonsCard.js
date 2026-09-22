@@ -45,7 +45,7 @@ describe(__filename, () => {
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Footer text' })).toHaveAttribute(
       'href',
-      '/en-US/android/some-path/',
+      '/en-US/firefox/some-path/',
     );
   });
 
@@ -82,7 +82,7 @@ describe(__filename, () => {
 
     expect(screen.getByRole('link', { name: addons[0].name })).toHaveAttribute(
       'href',
-      `/en-US/android/addon/${addons[0].slug}/`,
+      `/en-US/firefox/addon/${addons[0].slug}/`,
     );
   });
 
@@ -215,7 +215,7 @@ describe(__filename, () => {
 
     expect(screen.getByRole('link', { name: footerText })).toHaveAttribute(
       'href',
-      `/en-US/android${footerLink}`,
+      `/en-US/firefox${footerLink}`,
     );
   });
 
@@ -238,7 +238,7 @@ describe(__filename, () => {
 
     expect(screen.getByRole('link', { name: footerText })).toHaveAttribute(
       'href',
-      `/en-US/android${footerLink}`,
+      `/en-US/firefox${footerLink}`,
     );
   });
 

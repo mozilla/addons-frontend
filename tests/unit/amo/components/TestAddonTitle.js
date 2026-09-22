@@ -51,7 +51,7 @@ describe(__filename, () => {
     });
 
     const link = screen.getByRole('link', { name: author.name });
-    expect(link).toHaveAttribute('href', `/en-US/android/user/${author.id}/`);
+    expect(link).toHaveAttribute('href', `/en-US/firefox/user/${author.id}/`);
   });
 
   it('renders multiple authors', () => {
@@ -75,9 +75,9 @@ describe(__filename, () => {
 
     expect(screen.getAllByRole('link')).toHaveLength(2);
     const link1 = screen.getByRole('link', { name: author1.name });
-    expect(link1).toHaveAttribute('href', `/en-US/android/user/${author1.id}/`);
+    expect(link1).toHaveAttribute('href', `/en-US/firefox/user/${author1.id}/`);
     const link2 = screen.getByRole('link', { name: author2.name });
-    expect(link2).toHaveAttribute('href', `/en-US/android/user/${author2.id}/`);
+    expect(link2).toHaveAttribute('href', `/en-US/firefox/user/${author2.id}/`);
 
     expect(
       screen.getByTextAcrossTags(` by ${author1.name}, ${author2.name}`),
@@ -149,9 +149,9 @@ describe(__filename, () => {
 
     expect(screen.getAllByRole('link')).toHaveLength(2);
     const link1 = screen.getByRole('link', { name: author1.name });
-    expect(link1).toHaveAttribute('href', `/he/android/user/${author1.id}/`);
+    expect(link1).toHaveAttribute('href', `/he/firefox/user/${author1.id}/`);
     const link2 = screen.getByRole('link', { name: author2.name });
-    expect(link2).toHaveAttribute('href', `/he/android/user/${author2.id}/`);
+    expect(link2).toHaveAttribute('href', `/he/firefox/user/${author2.id}/`);
 
     expect(screen.getByClassName('AddonTitle-author')).toHaveTextContent(
       `${author1.name} ,${author2.name} by`,
@@ -166,7 +166,7 @@ describe(__filename, () => {
     expect(screen.getAllByRole('link')).toHaveLength(1);
     expect(
       screen.getByRole('link', { name: addon.authors[0].name }),
-    ).toHaveAttribute('href', `/en-US/android/user/${addon.authors[0].id}/`);
+    ).toHaveAttribute('href', `/en-US/firefox/user/${addon.authors[0].id}/`);
   });
 
   it('links to the add-on detail page when the "linkToAddon" prop is true', () => {
@@ -176,11 +176,11 @@ describe(__filename, () => {
     expect(screen.getAllByRole('link')).toHaveLength(2);
     expect(screen.getByRole('link', { name: addon.name })).toHaveAttribute(
       'href',
-      `/en-US/android${getAddonURL(addon.slug)}`,
+      `/en-US/firefox${getAddonURL(addon.slug)}`,
     );
     expect(
       screen.getByRole('link', { name: addon.authors[0].name }),
-    ).toHaveAttribute('href', `/en-US/android/user/${addon.authors[0].id}/`);
+    ).toHaveAttribute('href', `/en-US/firefox/user/${addon.authors[0].id}/`);
   });
 
   it('renders with a h1 tag by default', () => {
@@ -209,7 +209,7 @@ describe(__filename, () => {
 
     expect(screen.getByRole('link', { name: addon.name })).toHaveAttribute(
       'href',
-      `/en-US/android${getAddonURL(addon.slug)}?some=value`,
+      `/en-US/firefox${getAddonURL(addon.slug)}?some=value`,
     );
   });
 });

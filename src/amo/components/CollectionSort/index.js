@@ -11,6 +11,7 @@ import {
   convertFiltersToQueryParams,
 } from 'amo/reducers/collections';
 import {
+  CLIENT_APP_FIREFOX,
   COLLECTION_SORT_DATE_ADDED_ASCENDING,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
@@ -54,8 +55,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
   onSortSelect: (event: SyntheticEvent<HTMLSelectElement>) => void = (
     event: SyntheticEvent<HTMLSelectElement>,
   ) => {
-    const { collection, clientApp, editing, filters, lang, history } =
-      this.props;
+    const { collection, editing, filters, lang, history } = this.props;
 
     invariant(collection, 'A collection is required.');
 
@@ -65,7 +65,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
       collectionSort,
     };
 
-    const pathname = `/${lang}/${clientApp}${
+    const pathname = `/${lang}/${CLIENT_APP_FIREFOX}${
       editing
         ? collectionEditUrl({ collection })
         : collectionUrl({ collection })

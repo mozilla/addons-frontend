@@ -264,7 +264,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name })).toHaveAttribute(
         'href',
-        `/en-US/android/addon/${slug}/`,
+        `/en-US/firefox/addon/${slug}/`,
       );
     });
 
@@ -284,7 +284,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name })).toHaveAttribute(
         'href',
-        `/en-US/android/addon/${slug}/`,
+        `/en-US/firefox/addon/${slug}/`,
       );
     });
 
@@ -382,7 +382,7 @@ describe(__filename, () => {
       const pushSpy = jest.spyOn(history, 'push');
       await userEvent.click(screen.getByRole('listitem'));
 
-      expect(pushSpy).toHaveBeenCalledWith(`/en-US/android/addon/${slug}/`);
+      expect(pushSpy).toHaveBeenCalledWith(`/en-US/firefox/addon/${slug}/`);
     });
 
     it('calls the custom onClick handler for the li element, passing the addon', async () => {

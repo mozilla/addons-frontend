@@ -29,6 +29,7 @@ import Paginate from 'amo/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_FIREFOX,
   USERS_EDIT,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
@@ -94,7 +95,6 @@ export class UserProfileBase extends React.Component<InternalProps> {
     super(props);
 
     const {
-      clientApp,
       dispatch,
       errorHandler,
       isOwner,
@@ -111,8 +111,8 @@ export class UserProfileBase extends React.Component<InternalProps> {
     if (shouldRedirect && user) {
       dispatch(
         sendServerRedirect({
-          status: 301,
-          url: `/${lang}/${clientApp}/user/${user.id}/`,
+          status: 302,
+          url: `/${lang}/${CLIENT_APP_FIREFOX}/user/${user.id}/`,
         }),
       );
       return;

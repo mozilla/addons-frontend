@@ -56,7 +56,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: 'Add-on icon' })).toHaveAttribute(
         'href',
-        `/en-US/android${getAddonURL(addon.slug)}`,
+        `/en-US/firefox${getAddonURL(addon.slug)}`,
       );
     });
 
@@ -70,7 +70,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: 'Add-on icon' })).toHaveAttribute(
         'href',
-        `/en-US/android${getAddonURL(addon.slug)}?utm_medium=${utmMedium}`,
+        `/en-US/firefox${getAddonURL(addon.slug)}?utm_medium=${utmMedium}`,
       );
     });
 
@@ -90,7 +90,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
         'href',
-        `/en-US/android${getAddonURL(addon.slug)}`,
+        `/en-US/firefox${getAddonURL(addon.slug)}`,
       );
     });
 
@@ -104,7 +104,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
         'href',
-        `/en-US/android${getAddonURL(addon.slug)}`,
+        `/en-US/firefox${getAddonURL(addon.slug)}`,
       );
     });
 
@@ -119,7 +119,7 @@ describe(__filename, () => {
 
       expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
         'href',
-        `/en-US/android${getAddonURL(addon.slug)}?utm_content=${utmContent}`,
+        `/en-US/firefox${getAddonURL(addon.slug)}?utm_content=${utmContent}`,
       );
     });
   });
@@ -172,7 +172,7 @@ describe(__filename, () => {
       for (const link of links) {
         expect(link).toHaveAttribute(
           'href',
-          `/en-US/android/addon/${addon.slug}/reviews/?score=5`,
+          `/en-US/firefox/addon/${addon.slug}/reviews/?score=5`,
         );
       }
     });

@@ -93,7 +93,6 @@ export class AddonBase extends React.Component {
     const {
       addon,
       addonIsLoading,
-      clientApp,
       dispatch,
       errorHandler,
       lang,
@@ -116,8 +115,8 @@ export class AddonBase extends React.Component {
           // it is a legacy behavior.
           dispatch(
             sendServerRedirect({
-              status: 301,
-              url: `/${lang}/${clientApp}${getAddonURL(addon.slug)}`,
+              status: 302,
+              url: `/${lang}/${CLIENT_APP_FIREFOX}${getAddonURL(addon.slug)}`,
             }),
           );
           return;

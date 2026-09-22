@@ -703,7 +703,7 @@ describe(__filename, () => {
 
     expect(dispatch).toHaveBeenCalledWith(
       sendServerRedirect({
-        status: 301,
+        status: 302,
         url: getLocation(addon.slug),
       }),
     );

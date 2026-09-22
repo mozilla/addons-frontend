@@ -27,7 +27,11 @@ import {
   logOutUser,
 } from 'amo/reducers/users';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
-import { USERS_EDIT, VIEW_CONTEXT_HOME } from 'amo/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  USERS_EDIT,
+  VIEW_CONTEXT_HOME,
+} from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
@@ -159,7 +163,6 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
 
     const {
       _window,
-      clientApp,
       currentUser,
       dispatch,
       errorHandler,
@@ -227,7 +230,9 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
           }
         }
       }
-      _window.location.assign(`/${lang}/${clientApp}/user/${newUserId}/`);
+      _window.location.assign(
+        `/${lang}/${CLIENT_APP_FIREFOX}/user/${newUserId}/`,
+      );
     }
 
     if (
@@ -262,15 +267,8 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
   onConfirmProfileDeletion: HTMLElementEventHandler = (e: ElementEvent) => {
     e.preventDefault();
 
-    const {
-      clientApp,
-      currentUser,
-      dispatch,
-      errorHandler,
-      history,
-      lang,
-      user,
-    } = this.props;
+    const { currentUser, dispatch, errorHandler, history, lang, user } =
+      this.props;
 
     invariant(currentUser, 'currentUser is required');
     invariant(user, 'user is required');
@@ -286,7 +284,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
       dispatch(logOutUser());
     }
 
-    history.push(`/${lang}/${clientApp}`);
+    history.push(`/${lang}/${CLIENT_APP_FIREFOX}`);
   };
 
   onPictureLoaded: (e: ProgressEvent) => void = (e: ProgressEvent) => {

@@ -269,7 +269,7 @@ describe(__filename, () => {
     const link = screen.getByText(licenseName);
     expect(link).toHaveAttribute(
       'href',
-      `/en-US/android/addon/${addon.slug}/license/`,
+      `/en-US/firefox/addon/${addon.slug}/license/`,
     );
     expect(link).toHaveAttribute('rel', 'nofollow');
   });
@@ -349,7 +349,7 @@ describe(__filename, () => {
     const link = screen.getByText('Read the privacy policy for this add-on');
     expect(link).toHaveAttribute(
       'href',
-      '/en-US/android/addon/chill-out/privacy/',
+      '/en-US/firefox/addon/chill-out/privacy/',
     );
     expect(link).toHaveAttribute('rel', 'nofollow');
   });
@@ -374,7 +374,7 @@ describe(__filename, () => {
     const link = screen.getByText('Read the license agreement for this add-on');
     expect(link).toHaveAttribute(
       'href',
-      '/en-US/android/addon/chill-out/eula/',
+      '/en-US/firefox/addon/chill-out/eula/',
     );
     expect(link).toHaveAttribute('rel', 'nofollow');
   });
@@ -428,7 +428,7 @@ describe(__filename, () => {
     const statsLink = screen.getByText('Visit stats dashboard');
     expect(statsLink).toHaveAttribute(
       'href',
-      '/en-US/android/addon/coolio/statistics/',
+      '/en-US/firefox/addon/coolio/statistics/',
     );
   });
 
@@ -460,7 +460,7 @@ describe(__filename, () => {
     const link = screen.getByText('See all versions');
     expect(link).toHaveAttribute(
       'href',
-      `/en-US/android/addon/${addon.slug}/versions/`,
+      `/en-US/firefox/addon/${addon.slug}/versions/`,
     );
   });
 
@@ -474,7 +474,7 @@ describe(__filename, () => {
 
     expect(screen.getByText('Tags')).toBeInTheDocument();
     const link = screen.getByText(tagText);
-    expect(link).toHaveAttribute('href', `/en-US/android/tag/${tagText}/`);
+    expect(link).toHaveAttribute('href', `/en-US/firefox/tag/${tagText}/`);
   });
 
   it("doesn't show tag section if addon.tags is empty list", () => {
@@ -808,27 +808,27 @@ describe(__filename, () => {
       const expectedQueryString = `utm_medium=${utmMedium}`;
       expect(screen.getByText('Visit stats dashboard')).toHaveAttribute(
         'href',
-        `/en-US/android/addon/${addon.slug}/statistics/?${expectedQueryString}`,
+        `/en-US/firefox/addon/${addon.slug}/statistics/?${expectedQueryString}`,
       );
       expect(screen.getByText('tofulicense')).toHaveAttribute(
         'href',
-        `/en-US/android/addon/${addon.slug}/license/?${expectedQueryString}`,
+        `/en-US/firefox/addon/${addon.slug}/license/?${expectedQueryString}`,
       );
       expect(
         screen.getByText('Read the privacy policy for this add-on'),
       ).toHaveAttribute(
         'href',
-        `/en-US/android/addon/${addon.slug}/privacy/?${expectedQueryString}`,
+        `/en-US/firefox/addon/${addon.slug}/privacy/?${expectedQueryString}`,
       );
       expect(
         screen.getByText('Read the license agreement for this add-on'),
       ).toHaveAttribute(
         'href',
-        `/en-US/android/addon/${addon.slug}/eula/?${expectedQueryString}`,
+        `/en-US/firefox/addon/${addon.slug}/eula/?${expectedQueryString}`,
       );
       expect(screen.getByText('See all versions')).toHaveAttribute(
         'href',
-        `/en-US/android/addon/${addon.slug}/versions/?${expectedQueryString}`,
+        `/en-US/firefox/addon/${addon.slug}/versions/?${expectedQueryString}`,
       );
     });
   });
