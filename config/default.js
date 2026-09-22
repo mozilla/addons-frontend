@@ -189,6 +189,7 @@ module.exports = {
     'es-CL',
     'es-ES',
     'es-MX',
+    'fa',
     'fi',
     'fr',
     'fur',
