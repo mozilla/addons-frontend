@@ -334,7 +334,7 @@ jobs:
           path: locale
 
       - name: Login to GAR
-        uses: mozilla/addons/.github/actions/login-gar@f748fdc2c8057ad7b574521a60c182939f2ee687
+        uses: mozilla/addons/.github/actions/login-gar@46043277ef3a3a0bdfe0e27414c29932a25d4560
         with:
           registry: ${{ env.registry }}
           service_account: ${{ secrets.GAR_PUSHER_SERVICE_ACCOUNT_EMAIL }}
