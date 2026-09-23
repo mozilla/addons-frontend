@@ -6,7 +6,7 @@ import {
   isValidLocaleUrlException,
 } from 'amo/utils';
 import { getLanguage, isValidLang } from 'amo/i18n/utils';
-import { CLIENT_APP_FIREFOX, ONE_YEAR_IN_SECONDS } from 'amo/constants';
+import { ONE_YEAR_IN_SECONDS } from 'amo/constants';
 import log from 'amo/logger';
 
 export function prefixMiddleware(req, res, next, { _config = config } = {}) {
@@ -18,7 +18,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
 
   // When a clientApp isn't specified in the URL (or it turns out to be
   // invalid), always default to `firefox`.
-  const defaultApp = CLIENT_APP_FIREFOX;
+  const defaultApp = _config.get('defaultClientApp');
   // Get language from URL or fall-back to detecting it from accept-language
   // header.
   const acceptLanguage = req.headers['accept-language'];
@@ -26,7 +26,6 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     lang: URLPathParts[0],
     acceptLanguage,
   });
-  let hasUnknownPartOne = false;
 
   const hasValidLang = isValidLang(URLPathParts[0]);
   const hasValidClientAppInPartOne = isValidClientApp(URLPathParts[0], {
@@ -56,11 +55,9 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     hasValidClientAppUrlExceptionInPartTwo
   ) {
     log.debug(`Replacing lang in URL: ${URLPathParts[0]} with ${lang}`);
-    hasUnknownPartOne = true;
     URLPathParts.splice(0, 1, lang);
   } else {
     log.debug(`Prepending lang and clientApp to URL: ${lang}/${defaultApp}`);
-    hasUnknownPartOne = !!URLPathParts[0];
     URLPathParts.splice(0, 0, lang, defaultApp);
   }
 
@@ -98,10 +95,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     // user-agent (we always default to `firefox`), so we only vary on language.
     res.vary('accept-language');
     res.set('Cache-Control', [`max-age=${ONE_YEAR_IN_SECONDS}`]);
-    // If there was something at the beginning of the URL we didn't recognize,
-    // it could be an old locale we have since disabled and might re-enable
-    // later, so make the redirect temporary (302), otherwise permanent (301).
-    return res.redirect(hasUnknownPartOne ? 302 : 301, newURL);
+    return res.redirect(302, newURL);
   }
 
   // Add the data to res.locals to be utilised later.

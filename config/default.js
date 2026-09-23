@@ -282,7 +282,6 @@ module.exports = {
   // The list of valid client application names.
   // These are derived from UA strings when not supplied in the URL.
   validClientApplications: [
-    'android',
     'firefox',
   ],
 

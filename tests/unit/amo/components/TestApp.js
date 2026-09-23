@@ -10,7 +10,6 @@ import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import {
   SET_CLIENT_APP,
   SET_USER_AGENT,
-  setClientApp as setClientAppAction,
   setUserAgent as setUserAgentAction,
 } from 'amo/reducers/api';
 import {
@@ -64,16 +63,6 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(setUserAgentAction(userAgent));
   });
 
-  it('sets up a callback for setting the clientApp', () => {
-    const dispatch = jest.fn();
-    const { setClientApp } = mapDispatchToProps(dispatch);
-    const clientApp = CLIENT_APP_FIREFOX;
-
-    setClientApp(clientApp);
-
-    expect(dispatch).toHaveBeenCalledWith(setClientAppAction(clientApp));
-  });
-
   it('uses navigator.userAgent if userAgent prop is empty', () => {
     dispatchClientMetadata({ store, userAgent: '' });
     const _navigator = { userAgent: 'Firefox 10000000.0' };
@@ -98,42 +87,9 @@ describe(__filename, () => {
     expect(dispatch).not.toHaveBeenCalled();
   });
 
-  it('resets the clientApp if it does not match the URL', async () => {
-    const currentClientApp = CLIENT_APP_FIREFOX;
-    const clientAppInURL = CLIENT_APP_ANDROID;
-    dispatchClientMetadata({ clientApp: currentClientApp, store });
-
-    const dispatch = jest.spyOn(store, 'dispatch');
-
-    render();
-
-    await changeLocation({
-      history,
-      pathname: `/en-US/${clientAppInURL}/`,
-    });
-
-    expect(dispatch).toHaveBeenCalledWith(setClientAppAction(clientAppInURL));
-  });
-
-  it('does not reset the clientApp if matches the URL', async () => {
-    const clientApp = CLIENT_APP_FIREFOX;
-    dispatchClientMetadata({ clientApp, store });
-
-    const dispatch = jest.spyOn(store, 'dispatch');
-
-    render();
-
-    await changeLocation({
-      history,
-      pathname: `/en-US/${clientApp}/`,
-    });
-
-    expect(dispatch).not.toHaveBeenCalledWith(
-      expect.objectContaining({ type: SET_CLIENT_APP }),
-    );
-  });
-
-  it('does not reset the clientApp if the one on the URL is invalid', async () => {
+  it('does not change the clientApp based on the URL', async () => {
+    // The clientApp is determined by the user-agent, not the URL, so
+    // client-side navigation must never dispatch a SET_CLIENT_APP action.
     dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
 
     const dispatch = jest.spyOn(store, 'dispatch');
@@ -142,7 +98,7 @@ describe(__filename, () => {
 
     await changeLocation({
       history,
-      pathname: '/en-US/invalid-app/',
+      pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
     });
 
     expect(dispatch).not.toHaveBeenCalledWith(

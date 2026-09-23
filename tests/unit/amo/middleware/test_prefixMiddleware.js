@@ -15,7 +15,8 @@ describe(__filename, () => {
       vary: sinon.stub(),
     };
     fakeConfig = new Map();
-    fakeConfig.set('validClientApplications', ['firefox', 'android']);
+    fakeConfig.set('defaultClientApp', 'firefox');
+    fakeConfig.set('validClientApplications', ['firefox']);
     fakeConfig.set('validLocaleUrlExceptions', ['downloads', 'robots.txt']);
     fakeConfig.set('validClientAppUrlExceptions', [
       'about',
@@ -54,7 +55,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever/');
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever/');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
@@ -64,7 +65,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
@@ -103,7 +104,7 @@ describe(__filename, () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-BR/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-BR/firefox/whatever');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
@@ -141,7 +142,7 @@ describe(__filename, () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
     sinon.assert.neverCalledWith(fakeRes.vary, 'user-agent');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
@@ -181,23 +182,23 @@ describe(__filename, () => {
 
   it('should not redirect for locale + app urls missing a trailing slash with query params', () => {
     const fakeReq = {
-      originalUrl: '/en-US/android?foo=1',
+      originalUrl: '/en-US/firefox?foo=1',
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     expect(fakeRes.locals.lang).toEqual('en-US');
-    expect(fakeRes.locals.clientApp).toEqual('android');
+    expect(fakeRes.locals.clientApp).toEqual('firefox');
     sinon.assert.notCalled(fakeRes.redirect);
     sinon.assert.called(fakeNext);
   });
 
   it('should redirect for app url missing a trailing slash with query params', () => {
     const fakeReq = {
-      originalUrl: '/android?foo=2',
+      originalUrl: '/firefox?foo=2',
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/android?foo=2');
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox?foo=2');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
@@ -207,7 +208,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox?foo=3');
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox?foo=3');
   });
 
   it('should not mangle a query string for a redirect', () => {

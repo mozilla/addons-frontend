@@ -65,7 +65,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         hotShotsClient.timing,
-        'response_time.GET_301',
+        'response_time.GET_302',
         sinon.match.number,
       );
     });
@@ -95,7 +95,7 @@ describe(__filename, () => {
     it('increments response status counts', async () => {
       await testClient().get('/');
 
-      sinon.assert.calledWith(hotShotsClient.increment, 'response.301');
+      sinon.assert.calledWith(hotShotsClient.increment, 'response.302');
     });
   });
 

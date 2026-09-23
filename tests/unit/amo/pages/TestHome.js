@@ -1,6 +1,6 @@
 /* global window */
 import { LOCATION_CHANGE } from 'redux-first-history';
-import { waitFor } from '@testing-library/react';
+import { act, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
@@ -34,6 +34,7 @@ import {
   RECOMMENDED,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
+import { setClientApp } from 'amo/reducers/api';
 import {
   FETCH_HOME_DATA,
   fetchHomeData,
@@ -45,7 +46,6 @@ import { checkInternalURL } from 'amo/utils';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import { addQueryParams } from 'amo/utils/url';
 import {
-  changeLocation,
   createAddonsApiResult,
   createFailedErrorHandler,
   createHomeShelves,
@@ -77,12 +77,9 @@ describe(__filename, () => {
   const defaultLang = 'en-US';
   const errorHandlerId = 'Home';
   let store;
-  let history;
 
-  const getLocation = ({
-    clientApp = defaultClientApp,
-    lang = defaultLang,
-  } = {}) => `/${lang}/${clientApp}/`;
+  const getLocation = ({ lang = defaultLang } = {}) =>
+    `/${lang}/${defaultClientApp}/`;
 
   beforeEach(() => {
     store = dispatchClientMetadata({
@@ -96,12 +93,10 @@ describe(__filename, () => {
   });
 
   const render = ({ location = getLocation() } = {}) => {
-    const renderResults = defaultRender({
+    return defaultRender({
       initialEntries: [location],
       store,
     });
-    history = renderResults.history;
-    return renderResults;
   };
 
   const _createHomeShelves = ({
@@ -1179,7 +1174,7 @@ describe(__filename, () => {
   it('does not render a shelf with curated themes on mobile', () => {
     const clientApp = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp, store });
-    render({ location: getLocation({ clientApp }) });
+    render();
 
     expect(
       screen.queryByRole('heading', {
@@ -1191,7 +1186,7 @@ describe(__filename, () => {
   it('renders the recommended extensions shelf on android', () => {
     const clientApp = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp, store });
-    render({ location: getLocation({ clientApp }) });
+    render();
 
     expect(screen.getAllByClassName('LandingAddonsCard')).toHaveLength(2);
     expect(screen.getByText('Recommended extensions')).toBeInTheDocument();
@@ -1211,7 +1206,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, name: createLocalizedString(addonName) };
     const recommendedExtensions = createAddonsApiResult([addon]);
     renderWithHomeData({
-      location: getLocation({ clientApp }),
+      location: getLocation(),
       shelves: { recommendedExtensions },
     });
 
@@ -1230,7 +1225,7 @@ describe(__filename, () => {
   it('renders the trending extensions shelf on android', () => {
     const clientApp = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp, store });
-    render({ location: getLocation({ clientApp }) });
+    render();
 
     expect(screen.getAllByClassName('LandingAddonsCard')).toHaveLength(2);
     expect(
@@ -1259,7 +1254,7 @@ describe(__filename, () => {
     const trendingExtensions = createAddonsApiResult([addon]);
 
     renderWithHomeData({
-      location: getLocation({ clientApp }),
+      location: getLocation(),
       shelves: { trendingExtensions },
     });
 
@@ -1292,7 +1287,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp, store });
     const dispatch = jest.spyOn(store, 'dispatch');
-    render({ location: getLocation({ clientApp }) });
+    render({ location: getLocation() });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchHomeData({
@@ -1335,9 +1330,10 @@ describe(__filename, () => {
 
     expect(dispatch).toHaveBeenCalledTimes(0);
 
-    await changeLocation({
-      history,
-      pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
+    // The clientApp is determined by the user-agent, not the URL. When it
+    // changes, the home state is reset and the data is re-fetched.
+    await act(async () => {
+      store.dispatch(setClientApp(CLIENT_APP_ANDROID));
     });
 
     expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
@@ -1358,7 +1354,7 @@ describe(__filename, () => {
       message,
       store,
     });
-    render({ location: getLocation({ clientApp }) });
+    render({ location: getLocation() });
 
     expect(screen.getByClassName('Home-noHeroError')).toHaveTextContent(
       message,
@@ -1428,7 +1424,7 @@ describe(__filename, () => {
   it('does not render hero shelves on Android', () => {
     const clientApp = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp, store });
-    renderWithHomeData({ location: getLocation({ clientApp }) });
+    renderWithHomeData({ location: getLocation() });
 
     expect(
       screen.queryByClassName('HeroRecommendation'),
