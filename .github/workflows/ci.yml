@@ -294,7 +294,7 @@ jobs:
 
       - name: Login to Dockerhub
         id: docker_hub
-        uses: mozilla/addons/.github/actions/login-docker@f748fdc2c8057ad7b574521a60c182939f2ee687
+        uses: mozilla/addons/.github/actions/login-docker@46043277ef3a3a0bdfe0e27414c29932a25d4560
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
