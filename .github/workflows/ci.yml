@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Context
         id: context
-        uses: mozilla/addons/.github/actions/context@f748fdc2c8057ad7b574521a60c182939f2ee687
+        uses: mozilla/addons/.github/actions/context@46043277ef3a3a0bdfe0e27414c29932a25d4560
 
   build:
     needs: context
