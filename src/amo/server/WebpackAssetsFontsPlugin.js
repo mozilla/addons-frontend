@@ -1,5 +1,4 @@
 import fs from 'fs-extra';
-import { validate } from 'schema-utils';
 
 // This is a webpack plugin to add .woff2 fonts in webpack-assets.json that
 // webpack-isomorphic-tools generates. We can then use `assets` to reference
@@ -22,14 +21,15 @@ const pluginName = 'WebpackAssetsFontsPlugin';
 
 export default class WebpackAssetsFontsPlugin {
   constructor(options = {}) {
-    validate(schema, options, {
-      name: pluginName,
-      baseDataPath: 'options',
-    });
+    this.options = options;
     this.webpackAssetsFileName = options.webpackAssetsFileName;
   }
 
   apply(compiler) {
+    compiler.hooks.validate.tap(pluginName, () => {
+      compiler.validate(() => schema, this.options);
+    });
+
     compiler.hooks.done.tap(pluginName, (stats) => {
       const subsetFonts = {};
       const { assets, publicPath } = stats.toJson();

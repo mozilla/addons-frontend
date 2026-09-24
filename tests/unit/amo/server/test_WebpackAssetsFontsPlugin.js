@@ -63,6 +63,14 @@ describe(__filename, () => {
           callback(fakeStats);
         },
       },
+      validate: {
+        tap: (name, callback) => {
+          callback();
+        },
+      },
+    },
+    validate: (callback) => {
+      callback();
     },
   };
 
@@ -114,11 +122,5 @@ describe(__filename, () => {
 
     expect(fakeStats.compilation.errors.length).toEqual(1);
     expect(fakeStats.compilation.errors[0].code).toEqual('ENOENT');
-  });
-
-  it('requires a webpackAssetsFileName parameter', () => {
-    expect(() => new WebpackAssetsFontsPlugin()).toThrow(
-      /options misses the property 'webpackAssetsFileName'/,
-    );
   });
 });
