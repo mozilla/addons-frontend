@@ -1058,9 +1058,10 @@ describe(__filename, () => {
       });
 
       it('returns true if the userAgent is Firefox, clientApp Android and the add-on is an extension and is not promoted', () => {
+        // The clientApp is determined by the user-agent, not the URL.
         dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
         renderWithAddonAndVersions({
-          location: `/${lang}/${CLIENT_APP_ANDROID}/addon/${defaultSlug}/versions/`,
+          location: `/${lang}/${CLIENT_APP_FIREFOX}/addon/${defaultSlug}/versions/`,
         });
 
         expect(getInstallWarning()).toBeInTheDocument();

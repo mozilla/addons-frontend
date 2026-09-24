@@ -16,7 +16,7 @@ describe(__filename, () => {
     };
     fakeConfig = new Map();
     fakeConfig.set('defaultClientApp', 'firefox');
-    fakeConfig.set('validClientApplications', ['firefox']);
+    fakeConfig.set('obsoleteClientApplications', ['android']);
     fakeConfig.set('validLocaleUrlExceptions', ['downloads', 'robots.txt']);
     fakeConfig.set('validClientAppUrlExceptions', [
       'about',
@@ -223,5 +223,102 @@ describe(__filename, () => {
       '/en-US/firefox/foo/bar?test=1&bar=2',
     );
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
+  });
+
+  describe('obsolete clientApp', () => {
+    it('should replace an obsolete clientApp when the lang is valid', () => {
+      const fakeReq = {
+        originalUrl: '/en-US/android/whatever/',
+        headers: {},
+      };
+      prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+      sinon.assert.calledWith(
+        fakeRes.redirect,
+        302,
+        '/en-US/firefox/whatever/',
+      );
+      sinon.assert.calledWith(fakeRes.set, 'Cache-Control', [
+        'max-age=31536000',
+      ]);
+    });
+
+    it('should replace an obsolete clientApp with no path', () => {
+      const fakeReq = {
+        originalUrl: '/en-US/android/',
+        headers: {},
+      };
+      prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/');
+    });
+
+    it('should replace an obsolete clientApp and normalise the lang case', () => {
+      const fakeReq = {
+        originalUrl: '/en-us/android/whatever',
+        headers: {},
+      };
+      prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+    });
+
+    it('should replace an obsolete clientApp and a locale-format lang', () => {
+      const fakeReq = {
+        originalUrl: '/en_US/android/whatever',
+        headers: {},
+      };
+      prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+    });
+
+    it('should replace an obsolete clientApp and map an aliased lang', () => {
+      const fakeReq = {
+        originalUrl: '/pt/android/whatever',
+        headers: {},
+      };
+      prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+      sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-PT/firefox/whatever');
+    });
+
+    it('should replace an obsolete clientApp and prepend a missing lang', () => {
+      const fakeReq = {
+        originalUrl: '/android/whatever',
+        headers: {},
+      };
+      prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+    });
+
+    it('should replace an obsolete clientApp with no lang and no path', () => {
+      const fakeReq = {
+        originalUrl: '/android/',
+        headers: {},
+      };
+      prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/');
+    });
+
+    it('should fall back to accept-language when replacing an obsolete clientApp', () => {
+      const fakeReq = {
+        originalUrl: '/android/whatever',
+        headers: {
+          'accept-language': 'pt-br;q=0.5,en-us;q=0.3,en;q=0.2',
+        },
+      };
+      prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+      sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-BR/firefox/whatever');
+      sinon.assert.calledWith(fakeRes.vary, 'accept-language');
+    });
+
+    it('should preserve the query string when replacing an obsolete clientApp', () => {
+      const fakeReq = {
+        originalUrl: '/en-US/android/addon/foo/?src=hp',
+        headers: {},
+      };
+      prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+      sinon.assert.calledWith(
+        fakeRes.redirect,
+        302,
+        '/en-US/firefox/addon/foo/?src=hp',
+      );
+    });
   });
 });

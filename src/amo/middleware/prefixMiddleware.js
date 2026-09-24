@@ -34,6 +34,12 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   const hasValidClientAppInPartTwo = isValidClientApp(URLPathParts[1], {
     _config,
   });
+  const hasObsoleteClientAppInPartTwo = _config
+    .get('obsoleteClientApplications')
+    .includes(URLPathParts[1]);
+  const hasObsoleteClientAppInPartOne = _config
+    .get('obsoleteClientApplications')
+    .includes(URLPathParts[0]);
   const hasValidClientAppUrlExceptionInPartTwo = isValidClientAppUrlException(
     URLPathParts[1],
     {
@@ -41,9 +47,24 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     },
   );
 
-  // "Fix" URLPathParts to always start /locale/clientApp/
+  // "Fix" URLPathParts to always start /locale/firefox/
   if (hasValidLang && hasValidClientAppInPartTwo) {
     log.debug('URL already has a valid lang and clientApp, nothing to fix');
+  } else if (hasValidLang && hasObsoleteClientAppInPartTwo) {
+    log.debug(
+      `Replacing obsolete clientApp in URL: ${URLPathParts[1]} with ${defaultApp}`,
+    );
+    URLPathParts.splice(1, 1, defaultApp);
+  } else if (hasObsoleteClientAppInPartTwo) {
+    log.debug(
+      `Replacing lang in URL: ${URLPathParts[0]} with ${lang} and obsolete clientApp: ${URLPathParts[1]} with ${defaultApp}`,
+    );
+    URLPathParts.splice(0, 2, lang, defaultApp);
+  } else if (hasObsoleteClientAppInPartOne) {
+    log.debug(
+      `Replacing obsolete clientApp in URL: ${URLPathParts[0]} with ${defaultApp} and prepending lang: ${lang}`,
+    );
+    URLPathParts.splice(0, 1, lang, defaultApp);
   } else if (hasValidLang) {
     log.debug(`Prepending clientApp to URL: ${defaultApp}`);
     URLPathParts.splice(1, 0, defaultApp);

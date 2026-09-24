@@ -192,7 +192,7 @@ export function isValidClientApp(
   value: string,
   { _config = config }: { _config: typeof config } = {},
 ): boolean {
-  return _config.get('validClientApplications').includes(value);
+  return _config.get('defaultClientApp') === value;
 }
 
 export function sanitizeHTML(
