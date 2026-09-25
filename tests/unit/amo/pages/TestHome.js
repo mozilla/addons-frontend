@@ -1206,7 +1206,6 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, name: createLocalizedString(addonName) };
     const recommendedExtensions = createAddonsApiResult([addon]);
     renderWithHomeData({
-      location: getLocation(),
       shelves: { recommendedExtensions },
     });
 
@@ -1254,7 +1253,6 @@ describe(__filename, () => {
     const trendingExtensions = createAddonsApiResult([addon]);
 
     renderWithHomeData({
-      location: getLocation(),
       shelves: { trendingExtensions },
     });
 
@@ -1287,7 +1285,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp, store });
     const dispatch = jest.spyOn(store, 'dispatch');
-    render({ location: getLocation() });
+    render();
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchHomeData({
@@ -1354,7 +1352,7 @@ describe(__filename, () => {
       message,
       store,
     });
-    render({ location: getLocation() });
+    render();
 
     expect(screen.getByClassName('Home-noHeroError')).toHaveTextContent(
       message,
@@ -1424,7 +1422,7 @@ describe(__filename, () => {
   it('does not render hero shelves on Android', () => {
     const clientApp = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp, store });
-    renderWithHomeData({ location: getLocation() });
+    renderWithHomeData();
 
     expect(
       screen.queryByClassName('HeroRecommendation'),

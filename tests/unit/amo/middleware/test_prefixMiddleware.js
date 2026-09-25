@@ -55,7 +55,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever/');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever/');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
@@ -65,7 +65,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
@@ -104,7 +104,7 @@ describe(__filename, () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-BR/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-BR/firefox/whatever');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
@@ -142,7 +142,7 @@ describe(__filename, () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
     sinon.assert.neverCalledWith(fakeRes.vary, 'user-agent');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
@@ -198,7 +198,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox?foo=2');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox?foo=2');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
@@ -208,7 +208,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox?foo=3');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox?foo=3');
   });
 
   it('should not mangle a query string for a redirect', () => {
@@ -234,7 +234,7 @@ describe(__filename, () => {
       prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
       sinon.assert.calledWith(
         fakeRes.redirect,
-        302,
+        301,
         '/en-US/firefox/whatever/',
       );
       sinon.assert.calledWith(fakeRes.set, 'Cache-Control', [
@@ -248,7 +248,7 @@ describe(__filename, () => {
         headers: {},
       };
       prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/');
+      sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/');
     });
 
     it('should replace an obsolete clientApp and normalise the lang case', () => {
@@ -257,7 +257,7 @@ describe(__filename, () => {
         headers: {},
       };
       prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+      sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
     });
 
     it('should replace an obsolete clientApp and a locale-format lang', () => {
@@ -266,7 +266,7 @@ describe(__filename, () => {
         headers: {},
       };
       prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+      sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
     });
 
     it('should replace an obsolete clientApp and map an aliased lang', () => {
@@ -275,7 +275,7 @@ describe(__filename, () => {
         headers: {},
       };
       prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-      sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-PT/firefox/whatever');
+      sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-PT/firefox/whatever');
     });
 
     it('should replace an obsolete clientApp and prepend a missing lang', () => {
@@ -284,7 +284,7 @@ describe(__filename, () => {
         headers: {},
       };
       prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+      sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
     });
 
     it('should replace an obsolete clientApp with no lang and no path', () => {
@@ -293,7 +293,7 @@ describe(__filename, () => {
         headers: {},
       };
       prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-      sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/');
+      sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/');
     });
 
     it('should fall back to accept-language when replacing an obsolete clientApp', () => {
@@ -304,7 +304,7 @@ describe(__filename, () => {
         },
       };
       prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-      sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-BR/firefox/whatever');
+      sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-BR/firefox/whatever');
       sinon.assert.calledWith(fakeRes.vary, 'accept-language');
     });
 
@@ -316,7 +316,7 @@ describe(__filename, () => {
       prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
       sinon.assert.calledWith(
         fakeRes.redirect,
-        302,
+        301,
         '/en-US/firefox/addon/foo/?src=hp',
       );
     });
