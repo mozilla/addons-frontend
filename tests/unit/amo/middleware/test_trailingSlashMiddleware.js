@@ -14,7 +14,7 @@ describe(__filename, () => {
     };
     fakeConfig = new Map();
     fakeConfig.set('enableTrailingSlashesMiddleware', true);
-    fakeConfig.set('validClientApplications', ['firefox']);
+    fakeConfig.set('defaultClientApp', 'firefox');
     fakeConfig.set('validTrailingSlashUrlExceptions', [
       '/$lang/lack/trailing',
       '/$clientApp/none/trailing',

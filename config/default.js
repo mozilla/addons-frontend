@@ -116,7 +116,6 @@ module.exports = {
     'trackingEnabled',
     'unsupportedHrefLangs',
     'validClientAppUrlExceptions',
-    'validClientApplications',
     'validLocaleUrlExceptions',
     'validTrailingSlashUrlExceptions',
   ],
@@ -279,11 +278,10 @@ module.exports = {
 
   enablePostCssLoader: true,
 
-  // The list of valid client application names.
-  // These are derived from UA strings when not supplied in the URL.
-  validClientApplications: [
+  // The list of client applications that have been deactivated and should no longer be used,
+  // but we recognize in URLs and correct
+  obsoleteClientApplications: [
     'android',
-    'firefox',
   ],
 
   // This needs to be kept in sync with addons-server's SUPPORTED_NONLOCALES

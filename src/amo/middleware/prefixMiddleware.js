@@ -6,7 +6,7 @@ import {
   isValidLocaleUrlException,
 } from 'amo/utils';
 import { getLanguage, isValidLang } from 'amo/i18n/utils';
-import { CLIENT_APP_FIREFOX, ONE_YEAR_IN_SECONDS } from 'amo/constants';
+import { ONE_YEAR_IN_SECONDS } from 'amo/constants';
 import log from 'amo/logger';
 
 export function prefixMiddleware(req, res, next, { _config = config } = {}) {
@@ -18,7 +18,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
 
   // When a clientApp isn't specified in the URL (or it turns out to be
   // invalid), always default to `firefox`.
-  const defaultApp = CLIENT_APP_FIREFOX;
+  const defaultApp = _config.get('defaultClientApp');
   // Get language from URL or fall-back to detecting it from accept-language
   // header.
   const acceptLanguage = req.headers['accept-language'];
@@ -35,6 +35,12 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   const hasValidClientAppInPartTwo = isValidClientApp(URLPathParts[1], {
     _config,
   });
+  const hasObsoleteClientAppInPartTwo = _config
+    .get('obsoleteClientApplications')
+    .includes(URLPathParts[1]);
+  const hasObsoleteClientAppInPartOne = _config
+    .get('obsoleteClientApplications')
+    .includes(URLPathParts[0]);
   const hasValidClientAppUrlExceptionInPartTwo = isValidClientAppUrlException(
     URLPathParts[1],
     {
@@ -42,9 +48,24 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     },
   );
 
-  // "Fix" URLPathParts to always start /locale/clientApp/
+  // "Fix" URLPathParts to always start /locale/firefox/
   if (hasValidLang && hasValidClientAppInPartTwo) {
     log.debug('URL already has a valid lang and clientApp, nothing to fix');
+  } else if (hasValidLang && hasObsoleteClientAppInPartTwo) {
+    log.debug(
+      `Replacing obsolete clientApp in URL: ${URLPathParts[1]} with ${defaultApp}`,
+    );
+    URLPathParts.splice(1, 1, defaultApp);
+  } else if (hasObsoleteClientAppInPartTwo) {
+    log.debug(
+      `Replacing lang in URL: ${URLPathParts[0]} with ${lang} and obsolete clientApp: ${URLPathParts[1]} with ${defaultApp}`,
+    );
+    URLPathParts.splice(0, 2, lang, defaultApp);
+  } else if (hasObsoleteClientAppInPartOne) {
+    log.debug(
+      `Replacing obsolete clientApp in URL: ${URLPathParts[0]} with ${defaultApp} and prepending lang: ${lang}`,
+    );
+    URLPathParts.splice(0, 1, lang, defaultApp);
   } else if (hasValidLang) {
     log.debug(`Prepending clientApp to URL: ${defaultApp}`);
     URLPathParts.splice(1, 0, defaultApp);
@@ -101,6 +122,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     // If there was something at the beginning of the URL we didn't recognize,
     // it could be an old locale we have since disabled and might re-enable
     // later, so make the redirect temporary (302), otherwise permanent (301).
+    // We are also using 302 for obsolete clientapps for now.
     return res.redirect(hasUnknownPartOne ? 302 : 301, newURL);
   }
 
