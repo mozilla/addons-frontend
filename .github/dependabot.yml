@@ -15,6 +15,14 @@ updates:
       babel:
         patterns:
           - "@babel/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+      jest
+        patterns:
+          - "jest"
+          - "jest-environment-jsdom"
     open-pull-requests-limit: 99
     cooldown:
       default-days: 7
