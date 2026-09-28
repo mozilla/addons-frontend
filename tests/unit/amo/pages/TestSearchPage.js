@@ -889,8 +889,9 @@ describe(__filename, () => {
     });
 
     it('displays the badging filter but not the addonType one on Android', () => {
+      // The clientApp is determined by the user-agent, not the URL.
       dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
-      render({ location: `/${lang}/${CLIENT_APP_ANDROID}/search/` });
+      render({ location: `/${lang}/${CLIENT_APP_FIREFOX}/search/` });
 
       expect(
         screen.queryByRole('combobox', { name: 'Add-on Type' }),
@@ -1145,7 +1146,7 @@ describe(__filename, () => {
       });
 
       render({
-        location: `/${lang}/${CLIENT_APP_ANDROID}/search/?category=${category}&type=${ADDON_TYPE_EXTENSION}`,
+        location: `/${lang}/${CLIENT_APP_FIREFOX}/search/?category=${category}&type=${ADDON_TYPE_EXTENSION}`,
       });
 
       expect(

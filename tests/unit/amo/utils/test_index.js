@@ -553,17 +553,14 @@ describe(__filename, () => {
 
   describe('isValidClientApp', () => {
     const _config = new Map();
-    _config.set('validClientApplications', [
-      CLIENT_APP_FIREFOX,
-      CLIENT_APP_ANDROID,
-    ]);
+    _config.set('defaultClientApp', CLIENT_APP_FIREFOX);
 
     it('should be valid if passed "firefox"', () => {
       expect(isValidClientApp(CLIENT_APP_FIREFOX, { _config })).toEqual(true);
     });
 
-    it('should be valid if passed "android"', () => {
-      expect(isValidClientApp(CLIENT_APP_ANDROID, { _config })).toEqual(true);
+    it('should be invalid if passed "android"', () => {
+      expect(isValidClientApp(CLIENT_APP_ANDROID, { _config })).toEqual(false);
     });
 
     it('should be invalid if passed "whatever"', () => {

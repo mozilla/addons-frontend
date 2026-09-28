@@ -21,12 +21,8 @@ import './styles.scss';
 /* eslint-disable import/first */
 import Routes from 'amo/components/Routes';
 import ScrollToTop from 'amo/components/ScrollToTop';
-import { getClientAppAndLangFromPath, isValidClientApp } from 'amo/utils';
 import { addChangeListeners } from 'amo/addonManager';
-import {
-  setClientApp as setClientAppAction,
-  setUserAgent as setUserAgentAction,
-} from 'amo/reducers/api';
+import { setUserAgent as setUserAgentAction } from 'amo/reducers/api';
 import { setInstallState } from 'amo/reducers/installations';
 import { CLIENT_APP_ANDROID } from 'amo/constants';
 import ErrorPage from 'amo/components/ErrorPage';
@@ -37,7 +33,6 @@ import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
 import type { I18nType } from 'amo/types/i18n';
-import type { ReactRouterLocationType } from 'amo/types/router';
 /* eslint-enable import/first */
 
 interface MozNavigator extends Navigator {
@@ -63,8 +58,6 @@ type Props = {|
   ...DefaultProps,
   handleGlobalEvent: () => void,
   i18n: I18nType,
-  location: ReactRouterLocationType,
-  setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
 |};
 
@@ -100,18 +93,6 @@ export class AppBase extends React.Component<Props> {
         'userAgent not in state on App load; using navigator.userAgent.',
       );
       setUserAgent(_navigator.userAgent);
-    }
-  }
-
-  componentDidUpdate() {
-    const { clientApp, location, setClientApp } = this.props;
-
-    const { clientApp: clientAppFromURL } = getClientAppAndLangFromPath(
-      location.pathname,
-    );
-
-    if (isValidClientApp(clientAppFromURL) && clientAppFromURL !== clientApp) {
-      setClientApp(clientAppFromURL);
     }
   }
 
@@ -167,15 +148,11 @@ export const mapStateToProps = (state: AppState): PropsFromState => ({
 
 export function mapDispatchToProps(dispatch: DispatchFunc): {|
   handleGlobalEvent: (payload: InstalledAddon) => void,
-  setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
 |} {
   return {
     handleGlobalEvent(payload: InstalledAddon) {
       dispatch(setInstallState(payload));
-    },
-    setClientApp(clientApp: string) {
-      dispatch(setClientAppAction(clientApp));
     },
     setUserAgent(userAgent: string) {
       dispatch(setUserAgentAction(userAgent));

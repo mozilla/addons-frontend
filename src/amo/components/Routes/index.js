@@ -57,103 +57,96 @@ const Routes = ({
     <Route exact path="/:lang/about" component={About} />
     {/* TODO: Post launch update this URL and redirect see #3374/ */}
     <Route exact path="/:lang/review_guide" component={ReviewGuide} />
+    <Route exact path="/:lang/:application(firefox)/" component={Home} />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/"
-      component={Home}
-    />
-    <Route
-      exact
-      path="/:lang/:application(firefox|android)/addon/:slug/"
+      path="/:lang/:application(firefox)/addon/:slug/"
       component={Addon}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/blocked-addon/:guid/:versionId?/"
+      path="/:lang/:application(firefox)/blocked-addon/:guid/:versionId?/"
       component={Block}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/addon/:addonSlug/reviews/:reviewId"
+      path="/:lang/:application(firefox)/addon/:addonSlug/reviews/:reviewId"
       component={AddonReviewList}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/addon/:addonSlug/reviews/"
+      path="/:lang/:application(firefox)/addon/:addonSlug/reviews/"
       component={AddonReviewList}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/addon/:slug/privacy/"
+      path="/:lang/:application(firefox)/addon/:slug/privacy/"
       component={(props) => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_PRIVACY_POLICY} />
       )}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/addon/:slug/eula/"
+      path="/:lang/:application(firefox)/addon/:slug/eula/"
       component={(props) => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_EULA} />
       )}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/addon/:slug/license/"
+      path="/:lang/:application(firefox)/addon/:slug/license/"
       component={(props) => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_CUSTOM_LICENSE} />
       )}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/addon/:slug/versions/"
+      path="/:lang/:application(firefox)/addon/:slug/versions/"
       component={AddonVersions}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/users/edit"
+      path="/:lang/:application(firefox)/users/edit"
       render={(props) => <UserProfileEdit _window={_window} {...props} />}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/user/:userId/edit/"
+      path="/:lang/:application(firefox)/user/:userId/edit/"
       render={(props) => <UserProfileEdit _window={_window} {...props} />}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/user/:userId/"
+      path="/:lang/:application(firefox)/user/:userId/"
       component={UserProfile}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/collections/:userId/:slug/"
+      path="/:lang/:application(firefox)/collections/:userId/:slug/"
       component={Collection}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/collections/"
+      path="/:lang/:application(firefox)/collections/"
       component={CollectionList}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/collections/add/"
+      path="/:lang/:application(firefox)/collections/add/"
       component={(props) => <Collection {...props} creating />}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/collections/:userId/:slug/edit/"
+      path="/:lang/:application(firefox)/collections/:userId/:slug/edit/"
       component={CollectionEdit}
     />
-    {/* Only show category pages for both extensions and themes on Desktop. For
-        Android, we only allow category pages for extensions since Firefox for
-        Android doesn't support themes. */}
     <Route
       exact
-      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions)/categories/"
+      path="/:lang/:application(firefox)/:visibleAddonType(extensions)/categories/"
       component={CategoriesPage}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions)/category/:categorySlug/"
+      path="/:lang/:application(firefox)/:visibleAddonType(extensions)/category/:categorySlug/"
       component={CategoryPage}
     />
     <Route
@@ -168,42 +161,37 @@ const Routes = ({
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/tag/:tag/"
+      path="/:lang/:application(firefox)/tag/:tag/"
       component={TagPage}
     />
     <Route
       key="addon-feedback"
       exact
-      path="/:lang/:application(firefox|android)/feedback/addon/:addonIdentifier/"
+      path="/:lang/:application(firefox)/feedback/addon/:addonIdentifier/"
       component={AddonFeedback}
     />
     ,
     <Route
       key="collection-feedback"
       exact
-      path="/:lang/:application(firefox|android)/feedback/collection/:authorId/:collectionSlug/"
+      path="/:lang/:application(firefox)/feedback/collection/:authorId/:collectionSlug/"
       component={CollectionFeedback}
     />
     ,
     <Route
       key="user-feedback"
       exact
-      path="/:lang/:application(firefox|android)/feedback/user/:userId/"
+      path="/:lang/:application(firefox)/feedback/user/:userId/"
       component={UserFeedback}
     />
     ,
     <Route
       key="rating-feedback"
       exact
-      path="/:lang/:application(firefox|android)/feedback/review/:ratingId/"
+      path="/:lang/:application(firefox)/feedback/review/:ratingId/"
       component={RatingFeedback}
     />
-    ,{/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
-    <Route
-      exact
-      path="/:lang/android/language-tools/"
-      component={NotFoundPage}
-    />
+    ,
     <Route
       exact
       path="/:lang/:application(firefox)/language-tools/"
@@ -211,39 +199,39 @@ const Routes = ({
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/search-tools/"
+      path="/:lang/:application(firefox)/search-tools/"
       component={SearchTools}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/search/"
+      path="/:lang/:application(firefox)/search/"
       component={SearchPage}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/401/"
+      path="/:lang/:application(firefox)/401/"
       component={
         _config.get('isDevelopment') ? NotAuthorizedPage : NotFoundPage
       }
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/404/"
+      path="/:lang/:application(firefox)/404/"
       component={NotFoundPage}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/451/"
+      path="/:lang/:application(firefox)/451/"
       component={UnavailableForLegalReasonsPage}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/500/"
+      path="/:lang/:application(firefox)/500/"
       component={_config.get('isDevelopment') ? ServerErrorPage : NotFoundPage}
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/simulate-async-error/"
+      path="/:lang/:application(firefox)/simulate-async-error/"
       component={() => (
         <Page showWrongPlatformWarning={false}>
           <SimulateAsyncError />
@@ -252,19 +240,16 @@ const Routes = ({
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/simulate-sync-error/"
+      path="/:lang/:application(firefox)/simulate-sync-error/"
       component={() => (
         <Page showWrongPlatformWarning={false}>
           <SimulateSyncError />
         </Page>
       )}
     />
-    {/* Only show category pages for both extensions and themes on Desktop. For
-        Android, we only allow category pages for extensions since Firefox for
-        Android doesn't support themes. */}
     <Route
       exact
-      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions)/"
+      path="/:lang/:application(firefox)/:visibleAddonType(extensions)/"
       component={LandingPage}
     />
     <Route
@@ -274,7 +259,7 @@ const Routes = ({
     />
     <Route
       exact
-      path="/:lang/:application(firefox|android)/users/unsubscribe/:token/:hash/:notificationName/"
+      path="/:lang/:application(firefox)/users/unsubscribe/:token/:hash/:notificationName/"
       component={UsersUnsubscribe}
     />
     <Route component={NotFoundPage} />

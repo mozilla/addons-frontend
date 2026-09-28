@@ -8,7 +8,7 @@ import {
 describe(__filename, () => {
   const render = ({ store } = {}) =>
     defaultRender({
-      initialEntries: ['/en-US/android/search-tools/'],
+      initialEntries: ['/en-US/firefox/search-tools/'],
       store,
     });
 

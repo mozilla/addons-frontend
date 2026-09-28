@@ -1823,9 +1823,7 @@ describe(__filename, () => {
         addon.name = createLocalizedString(addonName);
         addon.type = type;
         dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, lang, store });
-        renderWithAddon({
-          location: `/${lang}/${CLIENT_APP_ANDROID}/addon/${defaultSlug}/`,
-        });
+        renderWithAddon();
 
         await waitFor(() =>
           expect(getElement('title')).toHaveTextContent(
