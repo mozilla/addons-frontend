@@ -11,6 +11,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
     open-pull-requests-limit: 99
     cooldown:
       default-days: 7
