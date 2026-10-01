@@ -23,6 +23,10 @@ updates:
         patterns:
           - "jest"
           - "jest-environment-jsdom"
+      sass-embedded:
+        patterns:
+          - "sass-embedded"
+          - "sass-embedded-*"
     open-pull-requests-limit: 99
     cooldown:
       default-days: 7
