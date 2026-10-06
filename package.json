@@ -240,7 +240,7 @@
   "devDependencies": {
     "@babel/cli": "^8.0.6",
     "@babel/core": "^8.0.6",
-    "@babel/eslint-parser": "^7.29.9",
+    "@babel/eslint-parser": "^8.0.6",
     "@babel/preset-env": "^8.0.6",
     "@babel/preset-flow": "^8.0.1",
     "@babel/preset-react": "^8.0.1",
@@ -322,7 +322,7 @@
       "react": "$react"
     },
     "@babel/eslint-parser": {
-      "@babel/core": "$@babel/core"
+      "eslint": "$eslint"
     }
   },
   "optionalDependencies": {
