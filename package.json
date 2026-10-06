@@ -47,13 +47,13 @@
   },
   "betterScripts": {
     "build": {
-      "command": "npm run build-check && npm run version-check && npm run build-locales && webpack --progress --color --config webpack.prod.config.babel.js",
+      "command": "npm run build-check && npm run version-check && npm run build-locales && webpack --progress --color --config webpack.prod.config.js",
       "env": {
         "NODE_PATH": "./:./src"
       }
     },
     "build:blog-utils": {
-      "command": "webpack --config webpack.blog-utils.config.babel.js",
+      "command": "webpack --config webpack.blog-utils.config.js",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_CONFIG_ENV": "prod"
@@ -253,6 +253,7 @@
     "babel-gettext-extractor": "https://github.com/willdurand/babel-gettext-extractor#5.1.0",
     "babel-loader": "^10.1.1",
     "babel-plugin-dynamic-import-node": "^2.2.0",
+    "babel-plugin-polyfill-corejs3": "^1.0.0",
     "bytes": "^3.1.2",
     "characterset": "^2.0.0",
     "cheerio": "^1.2.0",
@@ -319,6 +320,9 @@
   "overrides": {
     "react-nested-status": {
       "react": "$react"
+    },
+    "@babel/eslint-parser": {
+      "@babel/core": "$@babel/core"
     }
   },
   "optionalDependencies": {

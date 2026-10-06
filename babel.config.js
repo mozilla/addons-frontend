@@ -4,35 +4,33 @@ module.exports = {
     'setPublicClassFields': true,
   },
   'presets': [
-    [
-      // https://babeljs.io/docs/en/babel-preset-env
-      '@babel/preset-env',
-      {
-        // Allow `@babel/preset-env` to import polyfills from core-js as needed.
-        'useBuiltIns': 'usage',
-        // Help `@babel/preset-env` make use of the correct core-js polyfills.
-        'corejs': '3.23',
-        // Perform transforms closest to targets defined in `.browserslistrc`.
-        'bugfixes': true,
-      },
-    ],
+    // https://babeljs.io/docs/en/babel-preset-env
+    '@babel/preset-env',
     '@babel/preset-flow',
     // https://babeljs.io/docs/en/babel-preset-react/
+    '@babel/preset-react',
+    // FIXME: Upgrade to React 17+
+    // Cannot use React 17 new, lighter, faster JSX Transform
+    // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+    // https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#motivation
+    // 'runtime': 'automatic',
+  ],
+  'plugins': [
+    // Inject core-js polyfills where they are used, based on the targets
+    // defined in `.browserslistrc`.
+    // https://babeljs.io/docs/babel-plugin-polyfill-corejs3
     [
-      '@babel/preset-react',
+      'babel-plugin-polyfill-corejs3',
       {
-        // When spreading props, use inline object with spread elements directly
-        // instead of Babel's extend helper or Object.assign.
-        'useBuiltIns': true,
-        // FIXME: Upgrade to React 17+
-        // Cannot use React 17 new, lighter, faster JSX Transform
-        // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
-        // https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#motivation
-        // 'runtime': 'automatic',
+        // `usage-global` imports polyfills as global side effects where a
+        // feature is used, matching the polyfilling done for an app (rather
+        // than a library's `usage-pure`).
+        'method': 'usage-global',
+        // The minimum core-js version whose polyfills we rely on.
+        'version': '3.23',
       },
     ],
   ],
-  'plugins': [],
   'env': {
     'test': {
       'plugins': ['dynamic-import-node'],
