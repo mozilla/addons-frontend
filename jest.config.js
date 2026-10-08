@@ -16,6 +16,10 @@ module.exports = {
     '^.+\\.(scss|css|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
     // Alias bin for bin scripts.
     '^bin/(.*)$': '<rootDir>/bin/$1',
+    // `@babel/register` is native ESM that Jest's CommonJS runtime cannot
+    // require, and babel-jest already transpiles the code under test, so stub it
+    // with a no-op. See tests/babelRegisterMock.js.
+    '^@babel/register$': '<rootDir>/tests/babelRegisterMock',
   },
   reporters: [
     '<rootDir>/tests/jest-reporters/fingers-crossed.js',
