@@ -8,12 +8,12 @@ module.exports = {
     '@babel/preset-env',
     '@babel/preset-flow',
     // https://babeljs.io/docs/en/babel-preset-react/
-    '@babel/preset-react',
-    // FIXME: Upgrade to React 17+
-    // Cannot use React 17 new, lighter, faster JSX Transform
-    // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
-    // https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#motivation
-    // 'runtime': 'automatic',
+    [
+      '@babel/preset-react',
+      {
+        'runtime': 'classic',
+      },
+    ],
   ],
   'plugins': [
     // Inject core-js polyfills where they are used, based on the targets
