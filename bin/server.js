@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-require('@babel/register').default({
+require('@babel/register')({
   plugins: ['dynamic-import-node'],
 });
 

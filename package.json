@@ -47,13 +47,13 @@
   },
   "betterScripts": {
     "build": {
-      "command": "npm run build-check && npm run version-check && npm run build-locales && webpack --progress --color --config webpack.prod.config.js",
+      "command": "npm run build-check && npm run version-check && npm run build-locales && webpack --progress --color --config webpack.prod.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src"
       }
     },
     "build:blog-utils": {
-      "command": "webpack --config webpack.blog-utils.config.js",
+      "command": "webpack --config webpack.blog-utils.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_CONFIG_ENV": "prod"
@@ -238,13 +238,13 @@
     "webpack-isomorphic-tools": "4.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^8.0.6",
-    "@babel/core": "^8.0.6",
-    "@babel/eslint-parser": "^8.0.6",
-    "@babel/preset-env": "^8.0.6",
-    "@babel/preset-flow": "^8.0.1",
-    "@babel/preset-react": "^8.0.1",
-    "@babel/register": "^8.0.6",
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/eslint-parser": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-flow": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "@babel/register": "^7.29.7",
     "@emotion/core": "^11.0.0",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
@@ -253,7 +253,6 @@
     "babel-gettext-extractor": "https://github.com/willdurand/babel-gettext-extractor#5.1.0",
     "babel-loader": "^10.1.1",
     "babel-plugin-dynamic-import-node": "^2.2.0",
-    "babel-plugin-polyfill-corejs3": "^1.0.0",
     "bytes": "^3.1.2",
     "characterset": "^2.0.0",
     "cheerio": "^1.2.0",
@@ -320,9 +319,6 @@
   "overrides": {
     "react-nested-status": {
       "react": "$react"
-    },
-    "@babel/eslint-parser": {
-      "eslint": "$eslint"
     }
   },
   "optionalDependencies": {
@@ -331,7 +327,7 @@
   "bundlewatch": [
     {
       "path": "./dist/static/amo-!(i18n-)*.js",
-      "maxSize": "375 kB"
+      "maxSize": "371 kB"
     },
     {
       "path": "./dist/static/amo-i18n-*.js",
