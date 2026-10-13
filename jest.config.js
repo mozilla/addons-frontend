@@ -1,3 +1,20 @@
+// ESM modules should be transformed.
+const esmModulesToTransform = [
+  'cheerio',
+  'react-photoswipe-gallery',
+  'photoswipe',
+  'sinon',
+  '@exodus/bytes',
+  'tough-cookie',
+  'parse5',
+  'entities',
+  'css-tree',
+  '@asamuzakjp/css-color',
+  '@asamuzakjp/dom-selector',
+  '@bramus/specificity',
+  '@csstools/[^/]+',
+];
+
 module.exports = {
   collectCoverageFrom: ['src/**/*.{js,jsx}'],
   coveragePathIgnorePatterns: [
@@ -6,7 +23,7 @@ module.exports = {
     '<rootDir>/src/locale/',
   ],
   moduleDirectories: ['src', 'node_modules'],
-  moduleFileExtensions: ['js', 'json', 'jsx'],
+  moduleFileExtensions: ['js', 'mjs', 'json', 'jsx'],
   moduleNameMapper: {
     // Alias tests for tests to be able to import helpers.
     '^tests/(.*)$': '<rootDir>/tests/$1',
@@ -39,14 +56,13 @@ module.exports = {
   // See https://github.com/ReactTraining/react-router/issues/5030
   testEnvironmentOptions: { url: 'http://localhost/' },
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.(js|mjs)$': 'babel-jest',
     // This transforms images to be a module that exports the filename.
     // Tests can assert on the filename.
     '^.+\\.(jpg|jpeg|gif|png|svg)$': '<rootDir>/tests/fileTransformer',
   },
   transformIgnorePatterns: [
-    // ESM modules should be transformed.
-    '<rootDir>/node_modules/(?!(cheerio|react-photoswipe-gallery|photoswipe|sinon)/)',
+    `<rootDir>/node_modules/(?!(?:.*/)?(${esmModulesToTransform.join('|')})/)`,
   ],
   watchPlugins: [
     'jest-watch-typeahead/filename',
