@@ -1,4 +1,4 @@
-/* global Headers, window */
+/* global window */
 import urllib from 'url';
 
 import PropTypes from 'prop-types';

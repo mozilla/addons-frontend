@@ -1,5 +1,5 @@
 /* @flow */
-/* global Navigator, navigator, window */
+/* global window */
 import config from 'config';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';

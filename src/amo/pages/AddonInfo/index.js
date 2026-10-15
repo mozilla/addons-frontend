@@ -155,7 +155,9 @@ export class AddonInfoBase extends React.Component<InternalProps> {
           // already retrieved the licence, but that it's null on the server.
           if (addonVersion.license.text === null) {
             infoContent = '';
-          } else infoContent = addonVersion.license.text;
+          } else {
+            infoContent = addonVersion.license.text;
+          }
         } else {
           infoContent = null;
         }

@@ -107,7 +107,9 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       showCodeReviewLink ||
       showStaticThemeReviewLink;
 
-    if (!hasALink) return null;
+    if (!hasALink) {
+      return null;
+    }
 
     return (
       <AddonAdminLinks
