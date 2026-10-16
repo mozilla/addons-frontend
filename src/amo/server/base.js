@@ -344,7 +344,7 @@ function baseServer(
           // eslint-disable-next-line global-require, import/no-dynamic-require
           i18nData = require(`../../locale/${locale}/amo.js`);
         }
-      } catch (e) {
+      } catch {
         _log.info(`Locale JSON not found or required for locale: "${locale}"`);
         _log.info(
           `Falling back to default lang: "${config.get('defaultLang')}"`,

@@ -48,7 +48,7 @@ export default async function createClient(
   if (initialStateContainer) {
     try {
       initialState = JSON.parse(initialStateContainer.textContent);
-    } catch (error) {
+    } catch {
       log.error('Could not load initial redux data');
     }
   }
@@ -99,7 +99,7 @@ export default async function createClient(
         `../../locale/${locale}/amo.js`
       );
     }
-  } catch (e) {
+  } catch {
     log.info(oneLine`Locale not found or required for locale: "${locale}".
       Falling back to default lang: "${_config.get('defaultLang')}"`);
   }
