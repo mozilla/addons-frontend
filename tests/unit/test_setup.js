@@ -1,5 +1,3 @@
-/* global Request */
-
 describe(__filename, () => {
   describe('fetch()', () => {
     const url = 'https://addons.mozilla.org';

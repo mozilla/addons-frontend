@@ -1,5 +1,4 @@
 /* @flow */
-/* global navigator */
 import * as React from 'react';
 import { compose } from 'redux';
 

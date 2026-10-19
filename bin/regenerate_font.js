@@ -41,7 +41,7 @@ function regenerateFonts() {
   // Make sure this is ran from the root of the repos.
   try {
     fs.accessSync('./bin/regenerate_font.js', fs.constants.R_OK);
-  } catch (err) {
+  } catch {
     console.error('Please run this script from the root of the repository.');
     return;
   }
@@ -52,7 +52,7 @@ function regenerateFonts() {
       throw new Error('Unsupported font!');
     }
     fs.accessSync(outputFile, fs.constants.R_OK);
-  } catch (err) {
+  } catch {
     console.error(oneLine`Specified file does not exist or is not one of the
     supported fonts. Supported fonts are: ${Object.keys(fonts).join(', ')}`);
     return;

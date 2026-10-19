@@ -93,7 +93,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
     const { _getPromotedCategory, addon, clientApp, i18n, showPromotedBadge } =
       this.props;
 
-    if (!showPromotedBadge) return null;
+    if (!showPromotedBadge) {
+      return null;
+    }
 
     const promotedCategory = _getPromotedCategory({
       addon,
@@ -101,7 +103,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
       forBadging: true,
     });
 
-    if (!promotedCategory) return null;
+    if (!promotedCategory) {
+      return null;
+    }
 
     const props = getPromotedProps(i18n, promotedCategory);
 

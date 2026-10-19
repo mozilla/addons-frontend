@@ -1,5 +1,5 @@
 /* @flow */
-/* global navigator, window */
+/* global window */
 // GTM-based analytics tracking module.
 //
 // Uses `window.dataLayer.push()` to send events to Google Tag Manager (GTM).
