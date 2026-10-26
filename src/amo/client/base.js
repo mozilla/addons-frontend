@@ -1,5 +1,4 @@
 /* global window */
-import 'amo/polyfill';
 import { oneLine } from 'common-tags';
 import config from 'config';
 import { createBrowserHistory } from 'history';

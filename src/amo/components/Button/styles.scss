@@ -107,8 +107,7 @@ $micro-font-size: $font-size-xs;
   &:focus {
     @include focus;
 
-    // See: https://github.com/WICG/focus-visible
-    &:not(.focus-visible) {
+    &:not(:focus-visible) {
       box-shadow: none;
     }
   }

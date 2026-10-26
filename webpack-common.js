@@ -5,7 +5,6 @@ import config from 'config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 
-import 'amo/polyfill';
 import { getClientConfig } from 'amo/utils';
 
 export function getStyleRules({

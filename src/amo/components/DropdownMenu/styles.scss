@@ -25,7 +25,7 @@
     outline: auto 5px -webkit-focus-ring-color;
   }
 
-  &:not(.focus-visible) {
+  &:not(:focus-visible) {
     outline: none;
   }
 

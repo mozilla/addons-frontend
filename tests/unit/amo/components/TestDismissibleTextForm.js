@@ -409,7 +409,7 @@ describe(__filename, () => {
       expect(getTextBox()).toHaveValue(text);
 
       // The text box is focussed after checkForStoredState has been called.
-      await waitFor(() => expect(getTextBox()).toHaveClass('focus-visible'));
+      await waitFor(() => expect(getTextBox()).toHaveFocus());
 
       // Make sure the text was not erased.
       expect(getTextBox()).toHaveValue(text);

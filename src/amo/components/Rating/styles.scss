@@ -62,7 +62,7 @@ $icon-small: 13px;
   background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
   padding: 0;
 
-  &:not(.focus-visible) {
+  &:not(:focus-visible) {
     outline: none;
   }
 
