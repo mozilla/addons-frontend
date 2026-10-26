@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 
-import 'amo/polyfill';
 import { oneLine } from 'common-tags';
 import compression from 'compression';
 import defaultConfig from 'config';
