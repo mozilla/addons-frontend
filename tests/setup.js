@@ -14,8 +14,6 @@ import '@testing-library/jest-dom';
 // `whatwg-fetch` installs these as globals.
 import 'whatwg-fetch';
 
-import 'amo/polyfill';
-
 global.TextEncoder = TextEncoder;
 
 if (process.env.TEST_DEBUG !== 'FULL') {
