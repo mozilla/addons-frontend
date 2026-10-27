@@ -6,7 +6,6 @@ import config from 'config';
 import invariant from 'invariant';
 import qhistory from 'qhistory';
 import { stringify, parse } from 'qs';
-import base62 from 'base62';
 
 import { makeQueryString } from 'amo/api';
 import { isValidLang } from 'amo/i18n/utils';
@@ -19,21 +18,6 @@ import {
 } from 'amo/constants';
 import purify from 'amo/purify';
 import type { AddonType } from 'amo/types/addons';
-
-/*
- * Return a base62 object that encodes/decodes just like how Django does it
- * for cookie timestamps.
- *
- * See:
- * https://github.com/django/django/blob/0b9f366c60134a0ca2873c156b9c80acb7ffd8b5/django/amo/signing.py#L180
- */
-export function getDjangoBase62(): typeof base62 {
-  // This is the alphabet used by Django.
-  base62.setCharacterSet(
-    '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-  );
-  return base62;
-}
 
 export function getAddonURL(slug: string): string {
   return `/addon/${slug}/`;
