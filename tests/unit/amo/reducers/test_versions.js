@@ -381,6 +381,32 @@ describe(__filename, () => {
         `Works with ${app1} ${min} and later, ${app2} ${min} and later`,
       );
     });
+    it('uses product names for known applications', () => {
+      const min = '142.0';
+      const version = {
+        ...fakeVersion,
+        compatibility: {
+          [CLIENT_APP_FIREFOX]: { min, max: '*' },
+          [CLIENT_APP_ANDROID]: { min, max: '*' },
+        },
+      };
+      const state = versionsReducer(
+        stateWithLang,
+        loadVersions({
+          slug: 'some-slug',
+          versions: [version],
+        }),
+      );
+
+      expect(
+        _getVersionInfo({
+          state,
+          versionId: version.id,
+        }).compatibilityString,
+      ).toEqual(
+        `Works with Firefox ${min} and later, Firefox for Android ${min} and later`,
+      );
+    });
   });
 
   describe('getVersionById', () => {
