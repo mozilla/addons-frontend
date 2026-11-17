@@ -1,7 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import { LOAD_ADDONS_BY_AUTHORS } from 'amo/reducers/addonsByAuthors';
 import {
   LOAD_COLLECTION_ADDONS,
@@ -293,6 +293,11 @@ type GetVersionInfoParams = {|
   versionId: VersionIdType,
 |};
 
+const APP_DISPLAY_NAMES = {
+  [CLIENT_APP_ANDROID]: 'Firefox for Android',
+  [CLIENT_APP_FIREFOX]: 'Firefox',
+};
+
 export const getVersionInfo = ({
   i18n,
   state,
@@ -312,8 +317,9 @@ export const getVersionInfo = ({
       '%(application)s %(minVersion)s to %(maxVersion)s',
     );
     const appInfo = Object.keys(version.compatibility)
-      .map((application) => {
-        const { max, min } = version.compatibility[application];
+      .map((app) => {
+        const { max, min } = version.compatibility[app];
+        const application = APP_DISPLAY_NAMES[app] || app;
         if (max === '*') {
           return i18n.sprintf(noMaxString, { application, minVersion: min });
         }
