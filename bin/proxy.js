@@ -50,7 +50,7 @@ function unsecureCookie(req, res, proxyRes) {
 }
 
 function getHost(req) {
-  const useDesktop = req.headers.cookie && cookie.parse(req.headers.cookie).mamo === 'off';
+  const useDesktop = req.headers.cookie && cookie.parseCookie(req.headers.cookie).mamo === 'off';
   if (useDesktop || req.url.startsWith('/api/')) {
     return apiHost;
   }
