@@ -11,7 +11,9 @@
   padding: 0 12px;
 
   @include respond-to(medium) {
-    grid-template-columns: 1fr;
+    // The third column holds the search form, so it gets the space left
+    // over by the section links instead of a fixed max-width.
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
     min-height: 98px;
     padding: 0 $header-footer-gutter 10px;
   }
@@ -228,7 +230,7 @@
   width: 100%;
 
   @include respond-to(medium) {
-    grid-column: 3 / 3;
+    grid-column: 3 / -1;
     grid-row: 2 / 2;
     margin-top: 6px;
     max-width: 250px;
@@ -243,14 +245,6 @@
 
   &.Header-search-form--desktop {
     @include respond-to(medium) {
-      max-width: 140px;
-    }
-
-    @include respond-to(large) {
-      max-width: 250px;
-    }
-
-    @include respond-to(extraLarge) {
       max-width: 284px;
     }
   }
